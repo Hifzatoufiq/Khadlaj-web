@@ -103,9 +103,9 @@ const REVIEWS = [
 ];
 
 const COLLECTIONS_DATA = [
-  { name:"Atyaab",          tagline:"Everyday Luxury",      img:"https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=800&q=85", desc:"Accessible, wearable scents for every moment. The Atyaab line brings refined Arabian perfumery into daily life without compromise." },
-  { name:"Lafede",          tagline:"Bold & Characterful",  img:"https://images.unsplash.com/photo-1566977776052-6e61e35bf9be?w=800&q=85", desc:"Intensely expressive fragrances that command attention. Lafede is for those who make their presence felt before they enter the room." },
-  { name:"Master Perfumery",tagline:"The Pinnacle of Craft", img:"https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=800&q=85", desc:"The finest expressions from our founder's private atelier. Rare ingredients, extraordinary sillage, and a story in every bottle." },
+  { name:"Atyaab", tagline:"Everyday Luxury", img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/NUHABONBON-01.jpg?v=1768477611", desc:"Accessible, wearable scents for every moment. The Atyaab line brings refined Arabian perfumery into daily life without compromise." },
+  { name:"Lafede", tagline:"Bold & Characterful", img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/IntoxicateMystique.1.png?v=1772518099", desc:"Intensely expressive fragrances that command attention. Lafede is for those who make their presence felt before they enter the room." },
+  { name:"Master Perfumery", tagline:"The Pinnacle of Craft", img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-1.jpg?v=1775635386", desc:"The finest expressions from our founder's private atelier. Rare ingredients, extraordinary sillage, and a story in every bottle." },
 ];
 
 const TEAM = [
