@@ -497,109 +497,135 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         </div>
 
         {/* Right image */}
-        {/* ── Right side — Cinematic product showcase ── */}
-        <div className="hero-img-wrap" style={{position:"relative",minHeight:600,overflow:"hidden",background:"linear-gradient(160deg,#F8F5EF 0%,#EDE6D8 50%,#E0D5C0 100%)"}}>
-
+        {/* ── Right side — Cinematic sky animation ── */}
+        <div className="hero-img-wrap" style={{position:"relative",minHeight:600,overflow:"hidden",background:"#0A1628"}}>
           <style>{`
-            @keyframes slowZoom{0%{transform:scale(1.0);}100%{transform:scale(1.08);}}
-            @keyframes fadeSlideIn{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
-            @keyframes goldShimmer{0%,100%{opacity:.4;}50%{opacity:1;}}
-            @keyframes floatUp{0%,100%{transform:translateY(0px);}50%{transform:translateY(-12px);}}
-            .prod-img{animation:slowZoom 8s ease-in-out infinite alternate;}
-            .fade-in-1{animation:fadeSlideIn .8s ease both .2s;}
-            .fade-in-2{animation:fadeSlideIn .8s ease both .5s;}
-            .fade-in-3{animation:fadeSlideIn .8s ease both .8s;}
-            .float-anim{animation:floatUp 4s ease-in-out infinite;}
-            .shimmer-line{animation:goldShimmer 2s ease-in-out infinite;}
+            @keyframes skyGrad{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+            @keyframes bird1{0%{transform:translate(-10vw,0px) scaleX(1);}100%{transform:translate(110vw,-40px) scaleX(1);}}
+            @keyframes bird2{0%{transform:translate(-5vw,60px) scaleX(1);}100%{transform:translate(110vw,10px) scaleX(1);}}
+            @keyframes bird3{0%{transform:translate(-15vw,120px) scaleX(1);}100%{transform:translate(110vw,70px) scaleX(1);}}
+            @keyframes bird4{0%{transform:translate(-8vw,30px) scaleX(1);}100%{transform:translate(110vw,-10px) scaleX(1);}}
+            @keyframes bird5{0%{transform:translate(-20vw,80px) scaleX(1);}100%{transform:translate(110vw,40px) scaleX(1);}}
+            @keyframes sunRay{0%,100%{opacity:.18;}50%{opacity:.32;}}
+            @keyframes cloudDrift{0%{transform:translateX(0);}100%{transform:translateX(-30px);}}
+            @keyframes oceanWave{0%,100%{transform:translateX(0) scaleY(1);}50%{transform:translateX(-8px) scaleY(1.03);}}
+            .sky-bg{
+              background:linear-gradient(180deg,#87CEEB 0%,#B0D8F0 25%,#D4EBF8 45%,#F5E6C8 65%,#F0C060 80%,#E8904A 100%);
+              background-size:200% 200%;
+              animation:skyGrad 12s ease-in-out infinite;
+            }
+            .bird{position:absolute;top:20%;}
+            .b1{animation:bird1 18s linear infinite;}
+            .b2{animation:bird2 22s linear infinite 3s;}
+            .b3{animation:bird3 26s linear infinite 7s;}
+            .b4{animation:bird4 20s linear infinite 11s;}
+            .b5{animation:bird5 24s linear infinite 15s;}
+            .sun-ray{animation:sunRay 4s ease-in-out infinite;}
+            .cloud{animation:cloudDrift 20s ease-in-out infinite alternate;}
           `}</style>
 
-          {/* Big product image — Island packshot */}
-          <div className="float-anim" style={{
-            position:"absolute",
-            top:"50%",left:"50%",
-            transform:"translate(-44%,-52%)",
-            width:"min(380px,80%)",
-            zIndex:2,
-          }}>
-            <img
-              src="./assets/images/products/island-packshot.png"
-              alt="Island Extrait de Parfum"
-              className="prod-img"
-              style={{
-                width:"100%",
-                objectFit:"contain",
-                filter:"drop-shadow(0 32px 60px rgba(0,0,0,.22)) drop-shadow(0 8px 20px rgba(184,146,42,.15))",
-                display:"block",
-              }}
-            />
-          </div>
+          {/* Sky background */}
+          <div className="sky-bg" style={{position:"absolute",inset:0}}/>
 
-          {/* Decorative teal circle */}
-          <div style={{
-            position:"absolute",
-            width:"65%",paddingBottom:"65%",
-            borderRadius:"50%",
-            background:"radial-gradient(circle,rgba(0,100,90,.08) 0%,rgba(0,80,70,.04) 50%,transparent 70%)",
-            top:"50%",left:"50%",
-            transform:"translate(-50%,-50%)",
-            pointerEvents:"none",
-          }}/>
+          {/* Sun glow */}
+          <div style={{position:"absolute",top:"18%",left:"50%",transform:"translateX(-50%)",width:120,height:120,borderRadius:"50%",background:"radial-gradient(circle,rgba(255,220,80,.9) 0%,rgba(255,180,40,.5) 40%,transparent 70%)",filter:"blur(8px)"}}/>
 
-          {/* Gold ring */}
-          <div style={{
-            position:"absolute",
-            width:"55%",paddingBottom:"55%",
-            borderRadius:"50%",
-            border:"1px solid rgba(184,146,42,.2)",
-            top:"50%",left:"50%",
-            transform:"translate(-50%,-50%)",
-            pointerEvents:"none",
-          }}/>
+          {/* Sun rays */}
+          {[0,30,60,90,120,150,180,210,240,270,300,330].map((deg,i)=>(
+            <div key={i} className="sun-ray" style={{
+              position:"absolute",top:"18%",left:"50%",
+              width:2,height:180,
+              background:"linear-gradient(to bottom,rgba(255,220,80,.6),transparent)",
+              transformOrigin:"top center",
+              transform:`translateX(-50%) rotate(${deg}deg)`,
+              animationDelay:`${i*0.2}s`,
+            }}/>
+          ))}
 
-          {/* Notes floating chips */}
-          <div className="fade-in-1" style={{position:"absolute",top:"18%",right:"8%",zIndex:3}}>
-            {["Marine","Amber","Oud","Musk"].map((n,i)=>(
-              <div key={n} style={{
-                background:"rgba(255,255,255,.85)",
-                backdropFilter:"blur(8px)",
-                border:"1px solid rgba(184,146,42,.3)",
-                padding:"6px 14px",
-                marginBottom:8,
-                display:"flex",alignItems:"center",gap:6,
-              }}>
-                <span style={{width:6,height:6,borderRadius:"50%",background:"#B8922A",flexShrink:0,display:"inline-block"}}/>
-                <span style={{fontSize:9,letterSpacing:2.5,color:"#555",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif"}}>{n}</span>
-              </div>
+          {/* Clouds */}
+          <div className="cloud" style={{position:"absolute",top:"12%",left:"15%",width:160,height:40,background:"rgba(255,255,255,.65)",borderRadius:"50px",filter:"blur(6px)"}}/>
+          <div className="cloud" style={{position:"absolute",top:"8%",right:"20%",width:100,height:28,background:"rgba(255,255,255,.5)",borderRadius:"50px",filter:"blur(5px)",animationDelay:"5s"}}/>
+          <div className="cloud" style={{position:"absolute",top:"22%",right:"35%",width:80,height:22,background:"rgba(255,255,255,.4)",borderRadius:"50px",filter:"blur(4px)",animationDelay:"10s"}}/>
+
+          {/* Birds — SVG seagulls */}
+          {[
+            {cls:"b1",top:"28%",size:28},
+            {cls:"b2",top:"35%",size:22},
+            {cls:"b3",top:"42%",size:18},
+            {cls:"b4",top:"24%",size:32},
+            {cls:"b5",top:"38%",size:20},
+          ].map((b,i)=>(
+            <div key={i} className={`bird ${b.cls}`} style={{top:b.top}}>
+              <svg width={b.size} height={b.size*0.5} viewBox="0 0 40 20" fill="none">
+                <path d="M0 12 Q10 2 20 10 Q30 2 40 12" stroke="rgba(30,30,50,.75)" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+              </svg>
+            </div>
+          ))}
+
+          {/* More birds in a flock */}
+          {[
+            {x:"22%",y:"32%",s:14,delay:"2s"},
+            {x:"26%",y:"36%",s:12,delay:"2.3s"},
+            {x:"30%",y:"30%",s:16,delay:"1.8s"},
+            {x:"18%",y:"38%",s:10,delay:"2.6s"},
+          ].map((b,i)=>(
+            <div key={"flock"+i} style={{
+              position:"absolute",left:b.x,top:b.y,
+              animation:`bird1 20s linear infinite ${b.delay}`,
+            }}>
+              <svg width={b.s} height={b.s*0.5} viewBox="0 0 40 20" fill="none">
+                <path d="M0 12 Q10 2 20 10 Q30 2 40 12" stroke="rgba(30,30,50,.7)" strokeWidth="2.5" strokeLinecap="round" fill="none"/>
+              </svg>
+            </div>
+          ))}
+
+          {/* Ocean at bottom */}
+          <div style={{position:"absolute",bottom:0,left:0,right:0,height:"28%",background:"linear-gradient(to bottom,rgba(70,140,200,.6) 0%,rgba(30,90,160,.9) 100%)",overflow:"hidden"}}>
+            {/* Wave lines */}
+            {[0,1,2].map(i=>(
+              <div key={i} className="ocean-wave" style={{
+                position:"absolute",
+                left:"-10%",right:"-10%",
+                top:`${20+i*25}%`,
+                height:2,
+                background:"rgba(255,255,255,.2)",
+                borderRadius:4,
+                animation:`oceanWave ${3+i}s ease-in-out infinite ${i*0.5}s`,
+              }}/>
             ))}
           </div>
 
-          {/* Product info tag bottom */}
-          <div className="fade-in-2" style={{
+          {/* Light haze overlay */}
+          <div style={{position:"absolute",inset:0,background:"linear-gradient(to bottom,rgba(255,240,200,.08) 0%,transparent 40%,rgba(0,0,0,.15) 100%)",pointerEvents:"none"}}/>
+
+          {/* Product info tag */}
+          <div style={{
             position:"absolute",bottom:32,left:28,
-            background:"rgba(255,255,255,.95)",
+            background:"rgba(255,255,255,.92)",
             border:"1px solid #E0D8C8",
             padding:"16px 20px",
-            boxShadow:"0 8px 32px rgba(0,0,0,.10)",
+            boxShadow:"0 8px 32px rgba(0,0,0,.12)",
             zIndex:3,maxWidth:210,
+            backdropFilter:"blur(10px)",
           }}>
             <p style={{fontSize:8,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif",marginBottom:5}}>Best Seller</p>
             <p style={{fontSize:14,color:"#000",fontFamily:"'DM Sans',sans-serif",fontWeight:700,letterSpacing:.3,marginBottom:3}}>Island Extrait</p>
             <p style={{fontSize:11,color:"#777",fontFamily:"'DM Sans',sans-serif",marginBottom:10}}>100ml · AED 355</p>
-            <div className="shimmer-line" style={{height:1,background:"linear-gradient(90deg,#B8922A,#D4AF5A,transparent)"}}/>
+            <div style={{height:1,background:"linear-gradient(90deg,#B8922A,#D4AF5A,transparent)"}}/>
           </div>
 
-          {/* Rating badge top-left */}
-          <div className="fade-in-3" style={{
-            position:"absolute",top:28,left:28,
-            background:"rgba(255,255,255,.92)",
-            border:"1px solid #E0D8C8",
+          {/* Rating badge */}
+          <div style={{
+            position:"absolute",top:24,right:24,
+            background:"rgba(255,255,255,.88)",
+            border:"1px solid rgba(184,146,42,.3)",
             padding:"10px 16px",
+            backdropFilter:"blur(8px)",
             zIndex:3,
           }}>
-            <p style={{fontSize:13,color:"#B8922A",letterSpacing:1,marginBottom:2}}>★★★★★</p>
+            <p style={{fontSize:12,color:"#B8922A",letterSpacing:1,marginBottom:2}}>★★★★★</p>
             <p style={{fontSize:9,color:"#555",letterSpacing:1.5,fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase"}}>4.9 · 1.2k Reviews</p>
           </div>
-
         </div>
       </section>
 
