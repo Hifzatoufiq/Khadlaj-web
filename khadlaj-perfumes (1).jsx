@@ -494,20 +494,47 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         </div>
 
         {/* Right image */}
-        <div className="hero-img-wrap" style={{position:"relative",minHeight:600,overflow:"hidden",display:"flex",alignItems:"center",justifyContent:"center",background:"#F7F5F2"}}>
-          {/* Decorative circle */}
-          <div style={{position:"absolute",width:"70%",paddingBottom:"70%",borderRadius:"50%",border:"1px solid #E8E0D0",top:"50%",left:"50%",transform:"translate(-50%,-50%)",pointerEvents:"none"}}/>
-          <div style={{position:"absolute",width:"52%",paddingBottom:"52%",borderRadius:"50%",background:"linear-gradient(135deg,rgba(184,146,42,.08),rgba(184,146,42,.03))",top:"50%",left:"50%",transform:"translate(-50%,-50%)",pointerEvents:"none"}}/>
-          {/* Product */}
-          <div style={{position:"relative",width:"min(420px,80%)",padding:"40px"}}>
-            <img src="./assets/images/products/island-packshot.png" alt="Island Extrait" style={{width:"100%",height:"100%",objectFit:"contain",display:"block",filter:"drop-shadow(0 24px 40px rgba(0,0,0,.12))"}}/>
-          </div>
-          {/* Floating tag */}
-          <div style={{position:"absolute",bottom:40,left:40,background:"#fff",border:"1px solid #E0E0E0",padding:"14px 20px",boxShadow:"0 8px 24px rgba(0,0,0,.07)"}}>
-            <p style={{fontSize:9,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif",marginBottom:4}}>Best Seller</p>
+        {/* ── Right side — TikTok video ── */}
+        <div className="hero-img-wrap" style={{position:"relative",minHeight:600,overflow:"hidden",background:"#000"}}>
+          {/* TikTok Island video embed — autoplay, muted, loop */}
+          <iframe
+            src="https://www.tiktok.com/embed/v2/7451949579638951185?autoplay=1&mute=1&loop=1"
+            style={{
+              position:"absolute",
+              top:"50%",left:"50%",
+              transform:"translate(-50%,-50%)",
+              width:"100%",
+              height:"100%",
+              border:"none",
+              minHeight:600,
+              pointerEvents:"none",
+            }}
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            title="Khadlaj Island"
+          />
+          {/* Dark overlay for brand feel */}
+          <div style={{position:"absolute",inset:0,background:"rgba(0,0,0,.18)",pointerEvents:"none"}}/>
+          {/* Floating info tag */}
+          <div style={{position:"absolute",bottom:32,left:32,background:"rgba(255,255,255,.95)",border:"1px solid #E0E0E0",padding:"14px 20px",boxShadow:"0 8px 24px rgba(0,0,0,.12)",zIndex:2}}>
+            <p style={{fontSize:9,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif",marginBottom:4}}>Best Seller · TikTok</p>
             <p style={{fontSize:12,color:"#000",letterSpacing:1,fontFamily:"'DM Sans',sans-serif",fontWeight:600}}>Island · 100ml Extrait</p>
             <p style={{fontSize:12,color:"#555",fontFamily:"'DM Sans',sans-serif",marginTop:2}}>AED 355</p>
           </div>
+          {/* Watch CTA */}
+          <a
+            href="https://www.tiktok.com/@khadlajperfumes"
+            target="_blank" rel="noreferrer"
+            style={{
+              position:"absolute",top:24,right:24,zIndex:2,
+              background:"rgba(0,0,0,.7)",
+              color:"#fff",fontSize:9,letterSpacing:2,
+              padding:"7px 14px",textDecoration:"none",
+              fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",
+              border:"1px solid rgba(255,255,255,.2)",
+              backdropFilter:"blur(8px)",
+            }}
+          >▶ Watch on TikTok</a>
         </div>
       </section>
 
