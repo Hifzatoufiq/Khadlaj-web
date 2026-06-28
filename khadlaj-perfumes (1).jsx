@@ -50,15 +50,15 @@ const STATS = [
 
 const PRODUCTS = [
   // ── Local products (own images) ──
-  { id:13, name:"Island",               col:"Master Perfumery", price:355, size:"100ml Extrait", badge:"Best Seller", gender:"Unisex", notes:["Marine","Amber","Oud"],        img:"./island-packshot.png" },
-  { id:14, name:"Cream Velvet",         col:"Master Perfumery", price:345, size:"Gift Set",      badge:"Best Seller", gender:"Unisex", notes:["Cream","Velvet","Musk"],        img:"./cream-velvet-front-box.png", images:["./cream-velvet-front-box.png","./cream-velvet-lineup.png","./cream-velvet-open-box.png","./cream-velvet-back-box.png"] },
-  { id:15, name:"Cloud Candy",          col:"Atyaab",           price:325, size:"Gift Set",      badge:"Best Seller", gender:"Her",    notes:["Peach","Musk","Vanilla"],       img:"./cloud-candy-front-box.png",  images:["./cloud-candy-front-box.png","./cloud-candy-lineup.png","./cloud-candy-open-box.png","./cloud-candy-back-box.png"] },
-  { id:16, name:"Strawberry Shake",     col:"Atyaab",           price:295, size:"100ml EDP",     badge:"Best Seller", gender:"Her",    notes:["Strawberry","Musk","Vanilla"],  img:"./strawberry-shake-single.png" },
-  { id:17, name:"Biscotti Date Toffee", col:"Lafede",           price:315, size:"100ml EDP",     badge:"New",         gender:"Unisex", notes:["Date","Coffee","Gourmand"],     img:"./biscotti-date-toffee-single.png" },
-  { id:18, name:"Biscotti Melon Musk",  col:"Lafede",           price:315, size:"100ml EDP",     badge:"New",         gender:"Unisex", notes:["Melon","Musk","Cream"],         img:"./blue-glace-single-1.png" },
-  { id:19, name:"Uno Intimo",           col:"Lafede",           price:285, size:"100ml EDP",     badge:null,          gender:"Her",    notes:["Rose","Musk","Peony"],          img:"./uno-intimo-single.png" },
-  { id:20, name:"Shahi Oud",            col:"Master Perfumery", price:360, size:"100ml EDP",     badge:"Best Seller", gender:"Unisex", notes:["Oud","Amber","Saffron"],        img:"./shahi-oud-single.png" },
-  { id:21, name:"Bleu Glacé",           col:"Atyaab",           price:275, size:"100ml EDP",     badge:"New",         gender:"Unisex", notes:["Marine","Bergamot","Musk"],     img:"./blue-glace-single-2.png" },
+  { id:13, name:"Island",               col:"Master Perfumery", price:355, size:"100ml Extrait", badge:"Best Seller", gender:"Unisex", notes:["Marine","Amber","Oud"],        img:"./assets/images/products/island-packshot.png" },
+  { id:14, name:"Cream Velvet",         col:"Master Perfumery", price:345, size:"Gift Set",      badge:"Best Seller", gender:"Unisex", notes:["Cream","Velvet","Musk"],        img:"./assets/images/products/cream-velvet-front-box.png", images:["./assets/images/products/cream-velvet-front-box.png","./assets/images/products/cream-velvet-lineup.png","./assets/images/products/cream-velvet-open-box.png","./assets/images/products/cream-velvet-back-box.png"] },
+  { id:15, name:"Cloud Candy",          col:"Atyaab",           price:325, size:"Gift Set",      badge:"Best Seller", gender:"Her",    notes:["Peach","Musk","Vanilla"],       img:"./assets/images/products/cloud-candy-front-box.png",  images:["./assets/images/products/cloud-candy-front-box.png","./assets/images/products/cloud-candy-lineup.png","./assets/images/products/cloud-candy-open-box.png","./assets/images/products/cloud-candy-back-box.png"] },
+  { id:16, name:"Strawberry Shake",     col:"Atyaab",           price:295, size:"100ml EDP",     badge:"Best Seller", gender:"Her",    notes:["Strawberry","Musk","Vanilla"],  img:"./assets/images/products/strawberry-shake-single.png" },
+  { id:17, name:"Biscotti Date Toffee", col:"Lafede",           price:315, size:"100ml EDP",     badge:"New",         gender:"Unisex", notes:["Date","Coffee","Gourmand"],     img:"./assets/images/products/biscotti-date-toffee-single.png" },
+  { id:18, name:"Biscotti Melon Musk",  col:"Lafede",           price:315, size:"100ml EDP",     badge:"New",         gender:"Unisex", notes:["Melon","Musk","Cream"],         img:"./assets/images/products/blue-glace-single-1.png" },
+  { id:19, name:"Uno Intimo",           col:"Lafede",           price:285, size:"100ml EDP",     badge:null,          gender:"Her",    notes:["Rose","Musk","Peony"],          img:"./assets/images/products/uno-intimo-single.png" },
+  { id:20, name:"Shahi Oud",            col:"Master Perfumery", price:360, size:"100ml EDP",     badge:"Best Seller", gender:"Unisex", notes:["Oud","Amber","Saffron"],        img:"./assets/images/products/shahi-oud-single.png" },
+  { id:21, name:"Bleu Glacé",           col:"Atyaab",           price:275, size:"100ml EDP",     badge:"New",         gender:"Unisex", notes:["Marine","Bergamot","Musk"],     img:"./assets/images/products/blue-glace-single-2.png" },
   // ── Live products from khadlaj-perfumes.com ──
   { id:200, name:"Saraya",              col:"Master Perfumery", price:105, size:"60ml Extrait",  badge:"New",         gender:"Unisex", notes:["Amber","Bergamot","Vetiver"],   img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/saraya_2.png?v=1781332291" },
   { id:201, name:"Nafais Sharq Gift Set",col:"Atyaab",          price:150, size:"Gift Set",      badge:null,          gender:"Her",    notes:["Rose","Amber","Musk"],          img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-1.jpg?v=1779352739" },
@@ -84,12 +84,12 @@ const PRODUCTS = [
 
 const GIFT_SETS = [
   { id:5,  name:"Cloud Candy Gift Set",          price:169, pieces:3, img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy3.jpg?v=1767169755",          desc:"A soft peach-pink gift set with a playful, feminine profile and premium presentation." },
-  { id:6,  name:"Strawberry Shake Gift Set",      price:295, pieces:2, img:"./strawberry-shake-giftset.png",                                                               desc:"A playful rose-pink set with a feminine, candy-like finish." },
-  { id:7,  name:"Biscotti Date Toffee Gift Set",  price:315, pieces:2, img:"./biscotti-date-toffee-giftset.png",                                                           desc:"A warm gourmand set with rich coffee, date, and caramel styling." },
-  { id:8,  name:"Biscotti Melon Musk Gift Set",   price:315, pieces:2, img:"./biscotti-melon-musk-giftset.png",                                                            desc:"A soft pastel presentation for a fresh melon and musk composition." },
-  { id:9,  name:"Uno Intimo Gift Set",            price:285, pieces:2, img:"./uno-intimo-giftset.png",                                                                     desc:"An elegant, polished set with a refined feminine profile." },
-  { id:10, name:"Bleu Glacé Gift Set",            price:275, pieces:2, img:"./blue-glace-giftset.png",                                                                     desc:"A crisp blue presentation with a clean, modern freshness." },
-  { id:11, name:"Shahi Oud Gift Set",             price:360, pieces:2, img:"./shahi-oud-giftset.png",                                                                      desc:"A bold black-and-gold gift set with a rich oud signature." },
+  { id:6,  name:"Strawberry Shake Gift Set",      price:295, pieces:2, img:"./assets/images/gifsets/strawberry-shake-giftset.png",                                                               desc:"A playful rose-pink set with a feminine, candy-like finish." },
+  { id:7,  name:"Biscotti Date Toffee Gift Set",  price:315, pieces:2, img:"./assets/images/gifsets/biscotti-date-toffee-giftset.png",                                                           desc:"A warm gourmand set with rich coffee, date, and caramel styling." },
+  { id:8,  name:"Biscotti Melon Musk Gift Set",   price:315, pieces:2, img:"./assets/images/gifsets/biscotti-melon-musk-giftset.png",                                                            desc:"A soft pastel presentation for a fresh melon and musk composition." },
+  { id:9,  name:"Uno Intimo Gift Set",            price:285, pieces:2, img:"./assets/images/gifsets/uno-intimo-giftset.png",                                                                     desc:"An elegant, polished set with a refined feminine profile." },
+  { id:10, name:"Bleu Glacé Gift Set",            price:275, pieces:2, img:"./assets/images/gifsets/blue-glace-giftset.png",                                                                     desc:"A crisp blue presentation with a clean, modern freshness." },
+  { id:11, name:"Shahi Oud Gift Set",             price:360, pieces:2, img:"./assets/images/gifsets/shahi-oud-giftset.png",                                                                      desc:"A bold black-and-gold gift set with a rich oud signature." },
   { id:12, name:"Island Gift Set",               price:179, pieces:3, img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island2.jpg?v=1767168643",              desc:"The signature Island scent in a luxury gift trio for him and her." },
   { id:13, name:"Cream Velvet Gift Set",          price:160, pieces:3, img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-1.jpg?v=1779352383",        desc:"Buttery caramel and warm vanilla in a beautifully curated gift set." },
   { id:14, name:"Nafais Sharq Gift Set",          price:150, pieces:3, img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-1.jpg?v=1779352739",      desc:"Rich florals, warm woods, and timeless Arabian allure." },
@@ -112,7 +112,7 @@ const TEAM = [
   {
     name:"Mohamed Iqbal Abdul Sattar",
     role:"Founder & Master Perfumer",
-    img:"./founder-mohamed-iqbal.png",
+    img:"./assets/images/people/founder-mohamed-iqbal.png",
     bio:"With over 45 years of experience in perfumery, Mohamed Iqbal Abdul Sattar is the esteemed founder and master perfumer of Khadlaj Perfumes. He is recognized for creating cherished and opulent fragrances including Hareem Al Sultan, Bukhoor Al Bahaar, and the luxurious Oud Pure and Musk Pure ranges. His expertise spans exquisite natural essences and meticulously crafted synthetic compounds, with a deep passion for Musk, Ruh Gulaab, oud, and vetiver.",
   },
 ];
@@ -494,7 +494,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           <div style={{position:"absolute",width:"52%",paddingBottom:"52%",borderRadius:"50%",background:"linear-gradient(135deg,rgba(184,146,42,.08),rgba(184,146,42,.03))",top:"50%",left:"50%",transform:"translate(-50%,-50%)",pointerEvents:"none"}}/>
           {/* Product */}
           <div style={{position:"relative",width:"min(420px,80%)",padding:"40px"}}>
-            <img src="./island-packshot.png" alt="Island Extrait" style={{width:"100%",height:"100%",objectFit:"contain",display:"block",filter:"drop-shadow(0 24px 40px rgba(0,0,0,.12))"}}/>
+            <img src="./assets/images/products/island-packshot.png" alt="Island Extrait" style={{width:"100%",height:"100%",objectFit:"contain",display:"block",filter:"drop-shadow(0 24px 40px rgba(0,0,0,.12))"}}/>
           </div>
           {/* Floating tag */}
           <div style={{position:"absolute",bottom:40,left:40,background:"#fff",border:"1px solid #E0E0E0",padding:"14px 20px",boxShadow:"0 8px 24px rgba(0,0,0,.07)"}}>
@@ -517,7 +517,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           }}
         >
           <img
-            src="./spring-banner.png"
+            src="./assets/images/banners/spring-banner.png"
             alt="Khadlaj Spring Sale campaign banner"
             style={{width:"100%",height:"auto",display:"block"}}
           />
@@ -1520,7 +1520,7 @@ function StoryPage(){
         {/* Split background — founder photo left, perfume bottles right */}
         <div style={{position:"absolute",inset:0,display:"grid",gridTemplateColumns:"1fr 1fr"}}>
           <div style={{overflow:"hidden"}}>
-            <img src="./founder-mohamed-iqbal.png" alt=""
+            <img src="./assets/images/people/founder-mohamed-iqbal.png" alt=""
               style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center top",opacity:.6}}/>
           </div>
           <div style={{overflow:"hidden",background:"#0A0A0A"}}>
@@ -1577,7 +1577,7 @@ function StoryPage(){
             </div>
           </div>
           <div style={{position:"relative",aspectRatio:"4/5",overflow:"hidden"}}>
-            <img src="./founder-mohamed-iqbal.png"
+            <img src="./assets/images/people/founder-mohamed-iqbal.png"
               alt="Mohamed Iqbal Abdul Sattar" style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center top"}}/>
             <div style={{position:"absolute",bottom:0,left:0,right:0,background:`linear-gradient(to top,${C.obsidian}EE 0%,transparent 60%)`,padding:"28px 24px"}}>
               <p className="disp" style={{fontSize:22,color:C.champagne}}>Mohamed Iqbal Abdul Sattar</p>
@@ -1589,7 +1589,7 @@ function StoryPage(){
         {/* Managing Director */}
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:64,alignItems:"center",marginBottom:88}} className="hero-split">
           <div style={{position:"relative",aspectRatio:"4/5",overflow:"hidden"}}>
-            <img src="./managing-director-asif.png"
+            <img src="./assets/images/people/managing-director-asif.png"
               alt="Asif Mohamed Iqbal Katchi" style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center top"}}/>
             <div style={{position:"absolute",bottom:0,left:0,right:0,background:`linear-gradient(to top,${C.obsidian}EE 0%,transparent 60%)`,padding:"28px 24px"}}>
               <p className="disp" style={{fontSize:22,color:C.champagne}}>Asif Mohamed Iqbal Katchi</p>
