@@ -494,47 +494,61 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         </div>
 
         {/* Right image */}
-        {/* ── Right side — TikTok video ── */}
-        <div className="hero-img-wrap" style={{position:"relative",minHeight:600,overflow:"hidden",background:"#000"}}>
-          {/* TikTok Island video embed — autoplay, muted, loop */}
+        {/* ── Right side — Cinematic video ── */}
+        <div className="hero-img-wrap" style={{position:"relative",minHeight:600,overflow:"hidden",background:"#0A0A0A"}}>
+
+          {/* YouTube autoplay — Khadlaj official channel */}
           <iframe
-            src="https://www.tiktok.com/embed/v2/7451949579638951185?autoplay=1&mute=1&loop=1"
+            src="https://www.youtube.com/embed/videoseries?list=UCAExq06tlHo4IvG7XX2w2Tw&autoplay=1&mute=1&loop=1&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
             style={{
               position:"absolute",
-              top:"50%",left:"50%",
-              transform:"translate(-50%,-50%)",
-              width:"100%",
-              height:"100%",
-              border:"none",
-              minHeight:600,
-              pointerEvents:"none",
+              top:"50%", left:"50%",
+              transform:"translate(-50%,-50%) scale(1.15)",
+              width:"100%", height:"100%",
+              minWidth:600, minHeight:600,
+              border:"none", pointerEvents:"none",
             }}
-            allow="autoplay; encrypted-media"
+            allow="autoplay; encrypted-media; picture-in-picture"
             allowFullScreen
-            title="Khadlaj Island"
+            title="Khadlaj Perfumes"
           />
-          {/* Dark overlay for brand feel */}
-          <div style={{position:"absolute",inset:0,background:"rgba(0,0,0,.18)",pointerEvents:"none"}}/>
-          {/* Floating info tag */}
-          <div style={{position:"absolute",bottom:32,left:32,background:"rgba(255,255,255,.95)",border:"1px solid #E0E0E0",padding:"14px 20px",boxShadow:"0 8px 24px rgba(0,0,0,.12)",zIndex:2}}>
-            <p style={{fontSize:9,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif",marginBottom:4}}>Best Seller · TikTok</p>
-            <p style={{fontSize:12,color:"#000",letterSpacing:1,fontFamily:"'DM Sans',sans-serif",fontWeight:600}}>Island · 100ml Extrait</p>
-            <p style={{fontSize:12,color:"#555",fontFamily:"'DM Sans',sans-serif",marginTop:2}}>AED 355</p>
+
+          {/* Subtle dark overlay */}
+          <div style={{position:"absolute",inset:0,background:"linear-gradient(to bottom,rgba(0,0,0,.25) 0%,rgba(0,0,0,.1) 50%,rgba(0,0,0,.35) 100%)",pointerEvents:"none"}}/>
+
+          {/* Island product floating card */}
+          <div style={{
+            position:"absolute",bottom:32,left:32,
+            background:"rgba(255,255,255,.95)",
+            border:"1px solid #E0E0E0",
+            padding:"16px 20px",
+            boxShadow:"0 8px 28px rgba(0,0,0,.15)",
+            zIndex:2, maxWidth:220,
+          }}>
+            <p style={{fontSize:8,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif",marginBottom:6}}>Best Seller · New Season</p>
+            <p style={{fontSize:13,color:"#000",letterSpacing:.5,fontFamily:"'DM Sans',sans-serif",fontWeight:700,marginBottom:3}}>Island Extrait de Parfum</p>
+            <p style={{fontSize:12,color:"#555",fontFamily:"'DM Sans',sans-serif",marginBottom:12}}>100ml · AED 355</p>
+            <div style={{height:1,background:"linear-gradient(90deg,#B8922A,#D4AF5A)",marginBottom:10}}/>
+            <p style={{fontSize:9,letterSpacing:2,color:"#B8922A",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif"}}>◈ Marine · Amber · Oud</p>
           </div>
-          {/* Watch CTA */}
+
+          {/* YouTube CTA badge */}
           <a
-            href="https://www.tiktok.com/@khadlajperfumes"
+            href="https://www.youtube.com/channel/UCAExq06tlHo4IvG7XX2w2Tw"
             target="_blank" rel="noreferrer"
             style={{
-              position:"absolute",top:24,right:24,zIndex:2,
-              background:"rgba(0,0,0,.7)",
-              color:"#fff",fontSize:9,letterSpacing:2,
-              padding:"7px 14px",textDecoration:"none",
-              fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",
+              position:"absolute",top:20,right:20,zIndex:2,
+              background:"rgba(0,0,0,.75)",color:"#fff",
+              fontSize:9,letterSpacing:2,padding:"8px 14px",
+              textDecoration:"none",fontFamily:"'DM Sans',sans-serif",
+              textTransform:"uppercase",
               border:"1px solid rgba(255,255,255,.2)",
-              backdropFilter:"blur(8px)",
+              backdropFilter:"blur(8px)",display:"flex",
+              alignItems:"center",gap:6,
             }}
-          >▶ Watch on TikTok</a>
+          >
+            <span style={{color:"#FF0000",fontSize:14}}>▶</span> YouTube
+          </a>
         </div>
       </section>
 
