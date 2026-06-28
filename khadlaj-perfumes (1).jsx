@@ -494,172 +494,109 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         </div>
 
         {/* Right image */}
-        {/* ── Right side — CSS Cinematic Perfume Animation ── */}
-        <div className="hero-img-wrap" style={{position:"relative",minHeight:600,overflow:"hidden",background:"linear-gradient(135deg,#0A0A0A 0%,#111 40%,#0D0D0D 100%)"}}>
+        {/* ── Right side — Cinematic product showcase ── */}
+        <div className="hero-img-wrap" style={{position:"relative",minHeight:600,overflow:"hidden",background:"linear-gradient(160deg,#F8F5EF 0%,#EDE6D8 50%,#E0D5C0 100%)"}}>
 
           <style>{`
-            @keyframes floatBottle{0%,100%{transform:translateY(0px) rotate(-2deg);}50%{transform:translateY(-18px) rotate(2deg);}}
-            @keyframes smokeRise1{0%{transform:translateY(0) scaleX(1);opacity:.55;}100%{transform:translateY(-220px) scaleX(2.5);opacity:0;}}
-            @keyframes smokeRise2{0%{transform:translateY(0) scaleX(1);opacity:.4;}100%{transform:translateY(-180px) scaleX(2);opacity:0;}}
-            @keyframes smokeRise3{0%{transform:translateY(0) scaleX(1);opacity:.3;}100%{transform:translateY(-260px) scaleX(3);opacity:0;}}
-            @keyframes sparkle1{0%,100%{opacity:0;transform:scale(0);}50%{opacity:1;transform:scale(1);}}
-            @keyframes sparkle2{0%,100%{opacity:0;transform:scale(0) rotate(45deg);}50%{opacity:.8;transform:scale(1.2) rotate(45deg);}}
-            @keyframes glowPulse{0%,100%{opacity:.3;transform:scale(1);}50%{opacity:.6;transform:scale(1.15);}}
-            @keyframes ringExpand{0%{transform:translate(-50%,-50%) scale(.8);opacity:.6;}100%{transform:translate(-50%,-50%) scale(1.6);opacity:0;}}
-            @keyframes particleFloat{0%{transform:translateY(0) translateX(0);opacity:1;}100%{transform:translateY(-120px) translateX(var(--px));opacity:0;}}
-            @keyframes labelFade{0%,100%{opacity:.7;}50%{opacity:1;}}
-            @keyframes bgShimmer{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
-            .bottle-wrap{animation:floatBottle 4s ease-in-out infinite;}
-            .smoke1{animation:smokeRise1 3s ease-out infinite;}
-            .smoke2{animation:smokeRise2 3.8s ease-out infinite 0.6s;}
-            .smoke3{animation:smokeRise3 4.5s ease-out infinite 1.2s;}
-            .glow-ring{animation:ringExpand 3s ease-out infinite;}
-            .glow-ring2{animation:ringExpand 3s ease-out infinite 1.5s;}
-            .glow-bg{animation:glowPulse 3s ease-in-out infinite;}
+            @keyframes slowZoom{0%{transform:scale(1.0);}100%{transform:scale(1.08);}}
+            @keyframes fadeSlideIn{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+            @keyframes goldShimmer{0%,100%{opacity:.4;}50%{opacity:1;}}
+            @keyframes floatUp{0%,100%{transform:translateY(0px);}50%{transform:translateY(-12px);}}
+            .prod-img{animation:slowZoom 8s ease-in-out infinite alternate;}
+            .fade-in-1{animation:fadeSlideIn .8s ease both .2s;}
+            .fade-in-2{animation:fadeSlideIn .8s ease both .5s;}
+            .fade-in-3{animation:fadeSlideIn .8s ease both .8s;}
+            .float-anim{animation:floatUp 4s ease-in-out infinite;}
+            .shimmer-line{animation:goldShimmer 2s ease-in-out infinite;}
           `}</style>
 
-          {/* Background glow */}
-          <div className="glow-bg" style={{position:"absolute",width:480,height:480,borderRadius:"50%",background:"radial-gradient(circle,rgba(184,146,42,.18) 0%,rgba(100,200,220,.08) 40%,transparent 70%)",top:"50%",left:"50%",transform:"translate(-50%,-50%)",pointerEvents:"none"}}/>
-
-          {/* Expanding rings */}
-          <div className="glow-ring" style={{position:"absolute",width:320,height:320,borderRadius:"50%",border:"1px solid rgba(184,146,42,.35)",top:"50%",left:"50%"}}/>
-          <div className="glow-ring2" style={{position:"absolute",width:320,height:320,borderRadius:"50%",border:"1px solid rgba(100,210,230,.2)",top:"50%",left:"50%"}}/>
-
-          {/* Smoke wisps */}
-          <div className="smoke1" style={{position:"absolute",bottom:"52%",left:"47%",width:36,height:36,borderRadius:"50%",background:"radial-gradient(circle,rgba(184,146,42,.5),transparent)",filter:"blur(12px)"}}/>
-          <div className="smoke2" style={{position:"absolute",bottom:"52%",left:"50%",width:28,height:28,borderRadius:"50%",background:"radial-gradient(circle,rgba(255,255,255,.35),transparent)",filter:"blur(10px)"}}/>
-          <div className="smoke3" style={{position:"absolute",bottom:"52%",left:"44%",width:22,height:22,borderRadius:"50%",background:"radial-gradient(circle,rgba(184,146,42,.3),transparent)",filter:"blur(8px)"}}/>
-
-          {/* Floating particles */}
-          {[
-            {left:"38%",delay:"0s",px:"20px",size:4,color:"rgba(184,146,42,.9)"},
-            {left:"55%",delay:"0.7s",px:"-15px",size:3,color:"rgba(255,255,255,.7)"},
-            {left:"62%",delay:"1.4s",px:"10px",size:5,color:"rgba(184,146,42,.6)"},
-            {left:"42%",delay:"2.1s",px:"-20px",size:3,color:"rgba(100,220,240,.8)"},
-            {left:"58%",delay:"2.8s",px:"25px",size:4,color:"rgba(255,255,255,.5)"},
-            {left:"35%",delay:"1s",px:"30px",size:2,color:"rgba(184,146,42,.7)"},
-          ].map((p,i)=>(
-            <div key={i} style={{
-              position:"absolute",bottom:"48%",left:p.left,
-              width:p.size,height:p.size,borderRadius:"50%",
-              background:p.color,
-              animation:`particleFloat 2.5s ease-out infinite ${p.delay}`,
-              "--px":p.px,
-              boxShadow:`0 0 6px ${p.color}`,
-            }}/>
-          ))}
-
-          {/* ── Perfume Bottle SVG ── */}
-          <div className="bottle-wrap" style={{position:"absolute",top:"50%",left:"50%",transform:"translate(-50%,-52%)",width:200,height:320}}>
-            <svg viewBox="0 0 200 320" fill="none" xmlns="http://www.w3.org/2000/svg" style={{width:"100%",height:"100%",filter:"drop-shadow(0 20px 60px rgba(184,146,42,.5)) drop-shadow(0 0 30px rgba(100,210,230,.2))"}}>
-              {/* Cap */}
-              <rect x="72" y="8" width="56" height="12" rx="4" fill="url(#capGrad)"/>
-              <rect x="80" y="4" width="40" height="8" rx="3" fill="url(#capTop)"/>
-              <rect x="88" y="0" width="24" height="6" rx="3" fill="#C9A84C"/>
-              {/* Neck */}
-              <rect x="84" y="20" width="32" height="28" rx="2" fill="url(#neckGrad)"/>
-              {/* Neck detail */}
-              <rect x="84" y="28" width="32" height="3" fill="rgba(255,255,255,.15)"/>
-              <rect x="84" y="34" width="32" height="2" fill="rgba(255,255,255,.1)"/>
-              {/* Collar */}
-              <rect x="68" y="46" width="64" height="10" rx="2" fill="url(#collarGrad)"/>
-              {/* Bottle body */}
-              <rect x="52" y="56" width="96" height="220" rx="16" fill="url(#bodyGrad)"/>
-              {/* Glass shine left */}
-              <rect x="58" y="70" width="12" height="160" rx="6" fill="rgba(255,255,255,.12)"/>
-              {/* Glass shine right */}
-              <rect x="134" y="90" width="7" height="100" rx="3" fill="rgba(255,255,255,.07)"/>
-              {/* Inner liquid */}
-              <rect x="60" y="100" width="80" height="160" rx="12" fill="url(#liquidGrad)"/>
-              {/* Liquid shimmer */}
-              <ellipse cx="100" cy="130" rx="30" ry="8" fill="rgba(255,255,255,.06)"/>
-              {/* Label background */}
-              <rect x="64" y="120" width="72" height="90" rx="6" fill="url(#labelGrad)"/>
-              {/* Label border */}
-              <rect x="64" y="120" width="72" height="90" rx="6" fill="none" stroke="url(#goldStroke)" strokeWidth="1.5"/>
-              {/* Label inner border */}
-              <rect x="68" y="124" width="64" height="82" rx="4" fill="none" stroke="rgba(184,146,42,.4)" strokeWidth="0.75"/>
-              {/* ISLAND text */}
-              <text x="100" y="152" textAnchor="middle" fontFamily="'Cormorant Garamond',serif" fontSize="18" fontWeight="600" letterSpacing="3" fill="url(#textGold)">ISLAND</text>
-              {/* Wave decoration */}
-              <path d="M 72 162 Q 82 157 92 162 Q 102 167 112 162 Q 122 157 128 162" stroke="url(#goldStroke)" strokeWidth="1" fill="none"/>
-              {/* KHADLAJ text */}
-              <text x="100" y="178" textAnchor="middle" fontFamily="'DM Sans',sans-serif" fontSize="9" letterSpacing="4" fill="rgba(184,146,42,.9)">KHADLAJ</text>
-              {/* Extrait text */}
-              <text x="100" y="194" textAnchor="middle" fontFamily="'DM Sans',sans-serif" fontSize="7" letterSpacing="2" fill="rgba(255,255,255,.5)">EXTRAIT DE PARFUM</text>
-              {/* Bottom reflection */}
-              <ellipse cx="100" cy="276" rx="40" ry="6" fill="rgba(184,146,42,.2)"/>
-              {/* Bottle bottom curve */}
-              <rect x="52" y="252" width="96" height="24" rx="0 0 16 16" fill="url(#bottomGrad)"/>
-
-              {/* Gradients */}
-              <defs>
-                <linearGradient id="capGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#C9A84C"/>
-                  <stop offset="50%" stopColor="#F0D070"/>
-                  <stop offset="100%" stopColor="#A07830"/>
-                </linearGradient>
-                <linearGradient id="capTop" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#D4AF5A"/>
-                  <stop offset="100%" stopColor="#B8922A"/>
-                </linearGradient>
-                <linearGradient id="neckGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#1A1A2E"/>
-                  <stop offset="40%" stopColor="#16213E"/>
-                  <stop offset="100%" stopColor="#0F1020"/>
-                </linearGradient>
-                <linearGradient id="collarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#B8922A"/>
-                  <stop offset="50%" stopColor="#D4AF5A"/>
-                  <stop offset="100%" stopColor="#B8922A"/>
-                </linearGradient>
-                <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#0D1B3E"/>
-                  <stop offset="40%" stopColor="#0A4A3A"/>
-                  <stop offset="80%" stopColor="#062A20"/>
-                  <stop offset="100%" stopColor="#041510"/>
-                </linearGradient>
-                <linearGradient id="liquidGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="rgba(20,100,80,.4)"/>
-                  <stop offset="100%" stopColor="rgba(10,50,40,.6)"/>
-                </linearGradient>
-                <linearGradient id="labelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="rgba(20,40,80,.9)"/>
-                  <stop offset="100%" stopColor="rgba(10,25,50,.95)"/>
-                </linearGradient>
-                <linearGradient id="textGold" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#C9A84C"/>
-                  <stop offset="50%" stopColor="#F0D080"/>
-                  <stop offset="100%" stopColor="#B8922A"/>
-                </linearGradient>
-                <linearGradient id="goldStroke" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#B8922A"/>
-                  <stop offset="50%" stopColor="#D4AF5A"/>
-                  <stop offset="100%" stopColor="#B8922A"/>
-                </linearGradient>
-                <linearGradient id="bottomGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" stopColor="rgba(10,60,45,.0)"/>
-                  <stop offset="100%" stopColor="rgba(184,146,42,.15)"/>
-                </linearGradient>
-              </defs>
-            </svg>
+          {/* Big product image — Island packshot */}
+          <div className="float-anim" style={{
+            position:"absolute",
+            top:"50%",left:"50%",
+            transform:"translate(-44%,-52%)",
+            width:"min(380px,80%)",
+            zIndex:2,
+          }}>
+            <img
+              src="./assets/images/products/island-packshot.png"
+              alt="Island Extrait de Parfum"
+              className="prod-img"
+              style={{
+                width:"100%",
+                objectFit:"contain",
+                filter:"drop-shadow(0 32px 60px rgba(0,0,0,.22)) drop-shadow(0 8px 20px rgba(184,146,42,.15))",
+                display:"block",
+              }}
+            />
           </div>
 
-          {/* Ground reflection */}
-          <div style={{position:"absolute",bottom:"14%",left:"50%",transform:"translateX(-50%)",width:120,height:20,background:"radial-gradient(ellipse,rgba(184,146,42,.3),transparent 70%)",filter:"blur(8px)"}}/>
+          {/* Decorative teal circle */}
+          <div style={{
+            position:"absolute",
+            width:"65%",paddingBottom:"65%",
+            borderRadius:"50%",
+            background:"radial-gradient(circle,rgba(0,100,90,.08) 0%,rgba(0,80,70,.04) 50%,transparent 70%)",
+            top:"50%",left:"50%",
+            transform:"translate(-50%,-50%)",
+            pointerEvents:"none",
+          }}/>
 
-          {/* Floating product tag */}
-          <div style={{position:"absolute",bottom:28,left:28,background:"rgba(10,10,10,.9)",border:"1px solid rgba(184,146,42,.4)",padding:"14px 18px",zIndex:2,backdropFilter:"blur(12px)"}}>
+          {/* Gold ring */}
+          <div style={{
+            position:"absolute",
+            width:"55%",paddingBottom:"55%",
+            borderRadius:"50%",
+            border:"1px solid rgba(184,146,42,.2)",
+            top:"50%",left:"50%",
+            transform:"translate(-50%,-50%)",
+            pointerEvents:"none",
+          }}/>
+
+          {/* Notes floating chips */}
+          <div className="fade-in-1" style={{position:"absolute",top:"18%",right:"8%",zIndex:3}}>
+            {["Marine","Amber","Oud","Musk"].map((n,i)=>(
+              <div key={n} style={{
+                background:"rgba(255,255,255,.85)",
+                backdropFilter:"blur(8px)",
+                border:"1px solid rgba(184,146,42,.3)",
+                padding:"6px 14px",
+                marginBottom:8,
+                display:"flex",alignItems:"center",gap:6,
+              }}>
+                <span style={{width:6,height:6,borderRadius:"50%",background:"#B8922A",flexShrink:0,display:"inline-block"}}/>
+                <span style={{fontSize:9,letterSpacing:2.5,color:"#555",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif"}}>{n}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Product info tag bottom */}
+          <div className="fade-in-2" style={{
+            position:"absolute",bottom:32,left:28,
+            background:"rgba(255,255,255,.95)",
+            border:"1px solid #E0D8C8",
+            padding:"16px 20px",
+            boxShadow:"0 8px 32px rgba(0,0,0,.10)",
+            zIndex:3,maxWidth:210,
+          }}>
             <p style={{fontSize:8,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif",marginBottom:5}}>Best Seller</p>
-            <p style={{fontSize:13,color:"#fff",letterSpacing:.5,fontFamily:"'DM Sans',sans-serif",fontWeight:600,marginBottom:3}}>Island Extrait de Parfum</p>
-            <p style={{fontSize:11,color:"rgba(255,255,255,.5)",fontFamily:"'DM Sans',sans-serif",marginBottom:8}}>100ml · AED 355</p>
-            <div style={{height:1,background:"linear-gradient(90deg,#B8922A,#D4AF5A,transparent)",marginBottom:8}}/>
-            <div style={{display:"flex",gap:6}}>
-              {["Marine","Amber","Oud"].map(n=>(
-                <span key={n} style={{fontSize:8,letterSpacing:1.5,color:"rgba(184,146,42,.8)",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif"}}>◈ {n}</span>
-              ))}
-            </div>
+            <p style={{fontSize:14,color:"#000",fontFamily:"'DM Sans',sans-serif",fontWeight:700,letterSpacing:.3,marginBottom:3}}>Island Extrait</p>
+            <p style={{fontSize:11,color:"#777",fontFamily:"'DM Sans',sans-serif",marginBottom:10}}>100ml · AED 355</p>
+            <div className="shimmer-line" style={{height:1,background:"linear-gradient(90deg,#B8922A,#D4AF5A,transparent)"}}/>
           </div>
+
+          {/* Rating badge top-left */}
+          <div className="fade-in-3" style={{
+            position:"absolute",top:28,left:28,
+            background:"rgba(255,255,255,.92)",
+            border:"1px solid #E0D8C8",
+            padding:"10px 16px",
+            zIndex:3,
+          }}>
+            <p style={{fontSize:13,color:"#B8922A",letterSpacing:1,marginBottom:2}}>★★★★★</p>
+            <p style={{fontSize:9,color:"#555",letterSpacing:1.5,fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase"}}>4.9 · 1.2k Reviews</p>
+          </div>
+
         </div>
       </section>
 
