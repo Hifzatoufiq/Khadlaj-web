@@ -611,27 +611,86 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             boxShadow:"0 8px 40px rgba(0,0,0,.15)",
           }}
         >
-          <img
-            src="./assets/images/banners/spring-banner.png"
-            alt="Khadlaj Spring Sale campaign banner"
-            style={{width:"100%",height:"auto",display:"block"}}
-          />
-          {/* Minimal left overlay — just enough for text legibility, no blur */}
+          <style>{`
+            @keyframes bannerShimmer{0%{transform:translateX(-100%);}100%{transform:translateX(200%);}}
+            @keyframes countPulse{0%,100%{transform:scale(1);}50%{transform:scale(1.04);}}
+            @keyframes dotBlink{0%,100%{opacity:1;}50%{opacity:.3;}}
+            .sale-num{animation:countPulse 2s ease-in-out infinite;}
+            .live-dot{animation:dotBlink 1.5s ease-in-out infinite;}
+          `}</style>
+
+          {/* Pure CSS Sale Banner — no image */}
           <div style={{
-            position:"absolute",
-            inset:0,
-            background:"linear-gradient(90deg, rgba(0,0,0,.52) 0%, rgba(0,0,0,.28) 45%, transparent 75%)",
+            position:"relative",
+            overflow:"hidden",
+            minHeight:200,
+            background:"#000",
             display:"flex",
-            alignItems:"center",
-            padding:"clamp(20px,4vw,52px)",
+            alignItems:"stretch",
+            cursor:"pointer",
           }}>
-            <div style={{maxWidth:380}}>
-              <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif",marginBottom:12}}>Spring Campaign</p>
-              <h2 className="disp" style={{fontSize:"clamp(36px,5vw,72px)",lineHeight:.92,fontWeight:300,color:"#fff",marginBottom:14,letterSpacing:-1}}>Flat 25% Off</h2>
-              <p style={{fontSize:"clamp(11px,1.4vw,16px)",fontWeight:500,letterSpacing:1.5,color:"rgba(255,255,255,.85)",marginBottom:20,fontFamily:"'DM Sans',sans-serif"}}>
-                Code: <span style={{color:"#B8922A",fontWeight:700,letterSpacing:2}}>KHADLAJ25</span>
+            {/* Left gold block */}
+            <div style={{
+              flex:"0 0 clamp(180px,28%,320px)",
+              background:"linear-gradient(135deg,#B8922A 0%,#D4AF5A 40%,#B8922A 70%,#8B6914 100%)",
+              display:"flex",flexDirection:"column",
+              alignItems:"center",justifyContent:"center",
+              padding:"32px 24px",
+              position:"relative",
+              overflow:"hidden",
+            }}>
+              {/* Shimmer sweep */}
+              <div style={{position:"absolute",top:0,left:0,width:"60%",height:"100%",background:"linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent)",animation:"bannerShimmer 2.5s ease-in-out infinite",pointerEvents:"none"}}/>
+              <p style={{fontSize:9,letterSpacing:5,color:"rgba(0,0,0,.6)",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif",marginBottom:8}}>Limited Offer</p>
+              <p className="disp sale-num" style={{fontSize:"clamp(52px,7vw,88px)",fontWeight:600,color:"#000",lineHeight:.9,letterSpacing:-2}}>25%</p>
+              <p className="disp" style={{fontSize:"clamp(20px,2.5vw,30px)",fontWeight:300,color:"rgba(0,0,0,.7)",letterSpacing:2}}>OFF</p>
+              <div style={{width:40,height:1,background:"rgba(0,0,0,.3)",margin:"12px 0"}}/>
+              <p style={{fontSize:9,letterSpacing:3,color:"rgba(0,0,0,.6)",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif",textAlign:"center"}}>All Fragrances</p>
+            </div>
+
+            {/* Center info */}
+            <div style={{flex:1,padding:"clamp(20px,4vw,48px) clamp(20px,4vw,48px)",display:"flex",flexDirection:"column",justifyContent:"center",background:"#000"}}>
+              <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:12}}>
+                <span className="live-dot" style={{width:7,height:7,borderRadius:"50%",background:"#B8922A",display:"inline-block"}}/>
+                <p style={{fontSize:9,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif"}}>Sale Live Now</p>
+              </div>
+              <h2 className="disp" style={{fontSize:"clamp(28px,4vw,58px)",fontWeight:300,color:"#fff",lineHeight:1,letterSpacing:-1,marginBottom:12}}>
+                Khadlaj<br/><em style={{fontStyle:"italic",color:"#B8922A"}}>Summer Sale</em>
+              </h2>
+              <p style={{fontSize:"clamp(11px,1.2vw,14px)",color:"rgba(255,255,255,.55)",fontFamily:"'DM Sans',sans-serif",lineHeight:1.7,marginBottom:20,maxWidth:380}}>
+                Shop 400+ fragrances at flat 25% off. From everyday luxury to rare extraits — your next signature scent awaits.
               </p>
-              <button className="btn-gold" style={{padding:"12px 28px",fontSize:10}}>Shop Spring Sale</button>
+              <div style={{display:"flex",alignItems:"center",gap:16,flexWrap:"wrap"}}>
+                <button className="btn-gold" style={{padding:"12px 28px",fontSize:10}} onClick={()=>setPage("collections")}>Shop Now</button>
+                <div style={{display:"flex",alignItems:"center",gap:10}}>
+                  <span style={{fontSize:10,color:"rgba(255,255,255,.35)",fontFamily:"'DM Sans',sans-serif",letterSpacing:1}}>Use code</span>
+                  <span style={{
+                    background:"rgba(184,146,42,.12)",
+                    border:"1px solid rgba(184,146,42,.4)",
+                    color:"#B8922A",padding:"6px 14px",
+                    fontSize:12,letterSpacing:3,fontWeight:700,
+                    fontFamily:"'DM Mono',monospace",
+                  }}>KHADLAJ25</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right product grid */}
+            <div className="hide-mob" style={{flex:"0 0 clamp(140px,22%,260px)",display:"grid",gridTemplateColumns:"1fr 1fr",gap:2,overflow:"hidden"}}>
+              {[
+                "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Icon.2.jpg?v=1773206615",
+                "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OnyxSilver1.jpg?v=1769502676",
+                "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Panache_2_jpg_0bc7a1f3-8af9-4188-98f1-c58151159f55.jpg?v=1771333283",
+                "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island2.jpg?v=1767168643",
+              ].map((src,i)=>(
+                <div key={i} style={{overflow:"hidden",background:"#111",position:"relative"}}>
+                  <img src={src} alt="" style={{width:"100%",height:"100%",objectFit:"cover",display:"block",opacity:.75,transition:"opacity .3s"}}
+                    onMouseEnter={e=>e.currentTarget.style.opacity="1"}
+                    onMouseLeave={e=>e.currentTarget.style.opacity=".75"}
+                  />
+                  {i===0&&<div style={{position:"absolute",inset:0,background:"linear-gradient(to right,rgba(0,0,0,.4),transparent)"}}/>}
+                </div>
+              ))}
             </div>
           </div>
         </div>
