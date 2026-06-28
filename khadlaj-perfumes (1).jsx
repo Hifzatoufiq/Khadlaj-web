@@ -226,22 +226,25 @@ const GLOBAL_CSS = `
     animation:shimmer 3s linear infinite;
   }
 
+  /* ── Mobile responsive ── */
   @media(max-width:900px){
     .hide-mob{display:none!important;}
     .grid-4{grid-template-columns:repeat(2,1fr)!important;}
-    .grid-3{grid-template-columns:repeat(2,1fr)!important;}
-    .hero-split{grid-template-columns:1fr!important;flex-direction:column!important;}
-    .hero-img-wrap{height:340px!important;min-height:unset!important;}
+    .grid-3{grid-template-columns:1fr!important;}
+    .hero-split{grid-template-columns:1fr!important;}
+    .hero-img-wrap{height:320px!important;min-height:unset!important;}
     .grid-2{grid-template-columns:1fr!important;}
   }
   @media(max-width:600px){
     .grid-4{grid-template-columns:repeat(2,1fr)!important;}
     .grid-3{grid-template-columns:1fr!important;}
     .grid-2{grid-template-columns:1fr!important;}
-    .new-scroll > div{flex:0 0 80vw!important;}
+    .new-scroll > div{flex:0 0 78vw!important;}
+    .reel-card{flex:0 0 88vw!important;}
   }
-  @media(max-width:420px){
+  @media(max-width:480px){
     .grid-4{grid-template-columns:repeat(2,1fr)!important;}
+    .popup-in{grid-template-columns:1fr!important;}
   }
 `;
 
@@ -1997,6 +2000,7 @@ function Navbar({ page, setPage, cartCount }){
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const handleSearch = (q) => {
     setSearchQuery(q);
@@ -2092,7 +2096,7 @@ function Navbar({ page, setPage, cartCount }){
               <p style={{fontSize:7,letterSpacing:7,color:"#B8922A",marginTop:3,fontFamily:"'DM Sans',sans-serif"}}>PERFUMES · UAE</p>
             </div>
             {/* Right icons */}
-            <div style={{display:"flex",alignItems:"center",justifyContent:"flex-end",gap:20}}>
+            <div style={{display:"flex",alignItems:"center",justifyContent:"flex-end",gap:18}}>
               <span className="hide-mob" style={{fontSize:10,letterSpacing:2,color:"#555",textTransform:"uppercase",cursor:"pointer",fontFamily:"'DM Sans',sans-serif"}} onClick={()=>setPage("contact")}>Sign Up</span>
               <span style={{cursor:"pointer",fontSize:16,color:"#000",lineHeight:1}} onClick={()=>setSearchOpen(true)}>⌕</span>
               <div onClick={()=>setPage("collections")} style={{position:"relative",cursor:"pointer"}}>
@@ -2101,16 +2105,72 @@ function Navbar({ page, setPage, cartCount }){
                   <span style={{position:"absolute",top:-7,right:-9,background:"#000",color:"#fff",borderRadius:"50%",width:16,height:16,fontSize:9,display:"flex",alignItems:"center",justifyContent:"center",fontWeight:700,fontFamily:"'DM Sans',sans-serif"}}>{cartCount}</span>
                 )}
               </div>
+              {/* Hamburger — mobile only */}
+              <button
+                onClick={()=>setMobileMenuOpen(o=>!o)}
+                style={{
+                  display:"none",background:"none",border:"none",
+                  cursor:"pointer",padding:"4px",flexDirection:"column",
+                  gap:5,justifyContent:"center",alignItems:"center",
+                }}
+                className="mob-burger"
+                aria-label="Menu"
+              >
+                <span style={{display:"block",width:22,height:1.5,background:"#000",transition:"all .25s"}}/>
+                <span style={{display:"block",width:22,height:1.5,background:"#000",transition:"all .25s"}}/>
+                <span style={{display:"block",width:14,height:1.5,background:"#000",transition:"all .25s"}}/>
+              </button>
             </div>
           </div>
-          {/* Nav links */}
+          {/* Nav links desktop */}
           <div className="hide-mob" style={{display:"flex",justifyContent:"center",gap:36,paddingBottom:14,fontSize:10,letterSpacing:2.5,textTransform:"uppercase",color:"#000",fontFamily:"'DM Sans',sans-serif"}}>
             {[["Offers","collections"],["Bestsellers","collections"],["New In","collections"],["Gifts","gifts"],["Perfume","collections"],["Our Story","story"],["Contact","contact"]].map(([label,pg])=>(
               <span key={label} onClick={()=>setPage(pg)} style={{cursor:"pointer",borderBottom:page===pg?"1px solid #000":"1px solid transparent",paddingBottom:4,transition:"border-color .2s"}}>{label}</span>
             ))}
           </div>
         </div>
+
+        {/* ── Mobile menu ── */}
+        {mobileMenuOpen && (
+          <div style={{
+            background:"#fff",
+            borderTop:"1px solid #E0E0E0",
+            padding:"8px 0 20px",
+            position:"absolute",top:"100%",left:0,right:0,
+            zIndex:200,
+            boxShadow:"0 8px 32px rgba(0,0,0,.12)",
+          }}>
+            {[["Offers","collections"],["Bestsellers","collections"],["New In","collections"],["Gift Sets","gifts"],["All Fragrances","collections"],["Our Story","story"],["Contact","contact"]].map(([label,pg])=>(
+              <div
+                key={label}
+                onClick={()=>{setPage(pg);setMobileMenuOpen(false);}}
+                style={{
+                  padding:"14px 6%",
+                  fontSize:11,letterSpacing:2.5,
+                  textTransform:"uppercase",
+                  color:"#000",cursor:"pointer",
+                  fontFamily:"'DM Sans',sans-serif",
+                  borderBottom:"1px solid #F0EBE3",
+                  display:"flex",alignItems:"center",justifyContent:"space-between",
+                }}
+              >
+                {label}
+                <span style={{color:"#B8922A",fontSize:12}}>→</span>
+              </div>
+            ))}
+            <div style={{padding:"14px 6% 0",display:"flex",gap:12,flexWrap:"wrap"}}>
+              {[["Instagram","https://www.instagram.com/khadlajperfumes"],["TikTok",SOCIAL_LINKS.tiktok]].map(([s,href])=>(
+                <a key={s} href={href} target="_blank" rel="noreferrer"
+                  style={{fontSize:9,letterSpacing:2,color:"#888",border:"1px solid #E0E0E0",padding:"7px 14px",textDecoration:"none",fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase"}}>
+                  {s}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </nav>
+
+      <style>{`.mob-burger{display:none!important;}@media(max-width:900px){.mob-burger{display:flex!important;}}`}</style>
     </>
   );
 }
