@@ -478,10 +478,10 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         {/* Left copy */}
         <div style={{display:"flex",flexDirection:"column",justifyContent:"center",padding:"100px 7% 80px",position:"relative",zIndex:2}}>
           <div style={{width:36,height:1,background:"#B8922A",marginBottom:28}}/>
-          <p className="fu" style={{fontSize:10,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif",marginBottom:18,animationDelay:".05s"}}>New Season · Island Extrait</p>
+          <p className="fu" style={{fontSize:10,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif",marginBottom:18,animationDelay:".05s"}}>New Season · Onyx Silver</p>
           <h1 className="disp fu" style={{fontSize:"clamp(56px,6.5vw,96px)",fontWeight:300,lineHeight:.92,letterSpacing:-3,margin:"0 0 28px",animationDelay:".15s",color:"#000"}}>
-            Island<br/>
-            <em style={{fontStyle:"italic",color:"#B8922A",fontWeight:300}}>Extrait</em>
+            Onyx<br/>
+            <em style={{fontStyle:"italic",color:"#B8922A",fontWeight:300}}>Silver</em>
           </h1>
           <p className="fu" style={{color:"#666",maxWidth:400,lineHeight:1.9,fontSize:14,animationDelay:".3s",fontFamily:"'DM Sans',sans-serif",marginBottom:36}}>
             A luminous marine-amber composition with a polished, fashion-house feel. Clean, modern, unmistakably premium.
