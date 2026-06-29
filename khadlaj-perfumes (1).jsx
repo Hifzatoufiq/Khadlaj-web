@@ -200,6 +200,11 @@ const GLOBAL_CSS = `
   .reel-card{scroll-snap-align:start;flex:0 0 min(330px,82vw);text-decoration:none;color:inherit;}
   .reel-badge{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
 
+  /* Hide TikTok iframe scrollbars */
+  iframe{scrolling:no;overflow:hidden;}
+  .tiktok-card{overflow:hidden;position:relative;}
+  .tiktok-card iframe{pointer-events:none;border:none;overflow:hidden;}
+
   input,textarea{font-family:'DM Sans',sans-serif;}
 
   /* New arrivals horizontal scroll */
@@ -593,7 +598,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           <div style={{flex:"0 0 min(320px,90vw)",background:"#111",overflow:"hidden"}}>
             <iframe
               src="https://www.tiktok.com/embed/v2/7451949579638951185"
-              style={{width:"100%",height:580,border:"none",display:"block"}}
+              scrolling="no" style={{width:"100%",height:580,border:"none",display:"block",overflow:"hidden"}}
               allow="encrypted-media"
               allowFullScreen
               title="Hareem Al Sultan TikTok"
@@ -608,7 +613,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           <div style={{flex:"0 0 min(320px,90vw)",background:"#111",overflow:"hidden"}}>
             <iframe
               src="https://www.tiktok.com/embed/v2/7612296589343821076"
-              style={{width:"100%",height:580,border:"none",display:"block"}}
+              scrolling="no" style={{width:"100%",height:580,border:"none",display:"block",overflow:"hidden"}}
               allow="encrypted-media"
               allowFullScreen
               title="Khadlaj Fragrance TikTok"
@@ -623,7 +628,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           <div style={{flex:"0 0 min(320px,90vw)",background:"#111",overflow:"hidden"}}>
             <iframe
               src="https://www.tiktok.com/embed/v2/7643796160100191496"
-              style={{width:"100%",height:580,border:"none",display:"block"}}
+              scrolling="no" style={{width:"100%",height:580,border:"none",display:"block",overflow:"hidden"}}
               allow="encrypted-media"
               allowFullScreen
               title="Khadlaj Shiyaaka TikTok"
@@ -1576,48 +1581,6 @@ function StoryPage(){
             </div>
           </div>
         </div>
-        {/* Master Perfumers */}
-        <SectionHeader eyebrow="◎ · The Craftsmen" title="Meet Our Founder & Master Perfumer"/>
-        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:28,marginBottom:80}} className="grid-2">
-          {TEAM.map(t=>(
-            <div key={t.name} style={{background:C.onyx,border:`1px solid ${C.brass}18`,overflow:"hidden",display:"flex",gap:0}}>
-              <div style={{width:200,flexShrink:0,overflow:"hidden"}}>
-                <img src={t.img} alt={t.name} style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"top"}}/>
-              </div>
-              <div style={{padding:"32px 28px"}}>
-                <p className="eyebrow" style={{marginBottom:8}}>{t.role}</p>
-                <h3 className="disp" style={{fontSize:28,fontWeight:400,color:C.champagne,marginBottom:16}}>{t.name}</h3>
-                <p style={{fontSize:14,color:C.muted,lineHeight:1.8}}>{t.bio}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Craft timeline */}
-        <div style={{background:"#000",padding:"64px 6%",marginBottom:80}}>
-          <div style={{textAlign:"center",marginBottom:48}}>
-            <div style={{width:40,height:1,background:"#B8922A",margin:"0 auto 20px"}}/>
-            <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif",marginBottom:14}}>Our Process</p>
-            <h2 className="disp" style={{fontSize:"clamp(28px,3.5vw,48px)",fontWeight:300,color:"#fff",letterSpacing:-1}}>How a Khadlaj Fragrance is Born</h2>
-          </div>
-          <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:32}} className="grid-4">
-            {[
-              {step:"01",icon:"🌹",title:"Source",desc:"We travel to the world's finest sources — Taif roses, Cambodian oud, French iris, Indian sandalwood."},
-              {step:"02",icon:"⚗️",title:"Create",desc:"Mohamed Iqbal blends top, heart, and base notes through hundreds of iterations in our private atelier."},
-              {step:"03",icon:"⏳",title:"Mature",desc:"Each fragrance macerates for weeks, allowing ingredients to harmonise into a cohesive whole."},
-              {step:"04",icon:"📦",title:"Present",desc:"Bottled and packaged in-house, every Khadlaj fragrance is inspected before it reaches your hands."},
-            ].map((s,i)=>(
-              <div key={s.step} style={{textAlign:"center",padding:"0 8px"}}>
-                <p style={{fontSize:10,color:"#B8922A",letterSpacing:3,marginBottom:12,fontFamily:"'DM Mono',monospace"}}>{s.step}</p>
-                <span style={{fontSize:32}}>{s.icon}</span>
-                <h4 className="disp" style={{fontSize:22,fontWeight:400,color:"#fff",margin:"12px 0 8px"}}>{s.title}</h4>
-                <p style={{fontSize:12,color:"rgba(255,255,255,.5)",lineHeight:1.75,fontFamily:"'DM Sans',sans-serif"}}>{s.desc}</p>
-                {i < 3 && <div style={{width:1,height:40,background:"rgba(184,146,42,.3)",margin:"24px auto 0"}}/>}
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* Lifestyle editorial */}
         <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:2,marginBottom:0}}>
           {[
