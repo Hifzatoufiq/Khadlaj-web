@@ -538,28 +538,6 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         </div>
       </section>
 
-      {/* ── COLLECTIONS PREVIEW ── */}
-      <section style={{padding:"96px 5%",background:"#fff"}}>
-        <SectionHeader eyebrow="Our Collections" title="Three Distinct Worlds" sub="Each collection tells a different story. Find the one that speaks to you."/>
-        <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:2}} className="grid-3">
-          {COLLECTIONS_DATA.map((col,i)=>(
-            <div key={col.name} onClick={()=>setPage("collections")}
-              style={{position:"relative",aspectRatio:"2/3",overflow:"hidden",cursor:"pointer"}}>
-              <img src={col.img} alt={col.name} style={{width:"100%",height:"100%",objectFit:"cover",transition:"transform .6s ease"}}
-                onMouseEnter={e=>e.currentTarget.style.transform="scale(1.04)"}
-                onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}/>
-              <div style={{position:"absolute",inset:0,background:"linear-gradient(to top,rgba(0,0,0,.75) 0%,rgba(0,0,0,.2) 50%,transparent 100%)"}}/>
-              <div style={{position:"absolute",bottom:0,left:0,right:0,padding:32}}>
-                <p style={{fontSize:9,letterSpacing:4,color:"#B8922A",marginBottom:8,textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif"}}>{col.tagline}</p>
-                <h3 className="disp" style={{fontSize:30,fontWeight:300,color:"#fff",marginBottom:8}}>{col.name}</h3>
-                <p style={{fontSize:12,color:"rgba(255,255,255,.65)",lineHeight:1.6,marginBottom:16,fontFamily:"'DM Sans',sans-serif"}}>{col.desc.slice(0,80)}…</p>
-                <p style={{fontSize:10,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif"}}>Explore →</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* ── FEATURED PRODUCTS ── */}
       <section style={{padding:"0 5% 104px",background:"#FAFAF8"}}>
         <div style={{paddingTop:96,marginBottom:52,display:"flex",alignItems:"flex-end",justifyContent:"space-between",flexWrap:"wrap",gap:16}}>
