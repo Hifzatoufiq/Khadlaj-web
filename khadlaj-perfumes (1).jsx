@@ -946,27 +946,6 @@ function HomePage({ setPage, addToCart, setViewProduct }){
               </div>
             </div>
 
-            {/* ── Right: 4 product images ── */}
-            <div className="hide-mob" style={{display:"grid",gridTemplateColumns:"1fr 1fr",gridTemplateRows:"1fr 1fr",gap:1,overflow:"hidden"}}>
-              {[
-                {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-1.jpg?v=1775635386",name:"Ihthiraam"},
-                {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/shiyaaka-snow.png?v=1781615422",name:"Shiyaaka"},
-                {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island2.jpg?v=1767168643",name:"Island"},
-                {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Panache_2_jpg_0bc7a1f3-8af9-4188-98f1-c58151159f55.jpg?v=1771333283",name:"Angel Dust"},
-              ].map((item,i)=>(
-                <div key={i} style={{overflow:"hidden",position:"relative",background:"#111"}}>
-                  <img src={item.src} alt={item.name}
-                    style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center top",display:"block",opacity:.6,transition:"opacity .35s",filter:"grayscale(20%)"}}
-                    onMouseEnter={e=>{e.currentTarget.style.opacity="1";e.currentTarget.style.filter="grayscale(0%)";}}
-                    onMouseLeave={e=>{e.currentTarget.style.opacity=".6";e.currentTarget.style.filter="grayscale(20%)";}}
-                  />
-                  {/* Product name on hover */}
-                  <div style={{position:"absolute",bottom:0,left:0,right:0,padding:"6px 8px",background:"linear-gradient(to top,rgba(0,0,0,.7),transparent)"}}>
-                    <p style={{fontSize:8,letterSpacing:1.5,color:"rgba(255,255,255,.6)",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif"}}>{item.name}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
