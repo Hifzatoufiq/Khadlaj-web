@@ -620,7 +620,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             />
             <div style={{padding:"14px 16px 18px"}}>
               <p style={{fontSize:9,letterSpacing:2,color:"#B8922A",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif",marginBottom:5}}>TikTok · Khadlaj Perfumes</p>
-              <p className="disp" style={{fontSize:18,color:"#fff",fontWeight:300}}>Island Extrait</p>
+              <p className="disp" style={{fontSize:18,color:"#fff",fontWeight:300}}>Onyx Silver</p>
             </div>
           </div>
 
@@ -1380,71 +1380,6 @@ function GiftsPage({ addToCart, setViewProduct, setPage }){
         <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:2}} className="grid-4">
           {giftProducts.map(p=>(
             <ProductCard key={p.id} p={p} onView={(prod)=>{if(setViewProduct){setViewProduct(prod);setPage("product");}}} onCart={addToCart}/>
-          ))}
-        </div>
-      </section>
-
-      {/* ── Featured Gift Sets (editorial 2-col) ── */}
-      <section style={{padding:"0 5% 80px",background:"#fff"}}>
-        <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",flexWrap:"wrap",gap:16,marginBottom:48,paddingTop:80,borderTop:"1px solid #E8E4DC"}}>
-          <div>
-            <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif",marginBottom:12}}>Premium Sets</p>
-            <h2 className="disp" style={{fontSize:"clamp(28px,3.5vw,50px)",fontWeight:300,color:"#000",letterSpacing:-1,lineHeight:1.05}}>Signature Gift Boxes</h2>
-          </div>
-        </div>
-
-        <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:2}} className="grid-3">
-          {GIFT_SETS.filter(g=>g.img && !g.img.includes("unsplash")).map(g=>(
-            <div
-              key={g.id}
-              style={{
-                position:"relative",
-                cursor:"pointer",
-                background:"#fff",
-                transition:"box-shadow .3s",
-              }}
-              onMouseEnter={e=>e.currentTarget.style.boxShadow="0 12px 40px rgba(0,0,0,.10)"}
-              onMouseLeave={e=>e.currentTarget.style.boxShadow="none"}
-            >
-              {/* Image */}
-              <div style={{position:"relative",aspectRatio:"3/4",overflow:"hidden",background:"#F5F3EF"}}>
-                <img
-                  src={g.img} alt={g.name}
-                  style={{width:"100%",height:"100%",objectFit:"cover",transition:"transform .6s ease"}}
-                  onMouseEnter={e=>e.currentTarget.style.transform="scale(1.05)"}
-                  onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}
-                />
-                <div style={{height:2,position:"absolute",bottom:0,left:0,right:0,background:"linear-gradient(90deg,#B8922A,#D4AF5A,#B8922A)"}}/>
-                <span style={{
-                  position:"absolute",top:14,left:14,
-                  background:"#B8922A",color:"#fff",
-                  fontSize:8,letterSpacing:2,padding:"4px 10px",
-                  fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",fontWeight:700,
-                }}>{g.pieces} pcs</span>
-              </div>
-              {/* Info */}
-              <div style={{padding:"16px 16px 20px"}}>
-                <p style={{fontSize:9,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif",marginBottom:5}}>Gift Set</p>
-                <h3 style={{
-                  fontSize:14,fontWeight:700,color:"#000",
-                  marginBottom:6,textTransform:"uppercase",letterSpacing:.4,
-                  fontFamily:"'DM Sans',sans-serif",lineHeight:1.25,
-                }}>{g.name}</h3>
-                <p style={{fontSize:12,color:"#777",lineHeight:1.65,marginBottom:14,fontFamily:"'DM Sans',sans-serif"}}>{g.desc}</p>
-                <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:10}}>
-                  <p style={{fontSize:16,fontWeight:700,color:"#000",fontFamily:"'DM Sans',sans-serif"}}>AED {g.price}</p>
-                  <button
-                    onClick={()=>addToCart(g)}
-                    style={{
-                      background:"#000",color:"#fff",border:"none",
-                      padding:"10px 18px",fontSize:9,letterSpacing:2.5,
-                      textTransform:"uppercase",cursor:"pointer",
-                      fontFamily:"'DM Sans',sans-serif",fontWeight:600,
-                    }}
-                  >Add to Bag</button>
-                </div>
-              </div>
-            </div>
           ))}
         </div>
       </section>
