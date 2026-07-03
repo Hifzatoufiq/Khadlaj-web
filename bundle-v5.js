@@ -21983,9 +21983,12 @@ var GLOBAL_CSS = `
 
     /* Hero \u2014 mobile phones */
     .hero-section {
-      height: 75svh !important;
-      min-height: 450px !important;
-      aspect-ratio: unset !important;
+      height: 60vh !important;
+      min-height: 400px !important;
+    }
+    .hero-video {
+      object-fit: cover !important;
+      object-position: center center !important;
     }
     .hero-video { object-position: center center !important; }
     .hero-text-container {
