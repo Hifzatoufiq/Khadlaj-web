@@ -1726,19 +1726,19 @@ function Footer({ setPage }){
   return (
     <footer style={{background:"#fff",borderTop:"1px solid #E8E4DC"}}>
       {/* Newsletter */}
-      <div style={{background:"#f9f9f9",padding:"70px 5%",textAlign:"center",borderBottom:"1px solid #E8E4DC"}}>
+      <div style={{background:"#050505",padding:"80px 5%",textAlign:"center",borderBottom:"1px solid rgba(255,255,255,0.05)",borderTop:"1px solid rgba(193,164,106,0.15)"}}>
         <div style={{maxWidth:560,margin:"0 auto"}}>
           <div style={{width:40,height:1,background:"#B8922A",margin:"0 auto 18px"}}/>
           <p style={{fontSize:9,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif",marginBottom:14,fontWeight:600}}>Newsletter</p>
-          <h2 style={{fontSize:"clamp(24px,3vw,38px)",fontWeight:600,marginBottom:12,color:"#000",letterSpacing:"-0.5px",fontFamily:"'DM Sans',sans-serif"}}>Join the Khadlaj Circle</h2>
-          <p style={{color:"#666",fontSize:13,marginBottom:32,fontFamily:"'DM Sans',sans-serif",lineHeight:1.7}}>Get exclusive access to new launches and special offers</p>
+          <h2 className="disp" style={{fontSize:"clamp(26px,3.5vw,42px)",fontWeight:300,marginBottom:14,color:"#fff",letterSpacing:"-0.5px"}}>Join the Khadlaj Circle</h2>
+          <p style={{color:"rgba(255,255,255,0.65)",fontSize:13,marginBottom:36,fontFamily:"'DM Sans',sans-serif",lineHeight:1.7}}>Get exclusive access to new launches and special offers</p>
           <div style={{display:"flex",gap:0,maxWidth:440,margin:"0 auto"}}>
             <input type="email" placeholder="Enter your email"
-              style={{flex:1,background:"#fff",border:"1px solid #E0E0E0",borderRight:"none",color:"#000",padding:"14px 20px",fontSize:13,outline:"none",fontFamily:"'DM Sans',sans-serif"}}
+              style={{flex:1,background:"rgba(255,255,255,0.05)",border:"1px solid rgba(255,255,255,0.15)",borderRight:"none",color:"#fff",padding:"16px 22px",fontSize:13,outline:"none",fontFamily:"'DM Sans',sans-serif"}}
             />
-            <button style={{background:"#000",border:"none",color:"#fff",padding:"14px 32px",fontSize:10,letterSpacing:2.5,textTransform:"uppercase",cursor:"pointer",fontFamily:"'DM Sans',sans-serif",fontWeight:600,transition:"background .3s"}}
-              onMouseEnter={e=>e.currentTarget.style.background="#B8922A"}
-              onMouseLeave={e=>e.currentTarget.style.background="#000"}
+            <button style={{background:"#B8922A",border:"1px solid #B8922A",color:"#fff",padding:"16px 36px",fontSize:10,letterSpacing:2.5,textTransform:"uppercase",cursor:"pointer",fontFamily:"'DM Sans',sans-serif",fontWeight:600,transition:"all .3s"}}
+              onMouseEnter={e=>{e.currentTarget.style.background="#fff";e.currentTarget.style.color="#000";e.currentTarget.style.borderColor="#fff"}}
+              onMouseLeave={e=>{e.currentTarget.style.background="#B8922A";e.currentTarget.style.color="#fff";e.currentTarget.style.borderColor="#B8922A"}}
             >Subscribe</button>
           </div>
         </div>
