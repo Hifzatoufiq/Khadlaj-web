@@ -792,73 +792,14 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           >Follow Us</a>
         </div>
 
-        {/* Mosaic grid — varying sizes for editorial feel */}
-        <div className="mosaic-wrap">
-
-          {/* Large — spans 2 cols 2 rows */}
-          <div className="mosaic-item mosaic-large-left">
-            <img src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-3.jpg?v=1775636549"
-              alt="Ihthiraam" loading="lazy" className="mosaic-img"
-              onMouseEnter={e=>e.currentTarget.style.transform="scale(1.06)"}
-              onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}
-            />
-            <div className="mosaic-overlay">
-              <p style={{color:"#B8922A",fontSize:8,letterSpacing:2.5,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:3}}>Master Perfumery</p>
-              <p className="disp" style={{color:"#fff",fontSize:18,fontWeight:300}}>Ihthiraam</p>
-            </div>
-          </div>
-
-          {/* Medium top-middle */}
-          <div className="mosaic-item mosaic-wide-top">
-            <img src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/IntoxicateMystique.3.png?v=1772518819"
-              alt="Intoxicate Mystique" loading="lazy" className="mosaic-img"
-              onMouseEnter={e=>e.currentTarget.style.transform="scale(1.06)"}
-              onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}
-            />
-            <div className="mosaic-overlay">
-              <p className="disp" style={{color:"#fff",fontSize:15,fontWeight:300}}>Intoxicate Mystique</p>
-            </div>
-          </div>
-
-          {/* Tall right — spans 2 rows */}
-          <div className="mosaic-item mosaic-tall-right">
-            <img src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Panache_1_jpg_c97c705a-aebf-4bf9-a621-f11b565e765d.jpg?v=1771333282"
-              alt="Angel Dust" loading="lazy" className="mosaic-img"
-              onMouseEnter={e=>e.currentTarget.style.transform="scale(1.06)"}
-              onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}
-            />
-            <div className="mosaic-overlay">
-              <p style={{color:"#B8922A",fontSize:8,letterSpacing:2.5,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:3}}>Master Perfumery</p>
-              <p className="disp" style={{color:"#fff",fontSize:18,fontWeight:300}}>Angel Dust</p>
-            </div>
-          </div>
-
-          {/* Bottom-middle left */}
-          <div className="mosaic-item mosaic-small-1">
-            <img src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ONYX-03.jpg?v=1762324228"
-              alt="Onyx Gold" loading="lazy" className="mosaic-img"
-              onMouseEnter={e=>e.currentTarget.style.transform="scale(1.06)"}
-              onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}
-            />
-            <div className="mosaic-overlay">
-              <p className="disp" style={{color:"#fff",fontSize:13,fontWeight:300}}>Onyx Gold</p>
-            </div>
-          </div>
-
-          {/* Bottom-middle right */}
-          <div className="mosaic-item mosaic-small-2">
-            <img src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/shiyaaka-snow.png?v=1781615422"
-              alt="Shiyaaka Snow" loading="lazy" className="mosaic-img"
-              onMouseEnter={e=>e.currentTarget.style.transform="scale(1.06)"}
-              onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}
-            />
-            <div className="mosaic-overlay">
-              <p className="disp" style={{color:"#fff",fontSize:13,fontWeight:300}}>Shiyaaka Snow</p>
-            </div>
-          </div>
-
-          {/* Bottom full row — 3 equal */}
+                {/* Editorial Feed — Horizontal Scroll */}
+        <div className="reel-track hide-scrollbar" style={{padding:"0 5vw 40px"}}>
           {[
+            {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-3.jpg?v=1775636549",name:"Ihthiraam"},
+            {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/IntoxicateMystique.3.png?v=1772518819",name:"Intoxicate Mystique"},
+            {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Panache_1_jpg_c97c705a-aebf-4bf9-a621-f11b565e765d.jpg?v=1771333282",name:"Angel Dust"},
+            {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ONYX-03.jpg?v=1762324228",name:"Onyx Gold"},
+            {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/shiyaaka-snow.png?v=1781615422",name:"Shiyaaka Snow"},
             {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/saraya_3.png?v=1781332291",name:"Saraya"},
             {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SAWAAR-03.jpg?v=1764151207",name:"Sawaar Vanille Blanc"},
             {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais_Magrib-3.jpg?v=1761115886",name:"Nafais Magrib"},
@@ -866,24 +807,20 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Zayan_Silver-3.jpg?v=1776430400",name:"Zayaan Silver"},
             {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Icon.1.jpg?v=1773206615",name:"Icon"},
           ].map((item,i)=>(
-            <div key={item.name} className="mosaic-item" style={{ gridColumn: typeof window !== "undefined" && window.innerWidth <= 900 ? "1 / -1" : `${i+1}/${i+2}`, gridRow: typeof window !== "undefined" && window.innerWidth <= 900 ? "auto" : "3/4" }}>
-              <img src={item.src} alt={item.name} loading="lazy" className="mosaic-img" style={{padding:"12px"}}
-                onMouseEnter={e=>e.currentTarget.style.transform="scale(1.08)"}
+            <div key={item.name} className="reel-card" style={{flex:"0 0 min(280px,75vw)",position:"relative",overflow:"hidden",aspectRatio:"4/5",cursor:"pointer",background:"#F9F8F6"}}>
+              <img src={item.src} alt={item.name} loading="lazy" 
+                style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center center",transition:"transform .8s ease"}}
+                onMouseEnter={e=>e.currentTarget.style.transform="scale(1.05)"}
                 onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}
               />
-              <div
-                style={{position:"absolute",inset:0,background:"rgba(0,0,0,0)",transition:"background .3s",display:"flex",alignItems:"flex-end",padding:"10px"}}
-                onMouseEnter={e=>e.currentTarget.style.background="rgba(0,0,0,.45)"}
-                onMouseLeave={e=>e.currentTarget.style.background="rgba(0,0,0,0)"}
-              >
-                <p className="disp" style={{color:"#fff",fontSize:12,fontWeight:300,opacity:0,transition:"opacity .3s"}}
-                  onMouseEnter={e=>e.currentTarget.style.opacity="1"}
-                >{item.name}</p>
+              <div style={{position:"absolute",inset:0,background:"linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 40%)",pointerEvents:"none"}}/>
+              <div style={{position:"absolute",bottom:0,left:0,right:0,padding:"20px",pointerEvents:"none"}}>
+                <p style={{fontSize:9,letterSpacing:2,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:4}}>World of Khadlaj</p>
+                <p className="disp" style={{fontSize:16,fontWeight:300,color:"#fff"}}>{item.name}</p>
               </div>
             </div>
           ))}
-        </div>
-      </section>
+        </div></section>
     </>
   );
 }
