@@ -277,7 +277,7 @@ const GLOBAL_CSS = `
     .grid-2{grid-template-columns:1fr!important;}
 
     /* Hero adjustments — tablet */
-    .hero-section { height: 80vh !important; min-height: 520px !important; }
+    .hero-section { height: auto !important; min-height: unset !important; aspect-ratio: 16 / 9 !important; }
     .hero-text-container { padding: 60px 40px 40px !important; max-width: 100% !important; }
     .hero-headline { font-size: 38px !important; }
   }
@@ -290,8 +290,9 @@ const GLOBAL_CSS = `
 
     /* Hero — mobile phones */
     .hero-section {
-      height: 100svh !important;
-      min-height: -webkit-fill-available !important;
+      height: auto !important;
+      min-height: unset !important;
+      aspect-ratio: 16 / 9 !important;
     }
     .hero-video { object-position: center center !important; }
     .hero-text-container {
@@ -696,7 +697,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       
       
       {/* ── MASTER PERFUMERY EDITORIAL ── */}
-      <section style={{position:"relative",overflow:"hidden",zIndex:0,background:"#050505",padding:"0",borderTop:"1px solid #E8E4DC"}}>
+      <section style={{position:"relative",overflow:"hidden",zIndex:0,background:"#050505",padding:"0",borderTop:"none"}}>
         <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(320px, 1fr))",minHeight:"600px"}} className="hero-split">
           {/* Left Text Column */}
           <div style={{padding:"100px 10% 100px 8%",display:"flex",flexDirection:"column",justifyContent:"center", background:"#050505", zIndex:2}}>

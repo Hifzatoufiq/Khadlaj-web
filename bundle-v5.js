@@ -21970,7 +21970,7 @@ var GLOBAL_CSS = `
     .grid-2{grid-template-columns:1fr!important;}
 
     /* Hero adjustments \u2014 tablet */
-    .hero-section { height: 80vh !important; min-height: 520px !important; }
+    .hero-section { height: auto !important; min-height: unset !important; aspect-ratio: 16 / 9 !important; }
     .hero-text-container { padding: 60px 40px 40px !important; max-width: 100% !important; }
     .hero-headline { font-size: 38px !important; }
   }
@@ -21983,8 +21983,9 @@ var GLOBAL_CSS = `
 
     /* Hero \u2014 mobile phones */
     .hero-section {
-      height: 100svh !important;
-      min-height: -webkit-fill-available !important;
+      height: auto !important;
+      min-height: unset !important;
+      aspect-ratio: 16 / 9 !important;
     }
     .hero-video { object-position: center center !important; }
     .hero-text-container {
@@ -22437,7 +22438,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
         }
       ) })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { position: "relative", overflow: "hidden", zIndex: 0, background: "#050505", padding: "0", borderTop: "1px solid #E8E4DC" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", minHeight: "600px" }, className: "hero-split", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { position: "relative", overflow: "hidden", zIndex: 0, background: "#050505", padding: "0", borderTop: "none" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", minHeight: "600px" }, className: "hero-split", children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "100px 10% 100px 8%", display: "flex", flexDirection: "column", justifyContent: "center", background: "#050505", zIndex: 2 }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "#B8922A", fontSize: 10, letterSpacing: 4, textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 16, fontWeight: 600 }, children: "Our Heritage" }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(36px,4.5vw,54px)", fontWeight: 300, lineHeight: 1.1, marginBottom: 28, color: "#fff", letterSpacing: -1 }, children: [
