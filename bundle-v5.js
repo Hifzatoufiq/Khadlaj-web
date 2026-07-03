@@ -22437,34 +22437,54 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
         }
       ) })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { position: "relative", overflow: "hidden", zIndex: 0, background: "#000", padding: "0" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "repeat(2,1fr)", minHeight: "550px" }, className: "hero-split", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "80px 8% 80px 8%", display: "flex", flexDirection: "column", justifyContent: "center" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(32px,4.5vw,54px)", fontWeight: 300, lineHeight: 1.1, marginBottom: 20, color: "#fff", letterSpacing: -1.5 }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { position: "relative", overflow: "hidden", zIndex: 0, background: "#fff", padding: "0", borderTop: "1px solid #E8E4DC" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", minHeight: "600px" }, className: "hero-split", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "100px 10% 100px 8%", display: "flex", flexDirection: "column", justifyContent: "center", background: "#fff", zIndex: 2 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "#888", fontSize: 10, letterSpacing: 4, textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 16, fontWeight: 600 }, children: "Our Heritage" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(36px,4.5vw,54px)", fontWeight: 300, lineHeight: 1.1, marginBottom: 28, color: "#111", letterSpacing: -1 }, children: [
           "The Art of Arabic &",
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { style: { color: "#B8922A", fontStyle: "italic" }, children: "French Perfumery" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "rgba(255,255,255,.6)", lineHeight: 1.85, fontSize: 14, marginBottom: 36, maxWidth: 440, fontFamily: "'Montserrat',sans-serif" }, children: "Founded by Mohamed Iqbal Abdul Sattar \u2014 each creation blends the ancient soul of Arabian oud with the precision of French fragrance tradition." }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-gold", style: { borderColor: "#fff", background: "#fff", color: "#000" }, onClick: () => setPage("story"), children: "Meet the Perfumers" }) })
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "#555", lineHeight: 1.8, fontSize: 14, marginBottom: 40, maxWidth: 460, fontFamily: "'Montserrat',sans-serif" }, children: "Founded by Mohamed Iqbal Abdul Sattar \u2014 each creation blends the ancient soul of Arabian oud with the precision of French fragrance tradition. Discover a legacy crafted in every drop." }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          "button",
+          {
+            style: { background: "transparent", color: "#111", border: "1px solid #111", padding: "14px 36px", fontSize: 10, letterSpacing: 2.5, textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", transition: "all .4s ease", width: "max-content" },
+            onMouseEnter: (e) => {
+              e.currentTarget.style.background = "#B8922A";
+              e.currentTarget.style.borderColor = "#B8922A";
+              e.currentTarget.style.color = "#fff";
+            },
+            onMouseLeave: (e) => {
+              e.currentTarget.style.background = "transparent";
+              e.currentTarget.style.borderColor = "#111";
+              e.currentTarget.style.color = "#111";
+            },
+            onClick: () => setPage("story"),
+            children: "Meet the Perfumers"
+          }
+        ) })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "relative", overflow: "hidden", minHeight: "350px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-        "img",
-        {
-          src: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-3.jpg?v=1775636549",
-          alt: "Khadlaj Master Perfumery",
-          style: {
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            position: "absolute",
-            top: 0,
-            left: 0,
-            transition: "transform 0.8s ease"
-          },
-          onMouseEnter: (e) => e.currentTarget.style.transform = "scale(1.05)",
-          onMouseLeave: (e) => e.currentTarget.style.transform = "scale(1)"
-        }
-      ) })
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", overflow: "hidden", minHeight: "450px", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, background: "linear-gradient(to right, #fff 0%, transparent 15%)", zIndex: 1 } }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          "img",
+          {
+            src: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-3.jpg?v=1775636549",
+            alt: "Khadlaj Master Perfumery",
+            style: {
+              width: "100%",
+              height: "100%",
+              objectFit: "contain",
+              objectPosition: "center center",
+              transition: "transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+              padding: "20px"
+            },
+            onMouseEnter: (e) => e.currentTarget.style.transform = "scale(1.03)",
+            onMouseLeave: (e) => e.currentTarget.style.transform = "scale(1)"
+          }
+        )
+      ] })
     ] }) }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { background: "#fff", borderTop: "1px solid #E8E4DC", borderBottom: "1px solid #E8E4DC", padding: "80px 5%", position: "relative", zIndex: 1 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24, textAlign: "center" }, className: "grid-4", children: [
       {
