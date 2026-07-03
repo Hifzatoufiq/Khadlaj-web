@@ -21970,7 +21970,7 @@ var GLOBAL_CSS = `
     .grid-2{grid-template-columns:1fr!important;}
 
     /* Hero adjustments \u2014 tablet */
-    .hero-section { height: auto !important; min-height: unset !important; aspect-ratio: 16 / 9 !important; }
+    .hero-section { height: 60vh !important; min-height: 450px !important; aspect-ratio: unset !important; }
     .hero-text-container { padding: 60px 40px 40px !important; max-width: 100% !important; }
     .hero-headline { font-size: 38px !important; }
   }
@@ -21983,9 +21983,9 @@ var GLOBAL_CSS = `
 
     /* Hero \u2014 mobile phones */
     .hero-section {
-      height: auto !important;
-      min-height: unset !important;
-      aspect-ratio: 16 / 9 !important;
+      height: 75svh !important;
+      min-height: 450px !important;
+      aspect-ratio: unset !important;
     }
     .hero-video { object-position: center center !important; }
     .hero-text-container {
