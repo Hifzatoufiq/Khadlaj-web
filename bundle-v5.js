@@ -22289,33 +22289,36 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
         setPage("product");
       }, onCart: addToCart }, p.id)) })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { padding: "20px 5% 80px", background: "#fff" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }, className: "grid-2", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { padding: "40px 5% 80px", background: "#fff" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 24 }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
         "div",
         {
-          style: { position: "relative", overflow: "hidden", aspectRatio: "16/9", background: "#EBE6E0", cursor: "pointer" },
+          style: { position: "relative", display: "flex", background: "#F7F6F2", overflow: "hidden", cursor: "pointer", minHeight: "340px", borderRadius: 2 },
           onClick: () => setPage("collections"),
           onMouseEnter: (e) => e.currentTarget.querySelector("img").style.transform = "scale(1.05)",
           onMouseLeave: (e) => e.currentTarget.querySelector("img").style.transform = "scale(1)",
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              "img",
-              {
-                src: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-3.jpg?v=1779352383",
-                alt: "Build Your Own Bundle",
-                style: { width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.8s ease" }
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(0,0,0,0.6) 0%, transparent 80%)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-start", padding: "8%" }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "#fff", fontSize: 11, letterSpacing: 3, textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 8, fontWeight: 600 }, children: "Build Your" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { color: "#fff", fontSize: "clamp(28px, 4vw, 46px)", lineHeight: 1.1, marginBottom: 24, fontWeight: 300 }, children: "Own Bundle" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: "1", display: "flex", flexDirection: "column", justifyContent: "center", padding: "12% 8%", zIndex: 2 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "#888", fontSize: 10, letterSpacing: 3, textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 8, fontWeight: 600 }, children: "Build Your" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { color: "#111", fontSize: "clamp(26px, 3.5vw, 42px)", lineHeight: 1.1, marginBottom: 24, fontWeight: 400 }, children: "Own Bundle" }),
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
                 "button",
                 {
-                  style: { background: "#1c1c1c", color: "#fff", border: "none", padding: "14px 32px", fontSize: 10, letterSpacing: 2, textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", borderRadius: 40, transition: "all .3s" },
+                  style: { background: "#1c1c1c", color: "#fff", border: "none", padding: "12px 30px", fontSize: 10, letterSpacing: 2, textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", borderRadius: 40, transition: "all .3s", width: "max-content" },
                   onMouseEnter: (e) => e.currentTarget.style.background = "#B8922A",
                   onMouseLeave: (e) => e.currentTarget.style.background = "#1c1c1c",
                   children: "Create Now"
+                }
+              )
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: "1.2", position: "relative" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, background: "linear-gradient(to right, #F7F6F2 0%, transparent 40%)", zIndex: 1 } }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                "img",
+                {
+                  src: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-3.jpg?v=1779352383",
+                  alt: "Build Your Own Bundle",
+                  style: { width: "100%", height: "100%", objectFit: "cover", objectPosition: "right center", transition: "transform 0.8s ease" }
                 }
               )
             ] })
@@ -22325,31 +22328,34 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
         "div",
         {
-          style: { position: "relative", overflow: "hidden", aspectRatio: "16/9", background: "#EBE6E0", cursor: "pointer" },
+          style: { position: "relative", display: "flex", flexDirection: "row-reverse", background: "#F7F6F2", overflow: "hidden", cursor: "pointer", minHeight: "340px", borderRadius: 2 },
           onClick: () => {
             setPage("collections");
           },
           onMouseEnter: (e) => e.currentTarget.querySelector("img").style.transform = "scale(1.05)",
           onMouseLeave: (e) => e.currentTarget.querySelector("img").style.transform = "scale(1)",
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              "img",
-              {
-                src: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-3.jpg?v=1779352739",
-                alt: "Handpicked Gift Sets",
-                style: { width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.8s ease" }
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "absolute", inset: 0, background: "linear-gradient(to left, rgba(0,0,0,0.6) 0%, transparent 80%)", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-end", padding: "8%", textAlign: "right" }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "#fff", fontSize: 11, letterSpacing: 3, textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 8, fontWeight: 600 }, children: "Handpicked" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { color: "#fff", fontSize: "clamp(28px, 4vw, 46px)", lineHeight: 1.1, marginBottom: 24, fontWeight: 300 }, children: "Gift Sets" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: "1", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "flex-end", textAlign: "right", padding: "12% 8%", zIndex: 2 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "#888", fontSize: 10, letterSpacing: 3, textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 8, fontWeight: 600 }, children: "Handpicked" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { color: "#111", fontSize: "clamp(26px, 3.5vw, 42px)", lineHeight: 1.1, marginBottom: 24, fontWeight: 400 }, children: "Gift Sets" }),
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
                 "button",
                 {
-                  style: { background: "#1c1c1c", color: "#fff", border: "none", padding: "14px 32px", fontSize: 10, letterSpacing: 2, textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", borderRadius: 40, transition: "all .3s" },
+                  style: { background: "#1c1c1c", color: "#fff", border: "none", padding: "12px 30px", fontSize: 10, letterSpacing: 2, textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", borderRadius: 40, transition: "all .3s", width: "max-content" },
                   onMouseEnter: (e) => e.currentTarget.style.background = "#B8922A",
                   onMouseLeave: (e) => e.currentTarget.style.background = "#1c1c1c",
                   children: "Shop Now"
+                }
+              )
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: "1.2", position: "relative" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, background: "linear-gradient(to left, #F7F6F2 0%, transparent 40%)", zIndex: 1 } }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                "img",
+                {
+                  src: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-3.jpg?v=1779352739",
+                  alt: "Handpicked Gift Sets",
+                  style: { width: "100%", height: "100%", objectFit: "cover", objectPosition: "left center", transition: "transform 0.8s ease" }
                 }
               )
             ] })
