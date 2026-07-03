@@ -22537,82 +22537,82 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
           }
         )
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "repeat(6,1fr)", gridTemplateRows: "auto", gap: 3 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { gridColumn: "1/3", gridRow: "1/3", position: "relative", overflow: "hidden", cursor: "pointer", background: "#F5F3EF" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mosaic-wrap", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mosaic-item mosaic-large-left", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             "img",
             {
               src: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-3.jpg?v=1775636549",
               alt: "Ihthiraam",
               loading: "lazy",
-              style: { width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", transition: "transform .6s ease" },
+              className: "mosaic-img",
               onMouseEnter: (e) => e.currentTarget.style.transform = "scale(1.06)",
               onMouseLeave: (e) => e.currentTarget.style.transform = "scale(1)"
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "absolute", bottom: 0, left: 0, right: 0, padding: "20px", background: "linear-gradient(to top,rgba(0,0,0,.7),transparent)" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mosaic-overlay", children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "#B8922A", fontSize: 8, letterSpacing: 2.5, textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 3 }, children: "Master Perfumery" }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "disp", style: { color: "#fff", fontSize: 18, fontWeight: 300 }, children: "Ihthiraam" })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { gridColumn: "3/5", gridRow: "1/2", position: "relative", overflow: "hidden", cursor: "pointer", background: "#F5F3EF" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mosaic-item mosaic-wide-top", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             "img",
             {
               src: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/IntoxicateMystique.3.png?v=1772518819",
               alt: "Intoxicate Mystique",
               loading: "lazy",
-              style: { width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", transition: "transform .6s ease", aspectRatio: "1/1" },
+              className: "mosaic-img",
               onMouseEnter: (e) => e.currentTarget.style.transform = "scale(1.06)",
               onMouseLeave: (e) => e.currentTarget.style.transform = "scale(1)"
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", bottom: 0, left: 0, right: 0, padding: "14px 16px", background: "linear-gradient(to top,rgba(0,0,0,.7),transparent)" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "disp", style: { color: "#fff", fontSize: 15, fontWeight: 300 }, children: "Intoxicate Mystique" }) })
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mosaic-overlay", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "disp", style: { color: "#fff", fontSize: 15, fontWeight: 300 }, children: "Intoxicate Mystique" }) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { gridColumn: "5/7", gridRow: "1/3", position: "relative", overflow: "hidden", cursor: "pointer", background: "#F5F3EF" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mosaic-item mosaic-tall-right", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             "img",
             {
               src: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Panache_1_jpg_c97c705a-aebf-4bf9-a621-f11b565e765d.jpg?v=1771333282",
               alt: "Angel Dust",
               loading: "lazy",
-              style: { width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", transition: "transform .6s ease" },
+              className: "mosaic-img",
               onMouseEnter: (e) => e.currentTarget.style.transform = "scale(1.06)",
               onMouseLeave: (e) => e.currentTarget.style.transform = "scale(1)"
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "absolute", bottom: 0, left: 0, right: 0, padding: "20px", background: "linear-gradient(to top,rgba(0,0,0,.7),transparent)" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mosaic-overlay", children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "#B8922A", fontSize: 8, letterSpacing: 2.5, textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 3 }, children: "Master Perfumery" }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "disp", style: { color: "#fff", fontSize: 18, fontWeight: 300 }, children: "Angel Dust" })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { gridColumn: "3/4", gridRow: "2/3", position: "relative", overflow: "hidden", cursor: "pointer", background: "#F5F3EF" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mosaic-item mosaic-small-1", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             "img",
             {
               src: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ONYX-03.jpg?v=1762324228",
               alt: "Onyx Gold",
               loading: "lazy",
-              style: { width: "100%", height: "100%", objectFit: "cover", aspectRatio: "1/1", transition: "transform .6s ease" },
+              className: "mosaic-img",
               onMouseEnter: (e) => e.currentTarget.style.transform = "scale(1.06)",
               onMouseLeave: (e) => e.currentTarget.style.transform = "scale(1)"
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", bottom: 0, left: 0, right: 0, padding: "12px 14px", background: "linear-gradient(to top,rgba(0,0,0,.7),transparent)" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "disp", style: { color: "#fff", fontSize: 13, fontWeight: 300 }, children: "Onyx Gold" }) })
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mosaic-overlay", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "disp", style: { color: "#fff", fontSize: 13, fontWeight: 300 }, children: "Onyx Gold" }) })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { gridColumn: "4/5", gridRow: "2/3", position: "relative", overflow: "hidden", cursor: "pointer", background: "#F5F3EF" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mosaic-item mosaic-small-2", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             "img",
             {
               src: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/shiyaaka-snow.png?v=1781615422",
               alt: "Shiyaaka Snow",
               loading: "lazy",
-              style: { width: "100%", height: "100%", objectFit: "cover", aspectRatio: "1/1", transition: "transform .6s ease" },
+              className: "mosaic-img",
               onMouseEnter: (e) => e.currentTarget.style.transform = "scale(1.06)",
               onMouseLeave: (e) => e.currentTarget.style.transform = "scale(1)"
             }
           ),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", bottom: 0, left: 0, right: 0, padding: "12px 14px", background: "linear-gradient(to top,rgba(0,0,0,.7),transparent)" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "disp", style: { color: "#fff", fontSize: 13, fontWeight: 300 }, children: "Shiyaaka Snow" }) })
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "mosaic-overlay", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "disp", style: { color: "#fff", fontSize: 13, fontWeight: 300 }, children: "Shiyaaka Snow" }) })
         ] }),
         [
           { src: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/saraya_3.png?v=1781332291", name: "Saraya" },
@@ -22621,14 +22621,15 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
           { src: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Qarar-3.jpg?v=1775637258", name: "Qarar" },
           { src: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Zayan_Silver-3.jpg?v=1776430400", name: "Zayaan Silver" },
           { src: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Icon.1.jpg?v=1773206615", name: "Icon" }
-        ].map((item, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { gridColumn: `${i + 1}/${i + 2}`, gridRow: "3/4", position: "relative", overflow: "hidden", cursor: "pointer", background: "#F5F3EF" }, children: [
+        ].map((item, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "mosaic-item", style: { gridColumn: typeof window !== "undefined" && window.innerWidth <= 900 ? "1 / -1" : `${i + 1}/${i + 2}`, gridRow: typeof window !== "undefined" && window.innerWidth <= 900 ? "auto" : "3/4" }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             "img",
             {
               src: item.src,
               alt: item.name,
               loading: "lazy",
-              style: { width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", aspectRatio: "1/1", transition: "transform .6s ease" },
+              className: "mosaic-img",
+              style: { padding: "12px" },
               onMouseEnter: (e) => e.currentTarget.style.transform = "scale(1.08)",
               onMouseLeave: (e) => e.currentTarget.style.transform = "scale(1)"
             }

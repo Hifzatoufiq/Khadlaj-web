@@ -1,6 +1,6 @@
 import re
 
-with open("khadlaj-perfumes (1).jsx", "r") as f:
+with open("khadlaj-perfumes (1).jsx", "r", encoding="utf-8") as f:
     content = f.read()
 
 # Replace the start of the mosaic wrapper
@@ -60,5 +60,5 @@ content = content.replace(
 )
 
 
-with open("khadlaj-perfumes (1).jsx", "w") as f:
+with open("khadlaj-perfumes (1).jsx", "w", encoding="utf-8") as f:
     f.write(content)
