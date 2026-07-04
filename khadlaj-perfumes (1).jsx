@@ -418,6 +418,7 @@ function ProductCard({ p, onView }){
         </div>
       </div>
     </div>
+    </CountryContext.Provider>
   );
 }
 function SectionHeader({ eyebrow, title, sub, light=false }){
@@ -428,6 +429,7 @@ function SectionHeader({ eyebrow, title, sub, light=false }){
       {sub && <p style={{color: light ? "rgba(255,255,255,0.7)" : "#777",fontSize:14,maxWidth:500,margin:"0 auto",lineHeight:1.8,fontFamily:"'Montserrat',sans-serif"}}>{sub}</p>}
       <div className="gold-line" style={{marginTop:22}}/>
     </div>
+    </CountryContext.Provider>
   );
 }
 
@@ -495,6 +497,7 @@ function TikTokCard({ t }) {
         </div>
       </div>
     </div>
+    </CountryContext.Provider>
   );
 }
 
@@ -1072,6 +1075,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }){
         )}
       </div>
     </div>
+    </CountryContext.Provider>
   );
 }
 
@@ -1100,6 +1104,7 @@ function Accordion({ title, children, defaultOpen=false }) {
         </div>
       )}
     </div>
+    </CountryContext.Provider>
   );
 }
 
@@ -1256,6 +1261,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
         </div>
       )}
     </div>
+    </CountryContext.Provider>
   );
 }
 
@@ -1325,6 +1331,7 @@ function GiftsPage({ addToCart, setViewProduct, setPage }){
         </div>
       </section>
     </div>
+    </CountryContext.Provider>
   );
 }
 
@@ -1457,6 +1464,7 @@ function StoryPage(){
         </div>
       </div>
     </div>
+    </CountryContext.Provider>
   );
 }
 
@@ -1601,6 +1609,7 @@ function ContactPage(){
         </div>
       </div>
     </div>
+    </CountryContext.Provider>
   );
 }
 
@@ -1946,7 +1955,6 @@ export default function App(){
       <Navbar page={page} setPage={setPage} cartCount={cartCount}/>
       <main>{renderPage()}</main>
       <Footer setPage={setPage}/>
-    </CountryContext.Provider>
 
       {/* ── Floating Shop button ── */}
       {page==="home" && (
@@ -2019,6 +2027,7 @@ export default function App(){
         </div>
       )}
     </div>
+    </CountryContext.Provider>
   );
 }
 
