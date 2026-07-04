@@ -21877,7 +21877,7 @@ var SOCIAL_LINKS = {
 };
 var CATEGORIES = ["All", "Best Sellers", "New", "For Him", "For Her", "Unisex", "Atyaab", "Lafede", "Master Perfumery"];
 var GLOBAL_CSS = `
-  @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;500;600;700&display=swap');
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
   body{background:#fff;color:#000;font-family:'Montserrat',sans-serif;}
@@ -21886,7 +21886,7 @@ var GLOBAL_CSS = `
   ::-webkit-scrollbar-thumb{background:#000;}
   .hide-scrollbar::-webkit-scrollbar { display: none; }
   .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-  .disp{font-family:'Cinzel',serif;}
+  .disp{font-family:'Trajan Pro', 'Cinzel', serif;}
   .mono{font-family:'Montserrat',sans-serif;}
 
   /* YSL-style primary button: solid black */
@@ -23399,7 +23399,7 @@ function Navbar({ page, setPage, cartCount }) {
             value: searchQuery,
             onChange: (e) => handleSearch(e.target.value),
             placeholder: "Search fragrances, collections, notes...",
-            style: { flex: 1, border: "none", outline: "none", fontSize: "clamp(16px,2.5vw,26px)", fontFamily: "'Cinzel',serif", fontWeight: 300, color: "#000", background: "transparent" }
+            style: { flex: 1, border: "none", outline: "none", fontSize: "clamp(16px,2.5vw,26px)", fontFamily: "'Trajan Pro', 'Cinzel', serif", fontWeight: 300, color: "#000", background: "transparent" }
           }
         ),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
