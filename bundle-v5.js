@@ -21752,6 +21752,11 @@ var COUNTRIES = [
   { name: "Saudi", flagUrl: "https://flagcdn.com/w40/sa.png", domain: "khadlaj.sa" },
   { name: "Kuwait", flagUrl: "https://flagcdn.com/w40/kw.png", domain: "khadlaj.kw" },
   { name: "Bahrain", flagUrl: "https://flagcdn.com/w40/bh.png", domain: "khadlaj.bh" },
+  { name: "India", flagUrl: "https://flagcdn.com/w40/in.png", domain: "khadlaj.in" },
+  { name: "Egypt", flagUrl: "https://flagcdn.com/w40/eg.png", domain: "khadlaj.eg" },
+  { name: "Malaysia", flagUrl: "https://flagcdn.com/w40/my.png", domain: "khadlaj.my" },
+  { name: "UK", flagUrl: "https://flagcdn.com/w40/gb.png", domain: "khadlaj.co.uk" },
+  { name: "USA", flagUrl: "https://flagcdn.com/w40/us.png", domain: "khadlaj.us" },
   { name: "Global", flagUrl: "global", domain: "khadlaj-perfumes.com" }
 ];
 var SCENT_RIBBON = [
@@ -23483,29 +23488,46 @@ function Navbar({ page, setPage, cartCount }) {
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "0 5%" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center", minHeight: 80, padding: "12px 0", gap: 24 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: 6, alignItems: "center" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: 4, alignItems: "center" }, className: "hide-mob", children: COUNTRIES.map((c) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: 4, alignItems: "center" }, className: "hide-mob", children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
               "div",
               {
-                style: { display: "flex", alignItems: "center", gap: 5, padding: "5px 10px", background: "transparent", cursor: "pointer", transition: "all .25s ease", opacity: 0.75 },
+                style: { position: "relative" },
                 onMouseEnter: (e) => {
-                  e.currentTarget.style.opacity = "1";
-                  e.currentTarget.style.transform = "scale(1.05)";
+                  e.currentTarget.querySelector(".country-dropdown").style.opacity = "1";
+                  e.currentTarget.querySelector(".country-dropdown").style.visibility = "visible";
+                  e.currentTarget.querySelector(".country-dropdown").style.transform = "translateY(0)";
                 },
                 onMouseLeave: (e) => {
-                  e.currentTarget.style.opacity = "0.75";
-                  e.currentTarget.style.transform = "scale(1)";
+                  e.currentTarget.querySelector(".country-dropdown").style.opacity = "0";
+                  e.currentTarget.querySelector(".country-dropdown").style.visibility = "hidden";
+                  e.currentTarget.querySelector(".country-dropdown").style.transform = "translateY(10px)";
                 },
                 children: [
-                  c.flagUrl === "global" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "15", height: "15", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", style: { color: "#111" }, children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "12", cy: "12", r: "10" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "2", y1: "12", x2: "22", y2: "12" }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" })
-                  ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: c.flagUrl, alt: "", style: { width: 20, height: 14, objectFit: "cover", borderRadius: 1 } }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: "10.5px", color: "#111", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase" }, children: c.name })
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 6, padding: "8px 12px", cursor: "pointer", transition: "all .2s ease" }, children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: "https://flagcdn.com/w40/ae.png", alt: "UAE", style: { width: 20, height: 14, objectFit: "cover", borderRadius: 1 } }),
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: "10.5px", color: "#111", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase" }, children: "UAE" }),
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", { width: "10", height: "10", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M6 9l6 6 6-6" }) })
+                  ] }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "country-dropdown", style: { position: "absolute", top: "100%", left: 0, background: "#fff", boxShadow: "0 12px 40px rgba(0,0,0,0.12)", borderRadius: 4, padding: "12px 0", display: "flex", flexDirection: "column", minWidth: 160, opacity: 0, visibility: "hidden", transform: "translateY(10px)", transition: "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)", zIndex: 200, border: "1px solid #F0F0F0" }, children: COUNTRIES.map((c) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+                    "div",
+                    {
+                      style: { display: "flex", alignItems: "center", gap: 10, padding: "10px 20px", cursor: "pointer", transition: "background .2s" },
+                      onMouseEnter: (e) => e.currentTarget.style.background = "#F9F9F9",
+                      onMouseLeave: (e) => e.currentTarget.style.background = "#fff",
+                      children: [
+                        c.flagUrl === "global" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", stroke: "#555", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: [
+                          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "12", cy: "12", r: "10" }),
+                          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "2", y1: "12", x2: "22", y2: "12" }),
+                          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" })
+                        ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: c.flagUrl, alt: "", style: { width: 20, height: 14, objectFit: "cover", borderRadius: 1, boxShadow: "0 0 0 1px rgba(0,0,0,.05)" } }),
+                        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: "10px", color: "#333", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase", whiteSpace: "nowrap" }, children: c.name })
+                      ]
+                    },
+                    c.name
+                  )) })
                 ]
-              },
-              c.name
-            )) }),
+              }
+            ) }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "mob-search-left", style: { cursor: "pointer", display: "flex", alignItems: "center" }, onClick: () => setSearchOpen(true), children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "#111", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", children: [
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "11", cy: "11", r: "8" }),
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "21", y1: "21", x2: "16.65", y2: "16.65" })
