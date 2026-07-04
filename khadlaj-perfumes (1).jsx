@@ -27,17 +27,17 @@ const C = {
    DATA
 ═══════════════════════════════════════════════════════════════ */
 const COUNTRIES = [
-  { name:"UAE",      flagUrl:"https://flagcdn.com/w40/ae.png", domain:"khadlaj.ae" },
-  { name:"Saudi",    flagUrl:"https://flagcdn.com/w40/sa.png", domain:"khadlaj.sa" },
-  { name:"Kuwait",   flagUrl:"https://flagcdn.com/w40/kw.png", domain:"khadlaj.kw" },
-  { name:"Bahrain",  flagUrl:"https://flagcdn.com/w40/bh.png", domain:"khadlaj.bh" },
-  { name:"India",    flagUrl:"https://flagcdn.com/w40/in.png", domain:"khadlaj.in" },
-  { name:"Egypt",    flagUrl:"https://flagcdn.com/w40/eg.png", domain:"khadlaj.eg" },
-  { name:"Malaysia", flagUrl:"https://flagcdn.com/w40/my.png", domain:"khadlaj.my" },
-  { name:"UK",       flagUrl:"https://flagcdn.com/w40/gb.png", domain:"khadlaj.co.uk" },
-  { name:"USA",      flagUrl:"https://flagcdn.com/w40/us.png", domain:"khadlaj.us" },
-  { name:"Global",   flagUrl:"global", domain:"khadlaj-perfumes.com" },
+  { name:"UAE",      flagUrl:"https://flagcdn.com/w40/ae.png", currency:"AED", rate:1 },
+  { name:"Kuwait",   flagUrl:"https://flagcdn.com/w40/kw.png", currency:"KWD", rate:0.08 },
+  { name:"India",    flagUrl:"https://flagcdn.com/w40/in.png", currency:"INR", rate:22.5 },
+  { name:"Egypt",    flagUrl:"https://flagcdn.com/w40/eg.png", currency:"EGP", rate:13.2 },
+  { name:"Malaysia", flagUrl:"https://flagcdn.com/w40/my.png", currency:"MYR", rate:1.25 },
+  { name:"UK",       flagUrl:"https://flagcdn.com/w40/gb.png", currency:"GBP", rate:0.21 },
+  { name:"USA",      flagUrl:"https://flagcdn.com/w40/us.png", currency:"USD", rate:0.27 },
+  { name:"Global",   flagUrl:"global", currency:"USD", rate:0.27 },
 ];
+const CountryContext = React.createContext();
+
 
 const PAYMENTS = ["Visa","Mastercard","Apple Pay","Google Pay","Tabby","Tamara","PayTabs","PayPal"];
 
@@ -414,7 +414,7 @@ function ProductCard({ p, onView }){
             <span style={{color:"#C8A96E", fontSize:11, letterSpacing:1}}>{"★".repeat(5)}</span>
             <span style={{fontSize:9, color:"#aaa", fontFamily:"'Montserrat',sans-serif"}}>(905)</span>
           </div>
-          <p style={{fontSize:15, fontWeight:700, color:"#000", fontFamily:"'Montserrat',sans-serif"}}>AED {p.price}</p>
+          <p style={{fontSize:15, fontWeight:700, color:"#000", fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(p.price)}</p>
         </div>
       </div>
     </div>
@@ -1661,7 +1661,7 @@ function Navbar({ page, setPage, cartCount }){
                       <div style={{padding:"10px 6px 14px"}}>
                         <p style={{fontSize:9,color:"#B8922A",letterSpacing:3,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:3}}>{p.col}</p>
                         <p style={{fontSize:12,fontWeight:700,color:"#000",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:4,lineHeight:1.2}}>{p.name}</p>
-                        <p style={{fontSize:13,fontWeight:700,color:"#000",fontFamily:"'Montserrat',sans-serif"}}>AED {p.price}</p>
+                        <p style={{fontSize:13,fontWeight:700,color:"#000",fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(p.price)}</p>
                       </div>
                     </div>
                   ))}
@@ -1699,37 +1699,27 @@ function Navbar({ page, setPage, cartCount }){
           <div style={{display:"grid",gridTemplateColumns:"1fr auto 1fr",alignItems:"center",minHeight:80,padding:"12px 0",gap:24}}>
             {/* Left utility */}
             <div style={{display:"flex",gap:6,alignItems:"center"}}>
-              <div style={{display:"flex",gap:4,alignItems:"center"}} className="hide-mob">
-                
-                <div style={{position:"relative"}} 
-                     onMouseEnter={e=>{e.currentTarget.querySelector('.country-dropdown').style.opacity='1'; e.currentTarget.querySelector('.country-dropdown').style.visibility='visible'; e.currentTarget.querySelector('.country-dropdown').style.transform='translateY(0)';}}
-                     onMouseLeave={e=>{e.currentTarget.querySelector('.country-dropdown').style.opacity='0'; e.currentTarget.querySelector('.country-dropdown').style.visibility='hidden'; e.currentTarget.querySelector('.country-dropdown').style.transform='translateY(10px)';}}>
-                  
-                  {/* Active Selection */}
-                  <div style={{display:"flex",alignItems:"center",gap:6,padding:"8px 12px",cursor:"pointer",transition:"all .2s ease"}}>
-                    <img src="https://flagcdn.com/w40/ae.png" alt="UAE" style={{width:20,height:14,objectFit:"cover",borderRadius:1}} />
-                    <span style={{fontSize:"10.5px",color:"#111",fontFamily:"'Montserrat',sans-serif",fontWeight:600,letterSpacing:"1px",textTransform:"uppercase"}}>UAE</span>
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M6 9l6 6 6-6"/></svg>
-                  </div>
-                  
-                  {/* Dropdown Menu */}
-                  <div className="country-dropdown" style={{position:"absolute",top:"100%",left:0,background:"#fff",boxShadow:"0 12px 40px rgba(0,0,0,0.12)",borderRadius:4,padding:"12px 0",display:"flex",flexDirection:"column",minWidth:160,opacity:0,visibility:"hidden",transform:"translateY(10px)",transition:"all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",zIndex:200,border:"1px solid #F0F0F0"}}>
-                    {COUNTRIES.map(c=>(
-                      <div key={c.name} style={{display:"flex",alignItems:"center",gap:10,padding:"10px 20px",cursor:"pointer",transition:"background .2s"}}
-                           onMouseEnter={e=>e.currentTarget.style.background="#F9F9F9"}
-                           onMouseLeave={e=>e.currentTarget.style.background="#fff"}>
-                        {c.flagUrl === "global" ? (
-                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                        ) : (
-                          <img src={c.flagUrl} alt="" style={{width:20,height:14,objectFit:"cover",borderRadius:1,boxShadow:"0 0 0 1px rgba(0,0,0,.05)"}} />
-                        )}
-                        <span style={{fontSize:"10px",color:"#333",fontFamily:"'Montserrat',sans-serif",fontWeight:600,letterSpacing:"1px",textTransform:"uppercase",whiteSpace:"nowrap"}}>{c.name}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                </div>
-
+              <div style={{display:"flex",gap:2,alignItems:"center"}} className="hide-mob">
+                <CountryContext.Consumer>
+                  {({ activeCountry, setActiveCountry }) => (
+                    <>
+                      {COUNTRIES.map(c=>(
+                        <div key={c.name} 
+                             onClick={() => setActiveCountry(c)}
+                             style={{display:"flex",alignItems:"center",gap:4,padding:"6px 8px",cursor:"pointer",transition:"all .2s ease",opacity:activeCountry.name===c.name ? 1 : 0.5}}
+                             onMouseEnter={e=>e.currentTarget.style.opacity="1"}
+                             onMouseLeave={e=>{if(activeCountry.name!==c.name) e.currentTarget.style.opacity="0.5"}}>
+                          {c.flagUrl === "global" ? (
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{color:"#111"}}><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                          ) : (
+                            <img src={c.flagUrl} alt="" style={{width:16,height:11,objectFit:"cover",borderRadius:1}} />
+                          )}
+                          <span style={{fontSize:"9px",color:"#111",fontFamily:"'Montserrat',sans-serif",fontWeight:600,letterSpacing:"1px",textTransform:"uppercase"}}>{c.name}</span>
+                        </div>
+                      ))}
+                    </>
+                  )}
+                </CountryContext.Consumer>
               </div>
               <span className="mob-search-left" style={{cursor:"pointer",display:"flex",alignItems:"center"}} onClick={()=>setSearchOpen(true)}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -1956,6 +1946,7 @@ export default function App(){
       <Navbar page={page} setPage={setPage} cartCount={cartCount}/>
       <main>{renderPage()}</main>
       <Footer setPage={setPage}/>
+    </CountryContext.Provider>
 
       {/* ── Floating Shop button ── */}
       {page==="home" && (
