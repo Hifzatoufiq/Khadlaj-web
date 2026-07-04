@@ -22059,16 +22059,16 @@ function ProductCard({ p, onView }) {
           textTransform: "uppercase",
           fontFamily: "'Montserrat',sans-serif"
         }, children: p.badge }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", aspectRatio: "1/1", overflow: "hidden", background: "transparent", display: "flex", alignItems: "center", justifyContent: "center" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", width: "100%", aspectRatio: "1/1", overflow: "hidden", background: "transparent" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", padding: "12px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             "img",
             {
               src: p.img,
               alt: p.name,
               loading: "lazy",
               style: {
-                width: "95%",
-                height: "95%",
+                width: "100%",
+                height: "100%",
                 objectFit: "contain",
                 mixBlendMode: "multiply",
                 filter: "contrast(1.05) brightness(1.04)",
@@ -22076,7 +22076,7 @@ function ProductCard({ p, onView }) {
                 transform: hov ? "scale(1.08)" : "scale(1)"
               }
             }
-          ),
+          ) }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
             position: "absolute",
             bottom: 0,
@@ -22293,7 +22293,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
         },
         c
       )) }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24, alignItems: "start" }, className: "grid-4", children: filtered.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24 }, className: "grid-4", children: filtered.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
         setViewProduct(prod);
         setPage("product");
       }, onCart: addToCart }, p.id)) })
@@ -22867,7 +22867,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }) {
         filtered.length,
         " fragrances found"
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24, alignItems: "start" }, className: "grid-4", children: filtered.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24 }, className: "grid-4", children: filtered.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
         setViewProduct(prod);
         setPage("product");
       }, onCart: addToCart }, p.id)) }),
@@ -22938,7 +22938,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }) {
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { margin: "0 12px" }, children: "|" }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: product.name })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { maxWidth: 1440, margin: "0 auto", padding: "40px 5% 120px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px, 8vw, 100px)", alignItems: "start" }, className: "grid-2", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { maxWidth: 1440, margin: "0 auto", padding: "40px 5% 120px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px, 8vw, 100px)" }, className: "grid-2", children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", flexDirection: "column", gap: 16 }, children: thumbs.map((t, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: "100%", aspectRatio: "1/1", display: "flex", alignItems: "center", justifyContent: "center", background: "transparent" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: t, alt: `${product.name} - ${i + 1}`, style: { width: "85%", height: "85%", objectFit: "contain", mixBlendMode: "multiply", filter: "contrast(1.05) brightness(1.04)", transition: "opacity .3s" } }) }, i)) }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { paddingTop: 8, maxWidth: 540, position: "sticky", top: 120, alignSelf: "start" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 10, letterSpacing: 3, color: "#111", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 16 }, children: "Khadlaj Perfumes" }),
@@ -23017,7 +23017,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }) {
     ] }) }),
     related.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "0 5% 104px" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeader, { eyebrow: "\u25C8 \xB7 Handpicked For You", title: "You May Also Like", light: true }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 32, alignItems: "start" }, className: "grid-3", children: related.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 32 }, className: "grid-3", children: related.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
         if (setViewProduct) {
           setViewProduct(prod);
           setPage("product");
@@ -23072,7 +23072,7 @@ function GiftsPage({ addToCart, setViewProduct, setPage }) {
           " gift sets available"
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24, alignItems: "start" }, className: "grid-4", children: giftProducts.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24 }, className: "grid-4", children: giftProducts.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
         if (setViewProduct) {
           setViewProduct(prod);
           setPage("product");

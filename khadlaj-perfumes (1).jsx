@@ -363,16 +363,18 @@ function ProductCard({ p, onView }){
           fontFamily:"'Montserrat',sans-serif",
         }}>{p.badge}</span>
       )}
-      <div style={{ position:"relative", aspectRatio:"1/1", overflow:"hidden", background:"transparent", display:"flex", alignItems:"center", justifyContent:"center" }}>
-        <img
-          src={p.img} alt={p.name} loading="lazy"
-          style={{
-            width:"95%", height:"95%", objectFit:"contain",
-            mixBlendMode:"multiply", filter:"contrast(1.05) brightness(1.04)",
-            transition:"transform .8s cubic-bezier(0.25, 1, 0.25, 1)",
-            transform: hov ? "scale(1.08)" : "scale(1)",
-          }}
-        />
+      <div style={{ position:"relative", width:"100%", aspectRatio:"1/1", overflow:"hidden", background:"transparent" }}>
+        <div style={{position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", padding:"12px"}}>
+          <img
+            src={p.img} alt={p.name} loading="lazy"
+            style={{
+              width:"100%", height:"100%", objectFit:"contain",
+              mixBlendMode:"multiply", filter:"contrast(1.05) brightness(1.04)",
+              transition:"transform .8s cubic-bezier(0.25, 1, 0.25, 1)",
+              transform: hov ? "scale(1.08)" : "scale(1)",
+            }}
+          />
+        </div>
         <div style={{
           position:"absolute", bottom:0, left:0, right:0,
           padding:"15px", display:"flex", justifyContent:"center",
@@ -575,7 +577,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           ))}
         </div>
 
-        <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:24,alignItems:"start"}} className="grid-4">
+        <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:24,}} className="grid-4">
           {filtered.map(p=>(
             <ProductCard key={p.id} p={p} onView={(prod)=>{setViewProduct(prod);setPage("product");}} onCart={addToCart}/>
           ))}
@@ -1056,7 +1058,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }){
           textTransform:"uppercase",
         }}>{filtered.length} fragrances found</p>
 
-        <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:24,alignItems:"start"}} className="grid-4">
+        <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:24,}} className="grid-4">
           {filtered.map(p=>(
             <ProductCard key={p.id} p={p} onView={(prod)=>{setViewProduct(prod);setPage("product");}} onCart={addToCart}/>
           ))}
@@ -1141,7 +1143,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
 
       {/* ── Main Product Section ── */}
       <div style={{maxWidth:1440, margin:"0 auto", padding:"40px 5% 120px"}}>
-        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"clamp(40px, 8vw, 100px)",alignItems:"start"}} className="grid-2">
+        <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"clamp(40px, 8vw, 100px)",}} className="grid-2">
           
           {/* ── Left: Image Gallery (Scrollable Stack) ── */}
           <div style={{display:"flex", flexDirection:"column", gap:16}}>
@@ -1246,7 +1248,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
       {related.length>0 && (
         <div style={{padding:"0 5% 104px"}}>
           <SectionHeader eyebrow="◈ · Handpicked For You" title="You May Also Like" light/>
-          <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:32,alignItems:"start"}} className="grid-3">
+          <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:32,}} className="grid-3">
             {related.map(p=>(
               <ProductCard key={p.id} p={p} onView={(prod)=>{if(setViewProduct){setViewProduct(prod);setPage("product");}}} onCart={addToCart}/>
             ))}
@@ -1302,7 +1304,7 @@ function GiftsPage({ addToCart, setViewProduct, setPage }){
           <p style={{fontSize:12,color:"#888",fontFamily:"'Montserrat',sans-serif"}}>{giftProducts.length} gift sets available</p>
         </div>
 
-        <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:24,alignItems:"start"}} className="grid-4">
+        <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:24,}} className="grid-4">
           {giftProducts.map(p=>(
             <ProductCard key={p.id} p={p} onView={(prod)=>{if(setViewProduct){setViewProduct(prod);setPage("product");}}} onCart={addToCart}/>
           ))}
