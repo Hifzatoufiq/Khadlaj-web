@@ -1108,7 +1108,7 @@ function Accordion({ title, children, defaultOpen=false }) {
         </div>
       )}
     </div>
-);
+  );
 }
 
 function ProductPage({ product, addToCart, setPage, setViewProduct }){
@@ -1266,7 +1266,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
         </div>
       )}
     </div>
-);
+  );
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -2031,7 +2031,8 @@ export default function App(){
         </div>
       )}
     </div>
-);
+    </CountryContext.Provider>
+  );
 }
 
 

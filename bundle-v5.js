@@ -22027,6 +22027,8 @@ function StarRating({ n = 5, color = C.brass }) {
 }
 function ProductCard({ p, onView }) {
   const [hov, setHov] = (0, import_react.useState)(false);
+  const { activeCountry } = import_react.default.useContext(CountryContext);
+  const formatPrice2 = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
   const notes = p.notes || [];
   const noteColors = ["#C8A96E", "#9C7B50", "#B8866A", "#7A9E8A", "#8B7EAA", "#B06A6A", "#6A8BAA", "#A09060"];
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
@@ -22126,7 +22128,7 @@ function ProductCard({ p, onView }) {
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#C8A96E", fontSize: 11, letterSpacing: 1 }, children: "\u2605".repeat(5) }),
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 9, color: "#aaa", fontFamily: "'Montserrat',sans-serif" }, children: "(905)" })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 15, fontWeight: 700, color: "#000", fontFamily: "'Montserrat',sans-serif" }, children: formatPrice(p.price) })
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 15, fontWeight: 700, color: "#000", fontFamily: "'Montserrat',sans-serif" }, children: formatPrice2(p.price) })
           ] })
         ] })
       ]
@@ -22143,6 +22145,8 @@ function SectionHeader({ eyebrow, title, sub, light = false }) {
 }
 function TikTokCard({ t }) {
   const [hov, setHov] = (0, import_react.useState)(false);
+  const { activeCountry } = import_react.default.useContext(CountryContext);
+  const formatPrice2 = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
     "div",
     {
@@ -22201,10 +22205,7 @@ function TikTokCard({ t }) {
             ] })
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", borderTop: "1px solid rgba(255,255,255,0.15)", paddingTop: 16 }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { style: { fontSize: 16, fontWeight: 700, fontFamily: "'Montserrat',sans-serif", color: "#fff" }, children: [
-              "AED ",
-              t.price?.toFixed(2)
-            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 16, fontWeight: 700, fontFamily: "'Montserrat',sans-serif", color: "#fff" }, children: formatPrice2(t.price) }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontSize: 11, letterSpacing: 2, textTransform: "uppercase", fontWeight: 700, fontFamily: "'Montserrat',sans-serif", display: "flex", alignItems: "center", gap: 6, color: "#fff" }, children: [
               "Shop Now ",
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "\u2192" })
@@ -22688,6 +22689,8 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
   ] });
 }
 function CollectionsPage({ addToCart, setViewProduct, setPage }) {
+  const { activeCountry } = import_react.default.useContext(CountryContext);
+  const formatPrice2 = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
   const [activeCat, setActiveCat] = (0, import_react.useState)("All");
   const [sortBy, setSortBy] = (0, import_react.useState)("default");
   const [priceMax, setPriceMax] = (0, import_react.useState)(800);
@@ -22813,8 +22816,8 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }) {
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: 12, alignItems: "center", flexShrink: 0 }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontSize: 10, color: "#888", letterSpacing: 1, fontFamily: "'Montserrat',sans-serif", whiteSpace: "nowrap" }, children: [
-            "Max AED ",
-            priceMax
+            "Max ",
+            formatPrice2(priceMax)
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             "input",
@@ -22909,6 +22912,8 @@ function Accordion({ title, children, defaultOpen = false }) {
   ] });
 }
 function ProductPage({ product, addToCart, setPage, setViewProduct }) {
+  const { activeCountry } = import_react.default.useContext(CountryContext);
+  const formatPrice2 = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
   const [qty, setQty] = (0, import_react.useState)(1);
   const [added, setAdded] = (0, import_react.useState)(false);
   const [activeImg, setActiveImg] = (0, import_react.useState)(0);
@@ -22945,10 +22950,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }) {
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StarRating, { n: 5, color: "#111" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 13, color: "#555", fontFamily: "'Montserrat',sans-serif", borderBottom: "1px solid #ccc", cursor: "pointer", paddingBottom: 2 }, children: "4.9 rating (55 reviews)" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { style: { fontSize: 24, fontWeight: 400, color: "#111", fontFamily: "'Montserrat',sans-serif", marginBottom: 8 }, children: [
-          "AED ",
-          product.price.toFixed(2)
-        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 24, fontWeight: 400, color: "#111", fontFamily: "'Montserrat',sans-serif", marginBottom: 8 }, children: formatPrice2(product.price) }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 12, color: "#777", fontFamily: "'Montserrat',sans-serif", marginBottom: 40 }, children: "Tax included. Shipping calculated at checkout." }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 40 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 11, letterSpacing: 1.5, textTransform: "uppercase", color: "#111", fontFamily: "'Montserrat',sans-serif", marginBottom: 12, fontWeight: 600 }, children: "Size" }),
@@ -23748,6 +23750,8 @@ function Footer({ setPage }) {
   ] });
 }
 function App() {
+  const [activeCountry, setActiveCountry] = import_react.default.useState(COUNTRIES[0]);
+  const formatPrice2 = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
   const [page, setPage] = (0, import_react.useState)("home");
   const [cartCount, setCartCount] = (0, import_react.useState)(0);
   const [viewProduct, setViewProduct] = (0, import_react.useState)(null);
@@ -23780,7 +23784,7 @@ function App() {
         return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HomePage, { setPage, addToCart, setViewProduct });
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontFamily: "'Montserrat',sans-serif", background: "#fff", color: "#000", minHeight: "100vh", overflowX: "hidden" }, children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CountryContext.Provider, { value: { activeCountry, setActiveCountry }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontFamily: "'Montserrat',sans-serif", background: "#fff", color: "#000", minHeight: "100vh", overflowX: "hidden" }, children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { children: GLOBAL_CSS }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Navbar, { page, setPage, cartCount }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("main", { children: renderPage() }),
@@ -23897,7 +23901,7 @@ function App() {
         )
       }
     )
-  ] });
+  ] }) });
 }
 
 // main.jsx
