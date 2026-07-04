@@ -21974,7 +21974,7 @@ var GLOBAL_CSS = `
     .grid-2{grid-template-columns:1fr!important;}
 
     /* Hero adjustments \u2014 tablet */
-    .hero-section { height: 60vh !important; min-height: 450px !important; aspect-ratio: unset !important; }
+    .hero-section { height: 55vh !important; min-height: 380px !important; aspect-ratio: unset !important; }
     .hero-text-container { padding: 60px 40px 40px !important; max-width: 100% !important; }
     .hero-headline { font-size: 38px !important; }
   }
@@ -21987,8 +21987,8 @@ var GLOBAL_CSS = `
 
     /* Hero \u2014 mobile phones */
     .hero-section {
-      height: 60vh !important;
-      min-height: 400px !important;
+      height: 50vh !important;
+      min-height: 320px !important;
     }
     .hero-video {
       object-fit: cover !important;
@@ -22009,7 +22009,7 @@ var GLOBAL_CSS = `
     .grid-4{grid-template-columns:repeat(2,1fr)!important;}
     .popup-in{grid-template-columns:1fr!important;}
 
-    .hero-section { height: 100svh !important; }
+
     .hero-headline { font-size: 26px !important; letter-spacing: 0 !important; }
     .hero-cta-row { flex-direction: column !important; gap: 8px !important; width: 100% !important; }
     .hero-cta-row button { width: 100% !important; text-align: center !important; justify-content: center !important; }
@@ -22227,7 +22227,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
     return p.col === activeCat;
   }).slice(0, 12);
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { className: "hero-section", style: { position: "relative", width: "100%", height: "100svh", minHeight: "500px", overflow: "hidden", background: "#0a0a0a" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { className: "hero-section", style: { position: "relative", width: "100%", height: "70vh", minHeight: "450px", overflow: "hidden", background: "#0a0a0a" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
         "video",
         {
