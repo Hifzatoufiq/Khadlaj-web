@@ -337,6 +337,8 @@ function StarRating({ n=5, color=C.brass }){
 
 function ProductCard({ p, onView }){
   const [hov, setHov] = useState(false);
+  const { activeCountry } = React.useContext(CountryContext);
+  const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
   const notes = p.notes || [];
   const noteColors = ["#C8A96E","#9C7B50","#B8866A","#7A9E8A","#8B7EAA","#B06A6A","#6A8BAA","#A09060"];
 
@@ -435,6 +437,8 @@ function SectionHeader({ eyebrow, title, sub, light=false }){
 
 function TikTokCard({ t }) {
   const [hov, setHov] = useState(false);
+  const { activeCountry } = React.useContext(CountryContext);
+  const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
   return (
     <div
       onMouseEnter={() => setHov(true)}
@@ -490,7 +494,7 @@ function TikTokCard({ t }) {
         </div>
         
         <div style={{display:"flex", alignItems:"center", justifyContent:"space-between", borderTop:"1px solid rgba(255,255,255,0.15)", paddingTop:16}}>
-          <p style={{fontSize:16, fontWeight:700, fontFamily:"'Montserrat',sans-serif", color:"#fff"}}>AED {t.price?.toFixed(2)}</p>
+          <p style={{fontSize:16, fontWeight:700, fontFamily:"'Montserrat',sans-serif", color:"#fff"}}>{formatPrice(t.price)}</p>
           <span style={{fontSize:11, letterSpacing:2, textTransform:"uppercase", fontWeight:700, fontFamily:"'Montserrat',sans-serif", display:"flex", alignItems:"center", gap:6, color:"#fff"}}>
             Shop Now <span>&rarr;</span>
           </span>
@@ -920,6 +924,8 @@ function HomePage({ setPage, addToCart, setViewProduct }){
    PAGE: COLLECTIONS
 ═══════════════════════════════════════════════════════════════ */
 function CollectionsPage({ addToCart, setViewProduct, setPage }){
+  const { activeCountry } = React.useContext(CountryContext);
+  const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
   const [activeCat, setActiveCat] = useState("All");
   const [sortBy, setSortBy] = useState("default");
   const [priceMax, setPriceMax] = useState(800);
@@ -1033,7 +1039,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }){
         {/* Sort + Price */}
         <div style={{display:"flex",gap:12,alignItems:"center",flexShrink:0}}>
           <div style={{display:"flex",alignItems:"center",gap:8}}>
-            <span style={{fontSize:10,color:"#888",letterSpacing:1,fontFamily:"'Montserrat',sans-serif",whiteSpace:"nowrap"}}>Max AED {priceMax}</span>
+            <span style={{fontSize:10,color:"#888",letterSpacing:1,fontFamily:"'Montserrat',sans-serif",whiteSpace:"nowrap"}}>Max {formatPrice(priceMax)}</span>
             <input type="range" min={50} max={800} value={priceMax} onChange={e=>setPriceMax(+e.target.value)}
               style={{width:90,accentColor:"#000"}}/>
           </div>
@@ -1106,6 +1112,8 @@ function Accordion({ title, children, defaultOpen=false }) {
 }
 
 function ProductPage({ product, addToCart, setPage, setViewProduct }){
+  const { activeCountry } = React.useContext(CountryContext);
+  const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
   const [activeImg, setActiveImg] = useState(0);
@@ -1173,7 +1181,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
              </div>
 
              {/* PRICE */}
-             <p style={{fontSize:24, fontWeight:400, color:"#111", fontFamily:"'Montserrat',sans-serif", marginBottom:8}}>AED {product.price.toFixed(2)}</p>
+             <p style={{fontSize:24, fontWeight:400, color:"#111", fontFamily:"'Montserrat',sans-serif", marginBottom:8}}>{formatPrice(product.price)}</p>
              <p style={{fontSize:12, color:"#777", fontFamily:"'Montserrat',sans-serif", marginBottom:40}}>Tax included. Shipping calculated at checkout.</p>
 
              {/* VARIANT / SIZE */}
@@ -1914,6 +1922,8 @@ function Footer({ setPage }){
    ROOT APP
 ═══════════════════════════════════════════════════════════════ */
 export default function App(){
+  const [activeCountry, setActiveCountry] = React.useState(COUNTRIES[0]);
+  const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
   const [page, setPage] = useState("home");
   const [cartCount, setCartCount] = useState(0);
   const [viewProduct, setViewProduct] = useState(null);
@@ -1943,6 +1953,7 @@ export default function App(){
   };
 
   return (
+    <CountryContext.Provider value={{ activeCountry, setActiveCountry }}>
     <div style={{fontFamily:"'Montserrat',sans-serif",background:"#fff",color:"#000",minHeight:"100vh",overflowX:"hidden"}}>
       <style>{GLOBAL_CSS}</style>
       <Navbar page={page} setPage={setPage} cartCount={cartCount}/>
