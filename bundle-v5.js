@@ -21749,7 +21749,9 @@ var C = {
 };
 var COUNTRIES = [
   { name: "UAE", flagUrl: "https://flagcdn.com/w40/ae.png", currency: "AED", rate: 1 },
+  { name: "Saudi", flagUrl: "https://flagcdn.com/w40/sa.png", currency: "SAR", rate: 1.02 },
   { name: "Kuwait", flagUrl: "https://flagcdn.com/w40/kw.png", currency: "KWD", rate: 0.08 },
+  { name: "Bahrain", flagUrl: "https://flagcdn.com/w40/bh.png", currency: "BHD", rate: 0.1 },
   { name: "India", flagUrl: "https://flagcdn.com/w40/in.png", currency: "INR", rate: 22.5 },
   { name: "Egypt", flagUrl: "https://flagcdn.com/w40/eg.png", currency: "EGP", rate: 13.2 },
   { name: "Malaysia", flagUrl: "https://flagcdn.com/w40/my.png", currency: "MYR", rate: 1.25 },
@@ -23481,22 +23483,28 @@ function Navbar({ page, setPage, cartCount }) {
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "0 5%" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center", minHeight: 80, padding: "12px 0", gap: 24 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: 6, alignItems: "center" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: 2, alignItems: "center" }, className: "hide-mob", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CountryContext.Consumer, { children: ({ activeCountry, setActiveCountry }) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: COUNTRIES.map((c) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap", maxWidth: 400 }, className: "hide-mob", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CountryContext.Consumer, { children: ({ activeCountry, setActiveCountry }) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: COUNTRIES.map((c) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
               "div",
               {
                 onClick: () => setActiveCountry(c),
-                style: { display: "flex", alignItems: "center", gap: 4, padding: "6px 8px", cursor: "pointer", transition: "all .2s ease", opacity: activeCountry.name === c.name ? 1 : 0.5 },
-                onMouseEnter: (e) => e.currentTarget.style.opacity = "1",
+                style: { display: "flex", alignItems: "center", gap: 6, padding: "4px 8px", cursor: "pointer", transition: "all .2s ease", border: "1px solid", borderColor: activeCountry.name === c.name ? "#111" : "#E8E4DC", borderRadius: 4, background: activeCountry.name === c.name ? "#111" : "#fff", color: activeCountry.name === c.name ? "#fff" : "#111" },
+                onMouseEnter: (e) => {
+                  if (activeCountry.name !== c.name) {
+                    e.currentTarget.style.borderColor = "#ccc";
+                  }
+                },
                 onMouseLeave: (e) => {
-                  if (activeCountry.name !== c.name) e.currentTarget.style.opacity = "0.5";
+                  if (activeCountry.name !== c.name) {
+                    e.currentTarget.style.borderColor = "#E8E4DC";
+                  }
                 },
                 children: [
-                  c.flagUrl === "global" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "14", height: "14", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", style: { color: "#111" }, children: [
+                  c.flagUrl === "global" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "12", height: "12", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: [
                     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "12", cy: "12", r: "10" }),
                     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "2", y1: "12", x2: "22", y2: "12" }),
                     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" })
-                  ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: c.flagUrl, alt: "", style: { width: 16, height: 11, objectFit: "cover", borderRadius: 1 } }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: "9px", color: "#111", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase" }, children: c.name })
+                  ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: c.flagUrl, alt: "", style: { width: 14, height: 10, objectFit: "cover", borderRadius: 1 } }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: "9px", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase" }, children: c.name })
                 ]
               },
               c.name
