@@ -370,11 +370,14 @@ function ProductCard({ p, onView }){
         <div style={{position:"absolute", inset:0, display:"flex", alignItems:"flex-start", justifyContent:"center", padding:"4px 12px 0"}}>
           <img
             src={p.img} alt={p.name} loading="lazy"
+            className={p.id===13 ? "island-bottle" : ""}
             style={{
               width:"100%", height:"100%", objectFit:"contain", objectPosition:"center top",
               mixBlendMode:"multiply", filter:"contrast(1.05) brightness(1.04)",
               transition:"transform .8s cubic-bezier(0.25, 1, 0.25, 1)",
-              transform: hov ? "scale(1.08)" : "scale(1)",
+              transform: hov
+                ? `translateY(${p.id===13 ? "4px" : "0"}) scale(${p.id===13 ? 1.18 : 1.08})`
+                : `translateY(${p.id===13 ? "4px" : "0"}) scale(${p.id===13 ? 1.12 : 1})`,
             }}
           />
         </div>
