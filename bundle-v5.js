@@ -22967,12 +22967,12 @@
               color: activeCat === c ? "#000" : "#888",
               border: "none",
               borderBottom: activeCat === c ? "1px solid #000" : "1px solid transparent",
-              padding: "8px 14px 10px",
-              fontSize: 10,
-              letterSpacing: 1.5,
+              padding: "10px 16px 12px",
+              fontSize: 12,
+              letterSpacing: 1.8,
               cursor: "pointer",
               whiteSpace: "nowrap",
-              fontWeight: activeCat === c ? 700 : 400,
+              fontWeight: activeCat === c ? 800 : 500,
               transition: "all .18s",
               textTransform: "uppercase",
               fontFamily: "'Montserrat',sans-serif"
@@ -24049,23 +24049,23 @@
           onClick: () => setPage("collections"),
           style: {
             position: "fixed",
-            bottom: 32,
-            right: 32,
+            bottom: 24,
+            right: 24,
             zIndex: 200,
             background: "#000",
             color: "#fff",
-            width: 58,
-            height: 58,
+            width: 46,
+            height: 46,
             borderRadius: "50%",
             border: "none",
             cursor: "pointer",
             boxShadow: "0 8px 28px rgba(0,0,0,.25)",
-            fontSize: 22,
+            fontSize: 18,
             transition: "background .2s,transform .2s"
           },
           onMouseEnter: (e) => {
             e.currentTarget.style.background = "#B8922A";
-            e.currentTarget.style.transform = "scale(1.12)";
+            e.currentTarget.style.transform = "scale(1.06)";
           },
           onMouseLeave: (e) => {
             e.currentTarget.style.background = "#000";
@@ -24081,13 +24081,13 @@
           onClick: () => setChatOpen(!chatOpen),
           style: {
             position: "fixed",
-            bottom: 32,
-            left: 32,
+            bottom: 24,
+            left: 24,
             zIndex: 200,
             background: "#000",
             color: "#fff",
-            width: 58,
-            height: 58,
+            width: 46,
+            height: 46,
             borderRadius: "50%",
             border: "none",
             cursor: "pointer",
@@ -24099,22 +24099,22 @@
           },
           onMouseEnter: (e) => {
             e.currentTarget.style.background = "#B8922A";
-            e.currentTarget.style.transform = "scale(1.12)";
+            e.currentTarget.style.transform = "scale(1.06)";
           },
           onMouseLeave: (e) => {
             e.currentTarget.style.background = "#000";
             e.currentTarget.style.transform = "scale(1)";
           },
           title: "Chat with Us",
-          children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", { width: "22", height: "22", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" }) })
+          children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" }) })
         }
       ),
       chatOpen && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
         position: "fixed",
-        bottom: 104,
-        left: 32,
-        width: 360,
-        height: 480,
+        bottom: 84,
+        left: 24,
+        width: 320,
+        height: 420,
         zIndex: 200,
         background: "rgba(255, 255, 255, 0.98)",
         border: "1px solid rgba(0,0,0,0.1)",
