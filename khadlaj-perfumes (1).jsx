@@ -745,66 +745,6 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           </a>
         </div>
       </section>
-
-      
-      
-      {/* ── MASTER PERFUMERY EDITORIAL ── */}
-      <section style={{position:"relative",overflow:"hidden",zIndex:0,background:"#050505",padding:"0",borderTop:"none"}}>
-        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(320px, 1fr))",minHeight:"600px"}} className="hero-split">
-          {/* Left Text Column */}
-          <div style={{padding:"100px 10% 100px 8%",display:"flex",flexDirection:"column",justifyContent:"center", background:"#050505", zIndex:2}}>
-            <p style={{color:"#B8922A", fontSize:10, letterSpacing:4, textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", marginBottom:16, fontWeight:600}}>Our Heritage</p>
-            <h2 className="disp" style={{fontSize:"clamp(36px,4.5vw,54px)",fontWeight:300,lineHeight:1.1,marginBottom:28,color:"#fff",letterSpacing:-1}}>
-              The Art of Arabic &amp;<br/><em className="luxury-gold-text" style={{fontStyle:"italic"}}>French Perfumery</em>
-            </h2>
-            <div style={{display:"flex", gap:20, alignItems:"stretch", marginBottom:40, maxWidth:480}}>
-              <div style={{width:2, background:"linear-gradient(to bottom, #B8922A, transparent)", flexShrink:0}}/>
-              <p style={{color:"rgba(255,255,255,0.75)",lineHeight:1.85,fontSize:14,fontFamily:"'Montserrat',sans-serif", margin:0}}>
-                Founded by Mohamed Iqbal Abdul Sattar in 1997, Khadlaj Perfumes is built on the pursuit of scent perfection. Each creation blends the ancient soul of Arabian oud with the precision of French fragrance tradition. Discover a legacy crafted in every drop.
-              </p>
-            </div>
-            <div>
-              <button style={{background:"transparent", color:"#fff", border:"1px solid #fff", padding:"14px 36px", fontSize:10, letterSpacing:2.5, textTransform:"uppercase", cursor:"pointer", fontFamily:"'Montserrat',sans-serif", transition:"all .4s ease", width:"max-content"}}
-                onMouseEnter={e=>{e.currentTarget.style.background="#B8922A";e.currentTarget.style.borderColor="#B8922A";e.currentTarget.style.color="#fff";}}
-                onMouseLeave={e=>{e.currentTarget.style.background="transparent";e.currentTarget.style.borderColor="#fff";e.currentTarget.style.color="#fff";}}
-                onClick={()=>setPage("story")}
-              >Meet the Perfumers</button>
-            </div>
-          </div>
-          {/* Right Column: 2x2 Ingredient Mosaic */}
-          <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gridTemplateRows:"1fr 1fr", gap:12, padding:"30px", background:"#050505", minHeight:"450px"}}>
-            {[
-              { title: "Pure Oud", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KARUS_OUD_FIRE_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964843.jpg?v=1722409981", desc: "The deep, smoky, and precious soul of luxury Arabic blends." },
-              { title: "Damask Rose", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ria-3.jpg?v=1760188227", desc: "Delicate, fresh, and highly aromatic petals from French valleys." },
-              { title: "Warm Amber", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/saraya_3.png?v=1781332291", desc: "Rich, golden, and resinous warmth that locks in the fragrance." },
-              { title: "White Musk", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MUSK_PURE_MUSK_BLEND_CREATION_OF_IQBAL_60_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965450.jpg?v=1722411181", desc: "Clean, sensual, and powdery soft base note for a lasting signature trail." }
-            ].map((ing, i) => (
-              <div key={i} style={{position:"relative", overflow:"hidden", borderRadius:8, cursor:"pointer", height:"100%"}}
-                   onMouseEnter={e => {
-                     e.currentTarget.querySelector('img').style.transform = "scale(1.1)";
-                     e.currentTarget.querySelector('.ing-overlay').style.opacity = "1";
-                     e.currentTarget.querySelector('.ing-label').style.opacity = "0";
-                   }}
-                   onMouseLeave={e => {
-                     e.currentTarget.querySelector('img').style.transform = "scale(1)";
-                     e.currentTarget.querySelector('.ing-overlay').style.opacity = "0";
-                     e.currentTarget.querySelector('.ing-label').style.opacity = "1";
-                   }}>
-                <img src={ing.img} alt={ing.title} style={{width:"100%", height:"100%", objectFit:"cover", display:"block", transition:"transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)"}} />
-                {/* Always visible label */}
-                <div className="ing-label" style={{position:"absolute", bottom:12, left:12, zIndex:2, background:"rgba(0,0,0,0.75)", padding:"4px 12px", borderRadius:30, backdropFilter:"blur(4px)", transition:"opacity 0.3s ease"}}>
-                  <p style={{fontSize:9, letterSpacing:1.5, color:"#fff", textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", margin:0, fontWeight:600}}>{ing.title}</p>
-                </div>
-                {/* Hover details overlay */}
-                <div className="ing-overlay" style={{position:"absolute", inset:0, background:"rgba(184,146,42,0.94)", display:"flex", flexDirection:"column", justifyContent:"center", padding:20, opacity:0, transition:"opacity 0.4s ease", zIndex:3, textAlign:"center"}}>
-                  <p style={{fontSize:11, fontWeight:700, color:"#fff", textTransform:"uppercase", letterSpacing:1, fontFamily:"'Montserrat',sans-serif", marginBottom:6}}>{ing.title}</p>
-                  <p style={{fontSize:9, color:"rgba(255,255,255,0.9)", fontFamily:"'Montserrat',sans-serif", lineHeight:1.4, margin:0}}>{ing.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 {/* ── WHY KHADLAJ — Trust strip ── */}
       <section style={{background:"#fff",borderTop:"1px solid #E8E4DC",borderBottom:"1px solid #E8E4DC",padding:"80px 5%",position:"relative",zIndex:1}}>
         <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:24,textAlign:"center"}} className="grid-4">
