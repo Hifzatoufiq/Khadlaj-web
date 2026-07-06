@@ -581,7 +581,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         <div style={{paddingTop:96,marginBottom:52,display:"flex",alignItems:"flex-end",justifyContent:"space-between",flexWrap:"wrap",gap:16}}>
           <div>
             <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:14}}>Maison du Maitre Parfumeur</p>
-            <h2 className="disp" style={{fontSize:"clamp(32px,4vw,54px)",fontWeight:300,color:"#000",lineHeight:1.05,letterSpacing:-1}}>Respect the Quality,<br/><em style={{fontStyle:"italic",color:"#B8922A"}}>Provide the Best</em></h2>
+            <h2 className="disp" style={{fontSize:"clamp(32px,4vw,54px)",fontWeight:300,color:"#000",lineHeight:1.05,letterSpacing:-1}}>Respect the Quality,<br/><em className="luxury-gold-text" style={{fontStyle:"italic"}}>Provide the Best</em></h2>
           </div>
           <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>setPage("collections")}>View All</button>
         </div>
@@ -739,7 +739,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           <div style={{padding:"100px 10% 100px 8%",display:"flex",flexDirection:"column",justifyContent:"center", background:"#050505", zIndex:2}}>
             <p style={{color:"#B8922A", fontSize:10, letterSpacing:4, textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", marginBottom:16, fontWeight:600}}>Our Heritage</p>
             <h2 className="disp" style={{fontSize:"clamp(36px,4.5vw,54px)",fontWeight:300,lineHeight:1.1,marginBottom:28,color:"#fff",letterSpacing:-1}}>
-              The Art of Arabic &amp;<br/><em style={{color:"#B8922A",fontStyle:"italic"}}>French Perfumery</em>
+              The Art of Arabic &amp;<br/><em className="luxury-gold-text" style={{fontStyle:"italic"}}>French Perfumery</em>
             </h2>
             <div style={{display:"flex", gap:20, alignItems:"stretch", marginBottom:40, maxWidth:480}}>
               <div style={{width:2, background:"linear-gradient(to bottom, #B8922A, transparent)", flexShrink:0}}/>
@@ -846,7 +846,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             <div style={{width:32,height:1,background:"#B8922A",marginBottom:16}}/>
             <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:10}}>Just Dropped</p>
             <h2 className="disp" style={{fontSize:"clamp(28px,3.5vw,50px)",fontWeight:300,color:"#000",letterSpacing:-1,lineHeight:1.05}}>
-              New <em style={{fontStyle:"italic",color:"#B8922A"}}>Arrivals</em>
+              New <em className="luxury-gold-text" style={{fontStyle:"italic"}}>Arrivals</em>
             </h2>
           </div>
           <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>{setActiveCat("New");setPage("collections");}}>View All New</button>
@@ -865,7 +865,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             <div style={{width:32,height:1,background:"#B8922A",marginBottom:18}}/>
             <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Gifting</p>
             <h2 className="disp" style={{fontSize:"clamp(30px,3.8vw,52px)",fontWeight:300,color:"#000",lineHeight:1,letterSpacing:-1}}>
-              Curated<br/><em style={{fontStyle:"italic",color:"#B8922A"}}>Gift Collections</em>
+              Curated<br/><em className="luxury-gold-text" style={{fontStyle:"italic"}}>Gift Collections</em>
             </h2>
           </div>
           <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>setPage("gifts")}>View All Gifts</button>
@@ -887,7 +887,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             <div style={{width:32,height:1,background:"#B8922A",marginBottom:16}}/>
             <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Olfactive Profiler</p>
             <h2 className="disp" style={{fontSize:"clamp(30px,3.8vw,52px)",fontWeight:300,color:"#fff",lineHeight:1.05,letterSpacing:-1,marginBottom:24}}>
-              Khadlaj <em style={{fontStyle:"italic",color:"#B8922A"}}>Scent Finder</em>
+              Khadlaj <em className="luxury-gold-text" style={{fontStyle:"italic"}}>Scent Finder</em>
             </h2>
             <p style={{color:"rgba(255,255,255,0.7)",lineHeight:1.8,fontSize:14,maxWidth:440,fontFamily:"'Montserrat',sans-serif",marginBottom:32}}>
               Fragrance is a deeply personal language. Answer a few questions and our custom olfactive profiler will match you with a signature scent from our master perfume lines.
@@ -1022,7 +1022,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           <div style={{width:40,height:1,background:"#B8922A",margin:"0 auto 20px"}}/>
           <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:16}}>@KhadlajPerfumes</p>
           <h2 className="disp" style={{fontSize:"clamp(28px,3.5vw,50px)",fontWeight:300,color:"#000",letterSpacing:-0.5,lineHeight:1.1,marginBottom:20}}>
-            Feel the World of <em style={{fontStyle:"italic",color:"#B8922A"}}>Khadlaj</em>
+            Feel the World of <em className="luxury-gold-text" style={{fontStyle:"italic"}}>Khadlaj</em>
           </h2>
           <p style={{fontSize:13,color:"#888",fontFamily:"'Montserrat',sans-serif",letterSpacing:.3,marginBottom:28,maxWidth:420,margin:"0 auto 28px"}}>
             Real moments. Real fragrance. Follow us for the latest drops and stories.
@@ -1857,7 +1857,7 @@ function Navbar({ page, setPage, cartCount }){
       </div>
 
       {/* ── Main nav ── */}
-      <nav style={{position:"sticky",top:0,zIndex:100,background:"#fff",boxShadow:"0 2px 12px rgba(0,0,0,.04)",borderBottom:"1px solid #E8E4DC"}}>
+      <nav style={{position:"sticky",top:0,zIndex:100,background:"rgba(255,255,255,0.85)",backdropFilter:"blur(16px)",WebkitBackdropFilter:"blur(16px)",boxShadow:"0 4px 30px rgba(0,0,0,0.03)",borderBottom:"1px solid rgba(232,228,220,0.5)",transition:"all 0.3s"}}>
         <div style={{padding:"0 5%"}}>
           <div style={{display:"grid",gridTemplateColumns:"1fr auto 1fr",alignItems:"center",minHeight:80,padding:"12px 0",gap:24}}>
             {/* Left utility */}

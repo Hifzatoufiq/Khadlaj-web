@@ -22283,7 +22283,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(32px,4vw,54px)", fontWeight: 300, color: "#000", lineHeight: 1.05, letterSpacing: -1 }, children: [
             "Respect the Quality,",
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { style: { fontStyle: "italic", color: "#B8922A" }, children: "Provide the Best" })
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { className: "luxury-gold-text", style: { fontStyle: "italic" }, children: "Provide the Best" })
           ] })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-ghost", style: { flexShrink: 0 }, onClick: () => setPage("collections"), children: "View All" })
@@ -22470,7 +22470,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(36px,4.5vw,54px)", fontWeight: 300, lineHeight: 1.1, marginBottom: 28, color: "#fff", letterSpacing: -1 }, children: [
           "The Art of Arabic &",
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { style: { color: "#B8922A", fontStyle: "italic" }, children: "French Perfumery" })
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { className: "luxury-gold-text", style: { fontStyle: "italic" }, children: "French Perfumery" })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: 20, alignItems: "stretch", marginBottom: 40, maxWidth: 480 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 2, background: "linear-gradient(to bottom, #B8922A, transparent)", flexShrink: 0 } }),
@@ -22602,7 +22602,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 10 }, children: "Just Dropped" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(28px,3.5vw,50px)", fontWeight: 300, color: "#000", letterSpacing: -1, lineHeight: 1.05 }, children: [
             "New ",
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { style: { fontStyle: "italic", color: "#B8922A" }, children: "Arrivals" })
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { className: "luxury-gold-text", style: { fontStyle: "italic" }, children: "Arrivals" })
           ] })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-ghost", style: { flexShrink: 0 }, onClick: () => {
@@ -22623,7 +22623,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(30px,3.8vw,52px)", fontWeight: 300, color: "#000", lineHeight: 1, letterSpacing: -1 }, children: [
             "Curated",
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { style: { fontStyle: "italic", color: "#B8922A" }, children: "Gift Collections" })
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { className: "luxury-gold-text", style: { fontStyle: "italic" }, children: "Gift Collections" })
           ] })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-ghost", style: { flexShrink: 0 }, onClick: () => setPage("gifts"), children: "View All Gifts" })
@@ -22639,7 +22639,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 12 }, children: "Olfactive Profiler" }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(30px,3.8vw,52px)", fontWeight: 300, color: "#fff", lineHeight: 1.05, letterSpacing: -1, marginBottom: 24 }, children: [
           "Khadlaj ",
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { style: { fontStyle: "italic", color: "#B8922A" }, children: "Scent Finder" })
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { className: "luxury-gold-text", style: { fontStyle: "italic" }, children: "Scent Finder" })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "rgba(255,255,255,0.7)", lineHeight: 1.8, fontSize: 14, maxWidth: 440, fontFamily: "'Montserrat',sans-serif", marginBottom: 32 }, children: "Fragrance is a deeply personal language. Answer a few questions and our custom olfactive profiler will match you with a signature scent from our master perfume lines." }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 14 }, children: [
@@ -22785,7 +22785,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 16 }, children: "@KhadlajPerfumes" }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(28px,3.5vw,50px)", fontWeight: 300, color: "#000", letterSpacing: -0.5, lineHeight: 1.1, marginBottom: 20 }, children: [
           "Feel the World of ",
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { style: { fontStyle: "italic", color: "#B8922A" }, children: "Khadlaj" })
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { className: "luxury-gold-text", style: { fontStyle: "italic" }, children: "Khadlaj" })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 13, color: "#888", fontFamily: "'Montserrat',sans-serif", letterSpacing: 0.3, marginBottom: 28, maxWidth: 420, margin: "0 auto 28px" }, children: "Real moments. Real fragrance. Follow us for the latest drops and stories." }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
@@ -23643,7 +23643,7 @@ function Navbar({ page, setPage, cartCount }) {
       ] })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { background: "#000", color: "#fff", textAlign: "center", padding: "10px 16px", fontSize: "9px", letterSpacing: "3px", fontFamily: "'DM Sans',sans-serif", textTransform: "uppercase", fontWeight: 500 }, children: 'USE "KHADLAJ25" FOR FLAT 25% DISCOUNT' }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("nav", { style: { position: "sticky", top: 0, zIndex: 100, background: "#fff", boxShadow: "0 2px 12px rgba(0,0,0,.04)", borderBottom: "1px solid #E8E4DC" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("nav", { style: { position: "sticky", top: 0, zIndex: 100, background: "rgba(255,255,255,0.85)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", boxShadow: "0 4px 30px rgba(0,0,0,0.03)", borderBottom: "1px solid rgba(232,228,220,0.5)", transition: "all 0.3s" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "0 5%" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center", minHeight: 80, padding: "12px 0", gap: 24 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: 6, alignItems: "center" }, children: [
