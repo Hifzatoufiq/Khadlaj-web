@@ -21882,7 +21882,7 @@
   };
   var CATEGORIES = ["All", "Best Sellers", "New", "For Him", "For Her", "Unisex", "Atyaab", "Lafede", "Master Perfumery"];
   var GLOBAL_CSS = `
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
   body{background:#fff;color:#000;font-family:'Montserrat',sans-serif;}
@@ -22284,11 +22284,24 @@
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { paddingTop: 96, marginBottom: 52, display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 14 }, children: "Maison du Maitre Parfumeur" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(32px,4vw,54px)", fontWeight: 300, color: "#000", lineHeight: 1.05, letterSpacing: -1 }, children: [
-              "Respect the Quality,",
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { className: "luxury-gold-text", style: { fontStyle: "italic" }, children: "Provide the Best" })
-            ] })
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+              "h2",
+              {
+                style: {
+                  fontSize: "clamp(32px,4vw,54px)",
+                  fontWeight: 500,
+                  color: "#000",
+                  lineHeight: 1.02,
+                  letterSpacing: -0.2,
+                  fontFamily: "'Cormorant Garamond', 'Cinzel', serif"
+                },
+                children: [
+                  "Respect the Quality,",
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { className: "luxury-gold-text", style: { fontStyle: "italic" }, children: "Provide the Best" })
+                ]
+              }
+            )
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-ghost", style: { flexShrink: 0 }, onClick: () => setPage("collections"), children: "View All" })
         ] }),

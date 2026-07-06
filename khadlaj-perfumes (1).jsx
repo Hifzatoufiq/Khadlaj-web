@@ -189,7 +189,7 @@ const CATEGORIES = ["All","Best Sellers","New","For Him","For Her","Unisex","Aty
    GLOBAL CSS
 ═══════════════════════════════════════════════════════════════ */
 const GLOBAL_CSS = `
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
   body{background:#fff;color:#000;font-family:'Montserrat',sans-serif;}
@@ -585,7 +585,19 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         <div style={{paddingTop:96,marginBottom:52,display:"flex",alignItems:"flex-end",justifyContent:"space-between",flexWrap:"wrap",gap:16}}>
           <div>
             <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:14}}>Maison du Maitre Parfumeur</p>
-            <h2 className="disp" style={{fontSize:"clamp(32px,4vw,54px)",fontWeight:300,color:"#000",lineHeight:1.05,letterSpacing:-1}}>Respect the Quality,<br/><em className="luxury-gold-text" style={{fontStyle:"italic"}}>Provide the Best</em></h2>
+            <h2
+              style={{
+                fontSize:"clamp(32px,4vw,54px)",
+                fontWeight:500,
+                color:"#000",
+                lineHeight:1.02,
+                letterSpacing:-0.2,
+                fontFamily:"'Cormorant Garamond', 'Cinzel', serif",
+              }}
+            >
+              Respect the Quality,<br/>
+              <em className="luxury-gold-text" style={{fontStyle:"italic"}}>Provide the Best</em>
+            </h2>
           </div>
           <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>setPage("collections")}>View All</button>
         </div>
