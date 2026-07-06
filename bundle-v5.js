@@ -22612,6 +22612,268 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
         setPage("product");
       } }, p.id)) })
     ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { background: "#080808", padding: "96px 5%", color: "#fff", borderTop: "1px solid rgba(255,255,255,0.08)", position: "relative", zIndex: 1 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 64, alignItems: "center" }, className: "hero-split", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 32, height: 1, background: "#B8922A", marginBottom: 16 } }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 12 }, children: "Olfactive Profiler" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(30px,3.8vw,52px)", fontWeight: 300, color: "#fff", lineHeight: 1.05, letterSpacing: -1, marginBottom: 24 }, children: [
+          "Khadlaj ",
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { style: { fontStyle: "italic", color: "#B8922A" }, children: "Scent Finder" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "rgba(255,255,255,0.7)", lineHeight: 1.8, fontSize: 14, maxWidth: 440, fontFamily: "'Montserrat',sans-serif", marginBottom: 32 }, children: "Fragrance is a deeply personal language. Answer a few questions and our custom olfactive profiler will match you with a signature scent from our master perfume lines." }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 14 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 22, color: "#B8922A" }, children: "\u2726" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 11, letterSpacing: 1.5, fontFamily: "'Montserrat',sans-serif", textTransform: "uppercase", color: "rgba(255,255,255,0.6)" }, children: "Respect the Quality, Provide the Best" })
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, padding: "40px 32px", minHeight: 380, display: "flex", flexDirection: "column", justifyContent: "center", position: "relative" }, children: [
+        quizStep === 1 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { animation: "fadeUp .4s ease both" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 10, letterSpacing: 2, color: "#B8922A", textTransform: "uppercase", fontWeight: 700, marginBottom: 8, fontFamily: "'Montserrat',sans-serif" }, children: "Step 1 of 2" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "disp", style: { fontSize: 20, fontWeight: 400, color: "#fff", marginBottom: 24 }, children: "Choose Your Olfactive Vibe" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", flexDirection: "column", gap: 12 }, children: [
+            { v: "Rich & Exotic", desc: "Bold Oud, precious Amber, and warm spices." },
+            { v: "Fresh & Energizing", desc: "Vibrant Citrus, crisp Marine, and delicate florals." },
+            { v: "Clean & Sophisticated", desc: "Sensual Musk, creamy Sandalwood, and soft iris." }
+          ].map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+            "button",
+            {
+              onClick: () => {
+                setQuizMood(item.v);
+                setQuizStep(2);
+              },
+              style: { background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#fff", padding: "14px 20px", borderRadius: 8, textAlign: "left", cursor: "pointer", transition: "all 0.25s ease" },
+              onMouseEnter: (e) => {
+                e.currentTarget.style.background = "rgba(184,146,42,0.1)";
+                e.currentTarget.style.borderColor = "#B8922A";
+              },
+              onMouseLeave: (e) => {
+                e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+              },
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 12, fontWeight: 700, fontFamily: "'Montserrat',sans-serif", margin: 0 }, children: item.v }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, color: "rgba(255,255,255,0.5)", margin: "4px 0 0", fontFamily: "'Montserrat',sans-serif" }, children: item.desc })
+              ]
+            },
+            item.v
+          )) })
+        ] }),
+        quizStep === 2 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { animation: "fadeUp .4s ease both" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 10, letterSpacing: 2, color: "#B8922A", textTransform: "uppercase", fontWeight: 700, marginBottom: 8, fontFamily: "'Montserrat',sans-serif" }, children: "Step 2 of 2" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "disp", style: { fontSize: 20, fontWeight: 400, color: "#fff", marginBottom: 24 }, children: "When will you wear this?" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", flexDirection: "column", gap: 12 }, children: [
+            { k: "Royal Evenings", label: "Royal Evenings", desc: "Special events, formal dinners, and night statements." },
+            { k: "Daily Wear & Office", label: "Daily Wear & Office", desc: "Sophisticated signature scent for day-to-day use." },
+            { k: "Romantic Date Nights", label: "Romantic Date Nights", desc: "Warm, intimate, and captivating close encounters." }
+          ].map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+            "button",
+            {
+              onClick: () => {
+                const finalProduct = quizProducts[quizMood][item.label];
+                setQuizOccasion(item.label);
+                setQuizResult(finalProduct);
+                setQuizStep(3);
+              },
+              style: { background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#fff", padding: "14px 20px", borderRadius: 8, textAlign: "left", cursor: "pointer", transition: "all 0.25s ease" },
+              onMouseEnter: (e) => {
+                e.currentTarget.style.background = "rgba(184,146,42,0.1)";
+                e.currentTarget.style.borderColor = "#B8922A";
+              },
+              onMouseLeave: (e) => {
+                e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+              },
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 12, fontWeight: 700, fontFamily: "'Montserrat',sans-serif", margin: 0 }, children: item.label }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, color: "rgba(255,255,255,0.5)", margin: "4px 0 0", fontFamily: "'Montserrat',sans-serif" }, children: item.desc })
+              ]
+            },
+            item.k
+          )) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => setQuizStep(1), style: { background: "none", border: "none", color: "rgba(255,255,255,0.5)", fontSize: 9, textTransform: "uppercase", letterSpacing: 1.5, marginTop: 20, cursor: "pointer", display: "flex", alignItems: "center", gap: 6, fontFamily: "'Montserrat',sans-serif", padding: 0 }, children: "\u2190 Back" })
+        ] }),
+        quizStep === 3 && quizResult && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { animation: "fadeUp .4s ease both", textAlign: "center" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 10, letterSpacing: 2, color: "#B8922A", textTransform: "uppercase", fontWeight: 700, marginBottom: 8, fontFamily: "'Montserrat',sans-serif" }, children: "Your Scent Match" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "disp", style: { fontSize: 20, fontWeight: 400, color: "#fff", marginBottom: 20 }, children: "The Perfect Fit" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 20, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", padding: 20, borderRadius: 8, marginBottom: 24, textAlign: "left" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 80, height: 80, background: "#fff", borderRadius: 6, padding: 8, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: quizResult.img, alt: quizResult.name, style: { width: "100%", height: "100%", objectFit: "contain" } }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 8, color: "#B8922A", letterSpacing: 2, textTransform: "uppercase", margin: 0, fontWeight: 700, fontFamily: "'Montserrat',sans-serif" }, children: quizResult.col }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { style: { fontSize: 15, fontWeight: 700, color: "#fff", textTransform: "uppercase", margin: "4px 0 6px", fontFamily: "'Montserrat',sans-serif" }, children: quizResult.name }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 11, color: "rgba(255,255,255,0.6)", margin: 0, fontFamily: "'Montserrat',sans-serif" }, children: quizResult.size })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: 12 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              "button",
+              {
+                onClick: () => {
+                  setViewProduct(quizResult);
+                  setPage("product");
+                },
+                style: { flex: 1, background: "#B8922A", border: "1px solid #B8922A", color: "#fff", padding: "14px", fontSize: 10, letterSpacing: 2, textTransform: "uppercase", cursor: "pointer", fontWeight: 700, borderRadius: 4, transition: "all .25s ease" },
+                onMouseEnter: (e) => {
+                  e.currentTarget.style.background = "#fff";
+                  e.currentTarget.style.color = "#000";
+                  e.currentTarget.style.borderColor = "#fff";
+                },
+                onMouseLeave: (e) => {
+                  e.currentTarget.style.background = "#B8922A";
+                  e.currentTarget.style.color = "#fff";
+                  e.currentTarget.style.borderColor = "#B8922A";
+                },
+                children: "Discover Perfume"
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              "button",
+              {
+                onClick: () => setQuizStep(1),
+                style: { background: "transparent", border: "1px solid rgba(255,255,255,0.2)", color: "#fff", padding: "14px 20px", fontSize: 10, letterSpacing: 2, textTransform: "uppercase", cursor: "pointer", borderRadius: 4, transition: "all .25s ease" },
+                onMouseEnter: (e) => {
+                  e.currentTarget.style.borderColor = "#fff";
+                },
+                onMouseLeave: (e) => {
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
+                },
+                children: "Reset"
+              }
+            )
+          ] })
+        ] })
+      ] })
+    ] }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { background: "#080808", padding: "96px 5%", color: "#fff", borderTop: "1px solid rgba(255,255,255,0.08)", position: "relative", zIndex: 1 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 64, alignItems: "center" }, className: "hero-split", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 32, height: 1, background: "#B8922A", marginBottom: 16 } }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 12 }, children: "Olfactive Profiler" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(30px,3.8vw,52px)", fontWeight: 300, color: "#fff", lineHeight: 1.05, letterSpacing: -1, marginBottom: 24 }, children: [
+          "Khadlaj ",
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { style: { fontStyle: "italic", color: "#B8922A" }, children: "Scent Finder" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "rgba(255,255,255,0.7)", lineHeight: 1.8, fontSize: 14, maxWidth: 440, fontFamily: "'Montserrat',sans-serif", marginBottom: 32 }, children: "Fragrance is a deeply personal language. Answer a few questions and our custom olfactive profiler will match you with a signature scent from our master perfume lines." }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 14 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 22, color: "#B8922A" }, children: "\u2726" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 11, letterSpacing: 1.5, fontFamily: "'Montserrat',sans-serif", textTransform: "uppercase", color: "rgba(255,255,255,0.6)" }, children: "Respect the Quality, Provide the Best" })
+        ] })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, padding: "40px 32px", minHeight: 380, display: "flex", flexDirection: "column", justifyContent: "center", position: "relative" }, children: [
+        quizStep === 1 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { animation: "fadeUp .4s ease both" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 10, letterSpacing: 2, color: "#B8922A", textTransform: "uppercase", fontWeight: 700, marginBottom: 8, fontFamily: "'Montserrat',sans-serif" }, children: "Step 1 of 2" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "disp", style: { fontSize: 20, fontWeight: 400, color: "#fff", marginBottom: 24 }, children: "Choose Your Olfactive Vibe" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", flexDirection: "column", gap: 12 }, children: [
+            { v: "Rich & Exotic", desc: "Bold Oud, precious Amber, and warm spices." },
+            { v: "Fresh & Energizing", desc: "Vibrant Citrus, crisp Marine, and delicate florals." },
+            { v: "Clean & Sophisticated", desc: "Sensual Musk, creamy Sandalwood, and soft iris." }
+          ].map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+            "button",
+            {
+              onClick: () => {
+                setQuizMood(item.v);
+                setQuizStep(2);
+              },
+              style: { background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#fff", padding: "14px 20px", borderRadius: 8, textAlign: "left", cursor: "pointer", transition: "all 0.25s ease" },
+              onMouseEnter: (e) => {
+                e.currentTarget.style.background = "rgba(184,146,42,0.1)";
+                e.currentTarget.style.borderColor = "#B8922A";
+              },
+              onMouseLeave: (e) => {
+                e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+              },
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 12, fontWeight: 700, fontFamily: "'Montserrat',sans-serif", margin: 0 }, children: item.v }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, color: "rgba(255,255,255,0.5)", margin: "4px 0 0", fontFamily: "'Montserrat',sans-serif" }, children: item.desc })
+              ]
+            },
+            item.v
+          )) })
+        ] }),
+        quizStep === 2 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { animation: "fadeUp .4s ease both" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 10, letterSpacing: 2, color: "#B8922A", textTransform: "uppercase", fontWeight: 700, marginBottom: 8, fontFamily: "'Montserrat',sans-serif" }, children: "Step 2 of 2" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "disp", style: { fontSize: 20, fontWeight: 400, color: "#fff", marginBottom: 24 }, children: "When will you wear this?" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", flexDirection: "column", gap: 12 }, children: [
+            { k: "Royal Evenings", label: "Royal Evenings", desc: "Special events, formal dinners, and night statements." },
+            { k: "Daily Wear & Office", label: "Daily Wear & Office", desc: "Sophisticated signature scent for day-to-day use." },
+            { k: "Romantic Date Nights", label: "Romantic Date Nights", desc: "Warm, intimate, and captivating close encounters." }
+          ].map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+            "button",
+            {
+              onClick: () => {
+                const finalProduct = quizProducts[quizMood][item.label];
+                setQuizOccasion(item.label);
+                setQuizResult(finalProduct);
+                setQuizStep(3);
+              },
+              style: { background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#fff", padding: "14px 20px", borderRadius: 8, textAlign: "left", cursor: "pointer", transition: "all 0.25s ease" },
+              onMouseEnter: (e) => {
+                e.currentTarget.style.background = "rgba(184,146,42,0.1)";
+                e.currentTarget.style.borderColor = "#B8922A";
+              },
+              onMouseLeave: (e) => {
+                e.currentTarget.style.background = "rgba(255,255,255,0.04)";
+                e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+              },
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 12, fontWeight: 700, fontFamily: "'Montserrat',sans-serif", margin: 0 }, children: item.label }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, color: "rgba(255,255,255,0.5)", margin: "4px 0 0", fontFamily: "'Montserrat',sans-serif" }, children: item.desc })
+              ]
+            },
+            item.k
+          )) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => setQuizStep(1), style: { background: "none", border: "none", color: "rgba(255,255,255,0.5)", fontSize: 9, textTransform: "uppercase", letterSpacing: 1.5, marginTop: 20, cursor: "pointer", display: "flex", alignItems: "center", gap: 6, fontFamily: "'Montserrat',sans-serif", padding: 0 }, children: "\u2190 Back" })
+        ] }),
+        quizStep === 3 && quizResult && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { animation: "fadeUp .4s ease both", textAlign: "center" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 10, letterSpacing: 2, color: "#B8922A", textTransform: "uppercase", fontWeight: 700, marginBottom: 8, fontFamily: "'Montserrat',sans-serif" }, children: "Your Scent Match" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "disp", style: { fontSize: 20, fontWeight: 400, color: "#fff", marginBottom: 20 }, children: "The Perfect Fit" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 20, background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", padding: 20, borderRadius: 8, marginBottom: 24, textAlign: "left" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 80, height: 80, background: "#fff", borderRadius: 6, padding: 8, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: quizResult.img, alt: quizResult.name, style: { width: "100%", height: "100%", objectFit: "contain" } }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 8, color: "#B8922A", letterSpacing: 2, textTransform: "uppercase", margin: 0, fontWeight: 700, fontFamily: "'Montserrat',sans-serif" }, children: quizResult.col }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { style: { fontSize: 15, fontWeight: 700, color: "#fff", textTransform: "uppercase", margin: "4px 0 6px", fontFamily: "'Montserrat',sans-serif" }, children: quizResult.name }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 11, color: "rgba(255,255,255,0.6)", margin: 0, fontFamily: "'Montserrat',sans-serif" }, children: quizResult.size })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: 12 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              "button",
+              {
+                onClick: () => {
+                  setViewProduct(quizResult);
+                  setPage("product");
+                },
+                style: { flex: 1, background: "#B8922A", border: "1px solid #B8922A", color: "#fff", padding: "14px", fontSize: 10, letterSpacing: 2, textTransform: "uppercase", cursor: "pointer", fontWeight: 700, borderRadius: 4, transition: "all .25s ease" },
+                onMouseEnter: (e) => {
+                  e.currentTarget.style.background = "#fff";
+                  e.currentTarget.style.color = "#000";
+                  e.currentTarget.style.borderColor = "#fff";
+                },
+                onMouseLeave: (e) => {
+                  e.currentTarget.style.background = "#B8922A";
+                  e.currentTarget.style.color = "#fff";
+                  e.currentTarget.style.borderColor = "#B8922A";
+                },
+                children: "Discover Perfume"
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              "button",
+              {
+                onClick: () => setQuizStep(1),
+                style: { background: "transparent", border: "1px solid rgba(255,255,255,0.2)", color: "#fff", padding: "14px 20px", fontSize: 10, letterSpacing: 2, textTransform: "uppercase", cursor: "pointer", borderRadius: 4, transition: "all .25s ease" },
+                onMouseEnter: (e) => {
+                  e.currentTarget.style.borderColor = "#fff";
+                },
+                onMouseLeave: (e) => {
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
+                },
+                children: "Reset"
+              }
+            )
+          ] })
+        ] })
+      ] })
+    ] }) }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { background: "#000", padding: "96px 5%" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeader, { eyebrow: "Reviews", title: "Loved Across the Gulf", light: true }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "grid-4", style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 1, background: "rgba(255,255,255,.15)" }, children: REVIEWS.map((r, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "#000", padding: "48px 32px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }, children: [
