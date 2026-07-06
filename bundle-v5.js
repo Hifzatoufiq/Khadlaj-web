@@ -22496,10 +22496,10 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
         ) })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr", gap: 12, padding: "30px", background: "#050505", minHeight: "450px" }, children: [
-        { title: "Pure Oud", img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?q=80&w=600&auto=format&fit=crop", desc: "The deep, smoky, and precious soul of luxury Arabic blends." },
-        { title: "Damask Rose", img: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=600&auto=format&fit=crop", desc: "Delicate, fresh, and highly aromatic petals from French valleys." },
-        { title: "Warm Amber", img: "https://images.unsplash.com/photo-1582201942988-13e60e4556ee?q=80&w=600&auto=format&fit=crop", desc: "Rich, golden, and resinous warmth that locks in the fragrance." },
-        { title: "White Musk", img: "https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=600&auto=format&fit=crop", desc: "Clean, sensual, and powdery soft base note for a lasting signature trail." }
+        { title: "Pure Oud", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KARUS_OUD_FIRE_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964843.jpg?v=1722409981", desc: "The deep, smoky, and precious soul of luxury Arabic blends." },
+        { title: "Damask Rose", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ria-3.jpg?v=1760188227", desc: "Delicate, fresh, and highly aromatic petals from French valleys." },
+        { title: "Warm Amber", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/saraya_3.png?v=1781332291", desc: "Rich, golden, and resinous warmth that locks in the fragrance." },
+        { title: "White Musk", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MUSK_PURE_MUSK_BLEND_CREATION_OF_IQBAL_60_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965450.jpg?v=1722411181", desc: "Clean, sensual, and powdery soft base note for a lasting signature trail." }
       ].map((ing, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
         "div",
         {
