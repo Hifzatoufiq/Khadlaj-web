@@ -22258,11 +22258,11 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "0 5% 104px", background: "#fff" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { paddingTop: 96, marginBottom: 52, display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 14 }, children: "Featured Fragrances" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 14 }, children: "Maison du Maitre Parfumeur" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(32px,4vw,54px)", fontWeight: 300, color: "#000", lineHeight: 1.05, letterSpacing: -1 }, children: [
-            "Discover Your",
+            "Respect the Quality,",
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { style: { fontStyle: "italic", color: "#B8922A" }, children: "Signature Scent" })
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { style: { fontStyle: "italic", color: "#B8922A" }, children: "Provide the Best" })
           ] })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-ghost", style: { flexShrink: 0 }, onClick: () => setPage("collections"), children: "View All" })

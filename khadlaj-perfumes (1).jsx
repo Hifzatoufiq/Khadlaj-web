@@ -558,8 +558,8 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       <section style={{padding:"0 5% 104px",background:"#fff"}}>
         <div style={{paddingTop:96,marginBottom:52,display:"flex",alignItems:"flex-end",justifyContent:"space-between",flexWrap:"wrap",gap:16}}>
           <div>
-            <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:14}}>Featured Fragrances</p>
-            <h2 className="disp" style={{fontSize:"clamp(32px,4vw,54px)",fontWeight:300,color:"#000",lineHeight:1.05,letterSpacing:-1}}>Discover Your<br/><em style={{fontStyle:"italic",color:"#B8922A"}}>Signature Scent</em></h2>
+            <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:14}}>Maison du Maitre Parfumeur</p>
+            <h2 className="disp" style={{fontSize:"clamp(32px,4vw,54px)",fontWeight:300,color:"#000",lineHeight:1.05,letterSpacing:-1}}>Respect the Quality,<br/><em style={{fontStyle:"italic",color:"#B8922A"}}>Provide the Best</em></h2>
           </div>
           <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>setPage("collections")}>View All</button>
         </div>
