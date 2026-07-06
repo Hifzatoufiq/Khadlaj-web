@@ -22284,51 +22284,54 @@
         position: "relative",
         overflow: "hidden",
         borderRadius: 24,
-        background: "linear-gradient(135deg, #050505 0%, #14110F 48%, #26201A 100%)",
-        border: "1px solid rgba(193,164,106,0.18)",
-        boxShadow: "0 30px 80px rgba(0,0,0,0.14)"
+        background: "linear-gradient(180deg, #FBF8F2 0%, #F6F1E8 100%)",
+        border: "1px solid #E8E0D1",
+        boxShadow: "0 18px 50px rgba(0,0,0,0.06)"
       }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
           position: "absolute",
-          inset: 0,
-          background: "radial-gradient(circle at top right, rgba(193,164,106,0.22) 0%, transparent 38%), radial-gradient(circle at left center, rgba(255,255,255,0.08) 0%, transparent 32%)",
+          inset: "auto auto 18px 18px",
+          width: 120,
+          height: 120,
+          borderRadius: "50%",
+          background: "radial-gradient(circle, rgba(184,146,42,0.16) 0%, transparent 70%)",
           pointerEvents: "none"
         } }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
           display: "grid",
-          gridTemplateColumns: "1.2fr .8fr",
+          gridTemplateColumns: "1.1fr .9fr",
           gap: 24,
           alignItems: "center",
-          padding: "38px clamp(24px, 4vw, 56px)"
+          padding: "34px clamp(22px, 4vw, 52px)"
         }, className: "hero-split", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", zIndex: 2, maxWidth: 720 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", zIndex: 2, maxWidth: 680 }, children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 14, fontWeight: 700 }, children: "Signature Edit" }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: {
-              fontSize: "clamp(34px, 4.8vw, 64px)",
-              lineHeight: 1.02,
-              color: "#fff",
-              letterSpacing: -1,
-              marginBottom: 18,
+              fontSize: "clamp(32px, 4.2vw, 58px)",
+              lineHeight: 1.04,
+              color: "#111",
+              letterSpacing: -0.6,
+              marginBottom: 16,
               fontWeight: 300
             }, children: [
-              "A banner made for",
+              "Luxury fragrance,",
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { className: "luxury-gold-text", style: { fontStyle: "italic" }, children: "luxury fragrance lovers" })
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { className: "luxury-gold-text", style: { fontStyle: "italic" }, children: "presented properly" })
             ] }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: {
-              color: "rgba(255,255,255,0.72)",
+              color: "#5B5B5B",
               fontSize: 14,
               lineHeight: 1.8,
               fontFamily: "'Montserrat',sans-serif",
               maxWidth: 560,
-              marginBottom: 28
-            }, children: "Explore signature perfumes, gift sets, and our most refined collections in one elegant place. Clean, premium, and built to match the Khadlaj aesthetic." }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: 12, flexWrap: "wrap" }, children: [
+              marginBottom: 24
+            }, children: "A cleaner banner with a more premium balance. It highlights the collection without overpowering the page." }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" }, children: [
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
                 "button",
                 {
                   className: "btn-gold",
-                  style: { background: "#B8922A", borderColor: "#B8922A" },
+                  style: { background: "#111", borderColor: "#111" },
                   onClick: () => setPage("collections"),
                   children: "Shop Collections"
                 }
@@ -22337,36 +22340,41 @@
                 "button",
                 {
                   className: "btn-ghost",
-                  style: { borderColor: "rgba(255,255,255,0.35)", color: "#fff" },
+                  style: { borderColor: "#111", color: "#111" },
                   onClick: () => setPage("gifts"),
                   children: "Explore Gifts"
                 }
               )
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", minHeight: 280, display: "flex", alignItems: "center", justifyContent: "center", zIndex: 2 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", minHeight: 240, display: "flex", alignItems: "center", justifyContent: "center", zIndex: 2 }, children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
               position: "absolute",
-              width: "min(360px, 72vw)",
-              aspectRatio: "1/1",
+              width: "min(320px, 70vw)",
+              height: "min(320px, 70vw)",
               borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(193,164,106,0.28) 0%, rgba(193,164,106,0.10) 42%, transparent 72%)",
-              filter: "blur(4px)"
+              background: "radial-gradient(circle, rgba(193,164,106,0.18) 0%, rgba(193,164,106,0.06) 45%, transparent 72%)"
             } }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+              position: "relative",
+              background: "#fff",
+              border: "1px solid #E8E0D1",
+              borderRadius: 22,
+              padding: "20px 18px",
+              boxShadow: "0 20px 50px rgba(0,0,0,0.08)"
+            }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
               "img",
               {
                 src: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-3.jpg?v=1775636549",
                 alt: "Khadlaj perfume banner",
                 style: {
-                  width: "min(360px, 78vw)",
+                  width: "min(330px, 70vw)",
                   maxWidth: "100%",
                   objectFit: "contain",
-                  filter: "drop-shadow(0 22px 40px rgba(0,0,0,0.35))",
-                  transform: "translateY(6px)"
+                  filter: "drop-shadow(0 18px 30px rgba(0,0,0,0.12))"
                 }
               }
-            )
+            ) })
           ] })
         ] })
       ] }) }),

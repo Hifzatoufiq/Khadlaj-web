@@ -585,60 +585,62 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           position:"relative",
           overflow:"hidden",
           borderRadius:24,
-          background:"linear-gradient(135deg, #050505 0%, #14110F 48%, #26201A 100%)",
-          border:"1px solid rgba(193,164,106,0.18)",
-          boxShadow:"0 30px 80px rgba(0,0,0,0.14)",
+          background:"linear-gradient(180deg, #FBF8F2 0%, #F6F1E8 100%)",
+          border:"1px solid #E8E0D1",
+          boxShadow:"0 18px 50px rgba(0,0,0,0.06)",
         }}>
           <div style={{
             position:"absolute",
-            inset:0,
-            background:"radial-gradient(circle at top right, rgba(193,164,106,0.22) 0%, transparent 38%), radial-gradient(circle at left center, rgba(255,255,255,0.08) 0%, transparent 32%)",
+            inset:"auto auto 18px 18px",
+            width:120,
+            height:120,
+            borderRadius:"50%",
+            background:"radial-gradient(circle, rgba(184,146,42,0.16) 0%, transparent 70%)",
             pointerEvents:"none"
           }}/>
           <div style={{
             display:"grid",
-            gridTemplateColumns:"1.2fr .8fr",
+            gridTemplateColumns:"1.1fr .9fr",
             gap:24,
             alignItems:"center",
-            padding:"38px clamp(24px, 4vw, 56px)",
+            padding:"34px clamp(22px, 4vw, 52px)",
           }} className="hero-split">
-            <div style={{position:"relative", zIndex:2, maxWidth:720}}>
+            <div style={{position:"relative", zIndex:2, maxWidth:680}}>
               <p style={{fontSize:9, letterSpacing:5, color:"#B8922A", textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", marginBottom:14, fontWeight:700}}>
                 Signature Edit
               </p>
               <h2 className="disp" style={{
-                fontSize:"clamp(34px, 4.8vw, 64px)",
-                lineHeight:1.02,
-                color:"#fff",
-                letterSpacing:-1,
-                marginBottom:18,
+                fontSize:"clamp(32px, 4.2vw, 58px)",
+                lineHeight:1.04,
+                color:"#111",
+                letterSpacing:-0.6,
+                marginBottom:16,
                 fontWeight:300
               }}>
-                A banner made for<br/>
-                <em className="luxury-gold-text" style={{fontStyle:"italic"}}>luxury fragrance lovers</em>
+                Luxury fragrance,<br/>
+                <em className="luxury-gold-text" style={{fontStyle:"italic"}}>presented properly</em>
               </h2>
               <p style={{
-                color:"rgba(255,255,255,0.72)",
+                color:"#5B5B5B",
                 fontSize:14,
                 lineHeight:1.8,
                 fontFamily:"'Montserrat',sans-serif",
                 maxWidth:560,
-                marginBottom:28
+                marginBottom:24
               }}>
-                Explore signature perfumes, gift sets, and our most refined collections in one elegant place.
-                Clean, premium, and built to match the Khadlaj aesthetic.
+                A cleaner banner with a more premium balance. It highlights the collection without overpowering the page.
               </p>
-              <div style={{display:"flex",gap:12,flexWrap:"wrap"}}>
+              <div style={{display:"flex",gap:12,flexWrap:"wrap",alignItems:"center"}}>
                 <button
                   className="btn-gold"
-                  style={{background:"#B8922A",borderColor:"#B8922A"}}
+                  style={{background:"#111",borderColor:"#111"}}
                   onClick={()=>setPage("collections")}
                 >
                   Shop Collections
                 </button>
                 <button
                   className="btn-ghost"
-                  style={{borderColor:"rgba(255,255,255,0.35)",color:"#fff"}}
+                  style={{borderColor:"#111",color:"#111"}}
                   onClick={()=>setPage("gifts")}
                 >
                   Explore Gifts
@@ -646,26 +648,33 @@ function HomePage({ setPage, addToCart, setViewProduct }){
               </div>
             </div>
 
-            <div style={{position:"relative", minHeight:280, display:"flex", alignItems:"center", justifyContent:"center", zIndex:2}}>
+            <div style={{position:"relative", minHeight:240, display:"flex", alignItems:"center", justifyContent:"center", zIndex:2}}>
               <div style={{
                 position:"absolute",
-                width:"min(360px, 72vw)",
-                aspectRatio:"1/1",
+                width:"min(320px, 70vw)",
+                height:"min(320px, 70vw)",
                 borderRadius:"50%",
-                background:"radial-gradient(circle, rgba(193,164,106,0.28) 0%, rgba(193,164,106,0.10) 42%, transparent 72%)",
-                filter:"blur(4px)"
+                background:"radial-gradient(circle, rgba(193,164,106,0.18) 0%, rgba(193,164,106,0.06) 45%, transparent 72%)",
               }}/>
-              <img
-                src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-3.jpg?v=1775636549"
-                alt="Khadlaj perfume banner"
-                style={{
-                  width:"min(360px, 78vw)",
-                  maxWidth:"100%",
-                  objectFit:"contain",
-                  filter:"drop-shadow(0 22px 40px rgba(0,0,0,0.35))",
-                  transform:"translateY(6px)"
-                }}
-              />
+              <div style={{
+                position:"relative",
+                background:"#fff",
+                border:"1px solid #E8E0D1",
+                borderRadius:22,
+                padding:"20px 18px",
+                boxShadow:"0 20px 50px rgba(0,0,0,0.08)",
+              }}>
+                <img
+                  src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-3.jpg?v=1775636549"
+                  alt="Khadlaj perfume banner"
+                  style={{
+                    width:"min(330px, 70vw)",
+                    maxWidth:"100%",
+                    objectFit:"contain",
+                    filter:"drop-shadow(0 18px 30px rgba(0,0,0,0.12))",
+                  }}
+                />
+              </div>
             </div>
           </div>
         </div>
