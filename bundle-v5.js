@@ -22217,6 +22217,27 @@ function TikTokCard({ t }) {
 function HomePage({ setPage, addToCart, setViewProduct }) {
   const [activeCat, setActiveCat] = (0, import_react.useState)("Best Sellers");
   const [hov, setHov] = (0, import_react.useState)(null);
+  const [quizStep, setQuizStep] = (0, import_react.useState)(1);
+  const [quizMood, setQuizMood] = (0, import_react.useState)("");
+  const [quizOccasion, setQuizOccasion] = (0, import_react.useState)("");
+  const [quizResult, setQuizResult] = (0, import_react.useState)(null);
+  const quizProducts = {
+    "Rich & Exotic": {
+      "Royal Evenings": PRODUCTS.find((p) => p.id === 204) || PRODUCTS[0],
+      "Daily Wear & Office": PRODUCTS.find((p) => p.id === 20) || PRODUCTS[0],
+      "Romantic Date Nights": PRODUCTS.find((p) => p.id === 200) || PRODUCTS[0]
+    },
+    "Fresh & Energizing": {
+      "Royal Evenings": PRODUCTS.find((p) => p.id === 301) || PRODUCTS[0],
+      "Daily Wear & Office": PRODUCTS.find((p) => p.id === 13) || PRODUCTS[0],
+      "Romantic Date Nights": PRODUCTS.find((p) => p.id === 15) || PRODUCTS[0]
+    },
+    "Clean & Sophisticated": {
+      "Royal Evenings": PRODUCTS.find((p) => p.id === 208) || PRODUCTS[0],
+      "Daily Wear & Office": PRODUCTS.find((p) => p.id === 14) || PRODUCTS[0],
+      "Romantic Date Nights": PRODUCTS.find((p) => p.id === 303) || PRODUCTS[0]
+    }
+  };
   const filtered = PRODUCTS.filter((p) => {
     if (activeCat === "All") return true;
     if (activeCat === "Best Sellers") return p.badge === "Best Seller";
