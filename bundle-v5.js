@@ -23474,11 +23474,7 @@ function Navbar({ page, setPage, cartCount }) {
         ] })
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "#000", color: "#fff", textAlign: "center", padding: "10px 16px", fontSize: "9px", letterSpacing: "3px", fontFamily: "'DM Sans',sans-serif", textTransform: "uppercase", fontWeight: 500 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#B8922A", marginRight: 6 }, children: "\u2605" }),
-      "FREE SHIPPING ON ORDERS OVER AED 300",
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#B8922A", marginLeft: 6 }, children: "\u2605" })
-    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { background: "#000", color: "#fff", textAlign: "center", padding: "10px 16px", fontSize: "9px", letterSpacing: "3px", fontFamily: "'DM Sans',sans-serif", textTransform: "uppercase", fontWeight: 500 }, children: 'USE "KHADLAJ25" FOR FLAT 25% DISCOUNT' }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("nav", { style: { position: "sticky", top: 0, zIndex: 100, background: "#fff", boxShadow: "0 2px 12px rgba(0,0,0,.04)", borderBottom: "1px solid #E8E4DC" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "0 5%" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center", minHeight: 80, padding: "12px 0", gap: 24 }, children: [

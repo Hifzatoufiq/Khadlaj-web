@@ -1696,9 +1696,7 @@ function Navbar({ page, setPage, cartCount }){
 
       {/* ── Announcement bar ── */}
       <div style={{background:"#000",color:"#fff",textAlign:"center",padding:"10px 16px",fontSize:"9px",letterSpacing:"3px",fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",fontWeight:500}}>
-        <span style={{color:"#B8922A",marginRight:6}}>★</span>
-        FREE SHIPPING ON ORDERS OVER AED 300
-        <span style={{color:"#B8922A",marginLeft:6}}>★</span>
+        USE "KHADLAJ25" FOR FLAT 25% DISCOUNT
       </div>
 
       {/* ── Main nav ── */}
