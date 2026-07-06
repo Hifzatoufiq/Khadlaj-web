@@ -22451,7 +22451,10 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { style: { color: "#B8922A", fontStyle: "italic" }, children: "French Perfumery" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "rgba(255,255,255,0.7)", lineHeight: 1.8, fontSize: 14, marginBottom: 40, maxWidth: 460, fontFamily: "'Montserrat',sans-serif" }, children: "Founded by Mohamed Iqbal Abdul Sattar \u2014 each creation blends the ancient soul of Arabian oud with the precision of French fragrance tradition. Discover a legacy crafted in every drop." }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: 20, alignItems: "stretch", marginBottom: 40, maxWidth: 480 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 2, background: "linear-gradient(to bottom, #B8922A, transparent)", flexShrink: 0 } }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "rgba(255,255,255,0.75)", lineHeight: 1.85, fontSize: 14, fontFamily: "'Montserrat',sans-serif", margin: 0 }, children: "Founded by Mohamed Iqbal Abdul Sattar in 1997, Khadlaj Perfumes is built on the pursuit of scent perfection. Each creation blends the ancient soul of Arabian oud with the precision of French fragrance tradition. Discover a legacy crafted in every drop." })
+        ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
           "button",
           {

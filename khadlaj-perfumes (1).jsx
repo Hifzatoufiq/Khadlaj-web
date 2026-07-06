@@ -719,9 +719,12 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             <h2 className="disp" style={{fontSize:"clamp(36px,4.5vw,54px)",fontWeight:300,lineHeight:1.1,marginBottom:28,color:"#fff",letterSpacing:-1}}>
               The Art of Arabic &amp;<br/><em style={{color:"#B8922A",fontStyle:"italic"}}>French Perfumery</em>
             </h2>
-            <p style={{color:"rgba(255,255,255,0.7)",lineHeight:1.8,fontSize:14,marginBottom:40,maxWidth:460,fontFamily:"'Montserrat',sans-serif"}}>
-              Founded by Mohamed Iqbal Abdul Sattar — each creation blends the ancient soul of Arabian oud with the precision of French fragrance tradition. Discover a legacy crafted in every drop.
-            </p>
+            <div style={{display:"flex", gap:20, alignItems:"stretch", marginBottom:40, maxWidth:480}}>
+              <div style={{width:2, background:"linear-gradient(to bottom, #B8922A, transparent)", flexShrink:0}}/>
+              <p style={{color:"rgba(255,255,255,0.75)",lineHeight:1.85,fontSize:14,fontFamily:"'Montserrat',sans-serif", margin:0}}>
+                Founded by Mohamed Iqbal Abdul Sattar in 1997, Khadlaj Perfumes is built on the pursuit of scent perfection. Each creation blends the ancient soul of Arabian oud with the precision of French fragrance tradition. Discover a legacy crafted in every drop.
+              </p>
+            </div>
             <div>
               <button style={{background:"transparent", color:"#fff", border:"1px solid #fff", padding:"14px 36px", fontSize:10, letterSpacing:2.5, textTransform:"uppercase", cursor:"pointer", fontFamily:"'Montserrat',sans-serif", transition:"all .4s ease", width:"max-content"}}
                 onMouseEnter={e=>{e.currentTarget.style.background="#B8922A";e.currentTarget.style.borderColor="#B8922A";e.currentTarget.style.color="#fff";}}
