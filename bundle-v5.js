@@ -23741,58 +23741,58 @@ function Footer({ setPage }) {
         ] })
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { background: "#4C396B", padding: "18px 5%", display: "flex", justifyContent: "center", alignItems: "center", gap: 14, borderBottom: "1px solid rgba(255,255,255,0.05)" }, children: [
-      { name: "facebook", path: "M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z", fill: "none" },
-      { name: "twitter", path: "M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z", fill: "currentColor" },
-      { name: "instagram", path: "M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01M6.5 6.5h11A5 5 0 0122.5 12v0a5 5 0 01-5 5h-11a5 5 0 01-5-5v0a5 5 0 015-5z", fill: "none" },
-      { name: "linkedin", path: "M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z M4 2a2 2 0 100 4 2 2 0 000-4z", fill: "currentColor" },
-      { name: "youtube", path: "M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z M9.75 15.02l5.75-3.27-5.75-3.27v6.54z", fill: "currentColor", hasDot: true }
-    ].map((social) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-      "a",
-      {
-        href: "#",
-        style: {
-          position: "relative",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          width: 36,
-          height: 36,
-          borderRadius: "50%",
-          background: "#000",
-          color: "#fff",
-          textDecoration: "none",
-          transition: "transform 0.2s, background 0.2s"
-        },
-        onMouseEnter: (e) => {
-          e.currentTarget.style.transform = "scale(1.1)";
-          e.currentTarget.style.background = "#fff";
-          e.currentTarget.style.color = "#000";
-        },
-        onMouseLeave: (e) => {
-          e.currentTarget.style.transform = "scale(1)";
-          e.currentTarget.style.background = "#000";
-          e.currentTarget.style.color = "#fff";
-        },
-        children: [
-          social.hasDot && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: {
-            position: "absolute",
-            top: 0,
-            right: "9px",
-            width: 6,
-            height: 6,
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "#fff", borderTop: "1px solid #E8E4DC", padding: "30px 5%", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 20, fontSize: 9, color: "#888", letterSpacing: 1.5, fontFamily: "'Montserrat',sans-serif", textTransform: "uppercase" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { marginBottom: 10, color: "#000", fontWeight: 600 }, children: "\xA9 2025 Khadlaj Perfumes LLC. All rights reserved. UAE." }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: 24 }, children: ["Privacy Policy", "Terms of Use", "Cookie Settings"].map((l) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { cursor: "pointer", transition: "color .2s" }, onMouseEnter: (e) => e.target.style.color = "#B8922A", onMouseLeave: (e) => e.target.style.color = "#888", children: l }, l)) })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: 12, alignItems: "center" }, children: [
+        { name: "facebook", path: "M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z", fill: "none" },
+        { name: "twitter", path: "M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z", fill: "currentColor" },
+        { name: "instagram", path: "M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01M6.5 6.5h11A5 5 0 0122.5 12v0a5 5 0 01-5 5h-11a5 5 0 01-5-5v0a5 5 0 015-5z", fill: "none" },
+        { name: "linkedin", path: "M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z M4 2a2 2 0 100 4 2 2 0 000-4z", fill: "currentColor" },
+        { name: "youtube", path: "M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z M9.75 15.02l5.75-3.27-5.75-3.27v6.54z", fill: "currentColor", hasDot: true }
+      ].map((social) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+        "a",
+        {
+          href: "#",
+          style: {
+            position: "relative",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            width: 32,
+            height: 32,
             borderRadius: "50%",
-            background: "#FF3B30",
-            zIndex: 10
-          } }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", { width: "15", height: "15", viewBox: "0 0 24 24", fill: social.fill, stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: social.path }) })
-        ]
-      },
-      social.name
-    )) }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "#fff", borderTop: "1px solid #E8E4DC", padding: "20px 5%", display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 12, fontSize: 9, color: "#888", letterSpacing: 1.5, fontFamily: "'Montserrat',sans-serif", textTransform: "uppercase" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { children: "\xA9 2025 Khadlaj Perfumes LLC. All rights reserved. UAE." }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: 24 }, children: ["Privacy Policy", "Terms of Use", "Cookie Settings"].map((l) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { cursor: "pointer", transition: "color .2s" }, onMouseEnter: (e) => e.target.style.color = "#B8922A", onMouseLeave: (e) => e.target.style.color = "#888", children: l }, l)) })
+            background: "#000",
+            color: "#fff",
+            textDecoration: "none",
+            transition: "transform 0.2s, background 0.2s, color 0.2s"
+          },
+          onMouseEnter: (e) => {
+            e.currentTarget.style.transform = "scale(1.1)";
+            e.currentTarget.style.background = "#B8922A";
+          },
+          onMouseLeave: (e) => {
+            e.currentTarget.style.transform = "scale(1)";
+            e.currentTarget.style.background = "#000";
+          },
+          children: [
+            social.hasDot && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: {
+              position: "absolute",
+              top: 0,
+              right: "8px",
+              width: 5,
+              height: 5,
+              borderRadius: "50%",
+              background: "#FF3B30",
+              zIndex: 10
+            } }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", { width: "13", height: "13", viewBox: "0 0 24 24", fill: social.fill, stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: social.path }) })
+          ]
+        },
+        social.name
+      )) })
     ] })
   ] });
 }
