@@ -189,7 +189,7 @@ const CATEGORIES = ["All","Best Sellers","New","For Him","For Her","Unisex","Aty
    GLOBAL CSS
 ═══════════════════════════════════════════════════════════════ */
 const GLOBAL_CSS = `
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600;6..96,700&display=swap');
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
   body{background:#fff;color:#000;font-family:'Montserrat',sans-serif;}
@@ -367,17 +367,14 @@ function ProductCard({ p, onView }){
         }}>{p.badge}</span>
       )}
       <div style={{ position:"relative", width:"100%", aspectRatio:"1/1", overflow:"hidden", background:"transparent" }}>
-        <div style={{position:"absolute", inset:0, display:"flex", alignItems:"flex-start", justifyContent:"center", padding:"4px 12px 0"}}>
+        <div style={{position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", padding:"14px 12px 6px"}}>
           <img
             src={p.img} alt={p.name} loading="lazy"
-            className={p.id===13 ? "island-bottle" : ""}
             style={{
-              width:"100%", height:"100%", objectFit:"contain", objectPosition:"center top",
+              width:"100%", height:"100%", objectFit:"contain", objectPosition:"center center",
               mixBlendMode:"multiply", filter:"contrast(1.05) brightness(1.04)",
               transition:"transform .8s cubic-bezier(0.25, 1, 0.25, 1)",
-              transform: hov
-                ? `translateY(${p.id===13 ? "4px" : "0"}) scale(${p.id===13 ? 1.18 : 1.08})`
-                : `translateY(${p.id===13 ? "4px" : "0"}) scale(${p.id===13 ? 1.12 : 1})`,
+              transform: hov ? "scale(1.08)" : "scale(1)",
             }}
           />
         </div>
@@ -592,7 +589,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
                 color:"#000",
                 lineHeight:1.02,
                 letterSpacing:-0.2,
-                fontFamily:"'Cormorant Garamond', 'Cinzel', serif",
+                fontFamily:"'Bodoni Moda', 'Cormorant Garamond', 'Cinzel', serif",
               }}
             >
               Respect the Quality,<br/>
@@ -703,12 +700,12 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       <section style={{padding:"80px 5%",background:"#000"}}>
         <div style={{marginBottom:48,textAlign:"center"}}>
           <div style={{width:40,height:1,background:"#B8922A",margin:"0 auto 16px"}}/>
-          <p style={{fontSize:8,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>@KhadlajPerfumes</p>
+          <p style={{fontSize:8,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Shop by Reel</p>
           <h2 className="disp" style={{fontSize:"clamp(24px,3vw,42px)",fontWeight:300,color:"#fff",letterSpacing:-0.5,marginBottom:10,lineHeight:1.2}}>
-            Watch Us on TikTok
+            Shop by Reel
           </h2>
           <p style={{color:"rgba(255,255,255,.5)",fontSize:12,fontFamily:"'Montserrat',sans-serif",letterSpacing:0.3}}>
-            Real fragrances. Real stories. Follow us for the latest drops.
+            Browse fragrances through short, stylish reels and discover your next favorite scent.
           </p>
         </div>
 
