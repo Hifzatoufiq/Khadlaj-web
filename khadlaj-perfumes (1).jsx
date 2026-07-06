@@ -361,17 +361,17 @@ function ProductCard({ p, onView }){
         <span style={{
           position:"absolute", top:12, left:12, zIndex:3,
           background: p.badge==="Limited" ? "#5C0000" : p.badge==="New" ? "#B8922A" : "#000",
-          color:"#fff", fontSize:8, letterSpacing:2.5,
-          padding:"4px 10px", fontWeight:700, textTransform:"uppercase",
+          color:"#fff", fontSize:9.5, letterSpacing:2.5,
+          padding:"5px 11px", fontWeight:800, textTransform:"uppercase",
           fontFamily:"'Montserrat',sans-serif",
         }}>{p.badge}</span>
       )}
       <div style={{ position:"relative", width:"100%", aspectRatio:"1/1", overflow:"hidden", background:"transparent" }}>
-        <div style={{position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", padding:"12px"}}>
+        <div style={{position:"absolute", inset:0, display:"flex", alignItems:"flex-start", justifyContent:"center", padding:"4px 12px 0"}}>
           <img
             src={p.img} alt={p.name} loading="lazy"
             style={{
-              width:"100%", height:"100%", objectFit:"contain",
+              width:"100%", height:"100%", objectFit:"contain", objectPosition:"center top",
               mixBlendMode:"multiply", filter:"contrast(1.05) brightness(1.04)",
               transition:"transform .8s cubic-bezier(0.25, 1, 0.25, 1)",
               transform: hov ? "scale(1.08)" : "scale(1)",
@@ -387,7 +387,7 @@ function ProductCard({ p, onView }){
         }}>
           <button style={{
             width:"100%", background:"#111", color:"#fff", border:"none", 
-            padding:"12px", fontSize:10, letterSpacing:2, fontWeight:500, 
+            padding:"12px", fontSize:11, letterSpacing:2, fontWeight:700, 
             cursor:"pointer", textTransform:"uppercase",
             fontFamily:"'Montserrat',sans-serif", transition:"background .3s"
           }}
@@ -399,13 +399,13 @@ function ProductCard({ p, onView }){
         </div>
       </div>
       <div style={{padding:"16px 10px 18px", flex:1, display:"flex", flexDirection:"column", alignItems:"center", textAlign:"center"}}>
-        <p style={{fontSize:8, letterSpacing:3, color:"#B8922A", textTransform:"uppercase", marginBottom:6, fontFamily:"'Montserrat',sans-serif", fontWeight:600}}>{p.col}</p>
-        <h3 style={{fontSize:13, fontWeight:700, color:"#000", lineHeight:1.3, marginBottom:4, textTransform:"uppercase", letterSpacing:1, fontFamily:"'Montserrat',sans-serif"}}>{p.name}</h3>
-        <p style={{fontSize:11, color:"#999", marginBottom:10, fontFamily:"'Montserrat',sans-serif", letterSpacing:.4}}>{p.size}</p>
+        <p style={{fontSize:9.5, letterSpacing:3, color:"#B8922A", textTransform:"uppercase", marginBottom:7, fontFamily:"'Montserrat',sans-serif", fontWeight:700}}>{p.col}</p>
+        <h3 style={{fontSize:15.5, fontWeight:800, color:"#000", lineHeight:1.25, marginBottom:5, textTransform:"uppercase", letterSpacing:1.1, fontFamily:"'Montserrat',sans-serif"}}>{p.name}</h3>
+        <p style={{fontSize:12.5, color:"#888", marginBottom:12, fontFamily:"'Montserrat',sans-serif", letterSpacing:.4, fontWeight:500}}>{p.size}</p>
         {notes.length > 0 && (
           <div style={{display:"flex", flexWrap:"wrap", gap:5, marginBottom:12, justifyContent:"center"}}>
             {notes.map((n, i) => (
-              <span key={n} style={{display:"inline-flex", alignItems:"center", gap:4, padding:"3px 8px", background:"#F5F5F5", fontSize:8, letterSpacing:1, color:"#666", textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif"}}>
+              <span key={n} style={{display:"inline-flex", alignItems:"center", gap:4, padding:"4px 9px", background:"#F5F5F5", fontSize:9, letterSpacing:1, color:"#666", textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", fontWeight:600}}>
                 <span style={{width:5, height:5, borderRadius:"50%", background: noteColors[i % noteColors.length], flexShrink:0, display:"inline-block"}}/>
                 {n}
               </span>
@@ -414,10 +414,10 @@ function ProductCard({ p, onView }){
         )}
         <div style={{marginTop:"auto", width:"100%", display:"flex", flexDirection:"column", alignItems:"center", gap:6, paddingTop:12, borderTop:"1px solid #F0F0F0"}}>
           <div style={{display:"flex", alignItems:"center", gap:4, justifyContent:"center"}}>
-            <span style={{color:"#C8A96E", fontSize:11, letterSpacing:1}}>{"★".repeat(5)}</span>
-            <span style={{fontSize:9, color:"#aaa", fontFamily:"'Montserrat',sans-serif"}}>(905)</span>
+            <span style={{color:"#C8A96E", fontSize:12, letterSpacing:1}}>{"★".repeat(5)}</span>
+            <span style={{fontSize:10, color:"#aaa", fontFamily:"'Montserrat',sans-serif", fontWeight:600}}>(905)</span>
           </div>
-          <p style={{fontSize:15, fontWeight:700, color:"#000", fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(p.price)}</p>
+          <p style={{fontSize:17, fontWeight:800, color:"#000", fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(p.price)}</p>
         </div>
       </div>
     </div>
@@ -1184,9 +1184,9 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }){
                 color: activeCat===c ? "#000" : "#888",
                 border:"none",
                 borderBottom: activeCat===c ? "2px solid #000" : "1px solid transparent",
-                padding:"10px 16px 11px",fontSize:13.5,letterSpacing:1.9,
+                padding:"11px 18px 12px",fontSize:14.5,letterSpacing:2,
                 cursor:"pointer",whiteSpace:"nowrap",
-                fontWeight: activeCat===c ? 900 : 700,
+                fontWeight: activeCat===c ? 900 : 800,
                 transition:"all .18s",textTransform:"uppercase",
                 fontFamily:"'Montserrat',sans-serif",
               }}>{c}</button>
