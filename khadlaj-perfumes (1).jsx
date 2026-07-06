@@ -349,6 +349,7 @@ function ProductCard({ p, onView }){
         background:"transparent",
         display:"flex",
         flexDirection:"column",
+        height:"100%",
         position:"relative",
         cursor:"pointer",
         border: "none",
