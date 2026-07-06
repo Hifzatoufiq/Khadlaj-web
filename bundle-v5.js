@@ -22063,7 +22063,7 @@
             fontFamily: "'Montserrat',sans-serif"
           }, children: p.badge }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", width: "100%", aspectRatio: "1/1", overflow: "hidden", background: "transparent" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center", padding: "14px 12px 6px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, display: "flex", alignItems: "flex-start", justifyContent: "center", padding: "6px 12px 0" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
               "img",
               {
                 src: p.img,
@@ -22073,7 +22073,7 @@
                   width: "100%",
                   height: "100%",
                   objectFit: "contain",
-                  objectPosition: "center center",
+                  objectPosition: "center top",
                   mixBlendMode: "multiply",
                   filter: "contrast(1.05) brightness(1.04)",
                   transition: "transform .8s cubic-bezier(0.25, 1, 0.25, 1)",

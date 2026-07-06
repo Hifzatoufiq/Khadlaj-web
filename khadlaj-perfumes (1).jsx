@@ -367,11 +367,11 @@ function ProductCard({ p, onView }){
         }}>{p.badge}</span>
       )}
       <div style={{ position:"relative", width:"100%", aspectRatio:"1/1", overflow:"hidden", background:"transparent" }}>
-        <div style={{position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center", padding:"14px 12px 6px"}}>
+        <div style={{position:"absolute", inset:0, display:"flex", alignItems:"flex-start", justifyContent:"center", padding:"6px 12px 0"}}>
           <img
             src={p.img} alt={p.name} loading="lazy"
             style={{
-              width:"100%", height:"100%", objectFit:"contain", objectPosition:"center center",
+              width:"100%", height:"100%", objectFit:"contain", objectPosition:"center top",
               mixBlendMode:"multiply", filter:"contrast(1.05) brightness(1.04)",
               transition:"transform .8s cubic-bezier(0.25, 1, 0.25, 1)",
               transform: hov ? "scale(1.08)" : "scale(1)",
