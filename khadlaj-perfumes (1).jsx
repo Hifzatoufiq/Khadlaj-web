@@ -579,6 +579,98 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         </div>
       </div>
 
+      {/* ── PROMO BANNER ── */}
+      <section style={{padding:"28px 5% 0", background:"#fff"}}>
+        <div style={{
+          position:"relative",
+          overflow:"hidden",
+          borderRadius:24,
+          background:"linear-gradient(135deg, #050505 0%, #14110F 48%, #26201A 100%)",
+          border:"1px solid rgba(193,164,106,0.18)",
+          boxShadow:"0 30px 80px rgba(0,0,0,0.14)",
+        }}>
+          <div style={{
+            position:"absolute",
+            inset:0,
+            background:"radial-gradient(circle at top right, rgba(193,164,106,0.22) 0%, transparent 38%), radial-gradient(circle at left center, rgba(255,255,255,0.08) 0%, transparent 32%)",
+            pointerEvents:"none"
+          }}/>
+          <div style={{
+            display:"grid",
+            gridTemplateColumns:"1.2fr .8fr",
+            gap:24,
+            alignItems:"center",
+            padding:"38px clamp(24px, 4vw, 56px)",
+          }} className="hero-split">
+            <div style={{position:"relative", zIndex:2, maxWidth:720}}>
+              <p style={{fontSize:9, letterSpacing:5, color:"#B8922A", textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", marginBottom:14, fontWeight:700}}>
+                Signature Edit
+              </p>
+              <h2 className="disp" style={{
+                fontSize:"clamp(34px, 4.8vw, 64px)",
+                lineHeight:1.02,
+                color:"#fff",
+                letterSpacing:-1,
+                marginBottom:18,
+                fontWeight:300
+              }}>
+                A banner made for<br/>
+                <em className="luxury-gold-text" style={{fontStyle:"italic"}}>luxury fragrance lovers</em>
+              </h2>
+              <p style={{
+                color:"rgba(255,255,255,0.72)",
+                fontSize:14,
+                lineHeight:1.8,
+                fontFamily:"'Montserrat',sans-serif",
+                maxWidth:560,
+                marginBottom:28
+              }}>
+                Explore signature perfumes, gift sets, and our most refined collections in one elegant place.
+                Clean, premium, and built to match the Khadlaj aesthetic.
+              </p>
+              <div style={{display:"flex",gap:12,flexWrap:"wrap"}}>
+                <button
+                  className="btn-gold"
+                  style={{background:"#B8922A",borderColor:"#B8922A"}}
+                  onClick={()=>setPage("collections")}
+                >
+                  Shop Collections
+                </button>
+                <button
+                  className="btn-ghost"
+                  style={{borderColor:"rgba(255,255,255,0.35)",color:"#fff"}}
+                  onClick={()=>setPage("gifts")}
+                >
+                  Explore Gifts
+                </button>
+              </div>
+            </div>
+
+            <div style={{position:"relative", minHeight:280, display:"flex", alignItems:"center", justifyContent:"center", zIndex:2}}>
+              <div style={{
+                position:"absolute",
+                width:"min(360px, 72vw)",
+                aspectRatio:"1/1",
+                borderRadius:"50%",
+                background:"radial-gradient(circle, rgba(193,164,106,0.28) 0%, rgba(193,164,106,0.10) 42%, transparent 72%)",
+                filter:"blur(4px)"
+              }}/>
+              <img
+                src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-3.jpg?v=1775636549"
+                alt="Khadlaj perfume banner"
+                style={{
+                  width:"min(360px, 78vw)",
+                  maxWidth:"100%",
+                  objectFit:"contain",
+                  filter:"drop-shadow(0 22px 40px rgba(0,0,0,0.35))",
+                  transform:"translateY(6px)"
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
 
       {/* ── FEATURED PRODUCTS ── */}
       <section style={{padding:"0 5% 104px",background:"#fff"}}>
