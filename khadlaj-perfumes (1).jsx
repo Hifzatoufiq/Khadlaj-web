@@ -2139,10 +2139,56 @@ export default function App(){
 
   const addToCart = () => setCartCount(c=>c+1);
 
+  // Chatbot states
+  const [chatOpen, setChatOpen] = useState(false);
+  const chatMessagesRef = useRef(null);
+  const [messages, setMessages] = useState([
+    { role: "assistant", content: "Welcome to Khadlaj Perfumes. I can help with collections, products, shipping, discounts, or any page on the website." }
+  ]);
+  const [inputVal, setInputVal] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSendMessage = async () => {
+    if (!inputVal.trim() || loading) return;
+    const userMsg = { role: "user", content: inputVal };
+    const nextMessages = [...messages, userMsg];
+    setMessages(nextMessages);
+    setInputVal("");
+    setLoading(true);
+
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ messages: nextMessages })
+      });
+
+      const data = await response.json();
+      if (response.ok && data.reply) {
+        setMessages(prev => [...prev, { role: "assistant", content: data.reply }]);
+      } else {
+        setMessages(prev => [...prev, { role: "assistant", content: data.error || "I am unable to answer right now. Please try again in a moment." }]);
+      }
+    } catch (err) {
+      console.error(err);
+      setMessages(prev => [...prev, { role: "assistant", content: "I am unable to connect right now. Please check your network connection and try again." }]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(()=>{
     const t = setTimeout(()=>setShowPopup(true), 6000);
     return ()=>clearTimeout(t);
   },[]);
+
+  useEffect(() => {
+    if (chatMessagesRef.current) {
+      chatMessagesRef.current.scrollTop = chatMessagesRef.current.scrollHeight;
+    }
+  }, [messages, loading]);
 
   useEffect(()=>{ window.scrollTo({top:0,behavior:"smooth"}); },[page]);
 
@@ -2183,6 +2229,99 @@ export default function App(){
           onMouseLeave={e=>{e.currentTarget.style.background="#000";e.currentTarget.style.transform="scale(1)";}}
           title="Shop Now"
         >🛍</button>
+      )}
+
+      {/* ── Chatbot Floating Button ── */}
+      <button
+        onClick={()=>setChatOpen(!chatOpen)}
+        style={{
+          position:"fixed",bottom:32,left:32,zIndex:200,
+          background:"#000",color:"#fff",
+          width:58,height:58,borderRadius:"50%",
+          border:"none",cursor:"pointer",
+          boxShadow:"0 8px 28px rgba(0,0,0,.25)",
+          display:"flex",alignItems:"center",justifyContent:"center",
+          transition:"background .2s,transform .2s",
+        }}
+        onMouseEnter={e=>{e.currentTarget.style.background="#B8922A";e.currentTarget.style.transform="scale(1.12)";}}
+        onMouseLeave={e=>{e.currentTarget.style.background="#000";e.currentTarget.style.transform="scale(1)";}}
+        title="Chat with Us"
+      >
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </button>
+
+      {/* ── Chatbot Window Panel ── */}
+      {chatOpen && (
+        <div style={{
+          position:"fixed", bottom:104, left:32, width:360, height:480,
+          zIndex:200, background:"rgba(255, 255, 255, 0.98)",
+          border:"1px solid rgba(0,0,0,0.1)", borderRadius:12,
+          boxShadow:"0 16px 40px rgba(0,0,0,0.15)",
+          display:"flex", flexDirection:"column", overflow:"hidden",
+          animation:"fadeUp 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both",
+          fontFamily:"'Montserrat',sans-serif"
+        }}>
+          {/* Header */}
+          <div style={{background:"#000", padding:"16px 20px", display:"flex", alignItems:"center", justifyContent:"space-between"}}>
+            <div style={{display:"flex", alignItems:"center", gap:10}}>
+              <div style={{width:8, height:8, borderRadius:"50%", background:"#2ec4b6"}}></div>
+              <div>
+                <p style={{fontSize:11, letterSpacing:2, color:"#B8922A", textTransform:"uppercase", margin:0, fontWeight:700}}>Scent Assistant</p>
+                <p style={{fontSize:9, color:"rgba(255,255,255,0.7)", margin:0}}>Khadlaj Perfumes</p>
+              </div>
+            </div>
+            <button onClick={()=>setChatOpen(false)} style={{background:"none", border:"none", color:"#fff", fontSize:18, cursor:"pointer", padding:0}}>×</button>
+          </div>
+
+          {/* Messages list */}
+          <div ref={chatMessagesRef} style={{flex:1, padding:20, overflowY:"auto", display:"flex", flexDirection:"column", gap:12, background:"#FCFBFA"}} className="chat-messages">
+            {messages.map((msg, i) => (
+              <div key={i} style={{
+                alignSelf: msg.role === "user" ? "flex-end" : "flex-start",
+                maxWidth: "80%",
+                background: msg.role === "user" ? "#000" : "#fff",
+                color: msg.role === "user" ? "#fff" : "#111",
+                padding: "10px 14px",
+                borderRadius: msg.role === "user" ? "12px 12px 0 12px" : "12px 12px 12px 0",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.03)",
+                border: msg.role === "user" ? "none" : "1px solid #E8E4DC",
+              }}>
+                <p style={{fontSize:12, margin:0, lineHeight:1.45, whiteSpace:"pre-line"}}>{msg.content}</p>
+              </div>
+            ))}
+            {loading && (
+              <div style={{alignSelf:"flex-start", maxWidth:"80%", background:"#fff", padding:"10px 14px", borderRadius:"12px 12px 12px 0", border:"1px solid #E8E4DC", boxShadow:"0 2px 8px rgba(0,0,0,0.03)"}}>
+                <p style={{fontSize:11, color:"#888", margin:0}}>Assistant is writing...</p>
+              </div>
+            )}
+          </div>
+
+          {/* Footer Input */}
+          <div style={{padding:"14px 16px", borderTop:"1px solid #E8E4DC", background:"#fff", display:"flex", gap:10, alignItems:"center"}}>
+            <input
+              type="text"
+              placeholder="Ask about our perfumes..."
+              value={inputVal}
+              onChange={e=>setInputVal(e.target.value)}
+              onKeyDown={e=>{if(e.key==="Enter") handleSendMessage();}}
+              style={{
+                flex:1, border:"1px solid #E8E4DC", padding:"10px 14px",
+                fontSize:12, outline:"none", borderRadius:6,
+                fontFamily:"'Montserrat',sans-serif"
+              }}
+            />
+            <button
+              onClick={handleSendMessage}
+              style={{
+                background:"#000", border:"none", color:"#fff",
+                padding:"10px 14px", borderRadius:6, cursor:"pointer",
+                fontSize:11, fontWeight:600, textTransform:"uppercase"
+              }}
+            >
+              Send
+            </button>
+          </div>
+        </div>
       )}
 
 {/* ── Newsletter Popup ── */}

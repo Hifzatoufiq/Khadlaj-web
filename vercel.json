@@ -7,6 +7,7 @@
     { "src": "video/**", "use": "@vercel/static" }
   ],
   "routes": [
+    { "src": "/api/(.*)", "dest": "/api/$1" },
     { "src": "/video/(.*)", "dest": "/video/$1" },
     { "src": "/assets/(.*)", "dest": "/assets/$1" },
     { "src": "/bundle-v5.js", "dest": "/bundle-v5.js" },

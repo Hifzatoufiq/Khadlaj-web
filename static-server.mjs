@@ -2,6 +2,7 @@ import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
 import { extname, join, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
+import { handleChatRequest } from "./chatbot-api.mjs";
 
 const root = fileURLToPath(new URL(".", import.meta.url));
 const port = Number(process.env.PORT || 3002);
@@ -22,6 +23,11 @@ const types = {
 };
 
 createServer(async (req, res) => {
+  if (req.url?.startsWith("/api/chat")) {
+    await handleChatRequest(req, res);
+    return;
+  }
+
   const urlPath = req.url === "/" ? "/index.html" : req.url.split("?")[0];
   const safePath = normalize(urlPath).replace(/^([.]{2}[\\/])+/, "");
   const filePath = join(root, safePath);
