@@ -22577,7 +22577,7 @@
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "rgba(255,255,255,0.7)", lineHeight: 1.8, fontSize: 14, maxWidth: 440, fontFamily: "'Montserrat',sans-serif", marginBottom: 32 }, children: "Fragrance is a deeply personal language. Answer a few questions and our custom olfactive profiler will match you with a signature scent from our master perfume lines." }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 14 }, children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 22, color: "#B8922A" }, children: "\u2726" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 11, letterSpacing: 1.5, fontFamily: "'Montserrat',sans-serif", textTransform: "uppercase", color: "rgba(255,255,255,0.6)" }, children: "Respect the Quality, Provide the Best" })
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 12.5, letterSpacing: 2.4, fontFamily: "'Cormorant Garamond', 'Cinzel', serif", fontWeight: 500, textTransform: "uppercase", color: "rgba(255,255,255,0.72)" }, children: "Respect the Quality, Provide the Best" })
           ] })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, padding: "40px 32px", minHeight: 380, display: "flex", flexDirection: "column", justifyContent: "center", position: "relative" }, children: [

@@ -830,7 +830,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             </p>
             <div style={{display:"flex", alignItems:"center", gap:14}}>
               <span style={{fontSize:22, color:"#B8922A"}}>✦</span>
-              <span style={{fontSize:11, letterSpacing:1.5, fontFamily:"'Montserrat',sans-serif", textTransform:"uppercase", color:"rgba(255,255,255,0.6)"}}>Respect the Quality, Provide the Best</span>
+              <span style={{fontSize:12.5, letterSpacing:2.4, fontFamily:"'Cormorant Garamond', 'Cinzel', serif", fontWeight:500, textTransform:"uppercase", color:"rgba(255,255,255,0.72)"}}>Respect the Quality, Provide the Best</span>
             </div>
           </div>
 
