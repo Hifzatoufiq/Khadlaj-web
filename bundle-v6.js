@@ -21780,6 +21780,26 @@
     { v: "30+", l: "Countries" },
     { v: "1", l: "Master Perfumer" }
   ];
+  var BANNER_SLIDES = [
+    {
+      eyebrow: "Just Dropped",
+      title: "New Arrivals",
+      copy: "Fresh seasonal picks with a premium finish.",
+      img: "./assets/images/banners/spring-banner.png"
+    },
+    {
+      eyebrow: "Best Seller",
+      title: "Island",
+      copy: "A clean, oceanic signature with a bold golden edge.",
+      img: "./assets/images/products/island-packshot-removebg-preview.png"
+    },
+    {
+      eyebrow: "Atyaab",
+      title: "Bleu Glac\xE9",
+      copy: "Cool blue freshness with a refined modern profile.",
+      img: "./assets/images/products/blue-glace-single-2.png"
+    }
+  ];
   var PRODUCTS = [
     // ── Local products (own images) ──
     { id: 13, name: "Island", col: "Master Perfumery", price: 150, size: "100ml Extrait", badge: "Best Seller", gender: "Unisex", notes: ["Marine", "Amber", "Oud"], img: "./assets/images/products/island-packshot-removebg-preview.png" },
@@ -21787,10 +21807,10 @@
     { id: 15, name: "Cloud Candy", col: "Atyaab", price: 325, size: "Gift Set", badge: null, gender: "Her", notes: ["Peach", "Musk", "Vanilla"], img: "./assets/images/gifsets/cloudcandy_gift_user.png", images: ["./assets/images/gifsets/cloudcandy_gift_user.png", "./assets/images/gifsets/cloudcandy_gift_user.png", "./assets/images/products/cloud-candy-open-box.png", "./assets/images/products/cloud-candy-back-box.png"] },
     { id: 16, name: "Strawberry Shake", col: "Atyaab", price: 295, size: "100ml EDP", badge: null, gender: "Her", notes: ["Strawberry", "Musk", "Vanilla"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/STRAWBERRY_SHAKE-03.jpg?v=1764228432" },
     { id: 17, name: "Biscotti Date Toffee", col: "Lafede", price: 315, size: "100ml EDP", badge: "New", gender: "Unisex", notes: ["Date", "Coffee", "Gourmand"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Biscotti_Date_Toffee-3.jpg?v=1776407655" },
-    { id: 18, name: "Biscotti Melon Musk", col: "Lafede", price: 315, size: "100ml EDP", badge: "New", gender: "Unisex", notes: ["Melon", "Musk", "Cream"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Bleu_Glace_02.jpg?v=1738325363" },
+    { id: 18, name: "Biscotti Melon Musk", col: "Lafede", price: 315, size: "100ml EDP", badge: "New", gender: "Unisex", notes: ["Melon", "Musk", "Cream"], img: "./assets/images/products/blue-glace-single-1.png" },
     { id: 19, name: "Uno Intimo", col: "Lafede", price: 285, size: "100ml EDP", badge: null, gender: "Her", notes: ["Rose", "Musk", "Peony"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/UNO_INTIMO_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1966036.jpg?v=1722412332" },
     { id: 20, name: "Shahi Oud", col: "Master Perfumery", price: 360, size: "100ml EDP", badge: null, gender: "Unisex", notes: ["Oud", "Amber", "Saffron"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SHAHI_OUD_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965925.jpg?v=1722412108" },
-    { id: 21, name: "Bleu Glac\xE9", col: "Atyaab", price: 275, size: "100ml EDP", badge: "New", gender: "Unisex", notes: ["Marine", "Bergamot", "Musk"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Bleu_Glace_02.jpg?v=1738325363" },
+    { id: 21, name: "Bleu Glac\xE9", col: "Atyaab", price: 275, size: "100ml EDP", badge: "New", gender: "Unisex", notes: ["Marine", "Bergamot", "Musk"], img: "./assets/images/products/blue-glace-single-2.png" },
     // ── Live products from khadlaj-perfumes.com ──
     { id: 200, name: "Saraya", col: "Master Perfumery", price: 105, size: "60ml Extrait", badge: "New", gender: "Unisex", notes: ["Amber", "Bergamot", "Vetiver"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/saraya_3.png?v=1781332291" },
     { id: 201, name: "Nafais Sharq Gift Set", col: "Atyaab", price: 150, size: "Gift Set", badge: null, gender: "Her", notes: ["Rose", "Amber", "Musk"], img: "./assets/images/gifsets/nafais_gift_user.png" },
@@ -21961,6 +21981,11 @@
     animation:shimmer 3s linear infinite;
   }
 
+  @keyframes bannerFloat{
+    0%,100%{transform:translateY(0) scale(1);}
+    50%{transform:translateY(-10px) scale(1.02);}
+  }
+
   /* \u2500\u2500 Mobile responsive \u2500\u2500 */
   @media(max-width:900px){
     .hide-mob{display:none!important;}
@@ -21973,6 +21998,7 @@
     .hero-layout { grid-template-columns:1fr !important; gap: 28px !important; }
     .hero-copy { padding: 0 !important; }
     .hero-visual { min-height: 420px !important; order:-1; }
+    .rot-banner{min-height:320px!important;}
     .hero-headline { font-size: 38px !important; }
   }
   @media(max-width:600px){
@@ -21984,6 +22010,7 @@
     .hero-section { padding: 24px 5% 20px !important; }
     .hero-layout { gap: 22px !important; }
     .hero-visual { min-height: 330px !important; }
+    .rot-banner{min-height:280px!important;}
     .hero-headline { font-size: 30px !important; line-height: 1.15 !important; margin-bottom: 10px !important; }
     .hero-subtitle { font-size: 13px !important; line-height: 1.6 !important; max-width: 100% !important; margin-bottom: 16px !important; }
     .hero-stats-row { gap: 10px !important; padding-top: 10px !important; flex-wrap: wrap !important; }
@@ -21994,6 +22021,7 @@
     .popup-in{grid-template-columns:1fr!important;}
     .hero-layout { gap: 18px !important; }
     .hero-visual { min-height: 280px !important; }
+    .rot-banner{min-height:240px!important;}
     .hero-headline { font-size: 26px !important; letter-spacing: 0 !important; }
     .hero-cta-row { flex-direction: column !important; gap: 8px !important; width: 100% !important; }
     .hero-cta-row button { width: 100% !important; text-align: center !important; justify-content: center !important; }
@@ -22006,6 +22034,83 @@
       "\u2605".repeat(n),
       "\u2606".repeat(5 - n)
     ] });
+  }
+  function RotatingBanner() {
+    const [active, setActive] = (0, import_react.useState)(0);
+    (0, import_react.useEffect)(() => {
+      const timer = setInterval(() => {
+        setActive((curr) => (curr + 1) % BANNER_SLIDES.length);
+      }, 3600);
+      return () => clearInterval(timer);
+    }, []);
+    const slide = BANNER_SLIDES[active];
+    return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+      "div",
+      {
+        className: "rot-banner",
+        style: {
+          position: "relative",
+          width: "100%",
+          minHeight: "360px",
+          border: "1px solid #E8E4DC",
+          borderRadius: 4,
+          overflow: "hidden",
+          background: "#F7F3EE",
+          boxShadow: "0 14px 36px rgba(0,0,0,.06)"
+        },
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(255,255,255,.96) 0%, rgba(250,245,239,.92) 42%, rgba(240,233,223,.94) 100%)" } }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: "28px 28px 24px", zIndex: 2 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 10, fontWeight: 700 }, children: slide.eyebrow }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "disp", style: { fontSize: "clamp(34px, 3vw, 52px)", lineHeight: 0.95, color: "#111", marginBottom: 12 }, children: slide.title }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 12.5, lineHeight: 1.6, color: "#666", maxWidth: 230, fontFamily: "'Montserrat',sans-serif" }, children: slide.copy })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "end", gap: 12 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: 8, alignItems: "center" }, children: BANNER_SLIDES.map((_, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                "button",
+                {
+                  "aria-label": `Go to banner ${i + 1}`,
+                  onClick: () => setActive(i),
+                  style: {
+                    width: i === active ? 26 : 8,
+                    height: 8,
+                    borderRadius: 999,
+                    border: "none",
+                    background: i === active ? "#111" : "rgba(17,17,17,.22)",
+                    cursor: "pointer",
+                    transition: "all .25s ease",
+                    padding: 0
+                  }
+                },
+                i
+              )) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontSize: 10, letterSpacing: 2.5, color: "#999", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif" }, children: [
+                String(active + 1).padStart(2, "0"),
+                " / ",
+                String(BANNER_SLIDES.length).padStart(2, "0")
+              ] })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: "20% 8% 8% 36%", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 1 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            "img",
+            {
+              src: slide.img,
+              alt: slide.title,
+              style: {
+                width: "100%",
+                height: "100%",
+                objectFit: "contain",
+                filter: "drop-shadow(0 18px 24px rgba(0,0,0,.10))",
+                animation: "bannerFloat 5.8s ease-in-out infinite"
+              }
+            },
+            slide.img
+          ) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(255,255,255,.08) 0%, rgba(255,255,255,0) 52%, rgba(184,146,42,.06) 100%)", pointerEvents: "none" } })
+        ]
+      }
+    );
   }
   function ProductCard({ p, onView }) {
     const [hov, setHov] = (0, import_react.useState)(false);
@@ -22272,7 +22377,7 @@
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { margin: "0 64px", color: "#C1A46A", fontSize: 10 }, children: "\u2726" })
       ] }, i)) }) }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "0 5% 104px", background: "#fff" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { paddingTop: 96, marginBottom: 52, display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { paddingTop: 96, marginBottom: 52, display: "grid", gridTemplateColumns: "minmax(0,1.05fr) minmax(320px,.95fr)", gap: 32, alignItems: "start" }, className: "hero-split", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 14 }, children: "Maison du Maitre Parfumeur" }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
@@ -22294,7 +22399,10 @@
               }
             )
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-ghost", style: { flexShrink: 0 }, onClick: () => setPage("collections"), children: "View All" })
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", flexDirection: "column", alignItems: "stretch", gap: 16 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", justifyContent: "flex-end" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-ghost", style: { flexShrink: 0 }, onClick: () => setPage("collections"), children: "View All" }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(RotatingBanner, {})
+          ] })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: 6, overflowX: "auto", paddingBottom: 4, marginBottom: 48, borderBottom: "1px solid #E8E4DC" }, children: CATEGORIES.map((c) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
           "button",
@@ -22869,8 +22977,8 @@
                 color: "rgba(255,255,255,.75)",
                 border: "1px solid rgba(255,255,255,.3)",
                 padding: "7px 18px",
-                fontSize: 9,
-                letterSpacing: 2,
+                fontSize: 8.5,
+                letterSpacing: 1.8,
                 textTransform: "uppercase",
                 cursor: "pointer",
                 fontFamily: "'Montserrat',sans-serif",
@@ -22914,12 +23022,12 @@
               color: activeCat === c ? "#000" : "#888",
               border: "none",
               borderBottom: activeCat === c ? "2px solid #000" : "1px solid transparent",
-              padding: "11px 18px 12px",
-              fontSize: 15.5,
-              letterSpacing: 2,
+              padding: "10px 16px 11px",
+              fontSize: 13.5,
+              letterSpacing: 1.4,
               cursor: "pointer",
               whiteSpace: "nowrap",
-              fontWeight: activeCat === c ? 900 : 800,
+              fontWeight: activeCat === c ? 800 : 700,
               transition: "all .18s",
               textTransform: "uppercase",
               fontFamily: "'Montserrat',sans-serif"
@@ -22930,7 +23038,7 @@
         )) }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: 12, alignItems: "center", flexShrink: 0 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8 }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontSize: 10, color: "#888", letterSpacing: 1, fontFamily: "'Montserrat',sans-serif", whiteSpace: "nowrap" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { fontSize: 8.5, color: "#888", letterSpacing: 0.8, fontFamily: "'Montserrat',sans-serif", whiteSpace: "nowrap" }, children: [
               "Max ",
               formatPrice2(priceMax)
             ] }),
@@ -22955,10 +23063,10 @@
                 background: "#fff",
                 color: "#000",
                 border: "1px solid #E0E0E0",
-                padding: "8px 14px",
-                fontSize: 10,
+                padding: "7px 12px",
+                fontSize: 9,
                 cursor: "pointer",
-                letterSpacing: 1,
+                letterSpacing: 0.8,
                 fontFamily: "'Montserrat',sans-serif",
                 outline: "none"
               },
@@ -22973,10 +23081,10 @@
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "20px 5% 80px" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { style: {
-          fontSize: 10,
+          fontSize: 8.5,
           color: "#999",
           marginBottom: 32,
-          letterSpacing: 2,
+          letterSpacing: 1.6,
           fontFamily: "'Montserrat',sans-serif",
           textTransform: "uppercase"
         }, children: [
