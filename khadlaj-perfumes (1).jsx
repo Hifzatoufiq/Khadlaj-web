@@ -805,29 +805,6 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         </div>
       </section>
 
-      {/* ── FEATURE BANNER ── */}
-      <section style={{padding:"88px 5%",background:"linear-gradient(180deg, #fff 0%, #fbf7f1 100%)",position:"relative",zIndex:1}}>
-        <div style={{maxWidth:1700,margin:"0 auto"}}>
-          <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",gap:20,marginBottom:22,flexWrap:"wrap"}}>
-            <div>
-              <div style={{width:32,height:1,background:"#B8922A",marginBottom:16}}/>
-              <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:10}}>Just Dropped</p>
-              <h2 className="disp" style={{fontSize:"clamp(28px,3.5vw,50px)",fontWeight:300,color:"#000",letterSpacing:-1,lineHeight:1.05}}>
-                Spring <em className="luxury-gold-text" style={{fontStyle:"italic"}}>Sale</em>
-              </h2>
-            </div>
-            <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>{setActiveCat("New");setPage("collections");}}>View All New</button>
-          </div>
-
-          <div style={{position:"relative",overflow:"hidden",borderRadius:28,boxShadow:"0 22px 60px rgba(0,0,0,0.08)",background:"#f8f2e8"}}>
-            <img
-              src="/assets/images/banners/spring-banner.png"
-              alt="Khadlaj spring promotion banner"
-              style={{display:"block",width:"100%",height:"auto"}}
-            />
-          </div>
-        </div>
-      </section>
       {/* ── SCENT FINDER QUIZ ── */}
       <section style={{background:"#080808", padding:"96px 5%", color:"#fff", borderTop:"1px solid rgba(255,255,255,0.08)", position:"relative", zIndex:1}}>
         <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(320px, 1fr))", gap:64, alignItems:"center"}} className="hero-split">
