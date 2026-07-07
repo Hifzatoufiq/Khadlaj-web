@@ -55,7 +55,7 @@ const STATS = [
 
 const PRODUCTS = [
   // ── Local products (own images) ──
-  { id:13, name:"Island",               col:"Master Perfumery", price:150, size:"100ml Extrait", badge:"Best Seller", gender:"Unisex", notes:["Marine","Amber","Oud"],        img:"./assets/images/products/island_bottle_perfect.jpg" },
+  { id:13, name:"Island",               col:"Master Perfumery", price:150, size:"100ml Extrait", badge:"Best Seller", gender:"Unisex", notes:["Marine","Amber","Oud"],        img:"./assets/images/products/island-packshot-removebg-preview.png" },
   { id:14, name:"Cream Velvet",         col:"Master Perfumery", price:130, size:"100ml Extrait",      badge:"Best Seller", gender:"Unisex", notes:["Cream","Velvet","Musk"],        img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Cream_Velvet_03.jpg?v=1736149481" },
   { id:15, name:"Cloud Candy",          col:"Atyaab",           price:325, size:"Gift Set",      badge:null,          gender:"Her",    notes:["Peach","Musk","Vanilla"],       img:"./assets/images/gifsets/cloudcandy_gift_user.png",     images:["./assets/images/gifsets/cloudcandy_gift_user.png","./assets/images/gifsets/cloudcandy_gift_user.png","./assets/images/products/cloud-candy-open-box.png","./assets/images/products/cloud-candy-back-box.png"] },
   { id:16, name:"Strawberry Shake",     col:"Atyaab",           price:295, size:"100ml EDP",     badge:null,          gender:"Her",    notes:["Strawberry","Musk","Vanilla"],  img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/STRAWBERRY_SHAKE-03.jpg?v=1764228432" },
@@ -280,10 +280,10 @@ const GLOBAL_CSS = `
     .hero-split{grid-template-columns:1fr!important;}
     .hero-img-wrap{height:320px!important;min-height:unset!important;}
     .grid-2{grid-template-columns:1fr!important;}
-
-    /* Hero adjustments — tablet */
-    .hero-section { height: 55vh !important; min-height: 380px !important; aspect-ratio: unset !important; }
-    .hero-text-container { padding: 60px 40px 40px !important; max-width: 100% !important; }
+    .hero-section { padding: 28px 5% 24px !important; }
+    .hero-layout { grid-template-columns:1fr !important; gap: 28px !important; }
+    .hero-copy { padding: 0 !important; }
+    .hero-visual { min-height: 420px !important; order:-1; }
     .hero-headline { font-size: 38px !important; }
   }
   @media(max-width:600px){
@@ -292,22 +292,9 @@ const GLOBAL_CSS = `
     .grid-2{grid-template-columns:1fr!important;}
     .new-scroll > div{flex:0 0 78vw!important;}
     .reel-card{flex:0 0 88vw!important;}
-
-    /* Hero — mobile phones */
-    .hero-section {
-      height: 50vh !important;
-      min-height: 320px !important;
-    }
-    .hero-video {
-      object-fit: cover !important;
-      object-position: center center !important;
-    }
-    .hero-video { object-position: center center !important; }
-    .hero-text-container {
-      padding: 24px 20px 32px !important;
-      max-width: 100% !important;
-      justify-content: flex-end !important;
-    }
+    .hero-section { padding: 24px 5% 20px !important; }
+    .hero-layout { gap: 22px !important; }
+    .hero-visual { min-height: 330px !important; }
     .hero-headline { font-size: 30px !important; line-height: 1.15 !important; margin-bottom: 10px !important; }
     .hero-subtitle { font-size: 13px !important; line-height: 1.6 !important; max-width: 100% !important; margin-bottom: 16px !important; }
     .hero-stats-row { gap: 10px !important; padding-top: 10px !important; flex-wrap: wrap !important; }
@@ -316,8 +303,8 @@ const GLOBAL_CSS = `
   @media(max-width:480px){
     .grid-4{grid-template-columns:repeat(2,1fr)!important;}
     .popup-in{grid-template-columns:1fr!important;}
-
-
+    .hero-layout { gap: 18px !important; }
+    .hero-visual { min-height: 280px !important; }
     .hero-headline { font-size: 26px !important; letter-spacing: 0 !important; }
     .hero-cta-row { flex-direction: column !important; gap: 8px !important; width: 100% !important; }
     .hero-cta-row button { width: 100% !important; text-align: center !important; justify-content: center !important; }
@@ -339,7 +326,13 @@ function ProductCard({ p, onView }){
   const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
   const notes = p.notes || [];
   const noteColors = ["#C8A96E","#9C7B50","#B8866A","#7A9E8A","#8B7EAA","#B06A6A","#6A8BAA","#A09060"];
-  const isIsland = p.name === "Island";
+  const imageScale = {
+    "Island": 0.88,
+    "Cream Velvet": 0.96,
+    "Icon": 1.05,
+    "Panache": 1.08,
+  }[p.name] || 1;
+  const imageShiftY = p.name === "Cream Velvet" ? 0.14 : 0;
 
   return (
     <div
@@ -354,6 +347,8 @@ function ProductCard({ p, onView }){
         position:"relative",
         cursor:"pointer",
         border: "none",
+        alignSelf:"stretch",
+        isolation:"isolate",
         transition:"transform .4s cubic-bezier(0.25, 0.8, 0.25, 1)",
         transform: hov ? "translateY(-4px)" : "translateY(0)",
       }}
@@ -367,18 +362,20 @@ function ProductCard({ p, onView }){
           fontFamily:"'Montserrat',sans-serif",
         }}>{p.badge}</span>
       )}
-      <div style={{ position:"relative", width:"100%", aspectRatio:"1/1", overflow:"hidden", background:"transparent" }}>
-        <div style={{position:"absolute", inset:0, display:"flex", alignItems:"flex-start", justifyContent:"center", padding:isIsland ? "0 8px 0" : "6px 12px 0"}}>
+      <div style={{ position:"relative", width:"100%", height:"clamp(250px, 24vw, 340px)", overflow:"hidden", background:"transparent" }}>
+        <div style={{position:"absolute", inset:"0 0 18px 0", display:"flex", alignItems:"center", justifyContent:"center"}}>
           <img
             src={p.img} alt={p.name} loading="lazy"
             style={{
-              width:isIsland ? "112%" : "100%",
-              height:isIsland ? "112%" : "100%",
+              width:"74%",
+              height:"74%",
               objectFit:"contain",
-              objectPosition:isIsland ? "center 4px" : "center top",
+              objectPosition:"center center",
               mixBlendMode:"multiply", filter:"contrast(1.05) brightness(1.04)",
               transition:"transform .8s cubic-bezier(0.25, 1, 0.25, 1)",
-              transform: hov ? (isIsland ? "translateY(-8px) scale(1.14)" : "scale(1.08)") : (isIsland ? "translateY(-6px) scale(1.08)" : "scale(1)"),
+              transform: hov
+                ? `translateY(calc(-4px + ${imageShiftY * 100}%)) scale(${imageScale * 1.03})`
+                : `translateY(${imageShiftY * 100}%) scale(${imageScale})`,
             }}
           />
         </div>
@@ -517,7 +514,6 @@ function HomePage({ setPage, addToCart, setViewProduct }){
   const [quizMood, setQuizMood] = useState("");
   const [quizOccasion, setQuizOccasion] = useState("");
   const [quizResult, setQuizResult] = useState(null);
-
   const quizProducts = {
     "Rich & Exotic": {
       "Royal Evenings": PRODUCTS.find(p => p.id === 204) || PRODUCTS[0],
@@ -554,18 +550,12 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           className="hero-video"
           ref={el=>{if(el){el.muted=true;el.play().catch(()=>{});}}}
           autoPlay muted loop playsInline preload="auto"
-          style={{position:"absolute",top:0,left:0,width:"100%",height:"100%",objectFit:"cover",display:"block",opacity:.8}}
+          style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",display:"block",opacity:.8}}
         >
           <source src="./video/new-video.mp4" type="video/mp4"/>
         </video>
-
-        {/* Layered gradient: dark at bottom, transparent at top */}
-        <div style={{position:"absolute",inset:0,background:"linear-gradient(to bottom,rgba(0,0,0,.1) 0%,rgba(0,0,0,.0) 30%,rgba(0,0,0,.6) 70%,rgba(0,0,0,.92) 100%)",pointerEvents:"none"}}/>
-        {/* Side vignette */}
-        <div style={{position:"absolute",inset:0,background:"linear-gradient(to right,rgba(0,0,0,.4) 0%,transparent 55%)",pointerEvents:"none"}}/>
-
-
-
+        <div style={{position:"absolute",inset:0,background:"linear-gradient(to bottom,rgba(8,8,8,.04) 0%,rgba(8,8,8,.18) 35%,rgba(8,8,8,.52) 100%)",pointerEvents:"none"}} />
+        <div style={{position:"absolute",inset:0,background:"linear-gradient(90deg,rgba(0,0,0,.28) 0%,rgba(0,0,0,.05) 50%,rgba(0,0,0,.22) 100%)",pointerEvents:"none"}} />
       </section>
 
       {/* ── SCENT RIBBON ── */}
@@ -589,15 +579,15 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             <h2
               style={{
                 fontSize:"clamp(32px,4vw,54px)",
-                fontWeight:500,
+                fontWeight:600,
                 color:"#000",
-                lineHeight:1.02,
-                letterSpacing:-0.2,
-                fontFamily:"'Bodoni Moda', 'Cormorant Garamond', 'Cinzel', serif",
+                lineHeight:0.98,
+                letterSpacing:0,
+                fontFamily:"'Cinzel', 'Cormorant Garamond', serif",
               }}
             >
               Respect the Quality,<br/>
-              <em className="luxury-gold-text" style={{fontStyle:"italic"}}>Provide the Best</em>
+              <em className="luxury-gold-text" style={{fontStyle:"italic",fontWeight:500}}>Provide the Best</em>
             </h2>
           </div>
           <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>setPage("collections")}>View All</button>
@@ -611,8 +601,8 @@ function HomePage({ setPage, addToCart, setViewProduct }){
                 background:"transparent",color:activeCat===c?"#000":"#777",
                 border:"none",
                 borderBottom: activeCat===c ? "1px solid #000" : "1px solid transparent",
-                padding:"8px 14px 10px",fontSize:9,letterSpacing:1.5,cursor:"pointer",whiteSpace:"nowrap",
-                fontWeight:activeCat===c?600:500,transition:"all .2s",textTransform:"uppercase",
+                padding:"8px 14px 10px",fontSize:10.5,letterSpacing:2,cursor:"pointer",whiteSpace:"nowrap",
+                fontWeight:activeCat===c?800:700,transition:"all .2s",textTransform:"uppercase",
                 fontFamily:"'Montserrat',sans-serif",
               }}>
               {c}
@@ -620,7 +610,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           ))}
         </div>
 
-        <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:24,}} className="grid-4">
+        <div style={{display:"grid",gridTemplateColumns:"repeat(4,minmax(0,1fr))",gap:24,alignItems:"stretch"}} className="grid-4">
           {filtered.map(p=>(
             <ProductCard key={p.id} p={p} onView={(prod)=>{setViewProduct(prod);setPage("product");}} onCart={addToCart}/>
           ))}
@@ -808,7 +798,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           </div>
           <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>{setActiveCat("New");setPage("collections");}}>View All New</button>
         </div>
-        <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:24}} className="grid-4">
+        <div style={{display:"grid",gridTemplateColumns:"repeat(4,minmax(0,1fr))",gap:24,alignItems:"stretch"}} className="grid-4">
           {PRODUCTS.filter(p=>p.badge==="New").slice(0,4).map(p=>(
             <ProductCard key={p.id} p={p} onView={(prod)=>{setViewProduct(prod);setPage("product");}} />
           ))}
@@ -831,8 +821,8 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             <div style={{display:"flex", alignItems:"center", gap:14}}>
               <span style={{fontSize:22, color:"#B8922A"}}>✦</span>
               <span style={{display:"inline-flex", flexDirection:"column", gap:2, lineHeight:1, letterSpacing:3.4, fontFamily:"'Cinzel', 'Cormorant Garamond', serif", textTransform:"uppercase", color:"#C9A24A"}}>
-                <span style={{fontSize:10, fontWeight:700}}>Respect the Quality,</span>
-                <span style={{fontSize:13, fontStyle:"italic", fontWeight:600}}>Provide the Best</span>
+                <span style={{fontSize:10, fontWeight:700, letterSpacing:4}}>Respect the Quality,</span>
+                <span style={{fontSize:14, fontStyle:"italic", fontWeight:500, letterSpacing:0.5}}>Provide the Best</span>
               </span>
             </div>
           </div>
@@ -1140,7 +1130,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }){
                 color: activeCat===c ? "#000" : "#888",
                 border:"none",
                 borderBottom: activeCat===c ? "2px solid #000" : "1px solid transparent",
-                padding:"11px 18px 12px",fontSize:14.5,letterSpacing:2,
+                padding:"11px 18px 12px",fontSize:15.5,letterSpacing:2,
                 cursor:"pointer",whiteSpace:"nowrap",
                 fontWeight: activeCat===c ? 900 : 800,
                 transition:"all .18s",textTransform:"uppercase",
@@ -1178,7 +1168,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }){
           textTransform:"uppercase",
         }}>{filtered.length} fragrances found</p>
 
-        <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:24,}} className="grid-4">
+        <div style={{display:"grid",gridTemplateColumns:"repeat(4,minmax(0,1fr))",gap:24,alignItems:"stretch"}} className="grid-4">
           {filtered.map(p=>(
             <ProductCard key={p.id} p={p} onView={(prod)=>{setViewProduct(prod);setPage("product");}} onCart={addToCart}/>
           ))}
@@ -1426,7 +1416,7 @@ function GiftsPage({ addToCart, setViewProduct, setPage }){
           <p style={{fontSize:12,color:"#888",fontFamily:"'Montserrat',sans-serif"}}>{giftProducts.length} gift sets available</p>
         </div>
 
-        <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:24,}} className="grid-4">
+        <div style={{display:"grid",gridTemplateColumns:"repeat(4,minmax(0,1fr))",gap:24,alignItems:"stretch"}} className="grid-4">
           {giftProducts.map(p=>(
             <ProductCard key={p.id} p={p} onView={(prod)=>{if(setViewProduct){setViewProduct(prod);setPage("product");}}} onCart={addToCart}/>
           ))}

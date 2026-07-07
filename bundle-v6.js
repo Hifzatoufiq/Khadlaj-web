@@ -21782,7 +21782,7 @@
   ];
   var PRODUCTS = [
     // ── Local products (own images) ──
-    { id: 13, name: "Island", col: "Master Perfumery", price: 150, size: "100ml Extrait", badge: "Best Seller", gender: "Unisex", notes: ["Marine", "Amber", "Oud"], img: "./assets/images/products/island_bottle_perfect.jpg" },
+    { id: 13, name: "Island", col: "Master Perfumery", price: 150, size: "100ml Extrait", badge: "Best Seller", gender: "Unisex", notes: ["Marine", "Amber", "Oud"], img: "./assets/images/products/island-packshot-removebg-preview.png" },
     { id: 14, name: "Cream Velvet", col: "Master Perfumery", price: 130, size: "100ml Extrait", badge: "Best Seller", gender: "Unisex", notes: ["Cream", "Velvet", "Musk"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Cream_Velvet_03.jpg?v=1736149481" },
     { id: 15, name: "Cloud Candy", col: "Atyaab", price: 325, size: "Gift Set", badge: null, gender: "Her", notes: ["Peach", "Musk", "Vanilla"], img: "./assets/images/gifsets/cloudcandy_gift_user.png", images: ["./assets/images/gifsets/cloudcandy_gift_user.png", "./assets/images/gifsets/cloudcandy_gift_user.png", "./assets/images/products/cloud-candy-open-box.png", "./assets/images/products/cloud-candy-back-box.png"] },
     { id: 16, name: "Strawberry Shake", col: "Atyaab", price: 295, size: "100ml EDP", badge: null, gender: "Her", notes: ["Strawberry", "Musk", "Vanilla"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/STRAWBERRY_SHAKE-03.jpg?v=1764228432" },
@@ -21969,10 +21969,10 @@
     .hero-split{grid-template-columns:1fr!important;}
     .hero-img-wrap{height:320px!important;min-height:unset!important;}
     .grid-2{grid-template-columns:1fr!important;}
-
-    /* Hero adjustments \u2014 tablet */
-    .hero-section { height: 55vh !important; min-height: 380px !important; aspect-ratio: unset !important; }
-    .hero-text-container { padding: 60px 40px 40px !important; max-width: 100% !important; }
+    .hero-section { padding: 28px 5% 24px !important; }
+    .hero-layout { grid-template-columns:1fr !important; gap: 28px !important; }
+    .hero-copy { padding: 0 !important; }
+    .hero-visual { min-height: 420px !important; order:-1; }
     .hero-headline { font-size: 38px !important; }
   }
   @media(max-width:600px){
@@ -21981,22 +21981,9 @@
     .grid-2{grid-template-columns:1fr!important;}
     .new-scroll > div{flex:0 0 78vw!important;}
     .reel-card{flex:0 0 88vw!important;}
-
-    /* Hero \u2014 mobile phones */
-    .hero-section {
-      height: 50vh !important;
-      min-height: 320px !important;
-    }
-    .hero-video {
-      object-fit: cover !important;
-      object-position: center center !important;
-    }
-    .hero-video { object-position: center center !important; }
-    .hero-text-container {
-      padding: 24px 20px 32px !important;
-      max-width: 100% !important;
-      justify-content: flex-end !important;
-    }
+    .hero-section { padding: 24px 5% 20px !important; }
+    .hero-layout { gap: 22px !important; }
+    .hero-visual { min-height: 330px !important; }
     .hero-headline { font-size: 30px !important; line-height: 1.15 !important; margin-bottom: 10px !important; }
     .hero-subtitle { font-size: 13px !important; line-height: 1.6 !important; max-width: 100% !important; margin-bottom: 16px !important; }
     .hero-stats-row { gap: 10px !important; padding-top: 10px !important; flex-wrap: wrap !important; }
@@ -22005,8 +21992,8 @@
   @media(max-width:480px){
     .grid-4{grid-template-columns:repeat(2,1fr)!important;}
     .popup-in{grid-template-columns:1fr!important;}
-
-
+    .hero-layout { gap: 18px !important; }
+    .hero-visual { min-height: 280px !important; }
     .hero-headline { font-size: 26px !important; letter-spacing: 0 !important; }
     .hero-cta-row { flex-direction: column !important; gap: 8px !important; width: 100% !important; }
     .hero-cta-row button { width: 100% !important; text-align: center !important; justify-content: center !important; }
@@ -22026,7 +22013,13 @@
     const formatPrice2 = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
     const notes = p.notes || [];
     const noteColors = ["#C8A96E", "#9C7B50", "#B8866A", "#7A9E8A", "#8B7EAA", "#B06A6A", "#6A8BAA", "#A09060"];
-    const isIsland = p.name === "Island";
+    const imageScale = {
+      "Island": 0.88,
+      "Cream Velvet": 0.96,
+      "Icon": 1.05,
+      "Panache": 1.08
+    }[p.name] || 1;
+    const imageShiftY = p.name === "Cream Velvet" ? 0.14 : 0;
     return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
       "div",
       {
@@ -22041,6 +22034,8 @@
           position: "relative",
           cursor: "pointer",
           border: "none",
+          alignSelf: "stretch",
+          isolation: "isolate",
           transition: "transform .4s cubic-bezier(0.25, 0.8, 0.25, 1)",
           transform: hov ? "translateY(-4px)" : "translateY(0)"
         },
@@ -22059,22 +22054,22 @@
             textTransform: "uppercase",
             fontFamily: "'Montserrat',sans-serif"
           }, children: p.badge }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", width: "100%", aspectRatio: "1/1", overflow: "hidden", background: "transparent" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, display: "flex", alignItems: "flex-start", justifyContent: "center", padding: isIsland ? "0 8px 0" : "6px 12px 0" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", width: "100%", height: "clamp(250px, 24vw, 340px)", overflow: "hidden", background: "transparent" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: "0 0 18px 0", display: "flex", alignItems: "center", justifyContent: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
               "img",
               {
                 src: p.img,
                 alt: p.name,
                 loading: "lazy",
                 style: {
-                  width: isIsland ? "112%" : "100%",
-                  height: isIsland ? "112%" : "100%",
+                  width: "74%",
+                  height: "74%",
                   objectFit: "contain",
-                  objectPosition: isIsland ? "center 4px" : "center top",
+                  objectPosition: "center center",
                   mixBlendMode: "multiply",
                   filter: "contrast(1.05) brightness(1.04)",
                   transition: "transform .8s cubic-bezier(0.25, 1, 0.25, 1)",
-                  transform: hov ? isIsland ? "translateY(-8px) scale(1.14)" : "scale(1.08)" : isIsland ? "translateY(-6px) scale(1.08)" : "scale(1)"
+                  transform: hov ? `translateY(calc(-4px + ${imageShiftY * 100}%)) scale(${imageScale * 1.03})` : `translateY(${imageShiftY * 100}%) scale(${imageScale})`
                 }
               }
             ) }),
@@ -22265,12 +22260,12 @@
             loop: true,
             playsInline: true,
             preload: "auto",
-            style: { position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", display: "block", opacity: 0.8 },
+            style: { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block", opacity: 0.8 },
             children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("source", { src: "./video/new-video.mp4", type: "video/mp4" })
           }
         ),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, background: "linear-gradient(to bottom,rgba(0,0,0,.1) 0%,rgba(0,0,0,.0) 30%,rgba(0,0,0,.6) 70%,rgba(0,0,0,.92) 100%)", pointerEvents: "none" } }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, background: "linear-gradient(to right,rgba(0,0,0,.4) 0%,transparent 55%)", pointerEvents: "none" } })
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, background: "linear-gradient(to bottom,rgba(8,8,8,.04) 0%,rgba(8,8,8,.18) 35%,rgba(8,8,8,.52) 100%)", pointerEvents: "none" } }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, background: "linear-gradient(90deg,rgba(0,0,0,.28) 0%,rgba(0,0,0,.05) 50%,rgba(0,0,0,.22) 100%)", pointerEvents: "none" } })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { overflow: "hidden", background: "#050505", padding: "24px 0", borderTop: "1px solid rgba(193,164,106,0.15)", borderBottom: "1px solid rgba(193,164,106,0.15)" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "ribbon-inner", style: { display: "flex", alignItems: "center" }, children: [...SCENT_RIBBON, ...SCENT_RIBBON, ...SCENT_RIBBON].map((n, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 12, fontWeight: 400, letterSpacing: 8, color: "#E8E4DC", textTransform: "uppercase", whiteSpace: "nowrap", fontFamily: "'Montserrat',sans-serif" }, children: n }),
@@ -22285,16 +22280,16 @@
               {
                 style: {
                   fontSize: "clamp(32px,4vw,54px)",
-                  fontWeight: 500,
+                  fontWeight: 600,
                   color: "#000",
-                  lineHeight: 1.02,
-                  letterSpacing: -0.2,
-                  fontFamily: "'Bodoni Moda', 'Cormorant Garamond', 'Cinzel', serif"
+                  lineHeight: 0.98,
+                  letterSpacing: 0,
+                  fontFamily: "'Cinzel', 'Cormorant Garamond', serif"
                 },
                 children: [
                   "Respect the Quality,",
                   /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { className: "luxury-gold-text", style: { fontStyle: "italic" }, children: "Provide the Best" })
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { className: "luxury-gold-text", style: { fontStyle: "italic", fontWeight: 500 }, children: "Provide the Best" })
                 ]
               }
             )
@@ -22311,11 +22306,11 @@
               border: "none",
               borderBottom: activeCat === c ? "1px solid #000" : "1px solid transparent",
               padding: "8px 14px 10px",
-              fontSize: 9,
-              letterSpacing: 1.5,
+              fontSize: 10.5,
+              letterSpacing: 2,
               cursor: "pointer",
               whiteSpace: "nowrap",
-              fontWeight: activeCat === c ? 600 : 500,
+              fontWeight: activeCat === c ? 800 : 700,
               transition: "all .2s",
               textTransform: "uppercase",
               fontFamily: "'Montserrat',sans-serif"
@@ -22324,7 +22319,7 @@
           },
           c
         )) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24 }, className: "grid-4", children: filtered.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: 24, alignItems: "stretch" }, className: "grid-4", children: filtered.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
           setViewProduct(prod);
           setPage("product");
         }, onCart: addToCart }, p.id)) })
@@ -22561,7 +22556,7 @@
             setPage("collections");
           }, children: "View All New" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24 }, className: "grid-4", children: PRODUCTS.filter((p) => p.badge === "New").slice(0, 4).map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: 24, alignItems: "stretch" }, className: "grid-4", children: PRODUCTS.filter((p) => p.badge === "New").slice(0, 4).map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
           setViewProduct(prod);
           setPage("product");
         } }, p.id)) })
@@ -22578,8 +22573,8 @@
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 14 }, children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 22, color: "#B8922A" }, children: "\u2726" }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { display: "inline-flex", flexDirection: "column", gap: 2, lineHeight: 1, letterSpacing: 3.4, fontFamily: "'Cinzel', 'Cormorant Garamond', serif", textTransform: "uppercase", color: "#C9A24A" }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 10, fontWeight: 700 }, children: "Respect the Quality," }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 13, fontStyle: "italic", fontWeight: 600 }, children: "Provide the Best" })
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 10, fontWeight: 700, letterSpacing: 4 }, children: "Respect the Quality," }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 14, fontStyle: "italic", fontWeight: 500, letterSpacing: 0.5 }, children: "Provide the Best" })
             ] })
           ] })
         ] }),
@@ -22920,7 +22915,7 @@
               border: "none",
               borderBottom: activeCat === c ? "2px solid #000" : "1px solid transparent",
               padding: "11px 18px 12px",
-              fontSize: 14.5,
+              fontSize: 15.5,
               letterSpacing: 2,
               cursor: "pointer",
               whiteSpace: "nowrap",
@@ -22988,7 +22983,7 @@
           filtered.length,
           " fragrances found"
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24 }, className: "grid-4", children: filtered.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: 24, alignItems: "stretch" }, className: "grid-4", children: filtered.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
           setViewProduct(prod);
           setPage("product");
         }, onCart: addToCart }, p.id)) }),
@@ -23192,7 +23187,7 @@
             " gift sets available"
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24 }, className: "grid-4", children: giftProducts.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: 24, alignItems: "stretch" }, className: "grid-4", children: giftProducts.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
           if (setViewProduct) {
             setViewProduct(prod);
             setPage("product");

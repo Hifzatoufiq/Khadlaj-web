@@ -6,7 +6,11 @@
   var __getProtoOf = Object.getPrototypeOf;
   var __hasOwnProp = Object.prototype.hasOwnProperty;
   var __commonJS = (cb, mod) => function __require() {
-    return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+    try {
+      return mod || (0, cb[__getOwnPropNames(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+    } catch (e) {
+      throw mod = 0, e;
+    }
   };
   var __copyProps = (to, from, except, desc) => {
     if (from && typeof from === "object" || typeof from === "function") {
@@ -494,7 +498,7 @@
           }
         }
         "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-        var REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = Symbol.for("react.activity"), MAYBE_ITERATOR_SYMBOL = Symbol.iterator, didWarnStateUpdateForUnmountedComponent = {}, ReactNoopUpdateQueue = {
+        var REACT_ELEMENT_TYPE = /* @__PURE__ */ Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = /* @__PURE__ */ Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = /* @__PURE__ */ Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = /* @__PURE__ */ Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = /* @__PURE__ */ Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = /* @__PURE__ */ Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = /* @__PURE__ */ Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = /* @__PURE__ */ Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = /* @__PURE__ */ Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = /* @__PURE__ */ Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = /* @__PURE__ */ Symbol.for("react.memo"), REACT_LAZY_TYPE = /* @__PURE__ */ Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = /* @__PURE__ */ Symbol.for("react.activity"), MAYBE_ITERATOR_SYMBOL = Symbol.iterator, didWarnStateUpdateForUnmountedComponent = {}, ReactNoopUpdateQueue = {
           isMounted: function() {
             return false;
           },
@@ -537,7 +541,7 @@
         deprecatedAPIs.constructor = PureComponent;
         assign(deprecatedAPIs, Component.prototype);
         deprecatedAPIs.isPureReactComponent = true;
-        var isArrayImpl = Array.isArray, REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), ReactSharedInternals = {
+        var isArrayImpl = Array.isArray, REACT_CLIENT_REFERENCE = /* @__PURE__ */ Symbol.for("react.client.reference"), ReactSharedInternals = {
           H: null,
           A: null,
           T: null,
@@ -1347,7 +1351,7 @@
           },
           p: 0,
           findDOMNode: null
-        }, REACT_PORTAL_TYPE = Symbol.for("react.portal"), ReactSharedInternals = React3.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
+        }, REACT_PORTAL_TYPE = /* @__PURE__ */ Symbol.for("react.portal"), ReactSharedInternals = React3.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE;
         "function" === typeof Map && null != Map.prototype && "function" === typeof Map.prototype.forEach && "function" === typeof Set && null != Set.prototype && "function" === typeof Set.prototype.clear && "function" === typeof Set.prototype.forEach || console.error(
           "React depends on Map and Set built-in types. Make sure that you load a polyfill in older browsers. https://reactjs.org/link/react-polyfills"
         );
@@ -18514,14 +18518,14 @@
           ));
         }
         "undefined" !== typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ && "function" === typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart && __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(Error());
-        var Scheduler = require_scheduler(), React3 = require_react(), ReactDOM = require_react_dom(), assign = Object.assign, REACT_LEGACY_ELEMENT_TYPE = Symbol.for("react.element"), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy");
-        Symbol.for("react.scope");
-        var REACT_ACTIVITY_TYPE = Symbol.for("react.activity");
-        Symbol.for("react.legacy_hidden");
-        Symbol.for("react.tracing_marker");
-        var REACT_MEMO_CACHE_SENTINEL = Symbol.for("react.memo_cache_sentinel");
-        Symbol.for("react.view_transition");
-        var MAYBE_ITERATOR_SYMBOL = Symbol.iterator, REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), isArrayImpl = Array.isArray, ReactSharedInternals = React3.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, NotPending = Object.freeze({
+        var Scheduler = require_scheduler(), React3 = require_react(), ReactDOM = require_react_dom(), assign = Object.assign, REACT_LEGACY_ELEMENT_TYPE = /* @__PURE__ */ Symbol.for("react.element"), REACT_ELEMENT_TYPE = /* @__PURE__ */ Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = /* @__PURE__ */ Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = /* @__PURE__ */ Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = /* @__PURE__ */ Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = /* @__PURE__ */ Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = /* @__PURE__ */ Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = /* @__PURE__ */ Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = /* @__PURE__ */ Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = /* @__PURE__ */ Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = /* @__PURE__ */ Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = /* @__PURE__ */ Symbol.for("react.memo"), REACT_LAZY_TYPE = /* @__PURE__ */ Symbol.for("react.lazy");
+        /* @__PURE__ */ Symbol.for("react.scope");
+        var REACT_ACTIVITY_TYPE = /* @__PURE__ */ Symbol.for("react.activity");
+        /* @__PURE__ */ Symbol.for("react.legacy_hidden");
+        /* @__PURE__ */ Symbol.for("react.tracing_marker");
+        var REACT_MEMO_CACHE_SENTINEL = /* @__PURE__ */ Symbol.for("react.memo_cache_sentinel");
+        /* @__PURE__ */ Symbol.for("react.view_transition");
+        var MAYBE_ITERATOR_SYMBOL = Symbol.iterator, REACT_CLIENT_REFERENCE = /* @__PURE__ */ Symbol.for("react.client.reference"), isArrayImpl = Array.isArray, ReactSharedInternals = React3.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, ReactDOMSharedInternals = ReactDOM.__DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, NotPending = Object.freeze({
           pending: false,
           data: null,
           method: null,
@@ -21333,7 +21337,7 @@
           componentOrElement = null === componentOrElement ? null : componentOrElement.stateNode;
           return componentOrElement;
         };
-        if (!function() {
+        if (!(function() {
           var internals = {
             bundleType: 1,
             version: "19.2.7",
@@ -21356,7 +21360,7 @@
           internals.setRefreshHandler = setRefreshHandler;
           internals.getCurrentFiber = getCurrentFiberForDevTools;
           return injectInternals(internals);
-        }() && canUseDOM && window.top === window.self && (-1 < navigator.userAgent.indexOf("Chrome") && -1 === navigator.userAgent.indexOf("Edge") || -1 < navigator.userAgent.indexOf("Firefox"))) {
+        })() && canUseDOM && window.top === window.self && (-1 < navigator.userAgent.indexOf("Chrome") && -1 === navigator.userAgent.indexOf("Edge") || -1 < navigator.userAgent.indexOf("Firefox"))) {
           var protocol = window.location.protocol;
           /^(https?|file):$/.test(protocol) && console.info(
             "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools" + ("file:" === protocol ? "\nYou might need to use a local HTTP server (instead of file://): https://react.dev/link/react-devtools-faq" : ""),
@@ -21663,7 +21667,7 @@
         function isValidElement(object) {
           return "object" === typeof object && null !== object && object.$$typeof === REACT_ELEMENT_TYPE;
         }
-        var React3 = require_react(), REACT_ELEMENT_TYPE = Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = Symbol.for("react.memo"), REACT_LAZY_TYPE = Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = Symbol.for("react.activity"), REACT_CLIENT_REFERENCE = Symbol.for("react.client.reference"), ReactSharedInternals = React3.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
+        var React3 = require_react(), REACT_ELEMENT_TYPE = /* @__PURE__ */ Symbol.for("react.transitional.element"), REACT_PORTAL_TYPE = /* @__PURE__ */ Symbol.for("react.portal"), REACT_FRAGMENT_TYPE = /* @__PURE__ */ Symbol.for("react.fragment"), REACT_STRICT_MODE_TYPE = /* @__PURE__ */ Symbol.for("react.strict_mode"), REACT_PROFILER_TYPE = /* @__PURE__ */ Symbol.for("react.profiler"), REACT_CONSUMER_TYPE = /* @__PURE__ */ Symbol.for("react.consumer"), REACT_CONTEXT_TYPE = /* @__PURE__ */ Symbol.for("react.context"), REACT_FORWARD_REF_TYPE = /* @__PURE__ */ Symbol.for("react.forward_ref"), REACT_SUSPENSE_TYPE = /* @__PURE__ */ Symbol.for("react.suspense"), REACT_SUSPENSE_LIST_TYPE = /* @__PURE__ */ Symbol.for("react.suspense_list"), REACT_MEMO_TYPE = /* @__PURE__ */ Symbol.for("react.memo"), REACT_LAZY_TYPE = /* @__PURE__ */ Symbol.for("react.lazy"), REACT_ACTIVITY_TYPE = /* @__PURE__ */ Symbol.for("react.activity"), REACT_CLIENT_REFERENCE = /* @__PURE__ */ Symbol.for("react.client.reference"), ReactSharedInternals = React3.__CLIENT_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, hasOwnProperty = Object.prototype.hasOwnProperty, isArrayImpl = Array.isArray, createTask = console.createTask ? console.createTask : function() {
           return null;
         };
         React3 = {
@@ -21782,7 +21786,7 @@
   ];
   var PRODUCTS = [
     // ── Local products (own images) ──
-    { id: 13, name: "Island", col: "Master Perfumery", price: 150, size: "100ml Extrait", badge: "Best Seller", gender: "Unisex", notes: ["Marine", "Amber", "Oud"], img: "./assets/images/products/island_bottle_perfect.jpg" },
+    { id: 13, name: "Island", col: "Master Perfumery", price: 150, size: "100ml Extrait", badge: "Best Seller", gender: "Unisex", notes: ["Marine", "Amber", "Oud"], img: "./assets/images/products/island-packshot-removebg-preview.png" },
     { id: 14, name: "Cream Velvet", col: "Master Perfumery", price: 130, size: "100ml Extrait", badge: "Best Seller", gender: "Unisex", notes: ["Cream", "Velvet", "Musk"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Cream_Velvet_03.jpg?v=1736149481" },
     { id: 15, name: "Cloud Candy", col: "Atyaab", price: 325, size: "Gift Set", badge: null, gender: "Her", notes: ["Peach", "Musk", "Vanilla"], img: "./assets/images/gifsets/cloudcandy_gift_user.png", images: ["./assets/images/gifsets/cloudcandy_gift_user.png", "./assets/images/gifsets/cloudcandy_gift_user.png", "./assets/images/products/cloud-candy-open-box.png", "./assets/images/products/cloud-candy-back-box.png"] },
     { id: 16, name: "Strawberry Shake", col: "Atyaab", price: 295, size: "100ml EDP", badge: null, gender: "Her", notes: ["Strawberry", "Musk", "Vanilla"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/STRAWBERRY_SHAKE-03.jpg?v=1764228432" },
@@ -21969,10 +21973,10 @@
     .hero-split{grid-template-columns:1fr!important;}
     .hero-img-wrap{height:320px!important;min-height:unset!important;}
     .grid-2{grid-template-columns:1fr!important;}
-
-    /* Hero adjustments \u2014 tablet */
-    .hero-section { height: 55vh !important; min-height: 380px !important; aspect-ratio: unset !important; }
-    .hero-text-container { padding: 60px 40px 40px !important; max-width: 100% !important; }
+    .hero-section { padding: 28px 5% 24px !important; }
+    .hero-layout { grid-template-columns:1fr !important; gap: 28px !important; }
+    .hero-copy { padding: 0 !important; }
+    .hero-visual { min-height: 420px !important; order:-1; }
     .hero-headline { font-size: 38px !important; }
   }
   @media(max-width:600px){
@@ -21981,22 +21985,9 @@
     .grid-2{grid-template-columns:1fr!important;}
     .new-scroll > div{flex:0 0 78vw!important;}
     .reel-card{flex:0 0 88vw!important;}
-
-    /* Hero \u2014 mobile phones */
-    .hero-section {
-      height: 50vh !important;
-      min-height: 320px !important;
-    }
-    .hero-video {
-      object-fit: cover !important;
-      object-position: center center !important;
-    }
-    .hero-video { object-position: center center !important; }
-    .hero-text-container {
-      padding: 24px 20px 32px !important;
-      max-width: 100% !important;
-      justify-content: flex-end !important;
-    }
+    .hero-section { padding: 24px 5% 20px !important; }
+    .hero-layout { gap: 22px !important; }
+    .hero-visual { min-height: 330px !important; }
     .hero-headline { font-size: 30px !important; line-height: 1.15 !important; margin-bottom: 10px !important; }
     .hero-subtitle { font-size: 13px !important; line-height: 1.6 !important; max-width: 100% !important; margin-bottom: 16px !important; }
     .hero-stats-row { gap: 10px !important; padding-top: 10px !important; flex-wrap: wrap !important; }
@@ -22005,8 +21996,8 @@
   @media(max-width:480px){
     .grid-4{grid-template-columns:repeat(2,1fr)!important;}
     .popup-in{grid-template-columns:1fr!important;}
-
-
+    .hero-layout { gap: 18px !important; }
+    .hero-visual { min-height: 280px !important; }
     .hero-headline { font-size: 26px !important; letter-spacing: 0 !important; }
     .hero-cta-row { flex-direction: column !important; gap: 8px !important; width: 100% !important; }
     .hero-cta-row button { width: 100% !important; text-align: center !important; justify-content: center !important; }
@@ -22041,6 +22032,8 @@
           position: "relative",
           cursor: "pointer",
           border: "none",
+          alignSelf: "stretch",
+          isolation: "isolate",
           transition: "transform .4s cubic-bezier(0.25, 0.8, 0.25, 1)",
           transform: hov ? "translateY(-4px)" : "translateY(0)"
         },
@@ -22059,22 +22052,22 @@
             textTransform: "uppercase",
             fontFamily: "'Montserrat',sans-serif"
           }, children: p.badge }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", width: "100%", aspectRatio: "1/1", overflow: "hidden", background: "transparent" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, display: "flex", alignItems: "flex-start", justifyContent: "center", padding: isIsland ? "0 8px 0" : "6px 12px 0" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", width: "100%", height: "clamp(250px, 24vw, 340px)", overflow: "hidden", background: "transparent" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, display: "flex", alignItems: "flex-end", justifyContent: "center", padding: isIsland ? "12px 8px 0" : "18px 12px 0" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
               "img",
               {
                 src: p.img,
                 alt: p.name,
                 loading: "lazy",
                 style: {
-                  width: isIsland ? "112%" : "100%",
-                  height: isIsland ? "112%" : "100%",
+                  width: isIsland ? "108%" : "100%",
+                  height: isIsland ? "108%" : "100%",
                   objectFit: "contain",
-                  objectPosition: isIsland ? "center 4px" : "center top",
+                  objectPosition: "center bottom",
                   mixBlendMode: "multiply",
                   filter: "contrast(1.05) brightness(1.04)",
                   transition: "transform .8s cubic-bezier(0.25, 1, 0.25, 1)",
-                  transform: hov ? isIsland ? "translateY(-8px) scale(1.14)" : "scale(1.08)" : isIsland ? "translateY(-6px) scale(1.08)" : "scale(1)"
+                  transform: hov ? isIsland ? "translateY(-6px) scale(1.1)" : "scale(1.06)" : "translateY(0) scale(1)"
                 }
               }
             ) }),
@@ -22221,6 +22214,7 @@
     const [quizMood, setQuizMood] = (0, import_react.useState)("");
     const [quizOccasion, setQuizOccasion] = (0, import_react.useState)("");
     const [quizResult, setQuizResult] = (0, import_react.useState)(null);
+    const heroBottle = "./assets/images/products/blue-glace-single-1.png";
     const quizProducts = {
       "Rich & Exotic": {
         "Royal Evenings": PRODUCTS.find((p) => p.id === 204) || PRODUCTS[0],
@@ -22248,30 +22242,47 @@
       return p.col === activeCat;
     }).slice(0, 12);
     return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { className: "hero-section", style: { position: "relative", width: "100%", height: "70vh", minHeight: "450px", overflow: "hidden", background: "#0a0a0a" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          "video",
-          {
-            className: "hero-video",
-            ref: (el) => {
-              if (el) {
-                el.muted = true;
-                el.play().catch(() => {
-                });
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { className: "hero-section", style: { position: "relative", width: "100%", overflow: "hidden", background: "linear-gradient(180deg,#f8f5ef 0%,#ffffff 100%)", padding: "clamp(28px, 4vw, 64px) 5% 28px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "hero-layout", style: { display: "grid", gridTemplateColumns: "minmax(0,1.05fr) minmax(340px,0.95fr)", gap: "clamp(24px, 5vw, 72px)", alignItems: "center", maxWidth: 1440, margin: "0 auto" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "hero-copy", style: { position: "relative", zIndex: 2, padding: "clamp(12px, 1vw, 24px) 0" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 10, letterSpacing: 6, textTransform: "uppercase", color: "#B8922A", fontFamily: "'Montserrat',sans-serif", marginBottom: 18 }, children: "Khadlaj Perfumes" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h1", { className: "hero-headline", style: { fontFamily: "'Bodoni Moda', 'Cormorant Garamond', 'Cinzel', serif", fontSize: "clamp(44px, 5vw, 90px)", lineHeight: 0.96, fontWeight: 500, color: "#111", letterSpacing: "-1px", maxWidth: 620, marginBottom: 18 }, children: [
+            "Premium",
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+            "Fragrance"
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "hero-subtitle", style: { maxWidth: 430, fontFamily: "'Montserrat',sans-serif", fontSize: 14.5, lineHeight: 1.9, color: "#6d6a63", marginBottom: 28 }, children: "Discover oud, amber, musk, and modern gourmand blends crafted to feel elegant, memorable, and distinctly Khadlaj." }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "hero-cta-row", style: { display: "flex", gap: 12, flexWrap: "wrap", alignItems: "center" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-gold", onClick: () => setPage("collections"), children: "Shop Now" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-ghost", onClick: () => setPage("collections"), style: { background: "#fff" }, children: "Explore Best Sellers" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "hero-stats-row", style: { display: "flex", gap: 14, flexWrap: "wrap", marginTop: 26 }, children: ["Since 1997", "400+ fragrances", "Gift-ready luxury"].map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "hero-stat-item", style: { fontSize: 10, letterSpacing: 2.5, textTransform: "uppercase", color: "#6f6a61", fontFamily: "'Montserrat',sans-serif", padding: "10px 14px", border: "1px solid #ebe4db", background: "rgba(255,255,255,.7)" }, children: item }, item)) })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "hero-visual", style: { position: "relative", minHeight: 560, display: "flex", alignItems: "center", justifyContent: "center" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { "aria-hidden": "true", style: { position: "absolute", right: "-8%", top: "-4%", width: "58%", height: 170, borderRadius: "0 0 160px 160px", background: "linear-gradient(135deg,#d1aa3d 0%,#f0d47d 48%,#a57d13 100%)", transform: "rotate(18deg)", filter: "drop-shadow(0 20px 32px rgba(141,104,0,.12))" } }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { "aria-hidden": "true", style: { position: "absolute", right: "-12%", bottom: "-5%", width: "62%", height: 182, borderRadius: "160px 160px 0 0", background: "linear-gradient(135deg,#b88f2b 0%,#e4c86f 45%,#9e7311 100%)", transform: "rotate(-12deg)", filter: "drop-shadow(0 20px 32px rgba(141,104,0,.12))" } }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { "aria-hidden": "true", style: { position: "absolute", left: "6%", top: "16%", width: "58%", height: "68%", background: "linear-gradient(180deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.72) 55%,rgba(255,255,255,0) 100%)", borderRadius: "28% 32% 38% 30%", transform: "skewX(-12deg)", opacity: 0.9 } }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: "auto 16% 6% 12%", height: 58, borderRadius: "50%", background: "radial-gradient(ellipse at center, rgba(0,0,0,.12) 0%, rgba(0,0,0,0) 72%)", filter: "blur(8px)" } }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            "img",
+            {
+              src: heroBottle,
+              alt: "Khadlaj perfume bottle",
+              loading: "eager",
+              style: {
+                position: "relative",
+                zIndex: 2,
+                width: "clamp(250px, 30vw, 470px)",
+                maxWidth: "100%",
+                height: "auto",
+                objectFit: "contain",
+                filter: "drop-shadow(0 28px 38px rgba(0,0,0,.12))",
+                transform: "translateY(8px)"
               }
-            },
-            autoPlay: true,
-            muted: true,
-            loop: true,
-            playsInline: true,
-            preload: "auto",
-            style: { position: "absolute", top: 0, left: 0, width: "100%", height: "100%", objectFit: "cover", display: "block", opacity: 0.8 },
-            children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("source", { src: "./video/new-video.mp4", type: "video/mp4" })
-          }
-        ),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, background: "linear-gradient(to bottom,rgba(0,0,0,.1) 0%,rgba(0,0,0,.0) 30%,rgba(0,0,0,.6) 70%,rgba(0,0,0,.92) 100%)", pointerEvents: "none" } }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, background: "linear-gradient(to right,rgba(0,0,0,.4) 0%,transparent 55%)", pointerEvents: "none" } })
-      ] }),
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { "aria-hidden": "true", style: { position: "absolute", right: "16%", bottom: "6%", width: 120, height: 120, borderRadius: "50%", border: "1px solid rgba(184,146,42,.15)" } })
+        ] })
+      ] }) }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { overflow: "hidden", background: "#050505", padding: "24px 0", borderTop: "1px solid rgba(193,164,106,0.15)", borderBottom: "1px solid rgba(193,164,106,0.15)" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "ribbon-inner", style: { display: "flex", alignItems: "center" }, children: [...SCENT_RIBBON, ...SCENT_RIBBON, ...SCENT_RIBBON].map((n, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 12, fontWeight: 400, letterSpacing: 8, color: "#E8E4DC", textTransform: "uppercase", whiteSpace: "nowrap", fontFamily: "'Montserrat',sans-serif" }, children: n }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { margin: "0 64px", color: "#C1A46A", fontSize: 10 }, children: "\u2726" })
@@ -22324,7 +22335,7 @@
           },
           c
         )) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24 }, className: "grid-4", children: filtered.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: 24, alignItems: "stretch" }, className: "grid-4", children: filtered.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
           setViewProduct(prod);
           setPage("product");
         }, onCart: addToCart }, p.id)) })
@@ -22561,7 +22572,7 @@
             setPage("collections");
           }, children: "View All New" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24 }, className: "grid-4", children: PRODUCTS.filter((p) => p.badge === "New").slice(0, 4).map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: 24, alignItems: "stretch" }, className: "grid-4", children: PRODUCTS.filter((p) => p.badge === "New").slice(0, 4).map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
           setViewProduct(prod);
           setPage("product");
         } }, p.id)) })
@@ -22988,7 +22999,7 @@
           filtered.length,
           " fragrances found"
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24 }, className: "grid-4", children: filtered.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: 24, alignItems: "stretch" }, className: "grid-4", children: filtered.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
           setViewProduct(prod);
           setPage("product");
         }, onCart: addToCart }, p.id)) }),
@@ -23192,7 +23203,7 @@
             " gift sets available"
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24 }, className: "grid-4", children: giftProducts.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: 24, alignItems: "stretch" }, className: "grid-4", children: giftProducts.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
           if (setViewProduct) {
             setViewProduct(prod);
             setPage("product");
