@@ -594,8 +594,8 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
       {/* ── FEATURED PRODUCTS ── */}
       <section style={{padding:"0 5% 104px",background:"#fff"}}>
-        <div style={{paddingTop:96,marginBottom:52,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:18,textAlign:"center"}}>
-          <div style={{display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center"}}>
+        <div style={{paddingTop:96,marginBottom:52,display:"flex",alignItems:"flex-end",justifyContent:"space-between",flexWrap:"wrap",gap:16}}>
+          <div style={{textAlign:"left"}}>
             <p style={{fontSize:9,letterSpacing:6,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Maison du Maitre Parfumeur</p>
             <h2
               style={{
@@ -608,7 +608,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
               }}
             >
               Respect the Quality,<br/>
-              <em className="luxury-gold-text" style={{fontStyle:"italic",fontWeight:500,letterSpacing:0}}>Provide the Best</em>
+              <em className="luxury-gold-text" style={{fontStyle:"italic",fontWeight:700,letterSpacing:0}}>Provide the Best</em>
             </h2>
           </div>
           <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>setPage("collections")}>View All</button>
