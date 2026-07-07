@@ -611,8 +611,8 @@ function HomePage({ setPage, addToCart, setViewProduct }){
                 background:"transparent",color:activeCat===c?"#000":"#777",
                 border:"none",
                 borderBottom: activeCat===c ? "1px solid #000" : "1px solid transparent",
-                padding:"10px 18px 12px",fontSize:10,letterSpacing:2,cursor:"pointer",whiteSpace:"nowrap",
-                fontWeight:activeCat===c?600:400,transition:"all .2s",textTransform:"uppercase",
+                padding:"8px 14px 10px",fontSize:9,letterSpacing:1.5,cursor:"pointer",whiteSpace:"nowrap",
+                fontWeight:activeCat===c?600:500,transition:"all .2s",textTransform:"uppercase",
                 fontFamily:"'Montserrat',sans-serif",
               }}>
               {c}
