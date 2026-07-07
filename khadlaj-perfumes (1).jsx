@@ -608,7 +608,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
               }}
             >
               Respect the Quality,<br/>
-              <em className="luxury-gold-text" style={{fontStyle:"italic",fontWeight:700,letterSpacing:0}}>Provide the Best</em>
+              <em className="luxury-gold-text" style={{fontStyle:"italic",fontWeight:500,letterSpacing:0}}>Provide the Best</em>
             </h2>
           </div>
           <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>setPage("collections")}>View All</button>
@@ -843,7 +843,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
               <span style={{fontSize:22, color:"#B8922A"}}>✦</span>
               <span style={{display:"inline-flex", flexDirection:"column", gap:2, lineHeight:1, letterSpacing:3.4, fontFamily:"'Cinzel', 'Cormorant Garamond', serif", textTransform:"uppercase", color:"#C9A24A"}}>
                 <span style={{fontSize:10, fontWeight:700, letterSpacing:4}}>Respect the Quality,</span>
-                <span style={{fontSize:14, fontStyle:"italic", fontWeight:500, letterSpacing:0.5}}>Provide the Best</span>
+                <span style={{fontSize:14, fontStyle:"italic", fontWeight:400, letterSpacing:0.5}}>Provide the Best</span>
               </span>
             </div>
           </div>
