@@ -574,7 +574,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
       {/* ── NEW LAUNCH ── */}
       <section style={{padding:"84px 5% 96px", background:"linear-gradient(180deg, #fff 0%, #fcfaf7 100%)"}}>
-        <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",gap:16,flexWrap:"wrap",marginBottom:28}}>
+        <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:14,marginBottom:28,textAlign:"center"}}>
           <SectionHeader eyebrow="New Launch" title="Fresh Arrivals" sub="A balanced spotlight on the latest fragrances, curated to feel clean and contemporary." />
           <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>{setActiveCat("New");setPage("collections");}}>View New</button>
         </div>
@@ -585,7 +585,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           ))}
         </div>
 
-        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",gap:16,marginTop:18,flexWrap:"wrap",paddingTop:12,borderTop:"1px solid #EBE4DD"}}>
+        <div style={{display:"flex",justifyContent:"center",alignItems:"center",gap:16,marginTop:18,flexWrap:"wrap",paddingTop:12,borderTop:"1px solid #EBE4DD"}}>
           <p style={{fontSize:10.5,letterSpacing:2.5,color:"#888",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif"}}>
             {newLaunches.length} fresh launches
           </p>

@@ -22274,7 +22274,7 @@
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { margin: "0 64px", color: "#C1A46A", fontSize: 10 }, children: "\u2726" })
       ] }, i)) }) }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "84px 5% 96px", background: "linear-gradient(180deg, #fff 0%, #fcfaf7 100%)" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 16, flexWrap: "wrap", marginBottom: 28 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: 14, marginBottom: 28, textAlign: "center" }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeader, { eyebrow: "New Launch", title: "Fresh Arrivals", sub: "A balanced spotlight on the latest fragrances, curated to feel clean and contemporary." }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-ghost", style: { flexShrink: 0 }, onClick: () => {
             setActiveCat("New");
@@ -22285,7 +22285,7 @@
           setViewProduct(prod);
           setPage("product");
         }, onCart: addToCart }, p.id)) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16, marginTop: 18, flexWrap: "wrap", paddingTop: 12, borderTop: "1px solid #EBE4DD" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "center", alignItems: "center", gap: 16, marginTop: 18, flexWrap: "wrap", paddingTop: 12, borderTop: "1px solid #EBE4DD" }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { style: { fontSize: 10.5, letterSpacing: 2.5, color: "#888", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif" }, children: [
             newLaunches.length,
             " fresh launches"
