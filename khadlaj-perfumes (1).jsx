@@ -597,14 +597,13 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         <div style={{paddingTop:96,marginBottom:52,display:"flex",alignItems:"flex-end",justifyContent:"space-between",flexWrap:"wrap",gap:16}}>
           <div style={{textAlign:"left"}}>
             <p style={{fontSize:9,letterSpacing:6,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Maison du Maitre Parfumeur</p>
-            <h2
+            <h2 className="disp"
               style={{
                 fontSize:"clamp(32px,4vw,54px)",
-                fontWeight:600,
+                fontWeight:300,
                 color:"#000",
-                lineHeight:0.98,
-                letterSpacing:0,
-                fontFamily:"'Cinzel', 'Cormorant Garamond', serif",
+                lineHeight:1.15,
+                letterSpacing:"-0.5px",
               }}
             >
               Crafted with Care,<br/>

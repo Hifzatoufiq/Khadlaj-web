@@ -22291,13 +22291,13 @@
             /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
               "h2",
               {
+                className: "disp",
                 style: {
                   fontSize: "clamp(32px,4vw,54px)",
-                  fontWeight: 600,
+                  fontWeight: 300,
                   color: "#000",
-                  lineHeight: 0.98,
-                  letterSpacing: 0,
-                  fontFamily: "'Cinzel', 'Cormorant Garamond', serif"
+                  lineHeight: 1.15,
+                  letterSpacing: "-0.5px"
                 },
                 children: [
                   "Crafted with Care,",
