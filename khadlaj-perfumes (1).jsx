@@ -41,7 +41,7 @@ const CountryContext = React.createContext();
 
 const PAYMENTS = ["Visa","Mastercard","Apple Pay","Google Pay","Tabby","Tamara","PayTabs","PayPal"];
 
-const NAV_LINKS = ["Collections","Best Sellers","New Arrivals","Gift Sets","Our Story","Contact"];
+const NAV_LINKS = ["Best Sellers","Perfume Spray","Perfume Oil","Home & Ambience","Gifts","Our legacy","Contact"];
 
 const SCENT_RIBBON = ["Oud","Amber","Musk","Rose","Sandalwood","Saffron","Vanilla","Bergamot",
   "Patchouli","Jasmine","Neroli","Cedarwood","Vetiver","Iris","Benzoin","Agarwood","Frankincense"];
@@ -1878,7 +1878,7 @@ function Navbar({ page, setPage, cartCount }){
             </div>
           </div>
           <div className="hide-mob" style={{display:"flex",justifyContent:"center",gap:40,paddingBottom:16,fontSize:"12px",letterSpacing:"1.5px",textTransform:"uppercase",color:"#111",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>
-            {[["Offers","collections"],["Bestsellers","collections"],["New In","collections"],["Gifts","gifts"],["Perfume","collections"],["Our Story","story"],["Contact","contact"]].map(([label,pg])=>(
+            {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","collections"],["Gifts","gifts"],["Our legacy","story"],["Contact","contact"]].map(([label,pg])=>(
               <span key={label} onClick={()=>setPage(pg)} style={{cursor:"pointer",paddingBottom:4,borderBottom:page===pg?"1px solid #B8922A":"1px solid transparent",color:page===pg?"#B8922A":"#111",transition:"all .25s ease"}}
                 onMouseEnter={e=>{e.currentTarget.style.color="#B8922A";e.currentTarget.style.borderBottomColor="#B8922A";}}
                 onMouseLeave={e=>{e.currentTarget.style.color=page===pg?"#B8922A":"#111";e.currentTarget.style.borderBottomColor=page===pg?"#B8922A":"transparent";}}
@@ -1897,7 +1897,7 @@ function Navbar({ page, setPage, cartCount }){
             zIndex:200,
             boxShadow:"0 8px 32px rgba(0,0,0,.12)",
           }}>
-            {[["Offers","collections"],["Bestsellers","collections"],["New In","collections"],["Gift Sets","gifts"],["All Fragrances","collections"],["Our Story","story"],["Contact","contact"]].map(([label,pg])=>(
+            {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","collections"],["Gifts","gifts"],["Our legacy","story"],["Contact","contact"]].map(([label,pg])=>(
               <div
                 key={label}
                 onClick={()=>{setPage(pg);setMobileMenuOpen(false);}}

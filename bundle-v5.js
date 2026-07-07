@@ -23669,7 +23669,7 @@
               )
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "hide-mob", style: { display: "flex", justifyContent: "center", gap: 40, paddingBottom: 16, fontSize: "12px", letterSpacing: "1.5px", textTransform: "uppercase", color: "#111", fontFamily: "'Montserrat',sans-serif", fontWeight: 600 }, children: [["Offers", "collections"], ["Bestsellers", "collections"], ["New In", "collections"], ["Gifts", "gifts"], ["Perfume", "collections"], ["Our Story", "story"], ["Contact", "contact"]].map(([label, pg]) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "hide-mob", style: { display: "flex", justifyContent: "center", gap: 40, paddingBottom: 16, fontSize: "12px", letterSpacing: "1.5px", textTransform: "uppercase", color: "#111", fontFamily: "'Montserrat',sans-serif", fontWeight: 600 }, children: [["Best Sellers", "collections"], ["Perfume Spray", "collections"], ["Perfume Oil", "collections"], ["Home & Ambience", "collections"], ["Gifts", "gifts"], ["Our legacy", "story"], ["Contact", "contact"]].map(([label, pg]) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             "span",
             {
               onClick: () => setPage(pg),
@@ -23698,7 +23698,7 @@
           zIndex: 200,
           boxShadow: "0 8px 32px rgba(0,0,0,.12)"
         }, children: [
-          [["Offers", "collections"], ["Bestsellers", "collections"], ["New In", "collections"], ["Gift Sets", "gifts"], ["All Fragrances", "collections"], ["Our Story", "story"], ["Contact", "contact"]].map(([label, pg]) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+          [["Best Sellers", "collections"], ["Perfume Spray", "collections"], ["Perfume Oil", "collections"], ["Home & Ambience", "collections"], ["Gifts", "gifts"], ["Our legacy", "story"], ["Contact", "contact"]].map(([label, pg]) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
             "div",
             {
               onClick: () => {
