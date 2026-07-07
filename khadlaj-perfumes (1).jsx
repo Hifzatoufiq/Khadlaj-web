@@ -542,6 +542,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
     if(activeCat==="Unisex") return p.gender==="Unisex";
     return p.col===activeCat;
   }).slice(0,12);
+  const newLaunches = PRODUCTS.filter(p=>p.badge==="New").slice(0,4);
 
   return (
     <>
@@ -570,6 +571,40 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           ))}
         </div>
       </div>
+
+      {/* ── NEW LAUNCH ── */}
+      <section style={{padding:"92px 5% 106px", background:"#fff"}}>
+        <div style={{display:"grid",gridTemplateColumns:"minmax(280px,.95fr) minmax(0,1.35fr)",gap:32,alignItems:"stretch"}} className="hero-split">
+          <div style={{position:"relative",minHeight:"clamp(320px,36vw,520px)",overflow:"hidden",borderRadius:4,border:"1px solid #EBE4DD",background:"#F7F3EE"}}>
+            <img
+              src="./assets/images/banners/spring-banner.png"
+              alt="New launch banner"
+              style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center center"}}
+            />
+            <div style={{position:"absolute",inset:0,background:"linear-gradient(135deg,rgba(255,255,255,.62) 0%,rgba(255,255,255,.18) 38%,rgba(255,255,255,0) 65%)"}} />
+            <div style={{position:"absolute",left:28,bottom:28,right:28,maxWidth:310}}>
+              <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12,fontWeight:700}}>Just Dropped</p>
+              <h2 className="disp" style={{fontSize:"clamp(32px,4vw,54px)",fontWeight:300,color:"#111",lineHeight:0.98,marginBottom:12}}>New Launch</h2>
+              <p style={{fontSize:13.5,lineHeight:1.8,color:"#666",fontFamily:"'Montserrat',sans-serif",maxWidth:260}}>
+                Fresh arrivals with a modern signature, made for everyday wear and easy gifting.
+              </p>
+            </div>
+          </div>
+
+          <div style={{display:"flex",flexDirection:"column",justifyContent:"space-between",gap:20}}>
+            <SectionHeader
+              eyebrow="Fresh Picks"
+              title="New Launch"
+              sub="Explore the latest additions from our collection, all in one clean, easy-to-scan block."
+            />
+            <div style={{display:"grid",gridTemplateColumns:"repeat(2,minmax(0,1fr))",gap:24,alignItems:"stretch"}} className="grid-2">
+              {newLaunches.map(p=>(
+                <ProductCard key={p.id} p={p} onView={(prod)=>{setViewProduct(prod);setPage("product");}} onCart={addToCart}/>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
 
 
       {/* ── FEATURED PRODUCTS ── */}

@@ -22243,6 +22243,7 @@
       if (activeCat === "Unisex") return p.gender === "Unisex";
       return p.col === activeCat;
     }).slice(0, 12);
+    const newLaunches = PRODUCTS.filter((p) => p.badge === "New").slice(0, 4);
     return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { className: "hero-section", style: { position: "relative", width: "100%", height: "70vh", minHeight: "450px", overflow: "hidden", background: "#0a0a0a" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
@@ -22272,6 +22273,38 @@
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 12, fontWeight: 400, letterSpacing: 8, color: "#E8E4DC", textTransform: "uppercase", whiteSpace: "nowrap", fontFamily: "'Montserrat',sans-serif" }, children: n }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { margin: "0 64px", color: "#C1A46A", fontSize: 10 }, children: "\u2726" })
       ] }, i)) }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { padding: "92px 5% 106px", background: "#fff" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "minmax(280px,.95fr) minmax(0,1.35fr)", gap: 32, alignItems: "stretch" }, className: "hero-split", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", minHeight: "clamp(320px,36vw,520px)", overflow: "hidden", borderRadius: 4, border: "1px solid #EBE4DD", background: "#F7F3EE" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            "img",
+            {
+              src: "./assets/images/banners/spring-banner.png",
+              alt: "New launch banner",
+              style: { width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center" }
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, background: "linear-gradient(135deg,rgba(255,255,255,.62) 0%,rgba(255,255,255,.18) 38%,rgba(255,255,255,0) 65%)" } }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "absolute", left: 28, bottom: 28, right: 28, maxWidth: 310 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 12, fontWeight: 700 }, children: "Just Dropped" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(32px,4vw,54px)", fontWeight: 300, color: "#111", lineHeight: 0.98, marginBottom: 12 }, children: "New Launch" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 13.5, lineHeight: 1.8, color: "#666", fontFamily: "'Montserrat',sans-serif", maxWidth: 260 }, children: "Fresh arrivals with a modern signature, made for everyday wear and easy gifting." })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", flexDirection: "column", justifyContent: "space-between", gap: 20 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            SectionHeader,
+            {
+              eyebrow: "Fresh Picks",
+              title: "New Launch",
+              sub: "Explore the latest additions from our collection, all in one clean, easy-to-scan block."
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", gap: 24, alignItems: "stretch" }, className: "grid-2", children: newLaunches.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
+            setViewProduct(prod);
+            setPage("product");
+          }, onCart: addToCart }, p.id)) })
+        ] })
+      ] }) }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "0 5% 104px", background: "#fff" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { paddingTop: 96, marginBottom: 52, display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
