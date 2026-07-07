@@ -21887,7 +21887,7 @@
   ::-webkit-scrollbar-thumb{background:#000;}
   .hide-scrollbar::-webkit-scrollbar { display: none; }
   .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-  .disp{font-family:'Trajan Pro', 'Cinzel', serif;}
+  h1,h2,h3,h4,.disp{font-family:'Cormorant Garamond','Bodoni Moda','Cinzel',serif;}
   .mono{font-family:'Montserrat',sans-serif;}
 
   /* YSL-style primary button: solid black */
@@ -22285,24 +22285,24 @@
         ] }) })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "0 5% 104px", background: "#fff" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { paddingTop: 96, marginBottom: 52, display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 14 }, children: "Maison du Maitre Parfumeur" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { paddingTop: 96, marginBottom: 52, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 18, textAlign: "center" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 6, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 12 }, children: "Maison du Maitre Parfumeur" }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
               "h2",
               {
                 style: {
-                  fontSize: "clamp(32px,4vw,54px)",
-                  fontWeight: 600,
+                  fontSize: "clamp(34px,4.2vw,60px)",
+                  fontWeight: 500,
                   color: "#000",
-                  lineHeight: 0.98,
-                  letterSpacing: 0,
-                  fontFamily: "'Cinzel', 'Cormorant Garamond', serif"
+                  lineHeight: 1,
+                  letterSpacing: -0.4,
+                  fontFamily: "'Bodoni Moda', 'Cormorant Garamond', 'Cinzel', serif"
                 },
                 children: [
                   "Respect the Quality,",
                   /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { className: "luxury-gold-text", style: { fontStyle: "italic", fontWeight: 500 }, children: "Provide the Best" })
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { className: "luxury-gold-text", style: { fontStyle: "italic", fontWeight: 500, letterSpacing: 0 }, children: "Provide the Best" })
                 ]
               }
             )

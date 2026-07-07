@@ -198,7 +198,7 @@ const GLOBAL_CSS = `
   ::-webkit-scrollbar-thumb{background:#000;}
   .hide-scrollbar::-webkit-scrollbar { display: none; }
   .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-  .disp{font-family:'Trajan Pro', 'Cinzel', serif;}
+  h1,h2,h3,h4,.disp{font-family:'Cormorant Garamond','Bodoni Moda','Cinzel',serif;}
   .mono{font-family:'Montserrat',sans-serif;}
 
   /* YSL-style primary button: solid black */
@@ -594,21 +594,21 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
       {/* ── FEATURED PRODUCTS ── */}
       <section style={{padding:"0 5% 104px",background:"#fff"}}>
-        <div style={{paddingTop:96,marginBottom:52,display:"flex",alignItems:"flex-end",justifyContent:"space-between",flexWrap:"wrap",gap:16}}>
-          <div>
-            <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:14}}>Maison du Maitre Parfumeur</p>
+        <div style={{paddingTop:96,marginBottom:52,display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",gap:18,textAlign:"center"}}>
+          <div style={{display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center"}}>
+            <p style={{fontSize:9,letterSpacing:6,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Maison du Maitre Parfumeur</p>
             <h2
               style={{
-                fontSize:"clamp(32px,4vw,54px)",
-                fontWeight:600,
+                fontSize:"clamp(34px,4.2vw,60px)",
+                fontWeight:500,
                 color:"#000",
-                lineHeight:0.98,
-                letterSpacing:0,
-                fontFamily:"'Cinzel', 'Cormorant Garamond', serif",
+                lineHeight:1,
+                letterSpacing:-0.4,
+                fontFamily:"'Bodoni Moda', 'Cormorant Garamond', 'Cinzel', serif",
               }}
             >
               Respect the Quality,<br/>
-              <em className="luxury-gold-text" style={{fontStyle:"italic",fontWeight:500}}>Provide the Best</em>
+              <em className="luxury-gold-text" style={{fontStyle:"italic",fontWeight:500,letterSpacing:0}}>Provide the Best</em>
             </h2>
           </div>
           <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>setPage("collections")}>View All</button>
