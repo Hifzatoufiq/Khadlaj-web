@@ -584,11 +584,10 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           ))}
         </div>
 
-        <div style={{display:"flex",justifyContent:"center",alignItems:"center",gap:16,marginTop:18,flexWrap:"wrap",paddingTop:12,borderTop:"1px solid #EBE4DD"}}>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",gap:16,marginTop:18,flexWrap:"wrap",paddingTop:12,borderTop:"1px solid #EBE4DD"}}>
           <p style={{fontSize:10.5,letterSpacing:2.5,color:"#888",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif"}}>
             {newLaunches.length} fresh launches
           </p>
-          <button className="btn-ghost" onClick={()=>{setActiveCat("New");setPage("collections");}}>View All New</button>
         </div>
       </section>
 

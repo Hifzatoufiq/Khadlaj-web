@@ -22279,16 +22279,10 @@
           setViewProduct(prod);
           setPage("product");
         }, onCart: addToCart }, p.id)) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "center", alignItems: "center", gap: 16, marginTop: 18, flexWrap: "wrap", paddingTop: 12, borderTop: "1px solid #EBE4DD" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { style: { fontSize: 10.5, letterSpacing: 2.5, color: "#888", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif" }, children: [
-            newLaunches.length,
-            " fresh launches"
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-ghost", onClick: () => {
-            setActiveCat("New");
-            setPage("collections");
-          }, children: "View All New" })
-        ] })
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16, marginTop: 18, flexWrap: "wrap", paddingTop: 12, borderTop: "1px solid #EBE4DD" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { style: { fontSize: 10.5, letterSpacing: 2.5, color: "#888", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif" }, children: [
+          newLaunches.length,
+          " fresh launches"
+        ] }) })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "0 5% 104px", background: "#fff" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { paddingTop: 96, marginBottom: 52, display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }, children: [
