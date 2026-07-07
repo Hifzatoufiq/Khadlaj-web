@@ -814,27 +814,6 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           ))}
         </div>
       </section>
-
-      {/* ── GIFT SETS ── */}
-      <section style={{padding:"96px 5%",background:"#fff",borderTop:"1px solid #E8E4DC"}}>
-        <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",flexWrap:"wrap",gap:16,marginBottom:60}}>
-          <div>
-            <div style={{width:32,height:1,background:"#B8922A",marginBottom:18}}/>
-            <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Gifting</p>
-            <h2 className="disp" style={{fontSize:"clamp(30px,3.8vw,52px)",fontWeight:300,color:"#000",lineHeight:1,letterSpacing:-1}}>
-              Curated<br/><em className="luxury-gold-text" style={{fontStyle:"italic"}}>Gift Collections</em>
-            </h2>
-          </div>
-          <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>setPage("gifts")}>View All Gifts</button>
-        </div>
-
-        <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:24}} className="grid-4">
-          {PRODUCTS.filter(p=>p.size==="Gift Set").slice(0,4).map(p=>(
-            <ProductCard key={p.id} p={p} onView={(prod)=>{setViewProduct(prod);setPage("product");}} />
-          ))}
-        </div>
-      </section>
-
       {/* ── SCENT FINDER QUIZ ── */}
       <section style={{background:"#080808", padding:"96px 5%", color:"#fff", borderTop:"1px solid rgba(255,255,255,0.08)", position:"relative", zIndex:1}}>
         <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(320px, 1fr))", gap:64, alignItems:"center"}} className="hero-split">
@@ -954,7 +933,25 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
         </div>
       </section>
+      {/* ── GIFT SETS ── */}
+      <section style={{padding:"96px 5%",background:"#fff",borderTop:"1px solid #E8E4DC"}}>
+        <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",flexWrap:"wrap",gap:16,marginBottom:60}}>
+          <div>
+            <div style={{width:32,height:1,background:"#B8922A",marginBottom:18}}/>
+            <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Gifting</p>
+            <h2 className="disp" style={{fontSize:"clamp(30px,3.8vw,52px)",fontWeight:300,color:"#000",lineHeight:1,letterSpacing:-1}}>
+              Curated<br/><em className="luxury-gold-text" style={{fontStyle:"italic"}}>Gift Collections</em>
+            </h2>
+          </div>
+          <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>setPage("gifts")}>View All Gifts</button>
+        </div>
 
+        <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:24}} className="grid-4">
+          {PRODUCTS.filter(p=>p.size==="Gift Set").slice(0,4).map(p=>(
+            <ProductCard key={p.id} p={p} onView={(prod)=>{setViewProduct(prod);setPage("product");}} />
+          ))}
+        </div>
+      </section>
       {/* ── TESTIMONIALS ── */}
       <section style={{background:"#000",padding:"96px 5%"}}>
         <SectionHeader eyebrow="Reviews" title="Loved Across the Gulf" light={true} />

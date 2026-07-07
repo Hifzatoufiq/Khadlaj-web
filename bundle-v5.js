@@ -22566,24 +22566,6 @@
           setPage("product");
         } }, p.id)) })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "96px 5%", background: "#fff", borderTop: "1px solid #E8E4DC" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 16, marginBottom: 60 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 32, height: 1, background: "#B8922A", marginBottom: 18 } }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 12 }, children: "Gifting" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(30px,3.8vw,52px)", fontWeight: 300, color: "#000", lineHeight: 1, letterSpacing: -1 }, children: [
-              "Curated",
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { className: "luxury-gold-text", style: { fontStyle: "italic" }, children: "Gift Collections" })
-            ] })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-ghost", style: { flexShrink: 0 }, onClick: () => setPage("gifts"), children: "View All Gifts" })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24 }, className: "grid-4", children: PRODUCTS.filter((p) => p.size === "Gift Set").slice(0, 4).map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
-          setViewProduct(prod);
-          setPage("product");
-        } }, p.id)) })
-      ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { background: "#080808", padding: "96px 5%", color: "#fff", borderTop: "1px solid rgba(255,255,255,0.08)", position: "relative", zIndex: 1 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 64, alignItems: "center" }, className: "hero-split", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 32, height: 1, background: "#B8922A", marginBottom: 16 } }),
@@ -22715,6 +22697,24 @@
           ] })
         ] })
       ] }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "96px 5%", background: "#fff", borderTop: "1px solid #E8E4DC" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 16, marginBottom: 60 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 32, height: 1, background: "#B8922A", marginBottom: 18 } }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 12 }, children: "Gifting" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(30px,3.8vw,52px)", fontWeight: 300, color: "#000", lineHeight: 1, letterSpacing: -1 }, children: [
+              "Curated",
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { className: "luxury-gold-text", style: { fontStyle: "italic" }, children: "Gift Collections" })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-ghost", style: { flexShrink: 0 }, onClick: () => setPage("gifts"), children: "View All Gifts" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24 }, className: "grid-4", children: PRODUCTS.filter((p) => p.size === "Gift Set").slice(0, 4).map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
+          setViewProduct(prod);
+          setPage("product");
+        } }, p.id)) })
+      ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { background: "#000", padding: "96px 5%" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeader, { eyebrow: "Reviews", title: "Loved Across the Gulf", light: true }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "grid-4", style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 1, background: "rgba(255,255,255,.15)" }, children: REVIEWS.map((r, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "#000", padding: "48px 32px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }, children: [
