@@ -599,12 +599,12 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             <p style={{fontSize:9,letterSpacing:6,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Maison du Maitre Parfumeur</p>
             <h2
               style={{
-                fontSize:"clamp(34px,4.2vw,60px)",
-                fontWeight:500,
+                fontSize:"clamp(32px,4vw,54px)",
+                fontWeight:600,
                 color:"#000",
-                lineHeight:1,
-                letterSpacing:-0.4,
-                fontFamily:"'Bodoni Moda', 'Cormorant Garamond', 'Cinzel', serif",
+                lineHeight:0.98,
+                letterSpacing:0,
+                fontFamily:"'Cinzel', 'Cormorant Garamond', serif",
               }}
             >
               Respect the Quality,<br/>
