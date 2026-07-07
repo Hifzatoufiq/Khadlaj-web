@@ -53,27 +53,6 @@ const STATS = [
   { v:"1",    l:"Master Perfumer" },
 ];
 
-const BANNER_SLIDES = [
-  {
-    eyebrow: "Just Dropped",
-    title: "New Arrivals",
-    copy: "Fresh seasonal picks with a premium finish.",
-    img: "./assets/images/banners/spring-banner.png",
-  },
-  {
-    eyebrow: "Best Seller",
-    title: "Island",
-    copy: "A clean, oceanic signature with a bold golden edge.",
-    img: "./assets/images/products/island-packshot-removebg-preview.png",
-  },
-  {
-    eyebrow: "Atyaab",
-    title: "Bleu Glacé",
-    copy: "Cool blue freshness with a refined modern profile.",
-    img: "./assets/images/products/blue-glace-single-2.png",
-  },
-];
-
 const PRODUCTS = [
   // ── Local products (own images) ──
   { id:13, name:"Island",               col:"Master Perfumery", price:150, size:"100ml Extrait", badge:"Best Seller", gender:"Unisex", notes:["Marine","Amber","Oud"],        img:"./assets/images/products/island-packshot-removebg-preview.png" },
@@ -293,10 +272,6 @@ const GLOBAL_CSS = `
     animation:shimmer 3s linear infinite;
   }
 
-  @keyframes bannerFloat{
-    0%,100%{transform:translateY(0) scale(1);}
-    50%{transform:translateY(-10px) scale(1.02);}
-  }
 
   /* ── Mobile responsive ── */
   @media(max-width:900px){
@@ -310,7 +285,6 @@ const GLOBAL_CSS = `
     .hero-layout { grid-template-columns:1fr !important; gap: 28px !important; }
     .hero-copy { padding: 0 !important; }
     .hero-visual { min-height: 420px !important; order:-1; }
-    .rot-banner{min-height:320px!important;}
     .hero-headline { font-size: 38px !important; }
   }
   @media(max-width:600px){
@@ -322,7 +296,6 @@ const GLOBAL_CSS = `
     .hero-section { padding: 24px 5% 20px !important; }
     .hero-layout { gap: 22px !important; }
     .hero-visual { min-height: 330px !important; }
-    .rot-banner{min-height:280px!important;}
     .hero-headline { font-size: 30px !important; line-height: 1.15 !important; margin-bottom: 10px !important; }
     .hero-subtitle { font-size: 13px !important; line-height: 1.6 !important; max-width: 100% !important; margin-bottom: 16px !important; }
     .hero-stats-row { gap: 10px !important; padding-top: 10px !important; flex-wrap: wrap !important; }
@@ -333,7 +306,6 @@ const GLOBAL_CSS = `
     .popup-in{grid-template-columns:1fr!important;}
     .hero-layout { gap: 18px !important; }
     .hero-visual { min-height: 280px !important; }
-    .rot-banner{min-height:240px!important;}
     .hero-headline { font-size: 26px !important; letter-spacing: 0 !important; }
     .hero-cta-row { flex-direction: column !important; gap: 8px !important; width: 100% !important; }
     .hero-cta-row button { width: 100% !important; text-align: center !important; justify-content: center !important; }
@@ -347,89 +319,6 @@ const GLOBAL_CSS = `
 ═══════════════════════════════════════════════════════════════ */
 function StarRating({ n=5, color=C.brass }){
   return <span style={{color,fontSize:13,letterSpacing:1}}>{"★".repeat(n)}{"☆".repeat(5-n)}</span>;
-}
-
-function RotatingBanner(){
-  const [active, setActive] = useState(0);
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActive((curr) => (curr + 1) % BANNER_SLIDES.length);
-    }, 3600);
-    return () => clearInterval(timer);
-  }, []);
-
-  const slide = BANNER_SLIDES[active];
-
-  return (
-    <div
-      className="rot-banner"
-      style={{
-        position:"relative",
-        width:"100%",
-        minHeight:"360px",
-        border:"1px solid #E8E4DC",
-        borderRadius:4,
-        overflow:"hidden",
-        background:"#F7F3EE",
-        boxShadow:"0 14px 36px rgba(0,0,0,.06)",
-      }}
-    >
-      <div style={{position:"absolute", inset:0, background:"linear-gradient(135deg, rgba(255,255,255,.96) 0%, rgba(250,245,239,.92) 42%, rgba(240,233,223,.94) 100%)"}} />
-      <div style={{position:"absolute", inset:0, display:"flex", flexDirection:"column", justifyContent:"space-between", padding:"28px 28px 24px", zIndex:2}}>
-        <div>
-          <p style={{fontSize:9, letterSpacing:5, color:"#B8922A", textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", marginBottom:10, fontWeight:700}}>
-            {slide.eyebrow}
-          </p>
-          <h3 className="disp" style={{fontSize:"clamp(34px, 3vw, 52px)", lineHeight:0.95, color:"#111", marginBottom:12}}>
-            {slide.title}
-          </h3>
-          <p style={{fontSize:12.5, lineHeight:1.6, color:"#666", maxWidth:230, fontFamily:"'Montserrat',sans-serif"}}>
-            {slide.copy}
-          </p>
-        </div>
-
-        <div style={{display:"flex", justifyContent:"space-between", alignItems:"end", gap:12}}>
-          <div style={{display:"flex", gap:8, alignItems:"center"}}>
-            {BANNER_SLIDES.map((_, i) => (
-              <button
-                key={i}
-                aria-label={`Go to banner ${i + 1}`}
-                onClick={() => setActive(i)}
-                style={{
-                  width: i === active ? 26 : 8,
-                  height: 8,
-                  borderRadius:999,
-                  border:"none",
-                  background:i === active ? "#111" : "rgba(17,17,17,.22)",
-                  cursor:"pointer",
-                  transition:"all .25s ease",
-                  padding:0,
-                }}
-              />
-            ))}
-          </div>
-          <span style={{fontSize:10, letterSpacing:2.5, color:"#999", textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif"}}>
-            {String(active + 1).padStart(2,"0")} / {String(BANNER_SLIDES.length).padStart(2,"0")}
-          </span>
-        </div>
-      </div>
-      <div style={{position:"absolute", inset:"20% 8% 8% 36%", display:"flex", alignItems:"center", justifyContent:"center", zIndex:1}}>
-        <img
-          key={slide.img}
-          src={slide.img}
-          alt={slide.title}
-          style={{
-            width:"100%",
-            height:"100%",
-            objectFit:"contain",
-            filter:"drop-shadow(0 18px 24px rgba(0,0,0,.10))",
-            animation:"bannerFloat 5.8s ease-in-out infinite",
-          }}
-        />
-      </div>
-      <div style={{position:"absolute", inset:0, background:"linear-gradient(90deg, rgba(255,255,255,.08) 0%, rgba(255,255,255,0) 52%, rgba(184,146,42,.06) 100%)", pointerEvents:"none"}} />
-    </div>
-  );
 }
 
 function ProductCard({ p, onView }){
@@ -685,7 +574,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
       {/* ── FEATURED PRODUCTS ── */}
       <section style={{padding:"0 5% 104px",background:"#fff"}}>
-        <div style={{paddingTop:96,marginBottom:52,display:"grid",gridTemplateColumns:"minmax(0,1.05fr) minmax(320px,.95fr)",gap:32,alignItems:"start"}} className="hero-split">
+        <div style={{paddingTop:96,marginBottom:52,display:"flex",alignItems:"flex-end",justifyContent:"space-between",flexWrap:"wrap",gap:16}}>
           <div>
             <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:14}}>Maison du Maitre Parfumeur</p>
             <h2
@@ -702,12 +591,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
               <em className="luxury-gold-text" style={{fontStyle:"italic",fontWeight:500}}>Provide the Best</em>
             </h2>
           </div>
-          <div style={{display:"flex", flexDirection:"column", alignItems:"stretch", gap:16}}>
-            <div style={{display:"flex", justifyContent:"flex-end"}}>
-              <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>setPage("collections")}>View All</button>
-            </div>
-            <RotatingBanner />
-          </div>
+          <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>setPage("collections")}>View All</button>
         </div>
 
         {/* Category pills */}
