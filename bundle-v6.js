@@ -22273,16 +22273,16 @@
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 12, fontWeight: 400, letterSpacing: 8, color: "#E8E4DC", textTransform: "uppercase", whiteSpace: "nowrap", fontFamily: "'Montserrat',sans-serif" }, children: n }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { margin: "0 64px", color: "#C1A46A", fontSize: 10 }, children: "\u2726" })
       ] }, i)) }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "92px 5% 108px", background: "linear-gradient(180deg, #fff 0%, #fcfaf7 100%)" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 16, flexWrap: "wrap", marginBottom: 32 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeader, { eyebrow: "New Launch", title: "Freshly Released", sub: "The newest arrivals, presented in one elegant launch spotlight." }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "84px 5% 96px", background: "linear-gradient(180deg, #fff 0%, #fcfaf7 100%)" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 16, flexWrap: "wrap", marginBottom: 28 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeader, { eyebrow: "New Launch", title: "Fresh Arrivals", sub: "A balanced spotlight on the latest fragrances, curated to feel clean and contemporary." }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-ghost", style: { flexShrink: 0 }, onClick: () => {
             setActiveCat("New");
             setPage("collections");
-          }, children: "Shop New" })
+          }, children: "View New" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "minmax(280px,.95fr) minmax(0,1.35fr)", gap: 32, alignItems: "stretch" }, className: "hero-split", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", minHeight: "clamp(320px,36vw,520px)", overflow: "hidden", borderRadius: 6, border: "1px solid #EBE4DD", background: "#F7F3EE", boxShadow: "0 18px 40px rgba(0,0,0,.05)" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "minmax(280px,.92fr) minmax(0,1.38fr)", gap: 28, alignItems: "stretch" }, className: "hero-split", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", minHeight: "clamp(300px,34vw,500px)", overflow: "hidden", borderRadius: 6, border: "1px solid #EBE4DD", background: "#F7F3EE", boxShadow: "0 14px 30px rgba(0,0,0,.04)" }, children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
               "img",
               {
@@ -22291,28 +22291,21 @@
                 style: { width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center" }
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, background: "linear-gradient(135deg,rgba(255,255,255,.70) 0%,rgba(255,255,255,.20) 38%,rgba(255,255,255,0) 65%)" } }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "absolute", left: 28, bottom: 28, right: 28, maxWidth: 320 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 12, fontWeight: 700 }, children: "Just Dropped" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(32px,4vw,58px)", fontWeight: 300, color: "#111", lineHeight: 0.95, marginBottom: 12 }, children: "New Launch" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 13.5, lineHeight: 1.8, color: "#666", fontFamily: "'Montserrat',sans-serif", maxWidth: 280, marginBottom: 18 }, children: "Fresh arrivals with a modern signature, made for everyday wear and easy gifting." }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: 8, flexWrap: "wrap" }, children: ["Just In", "Limited Drop", "Best Picks"].map((tag) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { display: "inline-flex", alignItems: "center", padding: "6px 10px", border: "1px solid rgba(184,146,42,.25)", background: "rgba(255,255,255,.72)", color: "#777", fontSize: 9, letterSpacing: 1.5, textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif" }, children: tag }, tag)) })
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, background: "linear-gradient(135deg,rgba(255,255,255,.58) 0%,rgba(255,255,255,.18) 40%,rgba(255,255,255,0) 68%)" } }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "absolute", left: 24, bottom: 24, right: 24, maxWidth: 300 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 10, fontWeight: 700 }, children: "Just Dropped" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(30px,3.8vw,52px)", fontWeight: 300, color: "#111", lineHeight: 0.98, marginBottom: 10 }, children: "New Launch" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 13, lineHeight: 1.75, color: "#666", fontFamily: "'Montserrat',sans-serif", maxWidth: 270 }, children: "Fresh arrivals with a modern signature, made for everyday wear and gifting." })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", flexDirection: "column", gap: 20 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", flexDirection: "column", justifyContent: "space-between", gap: 18 }, children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", gap: 24, alignItems: "stretch" }, className: "grid-2", children: newLaunches.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
               setViewProduct(prod);
               setPage("product");
             }, onCart: addToCart }, p.id)) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16, paddingTop: 12, borderTop: "1px solid #EBE4DD", flexWrap: "wrap" }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { style: { fontSize: 10.5, letterSpacing: 2.5, color: "#888", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif" }, children: [
-                newLaunches.length,
-                " fresh launches"
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-ghost", onClick: () => {
-                setActiveCat("New");
-                setPage("collections");
-              }, children: "View All New" })
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { style: { fontSize: 10.5, letterSpacing: 2.5, color: "#888", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", paddingTop: 8, borderTop: "1px solid #EBE4DD" }, children: [
+              newLaunches.length,
+              " fresh launches"
             ] })
           ] })
         ] })
