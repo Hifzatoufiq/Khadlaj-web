@@ -22281,33 +22281,19 @@
             setPage("collections");
           }, children: "View New" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "minmax(280px,.92fr) minmax(0,1.38fr)", gap: 28, alignItems: "stretch" }, className: "hero-split", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", minHeight: "clamp(300px,34vw,500px)", overflow: "hidden", borderRadius: 6, border: "1px solid #EBE4DD", background: "#F7F3EE", boxShadow: "0 14px 30px rgba(0,0,0,.04)" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              "img",
-              {
-                src: "./assets/images/banners/spring-banner.png",
-                alt: "New launch banner",
-                style: { width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center" }
-              }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, background: "linear-gradient(135deg,rgba(255,255,255,.58) 0%,rgba(255,255,255,.18) 40%,rgba(255,255,255,0) 68%)" } }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "absolute", left: 24, bottom: 24, right: 24, maxWidth: 300 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 10, fontWeight: 700 }, children: "Just Dropped" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(30px,3.8vw,52px)", fontWeight: 300, color: "#111", lineHeight: 0.98, marginBottom: 10 }, children: "New Launch" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 13, lineHeight: 1.75, color: "#666", fontFamily: "'Montserrat',sans-serif", maxWidth: 270 }, children: "Fresh arrivals with a modern signature, made for everyday wear and gifting." })
-            ] })
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: 24, alignItems: "stretch" }, className: "grid-4", children: newLaunches.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
+          setViewProduct(prod);
+          setPage("product");
+        }, onCart: addToCart }, p.id)) }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", gap: 16, marginTop: 18, flexWrap: "wrap", paddingTop: 12, borderTop: "1px solid #EBE4DD" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { style: { fontSize: 10.5, letterSpacing: 2.5, color: "#888", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif" }, children: [
+            newLaunches.length,
+            " fresh launches"
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", flexDirection: "column", justifyContent: "space-between", gap: 18 }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(2,minmax(0,1fr))", gap: 24, alignItems: "stretch" }, className: "grid-2", children: newLaunches.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
-              setViewProduct(prod);
-              setPage("product");
-            }, onCart: addToCart }, p.id)) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { style: { fontSize: 10.5, letterSpacing: 2.5, color: "#888", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", paddingTop: 8, borderTop: "1px solid #EBE4DD" }, children: [
-              newLaunches.length,
-              " fresh launches"
-            ] })
-          ] })
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-ghost", onClick: () => {
+            setActiveCat("New");
+            setPage("collections");
+          }, children: "View All New" })
         ] })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "0 5% 104px", background: "#fff" }, children: [

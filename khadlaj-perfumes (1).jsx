@@ -579,33 +579,17 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>{setActiveCat("New");setPage("collections");}}>View New</button>
         </div>
 
-        <div style={{display:"grid",gridTemplateColumns:"minmax(280px,.92fr) minmax(0,1.38fr)",gap:28,alignItems:"stretch"}} className="hero-split">
-          <div style={{position:"relative",minHeight:"clamp(300px,34vw,500px)",overflow:"hidden",borderRadius:6,border:"1px solid #EBE4DD",background:"#F7F3EE",boxShadow:"0 14px 30px rgba(0,0,0,.04)"}}>
-            <img
-              src="./assets/images/banners/spring-banner.png"
-              alt="New launch banner"
-              style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center center"}}
-            />
-            <div style={{position:"absolute",inset:0,background:"linear-gradient(135deg,rgba(255,255,255,.58) 0%,rgba(255,255,255,.18) 40%,rgba(255,255,255,0) 68%)"}} />
-            <div style={{position:"absolute",left:24,bottom:24,right:24,maxWidth:300}}>
-              <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:10,fontWeight:700}}>Just Dropped</p>
-              <h2 className="disp" style={{fontSize:"clamp(30px,3.8vw,52px)",fontWeight:300,color:"#111",lineHeight:0.98,marginBottom:10}}>New Launch</h2>
-              <p style={{fontSize:13,lineHeight:1.75,color:"#666",fontFamily:"'Montserrat',sans-serif",maxWidth:270}}>
-                Fresh arrivals with a modern signature, made for everyday wear and gifting.
-              </p>
-            </div>
-          </div>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(4,minmax(0,1fr))",gap:24,alignItems:"stretch"}} className="grid-4">
+          {newLaunches.map(p=>(
+            <ProductCard key={p.id} p={p} onView={(prod)=>{setViewProduct(prod);setPage("product");}} onCart={addToCart}/>
+          ))}
+        </div>
 
-          <div style={{display:"flex",flexDirection:"column",justifyContent:"space-between",gap:18}}>
-            <div style={{display:"grid",gridTemplateColumns:"repeat(2,minmax(0,1fr))",gap:24,alignItems:"stretch"}} className="grid-2">
-              {newLaunches.map(p=>(
-                <ProductCard key={p.id} p={p} onView={(prod)=>{setViewProduct(prod);setPage("product");}} onCart={addToCart}/>
-              ))}
-            </div>
-            <p style={{fontSize:10.5,letterSpacing:2.5,color:"#888",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",paddingTop:8,borderTop:"1px solid #EBE4DD"}}>
-              {newLaunches.length} fresh launches
-            </p>
-          </div>
+        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",gap:16,marginTop:18,flexWrap:"wrap",paddingTop:12,borderTop:"1px solid #EBE4DD"}}>
+          <p style={{fontSize:10.5,letterSpacing:2.5,color:"#888",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif"}}>
+            {newLaunches.length} fresh launches
+          </p>
+          <button className="btn-ghost" onClick={()=>{setActiveCat("New");setPage("collections");}}>View All New</button>
         </div>
       </section>
 
