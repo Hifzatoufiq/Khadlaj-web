@@ -1219,20 +1219,9 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
   const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
-  const [activeImg, setActiveImg] = useState(0);
   const related = PRODUCTS.filter(p=>p.col===product.col && p.id!==product.id).slice(0,3);
-  
-  // If no images array exists, provide the main image plus some high-quality Khadlaj lifestyle images 
-  // to ensure the scrollable stacked gallery looks professional and populated.
-  const thumbs = product.images?.length > 1 ? product.images : [
-    product.img,
-    "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy1.jpg?v=1767169755",
-    "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-3.jpg?v=1779352739",
-    "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Zayan_Silver-3.jpg?v=1776430400"
-  ];
 
   useEffect(()=>{
-    setActiveImg(0);
     window.scrollTo(0,0);
   }, [product.id]);
 
@@ -1258,15 +1247,14 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
       <div style={{maxWidth:1440, margin:"0 auto", padding:"40px 5% 120px"}}>
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"clamp(40px, 8vw, 100px)",}} className="grid-2">
           
-          {/* ── Left: Image Gallery (Scrollable Stack) ── */}
-          <div style={{display:"flex", flexDirection:"column", gap:16}}>
-            {thumbs.map((t, i) => (
-              <div key={i} style={{width:"100%", aspectRatio:"1/1", display:"flex", alignItems:"center", justifyContent:"center", background:"transparent"}}>
-                 <img src={t} alt={`${product.name} - ${i+1}`} style={{width:"85%", height:"85%", objectFit:"contain", mixBlendMode:"multiply", filter:"contrast(1.05) brightness(1.04)", transition:"opacity .3s"}}/>
-              </div>
-            ))}
+          {/* ── Left: Static Product Image ── */}
+          <div style={{width:"100%", aspectRatio:"1/1", display:"flex", alignItems:"center", justifyContent:"center", background:"transparent"}}>
+            <img
+              src={product.img}
+              alt={product.name}
+              style={{width:"85%", height:"85%", objectFit:"contain", mixBlendMode:"multiply", filter:"contrast(1.05) brightness(1.04)"}}
+            />
           </div>
-
           {/* ── Right: Product Details (Sticky) ── */}
           <div style={{paddingTop:8, maxWidth:540, position:"sticky", top:120, alignSelf:"start"}}>
              {/* EYEBROW */}

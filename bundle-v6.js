@@ -23032,16 +23032,8 @@
     const formatPrice2 = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
     const [qty, setQty] = (0, import_react.useState)(1);
     const [added, setAdded] = (0, import_react.useState)(false);
-    const [activeImg, setActiveImg] = (0, import_react.useState)(0);
     const related = PRODUCTS.filter((p) => p.col === product.col && p.id !== product.id).slice(0, 3);
-    const thumbs = product.images?.length > 1 ? product.images : [
-      product.img,
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy1.jpg?v=1767169755",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-3.jpg?v=1779352739",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Zayan_Silver-3.jpg?v=1776430400"
-    ];
     (0, import_react.useEffect)(() => {
-      setActiveImg(0);
       window.scrollTo(0, 0);
     }, [product.id]);
     const handleAdd = () => {
@@ -23058,7 +23050,14 @@
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: product.name })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { maxWidth: 1440, margin: "0 auto", padding: "40px 5% 120px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px, 8vw, 100px)" }, className: "grid-2", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", flexDirection: "column", gap: 16 }, children: thumbs.map((t, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: "100%", aspectRatio: "1/1", display: "flex", alignItems: "center", justifyContent: "center", background: "transparent" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: t, alt: `${product.name} - ${i + 1}`, style: { width: "85%", height: "85%", objectFit: "contain", mixBlendMode: "multiply", filter: "contrast(1.05) brightness(1.04)", transition: "opacity .3s" } }) }, i)) }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: "100%", aspectRatio: "1/1", display: "flex", alignItems: "center", justifyContent: "center", background: "transparent" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          "img",
+          {
+            src: product.img,
+            alt: product.name,
+            style: { width: "85%", height: "85%", objectFit: "contain", mixBlendMode: "multiply", filter: "contrast(1.05) brightness(1.04)" }
+          }
+        ) }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { paddingTop: 8, maxWidth: 540, position: "sticky", top: 120, alignSelf: "start" }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 10, letterSpacing: 3, color: "#111", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 16 }, children: "Khadlaj Perfumes" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { className: "disp", style: { fontSize: "clamp(36px, 4.5vw, 52px)", fontWeight: 300, color: "#000", lineHeight: 1.05, letterSpacing: "-0.5px", textTransform: "uppercase", marginBottom: 16 }, children: product.name }),
