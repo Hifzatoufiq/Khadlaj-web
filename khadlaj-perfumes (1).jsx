@@ -573,34 +573,45 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       </div>
 
       {/* ── NEW LAUNCH ── */}
-      <section style={{padding:"92px 5% 106px", background:"#fff"}}>
+      <section style={{padding:"92px 5% 108px", background:"linear-gradient(180deg, #fff 0%, #fcfaf7 100%)"}}>
+        <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",gap:16,flexWrap:"wrap",marginBottom:32}}>
+          <SectionHeader eyebrow="New Launch" title="Freshly Released" sub="The newest arrivals, presented in one elegant launch spotlight." />
+          <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>{setActiveCat("New");setPage("collections");}}>Shop New</button>
+        </div>
+
         <div style={{display:"grid",gridTemplateColumns:"minmax(280px,.95fr) minmax(0,1.35fr)",gap:32,alignItems:"stretch"}} className="hero-split">
-          <div style={{position:"relative",minHeight:"clamp(320px,36vw,520px)",overflow:"hidden",borderRadius:4,border:"1px solid #EBE4DD",background:"#F7F3EE"}}>
+          <div style={{position:"relative",minHeight:"clamp(320px,36vw,520px)",overflow:"hidden",borderRadius:6,border:"1px solid #EBE4DD",background:"#F7F3EE",boxShadow:"0 18px 40px rgba(0,0,0,.05)"}}>
             <img
               src="./assets/images/banners/spring-banner.png"
               alt="New launch banner"
               style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center center"}}
             />
-            <div style={{position:"absolute",inset:0,background:"linear-gradient(135deg,rgba(255,255,255,.62) 0%,rgba(255,255,255,.18) 38%,rgba(255,255,255,0) 65%)"}} />
-            <div style={{position:"absolute",left:28,bottom:28,right:28,maxWidth:310}}>
+            <div style={{position:"absolute",inset:0,background:"linear-gradient(135deg,rgba(255,255,255,.70) 0%,rgba(255,255,255,.20) 38%,rgba(255,255,255,0) 65%)"}} />
+            <div style={{position:"absolute",left:28,bottom:28,right:28,maxWidth:320}}>
               <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12,fontWeight:700}}>Just Dropped</p>
-              <h2 className="disp" style={{fontSize:"clamp(32px,4vw,54px)",fontWeight:300,color:"#111",lineHeight:0.98,marginBottom:12}}>New Launch</h2>
-              <p style={{fontSize:13.5,lineHeight:1.8,color:"#666",fontFamily:"'Montserrat',sans-serif",maxWidth:260}}>
+              <h2 className="disp" style={{fontSize:"clamp(32px,4vw,58px)",fontWeight:300,color:"#111",lineHeight:0.95,marginBottom:12}}>New Launch</h2>
+              <p style={{fontSize:13.5,lineHeight:1.8,color:"#666",fontFamily:"'Montserrat',sans-serif",maxWidth:280,marginBottom:18}}>
                 Fresh arrivals with a modern signature, made for everyday wear and easy gifting.
               </p>
+              <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
+                {["Just In","Limited Drop","Best Picks"].map(tag=>(
+                  <span key={tag} style={{display:"inline-flex",alignItems:"center",padding:"6px 10px",border:"1px solid rgba(184,146,42,.25)",background:"rgba(255,255,255,.72)",color:"#777",fontSize:9,letterSpacing:1.5,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif"}}>{tag}</span>
+                ))}
+              </div>
             </div>
           </div>
 
-          <div style={{display:"flex",flexDirection:"column",justifyContent:"space-between",gap:20}}>
-            <SectionHeader
-              eyebrow="Fresh Picks"
-              title="New Launch"
-              sub="Explore the latest additions from our collection, all in one clean, easy-to-scan block."
-            />
+          <div style={{display:"flex",flexDirection:"column",gap:20}}>
             <div style={{display:"grid",gridTemplateColumns:"repeat(2,minmax(0,1fr))",gap:24,alignItems:"stretch"}} className="grid-2">
               {newLaunches.map(p=>(
                 <ProductCard key={p.id} p={p} onView={(prod)=>{setViewProduct(prod);setPage("product");}} onCart={addToCart}/>
               ))}
+            </div>
+            <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",gap:16,paddingTop:12,borderTop:"1px solid #EBE4DD",flexWrap:"wrap"}}>
+              <p style={{fontSize:10.5,letterSpacing:2.5,color:"#888",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif"}}>
+                {newLaunches.length} fresh launches
+              </p>
+              <button className="btn-ghost" onClick={()=>{setActiveCat("New");setPage("collections");}}>View All New</button>
             </div>
           </div>
         </div>
