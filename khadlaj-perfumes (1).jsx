@@ -607,8 +607,8 @@ function HomePage({ setPage, addToCart, setViewProduct }){
                 fontFamily:"'Cinzel', 'Cormorant Garamond', serif",
               }}
             >
-              Respect the Quality,<br/>
-              <em className="luxury-gold-text" style={{fontStyle:"italic",fontWeight:500,letterSpacing:0}}>Provide the Best</em>
+              Crafted with Care,<br/>
+              <em className="luxury-gold-text" style={{fontStyle:"italic",fontWeight:500,letterSpacing:0}}>Defined by Elegance</em>
             </h2>
           </div>
           <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>setPage("collections")}>View All</button>
@@ -842,8 +842,8 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             <div style={{display:"flex", alignItems:"center", gap:14}}>
               <span style={{fontSize:22, color:"#B8922A"}}>✦</span>
               <span style={{display:"inline-flex", flexDirection:"column", gap:2, lineHeight:1, letterSpacing:3.4, fontFamily:"'Cinzel', 'Cormorant Garamond', serif", textTransform:"uppercase", color:"#C9A24A"}}>
-                <span style={{fontSize:10, fontWeight:700, letterSpacing:4}}>Respect the Quality,</span>
-                <span style={{fontSize:14, fontStyle:"italic", fontWeight:400, letterSpacing:0.5}}>Provide the Best</span>
+                <span style={{fontSize:10, fontWeight:700, letterSpacing:4}}>Crafted with Care,</span>
+                <span style={{fontSize:14, fontStyle:"italic", fontWeight:400, letterSpacing:0.5}}>Defined by Elegance</span>
               </span>
             </div>
           </div>

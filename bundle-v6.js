@@ -22300,9 +22300,9 @@
                   fontFamily: "'Cinzel', 'Cormorant Garamond', serif"
                 },
                 children: [
-                  "Respect the Quality,",
+                  "Crafted with Care,",
                   /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { className: "luxury-gold-text", style: { fontStyle: "italic", fontWeight: 500, letterSpacing: 0 }, children: "Provide the Best" })
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { className: "luxury-gold-text", style: { fontStyle: "italic", fontWeight: 500, letterSpacing: 0 }, children: "Defined by Elegance" })
                 ]
               }
             )
@@ -22586,8 +22586,8 @@
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 14 }, children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 22, color: "#B8922A" }, children: "\u2726" }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { display: "inline-flex", flexDirection: "column", gap: 2, lineHeight: 1, letterSpacing: 3.4, fontFamily: "'Cinzel', 'Cormorant Garamond', serif", textTransform: "uppercase", color: "#C9A24A" }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 10, fontWeight: 700, letterSpacing: 4 }, children: "Respect the Quality," }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 14, fontStyle: "italic", fontWeight: 400, letterSpacing: 0.5 }, children: "Provide the Best" })
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 10, fontWeight: 700, letterSpacing: 4 }, children: "Crafted with Care," }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 14, fontStyle: "italic", fontWeight: 400, letterSpacing: 0.5 }, children: "Defined by Elegance" })
             ] })
           ] })
         ] }),
