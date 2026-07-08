@@ -21815,11 +21815,11 @@
     { id: 22, name: "Hareem Al Sultan", col: "Atyaab", price: 195, size: "75ml EDP", badge: null, gender: "Her", notes: ["Rose", "Amber", "Musk"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SHAHI_OUD_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965925.jpg?v=1722412108" },
     { id: 23, name: "Shiyaaka Shadow", col: "Master Perfumery", price: 340, size: "100ml EDP", badge: "Limited", gender: "Him", notes: ["Oud", "Leather", "Vetiver"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka_Shadow-3.jpg?v=1751436642" },
     // ── New Best Sellers (requested list additions) ──
-    { id: 301, name: "Island Dreams", col: "Master Perfumery", price: 150, size: "100ml EDP", badge: "Best Seller", gender: "Her", notes: ["Coconut", "Vanilla", "Musk"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island_Dreams-3.jpg?v=1754913321" },
-    { id: 302, name: "Ria", col: "Lafede", price: 125, size: "100ml EDP", badge: "Best Seller", gender: "Her", notes: ["Rose", "Jasmine", "Amber"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ria-3.jpg?v=1760188227" },
-    { id: 303, name: "Pure Musk Pure Blend", col: "Atyaab", price: 200, size: "100ml EDP", badge: "Best Seller", gender: "Unisex", notes: ["White Musk", "Clean", "Iris"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MUSK_PURE_MUSK_BLEND_CREATION_OF_IQBAL_60_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965450.jpg?v=1722411181" },
-    { id: 304, name: "Musk Ice", col: "Atyaab", price: 150, size: "100ml EDP", badge: "Best Seller", gender: "Unisex", notes: ["Mint", "Ice", "White Musk"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Musk_Ice_03.jpg?v=1771398752" },
-    { id: 305, name: "Karus", col: "Lafede", price: 150, size: "100ml EDP", badge: "Best Seller", gender: "Him", notes: ["Oud", "Leather", "Incense"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KARUS_OUD_FIRE_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964843.jpg?v=1722409981" }
+    { id: 301, name: "Island Dreams", col: "Master Perfumery", price: 150, size: "100ml EDP", badge: "Best Seller", gender: "Her", notes: ["Coconut", "Vanilla", "Musk"], img: "./assets/images/products/island-dreams-cutout.png" },
+    { id: 302, name: "Ria", col: "Lafede", price: 125, size: "100ml EDP", badge: "Best Seller", gender: "Her", notes: ["Rose", "Jasmine", "Amber"], img: "./assets/images/products/ria-cutout.png" },
+    { id: 303, name: "Pure Musk Pure Blend", col: "Atyaab", price: 200, size: "100ml EDP", badge: "Best Seller", gender: "Unisex", notes: ["White Musk", "Clean", "Iris"], img: "./assets/images/products/pure-musk-pure-blend-cutout.png" },
+    { id: 304, name: "Musk Ice", col: "Atyaab", price: 150, size: "100ml EDP", badge: "Best Seller", gender: "Unisex", notes: ["Mint", "Ice", "White Musk"], img: "./assets/images/products/musk-ice-cutout.png" },
+    { id: 305, name: "Karus", col: "Lafede", price: 150, size: "100ml EDP", badge: "Best Seller", gender: "Him", notes: ["Oud", "Leather", "Incense"], img: "./assets/images/products/karus-cutout.png" }
   ];
   var REVIEWS = [
     { name: "Reem Al Hashimi", country: "UAE", stars: 5, text: "The richest oud I've ever worn. Lasts 14+ hours on my skin. Khadlaj has a customer for life." },
