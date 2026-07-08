@@ -603,7 +603,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         <div style={{paddingTop:96,marginBottom:52,display:"flex",alignItems:"flex-end",justifyContent:"space-between",flexWrap:"wrap",gap:16}}>
           <div style={{textAlign:"left"}}>
             <p style={{fontSize:9,letterSpacing:6,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Maison du Maitre Parfumeur</p>
-            <h2 style={{fontFamily:"'Montserrat',sans-serif",fontSize:"clamp(32px,4vw,54px)",fontWeight:300,color:"#000",lineHeight:1.15,letterSpacing:"-0.5px"}}>
+            <h2 className="disp" style={{fontSize:"clamp(32px,4vw,54px)",fontWeight:300,color:"#000",lineHeight:1.15,letterSpacing:"-0.5px"}}>
               Respect the Quality Provide the Best
             </h2>
           </div>
@@ -820,7 +820,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             <div style={{display:"flex", alignItems:"center", gap:14}}>
               <span style={{fontSize:22, color:"#B8922A"}}>✦</span>
               <span style={{display:"inline-flex", flexDirection:"column", gap:2, lineHeight:1, letterSpacing:3.4, fontFamily:"'Montserrat',sans-serif", textTransform:"uppercase", color:"#C9A24A"}}>
-                <span style={{fontSize:12, fontWeight:300, letterSpacing:8, color:"#C9A24A"}}>Respect the Quality Provide the Best</span>
+                <span className="disp" style={{fontSize:12, fontWeight:300, letterSpacing:0, color:"#C9A24A", textTransform:"none"}}>Respect the Quality Provide the Best</span>
               </span>
             </div>
           </div>
