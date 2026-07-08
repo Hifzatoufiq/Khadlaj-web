@@ -1002,7 +1002,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Zayan_Silver-3.jpg?v=1776430400",name:"Zayaan Silver"},
             {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Icon.1.jpg?v=1773206615",name:"Icon"},
           ].map((item,i)=>(
-            <div key={item.name} className="reel-card" style={{flex:"0 0 min(280px,75vw)",position:"relative",overflow:"hidden",aspectRatio:"4/5",cursor:"pointer",background:"#F9F8F6"}}>
+            <div key={item.name} className="reel-card" style={{flex:"0 0 min(280px,75vw)",position:"relative",overflow:"hidden",aspectRatio:"4/5",cursor:"pointer",background:"#fff"}}>
               <img src={item.src} alt={item.name} loading="lazy" 
                 style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center center",transition:"transform .8s ease"}}
                 onMouseEnter={e=>e.currentTarget.style.transform="scale(1.05)"}

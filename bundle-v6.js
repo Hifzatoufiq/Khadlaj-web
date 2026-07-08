@@ -22765,7 +22765,7 @@
           { src: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Qarar-3.jpg?v=1775637258", name: "Qarar" },
           { src: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Zayan_Silver-3.jpg?v=1776430400", name: "Zayaan Silver" },
           { src: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Icon.1.jpg?v=1773206615", name: "Icon" }
-        ].map((item, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "reel-card", style: { flex: "0 0 min(280px,75vw)", position: "relative", overflow: "hidden", aspectRatio: "4/5", cursor: "pointer", background: "#F9F8F6" }, children: [
+        ].map((item, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "reel-card", style: { flex: "0 0 min(280px,75vw)", position: "relative", overflow: "hidden", aspectRatio: "4/5", cursor: "pointer", background: "#fff" }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             "img",
             {
