@@ -334,6 +334,12 @@ function ProductCard({ p, onView }){
     "Panache": 1.08,
   }[p.name] || 1;
   const imageShiftY = p.name === "Cream Velvet" ? 0.14 : 0;
+  const imageHoverScale = {
+    "Island": 1.14,
+    "Cream Velvet": 1.1,
+    "Icon": 1.08,
+    "Panache": 1.08,
+  }[p.name] || 1.08;
 
   return (
     <div
@@ -363,19 +369,19 @@ function ProductCard({ p, onView }){
           fontFamily:"'Montserrat',sans-serif",
         }}>{p.badge}</span>
       )}
-      <div style={{ position:"relative", width:"100%", height:"clamp(250px, 24vw, 340px)", overflow:"hidden", background:"transparent" }}>
+      <div style={{ position:"relative", width:"100%", height:"clamp(280px, 26vw, 380px)", overflow:"hidden", background:"transparent" }}>
         <div style={{position:"absolute", inset:"0 0 18px 0", display:"flex", alignItems:"center", justifyContent:"center"}}>
           <img
             src={p.img} alt={p.name} loading="lazy"
             style={{
-              width:"74%",
-              height:"74%",
+              width:"80%",
+              height:"80%",
               objectFit:"contain",
               objectPosition:"center center",
               mixBlendMode:"multiply", filter:"contrast(1.05) brightness(1.04)",
               transition:"transform .8s cubic-bezier(0.25, 1, 0.25, 1)",
               transform: hov
-                ? `translateY(calc(-4px + ${imageShiftY * 100}%)) scale(${imageScale * 1.03})`
+                ? `translateY(calc(-2px + ${imageShiftY * 100}%)) scale(${imageScale * imageHoverScale})`
                 : `translateY(${imageShiftY * 100}%) scale(${imageScale})`,
             }}
           />
@@ -1249,11 +1255,21 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"clamp(40px, 8vw, 100px)",}} className="grid-2">
           
           {/* ── Left: Static Product Image ── */}
-          <div style={{width:"100%", aspectRatio:"1/1", display:"flex", alignItems:"center", justifyContent:"center", background:"transparent"}}>
+          <div
+            style={{width:"100%", aspectRatio:"1/1", display:"flex", alignItems:"center", justifyContent:"center", background:"transparent", overflow:"hidden"}}
+            onMouseEnter={e=>{
+              const img = e.currentTarget.querySelector('img');
+              if (img) img.style.transform = "scale(1.05)";
+            }}
+            onMouseLeave={e=>{
+              const img = e.currentTarget.querySelector('img');
+              if (img) img.style.transform = "scale(1)";
+            }}
+          >
             <img
               src={product.img}
               alt={product.name}
-              style={{width:"85%", height:"85%", objectFit:"contain", mixBlendMode:"multiply", filter:"contrast(1.05) brightness(1.04)"}}
+              style={{width:"92%", height:"92%", objectFit:"contain", mixBlendMode:"multiply", filter:"contrast(1.05) brightness(1.04)", transition:"transform .45s ease"}}
             />
           </div>
           {/* ── Right: Product Details (Sticky) ── */}

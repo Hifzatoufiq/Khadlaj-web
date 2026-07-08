@@ -22025,6 +22025,12 @@
       "Panache": 1.08
     }[p.name] || 1;
     const imageShiftY = p.name === "Cream Velvet" ? 0.14 : 0;
+    const imageHoverScale = {
+      "Island": 1.14,
+      "Cream Velvet": 1.1,
+      "Icon": 1.08,
+      "Panache": 1.08
+    }[p.name] || 1.08;
     return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
       "div",
       {
@@ -22059,7 +22065,7 @@
             textTransform: "uppercase",
             fontFamily: "'Montserrat',sans-serif"
           }, children: p.badge }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", width: "100%", height: "clamp(250px, 24vw, 340px)", overflow: "hidden", background: "transparent" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", width: "100%", height: "clamp(280px, 26vw, 380px)", overflow: "hidden", background: "transparent" }, children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: "0 0 18px 0", display: "flex", alignItems: "center", justifyContent: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
               "img",
               {
@@ -22067,14 +22073,14 @@
                 alt: p.name,
                 loading: "lazy",
                 style: {
-                  width: "74%",
-                  height: "74%",
+                  width: "80%",
+                  height: "80%",
                   objectFit: "contain",
                   objectPosition: "center center",
                   mixBlendMode: "multiply",
                   filter: "contrast(1.05) brightness(1.04)",
                   transition: "transform .8s cubic-bezier(0.25, 1, 0.25, 1)",
-                  transform: hov ? `translateY(calc(-4px + ${imageShiftY * 100}%)) scale(${imageScale * 1.03})` : `translateY(${imageShiftY * 100}%) scale(${imageScale})`
+                  transform: hov ? `translateY(calc(-2px + ${imageShiftY * 100}%)) scale(${imageScale * imageHoverScale})` : `translateY(${imageShiftY * 100}%) scale(${imageScale})`
                 }
               }
             ) }),
@@ -23039,14 +23045,28 @@
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: product.name })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { maxWidth: 1440, margin: "0 auto", padding: "40px 5% 120px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: "clamp(40px, 8vw, 100px)" }, className: "grid-2", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: "100%", aspectRatio: "1/1", display: "flex", alignItems: "center", justifyContent: "center", background: "transparent" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          "img",
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          "div",
           {
-            src: product.img,
-            alt: product.name,
-            style: { width: "85%", height: "85%", objectFit: "contain", mixBlendMode: "multiply", filter: "contrast(1.05) brightness(1.04)" }
+            style: { width: "100%", aspectRatio: "1/1", display: "flex", alignItems: "center", justifyContent: "center", background: "transparent", overflow: "hidden" },
+            onMouseEnter: (e) => {
+              const img = e.currentTarget.querySelector("img");
+              if (img) img.style.transform = "scale(1.05)";
+            },
+            onMouseLeave: (e) => {
+              const img = e.currentTarget.querySelector("img");
+              if (img) img.style.transform = "scale(1)";
+            },
+            children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              "img",
+              {
+                src: product.img,
+                alt: product.name,
+                style: { width: "92%", height: "92%", objectFit: "contain", mixBlendMode: "multiply", filter: "contrast(1.05) brightness(1.04)", transition: "transform .45s ease" }
+              }
+            )
           }
-        ) }),
+        ),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { paddingTop: 8, maxWidth: 540, position: "sticky", top: 120, alignSelf: "start" }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 10, letterSpacing: 3, color: "#111", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 16 }, children: "Khadlaj Perfumes" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { className: "disp", style: { fontSize: "clamp(36px, 4.5vw, 52px)", fontWeight: 300, color: "#000", lineHeight: 1.05, letterSpacing: "-0.5px", textTransform: "uppercase", marginBottom: 16 }, children: product.name }),
