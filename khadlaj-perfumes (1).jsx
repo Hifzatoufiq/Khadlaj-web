@@ -606,7 +606,9 @@ function HomePage({ setPage, addToCart, setViewProduct }){
                 letterSpacing:"-0.5px",
               }}
             >
-              <span style={{fontStyle:"italic"}}>Respect the Quality Provide the Best</span>
+            <h2 className="disp" style={{fontSize:"clamp(32px,4vw,54px)",fontWeight:300,color:"#000",lineHeight:1.15,letterSpacing:"-0.5px"}}>
+              Respect the Quality Provide the Best
+            </h2>
             </h2>
           </div>
           <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>setPage("collections")}>View All</button>
@@ -822,7 +824,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             <div style={{display:"flex", alignItems:"center", gap:14}}>
               <span style={{fontSize:22, color:"#B8922A"}}>✦</span>
               <span style={{display:"inline-flex", flexDirection:"column", gap:2, lineHeight:1, letterSpacing:3.4, fontFamily:"'Cinzel', 'Cormorant Garamond', serif", textTransform:"uppercase", color:"#C9A24A"}}>
-                <span style={{fontSize:12, fontStyle:"italic", fontWeight:400, letterSpacing:0}}>Respect the Quality Provide the Best</span>
+                <span className="disp" style={{fontSize:12, fontWeight:300, letterSpacing:0, color:"#C9A24A"}}>Respect the Quality Provide the Best</span>
               </span>
             </div>
           </div>
