@@ -334,6 +334,7 @@ function ProductCard({ p, onView }){
     "Panache": 0.98,
     "Biscotti Melon Musk": 0.98,
     "Bleu Glacé": 0.98,
+    "Saraya": 0.9,
   }[p.name] || 0.98;
   const imageShiftY = 0;
   const imageHoverScale = {
@@ -343,6 +344,7 @@ function ProductCard({ p, onView }){
     "Panache": 1.02,
     "Biscotti Melon Musk": 1.02,
     "Bleu Glacé": 1.02,
+    "Saraya": 1.02,
   }[p.name] || 1.02;
 
   return (

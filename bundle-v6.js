@@ -22024,7 +22024,8 @@
       "Icon": 0.98,
       "Panache": 0.98,
       "Biscotti Melon Musk": 0.98,
-      "Bleu Glac\xE9": 0.98
+      "Bleu Glac\xE9": 0.98,
+      "Saraya": 0.9
     }[p.name] || 0.98;
     const imageShiftY = 0;
     const imageHoverScale = {
@@ -22033,7 +22034,8 @@
       "Icon": 1.02,
       "Panache": 1.02,
       "Biscotti Melon Musk": 1.02,
-      "Bleu Glac\xE9": 1.02
+      "Bleu Glac\xE9": 1.02,
+      "Saraya": 1.02
     }[p.name] || 1.02;
     return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
       "div",
