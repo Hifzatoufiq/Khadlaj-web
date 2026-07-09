@@ -329,11 +329,11 @@ function ProductCard({ p, onView }){
   const noteColors = ["#C8A96E","#9C7B50","#B8866A","#7A9E8A","#8B7EAA","#B06A6A","#6A8BAA","#A09060"];
   const imageScale = {
     "Island": 0.82,
-    "Cream Velvet": 0.86,
-    "Icon": 0.86,
+    "Cream Velvet": 0.82,
+    "Icon": 0.82,
     "Panache": 0.82,
-    "Biscotti Melon Musk": 0.92,
-    "Bleu Glacé": 0.92,
+    "Biscotti Melon Musk": 0.82,
+    "Bleu Glacé": 0.82,
   }[p.name] || 0.84;
   const imageShiftY = 0;
   const imageHoverScale = {
@@ -341,8 +341,8 @@ function ProductCard({ p, onView }){
     "Cream Velvet": 1.04,
     "Icon": 1.04,
     "Panache": 1.04,
-    "Biscotti Melon Musk": 1.03,
-    "Bleu Glacé": 1.03,
+    "Biscotti Melon Musk": 1.04,
+    "Bleu Glacé": 1.04,
   }[p.name] || 1.04;
 
   return (
