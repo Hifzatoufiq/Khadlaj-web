@@ -22019,14 +22019,14 @@
     const notes = p.notes || [];
     const noteColors = ["#C8A96E", "#9C7B50", "#B8866A", "#7A9E8A", "#8B7EAA", "#B06A6A", "#6A8BAA", "#A09060"];
     const imageScale = {
-      "Island": 0.79,
-      "Cream Velvet": 0.86,
-      "Icon": 0.89,
-      "Panache": 0.87
-    }[p.name] || 0.92;
+      "Island": 0.88,
+      "Cream Velvet": 0.88,
+      "Icon": 0.88,
+      "Panache": 0.88
+    }[p.name] || 0.88;
     const imageShiftY = 0;
     const imageHoverScale = {
-      "Island": 1.03,
+      "Island": 1.04,
       "Cream Velvet": 1.04,
       "Icon": 1.04,
       "Panache": 1.04
