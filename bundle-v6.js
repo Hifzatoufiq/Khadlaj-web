@@ -22023,7 +22023,7 @@
       "Cream Velvet": 0.98,
       "Icon": 0.98,
       "Panache": 0.98,
-      "Biscotti Melon Musk": 0.98,
+      "Biscotti Melon Musk": 1.08,
       "Bleu Glac\xE9": 0.98,
       "Saraya": 0.9
     }[p.name] || 0.98;
@@ -22033,7 +22033,7 @@
       "Cream Velvet": 1.02,
       "Icon": 1.02,
       "Panache": 1.02,
-      "Biscotti Melon Musk": 1.02,
+      "Biscotti Melon Musk": 1.04,
       "Bleu Glac\xE9": 1.02,
       "Saraya": 1.02
     }[p.name] || 1.02;
@@ -23597,38 +23597,10 @@
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("nav", { style: { position: "sticky", top: 0, zIndex: 100, background: "rgba(255,255,255,0.85)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", boxShadow: "0 4px 30px rgba(0,0,0,0.03)", borderBottom: "1px solid rgba(232,228,220,0.5)", transition: "all 0.3s" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "0 5%" }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center", minHeight: 80, padding: "12px 0", gap: 24 }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: 6, alignItems: "center" }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap", maxWidth: 400 }, className: "hide-mob", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CountryContext.Consumer, { children: ({ activeCountry, setActiveCountry }) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(import_jsx_runtime.Fragment, { children: COUNTRIES.map((c) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-                "div",
-                {
-                  onClick: () => setActiveCountry(c),
-                  style: { display: "flex", alignItems: "center", gap: 6, padding: "4px 8px", cursor: "pointer", transition: "all .2s ease", border: "1px solid", borderColor: activeCountry.name === c.name ? "#111" : "#E8E4DC", borderRadius: 4, background: activeCountry.name === c.name ? "#111" : "#fff", color: activeCountry.name === c.name ? "#fff" : "#111" },
-                  onMouseEnter: (e) => {
-                    if (activeCountry.name !== c.name) {
-                      e.currentTarget.style.borderColor = "#ccc";
-                    }
-                  },
-                  onMouseLeave: (e) => {
-                    if (activeCountry.name !== c.name) {
-                      e.currentTarget.style.borderColor = "#E8E4DC";
-                    }
-                  },
-                  children: [
-                    c.flagUrl === "global" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "12", height: "12", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "12", cy: "12", r: "10" }),
-                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "2", y1: "12", x2: "22", y2: "12" }),
-                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" })
-                    ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: c.flagUrl, alt: "", style: { width: 14, height: 10, objectFit: "cover", borderRadius: 1 } }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: "9px", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase" }, children: c.name })
-                  ]
-                },
-                c.name
-              )) }) }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "mob-search-left", style: { cursor: "pointer", display: "flex", alignItems: "center" }, onClick: () => setSearchOpen(true), children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "#111", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "11", cy: "11", r: "8" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "21", y1: "21", x2: "16.65", y2: "16.65" })
-              ] }) })
-            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: 6, alignItems: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "mob-search-left", style: { cursor: "pointer", display: "flex", alignItems: "center" }, onClick: () => setSearchOpen(true), children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "#111", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "11", cy: "11", r: "8" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "21", y1: "21", x2: "16.65", y2: "16.65" })
+            ] }) }) }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { onClick: () => setPage("home"), style: { cursor: "pointer", textAlign: "center", userSelect: "none", display: "flex", alignItems: "center", justifyContent: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
               "img",
               {
@@ -23788,15 +23760,26 @@
           ),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: "8px", letterSpacing: 3.5, color: "#B8922A", fontFamily: "'Montserrat',sans-serif", marginBottom: 16, textTransform: "uppercase", fontWeight: 700 }, children: "Perfumes \xB7 UAE \xB7 Est. 1997" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 13, color: "#555", lineHeight: 1.85, maxWidth: 260, marginBottom: 32, fontFamily: "'Montserrat',sans-serif" }, children: "Family-owned UAE perfume house. Authentic Arabian & French fragrance artistry since 1997." }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: 8, flexWrap: "wrap" }, children: COUNTRIES.map((c) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CountryContext.Consumer, { children: ({ activeCountry, setActiveCountry }) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: 8, flexWrap: "wrap" }, children: COUNTRIES.map((c) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
             "div",
             {
-              style: { display: "flex", alignItems: "center", gap: 6, padding: "5px 12px", border: "1px solid #e5e5e5", background: "#fff", cursor: "pointer", transition: "all .2s ease" },
+              onClick: () => setActiveCountry(c),
+              style: {
+                display: "flex",
+                alignItems: "center",
+                gap: 6,
+                padding: "5px 12px",
+                border: "1px solid",
+                borderColor: activeCountry.name === c.name ? "#B8922A" : "#e5e5e5",
+                background: activeCountry.name === c.name ? "rgba(184,146,42,0.08)" : "#fff",
+                cursor: "pointer",
+                transition: "all .2s ease"
+              },
               onMouseEnter: (e) => {
-                e.currentTarget.style.borderColor = "#000";
+                if (activeCountry.name !== c.name) e.currentTarget.style.borderColor = "#000";
               },
               onMouseLeave: (e) => {
-                e.currentTarget.style.borderColor = "#e5e5e5";
+                if (activeCountry.name !== c.name) e.currentTarget.style.borderColor = "#e5e5e5";
               },
               children: [
                 c.flagUrl === "global" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "12", height: "12", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", style: { color: "#222" }, children: [
@@ -23808,7 +23791,7 @@
               ]
             },
             c.name
-          )) })
+          )) }) })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: "8.5px", letterSpacing: 2.5, color: "#000", textTransform: "uppercase", marginBottom: 24, fontFamily: "'Montserrat',sans-serif", fontWeight: 700 }, children: "Collections" }),

@@ -332,7 +332,7 @@ function ProductCard({ p, onView }){
     "Cream Velvet": 0.98,
     "Icon": 0.98,
     "Panache": 0.98,
-    "Biscotti Melon Musk": 0.98,
+    "Biscotti Melon Musk": 1.08,
     "Bleu Glacé": 0.98,
     "Saraya": 0.9,
   }[p.name] || 0.98;
@@ -342,7 +342,7 @@ function ProductCard({ p, onView }){
     "Cream Velvet": 1.02,
     "Icon": 1.02,
     "Panache": 1.02,
-    "Biscotti Melon Musk": 1.02,
+    "Biscotti Melon Musk": 1.04,
     "Bleu Glacé": 1.02,
     "Saraya": 1.02,
   }[p.name] || 1.02;
@@ -1811,28 +1811,6 @@ function Navbar({ page, setPage, cartCount }){
           <div style={{display:"grid",gridTemplateColumns:"1fr auto 1fr",alignItems:"center",minHeight:80,padding:"12px 0",gap:24}}>
             {/* Left utility */}
             <div style={{display:"flex",gap:6,alignItems:"center"}}>
-              <div style={{display:"flex",gap:6,alignItems:"center",flexWrap:"wrap",maxWidth:400}} className="hide-mob">
-                <CountryContext.Consumer>
-                  {({ activeCountry, setActiveCountry }) => (
-                    <>
-                      {COUNTRIES.map(c=>(
-                        <div key={c.name} 
-                             onClick={() => setActiveCountry(c)}
-                             style={{display:"flex",alignItems:"center",gap:6,padding:"4px 8px",cursor:"pointer",transition:"all .2s ease",border:"1px solid",borderColor:activeCountry.name===c.name ? "#111" : "#E8E4DC",borderRadius:4,background:activeCountry.name===c.name ? "#111" : "#fff",color:activeCountry.name===c.name ? "#fff" : "#111"}}
-                             onMouseEnter={e=>{if(activeCountry.name!==c.name) {e.currentTarget.style.borderColor="#ccc";}}}
-                             onMouseLeave={e=>{if(activeCountry.name!==c.name) {e.currentTarget.style.borderColor="#E8E4DC";}}}>
-                          {c.flagUrl === "global" ? (
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                          ) : (
-                            <img src={c.flagUrl} alt="" style={{width:14,height:10,objectFit:"cover",borderRadius:1}} />
-                          )}
-                          <span style={{fontSize:"9px",fontFamily:"'Montserrat',sans-serif",fontWeight:600,letterSpacing:"1px",textTransform:"uppercase"}}>{c.name}</span>
-                        </div>
-                      ))}
-                    </>
-                  )}
-                </CountryContext.Consumer>
-              </div>
               <span className="mob-search-left" style={{cursor:"pointer",display:"flex",alignItems:"center"}} onClick={()=>setSearchOpen(true)}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               </span>
@@ -1963,21 +1941,38 @@ function Footer({ setPage }){
           <p style={{fontSize:"8px",letterSpacing:3.5,color:"#B8922A",fontFamily:"'Montserrat',sans-serif",marginBottom:16,textTransform:"uppercase",fontWeight:700}}>Perfumes · UAE · Est. 1997</p>
           <p style={{fontSize:13,color:"#555",lineHeight:1.85,maxWidth:260,marginBottom:32,fontFamily:"'Montserrat',sans-serif"}}>Family-owned UAE perfume house. Authentic Arabian &amp; French fragrance artistry since 1997.</p>
           
-          <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
-            {COUNTRIES.map(c=>(
-              <div key={c.name} style={{display:"flex",alignItems:"center",gap:6,padding:"5px 12px",border:"1px solid #e5e5e5",background:"#fff",cursor:"pointer",transition:"all .2s ease"}}
-                onMouseEnter={e=>{e.currentTarget.style.borderColor="#000";}}
-                onMouseLeave={e=>{e.currentTarget.style.borderColor="#e5e5e5";}}
-              >
-                {c.flagUrl === "global" ? (
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{color:"#222"}}><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                ) : (
-                  <img src={c.flagUrl} alt="" style={{width:16,height:11,objectFit:"cover",borderRadius:1}} />
-                )}
-                <span style={{fontSize:9,color:"#222",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>{c.name}</span>
+          <CountryContext.Consumer>
+            {({ activeCountry, setActiveCountry }) => (
+              <div style={{display:"flex",gap:8,flexWrap:"wrap"}}>
+                {COUNTRIES.map(c=>(
+                  <div
+                    key={c.name}
+                    onClick={() => setActiveCountry(c)}
+                    style={{
+                      display:"flex",
+                      alignItems:"center",
+                      gap:6,
+                      padding:"5px 12px",
+                      border:"1px solid",
+                      borderColor: activeCountry.name===c.name ? "#B8922A" : "#e5e5e5",
+                      background: activeCountry.name===c.name ? "rgba(184,146,42,0.08)" : "#fff",
+                      cursor:"pointer",
+                      transition:"all .2s ease"
+                    }}
+                    onMouseEnter={e=>{ if(activeCountry.name!==c.name) e.currentTarget.style.borderColor="#000"; }}
+                    onMouseLeave={e=>{ if(activeCountry.name!==c.name) e.currentTarget.style.borderColor="#e5e5e5"; }}
+                  >
+                    {c.flagUrl === "global" ? (
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{color:"#222"}}><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    ) : (
+                      <img src={c.flagUrl} alt="" style={{width:16,height:11,objectFit:"cover",borderRadius:1}} />
+                    )}
+                    <span style={{fontSize:9,color:"#222",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>{c.name}</span>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            )}
+          </CountryContext.Consumer>
         </div>
         <div>
           <p style={{fontSize:"8.5px",letterSpacing:2.5,color:"#000",textTransform:"uppercase",marginBottom:24,fontFamily:"'Montserrat',sans-serif",fontWeight:700}}>Collections</p>
