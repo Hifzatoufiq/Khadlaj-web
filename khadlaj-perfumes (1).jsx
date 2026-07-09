@@ -328,18 +328,18 @@ function ProductCard({ p, onView }){
   const notes = p.notes || [];
   const noteColors = ["#C8A96E","#9C7B50","#B8866A","#7A9E8A","#8B7EAA","#B06A6A","#6A8BAA","#A09060"];
   const imageScale = {
-    "Island": 0.92,
-    "Cream Velvet": 0.96,
-    "Icon": 1.05,
-    "Panache": 1.08,
-  }[p.name] || 1;
+    "Island": 0.84,
+    "Cream Velvet": 0.90,
+    "Icon": 0.94,
+    "Panache": 0.92,
+  }[p.name] || 0.95;
   const imageShiftY = 0;
   const imageHoverScale = {
-    "Island": 1.06,
-    "Cream Velvet": 1.1,
-    "Icon": 1.08,
-    "Panache": 1.08,
-  }[p.name] || 1.08;
+    "Island": 1.04,
+    "Cream Velvet": 1.06,
+    "Icon": 1.05,
+    "Panache": 1.05,
+  }[p.name] || 1.05;
 
   return (
     <div
