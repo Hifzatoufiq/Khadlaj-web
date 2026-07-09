@@ -22022,14 +22022,18 @@
       "Island": 0.82,
       "Cream Velvet": 0.86,
       "Icon": 0.86,
-      "Panache": 0.82
+      "Panache": 0.82,
+      "Biscotti Melon Musk": 0.92,
+      "Bleu Glac\xE9": 0.92
     }[p.name] || 0.84;
     const imageShiftY = 0;
     const imageHoverScale = {
       "Island": 1.04,
       "Cream Velvet": 1.04,
       "Icon": 1.04,
-      "Panache": 1.04
+      "Panache": 1.04,
+      "Biscotti Melon Musk": 1.03,
+      "Bleu Glac\xE9": 1.03
     }[p.name] || 1.04;
     return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
       "div",
