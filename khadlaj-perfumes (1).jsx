@@ -328,22 +328,22 @@ function ProductCard({ p, onView }){
   const notes = p.notes || [];
   const noteColors = ["#C8A96E","#9C7B50","#B8866A","#7A9E8A","#8B7EAA","#B06A6A","#6A8BAA","#A09060"];
   const imageScale = {
-    "Island": 0.9,
-    "Cream Velvet": 0.9,
-    "Icon": 0.9,
-    "Panache": 0.9,
-    "Biscotti Melon Musk": 0.9,
-    "Bleu Glacé": 0.9,
-  }[p.name] || 0.9;
+    "Island": 0.98,
+    "Cream Velvet": 0.98,
+    "Icon": 0.98,
+    "Panache": 0.98,
+    "Biscotti Melon Musk": 0.98,
+    "Bleu Glacé": 0.98,
+  }[p.name] || 0.98;
   const imageShiftY = 0;
   const imageHoverScale = {
-    "Island": 1.03,
-    "Cream Velvet": 1.03,
-    "Icon": 1.03,
-    "Panache": 1.03,
-    "Biscotti Melon Musk": 1.03,
-    "Bleu Glacé": 1.03,
-  }[p.name] || 1.03;
+    "Island": 1.02,
+    "Cream Velvet": 1.02,
+    "Icon": 1.02,
+    "Panache": 1.02,
+    "Biscotti Melon Musk": 1.02,
+    "Bleu Glacé": 1.02,
+  }[p.name] || 1.02;
 
   return (
     <div
