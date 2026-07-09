@@ -21786,7 +21786,7 @@
   ];
   var PRODUCTS = [
     // ── Local products (own images) ──
-    { id: 13, name: "Island", col: "EAU DE PARFUM", price: 150, size: "100ml Extrait", badge: "Best Seller", gender: "Unisex", notes: ["Marine", "Amber", "Oud"], img: "./assets/images/products/island-packshot-removebg-preview.png" },
+    { id: 13, name: "Island", col: "EAU DE PARFUM", price: 150, size: "100ml Extrait", badge: "Best Seller", gender: "Unisex", notes: ["Marine", "Amber", "Oud"], img: "./assets/images/products/island-packshot-tight.png" },
     { id: 14, name: "Cream Velvet", col: "EAU DE PARFUM", price: 130, size: "100ml Extrait", badge: "Best Seller", gender: "Unisex", notes: ["Cream", "Velvet", "Musk"], img: "./assets/images/products/cream-velvet-cutout.png" },
     { id: 15, name: "Cloud Candy", col: "Atyaab", price: 325, size: "Gift Set", badge: null, gender: "Her", notes: ["Peach", "Musk", "Vanilla"], img: "./assets/images/gifsets/cloudcandy_gift_user.png", images: ["./assets/images/gifsets/cloudcandy_gift_user.png", "./assets/images/gifsets/cloudcandy_gift_user.png", "./assets/images/products/cloud-candy-open-box.png", "./assets/images/products/cloud-candy-back-box.png"] },
     { id: 16, name: "Strawberry Shake", col: "Atyaab", price: 295, size: "100ml EDP", badge: null, gender: "Her", notes: ["Strawberry", "Musk", "Vanilla"], img: "./assets/images/products/strawberry-shake-cutout.png" },
@@ -22019,14 +22019,14 @@
     const notes = p.notes || [];
     const noteColors = ["#C8A96E", "#9C7B50", "#B8866A", "#7A9E8A", "#8B7EAA", "#B06A6A", "#6A8BAA", "#A09060"];
     const imageScale = {
-      "Island": 0.88,
+      "Island": 0.96,
       "Cream Velvet": 0.96,
       "Icon": 1.05,
       "Panache": 1.08
     }[p.name] || 1;
-    const imageShiftY = p.name === "Cream Velvet" ? 0.14 : 0;
+    const imageShiftY = 0;
     const imageHoverScale = {
-      "Island": 1.14,
+      "Island": 1.1,
       "Cream Velvet": 1.1,
       "Icon": 1.08,
       "Panache": 1.08
