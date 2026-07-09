@@ -22019,11 +22019,11 @@
     const notes = p.notes || [];
     const noteColors = ["#C8A96E", "#9C7B50", "#B8866A", "#7A9E8A", "#8B7EAA", "#B06A6A", "#6A8BAA", "#A09060"];
     const imageScale = {
-      "Island": 0.88,
-      "Cream Velvet": 0.88,
-      "Icon": 0.88,
-      "Panache": 0.88
-    }[p.name] || 0.88;
+      "Island": 0.82,
+      "Cream Velvet": 0.86,
+      "Icon": 0.86,
+      "Panache": 0.82
+    }[p.name] || 0.84;
     const imageShiftY = 0;
     const imageHoverScale = {
       "Island": 1.04,
@@ -24152,12 +24152,13 @@
                 overflow: "hidden",
                 boxShadow: "0 32px 80px rgba(0,0,0,.4)",
                 position: "relative",
-                borderRadius: 2
+                borderRadius: 12,
+                border: "1px solid rgba(255,255,255,.45)"
               },
               children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => setShowPopup(false), style: { position: "absolute", top: 16, right: 16, background: "rgba(255,255,255,0.8)", border: "none", width: 32, height: 32, borderRadius: "50%", fontSize: 20, cursor: "pointer", color: "#000", zIndex: 10, display: "flex", alignItems: "center", justifyContent: "center", backdropFilter: "blur(4px)" }, children: "\xD7" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { flex: 1, position: "relative", minHeight: 420, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", background: "#FAFAFA" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy1.jpg?v=1767169755", alt: "", style: { width: "100%", height: "100%", objectFit: "cover" } }) }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: 1.2, padding: "48px 36px", display: "flex", flexDirection: "column", justifyContent: "center" }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => setShowPopup(false), style: { position: "absolute", top: 16, right: 16, background: "rgba(255,255,255,0.88)", border: "none", width: 34, height: 34, borderRadius: "50%", fontSize: 20, cursor: "pointer", color: "#000", zIndex: 10, display: "flex", alignItems: "center", justifyContent: "center", backdropFilter: "blur(6px)", boxShadow: "0 8px 18px rgba(0,0,0,.08)" }, children: "\xD7" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { flex: 1, position: "relative", minHeight: 420, overflow: "hidden", display: "flex", alignItems: "flex-end", justifyContent: "center", background: "linear-gradient(180deg,#FBFBFB 0%, #F3F1EE 100%)", paddingTop: 12 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy1.jpg?v=1767169755", alt: "", style: { width: "108%", height: "108%", objectFit: "cover", objectPosition: "center 70%", transform: "translateY(12px)" } }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: 1.2, padding: "52px 40px", display: "flex", flexDirection: "column", justifyContent: "center", background: "#fff" }, children: [
                   /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 24, height: 1, background: "#B8922A", marginBottom: 20 } }),
                   /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 4, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 16, fontWeight: 600 }, children: "Welcome" }),
                   /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "disp", style: { fontSize: 30, fontWeight: 300, color: "#111", marginBottom: 12, lineHeight: 1.15 }, children: "Join the Khadlaj Circle" }),
@@ -24173,7 +24174,7 @@
                       placeholder: "Your email address",
                       value: popupEmail,
                       onChange: (e) => setPopupEmail(e.target.value),
-                      style: { width: "100%", border: "1px solid #E8E4DC", padding: "14px 16px", fontSize: 11, outline: "none", fontFamily: "'Montserrat',sans-serif", background: "#FAFAFA", letterSpacing: 1, transition: "border-color 0.3s" },
+                      style: { width: "100%", border: "1px solid #E8E4DC", padding: "15px 18px", fontSize: 11, outline: "none", fontFamily: "'Montserrat',sans-serif", background: "#FAFAFA", letterSpacing: 1, transition: "border-color 0.3s", borderRadius: 2 },
                       onFocus: (e) => e.currentTarget.style.borderColor = "#111",
                       onBlur: (e) => e.currentTarget.style.borderColor = "#E8E4DC"
                     }
@@ -24185,7 +24186,7 @@
                         setPopupDone(true);
                         setShowPopup(false);
                       },
-                      style: { width: "100%", background: "#111", color: "#fff", border: "none", padding: "16px", fontSize: 10, letterSpacing: 2.5, textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, transition: "background .3s" },
+                      style: { width: "100%", background: "#111", color: "#fff", border: "none", padding: "16px", fontSize: 10, letterSpacing: 2.5, textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, transition: "background .3s", borderRadius: 2 },
                       onMouseEnter: (e) => e.currentTarget.style.background = "#B8922A",
                       onMouseLeave: (e) => e.currentTarget.style.background = "#111",
                       children: "Unlock 10% Off"
