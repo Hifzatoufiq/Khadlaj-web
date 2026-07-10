@@ -22005,6 +22005,8 @@
     .product-image-stage{height:clamp(170px,48vw,230px)!important;}
     .product-card-title{font-size:12px!important;letter-spacing:.4px!important;}
     .product-note{font-size:6.8px!important;padding:3px 3.5px!important;}
+    .cart-line{grid-template-columns:82px 1fr!important;align-items:start!important;}
+    .cart-line-actions{grid-column:1 / -1!important;flex-direction:row!important;justify-content:space-between!important;align-items:center!important;}
     .grid-3{grid-template-columns:1fr!important;}
     .grid-2{grid-template-columns:1fr!important;}
     .new-scroll > div{flex:0 0 78vw!important;}
@@ -22038,7 +22040,7 @@
       "\u2606".repeat(5 - n)
     ] });
   }
-  function ProductCard({ p, onView }) {
+  function ProductCard({ p, onView, onCart }) {
     const [hov, setHov] = (0, import_react.useState)(false);
     const { activeCountry } = import_react.default.useContext(CountryContext);
     const formatPrice2 = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
@@ -22166,6 +22168,10 @@
             }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
               "button",
               {
+                onClick: (e) => {
+                  e.stopPropagation();
+                  if (onCart) onCart(p);
+                },
                 style: {
                   width: "100%",
                   background: "#111",
@@ -22182,7 +22188,7 @@
                 },
                 onMouseEnter: (e) => e.target.style.background = "#444",
                 onMouseLeave: (e) => e.target.style.background = "#111",
-                children: "Quick View"
+                children: "Add to Bag"
               }
             ) })
           ] }),
@@ -23162,7 +23168,7 @@
       window.scrollTo(0, 0);
     }, [product.id]);
     const handleAdd = () => {
-      for (let i = 0; i < qty; i++) addToCart(product);
+      addToCart(product, qty);
       setAdded(true);
       setTimeout(() => setAdded(false), 2200);
     };
@@ -23705,6 +23711,239 @@
       ] }) })
     ] }) }) });
   }
+  function CartPage({ cartItems, updateCartQty, removeFromCart, setPage, setViewProduct }) {
+    const { activeCountry } = import_react.default.useContext(CountryContext);
+    const formatPrice2 = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
+    const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.qty, 0);
+    const shipping = subtotal >= 200 || subtotal === 0 ? 0 : 20;
+    const total = subtotal + shipping;
+    return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { background: "#fff", minHeight: "100vh" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "70px 5% 96px", maxWidth: 1280, margin: "0 auto" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 20, flexWrap: "wrap", marginBottom: 44 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 12 }, children: "Shopping Bag" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { className: "disp", style: { fontSize: "clamp(38px,5vw,68px)", fontWeight: 300, lineHeight: 1, color: "#000" }, children: "Your Cart" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-ghost", onClick: () => setPage("collections"), children: "Continue Shopping" })
+      ] }),
+      cartItems.length === 0 ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { border: "1px solid #E8E4DC", padding: "56px 24px", textAlign: "center", background: "#FCFBFA" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: 34, fontWeight: 300, marginBottom: 12 }, children: "Your bag is empty" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 13, color: "#777", fontFamily: "'Montserrat',sans-serif", marginBottom: 28 }, children: "Add your favourite Khadlaj fragrances and checkout securely." }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-gold", onClick: () => setPage("collections"), children: "Shop Fragrances" })
+      ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "grid-2", style: { display: "grid", gridTemplateColumns: "minmax(0,1.5fr) minmax(320px,.8fr)", gap: 34, alignItems: "start" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", flexDirection: "column", gap: 16 }, children: cartItems.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "cart-line", style: { display: "grid", gridTemplateColumns: "112px 1fr auto", gap: 18, alignItems: "center", border: "1px solid #E8E4DC", padding: 16, background: "#fff" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { onClick: () => {
+            setViewProduct(item);
+            setPage("product");
+          }, style: { height: 118, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", background: "radial-gradient(circle at 50% 70%, rgba(0,0,0,.06), rgba(255,255,255,0) 58%)" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: item.img, alt: item.name, style: { maxWidth: "92%", maxHeight: "92%", objectFit: "contain", filter: "drop-shadow(0 12px 18px rgba(0,0,0,.08))" } }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 3, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 700, marginBottom: 6 }, children: item.col === "Lafede" ? "La Fede" : item.col }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { style: { fontSize: 16, letterSpacing: 1, textTransform: "uppercase", fontWeight: 800, fontFamily: "'Montserrat',sans-serif", marginBottom: 6 }, children: item.name }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 12, color: "#888", fontFamily: "'Montserrat',sans-serif", marginBottom: 14 }, children: item.size }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => removeFromCart(item.id), style: { background: "none", border: "none", borderBottom: "1px solid #999", fontSize: 9, letterSpacing: 2, textTransform: "uppercase", color: "#777", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", paddingBottom: 2 }, children: "Remove" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "cart-line-actions", style: { display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 14 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 15, fontWeight: 800, fontFamily: "'Montserrat',sans-serif" }, children: formatPrice2(item.price * item.qty) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", border: "1px solid #E8E4DC", height: 38 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => updateCartQty(item.id, item.qty - 1), style: { width: 36, height: "100%", border: "none", background: "#fff", cursor: "pointer", fontSize: 18 }, children: "-" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { width: 34, textAlign: "center", fontSize: 12, fontFamily: "'Montserrat',sans-serif" }, children: item.qty }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => updateCartQty(item.id, item.qty + 1), style: { width: 36, height: "100%", border: "none", background: "#fff", cursor: "pointer", fontSize: 16 }, children: "+" })
+            ] })
+          ] })
+        ] }, item.id)) }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("aside", { style: { border: "1px solid #E8E4DC", padding: 26, position: "sticky", top: 130, background: "#FCFBFA" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 4, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 700, marginBottom: 18 }, children: "Order Summary" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", fontSize: 13, fontFamily: "'Montserrat',sans-serif", marginBottom: 12 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Subtotal" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: formatPrice2(subtotal) })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", fontSize: 13, fontFamily: "'Montserrat',sans-serif", marginBottom: 16 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Shipping" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: shipping === 0 ? "Free" : formatPrice2(shipping) })
+          ] }),
+          subtotal > 0 && subtotal < 200 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { style: { fontSize: 11, color: "#777", lineHeight: 1.7, marginBottom: 16, fontFamily: "'Montserrat',sans-serif" }, children: [
+            "Add ",
+            formatPrice2(200 - subtotal),
+            " more for free UAE shipping."
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { height: 1, background: "#E8E4DC", margin: "18px 0" } }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 24 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 13, letterSpacing: 2, textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 800 }, children: "Total" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { style: { fontSize: 22, fontFamily: "'Montserrat',sans-serif" }, children: formatPrice2(total) })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-gold", style: { width: "100%" }, onClick: () => setPage("checkout"), children: "Checkout" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 10, color: "#888", lineHeight: 1.7, textAlign: "center", marginTop: 14, fontFamily: "'Montserrat',sans-serif" }, children: "Secure checkout. Payment and delivery details are validated before order placement." })
+        ] })
+      ] })
+    ] }) });
+  }
+  function CheckoutPage({ cartItems, setPage, clearCart }) {
+    const { activeCountry } = import_react.default.useContext(CountryContext);
+    const formatPrice2 = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
+    const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.qty, 0);
+    const shipping = subtotal >= 200 || subtotal === 0 ? 0 : 20;
+    const total = subtotal + shipping;
+    const [submitted, setSubmitted] = (0, import_react.useState)(false);
+    const [errors, setErrors] = (0, import_react.useState)({});
+    const [form, setForm] = (0, import_react.useState)({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      address: "",
+      city: "",
+      country: activeCountry.name,
+      payment: "Card",
+      notes: "",
+      agree: false
+    });
+    const setField = (key, value) => {
+      setForm((prev) => ({ ...prev, [key]: value }));
+      setErrors((prev) => ({ ...prev, [key]: "" }));
+    };
+    const validate = () => {
+      const next = {};
+      if (!form.firstName.trim()) next.firstName = "First name is required";
+      if (!form.lastName.trim()) next.lastName = "Last name is required";
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) next.email = "Enter a valid email";
+      if (!/^[0-9+\-\s()]{7,}$/.test(form.phone.trim())) next.phone = "Enter a valid phone number";
+      if (form.address.trim().length < 8) next.address = "Enter full delivery address";
+      if (!form.city.trim()) next.city = "City is required";
+      if (!form.country.trim()) next.country = "Country is required";
+      if (!form.payment) next.payment = "Select payment method";
+      if (!form.agree) next.agree = "Please accept the terms";
+      setErrors(next);
+      return Object.keys(next).length === 0;
+    };
+    const submitOrder = () => {
+      if (cartItems.length === 0) {
+        setPage("cart");
+        return;
+      }
+      if (!validate()) return;
+      setSubmitted(true);
+      clearCart();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+    const fieldStyle = (key) => ({
+      width: "100%",
+      border: `1px solid ${errors[key] ? "#B00020" : "#E2DED6"}`,
+      background: "#fff",
+      padding: "14px 15px",
+      fontSize: 12,
+      outline: "none",
+      fontFamily: "'Montserrat',sans-serif"
+    });
+    const labelStyle = { display: "block", fontSize: 9, letterSpacing: 2.5, textTransform: "uppercase", color: "#777", fontFamily: "'Montserrat',sans-serif", fontWeight: 700, marginBottom: 8 };
+    const errorText = (key) => errors[key] ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 10, color: "#B00020", marginTop: 6, fontFamily: "'Montserrat',sans-serif" }, children: errors[key] }) : null;
+    if (submitted) {
+      return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { background: "#fff", minHeight: "100vh", padding: "90px 5%" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { maxWidth: 760, margin: "0 auto", textAlign: "center", border: "1px solid #E8E4DC", padding: "64px 28px", background: "#FCFBFA" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 700, marginBottom: 18 }, children: "Order Received" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h1", { className: "disp", style: { fontSize: "clamp(36px,5vw,64px)", fontWeight: 300, marginBottom: 16 }, children: [
+          "Thank you, ",
+          form.firstName
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { style: { fontSize: 14, color: "#666", lineHeight: 1.8, fontFamily: "'Montserrat',sans-serif", maxWidth: 520, margin: "0 auto 30px" }, children: [
+          "Your Khadlaj order request has been submitted. A confirmation will be sent to ",
+          form.email,
+          "."
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-gold", onClick: () => setPage("home"), children: "Back to Home" })
+      ] }) });
+    }
+    return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { background: "#fff", minHeight: "100vh" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "70px 5% 96px", maxWidth: 1280, margin: "0 auto" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 44 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 12 }, children: "Secure Checkout" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { className: "disp", style: { fontSize: "clamp(38px,5vw,68px)", fontWeight: 300, lineHeight: 1, color: "#000" }, children: "Checkout" })
+      ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "grid-2", style: { display: "grid", gridTemplateColumns: "minmax(0,1.15fr) minmax(320px,.85fr)", gap: 34, alignItems: "start" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { border: "1px solid #E8E4DC", padding: "clamp(22px,4vw,38px)", background: "#fff" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { style: { fontSize: 14, letterSpacing: 3, textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 800, marginBottom: 24 }, children: "Delivery Details" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }, className: "grid-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { style: labelStyle, children: "First Name" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", { value: form.firstName, onChange: (e) => setField("firstName", e.target.value), style: fieldStyle("firstName") }),
+              errorText("firstName")
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { style: labelStyle, children: "Last Name" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", { value: form.lastName, onChange: (e) => setField("lastName", e.target.value), style: fieldStyle("lastName") }),
+              errorText("lastName")
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 16 }, className: "grid-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { style: labelStyle, children: "Email" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", { type: "email", value: form.email, onChange: (e) => setField("email", e.target.value), style: fieldStyle("email") }),
+              errorText("email")
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { style: labelStyle, children: "Phone" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", { value: form.phone, onChange: (e) => setField("phone", e.target.value), style: fieldStyle("phone") }),
+              errorText("phone")
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 16 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { style: labelStyle, children: "Address" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", { value: form.address, onChange: (e) => setField("address", e.target.value), style: fieldStyle("address") }),
+            errorText("address")
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 22 }, className: "grid-2", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { style: labelStyle, children: "City" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", { value: form.city, onChange: (e) => setField("city", e.target.value), style: fieldStyle("city") }),
+              errorText("city")
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { style: labelStyle, children: "Country" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", { value: form.country, onChange: (e) => setField("country", e.target.value), style: fieldStyle("country") }),
+              errorText("country")
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { style: { fontSize: 14, letterSpacing: 3, textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 800, marginBottom: 16 }, children: "Payment Method" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(3,minmax(0,1fr))", gap: 10, marginBottom: 22 }, className: "grid-3", children: ["Card", "Cash on Delivery", "PayPal"].map((method) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => setField("payment", method), style: { border: `1px solid ${form.payment === method ? "#111" : "#E8E4DC"}`, background: form.payment === method ? "#111" : "#fff", color: form.payment === method ? "#fff" : "#111", padding: "13px 10px", fontSize: 10, letterSpacing: 1.6, textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 800, cursor: "pointer" }, children: method }, method)) }),
+          errorText("payment"),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 22 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("label", { style: labelStyle, children: "Order Notes" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("textarea", { value: form.notes, onChange: (e) => setField("notes", e.target.value), rows: 4, style: { ...fieldStyle("notes"), resize: "vertical" }, placeholder: "Delivery notes, gift message, or special request" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("label", { style: { display: "flex", gap: 10, alignItems: "flex-start", cursor: "pointer", marginBottom: 8 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("input", { type: "checkbox", checked: form.agree, onChange: (e) => setField("agree", e.target.checked), style: { marginTop: 3 } }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 11, color: "#666", lineHeight: 1.7, fontFamily: "'Montserrat',sans-serif" }, children: "I confirm my delivery details are correct and agree to Khadlaj order terms." })
+          ] }),
+          errorText("agree")
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("aside", { style: { border: "1px solid #E8E4DC", padding: 26, position: "sticky", top: 130, background: "#FCFBFA" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 4, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 700, marginBottom: 18 }, children: "Review Order" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", flexDirection: "column", gap: 14, marginBottom: 20 }, children: cartItems.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "58px 1fr auto", gap: 10, alignItems: "center" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { height: 64, display: "flex", alignItems: "center", justifyContent: "center", background: "#fff" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: item.img, alt: item.name, style: { maxWidth: "90%", maxHeight: "90%", objectFit: "contain" } }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 11, fontWeight: 800, textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", lineHeight: 1.25 }, children: item.name }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { style: { fontSize: 10, color: "#888", fontFamily: "'Montserrat',sans-serif" }, children: [
+                "Qty ",
+                item.qty
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { style: { fontSize: 12, fontFamily: "'Montserrat',sans-serif" }, children: formatPrice2(item.price * item.qty) })
+          ] }, item.id)) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { height: 1, background: "#E8E4DC", margin: "18px 0" } }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", fontSize: 13, fontFamily: "'Montserrat',sans-serif", marginBottom: 12 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Subtotal" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: formatPrice2(subtotal) })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", fontSize: 13, fontFamily: "'Montserrat',sans-serif", marginBottom: 16 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Shipping" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { children: shipping === 0 ? "Free" : formatPrice2(shipping) })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", justifyContent: "space-between", alignItems: "center", margin: "20px 0 24px", paddingTop: 18, borderTop: "1px solid #E8E4DC" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 13, letterSpacing: 2, textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 800 }, children: "Total" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { style: { fontSize: 22, fontFamily: "'Montserrat',sans-serif" }, children: formatPrice2(total) })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-gold", style: { width: "100%" }, onClick: submitOrder, children: "Place Order" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => setPage("cart"), style: { width: "100%", marginTop: 12, background: "transparent", border: "1px solid #111", padding: "13px", fontSize: 10, letterSpacing: 2, textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 800, cursor: "pointer" }, children: "Back to Cart" })
+        ] })
+      ] })
+    ] }) });
+  }
   function Navbar({ page, setPage, cartCount }) {
     const [searchOpen, setSearchOpen] = (0, import_react.useState)(false);
     const [searchQuery, setSearchQuery] = (0, import_react.useState)("");
@@ -23833,7 +24072,7 @@
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "11", cy: "11", r: "8" }),
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "21", y1: "21", x2: "16.65", y2: "16.65" })
               ] }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { onClick: () => setPage("collections"), style: { position: "relative", cursor: "pointer", transition: "transform .2s ease" }, onMouseEnter: (e) => e.currentTarget.style.transform = "scale(1.1)", onMouseLeave: (e) => e.currentTarget.style.transform = "scale(1)", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { onClick: () => setPage("cart"), style: { position: "relative", cursor: "pointer", transition: "transform .2s ease" }, onMouseEnter: (e) => e.currentTarget.style.transform = "scale(1.1)", onMouseLeave: (e) => e.currentTarget.style.transform = "scale(1)", children: [
                 /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "#111", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", children: [
                   /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" }),
                   /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "3", y1: "6", x2: "21", y2: "6" }),
@@ -24118,12 +24357,30 @@
     const [activeCountry, setActiveCountry] = import_react.default.useState(COUNTRIES[0]);
     const formatPrice2 = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
     const [page, setPage] = (0, import_react.useState)("home");
-    const [cartCount, setCartCount] = (0, import_react.useState)(0);
+    const [cartItems, setCartItems] = (0, import_react.useState)([]);
     const [viewProduct, setViewProduct] = (0, import_react.useState)(null);
     const [showPopup, setShowPopup] = (0, import_react.useState)(false);
     const [popupEmail, setPopupEmail] = (0, import_react.useState)("");
     const [popupDone, setPopupDone] = (0, import_react.useState)(false);
-    const addToCart = () => setCartCount((c) => c + 1);
+    const cartCount = cartItems.reduce((sum, item) => sum + item.qty, 0);
+    const addToCart = (product, qty = 1) => {
+      if (!product) return;
+      const safeQty = Math.max(1, Number(qty) || 1);
+      setCartItems((items) => {
+        const exists = items.find((item) => item.id === product.id);
+        if (exists) {
+          return items.map((item) => item.id === product.id ? { ...item, qty: item.qty + safeQty } : item);
+        }
+        return [...items, { ...product, qty: safeQty }];
+      });
+    };
+    const updateCartQty = (id, qty) => {
+      setCartItems(
+        (items) => items.map((item) => item.id === id ? { ...item, qty: Math.max(0, qty) } : item).filter((item) => item.qty > 0)
+      );
+    };
+    const removeFromCart = (id) => setCartItems((items) => items.filter((item) => item.id !== id));
+    const clearCart = () => setCartItems([]);
     const [chatOpen, setChatOpen] = (0, import_react.useState)(false);
     const chatMessagesRef = (0, import_react.useRef)(null);
     const [messages, setMessages] = (0, import_react.useState)([
@@ -24183,6 +24440,10 @@
           return viewProduct ? /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductPage, { product: viewProduct, addToCart, setPage, setViewProduct }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CollectionsPage, { addToCart, setViewProduct, setPage });
         case "gifts":
           return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(GiftsPage, { addToCart, setViewProduct, setPage });
+        case "cart":
+          return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CartPage, { cartItems, updateCartQty, removeFromCart, setPage, setViewProduct });
+        case "checkout":
+          return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CheckoutPage, { cartItems, setPage, clearCart });
         case "story":
           return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StoryPage, {});
         case "signup":

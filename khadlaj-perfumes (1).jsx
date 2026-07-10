@@ -312,6 +312,8 @@ const GLOBAL_CSS = `
     .product-image-stage{height:clamp(170px,48vw,230px)!important;}
     .product-card-title{font-size:12px!important;letter-spacing:.4px!important;}
     .product-note{font-size:6.8px!important;padding:3px 3.5px!important;}
+    .cart-line{grid-template-columns:82px 1fr!important;align-items:start!important;}
+    .cart-line-actions{grid-column:1 / -1!important;flex-direction:row!important;justify-content:space-between!important;align-items:center!important;}
     .grid-3{grid-template-columns:1fr!important;}
     .grid-2{grid-template-columns:1fr!important;}
     .new-scroll > div{flex:0 0 78vw!important;}
@@ -347,7 +349,7 @@ function StarRating({ n=5, color=C.brass }){
   return <span style={{color,fontSize:13,letterSpacing:1}}>{"★".repeat(n)}{"☆".repeat(5-n)}</span>;
 }
 
-function ProductCard({ p, onView }){
+function ProductCard({ p, onView, onCart }){
   const [hov, setHov] = useState(false);
   const { activeCountry } = React.useContext(CountryContext);
   const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
@@ -461,7 +463,12 @@ function ProductCard({ p, onView }){
           transform: hov ? "translateY(0)" : "translateY(20px)",
           opacity: hov ? 1 : 0, zIndex:10
         }}>
-          <button style={{
+          <button
+            onClick={(e)=>{
+              e.stopPropagation();
+              if (onCart) onCart(p);
+            }}
+            style={{
             width:"100%", background:"#111", color:"#fff", border:"none", 
             padding:"12px", fontSize:11, letterSpacing:2, fontWeight:700, 
             cursor:"pointer", textTransform:"uppercase",
@@ -470,7 +477,7 @@ function ProductCard({ p, onView }){
           onMouseEnter={(e)=>e.target.style.background="#444"}
           onMouseLeave={(e)=>e.target.style.background="#111"}
           >
-            Quick View
+            Add to Bag
           </button>
         </div>
       </div>
@@ -1390,7 +1397,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
   }, [product.id]);
 
   const handleAdd = () => {
-    for(let i=0;i<qty;i++) addToCart(product);
+    addToCart(product, qty);
     setAdded(true);
     setTimeout(()=>setAdded(false),2200);
   };
@@ -2085,6 +2092,234 @@ function SignupPage(){
   );
 }
 
+function CartPage({ cartItems, updateCartQty, removeFromCart, setPage, setViewProduct }){
+  const { activeCountry } = React.useContext(CountryContext);
+  const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
+  const subtotal = cartItems.reduce((sum, item)=>sum + item.price * item.qty, 0);
+  const shipping = subtotal >= 200 || subtotal === 0 ? 0 : 20;
+  const total = subtotal + shipping;
+
+  return (
+    <div style={{background:"#fff",minHeight:"100vh"}}>
+      <section style={{padding:"70px 5% 96px",maxWidth:1280,margin:"0 auto"}}>
+        <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",gap:20,flexWrap:"wrap",marginBottom:44}}>
+          <div>
+            <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Shopping Bag</p>
+            <h1 className="disp" style={{fontSize:"clamp(38px,5vw,68px)",fontWeight:300,lineHeight:1,color:"#000"}}>Your Cart</h1>
+          </div>
+          <button className="btn-ghost" onClick={()=>setPage("collections")}>Continue Shopping</button>
+        </div>
+
+        {cartItems.length === 0 ? (
+          <div style={{border:"1px solid #E8E4DC",padding:"56px 24px",textAlign:"center",background:"#FCFBFA"}}>
+            <h2 className="disp" style={{fontSize:34,fontWeight:300,marginBottom:12}}>Your bag is empty</h2>
+            <p style={{fontSize:13,color:"#777",fontFamily:"'Montserrat',sans-serif",marginBottom:28}}>Add your favourite Khadlaj fragrances and checkout securely.</p>
+            <button className="btn-gold" onClick={()=>setPage("collections")}>Shop Fragrances</button>
+          </div>
+        ) : (
+          <div className="grid-2" style={{display:"grid",gridTemplateColumns:"minmax(0,1.5fr) minmax(320px,.8fr)",gap:34,alignItems:"start"}}>
+            <div style={{display:"flex",flexDirection:"column",gap:16}}>
+              {cartItems.map(item=>(
+                <div key={item.id} className="cart-line" style={{display:"grid",gridTemplateColumns:"112px 1fr auto",gap:18,alignItems:"center",border:"1px solid #E8E4DC",padding:16,background:"#fff"}}>
+                  <div onClick={()=>{setViewProduct(item);setPage("product");}} style={{height:118,display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",background:"radial-gradient(circle at 50% 70%, rgba(0,0,0,.06), rgba(255,255,255,0) 58%)"}}>
+                    <img src={item.img} alt={item.name} style={{maxWidth:"92%",maxHeight:"92%",objectFit:"contain",filter:"drop-shadow(0 12px 18px rgba(0,0,0,.08))"}}/>
+                  </div>
+                  <div>
+                    <p style={{fontSize:9,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:700,marginBottom:6}}>{item.col === "Lafede" ? "La Fede" : item.col}</p>
+                    <h3 style={{fontSize:16,letterSpacing:1,textTransform:"uppercase",fontWeight:800,fontFamily:"'Montserrat',sans-serif",marginBottom:6}}>{item.name}</h3>
+                    <p style={{fontSize:12,color:"#888",fontFamily:"'Montserrat',sans-serif",marginBottom:14}}>{item.size}</p>
+                    <button onClick={()=>removeFromCart(item.id)} style={{background:"none",border:"none",borderBottom:"1px solid #999",fontSize:9,letterSpacing:2,textTransform:"uppercase",color:"#777",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",paddingBottom:2}}>Remove</button>
+                  </div>
+                  <div className="cart-line-actions" style={{display:"flex",flexDirection:"column",alignItems:"flex-end",gap:14}}>
+                    <p style={{fontSize:15,fontWeight:800,fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(item.price * item.qty)}</p>
+                    <div style={{display:"flex",alignItems:"center",border:"1px solid #E8E4DC",height:38}}>
+                      <button onClick={()=>updateCartQty(item.id, item.qty - 1)} style={{width:36,height:"100%",border:"none",background:"#fff",cursor:"pointer",fontSize:18}}>-</button>
+                      <span style={{width:34,textAlign:"center",fontSize:12,fontFamily:"'Montserrat',sans-serif"}}>{item.qty}</span>
+                      <button onClick={()=>updateCartQty(item.id, item.qty + 1)} style={{width:36,height:"100%",border:"none",background:"#fff",cursor:"pointer",fontSize:16}}>+</button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <aside style={{border:"1px solid #E8E4DC",padding:26,position:"sticky",top:130,background:"#FCFBFA"}}>
+              <p style={{fontSize:9,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:700,marginBottom:18}}>Order Summary</p>
+              <div style={{display:"flex",justifyContent:"space-between",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:12}}><span>Subtotal</span><strong>{formatPrice(subtotal)}</strong></div>
+              <div style={{display:"flex",justifyContent:"space-between",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:16}}><span>Shipping</span><strong>{shipping === 0 ? "Free" : formatPrice(shipping)}</strong></div>
+              {subtotal > 0 && subtotal < 200 && <p style={{fontSize:11,color:"#777",lineHeight:1.7,marginBottom:16,fontFamily:"'Montserrat',sans-serif"}}>Add {formatPrice(200 - subtotal)} more for free UAE shipping.</p>}
+              <div style={{height:1,background:"#E8E4DC",margin:"18px 0"}}/>
+              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:24}}>
+                <span style={{fontSize:13,letterSpacing:2,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:800}}>Total</span>
+                <strong style={{fontSize:22,fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(total)}</strong>
+              </div>
+              <button className="btn-gold" style={{width:"100%"}} onClick={()=>setPage("checkout")}>Checkout</button>
+              <p style={{fontSize:10,color:"#888",lineHeight:1.7,textAlign:"center",marginTop:14,fontFamily:"'Montserrat',sans-serif"}}>Secure checkout. Payment and delivery details are validated before order placement.</p>
+            </aside>
+          </div>
+        )}
+      </section>
+    </div>
+  );
+}
+
+function CheckoutPage({ cartItems, setPage, clearCart }){
+  const { activeCountry } = React.useContext(CountryContext);
+  const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
+  const subtotal = cartItems.reduce((sum, item)=>sum + item.price * item.qty, 0);
+  const shipping = subtotal >= 200 || subtotal === 0 ? 0 : 20;
+  const total = subtotal + shipping;
+  const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [form, setForm] = useState({
+    firstName:"",
+    lastName:"",
+    email:"",
+    phone:"",
+    address:"",
+    city:"",
+    country:activeCountry.name,
+    payment:"Card",
+    notes:"",
+    agree:false,
+  });
+
+  const setField = (key, value) => {
+    setForm(prev=>({...prev,[key]:value}));
+    setErrors(prev=>({...prev,[key]:""}));
+  };
+
+  const validate = () => {
+    const next = {};
+    if (!form.firstName.trim()) next.firstName = "First name is required";
+    if (!form.lastName.trim()) next.lastName = "Last name is required";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) next.email = "Enter a valid email";
+    if (!/^[0-9+\-\s()]{7,}$/.test(form.phone.trim())) next.phone = "Enter a valid phone number";
+    if (form.address.trim().length < 8) next.address = "Enter full delivery address";
+    if (!form.city.trim()) next.city = "City is required";
+    if (!form.country.trim()) next.country = "Country is required";
+    if (!form.payment) next.payment = "Select payment method";
+    if (!form.agree) next.agree = "Please accept the terms";
+    setErrors(next);
+    return Object.keys(next).length === 0;
+  };
+
+  const submitOrder = () => {
+    if (cartItems.length === 0) {
+      setPage("cart");
+      return;
+    }
+    if (!validate()) return;
+    setSubmitted(true);
+    clearCart();
+    window.scrollTo({top:0,behavior:"smooth"});
+  };
+
+  const fieldStyle = (key) => ({
+    width:"100%",
+    border:`1px solid ${errors[key] ? "#B00020" : "#E2DED6"}`,
+    background:"#fff",
+    padding:"14px 15px",
+    fontSize:12,
+    outline:"none",
+    fontFamily:"'Montserrat',sans-serif",
+  });
+  const labelStyle = {display:"block",fontSize:9,letterSpacing:2.5,textTransform:"uppercase",color:"#777",fontFamily:"'Montserrat',sans-serif",fontWeight:700,marginBottom:8};
+  const errorText = (key) => errors[key] ? <p style={{fontSize:10,color:"#B00020",marginTop:6,fontFamily:"'Montserrat',sans-serif"}}>{errors[key]}</p> : null;
+
+  if (submitted) {
+    return (
+      <div style={{background:"#fff",minHeight:"100vh",padding:"90px 5%"}}>
+        <div style={{maxWidth:760,margin:"0 auto",textAlign:"center",border:"1px solid #E8E4DC",padding:"64px 28px",background:"#FCFBFA"}}>
+          <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:700,marginBottom:18}}>Order Received</p>
+          <h1 className="disp" style={{fontSize:"clamp(36px,5vw,64px)",fontWeight:300,marginBottom:16}}>Thank you, {form.firstName}</h1>
+          <p style={{fontSize:14,color:"#666",lineHeight:1.8,fontFamily:"'Montserrat',sans-serif",maxWidth:520,margin:"0 auto 30px"}}>Your Khadlaj order request has been submitted. A confirmation will be sent to {form.email}.</p>
+          <button className="btn-gold" onClick={()=>setPage("home")}>Back to Home</button>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div style={{background:"#fff",minHeight:"100vh"}}>
+      <section style={{padding:"70px 5% 96px",maxWidth:1280,margin:"0 auto"}}>
+        <div style={{marginBottom:44}}>
+          <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Secure Checkout</p>
+          <h1 className="disp" style={{fontSize:"clamp(38px,5vw,68px)",fontWeight:300,lineHeight:1,color:"#000"}}>Checkout</h1>
+        </div>
+
+        <div className="grid-2" style={{display:"grid",gridTemplateColumns:"minmax(0,1.15fr) minmax(320px,.85fr)",gap:34,alignItems:"start"}}>
+          <div style={{border:"1px solid #E8E4DC",padding:"clamp(22px,4vw,38px)",background:"#fff"}}>
+            <h2 style={{fontSize:14,letterSpacing:3,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:800,marginBottom:24}}>Delivery Details</h2>
+            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginBottom:16}} className="grid-2">
+              <div><label style={labelStyle}>First Name</label><input value={form.firstName} onChange={e=>setField("firstName",e.target.value)} style={fieldStyle("firstName")}/>{errorText("firstName")}</div>
+              <div><label style={labelStyle}>Last Name</label><input value={form.lastName} onChange={e=>setField("lastName",e.target.value)} style={fieldStyle("lastName")}/>{errorText("lastName")}</div>
+            </div>
+            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginBottom:16}} className="grid-2">
+              <div><label style={labelStyle}>Email</label><input type="email" value={form.email} onChange={e=>setField("email",e.target.value)} style={fieldStyle("email")}/>{errorText("email")}</div>
+              <div><label style={labelStyle}>Phone</label><input value={form.phone} onChange={e=>setField("phone",e.target.value)} style={fieldStyle("phone")}/>{errorText("phone")}</div>
+            </div>
+            <div style={{marginBottom:16}}>
+              <label style={labelStyle}>Address</label>
+              <input value={form.address} onChange={e=>setField("address",e.target.value)} style={fieldStyle("address")}/>
+              {errorText("address")}
+            </div>
+            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginBottom:22}} className="grid-2">
+              <div><label style={labelStyle}>City</label><input value={form.city} onChange={e=>setField("city",e.target.value)} style={fieldStyle("city")}/>{errorText("city")}</div>
+              <div><label style={labelStyle}>Country</label><input value={form.country} onChange={e=>setField("country",e.target.value)} style={fieldStyle("country")}/>{errorText("country")}</div>
+            </div>
+
+            <h2 style={{fontSize:14,letterSpacing:3,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:800,marginBottom:16}}>Payment Method</h2>
+            <div style={{display:"grid",gridTemplateColumns:"repeat(3,minmax(0,1fr))",gap:10,marginBottom:22}} className="grid-3">
+              {["Card","Cash on Delivery","PayPal"].map(method=>(
+                <button key={method} onClick={()=>setField("payment",method)} style={{border:`1px solid ${form.payment===method ? "#111" : "#E8E4DC"}`,background:form.payment===method?"#111":"#fff",color:form.payment===method?"#fff":"#111",padding:"13px 10px",fontSize:10,letterSpacing:1.6,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:800,cursor:"pointer"}}>{method}</button>
+              ))}
+            </div>
+            {errorText("payment")}
+
+            <div style={{marginBottom:22}}>
+              <label style={labelStyle}>Order Notes</label>
+              <textarea value={form.notes} onChange={e=>setField("notes",e.target.value)} rows={4} style={{...fieldStyle("notes"),resize:"vertical"}} placeholder="Delivery notes, gift message, or special request"/>
+            </div>
+
+            <label style={{display:"flex",gap:10,alignItems:"flex-start",cursor:"pointer",marginBottom:8}}>
+              <input type="checkbox" checked={form.agree} onChange={e=>setField("agree",e.target.checked)} style={{marginTop:3}}/>
+              <span style={{fontSize:11,color:"#666",lineHeight:1.7,fontFamily:"'Montserrat',sans-serif"}}>I confirm my delivery details are correct and agree to Khadlaj order terms.</span>
+            </label>
+            {errorText("agree")}
+          </div>
+
+          <aside style={{border:"1px solid #E8E4DC",padding:26,position:"sticky",top:130,background:"#FCFBFA"}}>
+            <p style={{fontSize:9,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:700,marginBottom:18}}>Review Order</p>
+            <div style={{display:"flex",flexDirection:"column",gap:14,marginBottom:20}}>
+              {cartItems.map(item=>(
+                <div key={item.id} style={{display:"grid",gridTemplateColumns:"58px 1fr auto",gap:10,alignItems:"center"}}>
+                  <div style={{height:64,display:"flex",alignItems:"center",justifyContent:"center",background:"#fff"}}>
+                    <img src={item.img} alt={item.name} style={{maxWidth:"90%",maxHeight:"90%",objectFit:"contain"}}/>
+                  </div>
+                  <div>
+                    <p style={{fontSize:11,fontWeight:800,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",lineHeight:1.25}}>{item.name}</p>
+                    <p style={{fontSize:10,color:"#888",fontFamily:"'Montserrat',sans-serif"}}>Qty {item.qty}</p>
+                  </div>
+                  <strong style={{fontSize:12,fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(item.price * item.qty)}</strong>
+                </div>
+              ))}
+            </div>
+            <div style={{height:1,background:"#E8E4DC",margin:"18px 0"}}/>
+            <div style={{display:"flex",justifyContent:"space-between",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:12}}><span>Subtotal</span><strong>{formatPrice(subtotal)}</strong></div>
+            <div style={{display:"flex",justifyContent:"space-between",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:16}}><span>Shipping</span><strong>{shipping === 0 ? "Free" : formatPrice(shipping)}</strong></div>
+            <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",margin:"20px 0 24px",paddingTop:18,borderTop:"1px solid #E8E4DC"}}>
+              <span style={{fontSize:13,letterSpacing:2,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:800}}>Total</span>
+              <strong style={{fontSize:22,fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(total)}</strong>
+            </div>
+            <button className="btn-gold" style={{width:"100%"}} onClick={submitOrder}>Place Order</button>
+            <button onClick={()=>setPage("cart")} style={{width:"100%",marginTop:12,background:"transparent",border:"1px solid #111",padding:"13px",fontSize:10,letterSpacing:2,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:800,cursor:"pointer"}}>Back to Cart</button>
+          </aside>
+        </div>
+      </section>
+    </div>
+  );
+}
+
 function Navbar({ page, setPage, cartCount }){
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -2196,7 +2431,7 @@ function Navbar({ page, setPage, cartCount }){
               <span className="hide-mob" style={{cursor:"pointer",display:"flex",alignItems:"center",transition:"transform .2s"}} onMouseEnter={e=>e.currentTarget.style.transform="scale(1.1)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"} onClick={()=>setSearchOpen(true)}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               </span>
-              <div onClick={()=>setPage("collections")} style={{position:"relative",cursor:"pointer",transition:"transform .2s ease"}} onMouseEnter={e=>e.currentTarget.style.transform="scale(1.1)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}>
+              <div onClick={()=>setPage("cart")} style={{position:"relative",cursor:"pointer",transition:"transform .2s ease"}} onMouseEnter={e=>e.currentTarget.style.transform="scale(1.1)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
                 {cartCount>0 && (
                   <span style={{position:"absolute",top:-5,right:-7,background:"#B8922A",color:"#fff",borderRadius:"50%",width:14,height:14,fontSize:8,display:"flex",alignItems:"center",justifyContent:"center",fontWeight:700,fontFamily:"'Montserrat',sans-serif"}}>{cartCount}</span>
@@ -2439,13 +2674,32 @@ export default function App(){
   const [activeCountry, setActiveCountry] = React.useState(COUNTRIES[0]);
   const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
   const [page, setPage] = useState("home");
-  const [cartCount, setCartCount] = useState(0);
+  const [cartItems, setCartItems] = useState([]);
   const [viewProduct, setViewProduct] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
   const [popupEmail, setPopupEmail] = useState("");
   const [popupDone, setPopupDone] = useState(false);
 
-  const addToCart = () => setCartCount(c=>c+1);
+  const cartCount = cartItems.reduce((sum, item)=>sum + item.qty, 0);
+  const addToCart = (product, qty=1) => {
+    if (!product) return;
+    const safeQty = Math.max(1, Number(qty) || 1);
+    setCartItems(items=>{
+      const exists = items.find(item=>item.id === product.id);
+      if (exists) {
+        return items.map(item=>item.id === product.id ? {...item, qty:item.qty + safeQty} : item);
+      }
+      return [...items, {...product, qty:safeQty}];
+    });
+  };
+  const updateCartQty = (id, qty) => {
+    setCartItems(items=>items
+      .map(item=>item.id === id ? {...item, qty:Math.max(0, qty)} : item)
+      .filter(item=>item.qty > 0)
+    );
+  };
+  const removeFromCart = (id) => setCartItems(items=>items.filter(item=>item.id !== id));
+  const clearCart = () => setCartItems([]);
 
   // Chatbot states
   const [chatOpen, setChatOpen] = useState(false);
@@ -2507,6 +2761,8 @@ export default function App(){
       case "lafede":      return <LaFedePage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage}/>;
       case "product":     return viewProduct ? <ProductPage product={viewProduct} addToCart={addToCart} setPage={setPage} setViewProduct={setViewProduct}/> : <CollectionsPage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage}/>;
       case "gifts":       return <GiftsPage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage}/>;
+      case "cart":        return <CartPage cartItems={cartItems} updateCartQty={updateCartQty} removeFromCart={removeFromCart} setPage={setPage} setViewProduct={setViewProduct}/>;
+      case "checkout":    return <CheckoutPage cartItems={cartItems} setPage={setPage} clearCart={clearCart}/>;
       case "story":       return <StoryPage/>;
       case "signup":      return <SignupPage/>;
       case "contact":     return <ContactPage/>;
