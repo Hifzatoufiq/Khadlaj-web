@@ -297,8 +297,6 @@ const GLOBAL_CSS = `
     .auth-visual-panel{display:none!important;}
     .grid-3{grid-template-columns:1fr!important;}
     .hero-split{grid-template-columns:1fr!important;}
-    .collections-layout{grid-template-columns:1fr!important;}
-    .collections-sidebar{position:static!important;}
     .hero-img-wrap{height:320px!important;min-height:unset!important;}
     .grid-2{grid-template-columns:1fr!important;}
     .hero-section { padding: 28px 5% 24px !important; }
@@ -306,8 +304,11 @@ const GLOBAL_CSS = `
     .hero-copy { padding: 0 !important; }
     .hero-visual { min-height: 420px !important; order:-1; }
     .hero-headline { font-size: 38px !important; }
+    .gift-hero-copy{max-width:72%!important;padding-left:6%!important;}
   }
   @media(max-width:600px){
+    .collections-layout{grid-template-columns:1fr!important;}
+    .collections-sidebar{position:static!important;left:auto!important;top:auto!important;width:100%!important;max-height:none!important;overflow:visible!important;}
     .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important;}
     .product-image-stage{height:clamp(170px,48vw,230px)!important;}
     .product-card-title{font-size:12px!important;letter-spacing:.4px!important;}
@@ -339,6 +340,7 @@ const GLOBAL_CSS = `
     .hero-cta-row button { width: 100% !important; text-align: center !important; justify-content: center !important; }
     .hero-stats-row { border-top: none !important; padding-top: 0 !important; }
     .hero-stat-item { border-right: none !important; flex: 1 1 40% !important; margin-right: 0 !important; padding-right: 0 !important; }
+    .gift-hero-copy{max-width:100%!important;text-align:center!important;align-items:center!important;padding:0 6%!important;}
   }
 `;
 
@@ -419,7 +421,7 @@ function ProductCard({ p, onView, onCart }){
         boxShadow:"none",
         transition:"box-shadow .35s ease,border-color .35s ease"
       }}>
-        <div style={{
+        <div className="gift-hero-copy" style={{
           position:"absolute",
           inset:"12px",
           background:"transparent",
@@ -1207,8 +1209,9 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }){
 
       {/* ── Products Grid ── */}
       <div style={{padding:"32px 3% 80px"}}>
-        <div className="collections-layout" style={{display:"grid",gridTemplateColumns:"205px minmax(0,1fr)",gap:34,alignItems:"start"}}>
-          <aside className="collections-sidebar" style={{position:"sticky",top:96,border:"1px solid #E8E4DC",background:"linear-gradient(180deg,#fff 0%,#FFFCF7 100%)",padding:18,boxShadow:"0 18px 42px rgba(0,0,0,.045)"}}>
+        <div className="collections-layout" style={{display:"grid",gridTemplateColumns:"278px minmax(0,1fr)",gap:34}}>
+          <aside className="collections-sidebar" style={{width:278}}>
+            <div style={{position:"sticky",top:100,border:"1px solid #E8E4DC",background:"linear-gradient(180deg,#fff 0%,#FFFCF7 100%)",padding:18,boxShadow:"0 18px 42px rgba(0,0,0,.045)"}}>
             <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:12,marginBottom:18}}>
               <div>
                 <p style={{fontSize:9,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:700,marginBottom:6}}>Shop By</p>
@@ -1241,6 +1244,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }){
             >
               La Fede Landing <span style={{float:"right",fontSize:12}}>{"->"}</span>
             </button>
+            </div>
           </aside>
 
           <div>
@@ -1562,21 +1566,21 @@ function GiftsPage({ addToCart, setViewProduct, setPage }){
       {/* ── Hero Banner ── */}
       <div style={{position:"relative",height:"clamp(280px,38vw,480px)",overflow:"hidden",background:"#000"}}>
         <img
-          src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy1.jpg?v=1767169755"
+          src="./assets/images/banners/gifts-wide-banner.png"
           alt="Gift Sets"
-          style={{width:"100%",height:"100%",objectFit:"cover",opacity:.55}}
+          style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center center",opacity:.88}}
         />
         <div style={{
           position:"absolute",inset:0,
-          display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center",
-          padding:"0 5%",textAlign:"center",
+          display:"flex",flexDirection:"column",alignItems:"flex-start",justifyContent:"center",
+          padding:"0 6%",textAlign:"left",maxWidth:"56%",
         }}>
           <div style={{width:40,height:1,background:"#B8922A",marginBottom:24}}/>
           <p style={{fontSize:9,letterSpacing:6,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:16}}>Khadlaj Gifting</p>
-          <h1 className="disp" style={{fontSize:"clamp(38px,6vw,80px)",fontWeight:300,color:"#fff",lineHeight:1,letterSpacing:-2,marginBottom:16}}>
+          <h1 className="disp" style={{fontSize:"clamp(36px,5vw,68px)",fontWeight:300,color:"#fff",lineHeight:1,letterSpacing:-1.6,marginBottom:16}}>
             The Gift of<br/><em style={{fontStyle:"italic",color:"#B8922A"}}>Authentic Fragrance</em>
           </h1>
-          <p style={{color:"rgba(255,255,255,.65)",maxWidth:480,lineHeight:1.8,fontSize:14,fontFamily:"'Montserrat',sans-serif"}}>
+          <p style={{color:"rgba(255,255,255,.65)",maxWidth:430,lineHeight:1.8,fontSize:14,fontFamily:"'Montserrat',sans-serif"}}>
             Every Khadlaj gift set arrives in premium packaging — a luxury experience from first glance.
           </p>
         </div>
@@ -2006,14 +2010,14 @@ function SignupPage(){
           <div className="auth-visual-panel" style={{position:"relative",overflow:"hidden",minHeight:640,background:"linear-gradient(135deg,#080808 0%,#15110A 72%,#060606 100%)",padding:"58px 52px",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
             <div style={{position:"absolute",top:-110,right:-90,width:340,height:340,borderRadius:"50%",background:"radial-gradient(circle,rgba(184,146,42,.28),rgba(184,146,42,0) 68%)"}}/>
             <div style={{position:"absolute",right:"5%",bottom:"-2%",width:"54%",height:"76%",display:"flex",alignItems:"flex-end",justifyContent:"center",pointerEvents:"none"}}>
-              <img src="./assets/images/gifsets/cloudcandy_gift_user.png" alt="Khadlaj fragrances" style={{width:"100%",height:"100%",objectFit:"contain",filter:"drop-shadow(0 34px 70px rgba(0,0,0,.42))"}}/>
+              <img src="./assets/images/gifsets/creamvelvet_gift_user.png" alt="Khadlaj Cream Velvet Gift Set" style={{width:"100%",height:"100%",objectFit:"contain",filter:"drop-shadow(0 34px 70px rgba(0,0,0,.42))"}}/>
             </div>
             <div style={{position:"relative",zIndex:2,maxWidth:470}}>
               <div style={{width:42,height:1,background:"#B8922A",marginBottom:22}}/>
               <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:18}}>Khadlaj Circle</p>
-              <h1 className="disp" style={{fontSize:"clamp(42px,5.4vw,78px)",fontWeight:300,lineHeight:.98,color:"#fff",marginBottom:22}}>Login / Sign Up</h1>
+              <h1 className="disp" style={{fontSize:"clamp(42px,5.4vw,78px)",fontWeight:300,lineHeight:.98,color:"#fff",marginBottom:22}}>{mode==="login" ? "Login" : mode==="forgot" ? "Reset Password" : "Sign Up"}</h1>
               <p style={{fontSize:14,color:"rgba(255,255,255,.68)",lineHeight:1.9,maxWidth:430,fontFamily:"'Montserrat',sans-serif"}}>
-                A private account space for new launches, fragrance stories, wishlists, and exclusive Khadlaj offers.
+                {mode==="login" ? "Welcome back! Login to manage your Khadlaj profile, wishlist, and exclusive offers." : mode==="forgot" ? "Enter your email and we will send you password reset instructions." : "Join Khadlaj Circle for new launch previews, fragrance stories, and private exclusive offers."}
               </p>
             </div>
           </div>
@@ -2427,7 +2431,7 @@ function Navbar({ page, setPage, cartCount }){
             </div>
             {/* Right icons */}
             <div style={{display:"flex",alignItems:"center",justifyContent:"flex-end",gap:24}}>
-              <span className="hide-mob" style={{fontSize:"11px",letterSpacing:"2px",color:"#111",textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:600,transition:"color .2s"}} onMouseEnter={e=>e.target.style.color="#B8922A"} onMouseLeave={e=>e.target.style.color="#111"} onClick={()=>setPage("signup")}>Login / Sign Up</span>
+              <span className="hide-mob" style={{fontSize:"11px",letterSpacing:"2px",color:"#111",textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:600,transition:"color .2s"}} onMouseEnter={e=>e.target.style.color="#B8922A"} onMouseLeave={e=>e.target.style.color="#111"} onClick={()=>setPage("signup")}>Sign Up</span>
               <span className="hide-mob" style={{cursor:"pointer",display:"flex",alignItems:"center",transition:"transform .2s"}} onMouseEnter={e=>e.currentTarget.style.transform="scale(1.1)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"} onClick={()=>setSearchOpen(true)}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               </span>
@@ -2470,7 +2474,7 @@ function Navbar({ page, setPage, cartCount }){
             zIndex:200,
             boxShadow:"0 8px 32px rgba(0,0,0,.12)",
           }}>
-            {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Login / Sign Up","signup"],["Contact","contact"]].map(([label,pg])=>(
+            {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Sign Up","signup"],["Contact","contact"]].map(([label,pg])=>(
               <div
                 key={label}
                 onClick={()=>{setPage(pg);setMobileMenuOpen(false);}}
