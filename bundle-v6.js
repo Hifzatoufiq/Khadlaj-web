@@ -23041,6 +23041,14 @@
   }
   function LaFedePage({ addToCart, setViewProduct, setPage }) {
     const laFedeProducts = PRODUCTS.filter((p) => p.col === "Lafede");
+    const [laFedeFilter, setLaFedeFilter] = (0, import_react.useState)("featured");
+    const visibleLaFedeProducts = applyProductFilter(laFedeProducts, laFedeFilter);
+    const filterOptions = [
+      { value: "featured", label: "Featured" },
+      { value: "new", label: "New" },
+      { value: "top", label: "Top Selling" },
+      { value: "value", label: "Value Picks" }
+    ];
     return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "#fff" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { position: "relative", minHeight: "clamp(280px,32vw,420px)", display: "grid", gridTemplateColumns: "1fr .9fr", alignItems: "center", gap: 24, padding: "44px 6%", background: "#080808", overflow: "hidden" }, className: "hero-split", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, background: "radial-gradient(circle at 74% 45%, rgba(184,146,42,.18), transparent 34%), linear-gradient(135deg,#060606 0%,#101010 54%,#050505 100%)" } }),
@@ -23059,8 +23067,15 @@
         ] })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "76px 5% 96px" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeader, { eyebrow: "La Fede", title: "Signature Selection", sub: "Bold, characterful fragrances presented in their own collection." }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: 24, alignItems: "stretch", marginTop: 40 }, className: "grid-4", children: laFedeProducts.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 24, flexWrap: "wrap", marginBottom: 40 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 12 }, children: "La Fede" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(34px,4.5vw,64px)", fontWeight: 300, color: "#000", lineHeight: 1.05, letterSpacing: -1, marginBottom: 12 }, children: "Signature Selection" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 13, color: "#777", fontFamily: "'Montserrat',sans-serif", lineHeight: 1.8, maxWidth: 560 }, children: "Bold, characterful fragrances presented in their own collection." })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductFilterBar, { active: laFedeFilter, setActive: setLaFedeFilter, options: filterOptions })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: 24, alignItems: "stretch", marginTop: 40 }, className: "grid-4", children: visibleLaFedeProducts.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
           setViewProduct(prod);
           setPage("product");
         }, onCart: addToCart }, p.id)) })
@@ -23098,6 +23113,44 @@
       ),
       open && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { paddingBottom: 24, fontSize: 14, color: "#555", lineHeight: 1.8, fontFamily: "'Montserrat',sans-serif" }, children })
     ] });
+  }
+  function ProductFilterBar({ active, setActive, options }) {
+    return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 8, flexWrap: "wrap" }, children: options.map((opt) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+      "button",
+      {
+        onClick: () => setActive(opt.value),
+        style: {
+          background: active === opt.value ? "#111" : "#fff",
+          color: active === opt.value ? "#fff" : "#111",
+          border: "1px solid",
+          borderColor: active === opt.value ? "#111" : "#E1D7C7",
+          padding: "11px 16px",
+          fontSize: 9,
+          letterSpacing: 1.8,
+          textTransform: "uppercase",
+          fontFamily: "'Montserrat',sans-serif",
+          fontWeight: 800,
+          cursor: "pointer",
+          transition: "all .2s ease",
+          whiteSpace: "nowrap"
+        },
+        children: opt.label
+      },
+      opt.value
+    )) });
+  }
+  function applyProductFilter(products, filter) {
+    if (filter === "new") {
+      const fresh = products.filter((p) => p.badge === "New");
+      return fresh.length ? fresh : products.slice(0, 4);
+    }
+    if (filter === "top") return [...products].sort((a, b) => {
+      const badgeScore = (p) => p.badge === "Best Seller" ? 1e3 : 0;
+      return badgeScore(b) + b.price - (badgeScore(a) + a.price);
+    }).slice(0, 4);
+    if (filter === "value") return [...products].sort((a, b) => a.price - b.price).slice(0, 4);
+    if (filter === "featured") return products.slice(0, 4);
+    return products;
   }
   function ProductPage({ product, addToCart, setPage, setViewProduct }) {
     const { activeCountry } = import_react.default.useContext(CountryContext);
@@ -23229,6 +23282,14 @@
   }
   function GiftsPage({ addToCart, setViewProduct, setPage }) {
     const giftProducts = PRODUCTS.filter((p) => p.size === "Gift Set");
+    const [giftFilter, setGiftFilter] = (0, import_react.useState)("featured");
+    const visibleGiftProducts = applyProductFilter(giftProducts, giftFilter);
+    const giftFilterOptions = [
+      { value: "featured", label: "Featured" },
+      { value: "new", label: "New" },
+      { value: "top", label: "Top Selling" },
+      { value: "value", label: "Value Sets" }
+    ];
     return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "#fff" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", height: "clamp(280px,38vw,480px)", overflow: "hidden", background: "#000" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
@@ -23268,12 +23329,17 @@
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { style: { fontStyle: "italic", color: "#B8922A" }, children: "Bundles" })
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { style: { fontSize: 12, color: "#888", fontFamily: "'Montserrat',sans-serif" }, children: [
-            giftProducts.length,
-            " gift sets available"
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 12 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { style: { fontSize: 12, color: "#888", fontFamily: "'Montserrat',sans-serif" }, children: [
+              visibleGiftProducts.length,
+              " of ",
+              giftProducts.length,
+              " gift sets"
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductFilterBar, { active: giftFilter, setActive: setGiftFilter, options: giftFilterOptions })
           ] })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: 24, alignItems: "stretch" }, className: "grid-4", children: giftProducts.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: 24, alignItems: "stretch" }, className: "grid-4", children: visibleGiftProducts.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
           if (setViewProduct) {
             setViewProduct(prod);
             setPage("product");
@@ -24293,7 +24359,7 @@
               onClick: (e) => e.stopPropagation(),
               style: {
                 background: "#fff",
-                maxWidth: 640,
+                maxWidth: 520,
                 width: "100%",
                 display: "flex",
                 overflow: "hidden",
@@ -24304,24 +24370,24 @@
               },
               children: [
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => setShowPopup(false), style: { position: "absolute", top: 16, right: 16, background: "rgba(255,255,255,0.88)", border: "none", width: 34, height: 34, borderRadius: "50%", fontSize: 20, cursor: "pointer", color: "#000", zIndex: 10, display: "flex", alignItems: "center", justifyContent: "center", backdropFilter: "blur(6px)", boxShadow: "0 8px 18px rgba(0,0,0,.08)" }, children: "\xD7" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { flex: 1, position: "relative", minHeight: 420, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", background: "radial-gradient(circle at 50% 45%, rgba(184,146,42,.12), rgba(255,255,255,0) 58%), linear-gradient(180deg,#FBFBFB 0%, #F3F1EE 100%)", padding: "34px 22px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: "./assets/images/products/strawberry-shake-cutout.png", alt: "Strawberry Shake perfume", style: { width: "92%", height: "92%", objectFit: "contain", objectPosition: "center center", filter: "drop-shadow(0 26px 44px rgba(0,0,0,.16))" } }) }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: 1.2, padding: "52px 40px", display: "flex", flexDirection: "column", justifyContent: "center", background: "#fff" }, children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 24, height: 1, background: "#B8922A", marginBottom: 20 } }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 4, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 16, fontWeight: 600 }, children: "Welcome" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "disp", style: { fontSize: 30, fontWeight: 300, color: "#111", marginBottom: 12, lineHeight: 1.15 }, children: "Join the Khadlaj Circle" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { style: { fontSize: 12, color: "#777", lineHeight: 1.7, fontFamily: "'Montserrat',sans-serif", marginBottom: 28 }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { flex: 0.9, position: "relative", minHeight: 310, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", background: "radial-gradient(circle at 50% 45%, rgba(184,146,42,.12), rgba(255,255,255,0) 58%), linear-gradient(180deg,#FBFBFB 0%, #F3F1EE 100%)", padding: "24px 18px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: "./assets/images/products/strawberry-shake-cutout.png", alt: "Strawberry Shake perfume", style: { width: "64%", height: "78%", objectFit: "contain", objectPosition: "center center", filter: "drop-shadow(0 16px 28px rgba(0,0,0,.13))" } }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: 1.15, padding: "34px 30px", display: "flex", flexDirection: "column", justifyContent: "center", background: "#fff" }, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 22, height: 1, background: "#B8922A", marginBottom: 14 } }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 8, letterSpacing: 3.6, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 12, fontWeight: 600 }, children: "Welcome" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "disp", style: { fontSize: 24, fontWeight: 300, color: "#111", marginBottom: 9, lineHeight: 1.15 }, children: "Join the Khadlaj Circle" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { style: { fontSize: 11, color: "#777", lineHeight: 1.6, fontFamily: "'Montserrat',sans-serif", marginBottom: 18 }, children: [
                     "Subscribe to receive ",
                     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { style: { color: "#111", fontWeight: 600 }, children: "10% off" }),
                     " your first order and exclusive access to new launches."
                   ] }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "relative", marginBottom: 20 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "relative", marginBottom: 16 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
                     "input",
                     {
                       type: "email",
                       placeholder: "Your email address",
                       value: popupEmail,
                       onChange: (e) => setPopupEmail(e.target.value),
-                      style: { width: "100%", border: "1px solid #E8E4DC", padding: "15px 18px", fontSize: 11, outline: "none", fontFamily: "'Montserrat',sans-serif", background: "#FAFAFA", letterSpacing: 1, transition: "border-color 0.3s", borderRadius: 2 },
+                      style: { width: "100%", border: "1px solid #E8E4DC", padding: "13px 16px", fontSize: 10.5, outline: "none", fontFamily: "'Montserrat',sans-serif", background: "#FAFAFA", letterSpacing: 1, transition: "border-color 0.3s", borderRadius: 2 },
                       onFocus: (e) => e.currentTarget.style.borderColor = "#111",
                       onBlur: (e) => e.currentTarget.style.borderColor = "#E8E4DC"
                     }
@@ -24333,7 +24399,7 @@
                         setPopupDone(true);
                         setShowPopup(false);
                       },
-                      style: { width: "100%", background: "#111", color: "#fff", border: "none", padding: "16px", fontSize: 10, letterSpacing: 2.5, textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, transition: "background .3s", borderRadius: 2 },
+                      style: { width: "100%", background: "#111", color: "#fff", border: "none", padding: "14px", fontSize: 9.5, letterSpacing: 2.4, textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, transition: "background .3s", borderRadius: 2 },
                       onMouseEnter: (e) => e.currentTarget.style.background = "#B8922A",
                       onMouseLeave: (e) => e.currentTarget.style.background = "#111",
                       children: "Unlock 10% Off"
@@ -24343,7 +24409,7 @@
                     "button",
                     {
                       onClick: () => setShowPopup(false),
-                      style: { background: "none", border: "none", fontSize: 9, letterSpacing: 2, color: "#aaa", textTransform: "uppercase", textAlign: "center", marginTop: 16, cursor: "pointer", fontFamily: "'Montserrat',sans-serif", borderBottom: "1px solid transparent", transition: "all 0.3s", paddingBottom: 2 },
+                      style: { background: "none", border: "none", fontSize: 8.5, letterSpacing: 2, color: "#aaa", textTransform: "uppercase", textAlign: "center", marginTop: 12, cursor: "pointer", fontFamily: "'Montserrat',sans-serif", borderBottom: "1px solid transparent", transition: "all 0.3s", paddingBottom: 2 },
                       onMouseEnter: (e) => {
                         e.currentTarget.style.color = "#111";
                         e.currentTarget.style.borderBottomColor = "#111";
