@@ -2404,44 +2404,6 @@ function Navbar({ page, setPage, cartCount }){
         </div>
       )}
 
-      {/* ── Country selector bar ── */}
-      <CountryContext.Consumer>
-        {({ activeCountry, setActiveCountry }) => (
-          <div style={{background:"#FAF9F6",borderBottom:"1px solid #EDE9E1",padding:"7px 5%",display:"flex",alignItems:"center",justifyContent:"center",gap:6,flexWrap:"wrap"}}>
-            {COUNTRIES.map(c => {
-              const isActive = activeCountry.name === c.name;
-              return (
-                <button
-                  key={c.name}
-                  onClick={() => setActiveCountry(c)}
-                  style={{
-                    display:"flex",alignItems:"center",gap:6,
-                    padding:"5px 13px",
-                    border: isActive ? "1.5px solid #B8922A" : "1px solid #D8D2C8",
-                    borderRadius:4,
-                    background: isActive ? "#fff" : "transparent",
-                    cursor:"pointer",
-                    fontFamily:"'Montserrat',sans-serif",
-                    fontSize:11, fontWeight: isActive ? 700 : 500,
-                    color: isActive ? "#B8922A" : "#444",
-                    transition:"all .2s",
-                    boxShadow: isActive ? "0 1px 6px rgba(184,146,42,0.15)" : "none",
-                  }}
-                  onMouseEnter={e => { if(!isActive){ e.currentTarget.style.borderColor="#B8922A"; e.currentTarget.style.color="#B8922A"; } }}
-                  onMouseLeave={e => { if(!isActive){ e.currentTarget.style.borderColor="#D8D2C8"; e.currentTarget.style.color="#444"; } }}
-                >
-                  {c.flagUrl === "global"
-                    ? <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                    : <img src={c.flagUrl} alt={c.name} style={{width:20,height:14,objectFit:"cover",borderRadius:2,display:"block"}} />
-                  }
-                  {c.name}
-                </button>
-              );
-            })}
-          </div>
-        )}
-      </CountryContext.Consumer>
-
       {/* ── Announcement bar ── */}
       <div style={{background:"#000",color:"#fff",textAlign:"center",padding:"10px 16px",fontSize:"9px",letterSpacing:"3px",fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",fontWeight:500}}>
         USE "KHADLAJ25" FOR FLAT 25% DISCOUNT
@@ -2452,10 +2414,45 @@ function Navbar({ page, setPage, cartCount }){
         <div style={{padding:"0 5%"}}>
           <div style={{display:"grid",gridTemplateColumns:"1fr auto 1fr",alignItems:"center",minHeight:80,padding:"12px 0",gap:24}}>
             {/* Left utility */}
-            <div style={{display:"flex",gap:6,alignItems:"center"}}>
+            <div style={{display:"flex",gap:12,alignItems:"center"}}>
               <span className="mob-search-left" style={{cursor:"pointer",display:"flex",alignItems:"center"}} onClick={()=>setSearchOpen(true)}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               </span>
+              <div className="hide-mob" style={{display:"flex",alignItems:"center",gap:6}}>
+                <CountryContext.Consumer>
+                  {({ activeCountry, setActiveCountry }) => (
+                    COUNTRIES.map(c => {
+                      const isActive = activeCountry.name === c.name;
+                      return (
+                        <button
+                          key={c.name}
+                          onClick={() => setActiveCountry(c)}
+                          style={{
+                            display:"flex",alignItems:"center",gap:5,
+                            padding:"4px 8px",
+                            border: isActive ? "1px solid #B8922A" : "1px solid #E8E4DC",
+                            borderRadius:3,
+                            background: isActive ? "#FAF9F6" : "transparent",
+                            cursor:"pointer",
+                            fontFamily:"'Montserrat',sans-serif",
+                            fontSize:9.5,fontWeight: isActive ? 600 : 400,
+                            color: isActive ? "#B8922A" : "#555",
+                            transition:"all .2s",
+                          }}
+                          onMouseEnter={e => { if(!isActive){ e.currentTarget.style.borderColor="#B8922A"; e.currentTarget.style.color="#B8922A"; } }}
+                          onMouseLeave={e => { if(!isActive){ e.currentTarget.style.borderColor="#E8E4DC"; e.currentTarget.style.color="#555"; } }}
+                        >
+                          {c.flagUrl === "global"
+                            ? <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                            : <img src={c.flagUrl} alt={c.name} style={{width:15,height:10,objectFit:"cover",borderRadius:1,display:"block"}} />
+                          }
+                          {c.name}
+                        </button>
+                      );
+                    })
+                  )}
+                </CountryContext.Consumer>
+              </div>
             </div>
             {/* Logo */}
             <div onClick={()=>setPage("home")} style={{cursor:"pointer",textAlign:"center",userSelect:"none",display:"flex",alignItems:"center",justifyContent:"center"}}>
@@ -2537,6 +2534,41 @@ function Navbar({ page, setPage, cartCount }){
                   {s}
                 </a>
               ))}
+            </div>
+            <div style={{padding:"18px 6% 0",borderTop:"1px solid #F0EBE3",marginTop:18}}>
+              <p style={{fontSize:9,letterSpacing:2,color:"#888",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:8,fontWeight:600}}>Select Country</p>
+              <div style={{display:"flex",gap:6,flexWrap:"wrap"}}>
+                <CountryContext.Consumer>
+                  {({ activeCountry, setActiveCountry }) => (
+                    COUNTRIES.map(c => {
+                      const isActive = activeCountry.name === c.name;
+                      return (
+                        <button
+                          key={c.name}
+                          onClick={() => { setActiveCountry(c); setMobileMenuOpen(false); }}
+                          style={{
+                            display:"flex",alignItems:"center",gap:5,
+                            padding:"6px 12px",
+                            border: isActive ? "1px solid #B8922A" : "1px solid #E0E0E0",
+                            borderRadius:4,
+                            background: isActive ? "#FAF9F6" : "#fff",
+                            cursor:"pointer",
+                            fontFamily:"'Montserrat',sans-serif",
+                            fontSize:10,fontWeight: isActive ? 600 : 400,
+                            color: isActive ? "#B8922A" : "#555",
+                          }}
+                        >
+                          {c.flagUrl === "global"
+                            ? <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                            : <img src={c.flagUrl} alt={c.name} style={{width:16,height:11,objectFit:"cover",borderRadius:1,display:"block"}} />
+                          }
+                          {c.name}
+                        </button>
+                      );
+                    })
+                  )}
+                </CountryContext.Consumer>
+              </div>
             </div>
           </div>
         )}
