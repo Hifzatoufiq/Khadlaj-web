@@ -2414,7 +2414,7 @@ function Navbar({ page, setPage, cartCount }){
         <div style={{padding:"0 5%"}}>
           <div style={{display:"grid",gridTemplateColumns:"1fr auto 1fr",alignItems:"center",minHeight:80,padding:"12px 0",gap:24}}>
             {/* Left utility */}
-            <div style={{display:"flex",gap:12,alignItems:"center"}}>
+            <div style={{display:"flex",gap:12,alignItems:"center",paddingLeft:"20px"}}>
               <span className="mob-search-left" style={{cursor:"pointer",display:"flex",alignItems:"center"}} onClick={()=>setSearchOpen(true)}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               </span>
