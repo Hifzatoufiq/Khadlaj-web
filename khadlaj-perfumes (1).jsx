@@ -2404,6 +2404,44 @@ function Navbar({ page, setPage, cartCount }){
         </div>
       )}
 
+      {/* ── Country selector bar ── */}
+      <CountryContext.Consumer>
+        {({ activeCountry, setActiveCountry }) => (
+          <div style={{background:"#FAF9F6",borderBottom:"1px solid #EDE9E1",padding:"7px 5%",display:"flex",alignItems:"center",justifyContent:"center",gap:6,flexWrap:"wrap"}}>
+            {COUNTRIES.map(c => {
+              const isActive = activeCountry.name === c.name;
+              return (
+                <button
+                  key={c.name}
+                  onClick={() => setActiveCountry(c)}
+                  style={{
+                    display:"flex",alignItems:"center",gap:6,
+                    padding:"5px 13px",
+                    border: isActive ? "1.5px solid #B8922A" : "1px solid #D8D2C8",
+                    borderRadius:4,
+                    background: isActive ? "#fff" : "transparent",
+                    cursor:"pointer",
+                    fontFamily:"'Montserrat',sans-serif",
+                    fontSize:11, fontWeight: isActive ? 700 : 500,
+                    color: isActive ? "#B8922A" : "#444",
+                    transition:"all .2s",
+                    boxShadow: isActive ? "0 1px 6px rgba(184,146,42,0.15)" : "none",
+                  }}
+                  onMouseEnter={e => { if(!isActive){ e.currentTarget.style.borderColor="#B8922A"; e.currentTarget.style.color="#B8922A"; } }}
+                  onMouseLeave={e => { if(!isActive){ e.currentTarget.style.borderColor="#D8D2C8"; e.currentTarget.style.color="#444"; } }}
+                >
+                  {c.flagUrl === "global"
+                    ? <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    : <img src={c.flagUrl} alt={c.name} style={{width:20,height:14,objectFit:"cover",borderRadius:2,display:"block"}} />
+                  }
+                  {c.name}
+                </button>
+              );
+            })}
+          </div>
+        )}
+      </CountryContext.Consumer>
+
       {/* ── Announcement bar ── */}
       <div style={{background:"#000",color:"#fff",textAlign:"center",padding:"10px 16px",fontSize:"9px",letterSpacing:"3px",fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",fontWeight:500}}>
         USE "KHADLAJ25" FOR FLAT 25% DISCOUNT
@@ -2422,9 +2460,9 @@ function Navbar({ page, setPage, cartCount }){
             {/* Logo */}
             <div onClick={()=>setPage("home")} style={{cursor:"pointer",textAlign:"center",userSelect:"none",display:"flex",alignItems:"center",justifyContent:"center"}}>
               <img
-                src="https://khadlaj-perfumes.com/cdn/shop/files/Khadlaj_logo_2026--2_160x.png?v=1773752104"
+                src="/assets/images/khadlaj-logo.png"
                 alt="Khadlaj Perfumes"
-                style={{height:"clamp(60px,7.5vw,90px)",width:"auto",objectFit:"contain",display:"block",maxWidth:240,transition:"transform 0.3s ease"}}
+                style={{height:"clamp(90px,11vw,135px)",width:"auto",objectFit:"contain",display:"block",maxWidth:240,transition:"transform 0.3s ease"}}
                 onMouseEnter={e=>e.currentTarget.style.transform="scale(1.02)"}
                 onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}
               />
@@ -2538,9 +2576,9 @@ function Footer({ setPage }){
       <div style={{background:"#FAF9F6",padding:"80px 6% 48px",display:"grid",gridTemplateColumns:"2fr 1fr 1fr 1fr",gap:48,borderTop:"1px solid #f0f0f0"}} className="grid-3">
         <div>
           <img
-            src="https://khadlaj-perfumes.com/cdn/shop/files/Khadlaj_logo_2026--2_160x.png?v=1773752104"
+            src="/assets/images/khadlaj-logo.png"
             alt="Khadlaj Perfumes"
-            style={{height:84,width:"auto",objectFit:"contain",display:"block",marginBottom:24}}
+            style={{height:126,width:"auto",objectFit:"contain",display:"block",marginBottom:24}}
           />
           <p style={{fontSize:"8px",letterSpacing:3.5,color:"#B8922A",fontFamily:"'Montserrat',sans-serif",marginBottom:16,textTransform:"uppercase",fontWeight:700}}>Perfumes · UAE · Est. 1997</p>
           <p style={{fontSize:13,color:"#555",lineHeight:1.85,maxWidth:260,marginBottom:32,fontFamily:"'Montserrat',sans-serif"}}>Family-owned UAE perfume house. Authentic Arabian &amp; French fragrance artistry since 1997.</p>
