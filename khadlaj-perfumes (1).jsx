@@ -2418,7 +2418,7 @@ function Navbar({ page, setPage, cartCount }){
               <span className="mob-search-left" style={{cursor:"pointer",display:"flex",alignItems:"center"}} onClick={()=>setSearchOpen(true)}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               </span>
-              <div className="hide-mob" style={{display:"flex",alignItems:"center",gap:6}}>
+              <div className="hide-mob" style={{display:"grid",gridTemplateColumns:"repeat(4, auto)",gap:"5px 4px",alignItems:"center"}}>
                 <CountryContext.Consumer>
                   {({ activeCountry, setActiveCountry }) => (
                     COUNTRIES.map(c => {
