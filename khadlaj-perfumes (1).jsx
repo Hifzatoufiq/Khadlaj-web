@@ -193,7 +193,7 @@ const CATEGORIES = ["Khadlaj","Best Sellers","New","For Him","For Her","Unisex",
    GLOBAL CSS
 ═══════════════════════════════════════════════════════════════ */
 const GLOBAL_CSS = `
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600;6..96,700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;500;600;700&display=swap');
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
   body{background:#fff;color:#000;font-family:'Montserrat',sans-serif;}
@@ -202,7 +202,7 @@ const GLOBAL_CSS = `
   ::-webkit-scrollbar-thumb{background:#000;}
   .hide-scrollbar::-webkit-scrollbar { display: none; }
   .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-  h1,h2,h3,h4,.disp{font-family:'Cormorant Garamond','Bodoni Moda','Cinzel',serif;}
+  h1,h2,h3,h4,.disp{font-family:'Trajan Pro', 'Cinzel', serif;}
   .mono{font-family:'Montserrat',sans-serif;}
 
   /* YSL-style primary button: solid black */
