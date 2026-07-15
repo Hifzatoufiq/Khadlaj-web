@@ -55,39 +55,39 @@ const STATS = [
 
 const PRODUCTS = [
   // ── Local products (own images) ──
-  { id:13, name:"Island",               col:"EAU DE PARFUM",    price:150, size:"100ml Extrait", badge:"Best Seller", gender:"Unisex", notes:["Marine","Amber","Oud"],        img:"./assets/images/products/island-packshot-tight.png" },
-  { id:14, name:"Cream Velvet",         col:"EAU DE PARFUM",    price:130, size:"100ml Extrait",      badge:"Best Seller", gender:"Unisex", notes:["Cream","Velvet","Musk"],        img:"./assets/images/products/cream-velvet-cutout.png" },
-  { id:15, name:"Cloud Candy",          col:"Atyaab",           price:325, size:"Gift Set",      badge:null,          gender:"Her",    notes:["Peach","Musk","Vanilla"],       img:"./assets/images/gifsets/cloudcandy_gift_user.png",     images:["./assets/images/gifsets/cloudcandy_gift_user.png","./assets/images/gifsets/cloudcandy_gift_user.png","./assets/images/products/cloud-candy-open-box.png","./assets/images/products/cloud-candy-back-box.png"] },
-  { id:16, name:"Strawberry Shake",     col:"Atyaab",           price:295, size:"100ml EDP",     badge:null,          gender:"Her",    notes:["Strawberry","Musk","Vanilla"],  img:"./assets/images/products/strawberry-shake-cutout.png" },
+  { id:13, name:"Island",               col:"EAU DE PARFUM",    price:150, size:"100ml Extrait", badge:"Best Seller", gender:"Unisex", notes:["Marine","Amber","Oud"],        img:"./assets/images/products/island-packshot-tight_transparent.png" },
+  { id:14, name:"Cream Velvet",         col:"EAU DE PARFUM",    price:130, size:"100ml Extrait",      badge:"Best Seller", gender:"Unisex", notes:["Cream","Velvet","Musk"],        img:"./assets/images/products/cream-velvet_transparent.png" },
+  { id:15, name:"Cloud Candy",          col:"Atyaab",           price:325, size:"Gift Set",      badge:null,          gender:"Her",    notes:["Peach","Musk","Vanilla"],       img:"./assets/images/gifsets/cloudcandy_gift_transparent.png",     images:["./assets/images/gifsets/cloudcandy_gift_transparent.png","./assets/images/gifsets/cloudcandy_gift_transparent.png","./assets/images/products/cloud-candy-open-box.png","./assets/images/products/cloud-candy-back-box.png"] },
+  { id:16, name:"Strawberry Shake",     col:"Atyaab",           price:295, size:"100ml EDP",     badge:null,          gender:"Her",    notes:["Strawberry","Musk","Vanilla"],  img:"./assets/images/products/strawberry-shake_transparent.png" },
   { id:17, name:"Biscotti Date Toffee", col:"Lafede",           price:315, size:"100ml EDP",     badge:"New",         gender:"Unisex", notes:["Date","Coffee","Gourmand"],     img:"./assets/images/products/biscotti-date-toffee-cutout.png" },
   { id:18, name:"Biscotti Melon Musk",  col:"Lafede",           price:315, size:"100ml EDP",     badge:"New",         gender:"Unisex", notes:["Melon","Musk","Cream"],         img:"./assets/images/products/blue-glace-single-1-cutout.png" },
   { id:19, name:"Uno Intimo",           col:"Lafede",           price:285, size:"100ml EDP",     badge:null,          gender:"Her",    notes:["Rose","Musk","Peony"],          img:"./assets/images/products/uno-intimo-cutout.png" },
-  { id:20, name:"Shahi Oud",            col:"Master Perfumery", price:360, size:"100ml EDP",     badge:null,          gender:"Unisex", notes:["Oud","Amber","Saffron"],        img:"./assets/images/products/shahi-oud-cutout.png" },
-  { id:21, name:"Bleu Glacé",           col:"Atyaab",           price:275, size:"100ml EDP",     badge:"New",         gender:"Unisex", notes:["Marine","Bergamot","Musk"],     img:"./assets/images/products/bleu_glace_ai_generated.jpg" },
+  { id:20, name:"Shahi Oud",            col:"Master Perfumery", price:360, size:"100ml EDP",     badge:null,          gender:"Unisex", notes:["Oud","Amber","Saffron"],        img:"./assets/images/products/shahi-oud_transparent.png" },
+  { id:21, name:"Bleu Glacé",           col:"Atyaab",           price:275, size:"100ml EDP",     badge:"New",         gender:"Unisex", notes:["Marine","Bergamot","Musk"],     img:"./assets/images/products/bleu_glace_ai_transparent.png" },
   // ── Live products from khadlaj-perfumes.com ──
-  { id:200, name:"Saraya",              col:"EAU DE PARFUM",    price:105, size:"60ml Extrait",  badge:"New",         gender:"Unisex", notes:["Amber","Bergamot","Vetiver"],   img:"./assets/images/products/saraya-cutout.png" },
-  { id:201, name:"Nafais Sharq Gift Set",col:"Atyaab",          price:150, size:"Gift Set",      badge:null,          gender:"Her",    notes:["Rose","Amber","Musk"],          img:"./assets/images/gifsets/nafais_gift_user.png" },
+  { id:200, name:"Saraya",              col:"EAU DE PARFUM",    price:105, size:"60ml Extrait",  badge:"New",         gender:"Unisex", notes:["Amber","Bergamot","Vetiver"],   img:"./assets/images/products/saraya_transparent.png" },
+  { id:201, name:"Nafais Sharq Gift Set",col:"Atyaab",          price:150, size:"Gift Set",      badge:null,          gender:"Her",    notes:["Rose","Amber","Musk"],          img:"./assets/images/gifsets/nafais_gift_transparent.png" },
 
-  { id:203, name:"Zayaan Silver",       col:"Atyaab",           price:150, size:"100ml EDP",     badge:"New",         gender:"Him",    notes:["Citrus","Lavender","Sandalwood"],img:"./assets/images/products/zayaan-silver-cutout.png" },
-  { id:204, name:"Ihthiraam",           col:"EAU DE PARFUM",    price:150, size:"60ml Extrait",  badge:"New",         gender:"Unisex", notes:["Bergamot","Oud","Musk"],        img:"./assets/images/products/ihthiraam-cutout.png" },
+  { id:203, name:"Zayaan Silver",       col:"Atyaab",           price:150, size:"100ml EDP",     badge:"New",         gender:"Him",    notes:["Citrus","Lavender","Sandalwood"],img:"./assets/images/products/zayaan-silver_transparent.png" },
+  { id:204, name:"Ihthiraam",           col:"EAU DE PARFUM",    price:150, size:"60ml Extrait",  badge:"New",         gender:"Unisex", notes:["Bergamot","Oud","Musk"],        img:"./assets/images/products/ihthiraam_transparent.png" },
   { id:205, name:"Qarar",               col:"EAU DE PARFUM",    price:150, size:"60ml Extrait",  badge:"New",         gender:"Unisex", notes:["Oud","Leather","Vetiver"],      img:"./assets/images/products/qarar-cutout.png" },
-  { id:206, name:"Icon",                col:"Atyaab",           price:130, size:"100ml EDP",     badge:"Best Seller", gender:"Him",    notes:["Bergamot","Lavender","Amber"],  img:"./assets/images/products/icon-cutout.png" },
+  { id:206, name:"Icon",                col:"Atyaab",           price:130, size:"100ml EDP",     badge:"Best Seller", gender:"Him",    notes:["Bergamot","Lavender","Amber"],  img:"./assets/images/products/icon_transparent.png" },
   { id:207, name:"Intoxicate Mystique", col:"Lafede",           price:150, size:"100ml Extrait", badge:null,          gender:"Him",    notes:["Musk","Vetiver","Vanilla"],     img:"./assets/images/products/intoxicate-mystique-cutout.png" },
   { id:208, name:"Panache",             col:"EAU DE PARFUM",    price:200, size:"100ml Extrait", badge:"Best Seller", gender:"Her",    notes:["Vanilla","Sandalwood","Musk"],  img:"./assets/images/products/panache-cutout.png" },
-  { id:209, name:"Onyx Silver",         col:"Atyaab",           price:125, size:"100ml EDP",     badge:"New",         gender:"Unisex", notes:["Bergamot","Patchouli","Tonka"], img:"./assets/images/products/onyx-silver-cutout.png" },
+  { id:209, name:"Onyx Silver",         col:"Atyaab",           price:125, size:"100ml EDP",     badge:"New",         gender:"Unisex", notes:["Bergamot","Patchouli","Tonka"], img:"./assets/images/products/onyx-silver_transparent.png" },
   { id:210, name:"Nuha Bon Bon",        col:"Atyaab",           price:85,  size:"85ml EDP",      badge:"New",         gender:"Her",    notes:["Strawberry","Vanilla","Musk"],  img:"./assets/images/products/nuha-bon-bon-cutout.png" },
-  { id:211, name:"Sawaar",              col:"Master Perfumery", price:200, size:"100ml Extrait", badge:"Best Seller", gender:"Her",    notes:["Vanilla","Sandalwood","Amber"], img:"./assets/images/products/sawaar-cutout.png" },
-  { id:212, name:"Onyx",                col:"Atyaab",           price:125, size:"100ml EDP",     badge:"Best Seller", gender:"Him",    notes:["Cardamom","Sandalwood","Tonka"],img:"./assets/images/products/onyx-cutout.png" },
-  { id:213, name:"Shiyaaka",            col:"Master Perfumery", price:65,  size:"100ml EDP",     badge:"Best Seller", gender:"Him",    notes:["Bergamot","Vetiver","Cardamom"],img:"./assets/images/products/shiyaaka-cutout.png" },
-  { id:214, name:"Nafais Magrib",       col:"Atyaab",           price:110, size:"100ml EDP",     badge:"New",         gender:"Unisex", notes:["Citrus","Marine","Musk"],       img:"./assets/images/products/nafais-magrib-cutout.png" },
-  { id:215, name:"Island Gift Set",     col:"Master Perfumery", price:179, size:"Gift Set",      badge:null,          gender:"Unisex", notes:["Marine","Amber","Musk"],        img:"./assets/images/gifsets/island_gift_user.png" },
+  { id:211, name:"Sawaar",              col:"Master Perfumery", price:200, size:"100ml Extrait", badge:"Best Seller", gender:"Her",    notes:["Vanilla","Sandalwood","Amber"], img:"./assets/images/products/sawaar_transparent.png" },
+  { id:212, name:"Onyx",                col:"Atyaab",           price:125, size:"100ml EDP",     badge:"Best Seller", gender:"Him",    notes:["Cardamom","Sandalwood","Tonka"],img:"./assets/images/products/onyx_transparent.png" },
+  { id:213, name:"Shiyaaka",            col:"Master Perfumery", price:65,  size:"100ml EDP",     badge:"Best Seller", gender:"Him",    notes:["Bergamot","Vetiver","Cardamom"],img:"./assets/images/products/shiyaaka_transparent.png" },
+  { id:214, name:"Nafais Magrib",       col:"Atyaab",           price:110, size:"100ml EDP",     badge:"New",         gender:"Unisex", notes:["Citrus","Marine","Musk"],       img:"./assets/images/products/nafais-magrib_transparent.png" },
+  { id:215, name:"Island Gift Set",     col:"Master Perfumery", price:179, size:"Gift Set",      badge:null,          gender:"Unisex", notes:["Marine","Amber","Musk"],        img:"./assets/images/gifsets/island_gift_transparent.png" },
   { id:216, name:"Cream Velvet Gift Set",col:"Master Perfumery",price:160, size:"Gift Set",      badge:null,          gender:"Unisex", notes:["Cream","Velvet","Musk"],        img:"./assets/images/gifsets/creamvelvet_gift_user.png" },
 
-  { id:22, name:"Hareem Al Sultan",     col:"Atyaab",           price:195, size:"75ml EDP",      badge:null,          gender:"Her",    notes:["Rose","Amber","Musk"],          img:"./assets/images/products/shahi-oud-cutout.png" },
-  { id:23, name:"Shiyaaka Shadow",      col:"Master Perfumery", price:340, size:"100ml EDP",     badge:"Limited",     gender:"Him",    notes:["Oud","Leather","Vetiver"],      img:"./assets/images/products/shiyaaka-shadow-cutout.png" },
+  { id:22, name:"Hareem Al Sultan",     col:"Atyaab",           price:195, size:"75ml EDP",      badge:null,          gender:"Her",    notes:["Rose","Amber","Musk"],          img:"./assets/images/products/shahi-oud_transparent.png" },
+  { id:23, name:"Shiyaaka Shadow",      col:"Master Perfumery", price:340, size:"100ml EDP",     badge:"Limited",     gender:"Him",    notes:["Oud","Leather","Vetiver"],      img:"./assets/images/products/shiyaaka-shadow_transparent.png" },
 
   // ── New Best Sellers (requested list additions) ──
-  { id:301, name:"Island Dreams",       col:"Master Perfumery", price:150, size:"100ml EDP",     badge:"Best Seller", gender:"Her",    notes:["Coconut","Vanilla","Musk"],     img:"./assets/images/products/island-dreams-cutout.png" },
+  { id:301, name:"Island Dreams",       col:"Master Perfumery", price:150, size:"100ml EDP",     badge:"Best Seller", gender:"Her",    notes:["Coconut","Vanilla","Musk"],     img:"./assets/images/products/island-dreams_transparent.png" },
   { id:302, name:"Ria",                 col:"Lafede",           price:125, size:"100ml EDP",     badge:"Best Seller", gender:"Her",    notes:["Rose","Jasmine","Amber"],       img:"./assets/images/products/ria-cutout.png" },
   { id:305, name:"Karus",               col:"Lafede",           price:150, size:"100ml EDP",     badge:"Best Seller", gender:"Him",    notes:["Oud","Leather","Incense"],      img:"./assets/images/products/karus-cutout.png" },
 ];
@@ -115,7 +115,7 @@ const REVIEWS = [
 const COLLECTIONS_DATA = [
   { name:"Atyaab", tagline:"Everyday Luxury", img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/NUHA_BON_BON-03.jpg?v=1768477660", desc:"Accessible, wearable scents for every moment. The Atyaab line brings refined Arabian perfumery into daily life without compromise." },
   { name:"Lafede", tagline:"Bold & Characterful", img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/IntoxicateMystique.3.png?v=1772518819", desc:"Intensely expressive fragrances that command attention. Lafede is for those who make their presence felt before they enter the room." },
-  { name:"Master Perfumery", tagline:"The Pinnacle of Craft", img:"./assets/images/products/shahi-oud-cutout.png", desc:"The finest expressions from our founder's private atelier. Rare ingredients, extraordinary sillage, and a story in every bottle." },
+  { name:"Master Perfumery", tagline:"The Pinnacle of Craft", img:"./assets/images/products/shahi-oud_transparent.png", desc:"The finest expressions from our founder's private atelier. Rare ingredients, extraordinary sillage, and a story in every bottle." },
 ];
 
 const TEAM = [
@@ -414,7 +414,7 @@ function ProductCard({ p, onView, onCart }){
         width:"100%",
         height:"clamp(250px, 22vw, 330px)",
         overflow:"hidden",
-        background:"#F5F5F2",
+        background:"#fff",
         border:"none",
         boxShadow:"none",
         transition:"box-shadow .35s ease,border-color .35s ease"
@@ -566,7 +566,7 @@ function TikTokCard({ t }) {
       {/* Content (Disabled pointer events so user can click Play on the iframe) */}
       <div style={{position: "relative", zIndex: 3, padding: "30px 24px", color: "#fff", pointerEvents: "none"}}>
         <div style={{display:"flex", alignItems:"center", gap:12, marginBottom:20}}>
-          <div style={{width:48, height:48, borderRadius:"50%", background:"#F5F5F2", display:"flex", alignItems:"center", justifyContent:"center", padding:6}}>
+          <div style={{width:48, height:48, borderRadius:"50%", background:"#fff", display:"flex", alignItems:"center", justifyContent:"center", padding:6}}>
             <img src={t.img} alt="" style={{width:"100%", height:"100%", objectFit:"contain", mixBlendMode:"normal", filter:"contrast(1.02) brightness(0.98)"}}/>
           </div>
           <div>
@@ -1422,7 +1422,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
           
           {/* ── Left: Static Product Image ── */}
           <div
-            style={{width:"100%", aspectRatio:"1/1", display:"flex", alignItems:"center", justifyContent:"center", background:"#F5F5F2", borderRadius:"4px", overflow:"hidden"}}
+            style={{width:"100%", aspectRatio:"1/1", display:"flex", alignItems:"center", justifyContent:"center", background:"#fff", borderRadius:"4px", overflow:"hidden"}}
             onMouseEnter={e=>{
               const img = e.currentTarget.querySelector('img');
               if (img) img.style.transform = "scale(1.05)";
@@ -1635,8 +1635,8 @@ function StoryPage(){
         {/* Split background — founder photo left, perfume bottles right */}
         <div style={{position:"absolute",inset:0,display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:1,background:"#111"}}>
           {[
-            {src:"./assets/images/products/island-packshot-tight.png",alt:"Island"},
-            {src:"./assets/images/products/shahi-oud-cutout.png",alt:"Hareem Al Sultan"},
+            {src:"./assets/images/products/island-packshot-tight_transparent.png",alt:"Island"},
+            {src:"./assets/images/products/shahi-oud_transparent.png",alt:"Hareem Al Sultan"},
             {src:"./assets/images/products/pure-musk-pure-blend-cutout.png",alt:"Pure Musk Pure Blend"},
           ].map((item,i)=>(
             <div key={item.alt} style={{overflow:"hidden",background:i===1?"#F4EFE7":"#FBFAF7",display:"flex",alignItems:"center",justifyContent:"center"}}>
@@ -1773,7 +1773,7 @@ function ContactPage(){
         <div style={{position:"absolute",inset:0,background:"radial-gradient(circle at 76% 46%, rgba(184,146,42,.18), rgba(184,146,42,0) 30%), linear-gradient(135deg,#070707 0%,#171717 58%,#050505 100%)"}}/>
         <div style={{position:"absolute",right:"7%",top:"7%",bottom:"7%",width:"42%",display:"flex",alignItems:"center",justifyContent:"center",pointerEvents:"none"}}>
           <img
-            src="./assets/images/products/zayaan-silver-cutout.png"
+            src="./assets/images/products/zayaan-silver_transparent.png"
             alt="Zayaan Silver perfume bottle"
             style={{width:"100%",height:"100%",objectFit:"contain",objectPosition:"center center",opacity:.78,filter:"drop-shadow(0 34px 60px rgba(0,0,0,.55))"}}
           />
@@ -1920,7 +1920,7 @@ function SignupPageOld(){
           <div style={{position:"relative",overflow:"hidden",minHeight:610,background:"linear-gradient(135deg,#080808 0%,#15110A 72%,#060606 100%)",padding:"58px 52px",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
             <div style={{position:"absolute",top:-110,right:-90,width:340,height:340,borderRadius:"50%",background:"radial-gradient(circle,rgba(184,146,42,.28),rgba(184,146,42,0) 68%)"}}/>
             <div style={{position:"absolute",right:"5%",bottom:"-2%",width:"54%",height:"76%",display:"flex",alignItems:"flex-end",justifyContent:"center",pointerEvents:"none"}}>
-              <img src="./assets/images/gifsets/cloudcandy_gift_user.png" alt="Khadlaj fragrances" style={{width:"100%",height:"100%",objectFit:"contain",filter:"drop-shadow(0 34px 70px rgba(0,0,0,.42))"}}/>
+              <img src="./assets/images/gifsets/cloudcandy_gift_transparent.png" alt="Khadlaj fragrances" style={{width:"100%",height:"100%",objectFit:"contain",filter:"drop-shadow(0 34px 70px rgba(0,0,0,.42))"}}/>
             </div>
             <div style={{position:"relative",zIndex:2,maxWidth:440}}>
               <div style={{width:42,height:1,background:"#B8922A",marginBottom:22}}/>
@@ -2368,7 +2368,7 @@ function Navbar({ page, setPage, cartCount }){
                 <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:48}} className="grid-3">
                   {searchResults.map(p=>(
                     <div key={p.id} onClick={()=>{setSearchOpen(false);setSearchQuery("");setSearchResults([]);setPage("product");}} style={{cursor:"pointer"}}>
-                      <div style={{position:"relative",aspectRatio:"3/4",overflow:"hidden",background:"#F5F5F2",border:"1px solid #F1ECE4"}}>
+                      <div style={{position:"relative",aspectRatio:"3/4",overflow:"hidden",background:"#fff",border:"1px solid #F1ECE4"}}>
                         <div style={{position:"absolute",inset:10,background:"radial-gradient(circle at 50% 42%, rgba(184,146,42,.10), rgba(255,255,255,0) 62%)"}}/>
                         <img src={p.img} alt={p.name} loading="lazy" style={{position:"relative",width:"100%",height:"100%",objectFit:"contain",padding:"16px",filter:"drop-shadow(0 12px 20px rgba(0,0,0,.08))"}}/>
                         <div style={{height:2,position:"absolute",bottom:0,left:0,right:0,background:"linear-gradient(90deg,#B8922A,#D4AF5A,#B8922A)"}}/>
@@ -2982,7 +2982,7 @@ export default function App(){
             <button onClick={()=>setShowPopup(false)} style={{position:"absolute",top:16,right:16,background:"rgba(255,255,255,0.88)",border:"none",width:34,height:34,borderRadius:"50%",fontSize:20,cursor:"pointer",color:"#000",zIndex:10,display:"flex",alignItems:"center",justifyContent:"center",backdropFilter:"blur(6px)",boxShadow:"0 8px 18px rgba(0,0,0,.08)"}}>×</button>
             {/* Left image */}
             <div style={{flex:.9, position:"relative",minHeight:310,overflow:"hidden", display:"flex", alignItems:"center", justifyContent:"center", background:"radial-gradient(circle at 50% 45%, rgba(184,146,42,.12), rgba(255,255,255,0) 58%), linear-gradient(180deg,#FBFBFB 0%, #F3F1EE 100%)", padding:"24px 18px"}}>
-              <img src="./assets/images/products/strawberry-shake-cutout.png" alt="Strawberry Shake perfume" style={{width:"64%",height:"78%",objectFit:"contain",objectPosition:"center center",filter:"drop-shadow(0 16px 28px rgba(0,0,0,.13))"}}/>
+              <img src="./assets/images/products/strawberry-shake_transparent.png" alt="Strawberry Shake perfume" style={{width:"64%",height:"78%",objectFit:"contain",objectPosition:"center center",filter:"drop-shadow(0 16px 28px rgba(0,0,0,.13))"}}/>
             </div>
             {/* Right form */}
             <div style={{flex:1.15, padding:"34px 30px",display:"flex",flexDirection:"column",justifyContent:"center",background:"#fff"}}>
