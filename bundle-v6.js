@@ -21796,7 +21796,7 @@ var PRODUCTS = [
   { id: 21, name: "Bleu Glac\xE9", col: "Atyaab", price: 275, size: "100ml EDP", badge: "New", gender: "Unisex", notes: ["Marine", "Bergamot", "Musk"], img: "./assets/images/products/bleu_glace_ai_transparent.png" },
   // ── Live products from khadlaj-perfumes.com ──
   { id: 200, name: "Saraya", col: "EAU DE PARFUM", price: 105, size: "60ml Extrait", badge: "New", gender: "Unisex", notes: ["Amber", "Bergamot", "Vetiver"], img: "./assets/images/products/saraya_transparent.png" },
-  { id: 201, name: "Nafais Sharq Gift Set", col: "Atyaab", price: 150, size: "Gift Set", badge: null, gender: "Her", notes: ["Rose", "Amber", "Musk"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-3.jpg?v=1779352739" },
+  { id: 201, name: "Nafais Sharq Gift Set", col: "Atyaab", price: 150, size: "Gift Set", badge: null, gender: "Her", notes: ["Rose", "Amber", "Musk"], img: "./assets/images/gifsets/nafais_gift_transparent.png" },
   { id: 203, name: "Zayaan Silver", col: "Atyaab", price: 150, size: "100ml EDP", badge: "New", gender: "Him", notes: ["Citrus", "Lavender", "Sandalwood"], img: "./assets/images/products/zayaan-silver_transparent.png" },
   { id: 204, name: "Ihthiraam", col: "EAU DE PARFUM", price: 150, size: "60ml Extrait", badge: "New", gender: "Unisex", notes: ["Bergamot", "Oud", "Musk"], img: "./assets/images/products/ihthiraam_transparent.png" },
   { id: 205, name: "Qarar", col: "EAU DE PARFUM", price: 150, size: "60ml Extrait", badge: "New", gender: "Unisex", notes: ["Oud", "Leather", "Vetiver"], img: "./assets/images/products/qarar-cutout.png" },
@@ -21821,7 +21821,7 @@ var PRODUCTS = [
   { id: 2001, name: "La Fede Aura Vanilla Milk", col: "Perfume Spray", price: 55, size: "100ml EDP", badge: "Best Seller", gender: "Her", notes: ["Bergamot", "Musk", "Oud"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_AURA_VANILLA_MILK_100_ML.png?v=1783938923" },
   { id: 2002, name: "Dehnal Oudh Combodi", col: "Perfume Spray", price: 65, size: "3ml Oil", badge: "New", gender: "Unisex", notes: ["Bergamot", "Musk", "Oud"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/DEHNAL_OUDH_COMBODI_3ML_-_Khadlaj_Perfumes-1964314.jpg?v=1722409163" },
   { id: 2003, name: "Khadlaj Saraya", col: "Perfume Spray", price: 105, size: "60ml Extrait", badge: "Best Seller", gender: "Her", notes: ["Bergamot", "Musk", "Oud"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/saraya_3.png?v=1783938953" },
-  { id: 2004, name: "Khadlaj Nafais Sharq", col: "Perfume Spray", price: 150, size: "Gift Set", badge: "New", gender: "Her", notes: ["Bergamot", "Musk", "Oud"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-3.jpg?v=1779352739" },
+  { id: 2004, name: "Khadlaj Nafais Sharq", col: "Perfume Spray", price: 150, size: "Gift Set", badge: "New", gender: "Her", notes: ["Bergamot", "Musk", "Oud"], img: "./assets/images/gifsets/nafais_gift_transparent.png" },
   { id: 2005, name: "Khadlaj Onyx Silver", col: "Perfume Spray", price: 160, size: "100ml EDP", badge: "Best Seller", gender: "Unisex", notes: ["Bergamot", "Musk", "Oud"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OnyxSilver3.jpg?v=1783939577" },
   { id: 2006, name: "Zayaan Silver", col: "Perfume Spray", price: 150, size: "100ml EDP", badge: "New", gender: "Unisex", notes: ["Bergamot", "Musk", "Oud"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Zayan_Silver-3.jpg?v=1783936580" },
   { id: 2007, name: "Nuha Bon Bon", col: "Perfume Spray", price: 120, size: "85ml EDP", badge: "Best Seller", gender: "Her", notes: ["Bergamot", "Musk", "Oud"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/NUHA_BON_BON-03.jpg?v=1783939633" },
@@ -22086,21 +22086,11 @@ function ProductCard({ p, onView, onCart }) {
     "Biscotti Date Toffee": 0.88,
     "Biscotti Melon Musk": 0.94,
     "Bleu Glac\xE9": 0.98,
-    "Saraya": 0.88,
-    "Nafais Sharq Gift Set": 1.65,
-    "Khadlaj Nafais Sharq": 1.65,
-    "Island Gift Set": 1.65,
-    "Khadlaj Island Gift Set": 1.65,
-    "Cream Velvet Gift Set": 1.65
+    "Saraya": 0.88
   }[p.name] || 0.9;
   const imageShiftY = {
     "Island": -0.06,
-    "Cream Velvet": -0.035,
-    "Nafais Sharq Gift Set": 0.12,
-    "Khadlaj Nafais Sharq": 0.12,
-    "Island Gift Set": 0.12,
-    "Khadlaj Island Gift Set": 0.12,
-    "Cream Velvet Gift Set": 0.12
+    "Cream Velvet": -0.035
   }[p.name] || 0;
   const imageHoverScale = {
     "Island": 1.02,
