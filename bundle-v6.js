@@ -22901,6 +22901,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }) {
   const [sortBy, setSortBy] = (0, import_react.useState)("default");
   const [priceMax, setPriceMax] = (0, import_react.useState)(800);
   let filtered = PRODUCTS.filter((p) => {
+    if (p.size === "Gift Set") return false;
     const isKhadlajProduct = p.col !== "Lafede";
     if (activeCat === "Khadlaj") return p.col !== "Lafede";
     if (activeCat === "Best Sellers") return isKhadlajProduct && p.badge === "Best Seller";
@@ -23037,6 +23038,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }) {
                 c
               ] }),
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 9, letterSpacing: 0, color: activeCat === c ? "rgba(255,255,255,.65)" : "#B8922A" }, children: PRODUCTS.filter((p) => {
+                if (p.size === "Gift Set") return false;
                 const isKhadlajProduct = p.col !== "Lafede";
                 if (c === "Khadlaj") return isKhadlajProduct;
                 if (c === "Best Sellers") return isKhadlajProduct && p.badge === "Best Seller";
