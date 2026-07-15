@@ -403,9 +403,9 @@ function ProductCard({ p, onView, onCart }){
       {p.badge && (
         <span style={{
           position:"absolute", top:12, left:12, zIndex:3,
-          background: p.badge==="Limited" ? "#5C0000" : p.badge==="New" ? "#B8922A" : "#000",
+          background: p.badge==="Limited" ? "#5C0000" : p.badge==="New" ? "#B8922A" : "#3c1152",
           color:"#fff", fontSize:9.5, letterSpacing:2.5,
-          padding:"5px 11px", fontWeight:800, textTransform:"uppercase",
+          padding:"5px 11px", fontWeight:600, textTransform:"uppercase",
           fontFamily:"'Montserrat',sans-serif",
         }}>{p.badge}</span>
       )}
@@ -469,8 +469,8 @@ function ProductCard({ p, onView, onCart }){
               if (onCart) onCart(p);
             }}
             style={{
-            width:"100%", background:"#111", color:"#fff", border:"none", 
-            padding:"12px", fontSize:11, letterSpacing:2, fontWeight:700, 
+            width:"100%", background:"#3c1152", color:"#fff", border:"none", 
+            padding:"12px", fontSize:11, letterSpacing:2, fontWeight:600, 
             cursor:"pointer", textTransform:"uppercase",
             fontFamily:"'Montserrat',sans-serif", transition:"background .3s"
           }}
@@ -482,9 +482,9 @@ function ProductCard({ p, onView, onCart }){
         </div>
       </div>
       <div className="product-card-info" style={{padding:"16px 10px 18px", flex:1, display:"flex", flexDirection:"column", alignItems:"center", textAlign:"center"}}>
-        <p style={{fontSize:9.5, letterSpacing:3, color:"#B8922A", textTransform:"uppercase", marginBottom:7, fontFamily:"'Montserrat',sans-serif", fontWeight:700}}>{collectionLabel}</p>
-        <h3 className="product-card-title" style={{fontSize:15.5, fontWeight:800, color:"#000", lineHeight:1.25, marginBottom:5, textTransform:"uppercase", letterSpacing:1.1, fontFamily:"'Montserrat',sans-serif"}}>{p.name}</h3>
-        <p className="product-card-size" style={{fontSize:12.5, color:"#888", marginBottom:12, fontFamily:"'Montserrat',sans-serif", letterSpacing:.4, fontWeight:500}}>{p.size}</p>
+        <p style={{fontSize:9.5, letterSpacing:3, color:"#B8922A", textTransform:"uppercase", marginBottom:7, fontFamily:"'Montserrat',sans-serif", fontWeight:600}}>{collectionLabel}</p>
+        <h3 className="product-card-title" style={{fontSize:15.5, fontWeight:600, color:"#3c1152", lineHeight:1.25, marginBottom:5, textTransform:"uppercase", letterSpacing:1.1}}>{p.name}</h3>
+        <p className="product-card-size" style={{fontSize:12.5, color:"#888", marginBottom:12, fontFamily:"'Montserrat',sans-serif", letterSpacing:.4, fontWeight:400}}>{p.size}</p>
         {notes.length > 0 && (
           <div className="product-notes" style={{display:"flex", flexWrap:"nowrap", gap:4, marginBottom:12, justifyContent:"center", alignItems:"center", width:"100%"}}>
             {notes.map((n, i) => (
@@ -500,7 +500,7 @@ function ProductCard({ p, onView, onCart }){
             <span style={{color:"#C8A96E", fontSize:12, letterSpacing:1}}>{"★".repeat(5)}</span>
             <span style={{fontSize:10, color:"#aaa", fontFamily:"'Montserrat',sans-serif", fontWeight:600}}>(905)</span>
           </div>
-          <p style={{fontSize:17, fontWeight:800, color:"#000", fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(p.price)}</p>
+          <p style={{fontSize:17, fontWeight:600, color:"#3c1152", fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(p.price)}</p>
         </div>
       </div>
     </div>
@@ -510,7 +510,7 @@ function SectionHeader({ eyebrow, title, sub, light=false }){
   return (
     <div style={{textAlign:"center",marginBottom:52}}>
       <p className="eyebrow" style={{marginBottom:14,color:"#B8922A"}}>{eyebrow}</p>
-      <h2 className="disp" style={{fontSize:"clamp(28px,3.8vw,52px)",fontWeight:300,color: light ? "#fff" : "#000",lineHeight:1.15,letterSpacing:"-0.5px",marginBottom:sub?14:0}}>{title}</h2>
+      <h2 className="disp" style={{fontSize:"clamp(28px,3.8vw,52px)",fontWeight:300,color: light ? "#fff" : "#3c1152",lineHeight:1.15,letterSpacing:"-0.5px",marginBottom:sub?14:0}}>{title}</h2>
       {sub && <p style={{color: light ? "rgba(255,255,255,0.7)" : "#777",fontSize:14,maxWidth:500,margin:"0 auto",lineHeight:1.8,fontFamily:"'Montserrat',sans-serif"}}>{sub}</p>}
       <div className="gold-line" style={{marginTop:22}}/>
     </div>
@@ -529,7 +529,7 @@ function TikTokCard({ t }) {
         flex:"0 0 320px",
         height: 520,
         position: "relative",
-        background:"#000",
+        background:"#3c1152",
         borderRadius: 16,
         overflow:"hidden",
         display:"flex",
@@ -571,13 +571,13 @@ function TikTokCard({ t }) {
           </div>
           <div>
             <p style={{fontSize:9, letterSpacing:2.5, textTransform:"uppercase", color:"#C1A46A", fontFamily:"'Montserrat',sans-serif", marginBottom:4}}>{t.tag || "Trending"}</p>
-            <p style={{fontSize:18, fontWeight:500, fontFamily:"'Montserrat',sans-serif", lineHeight:1, color:"#fff"}}>{t.title}</p>
+            <p style={{fontSize:18, fontWeight:400, fontFamily:"'Montserrat',sans-serif", lineHeight:1, color:"#fff"}}>{t.title}</p>
           </div>
         </div>
         
         <div style={{display:"flex", alignItems:"center", justifyContent:"space-between", borderTop:"1px solid rgba(255,255,255,0.15)", paddingTop:16}}>
-          <p style={{fontSize:16, fontWeight:700, fontFamily:"'Montserrat',sans-serif", color:"#fff"}}>{formatPrice(t.price)}</p>
-          <span style={{fontSize:11, letterSpacing:2, textTransform:"uppercase", fontWeight:700, fontFamily:"'Montserrat',sans-serif", display:"flex", alignItems:"center", gap:6, color:"#fff"}}>
+          <p style={{fontSize:16, fontWeight:600, fontFamily:"'Montserrat',sans-serif", color:"#fff"}}>{formatPrice(t.price)}</p>
+          <span style={{fontSize:11, letterSpacing:2, textTransform:"uppercase", fontWeight:600, fontFamily:"'Montserrat',sans-serif", display:"flex", alignItems:"center", gap:6, color:"#fff"}}>
             Shop Now <span>&rarr;</span>
           </span>
         </div>
@@ -643,7 +643,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       </section>
 
       {/* ── SCENT RIBBON ── */}
-      <div style={{overflow:"hidden",background:"#050505",padding:"24px 0", borderTop:"1px solid rgba(193,164,106,0.15)", borderBottom:"1px solid rgba(193,164,106,0.15)"}}>
+      <div style={{overflow:"hidden",background:"#3c1152",padding:"24px 0", borderTop:"1px solid rgba(193,164,106,0.15)", borderBottom:"1px solid rgba(193,164,106,0.15)"}}>
         <div className="ribbon-inner" style={{display:"flex", alignItems:"center"}}>
           {[...SCENT_RIBBON,...SCENT_RIBBON,...SCENT_RIBBON].map((n,i)=>(
             <div key={i} style={{display:"flex", alignItems:"center"}}>
@@ -679,7 +679,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         <div style={{paddingTop:96,marginBottom:52,display:"flex",alignItems:"flex-end",justifyContent:"space-between",flexWrap:"wrap",gap:16}}>
           <div style={{textAlign:"left"}}>
             <p style={{fontSize:9,letterSpacing:6,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Khadlaj Perfumes</p>
-            <h2 className="disp" style={{fontSize:"clamp(32px,4vw,54px)",fontWeight:300,color:"#000",lineHeight:1.15,letterSpacing:"-0.5px"}}>
+            <h2 className="disp" style={{fontSize:"clamp(32px,4vw,54px)",fontWeight:300,color:"#3c1152",lineHeight:1.15,letterSpacing:"-0.5px"}}>
               Where every scent has a story
             </h2>
           </div>
@@ -738,8 +738,8 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             {/* Text Side */}
             <div style={{flex:"1", display:"flex", flexDirection:"column", justifyContent:"center", padding:"12% 8%", zIndex:2}}>
               <p style={{color:"#888", fontSize:9, letterSpacing:4, textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", marginBottom:12, fontWeight:600}}>Build Your</p>
-              <h2 className="disp" style={{color:"#111", fontSize:"clamp(28px, 4vw, 46px)", lineHeight:1.1, marginBottom:28, fontWeight:300}}>Own Bundle</h2>
-              <button style={{background:"transparent", color:"#111", border:"1px solid #111", padding:"12px 32px", fontSize:10, letterSpacing:2.5, textTransform:"uppercase", cursor:"pointer", fontFamily:"'Montserrat',sans-serif", transition:"all .4s ease", width:"max-content"}}
+              <h2 className="disp" style={{color:"#3c1152", fontSize:"clamp(28px, 4vw, 46px)", lineHeight:1.1, marginBottom:28, fontWeight:300}}>Own Bundle</h2>
+              <button style={{background:"transparent", color:"#3c1152", border:"1px solid #3c1152", padding:"12px 32px", fontSize:10, letterSpacing:2.5, textTransform:"uppercase", cursor:"pointer", fontFamily:"'Montserrat',sans-serif", transition:"all .4s ease", width:"max-content"}}
               >Create Now</button>
             </div>
             {/* Image Side */}
@@ -769,8 +769,8 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             {/* Text Side */}
             <div style={{flex:"1", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"flex-end", textAlign:"right", padding:"12% 8%", zIndex:2}}>
               <p style={{color:"#888", fontSize:9, letterSpacing:4, textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", marginBottom:12, fontWeight:600}}>Handpicked</p>
-              <h2 className="disp" style={{color:"#111", fontSize:"clamp(28px, 4vw, 46px)", lineHeight:1.1, marginBottom:28, fontWeight:300}}>Gift Sets</h2>
-              <button style={{background:"transparent", color:"#111", border:"1px solid #111", padding:"12px 32px", fontSize:10, letterSpacing:2.5, textTransform:"uppercase", cursor:"pointer", fontFamily:"'Montserrat',sans-serif", transition:"all .4s ease", width:"max-content"}}
+              <h2 className="disp" style={{color:"#3c1152", fontSize:"clamp(28px, 4vw, 46px)", lineHeight:1.1, marginBottom:28, fontWeight:300}}>Gift Sets</h2>
+              <button style={{background:"transparent", color:"#3c1152", border:"1px solid #3c1152", padding:"12px 32px", fontSize:10, letterSpacing:2.5, textTransform:"uppercase", cursor:"pointer", fontFamily:"'Montserrat',sans-serif", transition:"all .4s ease", width:"max-content"}}
               >Shop Now</button>
             </div>
             {/* Image Side */}
@@ -784,14 +784,14 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         </div>
       </section>
 {/* ── TIKTOK REELS ── */}
-      <section style={{padding:"80px 5%",background:"#000"}}>
+      <section style={{padding:"80px 5%",background:"#fff"}}>
         <div style={{marginBottom:48,textAlign:"center"}}>
           <div style={{width:40,height:1,background:"#B8922A",margin:"0 auto 16px"}}/>
           <p style={{fontSize:8,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Shop by Reel</p>
-          <h2 className="disp" style={{fontSize:"clamp(24px,3vw,42px)",fontWeight:300,color:"#fff",letterSpacing:-0.5,marginBottom:10,lineHeight:1.2}}>
+          <h2 className="disp" style={{fontSize:"clamp(24px,3vw,42px)",fontWeight:300,color:"#3c1152",letterSpacing:-0.5,marginBottom:10,lineHeight:1.2}}>
             Shop by Reel
           </h2>
-          <p style={{color:"rgba(255,255,255,.5)",fontSize:12,fontFamily:"'Montserrat',sans-serif",letterSpacing:0.3}}>
+          <p style={{color:"#777",fontSize:12,fontFamily:"'Montserrat',sans-serif",letterSpacing:0.3}}>
             Browse fragrances through short, stylish reels and discover your next favorite scent.
           </p>
         </div>
@@ -872,7 +872,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             }}
             >
               <div style={{marginBottom:22,display:"flex",justifyContent:"center"}}>{item.icon}</div>
-              <p style={{fontSize:11,fontWeight:700,color:"#111",letterSpacing:2,fontFamily:"'Montserrat',sans-serif",marginBottom:12,textTransform:"uppercase"}}>{item.title}</p>
+              <p style={{fontSize:11,fontWeight:600,color:"#3c1152",letterSpacing:2,fontFamily:"'Montserrat',sans-serif",marginBottom:12,textTransform:"uppercase"}}>{item.title}</p>
               <p style={{fontSize:12,color:"#777",lineHeight:1.7,fontFamily:"'Montserrat',sans-serif",maxWidth:220,margin:"0 auto"}}>{item.desc}</p>
             </div>
           ))}
@@ -880,7 +880,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       </section>
 
       {/* ── SCENT FINDER QUIZ ── */}
-      <section style={{background:"#080808", padding:"96px 5%", color:"#fff", borderTop:"1px solid rgba(255,255,255,0.08)", position:"relative", zIndex:1}}>
+      <section style={{background:"#3c1152", padding:"96px 5%", color:"#fff", borderTop:"1px solid rgba(255,255,255,0.08)", position:"relative", zIndex:1}}>
         <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(320px, 1fr))", gap:64, alignItems:"center"}} className="hero-split">
           
           {/* Left info column */}
@@ -906,7 +906,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             
             {quizStep === 1 && (
               <div style={{animation:"fadeUp .4s ease both"}}>
-                <p style={{fontSize:10, letterSpacing:2, color:"#B8922A", textTransform:"uppercase", fontWeight:700, marginBottom:8, fontFamily:"'Montserrat',sans-serif"}}>Step 1 of 2</p>
+                <p style={{fontSize:10, letterSpacing:2, color:"#B8922A", textTransform:"uppercase", fontWeight:600, marginBottom:8, fontFamily:"'Montserrat',sans-serif"}}>Step 1 of 2</p>
                 <h3 className="disp" style={{fontSize:20, fontWeight:400, color:"#fff", marginBottom:24}}>Choose Your Olfactive Vibe</h3>
                 <div style={{display:"flex", flexDirection:"column", gap:12}}>
                   {[
@@ -920,7 +920,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
                       onMouseEnter={e => { e.currentTarget.style.background = "rgba(184,146,42,0.1)"; e.currentTarget.style.borderColor = "#B8922A"; }}
                       onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; }}
                     >
-                      <p style={{fontSize:12, fontWeight:700, fontFamily:"'Montserrat',sans-serif", margin:0}}>{item.v}</p>
+                      <p style={{fontSize:12, fontWeight:600, fontFamily:"'Montserrat',sans-serif", margin:0}}>{item.v}</p>
                       <p style={{fontSize:9, color:"rgba(255,255,255,0.5)", margin:"4px 0 0", fontFamily:"'Montserrat',sans-serif"}}>{item.desc}</p>
                     </button>
                   ))}
@@ -930,7 +930,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
             {quizStep === 2 && (
               <div style={{animation:"fadeUp .4s ease both"}}>
-                <p style={{fontSize:10, letterSpacing:2, color:"#B8922A", textTransform:"uppercase", fontWeight:700, marginBottom:8, fontFamily:"'Montserrat',sans-serif"}}>Step 2 of 2</p>
+                <p style={{fontSize:10, letterSpacing:2, color:"#B8922A", textTransform:"uppercase", fontWeight:600, marginBottom:8, fontFamily:"'Montserrat',sans-serif"}}>Step 2 of 2</p>
                 <h3 className="disp" style={{fontSize:20, fontWeight:400, color:"#fff", marginBottom:24}}>When will you wear this?</h3>
                 <div style={{display:"flex", flexDirection:"column", gap:12}}>
                   {[
@@ -949,7 +949,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
                       onMouseEnter={e => { e.currentTarget.style.background = "rgba(184,146,42,0.1)"; e.currentTarget.style.borderColor = "#B8922A"; }}
                       onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; }}
                     >
-                      <p style={{fontSize:12, fontWeight:700, fontFamily:"'Montserrat',sans-serif", margin:0}}>{item.label}</p>
+                      <p style={{fontSize:12, fontWeight:600, fontFamily:"'Montserrat',sans-serif", margin:0}}>{item.label}</p>
                       <p style={{fontSize:9, color:"rgba(255,255,255,0.5)", margin:"4px 0 0", fontFamily:"'Montserrat',sans-serif"}}>{item.desc}</p>
                     </button>
                   ))}
@@ -962,7 +962,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
             {quizStep === 3 && quizResult && (
               <div style={{animation:"fadeUp .4s ease both", textAlign:"center"}}>
-                <p style={{fontSize:10, letterSpacing:2, color:"#B8922A", textTransform:"uppercase", fontWeight:700, marginBottom:8, fontFamily:"'Montserrat',sans-serif"}}>Your Scent Match</p>
+                <p style={{fontSize:10, letterSpacing:2, color:"#B8922A", textTransform:"uppercase", fontWeight:600, marginBottom:8, fontFamily:"'Montserrat',sans-serif"}}>Your Scent Match</p>
                 <h3 className="disp" style={{fontSize:20, fontWeight:400, color:"#fff", marginBottom:20}}>The Perfect Fit</h3>
                 
                 {/* Result Box */}
@@ -971,15 +971,15 @@ function HomePage({ setPage, addToCart, setViewProduct }){
                     <img src={quizResult.img} alt={quizResult.name} style={{width:"100%", height:"100%", objectFit:"contain"}}/>
                   </div>
                   <div>
-                    <p style={{fontSize:8, color:"#B8922A", letterSpacing:2, textTransform:"uppercase", margin:0, fontWeight:700, fontFamily:"'Montserrat',sans-serif"}}>{quizResult.col}</p>
-                    <h4 style={{fontSize:15, fontWeight:700, color:"#fff", textTransform:"uppercase", margin:"4px 0 6px", fontFamily:"'Montserrat',sans-serif"}}>{quizResult.name}</h4>
+                    <p style={{fontSize:8, color:"#B8922A", letterSpacing:2, textTransform:"uppercase", margin:0, fontWeight:600, fontFamily:"'Montserrat',sans-serif"}}>{quizResult.col}</p>
+                    <h4 style={{fontSize:15, fontWeight:600, color:"#fff", textTransform:"uppercase", margin:"4px 0 6px"}}>{quizResult.name}</h4>
                     <p style={{fontSize:11, color:"rgba(255,255,255,0.6)", margin:0, fontFamily:"'Montserrat',sans-serif"}}>{quizResult.size}</p>
                   </div>
                 </div>
 
                 <div style={{display:"flex", gap:12}}>
                   <button onClick={() => { setViewProduct(quizResult); setPage("product"); }}
-                    style={{flex:1, background:"#B8922A", border:"1px solid #B8922A", color:"#fff", padding:"14px", fontSize:10, letterSpacing:2, textTransform:"uppercase", cursor:"pointer", fontWeight:700, borderRadius:4, transition:"all .25s ease"}}
+                    style={{flex:1, background:"#B8922A", border:"1px solid #B8922A", color:"#fff", padding:"14px", fontSize:10, letterSpacing:2, textTransform:"uppercase", cursor:"pointer", fontWeight:600, borderRadius:4, transition:"all .25s ease"}}
                     onMouseEnter={e => { e.currentTarget.style.background = "#fff"; e.currentTarget.style.color = "#000"; e.currentTarget.style.borderColor = "#fff"; }}
                     onMouseLeave={e => { e.currentTarget.style.background = "#B8922A"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#B8922A"; }}
                   >
@@ -1006,7 +1006,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           <div>
             <div style={{width:32,height:1,background:"#B8922A",marginBottom:18}}/>
             <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Gifting</p>
-            <h2 className="disp" style={{fontSize:"clamp(30px,3.8vw,52px)",fontWeight:300,color:"#000",lineHeight:1,letterSpacing:-1}}>
+            <h2 className="disp" style={{fontSize:"clamp(30px,3.8vw,52px)",fontWeight:300,color:"#3c1152",lineHeight:1,letterSpacing:-1}}>
               Curated<br/><em className="luxury-gold-text" style={{fontStyle:"italic"}}>Gift Collections</em>
             </h2>
           </div>
@@ -1020,11 +1020,11 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         </div>
       </section>
       {/* ── TESTIMONIALS ── */}
-      <section style={{background:"#000",padding:"96px 5%"}}>
+      <section style={{background:"#3c1152",padding:"96px 5%"}}>
         <SectionHeader eyebrow="Reviews" title="Loved Across the Gulf" light={true} />
         <div className="grid-4" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:1,background:"rgba(255,255,255,.15)"}}>
           {REVIEWS.map((r,i)=>(
-            <div key={i} style={{background:"#000",padding:"48px 32px",display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center"}}>
+            <div key={i} style={{background:"#3c1152",padding:"48px 32px",display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center",transition:"background 0.3s ease"}} onMouseEnter={e=>e.currentTarget.style.background="rgba(255,255,255,0.03)"} onMouseLeave={e=>e.currentTarget.style.background="#3c1152"}>
               <StarRating n={r.stars} color="#B8922A"/>
               <p className="disp" style={{fontSize:14,color:"rgba(255,255,255,0.85)",lineHeight:1.8,margin:"24px 0",fontStyle:"italic",fontWeight:300}}>"{r.text}"</p>
               <div style={{marginTop:"auto"}}>
@@ -1042,7 +1042,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         <div style={{textAlign:"center",paddingTop:96,marginBottom:52}}>
           <div style={{width:40,height:1,background:"#B8922A",margin:"0 auto 20px"}}/>
           <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:16}}>@KhadlajPerfumes</p>
-          <h2 className="disp" style={{fontSize:"clamp(28px,3.5vw,50px)",fontWeight:300,color:"#000",letterSpacing:-0.5,lineHeight:1.1,marginBottom:20}}>
+          <h2 className="disp" style={{fontSize:"clamp(28px,3.5vw,50px)",fontWeight:300,color:"#3c1152",letterSpacing:-0.5,lineHeight:1.1,marginBottom:20}}>
             Feel the World of <em className="luxury-gold-text" style={{fontStyle:"italic"}}>Khadlaj</em>
           </h2>
           <p style={{fontSize:13,color:"#888",fontFamily:"'Montserrat',sans-serif",letterSpacing:.3,marginBottom:28,maxWidth:420,margin:"0 auto 28px"}}>
@@ -1053,13 +1053,13 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             target="_blank" rel="noreferrer"
             style={{
               display:"inline-flex",alignItems:"center",gap:8,
-              border:"1px solid #000",color:"#000",background:"transparent",
+              border:"1px solid #000",color:"#3c1152",background:"transparent",
               padding:"11px 28px",fontSize:9,letterSpacing:2.5,
               textTransform:"uppercase",textDecoration:"none",
               fontFamily:"'Montserrat',sans-serif",transition:"all .22s",
             }}
-            onMouseEnter={e=>{e.currentTarget.style.background="#000";e.currentTarget.style.color="#fff";}}
-            onMouseLeave={e=>{e.currentTarget.style.background="transparent";e.currentTarget.style.color="#000";}}
+            onMouseEnter={e=>{e.currentTarget.style.background="#3c1152";e.currentTarget.style.color="#fff";}}
+            onMouseLeave={e=>{e.currentTarget.style.background="transparent";e.currentTarget.style.color="#3c1152";}}
           >Follow Us</a>
         </div>
 
@@ -1124,7 +1124,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }){
     <div style={{background:"#fff"}}>
 
       {/* ── Hero Banner ── */}
-      <div style={{position:"relative",height:"clamp(300px,38vw,500px)",overflow:"hidden",background:"#000"}}>
+      <div style={{position:"relative",height:"clamp(300px,38vw,500px)",overflow:"hidden",background:"#3c1152"}}>
         {/* Background collage of product images */}
         <div style={{position:"absolute",inset:0,display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:2,opacity:.5}}>
           {[
@@ -1188,11 +1188,11 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }){
           <div style={{display:"flex",alignItems:"center",gap:8}}>
             <span style={{fontSize:8.5,color:"#888",letterSpacing:0.8,fontFamily:"'Montserrat',sans-serif",whiteSpace:"nowrap"}}>Max {formatPrice(priceMax)}</span>
             <input type="range" min={50} max={800} value={priceMax} onChange={e=>setPriceMax(+e.target.value)}
-              style={{width:90,accentColor:"#000"}}/>
+              style={{width:90,accentColor:"#3c1152"}}/>
           </div>
           <select value={sortBy} onChange={e=>setSortBy(e.target.value)}
             style={{
-              background:"#fff",color:"#000",
+              background:"#fff",color:"#3c1152",
               border:"1px solid #E0E0E0",
               padding:"7px 12px",fontSize:9,cursor:"pointer",
               letterSpacing:0.8,fontFamily:"'Montserrat',sans-serif",
@@ -1212,14 +1212,14 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }){
             <div style={{position:"sticky",top:100,border:"1px solid #E8E4DC",background:"linear-gradient(180deg,#fff 0%,#FFFCF7 100%)",padding:18,boxShadow:"0 18px 42px rgba(0,0,0,.045)"}}>
             <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:12,marginBottom:18}}>
               <div>
-                <p style={{fontSize:9,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:700,marginBottom:6}}>Shop By</p>
-                <p className="disp" style={{fontSize:22,lineHeight:1,color:"#111",fontWeight:300}}>Collections</p>
+                <p style={{fontSize:9,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginBottom:6}}>Shop By</p>
+                <p className="disp" style={{fontSize:22,lineHeight:1,color:"#3c1152",fontWeight:300}}>Collections</p>
               </div>
               <span style={{width:34,height:34,border:"1px solid #E5D6B5",borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",color:"#B8922A",fontSize:15}}>+</span>
             </div>
             {CATEGORIES.map(c=>(
               <button key={c} onClick={()=>setActiveCat(c)}
-                style={{width:"100%",display:"flex",alignItems:"center",justifyContent:"space-between",gap:10,textAlign:"left",background:activeCat===c?"#111":"rgba(255,255,255,.72)",color:activeCat===c?"#fff":"#444",border:"1px solid",borderColor:activeCat===c?"#111":"#EEE",padding:"12px 12px",marginBottom:8,fontSize:10,letterSpacing:1.35,cursor:"pointer",fontWeight:activeCat===c?800:600,transition:"all .18s",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",boxShadow:activeCat===c?"0 10px 24px rgba(0,0,0,.12)":"none"}}
+                style={{width:"100%",display:"flex",alignItems:"center",justifyContent:"space-between",gap:10,textAlign:"left",background:activeCat===c?"#3c1152":"rgba(255,255,255,.72)",color:activeCat===c?"#fff":"#444",border:"1px solid",borderColor:activeCat===c?"#3c1152":"#EEE",padding:"12px 12px",marginBottom:8,fontSize:10,letterSpacing:1.35,cursor:"pointer",fontWeight:activeCat===c?600:600,transition:"all .18s",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",boxShadow:activeCat===c?"0 10px 24px rgba(60,17,82,.22)":"none"}}
               >
                 <span style={{display:"flex",alignItems:"center",gap:8}}>
                   <span style={{width:6,height:6,borderRadius:"50%",background:activeCat===c?"#B8922A":"#D7C59E",display:"inline-block",flexShrink:0}}/>
@@ -1238,7 +1238,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }){
               </button>
             ))}
             <button onClick={()=>setPage("lafede")}
-              style={{width:"100%",textAlign:"left",background:"linear-gradient(135deg,#F8F1DE 0%,#fff 100%)",color:"#8A681F",border:"1px solid #E6D8B6",padding:"14px 12px",marginTop:12,fontSize:10,letterSpacing:1.4,cursor:"pointer",fontWeight:800,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",boxShadow:"inset 0 0 0 1px rgba(255,255,255,.55)"}}
+              style={{width:"100%",textAlign:"left",background:"linear-gradient(135deg,#F8F1DE 0%,#fff 100%)",color:"#8A681F",border:"1px solid #E6D8B6",padding:"14px 12px",marginTop:12,fontSize:10,letterSpacing:1.4,cursor:"pointer",fontWeight:600,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",boxShadow:"inset 0 0 0 1px rgba(255,255,255,.55)"}}
             >
               La Fede Landing <span style={{float:"right",fontSize:12}}>{"->"}</span>
             </button>
@@ -1258,7 +1258,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }){
 
             {filtered.length===0 && (
               <div style={{textAlign:"center",padding:"96px 0"}}>
-                <p className="disp" style={{fontSize:36,fontWeight:300,color:"#000",marginBottom:12}}>No fragrances found</p>
+                <p className="disp" style={{fontSize:36,fontWeight:300,color:"#3c1152",marginBottom:12}}>No fragrances found</p>
                 <p style={{fontSize:13,color:"#888",fontFamily:"'Montserrat',sans-serif"}}>Try adjusting the filters above.</p>
               </div>
             )}
@@ -1307,7 +1307,7 @@ function LaFedePage({ addToCart, setViewProduct, setPage }){
         <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",gap:24,flexWrap:"wrap",marginBottom:40}}>
           <div>
             <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>La Fede</p>
-            <h2 className="disp" style={{fontSize:"clamp(34px,4.5vw,64px)",fontWeight:300,color:"#000",lineHeight:1.05,letterSpacing:-1,marginBottom:12}}>Signature Selection</h2>
+            <h2 className="disp" style={{fontSize:"clamp(34px,4.5vw,64px)",fontWeight:300,color:"#3c1152",lineHeight:1.05,letterSpacing:-1,marginBottom:12}}>Signature Selection</h2>
             <p style={{fontSize:13,color:"#777",fontFamily:"'Montserrat',sans-serif",lineHeight:1.8,maxWidth:560}}>Bold, characterful fragrances presented in their own collection.</p>
           </div>
           <ProductFilterBar active={laFedeFilter} setActive={setLaFedeFilter} options={filterOptions}/>
@@ -1332,7 +1332,7 @@ function Accordion({ title, children, defaultOpen=false }) {
           width:"100%", display:"flex", justifyContent:"space-between", alignItems:"center",
           padding:"20px 0", background:"transparent", border:"none", cursor:"pointer",
           fontSize:12, letterSpacing:2, textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif",
-          fontWeight:600, color:"#111"
+          fontWeight:600, color:"#3c1152"
         }}
       >
         <span>{title}</span>
@@ -1362,7 +1362,7 @@ function ProductFilterBar({ active, setActive, options }) {
             letterSpacing:1.8,
             textTransform:"uppercase",
             fontFamily:"'Montserrat',sans-serif",
-            fontWeight:800,
+            fontWeight:600,
             cursor:"pointer",
             transition:"all .2s ease",
             whiteSpace:"nowrap",
@@ -1409,9 +1409,9 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
       
       {/* ── Breadcrumbs ── */}
       <div style={{padding:"32px 5% 0", maxWidth:1440, margin:"0 auto", fontSize:10, letterSpacing:1.5, textTransform:"uppercase", color:"#888", fontFamily:"'Montserrat',sans-serif"}}>
-        <span style={{cursor:"pointer", color:"#111"}} onClick={()=>setPage("home")}>Home</span>
+        <span style={{cursor:"pointer", color:"#3c1152"}} onClick={()=>setPage("home")}>Home</span>
         <span style={{margin:"0 12px"}}>|</span>
-        <span style={{cursor:"pointer", color:"#111"}} onClick={()=>setPage("collections")}>Collections</span>
+        <span style={{cursor:"pointer", color:"#3c1152"}} onClick={()=>setPage("collections")}>Collections</span>
         <span style={{margin:"0 12px"}}>|</span>
         <span>{product.name}</span>
       </div>
@@ -1441,10 +1441,10 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
           {/* ── Right: Product Details (Sticky) ── */}
           <div style={{paddingTop:8, maxWidth:540, position:"sticky", top:120, alignSelf:"start"}}>
              {/* EYEBROW */}
-             <p style={{fontSize:10, letterSpacing:3, color:"#111", textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", marginBottom:16}}>Khadlaj Perfumes</p>
+             <p style={{fontSize:10, letterSpacing:3, color:"#3c1152", textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", marginBottom:16}}>Khadlaj Perfumes</p>
              
              {/* TITLE */}
-             <h1 className="disp" style={{fontSize:"clamp(36px, 4.5vw, 52px)", fontWeight:300, color:"#000", lineHeight:1.05, letterSpacing:"-0.5px", textTransform:"uppercase", marginBottom:16}}>
+             <h1 className="disp" style={{fontSize:"clamp(36px, 4.5vw, 52px)", fontWeight:300, color:"#3c1152", lineHeight:1.05, letterSpacing:"-0.5px", textTransform:"uppercase", marginBottom:16}}>
                {product.name}
              </h1>
 
@@ -1455,13 +1455,13 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
              </div>
 
              {/* PRICE */}
-             <p style={{fontSize:24, fontWeight:400, color:"#111", fontFamily:"'Montserrat',sans-serif", marginBottom:8}}>{formatPrice(product.price)}</p>
+             <p style={{fontSize:24, fontWeight:400, color:"#3c1152", fontFamily:"'Montserrat',sans-serif", marginBottom:8}}>{formatPrice(product.price)}</p>
              <p style={{fontSize:12, color:"#777", fontFamily:"'Montserrat',sans-serif", marginBottom:40}}>Tax included. Shipping calculated at checkout.</p>
 
              {/* VARIANT / SIZE */}
              <div style={{marginBottom:40}}>
-               <p style={{fontSize:11, letterSpacing:1.5, textTransform:"uppercase", color:"#111", fontFamily:"'Montserrat',sans-serif", marginBottom:12, fontWeight:600}}>Size</p>
-               <button style={{border:"1px solid #111", background:"#fff", color:"#111", padding:"12px 28px", fontSize:12, letterSpacing:1.5, fontFamily:"'Montserrat',sans-serif", cursor:"default"}}>
+               <p style={{fontSize:11, letterSpacing:1.5, textTransform:"uppercase", color:"#3c1152", fontFamily:"'Montserrat',sans-serif", marginBottom:12, fontWeight:600}}>Size</p>
+               <button style={{border:"1px solid #3c1152", background:"#fff", color:"#3c1152", padding:"12px 28px", fontSize:12, letterSpacing:1.5, fontFamily:"'Montserrat',sans-serif", cursor:"default"}}>
                  {product.size}
                </button>
              </div>
@@ -1479,8 +1479,8 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                <button 
                  onClick={handleAdd} 
                  style={{
-                   flex:1, minWidth:200, height:56, background:"#111", color:"#fff", border:"none", 
-                   fontSize:12, fontWeight:700, letterSpacing:2, textTransform:"uppercase", 
+                   flex:1, minWidth:200, height:56, background:"#3c1152", color:"#fff", border:"none", 
+                   fontSize:12, fontWeight:600, letterSpacing:2, textTransform:"uppercase", 
                    fontFamily:"'Montserrat',sans-serif", cursor:"pointer", transition:"background .2s"
                  }} 
                  onMouseEnter={e=>e.currentTarget.style.background="#333"} 
@@ -1562,7 +1562,7 @@ function GiftsPage({ addToCart, setViewProduct, setPage }){
     <div style={{background:"#fff"}}>
 
       {/* ── Hero Banner ── */}
-      <div style={{position:"relative",height:"clamp(280px,38vw,480px)",overflow:"hidden",background:"#000"}}>
+      <div style={{position:"relative",height:"clamp(280px,38vw,480px)",overflow:"hidden",background:"#3c1152"}}>
         <img
           src="./assets/images/banners/gifts-wide-banner.png"
           alt="Gift Sets"
@@ -1589,7 +1589,7 @@ function GiftsPage({ addToCart, setViewProduct, setPage }){
         <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",flexWrap:"wrap",gap:16,marginBottom:52}}>
           <div>
             <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Curated Collections</p>
-            <h2 className="disp" style={{fontSize:"clamp(28px,3.5vw,50px)",fontWeight:300,color:"#000",letterSpacing:-1,lineHeight:1.05}}>
+            <h2 className="disp" style={{fontSize:"clamp(28px,3.5vw,50px)",fontWeight:300,color:"#3c1152",letterSpacing:-1,lineHeight:1.05}}>
               Gift Sets &amp; <em style={{fontStyle:"italic",color:"#B8922A"}}>Bundles</em>
             </h2>
           </div>
@@ -1607,7 +1607,7 @@ function GiftsPage({ addToCart, setViewProduct, setPage }){
       </section>
 
       {/* ── Build Your Own CTA ── */}
-      <section style={{background:"#000",padding:"80px 5%",textAlign:"center"}}>
+      <section style={{background:"#3c1152",padding:"80px 5%",textAlign:"center"}}>
         <div style={{maxWidth:580,margin:"0 auto"}}>
           <div style={{width:40,height:1,background:"#B8922A",margin:"0 auto 32px"}}/>
           <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:16}}>Custom Orders</p>
@@ -1631,9 +1631,9 @@ function StoryPage(){
     <div style={{background:"#fff"}}>
 
       {/* ── Hero Banner ── */}
-      <div style={{position:"relative",height:"clamp(340px,45vw,560px)",overflow:"hidden",background:"#000"}}>
+      <div style={{position:"relative",height:"clamp(340px,45vw,560px)",overflow:"hidden",background:"#3c1152"}}>
         {/* Split background — founder photo left, perfume bottles right */}
-        <div style={{position:"absolute",inset:0,display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:1,background:"#111"}}>
+        <div style={{position:"absolute",inset:0,display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:1,background:"#3c1152"}}>
           {[
             {src:"./assets/images/products/island-packshot-tight_transparent.png",alt:"Island"},
             {src:"./assets/images/products/shahi-oud_transparent.png",alt:"Hareem Al Sultan"},
@@ -1804,7 +1804,7 @@ function ContactPage(){
         <div>
           <div style={{width:32,height:1,background:"#B8922A",marginBottom:20}}/>
           <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:14}}>Reach Us</p>
-          <h2 className="disp" style={{fontSize:"clamp(28px,3vw,44px)",fontWeight:300,marginBottom:24,lineHeight:1.1,color:"#000",letterSpacing:-1}}>We'd Love to Hear From You</h2>
+          <h2 className="disp" style={{fontSize:"clamp(28px,3vw,44px)",fontWeight:300,marginBottom:24,lineHeight:1.1,color:"#3c1152",letterSpacing:-1}}>We'd Love to Hear From You</h2>
           <p style={{color:"#777",lineHeight:1.85,fontSize:14,marginBottom:36,fontFamily:"'Montserrat',sans-serif"}}>
             Whether you're a fragrance enthusiast, a retail partner, or a gifting client — our team is here to help.
           </p>
@@ -1833,14 +1833,14 @@ function ContactPage(){
               ].map(([s,href])=>(
                 <a key={s} href={href} target="_blank" rel="noreferrer"
                   style={{
-                    border:"1px solid #000",color:"#000",
+                    border:"1px solid #000",color:"#3c1152",
                     padding:"9px 16px",fontSize:9,letterSpacing:2,
                     cursor:"pointer",textDecoration:"none",
                     fontFamily:"'Montserrat',sans-serif",textTransform:"uppercase",
                     transition:"all .2s",
                   }}
-                  onMouseEnter={e=>{e.currentTarget.style.background="#000";e.currentTarget.style.color="#fff";}}
-                  onMouseLeave={e=>{e.currentTarget.style.background="transparent";e.currentTarget.style.color="#000";}}
+                  onMouseEnter={e=>{e.currentTarget.style.background="#3c1152";e.currentTarget.style.color="#fff";}}
+                  onMouseLeave={e=>{e.currentTarget.style.background="transparent";e.currentTarget.style.color="#3c1152";}}
                 >{s}</a>
               ))}
             </div>
@@ -1934,7 +1934,7 @@ function SignupPageOld(){
               {["Early access","Private offers","Fragrance news"].map(item=>(
                 <div key={item} style={{border:"1px solid rgba(255,255,255,.14)",background:"rgba(255,255,255,.045)",padding:"14px 12px"}}>
                   <span style={{display:"block",width:6,height:6,borderRadius:"50%",background:"#B8922A",marginBottom:10}}/>
-                  <p style={{fontSize:9,letterSpacing:1.6,color:"rgba(255,255,255,.72)",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:700,lineHeight:1.4}}>{item}</p>
+                  <p style={{fontSize:9,letterSpacing:1.6,color:"rgba(255,255,255,.72)",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,lineHeight:1.4}}>{item}</p>
                 </div>
               ))}
             </div>
@@ -1943,7 +1943,7 @@ function SignupPageOld(){
           {done ? (
             <div style={{textAlign:"center",padding:"52px 0"}}>
               <div style={{width:54,height:54,borderRadius:"50%",background:"#B8922A",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 22px",color:"#fff",fontSize:22}}>✓</div>
-              <h2 className="disp" style={{fontSize:38,color:"#111",fontWeight:300,marginBottom:12}}>You're In</h2>
+              <h2 className="disp" style={{fontSize:38,color:"#3c1152",fontWeight:300,marginBottom:12}}>You're In</h2>
               <p style={{color:"#777",fontSize:13,lineHeight:1.8,fontFamily:"'Montserrat',sans-serif"}}>Thank you for joining the Khadlaj Circle.</p>
               <button className="btn-ghost" onClick={()=>setDone(false)} style={{marginTop:28}}>Add Another</button>
             </div>
@@ -1951,7 +1951,7 @@ function SignupPageOld(){
             <div style={{position:"relative",zIndex:1}}>
               <div style={{width:38,height:1,background:"#B8922A",marginBottom:20}}/>
               <p style={{fontSize:9,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:14}}>Member Access</p>
-              <h2 className="disp" style={{fontSize:"clamp(32px,4vw,54px)",fontWeight:300,lineHeight:1.05,color:"#111",marginBottom:14}}>Create your account</h2>
+              <h2 className="disp" style={{fontSize:"clamp(32px,4vw,54px)",fontWeight:300,lineHeight:1.05,color:"#3c1152",marginBottom:14}}>Create your account</h2>
               <p style={{fontSize:13,color:"#777",lineHeight:1.8,fontFamily:"'Montserrat',sans-serif",marginBottom:30,maxWidth:520}}>
                 Receive curated updates and exclusive Khadlaj moments directly in your inbox.
               </p>
@@ -1961,13 +1961,13 @@ function SignupPageOld(){
                 ["Phone","phone","tel"],
               ].map(([label,key,type])=>(
                 <div key={key} style={{marginBottom:18}}>
-                  <label style={{fontSize:9,letterSpacing:2.8,color:"#9B8A67",display:"block",marginBottom:8,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:700}}>{label}</label>
+                  <label style={{fontSize:9,letterSpacing:2.8,color:"#9B8A67",display:"block",marginBottom:8,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>{label}</label>
                   <input type={type} value={form[key]} onChange={e=>setForm({...form,[key]:e.target.value})}
-                    style={{width:"100%",background:"#FAF8F4",border:"1px solid #E8E0D2",borderBottom:"1px solid #B8922A",color:"#111",padding:"15px 16px",fontSize:14,outline:"none",fontFamily:"'Montserrat',sans-serif"}}
+                    style={{width:"100%",background:"#FAF8F4",border:"1px solid #E8E0D2",borderBottom:"1px solid #B8922A",color:"#3c1152",padding:"15px 16px",fontSize:14,outline:"none",fontFamily:"'Montserrat',sans-serif"}}
                   />
                 </div>
               ))}
-              <button onClick={submit} style={{width:"100%",background:"#111",color:"#fff",border:"none",padding:"17px",fontSize:10,letterSpacing:3,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:800,marginTop:8}}>Create Account</button>
+              <button onClick={submit} style={{width:"100%",background:"#3c1152",color:"#fff",border:"none",padding:"17px",fontSize:10,letterSpacing:3,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginTop:8}}>Create Account</button>
               <p style={{fontSize:10,color:"#999",lineHeight:1.7,fontFamily:"'Montserrat',sans-serif",marginTop:18,textAlign:"center"}}>
                 By signing up, you agree to receive Khadlaj updates and offers.
               </p>
@@ -1980,14 +1980,29 @@ function SignupPageOld(){
   );
 }
 
+function FloatingInput({ label, type, value, onChange }) {
+  const [focus, setFocus] = React.useState(false);
+  const active = focus || value.length > 0;
+  return (
+    <div style={{position:"relative", marginBottom:24}}>
+      <label style={{position:"absolute", left:16, top:active ? 8 : 18, fontSize:active ? 9 : 13, color:active ? "#B8922A" : "#999", letterSpacing:active?2:0, textTransform:active?"uppercase":"none", transition:"all 0.25s ease", pointerEvents:"none", fontFamily:"'Montserrat',sans-serif", fontWeight:active?700:400}}>
+        {label}
+      </label>
+      <input
+        type={type} value={value} onChange={onChange}
+        onFocus={()=>setFocus(true)} onBlur={()=>setFocus(false)}
+        style={{width:"100%", background:"#FAF8F4", border:"1px solid", borderColor:active ? "#B8922A" : "#E8E0D2", color:"#3c1152", padding:"24px 16px 8px", fontSize:15, outline:"none", fontFamily:"'Montserrat',sans-serif", transition:"border-color 0.3s ease"}}
+      />
+    </div>
+  );
+}
+
 function SignupPage(){
   const [mode, setMode] = useState("login");
   const [done, setDone] = useState("");
   const [signupForm, setSignupForm] = useState({name:"",email:"",phone:"",password:""});
   const [loginForm, setLoginForm] = useState({email:"",password:""});
   const [forgotEmail, setForgotEmail] = useState("");
-  const fieldStyle = {width:"100%",background:"#FAF8F4",border:"1px solid #E8E0D2",borderBottom:"1px solid #B8922A",color:"#111",padding:"15px 16px",fontSize:14,outline:"none",fontFamily:"'Montserrat',sans-serif"};
-  const labelStyle = {fontSize:9,letterSpacing:2.8,color:"#9B8A67",display:"block",marginBottom:8,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:700};
   const submit = (type) => {
     setDone(type);
     if(type==="signup") setSignupForm({name:"",email:"",phone:"",password:""});
@@ -2004,14 +2019,15 @@ function SignupPage(){
   return (
     <div style={{background:"linear-gradient(180deg,#fff 0%,#FAF8F4 100%)"}}>
       <section style={{padding:"74px 5% 96px"}}>
-        <div style={{maxWidth:1420,margin:"0 auto",display:"grid",gridTemplateColumns:".95fr 1.05fr",alignItems:"stretch",border:"1px solid #E8E0D2",boxShadow:"0 28px 80px rgba(0,0,0,.08)",background:"#fff"}} className="hero-split">
-          <div className="auth-visual-panel" style={{position:"relative",overflow:"hidden",minHeight:640,background:"linear-gradient(135deg,#080808 0%,#15110A 72%,#060606 100%)",padding:"58px 52px",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
-            <div style={{position:"absolute",top:-110,right:-90,width:340,height:340,borderRadius:"50%",background:"radial-gradient(circle,rgba(184,146,42,.28),rgba(184,146,42,0) 68%)"}}/>
-            <div style={{position:"relative",zIndex:2,maxWidth:470}}>
+        <div style={{maxWidth:1420,margin:"0 auto",display:"grid",gridTemplateColumns:".95fr 1.05fr",alignItems:"stretch",border:"1px solid #E8E0D2",boxShadow:"0 40px 100px rgba(0,0,0,.06)",background:"#fff"}} className="hero-split">
+          <div className="auth-visual-panel" style={{position:"relative",overflow:"hidden",minHeight:680,background:"url('./assets/images/banners/spring-banner.png') center/cover",padding:"58px 52px",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
+            <div style={{position:"absolute",inset:0,background:"linear-gradient(135deg, rgba(60,17,82,0.85) 0%, rgba(10,10,10,0.95) 100%)"}}/>
+            <div style={{position:"absolute",top:-110,right:-90,width:340,height:340,borderRadius:"50%",background:"radial-gradient(circle,rgba(184,146,42,.28),rgba(184,146,42,0) 68%)",zIndex:1}}/>
+            <div style={{position:"relative",zIndex:2,maxWidth:470,marginTop:"auto",marginBottom:"auto"}}>
               <div style={{width:42,height:1,background:"#B8922A",marginBottom:22}}/>
-              <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:18}}>Khadlaj Circle</p>
-              <h1 className="disp" style={{fontSize:"clamp(42px,5.4vw,78px)",fontWeight:300,lineHeight:.98,color:"#fff",marginBottom:22}}>{mode==="login" ? "Login" : mode==="forgot" ? "Reset Password" : "Sign Up"}</h1>
-              <p style={{fontSize:14,color:"rgba(255,255,255,.68)",lineHeight:1.9,maxWidth:430,fontFamily:"'Montserrat',sans-serif"}}>
+              <p style={{fontSize:9,letterSpacing:6,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:18}}>Khadlaj Circle</p>
+              <h1 className="disp" style={{fontSize:"clamp(48px,6vw,84px)",fontWeight:300,lineHeight:.98,color:"#fff",marginBottom:24,letterSpacing:"-1px"}}>{mode==="login" ? "Login" : mode==="forgot" ? "Reset Password" : "Sign Up"}</h1>
+              <p style={{fontSize:15,color:"rgba(255,255,255,.75)",lineHeight:1.9,maxWidth:430,fontFamily:"'Montserrat',sans-serif",fontWeight:300}}>
                 {mode==="login" ? "Welcome back! Login to manage your Khadlaj profile, wishlist, and exclusive offers." : mode==="forgot" ? "Enter your email and we will send you password reset instructions." : "Join Khadlaj Circle for new launch previews, fragrance stories, and private exclusive offers."}
               </p>
             </div>
@@ -2019,67 +2035,60 @@ function SignupPage(){
 
           <div style={{padding:"52px",background:"#fff",display:"flex",flexDirection:"column",justifyContent:"center"}}>
             {done ? (
-              <div style={{textAlign:"center",padding:"52px 0"}}>
-                <div style={{width:54,height:54,borderRadius:"50%",background:"#B8922A",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 22px",color:"#fff",fontSize:12,letterSpacing:2,fontFamily:"'Montserrat',sans-serif",fontWeight:800}}>OK</div>
-                <h2 className="disp" style={{fontSize:38,color:"#111",fontWeight:300,marginBottom:12}}>{done==="forgot" ? "Check Your Email" : done==="login" ? "Welcome Back" : "You're In"}</h2>
-                <p style={{color:"#777",fontSize:13,lineHeight:1.8,fontFamily:"'Montserrat',sans-serif"}}>
+              <div style={{textAlign:"center",padding:"52px 0",animation:"fadeIn .5s ease"}}>
+                <div style={{width:64,height:64,borderRadius:"50%",background:"#3c1152",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 24px",color:"#fff",fontSize:13,letterSpacing:2,fontFamily:"'Montserrat',sans-serif",fontWeight:600,boxShadow:"0 12px 24px rgba(60,17,82,.2)"}}>OK</div>
+                <h2 className="disp" style={{fontSize:42,color:"#3c1152",fontWeight:300,marginBottom:12}}>{done==="forgot" ? "Check Your Email" : done==="login" ? "Welcome Back" : "You're In"}</h2>
+                <p style={{color:"#777",fontSize:14,lineHeight:1.8,fontFamily:"'Montserrat',sans-serif"}}>
                   {done==="forgot" ? "Password reset instructions have been prepared for your email." : done==="login" ? "You are ready to continue your Khadlaj experience." : "Thank you for joining the Khadlaj Circle."}
                 </p>
-                <button className="btn-ghost" onClick={()=>setDone("")} style={{marginTop:28}}>Continue</button>
+                <button className="btn-ghost" onClick={()=>setDone("")} style={{marginTop:32,padding:"16px 32px",borderColor:"#3c1152",color:"#3c1152"}}>Continue</button>
               </div>
             ) : (
-              <div style={{position:"relative",zIndex:1}}>
-                <div style={{display:mode==="forgot"?"none":"grid",gridTemplateColumns:"1fr 1fr",gap:8,background:"#F4EFE5",padding:5,marginBottom:30}}>
+              <div style={{position:"relative",zIndex:1,animation:"fadeIn .4s ease"}}>
+                <div style={{display:mode==="forgot"?"none":"flex",gap:32,borderBottom:"1px solid #E8E0D2",marginBottom:42}}>
                   {["login","signup"].map(tab=>(
-                    <button key={tab} onClick={()=>setMode(tab)} style={{border:"none",background:mode===tab?"#111":"transparent",color:mode===tab?"#fff":"#111",padding:"13px 10px",fontSize:10,letterSpacing:2.4,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:800,cursor:"pointer"}}>
+                    <button key={tab} onClick={()=>setMode(tab)} style={{border:"none",background:"transparent",color:mode===tab?"#3c1152":"#999",padding:"0 0 16px",fontSize:11,letterSpacing:2.4,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,cursor:"pointer",position:"relative",transition:"color .3s ease"}}>
                       {tab==="login" ? "Login" : "Sign Up"}
+                      {mode===tab && <span style={{position:"absolute",bottom:-1,left:0,right:0,height:2,background:"#3c1152",animation:"slideIn .3s ease"}}/>}
                     </button>
                   ))}
                 </div>
-                <div style={{width:38,height:1,background:"#B8922A",marginBottom:20}}/>
-                <p style={{fontSize:9,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:14}}>Member Access</p>
-                <h2 className="disp" style={{fontSize:"clamp(30px,3.7vw,50px)",fontWeight:300,lineHeight:1.05,color:"#111",marginBottom:14}}>{title}</h2>
-                <p style={{fontSize:13,color:"#777",lineHeight:1.8,fontFamily:"'Montserrat',sans-serif",marginBottom:28,maxWidth:520}}>{subtitle}</p>
+                {mode==="forgot" && <div style={{width:42,height:1,background:"#B8922A",marginBottom:22}}/>}
+                
+                <h2 className="disp" style={{fontSize:"clamp(32px,3.7vw,54px)",fontWeight:300,lineHeight:1.05,color:"#3c1152",marginBottom:14}}>{title}</h2>
+                <p style={{fontSize:14,color:"#777",lineHeight:1.8,fontFamily:"'Montserrat',sans-serif",marginBottom:36,maxWidth:520}}>{subtitle}</p>
 
                 {mode==="signup" && (
-                  <>
-                    {[["Name","name","text"],["Email","email","email"],["Phone","phone","tel"],["Password","password","password"]].map(([label,key,type])=>(
-                      <div key={key} style={{marginBottom:16}}>
-                        <label style={labelStyle}>{label}</label>
-                        <input type={type} value={signupForm[key]} onChange={e=>setSignupForm({...signupForm,[key]:e.target.value})} style={fieldStyle}/>
-                      </div>
-                    ))}
-                    <button onClick={()=>submit("signup")} style={{width:"100%",background:"#111",color:"#fff",border:"none",padding:"17px",fontSize:10,letterSpacing:3,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:800,marginTop:6}}>Create Account</button>
-                  </>
+                  <div style={{animation:"fadeIn .4s ease"}}>
+                    <FloatingInput label="Full Name" type="text" value={signupForm.name} onChange={e=>setSignupForm({...signupForm,name:e.target.value})} />
+                    <FloatingInput label="Email Address" type="email" value={signupForm.email} onChange={e=>setSignupForm({...signupForm,email:e.target.value})} />
+                    <FloatingInput label="Phone Number" type="tel" value={signupForm.phone} onChange={e=>setSignupForm({...signupForm,phone:e.target.value})} />
+                    <FloatingInput label="Password" type="password" value={signupForm.password} onChange={e=>setSignupForm({...signupForm,password:e.target.value})} />
+                    <button onClick={()=>submit("signup")} style={{width:"100%",background:"#3c1152",color:"#fff",border:"none",padding:"20px",fontSize:11,letterSpacing:3,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginTop:12,boxShadow:"0 12px 24px rgba(60,17,82,.15)",transition:"all .3s ease"}} onMouseEnter={e=>e.currentTarget.style.transform="translateY(-2px)"} onMouseLeave={e=>e.currentTarget.style.transform="translateY(0)"}>Create Account</button>
+                  </div>
                 )}
 
                 {mode==="login" && (
-                  <>
-                    {[["Email","email","email"],["Password","password","password"]].map(([label,key,type])=>(
-                      <div key={key} style={{marginBottom:16}}>
-                        <label style={labelStyle}>{label}</label>
-                        <input type={type} value={loginForm[key]} onChange={e=>setLoginForm({...loginForm,[key]:e.target.value})} style={fieldStyle}/>
-                      </div>
-                    ))}
-                    <div style={{display:"flex",justifyContent:"flex-end",margin:"-4px 0 18px"}}>
-                      <button onClick={()=>setMode("forgot")} style={{background:"transparent",border:"none",color:"#B8922A",fontSize:10,letterSpacing:2,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:800,cursor:"pointer"}}>Forgot Password?</button>
+                  <div style={{animation:"fadeIn .4s ease"}}>
+                    <FloatingInput label="Email Address" type="email" value={loginForm.email} onChange={e=>setLoginForm({...loginForm,email:e.target.value})} />
+                    <FloatingInput label="Password" type="password" value={loginForm.password} onChange={e=>setLoginForm({...loginForm,password:e.target.value})} />
+                    
+                    <div style={{display:"flex",justifyContent:"flex-end",margin:"-12px 0 24px"}}>
+                      <button onClick={()=>setMode("forgot")} style={{background:"transparent",border:"none",color:"#B8922A",fontSize:10,letterSpacing:1.5,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,cursor:"pointer",transition:"color .3s ease"}} onMouseEnter={e=>e.currentTarget.style.color="#3c1152"} onMouseLeave={e=>e.currentTarget.style.color="#B8922A"}>Forgot Password?</button>
                     </div>
-                    <button onClick={()=>submit("login")} style={{width:"100%",background:"#111",color:"#fff",border:"none",padding:"17px",fontSize:10,letterSpacing:3,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:800}}>Login</button>
-                  </>
+                    <button onClick={()=>submit("login")} style={{width:"100%",background:"#3c1152",color:"#fff",border:"none",padding:"20px",fontSize:11,letterSpacing:3,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:600,boxShadow:"0 12px 24px rgba(60,17,82,.15)",transition:"all .3s ease"}} onMouseEnter={e=>e.currentTarget.style.transform="translateY(-2px)"} onMouseLeave={e=>e.currentTarget.style.transform="translateY(0)"}>Login</button>
+                  </div>
                 )}
 
                 {mode==="forgot" && (
-                  <>
-                    <div style={{marginBottom:18}}>
-                      <label style={labelStyle}>Email</label>
-                      <input type="email" value={forgotEmail} onChange={e=>setForgotEmail(e.target.value)} style={fieldStyle}/>
-                    </div>
-                    <button onClick={()=>submit("forgot")} style={{width:"100%",background:"#111",color:"#fff",border:"none",padding:"17px",fontSize:10,letterSpacing:3,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:800}}>Send Reset Link</button>
-                    <button onClick={()=>setMode("login")} style={{width:"100%",background:"transparent",color:"#111",border:"1px solid #111",padding:"14px",fontSize:10,letterSpacing:2.6,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:800,marginTop:12}}>Back to Login</button>
-                  </>
+                  <div style={{animation:"fadeIn .4s ease"}}>
+                    <FloatingInput label="Email Address" type="email" value={forgotEmail} onChange={e=>setForgotEmail(e.target.value)} />
+                    <button onClick={()=>submit("forgot")} style={{width:"100%",background:"#3c1152",color:"#fff",border:"none",padding:"20px",fontSize:11,letterSpacing:3,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:600,boxShadow:"0 12px 24px rgba(60,17,82,.15)",transition:"all .3s ease"}} onMouseEnter={e=>e.currentTarget.style.transform="translateY(-2px)"} onMouseLeave={e=>e.currentTarget.style.transform="translateY(0)"}>Send Reset Link</button>
+                    <button onClick={()=>setMode("login")} style={{width:"100%",background:"transparent",color:"#3c1152",border:"1px solid #3c1152",padding:"18px",fontSize:11,letterSpacing:2.6,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginTop:16,transition:"all .3s ease"}} onMouseEnter={e=>e.currentTarget.style.background="rgba(60,17,82,.04)"} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>Back to Login</button>
+                  </div>
                 )}
 
-                <p style={{fontSize:10,color:"#999",lineHeight:1.7,fontFamily:"'Montserrat',sans-serif",marginTop:18,textAlign:"center"}}>
+                <p style={{fontSize:11,color:"#999",lineHeight:1.7,fontFamily:"'Montserrat',sans-serif",marginTop:32,textAlign:"center"}}>
                   Your account is used for Khadlaj updates, wishlists, and private fragrance offers.
                 </p>
               </div>
@@ -2104,7 +2113,7 @@ function CartPage({ cartItems, updateCartQty, removeFromCart, setPage, setViewPr
         <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",gap:20,flexWrap:"wrap",marginBottom:44}}>
           <div>
             <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Shopping Bag</p>
-            <h1 className="disp" style={{fontSize:"clamp(38px,5vw,68px)",fontWeight:300,lineHeight:1,color:"#000"}}>Your Cart</h1>
+            <h1 className="disp" style={{fontSize:"clamp(38px,5vw,68px)",fontWeight:300,lineHeight:1,color:"#3c1152"}}>Your Cart</h1>
           </div>
           <button className="btn-ghost" onClick={()=>setPage("collections")}>Continue Shopping</button>
         </div>
@@ -2124,13 +2133,13 @@ function CartPage({ cartItems, updateCartQty, removeFromCart, setPage, setViewPr
                     <img src={item.img} alt={item.name} style={{maxWidth:"92%",maxHeight:"92%",objectFit:"contain",filter:"drop-shadow(0 12px 18px rgba(0,0,0,.08))"}}/>
                   </div>
                   <div>
-                    <p style={{fontSize:9,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:700,marginBottom:6}}>{item.col === "Lafede" ? "La Fede" : item.col}</p>
-                    <h3 style={{fontSize:16,letterSpacing:1,textTransform:"uppercase",fontWeight:800,fontFamily:"'Montserrat',sans-serif",marginBottom:6}}>{item.name}</h3>
+                    <p style={{fontSize:9,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginBottom:6}}>{item.col === "Lafede" ? "La Fede" : item.col}</p>
+                    <h3 style={{fontSize:16,letterSpacing:1,textTransform:"uppercase",fontWeight:600,marginBottom:6}}>{item.name}</h3>
                     <p style={{fontSize:12,color:"#888",fontFamily:"'Montserrat',sans-serif",marginBottom:14}}>{item.size}</p>
                     <button onClick={()=>removeFromCart(item.id)} style={{background:"none",border:"none",borderBottom:"1px solid #999",fontSize:9,letterSpacing:2,textTransform:"uppercase",color:"#777",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",paddingBottom:2}}>Remove</button>
                   </div>
                   <div className="cart-line-actions" style={{display:"flex",flexDirection:"column",alignItems:"flex-end",gap:14}}>
-                    <p style={{fontSize:15,fontWeight:800,fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(item.price * item.qty)}</p>
+                    <p style={{fontSize:15,fontWeight:600,fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(item.price * item.qty)}</p>
                     <div style={{display:"flex",alignItems:"center",border:"1px solid #E8E4DC",height:38}}>
                       <button onClick={()=>updateCartQty(item.id, item.qty - 1)} style={{width:36,height:"100%",border:"none",background:"#fff",cursor:"pointer",fontSize:18}}>-</button>
                       <span style={{width:34,textAlign:"center",fontSize:12,fontFamily:"'Montserrat',sans-serif"}}>{item.qty}</span>
@@ -2142,13 +2151,13 @@ function CartPage({ cartItems, updateCartQty, removeFromCart, setPage, setViewPr
             </div>
 
             <aside style={{border:"1px solid #E8E4DC",padding:26,position:"sticky",top:130,background:"#FCFBFA"}}>
-              <p style={{fontSize:9,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:700,marginBottom:18}}>Order Summary</p>
+              <p style={{fontSize:9,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginBottom:18}}>Order Summary</p>
               <div style={{display:"flex",justifyContent:"space-between",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:12}}><span>Subtotal</span><strong>{formatPrice(subtotal)}</strong></div>
               <div style={{display:"flex",justifyContent:"space-between",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:16}}><span>Shipping</span><strong>{shipping === 0 ? "Free" : formatPrice(shipping)}</strong></div>
               {subtotal > 0 && subtotal < 200 && <p style={{fontSize:11,color:"#777",lineHeight:1.7,marginBottom:16,fontFamily:"'Montserrat',sans-serif"}}>Add {formatPrice(200 - subtotal)} more for free UAE shipping.</p>}
               <div style={{height:1,background:"#E8E4DC",margin:"18px 0"}}/>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:24}}>
-                <span style={{fontSize:13,letterSpacing:2,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:800}}>Total</span>
+                <span style={{fontSize:13,letterSpacing:2,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>Total</span>
                 <strong style={{fontSize:22,fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(total)}</strong>
               </div>
               <button className="btn-gold" style={{width:"100%"}} onClick={()=>setPage("checkout")}>Checkout</button>
@@ -2222,14 +2231,14 @@ function CheckoutPage({ cartItems, setPage, clearCart }){
     outline:"none",
     fontFamily:"'Montserrat',sans-serif",
   });
-  const labelStyle = {display:"block",fontSize:9,letterSpacing:2.5,textTransform:"uppercase",color:"#777",fontFamily:"'Montserrat',sans-serif",fontWeight:700,marginBottom:8};
+  const labelStyle = {display:"block",fontSize:9,letterSpacing:2.5,textTransform:"uppercase",color:"#777",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginBottom:8};
   const errorText = (key) => errors[key] ? <p style={{fontSize:10,color:"#B00020",marginTop:6,fontFamily:"'Montserrat',sans-serif"}}>{errors[key]}</p> : null;
 
   if (submitted) {
     return (
       <div style={{background:"#fff",minHeight:"100vh",padding:"90px 5%"}}>
         <div style={{maxWidth:760,margin:"0 auto",textAlign:"center",border:"1px solid #E8E4DC",padding:"64px 28px",background:"#FCFBFA"}}>
-          <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:700,marginBottom:18}}>Order Received</p>
+          <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginBottom:18}}>Order Received</p>
           <h1 className="disp" style={{fontSize:"clamp(36px,5vw,64px)",fontWeight:300,marginBottom:16}}>Thank you, {form.firstName}</h1>
           <p style={{fontSize:14,color:"#666",lineHeight:1.8,fontFamily:"'Montserrat',sans-serif",maxWidth:520,margin:"0 auto 30px"}}>Your Khadlaj order request has been submitted. A confirmation will be sent to {form.email}.</p>
           <button className="btn-gold" onClick={()=>setPage("home")}>Back to Home</button>
@@ -2243,12 +2252,12 @@ function CheckoutPage({ cartItems, setPage, clearCart }){
       <section style={{padding:"70px 5% 96px",maxWidth:1280,margin:"0 auto"}}>
         <div style={{marginBottom:44}}>
           <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Secure Checkout</p>
-          <h1 className="disp" style={{fontSize:"clamp(38px,5vw,68px)",fontWeight:300,lineHeight:1,color:"#000"}}>Checkout</h1>
+          <h1 className="disp" style={{fontSize:"clamp(38px,5vw,68px)",fontWeight:300,lineHeight:1,color:"#3c1152"}}>Checkout</h1>
         </div>
 
         <div className="grid-2" style={{display:"grid",gridTemplateColumns:"minmax(0,1.15fr) minmax(320px,.85fr)",gap:34,alignItems:"start"}}>
           <div style={{border:"1px solid #E8E4DC",padding:"clamp(22px,4vw,38px)",background:"#fff"}}>
-            <h2 style={{fontSize:14,letterSpacing:3,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:800,marginBottom:24}}>Delivery Details</h2>
+            <h2 style={{fontSize:14,letterSpacing:3,textTransform:"uppercase",fontWeight:600,marginBottom:24}}>Delivery Details</h2>
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginBottom:16}} className="grid-2">
               <div><label style={labelStyle}>First Name</label><input value={form.firstName} onChange={e=>setField("firstName",e.target.value)} style={fieldStyle("firstName")}/>{errorText("firstName")}</div>
               <div><label style={labelStyle}>Last Name</label><input value={form.lastName} onChange={e=>setField("lastName",e.target.value)} style={fieldStyle("lastName")}/>{errorText("lastName")}</div>
@@ -2267,10 +2276,10 @@ function CheckoutPage({ cartItems, setPage, clearCart }){
               <div><label style={labelStyle}>Country</label><input value={form.country} onChange={e=>setField("country",e.target.value)} style={fieldStyle("country")}/>{errorText("country")}</div>
             </div>
 
-            <h2 style={{fontSize:14,letterSpacing:3,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:800,marginBottom:16}}>Payment Method</h2>
+            <h2 style={{fontSize:14,letterSpacing:3,textTransform:"uppercase",fontWeight:600,marginBottom:16}}>Payment Method</h2>
             <div style={{display:"grid",gridTemplateColumns:"repeat(3,minmax(0,1fr))",gap:10,marginBottom:22}} className="grid-3">
               {["Card","Cash on Delivery","PayPal"].map(method=>(
-                <button key={method} onClick={()=>setField("payment",method)} style={{border:`1px solid ${form.payment===method ? "#111" : "#E8E4DC"}`,background:form.payment===method?"#111":"#fff",color:form.payment===method?"#fff":"#111",padding:"13px 10px",fontSize:10,letterSpacing:1.6,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:800,cursor:"pointer"}}>{method}</button>
+                <button key={method} onClick={()=>setField("payment",method)} style={{border:`1px solid ${form.payment===method ? "#111" : "#E8E4DC"}`,background:form.payment===method?"#111":"#fff",color:form.payment===method?"#fff":"#111",padding:"13px 10px",fontSize:10,letterSpacing:1.6,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,cursor:"pointer"}}>{method}</button>
               ))}
             </div>
             {errorText("payment")}
@@ -2288,7 +2297,7 @@ function CheckoutPage({ cartItems, setPage, clearCart }){
           </div>
 
           <aside style={{border:"1px solid #E8E4DC",padding:26,position:"sticky",top:130,background:"#FCFBFA"}}>
-            <p style={{fontSize:9,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:700,marginBottom:18}}>Review Order</p>
+            <p style={{fontSize:9,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginBottom:18}}>Review Order</p>
             <div style={{display:"flex",flexDirection:"column",gap:14,marginBottom:20}}>
               {cartItems.map(item=>(
                 <div key={item.id} style={{display:"grid",gridTemplateColumns:"58px 1fr auto",gap:10,alignItems:"center"}}>
@@ -2296,7 +2305,7 @@ function CheckoutPage({ cartItems, setPage, clearCart }){
                     <img src={item.img} alt={item.name} style={{maxWidth:"90%",maxHeight:"90%",objectFit:"contain"}}/>
                   </div>
                   <div>
-                    <p style={{fontSize:11,fontWeight:800,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",lineHeight:1.25}}>{item.name}</p>
+                    <p style={{fontSize:11,fontWeight:600,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",lineHeight:1.25}}>{item.name}</p>
                     <p style={{fontSize:10,color:"#888",fontFamily:"'Montserrat',sans-serif"}}>Qty {item.qty}</p>
                   </div>
                   <strong style={{fontSize:12,fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(item.price * item.qty)}</strong>
@@ -2307,11 +2316,11 @@ function CheckoutPage({ cartItems, setPage, clearCart }){
             <div style={{display:"flex",justifyContent:"space-between",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:12}}><span>Subtotal</span><strong>{formatPrice(subtotal)}</strong></div>
             <div style={{display:"flex",justifyContent:"space-between",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:16}}><span>Shipping</span><strong>{shipping === 0 ? "Free" : formatPrice(shipping)}</strong></div>
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",margin:"20px 0 24px",paddingTop:18,borderTop:"1px solid #E8E4DC"}}>
-              <span style={{fontSize:13,letterSpacing:2,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:800}}>Total</span>
+              <span style={{fontSize:13,letterSpacing:2,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>Total</span>
               <strong style={{fontSize:22,fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(total)}</strong>
             </div>
             <button className="btn-gold" style={{width:"100%"}} onClick={submitOrder}>Place Order</button>
-            <button onClick={()=>setPage("cart")} style={{width:"100%",marginTop:12,background:"transparent",border:"1px solid #111",padding:"13px",fontSize:10,letterSpacing:2,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:800,cursor:"pointer"}}>Back to Cart</button>
+            <button onClick={()=>setPage("cart")} style={{width:"100%",marginTop:12,background:"transparent",border:"1px solid #3c1152",padding:"13px",fontSize:10,letterSpacing:2,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,cursor:"pointer"}}>Back to Cart</button>
           </aside>
         </div>
       </section>
@@ -2347,15 +2356,15 @@ function Navbar({ page, setPage, cartCount }){
             <span style={{fontSize:20,color:"#888"}}>⌕</span>
             <input autoFocus type="text" value={searchQuery} onChange={e=>handleSearch(e.target.value)}
               placeholder="Search fragrances, collections, notes..."
-              style={{flex:1,border:"none",outline:"none",fontSize:"clamp(16px,2.5vw,26px)",fontFamily:"'Trajan Pro', 'Cinzel', serif",fontWeight:300,color:"#000",background:"transparent"}}
+              style={{flex:1,border:"none",outline:"none",fontSize:"clamp(16px,2.5vw,26px)",fontFamily:"'Trajan Pro', 'Cinzel', serif",fontWeight:300,color:"#3c1152",background:"transparent"}}
             />
             <button onClick={()=>{setSearchOpen(false);setSearchQuery("");setSearchResults([]);}}
-              style={{background:"none",border:"none",fontSize:28,cursor:"pointer",color:"#000",fontWeight:300,lineHeight:1}}>×</button>
+              style={{background:"none",border:"none",fontSize:28,cursor:"pointer",color:"#3c1152",fontWeight:300,lineHeight:1}}>×</button>
           </div>
           <div style={{flex:1,overflowY:"auto",paddingTop:24}}>
             {searchQuery && searchResults.length===0 && (
               <div style={{textAlign:"center",paddingTop:64}}>
-                <p className="disp" style={{fontSize:28,fontWeight:300,color:"#000",marginBottom:8}}>No results for "{searchQuery}"</p>
+                <p className="disp" style={{fontSize:28,fontWeight:300,color:"#3c1152",marginBottom:8}}>No results for "{searchQuery}"</p>
                 <p style={{fontSize:13,color:"#888",fontFamily:"'Montserrat',sans-serif"}}>Try "oud", "musk", "gift"...</p>
               </div>
             )}
@@ -2369,12 +2378,12 @@ function Navbar({ page, setPage, cartCount }){
                         <div style={{position:"absolute",inset:10,background:"radial-gradient(circle at 50% 42%, rgba(184,146,42,.10), rgba(255,255,255,0) 62%)"}}/>
                         <img src={p.img} alt={p.name} loading="lazy" style={{position:"relative",width:"100%",height:"100%",objectFit:"contain",padding:"16px",filter:"drop-shadow(0 12px 20px rgba(0,0,0,.08))"}}/>
                         <div style={{height:2,position:"absolute",bottom:0,left:0,right:0,background:"linear-gradient(90deg,#B8922A,#D4AF5A,#B8922A)"}}/>
-                        {p.badge&&<span style={{position:"absolute",top:10,left:10,background:p.badge==="New"?"#B8922A":p.badge==="Limited"?"#5C0000":"#000",color:"#fff",fontSize:8,letterSpacing:2,padding:"3px 8px",fontFamily:"'Montserrat',sans-serif",textTransform:"uppercase"}}>{p.badge}</span>}
+                        {p.badge&&<span style={{position:"absolute",top:10,left:10,background:p.badge==="New"?"#B8922A":p.badge==="Limited"?"#5C0000":"#3c1152",color:"#fff",fontSize:8,letterSpacing:2,padding:"3px 8px",fontFamily:"'Montserrat',sans-serif",textTransform:"uppercase"}}>{p.badge}</span>}
                       </div>
                       <div style={{padding:"10px 6px 14px"}}>
                         <p style={{fontSize:9,color:"#B8922A",letterSpacing:3,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:3}}>{p.col==="Lafede" ? "La Fede" : p.col}</p>
-                        <p style={{fontSize:12,fontWeight:700,color:"#000",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:4,lineHeight:1.2}}>{p.name}</p>
-                        <p style={{fontSize:13,fontWeight:700,color:"#000",fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(p.price)}</p>
+                        <p style={{fontSize:12,fontWeight:600,color:"#3c1152",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:4,lineHeight:1.2}}>{p.name}</p>
+                        <p style={{fontSize:13,fontWeight:600,color:"#3c1152",fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(p.price)}</p>
                       </div>
                     </div>
                   ))}
@@ -2388,7 +2397,7 @@ function Navbar({ page, setPage, cartCount }){
                   {["Oud","Musk","Gift Set","New Arrivals","For Her","For Him","Amber","Island"].map(s=>(
                     <button key={s} onClick={()=>handleSearch(s)}
                       style={{background:"#F7F5F2",border:"1px solid #E8E4DC",padding:"8px 16px",fontSize:12,color:"#333",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",transition:"all .2s"}}
-                      onMouseEnter={e=>{e.currentTarget.style.background="#000";e.currentTarget.style.color="#fff";}}
+                      onMouseEnter={e=>{e.currentTarget.style.background="#3c1152";e.currentTarget.style.color="#fff";}}
                       onMouseLeave={e=>{e.currentTarget.style.background="#F7F5F2";e.currentTarget.style.color="#333";}}
                     >{s}</button>
                   ))}
@@ -2400,7 +2409,7 @@ function Navbar({ page, setPage, cartCount }){
       )}
 
       {/* ── Announcement bar ── */}
-      <div style={{background:"#000",color:"#fff",textAlign:"center",padding:"10px 16px",fontSize:"9px",letterSpacing:"3px",fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",fontWeight:500}}>
+      <div style={{background:"#3c1152",color:"#fff",textAlign:"center",padding:"10px 16px",fontSize:"9px",letterSpacing:"3px",fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",fontWeight:400}}>
         USE "KHADLAJ25" FOR FLAT 25% DISCOUNT
       </div>
 
@@ -2461,14 +2470,14 @@ function Navbar({ page, setPage, cartCount }){
             </div>
             {/* Right icons */}
             <div style={{display:"flex",alignItems:"center",justifyContent:"flex-end",gap:24}}>
-              <span className="hide-mob" style={{fontSize:"11px",letterSpacing:"2px",color:"#111",textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:600,transition:"color .2s"}} onMouseEnter={e=>e.target.style.color="#B8922A"} onMouseLeave={e=>e.target.style.color="#111"} onClick={()=>setPage("signup")}>Sign Up</span>
+              <span className="hide-mob" style={{fontSize:"11px",letterSpacing:"2px",color:"#3c1152",textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:600,transition:"color .2s"}} onMouseEnter={e=>e.target.style.color="#B8922A"} onMouseLeave={e=>e.target.style.color="#3c1152"} onClick={()=>setPage("signup")}>Sign Up</span>
               <span className="hide-mob" style={{cursor:"pointer",display:"flex",alignItems:"center",transition:"transform .2s"}} onMouseEnter={e=>e.currentTarget.style.transform="scale(1.1)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"} onClick={()=>setSearchOpen(true)}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               </span>
               <div onClick={()=>setPage("cart")} style={{position:"relative",cursor:"pointer",transition:"transform .2s ease"}} onMouseEnter={e=>e.currentTarget.style.transform="scale(1.1)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
                 {cartCount>0 && (
-                  <span style={{position:"absolute",top:-5,right:-7,background:"#B8922A",color:"#fff",borderRadius:"50%",width:14,height:14,fontSize:8,display:"flex",alignItems:"center",justifyContent:"center",fontWeight:700,fontFamily:"'Montserrat',sans-serif"}}>{cartCount}</span>
+                  <span style={{position:"absolute",top:-5,right:-7,background:"#B8922A",color:"#fff",borderRadius:"50%",width:14,height:14,fontSize:8,display:"flex",alignItems:"center",justifyContent:"center",fontWeight:600,fontFamily:"'Montserrat',sans-serif"}}>{cartCount}</span>
                 )}
               </div>
               {/* Hamburger — mobile only */}
@@ -2478,13 +2487,13 @@ function Navbar({ page, setPage, cartCount }){
                 className="mob-burger"
                 aria-label="Menu"
               >
-                <span style={{display:"block",width:20,height:1.5,background:"#000",transition:"all .25s"}}/>
-                <span style={{display:"block",width:20,height:1.5,background:"#000",transition:"all .25s"}}/>
-                <span style={{display:"block",width:14,height:1.5,background:"#000",transition:"all .25s"}}/>
+                <span style={{display:"block",width:20,height:1.5,background:"#3c1152",transition:"all .25s"}}/>
+                <span style={{display:"block",width:20,height:1.5,background:"#3c1152",transition:"all .25s"}}/>
+                <span style={{display:"block",width:14,height:1.5,background:"#3c1152",transition:"all .25s"}}/>
               </button>
             </div>
           </div>
-          <div className="hide-mob" style={{display:"flex",justifyContent:"center",gap:40,paddingBottom:16,fontSize:"12px",letterSpacing:"1.5px",textTransform:"uppercase",color:"#111",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>
+          <div className="hide-mob" style={{display:"flex",justifyContent:"center",gap:40,paddingBottom:16,fontSize:"12px",letterSpacing:"1.5px",textTransform:"uppercase",color:"#3c1152",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>
             {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Contact","contact"]].map(([label,pg])=>(
               <span key={label} onClick={()=>setPage(pg)} style={{cursor:"pointer",paddingBottom:4,borderBottom:(page===pg && !["Best Sellers","Perfume Spray","Perfume Oil","Home & Ambience"].includes(label))?"1px solid #B8922A":"1px solid transparent",color:(page===pg && !["Best Sellers","Perfume Spray","Perfume Oil","Home & Ambience"].includes(label))?"#B8922A":"#111",transition:"all .25s ease"}}
                 onMouseEnter={e=>{e.currentTarget.style.color="#B8922A";e.currentTarget.style.borderBottomColor="#B8922A";}}
@@ -2512,7 +2521,7 @@ function Navbar({ page, setPage, cartCount }){
                   padding:"14px 6%",
                   fontSize:11,letterSpacing:2.5,
                   textTransform:"uppercase",
-                  color:"#000",cursor:"pointer",
+                  color:"#3c1152",cursor:"pointer",
                   fontFamily:"'Montserrat',sans-serif",
                   borderBottom:"1px solid #F0EBE3",
                   display:"flex",alignItems:"center",justifyContent:"space-between",
@@ -2581,7 +2590,7 @@ function Footer({ setPage }){
   return (
     <footer style={{background:"#fff",borderTop:"1px solid #E8E4DC"}}>
       {/* Newsletter */}
-      <div style={{background:"#050505",padding:"80px 5%",textAlign:"center",borderBottom:"1px solid rgba(255,255,255,0.05)",borderTop:"1px solid rgba(193,164,106,0.15)"}}>
+      <div style={{background:"#3c1152",padding:"80px 5%",textAlign:"center",borderBottom:"1px solid rgba(255,255,255,0.05)",borderTop:"1px solid rgba(193,164,106,0.15)"}}>
         <div style={{maxWidth:560,margin:"0 auto"}}>
           <div style={{width:40,height:1,background:"#B8922A",margin:"0 auto 18px"}}/>
           <p style={{fontSize:9,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif",marginBottom:14,fontWeight:600}}>Newsletter</p>
@@ -2592,7 +2601,7 @@ function Footer({ setPage }){
               style={{flex:1,background:"rgba(255,255,255,0.05)",border:"1px solid rgba(255,255,255,0.15)",borderRight:"none",color:"#fff",padding:"16px 22px",fontSize:13,outline:"none",fontFamily:"'DM Sans',sans-serif"}}
             />
             <button style={{background:"#B8922A",border:"1px solid #B8922A",color:"#fff",padding:"16px 36px",fontSize:10,letterSpacing:2.5,textTransform:"uppercase",cursor:"pointer",fontFamily:"'DM Sans',sans-serif",fontWeight:600,transition:"all .3s"}}
-              onMouseEnter={e=>{e.currentTarget.style.background="#fff";e.currentTarget.style.color="#000";e.currentTarget.style.borderColor="#fff"}}
+              onMouseEnter={e=>{e.currentTarget.style.background="#fff";e.currentTarget.style.color="#3c1152";e.currentTarget.style.borderColor="#fff"}}
               onMouseLeave={e=>{e.currentTarget.style.background="#B8922A";e.currentTarget.style.color="#fff";e.currentTarget.style.borderColor="#B8922A"}}
             >Subscribe</button>
           </div>
@@ -2607,7 +2616,7 @@ function Footer({ setPage }){
             alt="Khadlaj Perfumes"
             style={{height:126,width:"auto",objectFit:"contain",display:"block",marginBottom:24}}
           />
-          <p style={{fontSize:"8px",letterSpacing:3.5,color:"#B8922A",fontFamily:"'Montserrat',sans-serif",marginBottom:16,textTransform:"uppercase",fontWeight:700}}>Perfumes · UAE · Est. 1997</p>
+          <p style={{fontSize:"8px",letterSpacing:3.5,color:"#B8922A",fontFamily:"'Montserrat',sans-serif",marginBottom:16,textTransform:"uppercase",fontWeight:600}}>Perfumes · UAE · Est. 1997</p>
           <p style={{fontSize:13,color:"#555",lineHeight:1.85,maxWidth:260,marginBottom:32,fontFamily:"'Montserrat',sans-serif"}}>Family-owned UAE perfume house. Authentic Arabian &amp; French fragrance artistry since 1997.</p>
           
           <CountryContext.Consumer>
@@ -2644,27 +2653,27 @@ function Footer({ setPage }){
           </CountryContext.Consumer>
         </div>
         <div>
-          <p style={{fontSize:"8.5px",letterSpacing:2.5,color:"#000",textTransform:"uppercase",marginBottom:24,fontFamily:"'Montserrat',sans-serif",fontWeight:700}}>Collections</p>
+          <p style={{fontSize:"8.5px",letterSpacing:2.5,color:"#3c1152",textTransform:"uppercase",marginBottom:24,fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>Collections</p>
           {[["Atyaab","collections"],["La Fede","lafede"],["Master Perfumery","collections"],["Gift Sets","gifts"],["New Arrivals","collections"],["Best Sellers","collections"]].map(([l,pg])=>(
             <p key={l} onClick={()=>setPage(pg)} style={{fontSize:12,color:"#555",marginBottom:14,cursor:"pointer",fontFamily:"'Montserrat',sans-serif",letterSpacing:.5,transition:"all .25s ease"}}
               onMouseEnter={e=>e.target.style.color="#B8922A"} onMouseLeave={e=>e.target.style.color="#555"}>{l}</p>
           ))}
         </div>
         <div>
-          <p style={{fontSize:"8.5px",letterSpacing:2.5,color:"#000",textTransform:"uppercase",marginBottom:24,fontFamily:"'Montserrat',sans-serif",fontWeight:700}}>Company</p>
+          <p style={{fontSize:"8.5px",letterSpacing:2.5,color:"#3c1152",textTransform:"uppercase",marginBottom:24,fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>Company</p>
           {[["Our Story","story"],["Contact Us","contact"],["Find a Store","contact"],["Careers","contact"],["Press","contact"]].map(([l,pg])=>(
             <p key={l} onClick={()=>setPage(pg)} style={{fontSize:12,color:"#555",marginBottom:14,cursor:"pointer",fontFamily:"'Montserrat',sans-serif",letterSpacing:.5,transition:"all .25s ease"}}
               onMouseEnter={e=>e.target.style.color="#B8922A"} onMouseLeave={e=>e.target.style.color="#555"}>{l}</p>
           ))}
         </div>
         <div>
-          <p style={{fontSize:"8.5px",letterSpacing:2.5,color:"#000",textTransform:"uppercase",marginBottom:24,fontFamily:"'Montserrat',sans-serif",fontWeight:700}}>Support</p>
+          <p style={{fontSize:"8.5px",letterSpacing:2.5,color:"#3c1152",textTransform:"uppercase",marginBottom:24,fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>Support</p>
           {["Shipping & Returns","FAQ","Track My Order","Fragrance Guide","Gift Wrapping"].map(l=>(
             <p key={l} style={{fontSize:12,color:"#555",marginBottom:14,cursor:"pointer",fontFamily:"'Montserrat',sans-serif",letterSpacing:.5,transition:"all .25s ease"}}
               onMouseEnter={e=>e.target.style.color="#B8922A"} onMouseLeave={e=>e.target.style.color="#555"}>{l}</p>
           ))}
           <div style={{marginTop:32,paddingTop:24,borderTop:"1px solid #e5e5e5"}}>
-            <p style={{fontSize:"8px",letterSpacing:2.5,color:"#000",textTransform:"uppercase",marginBottom:14,fontFamily:"'Montserrat',sans-serif",fontWeight:700}}>Ships With</p>
+            <p style={{fontSize:"8px",letterSpacing:2.5,color:"#3c1152",textTransform:"uppercase",marginBottom:14,fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>Ships With</p>
             <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
               {["DHL","Aramex","EMX"].map(s=>(
                 <span key={s} style={{border:"1px solid #e5e5e5",padding:"4px 12px",fontSize:9,color:"#444",fontFamily:"'Montserrat',sans-serif",letterSpacing:1,background:"#fff",borderRadius:1}}>{s}</span>
@@ -2675,7 +2684,7 @@ function Footer({ setPage }){
       </div>
       <div style={{background:"#fff",borderTop:"1px solid #E8E4DC",padding:"30px 5%",display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:20,fontSize:9,color:"#888",letterSpacing:1.5,fontFamily:"'Montserrat',sans-serif",textTransform:"uppercase"}}>
         <div>
-          <p style={{marginBottom:10,color:"#000",fontWeight:600}}>© 2025 Khadlaj Perfumes LLC. All rights reserved. UAE.</p>
+          <p style={{marginBottom:10,color:"#3c1152",fontWeight:600}}>© 2025 Khadlaj Perfumes LLC. All rights reserved. UAE.</p>
           <div style={{display:"flex",gap:24}}>
             {["Privacy Policy","Terms of Use","Cookie Settings"].map(l=>(
               <span key={l} style={{cursor:"pointer",transition:"color .2s"}} onMouseEnter={e=>e.target.style.color="#B8922A"} onMouseLeave={e=>e.target.style.color="#888"}>{l}</span>
@@ -2700,7 +2709,7 @@ function Footer({ setPage }){
               width: 32,
               height: 32,
               borderRadius: "50%",
-              background: "#000",
+              background: "#3c1152",
               color: "#fff",
               textDecoration: "none",
               transition: "transform 0.2s, background 0.2s, color 0.2s"
@@ -2711,7 +2720,7 @@ function Footer({ setPage }){
             }}
             onMouseLeave={e => {
               e.currentTarget.style.transform = "scale(1)";
-              e.currentTarget.style.background = "#000";
+              e.currentTarget.style.background = "#3c1152";
             }}
             >
               {social.hasDot && (
@@ -2841,7 +2850,7 @@ export default function App(){
 
   return (
     <CountryContext.Provider value={{ activeCountry, setActiveCountry }}>
-    <div style={{fontFamily:"'Montserrat',sans-serif",background:"#fff",color:"#000",minHeight:"100vh",overflowX:"hidden"}}>
+    <div style={{fontFamily:"'Montserrat',sans-serif",background:"#fff",color:"#3c1152",minHeight:"100vh",overflowX:"hidden"}}>
       <style>{GLOBAL_CSS}</style>
       <Navbar page={page} setPage={setPage} cartCount={cartCount}/>
       <main>{renderPage()}</main>
@@ -2854,14 +2863,14 @@ export default function App(){
           onClick={()=>setPage("collections")}
           style={{
             position:"fixed",bottom:24,right:24,zIndex:200,
-            background:"#000",color:"#fff",
+            background:"#3c1152",color:"#fff",
             width:46,height:46,borderRadius:"50%",
             border:"none",cursor:"pointer",
             boxShadow:"0 8px 28px rgba(0,0,0,.25)",
             fontSize:18,transition:"background .2s,transform .2s",
           }}
           onMouseEnter={e=>{e.currentTarget.style.background="#B8922A";e.currentTarget.style.transform="scale(1.06)";}}
-          onMouseLeave={e=>{e.currentTarget.style.background="#000";e.currentTarget.style.transform="scale(1)";}}
+          onMouseLeave={e=>{e.currentTarget.style.background="#3c1152";e.currentTarget.style.transform="scale(1)";}}
           title="Shop Now"
         >🛍</button>
       )}
@@ -2871,7 +2880,7 @@ export default function App(){
         onClick={()=>setChatOpen(!chatOpen)}
         style={{
           position:"fixed",bottom:24,left:24,zIndex:200,
-          background:"#000",color:"#fff",
+          background:"#3c1152",color:"#fff",
           width:46,height:46,borderRadius:"50%",
           border:"none",cursor:"pointer",
           boxShadow:"0 8px 28px rgba(0,0,0,.25)",
@@ -2879,7 +2888,7 @@ export default function App(){
           transition:"background .2s,transform .2s",
         }}
         onMouseEnter={e=>{e.currentTarget.style.background="#B8922A";e.currentTarget.style.transform="scale(1.06)";}}
-        onMouseLeave={e=>{e.currentTarget.style.background="#000";e.currentTarget.style.transform="scale(1)";}}
+        onMouseLeave={e=>{e.currentTarget.style.background="#3c1152";e.currentTarget.style.transform="scale(1)";}}
         title="Chat with Us"
       >
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
@@ -2897,11 +2906,11 @@ export default function App(){
           fontFamily:"'Montserrat',sans-serif"
         }}>
           {/* Header */}
-          <div style={{background:"#000", padding:"16px 20px", display:"flex", alignItems:"center", justifyContent:"space-between"}}>
+          <div style={{background:"#3c1152", padding:"16px 20px", display:"flex", alignItems:"center", justifyContent:"space-between"}}>
             <div style={{display:"flex", alignItems:"center", gap:10}}>
               <div style={{width:8, height:8, borderRadius:"50%", background:"#2ec4b6"}}></div>
               <div>
-                <p style={{fontSize:11, letterSpacing:2, color:"#B8922A", textTransform:"uppercase", margin:0, fontWeight:700}}>Scent Assistant</p>
+                <p style={{fontSize:11, letterSpacing:2, color:"#B8922A", textTransform:"uppercase", margin:0, fontWeight:600}}>Scent Assistant</p>
                 <p style={{fontSize:9, color:"rgba(255,255,255,0.7)", margin:0}}>Khadlaj Perfumes</p>
               </div>
             </div>
@@ -2948,7 +2957,7 @@ export default function App(){
             <button
               onClick={handleSendMessage}
               style={{
-                background:"#000", border:"none", color:"#fff",
+                background:"#3c1152", border:"none", color:"#fff",
                 padding:"10px 14px", borderRadius:6, cursor:"pointer",
                 fontSize:11, fontWeight:600, textTransform:"uppercase"
               }}
@@ -2976,7 +2985,7 @@ export default function App(){
               border:"1px solid rgba(255,255,255,.45)"
             }}
           >
-            <button onClick={()=>setShowPopup(false)} style={{position:"absolute",top:16,right:16,background:"rgba(255,255,255,0.88)",border:"none",width:34,height:34,borderRadius:"50%",fontSize:20,cursor:"pointer",color:"#000",zIndex:10,display:"flex",alignItems:"center",justifyContent:"center",backdropFilter:"blur(6px)",boxShadow:"0 8px 18px rgba(0,0,0,.08)"}}>×</button>
+            <button onClick={()=>setShowPopup(false)} style={{position:"absolute",top:16,right:16,background:"rgba(255,255,255,0.88)",border:"none",width:34,height:34,borderRadius:"50%",fontSize:20,cursor:"pointer",color:"#3c1152",zIndex:10,display:"flex",alignItems:"center",justifyContent:"center",backdropFilter:"blur(6px)",boxShadow:"0 8px 18px rgba(0,0,0,.08)"}}>×</button>
             {/* Left image */}
             <div style={{flex:.9, position:"relative",minHeight:310,overflow:"hidden", display:"flex", alignItems:"center", justifyContent:"center", background:"radial-gradient(circle at 50% 45%, rgba(184,146,42,.12), rgba(255,255,255,0) 58%), linear-gradient(180deg,#FBFBFB 0%, #F3F1EE 100%)", padding:"24px 18px"}}>
               <img src="./assets/images/products/strawberry-shake_transparent.png" alt="Strawberry Shake perfume" style={{width:"64%",height:"78%",objectFit:"contain",objectPosition:"center center",filter:"drop-shadow(0 16px 28px rgba(0,0,0,.13))"}}/>
@@ -2985,8 +2994,8 @@ export default function App(){
             <div style={{flex:1.15, padding:"34px 30px",display:"flex",flexDirection:"column",justifyContent:"center",background:"#fff"}}>
               <div style={{width:22,height:1,background:"#B8922A",marginBottom:14}}/>
               <p style={{fontSize:8,letterSpacing:3.6,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12, fontWeight:600}}>Welcome</p>
-              <h3 className="disp" style={{fontSize:24,fontWeight:300,color:"#111",marginBottom:9,lineHeight:1.15}}>Join the Khadlaj Circle</h3>
-              <p style={{fontSize:11,color:"#777",lineHeight:1.6,fontFamily:"'Montserrat',sans-serif",marginBottom:18}}>Subscribe to receive <strong style={{color:"#111",fontWeight:600}}>10% off</strong> your first order and exclusive access to new launches.</p>
+              <h3 className="disp" style={{fontSize:24,fontWeight:300,color:"#3c1152",marginBottom:9,lineHeight:1.15}}>Join the Khadlaj Circle</h3>
+              <p style={{fontSize:11,color:"#777",lineHeight:1.6,fontFamily:"'Montserrat',sans-serif",marginBottom:18}}>Subscribe to receive <strong style={{color:"#3c1152",fontWeight:600}}>10% off</strong> your first order and exclusive access to new launches.</p>
               
               <div style={{position:"relative", marginBottom:16}}>
                 <input type="email" placeholder="Your email address" value={popupEmail} onChange={e=>setPopupEmail(e.target.value)}
@@ -2998,7 +3007,7 @@ export default function App(){
               
               <button
                 onClick={()=>{setPopupDone(true);setShowPopup(false);}}
-                style={{width:"100%",background:"#111",color:"#fff",border:"none",padding:"14px",fontSize:9.5,letterSpacing:2.4,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:600,transition:"background .3s",borderRadius:2}}
+                style={{width:"100%",background:"#3c1152",color:"#fff",border:"none",padding:"14px",fontSize:9.5,letterSpacing:2.4,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:600,transition:"background .3s",borderRadius:2}}
                 onMouseEnter={e=>e.currentTarget.style.background="#B8922A"}
                 onMouseLeave={e=>e.currentTarget.style.background="#111"}
               >Unlock 10% Off</button>
