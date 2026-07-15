@@ -480,7 +480,7 @@ function ProductCard({ p, onView, onCart }){
               objectPosition:"center bottom",
               mixBlendMode:"multiply",
               background:"transparent",
-              filter:"none",
+              filter:"brightness(1.05) contrast(1.02)",
               transition:"transform .8s cubic-bezier(0.25, 1, 0.25, 1)",
               transform: hov
                 ? `translateY(calc(-2px + ${imageShiftY * 100}%)) scale(${imageScale * imageHoverScale})`
