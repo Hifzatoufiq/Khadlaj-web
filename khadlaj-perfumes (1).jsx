@@ -63,7 +63,7 @@ const PRODUCTS = [
   { id:18, name:"Biscotti Melon Musk",  col:"Lafede",           price:315, size:"100ml EDP",     badge:"New",         gender:"Unisex", notes:["Melon","Musk","Cream"],         img:"./assets/images/products/blue-glace-single-1-cutout.png" },
   { id:19, name:"Uno Intimo",           col:"Lafede",           price:285, size:"100ml EDP",     badge:null,          gender:"Her",    notes:["Rose","Musk","Peony"],          img:"./assets/images/products/uno-intimo-cutout.png" },
   { id:20, name:"Shahi Oud",            col:"Master Perfumery", price:360, size:"100ml EDP",     badge:null,          gender:"Unisex", notes:["Oud","Amber","Saffron"],        img:"./assets/images/products/shahi-oud-cutout.png" },
-  { id:21, name:"Bleu Glacé",           col:"Atyaab",           price:275, size:"100ml EDP",     badge:"New",         gender:"Unisex", notes:["Marine","Bergamot","Musk"],     img:"./assets/images/products/blue-glace-single-2-no-shadow.png" },
+  { id:21, name:"Bleu Glacé",           col:"Atyaab",           price:275, size:"100ml EDP",     badge:"New",         gender:"Unisex", notes:["Marine","Bergamot","Musk"],     img:"./assets/images/products/bleu_glace_ai_generated.jpg" },
   // ── Live products from khadlaj-perfumes.com ──
   { id:200, name:"Saraya",              col:"EAU DE PARFUM",    price:105, size:"60ml Extrait",  badge:"New",         gender:"Unisex", notes:["Amber","Bergamot","Vetiver"],   img:"./assets/images/products/saraya-cutout.png" },
   { id:201, name:"Nafais Sharq Gift Set",col:"Atyaab",          price:150, size:"Gift Set",      badge:null,          gender:"Her",    notes:["Rose","Amber","Musk"],          img:"./assets/images/gifsets/nafais_gift_user.png" },
