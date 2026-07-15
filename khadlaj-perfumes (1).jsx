@@ -784,7 +784,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         </div>
       </section>
 {/* ── TIKTOK REELS ── */}
-      <section style={{padding:"80px 5%",background:"#fff"}}>
+      <section style={{padding:"80px 5% 40px",background:"#fff"}}>
         <div style={{marginBottom:48,textAlign:"center"}}>
           <div style={{width:40,height:1,background:"#B8922A",margin:"0 auto 16px"}}/>
           <p style={{fontSize:8,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Shop by Reel</p>
@@ -816,21 +816,21 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             rel="noreferrer"
             style={{
               display:"inline-flex",alignItems:"center",gap:10,
-              border:"1px solid rgba(255,255,255,.25)",
-              color:"#fff",padding:"13px 32px",
+              border:"1px solid #3c1152",
+              color:"#3c1152",padding:"13px 32px",
               fontSize:10,letterSpacing:3,textTransform:"uppercase",
               textDecoration:"none",fontFamily:"'Montserrat',sans-serif",
               transition:"all .2s",
             }}
-            onMouseEnter={e=>{e.currentTarget.style.background="#B8922A";e.currentTarget.style.borderColor="#B8922A";}}
-            onMouseLeave={e=>{e.currentTarget.style.background="transparent";e.currentTarget.style.borderColor="rgba(255,255,255,.25)";}}
+            onMouseEnter={e=>{e.currentTarget.style.background="#B8922A";e.currentTarget.style.borderColor="#B8922A";e.currentTarget.style.color="#fff";}}
+            onMouseLeave={e=>{e.currentTarget.style.background="transparent";e.currentTarget.style.borderColor="#3c1152";e.currentTarget.style.color="#3c1152";}}
           >
             ▶ Follow on TikTok
           </a>
         </div>
       </section>
 {/* ── WHY KHADLAJ — Trust strip ── */}
-      <section style={{background:"#fff",borderTop:"1px solid #E8E4DC",borderBottom:"1px solid #E8E4DC",padding:"80px 5%",position:"relative",zIndex:1}}>
+      <section style={{background:"#fff",borderBottom:"1px solid #E8E4DC",padding:"40px 5% 80px",position:"relative",zIndex:1}}>
         <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:24,textAlign:"center"}} className="grid-4">
           {[
             {
@@ -1020,13 +1020,13 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         </div>
       </section>
       {/* ── TESTIMONIALS ── */}
-      <section style={{background:"#3c1152",padding:"96px 5%"}}>
+      <section style={{background:"#3c1152",padding:"64px 5%"}}>
         <SectionHeader eyebrow="Reviews" title="Loved Across the Gulf" light={true} />
         <div className="grid-4" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:1,background:"rgba(255,255,255,.15)"}}>
           {REVIEWS.map((r,i)=>(
-            <div key={i} style={{background:"#3c1152",padding:"48px 32px",display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center",transition:"background 0.3s ease"}} onMouseEnter={e=>e.currentTarget.style.background="rgba(255,255,255,0.03)"} onMouseLeave={e=>e.currentTarget.style.background="#3c1152"}>
+            <div key={i} style={{background:"#3c1152",padding:"32px 24px",display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center",transition:"background 0.3s ease"}} onMouseEnter={e=>e.currentTarget.style.background="rgba(255,255,255,0.03)"} onMouseLeave={e=>e.currentTarget.style.background="#3c1152"}>
               <StarRating n={r.stars} color="#B8922A"/>
-              <p className="disp" style={{fontSize:14,color:"rgba(255,255,255,0.85)",lineHeight:1.8,margin:"24px 0",fontStyle:"italic",fontWeight:300}}>"{r.text}"</p>
+              <p className="disp" style={{fontSize:14,color:"rgba(255,255,255,0.85)",lineHeight:1.6,margin:"16px 0",fontStyle:"italic",fontWeight:300}}>"{r.text}"</p>
               <div style={{marginTop:"auto"}}>
                 <p style={{fontSize:9,fontWeight:600,color:"#fff",letterSpacing:2,fontFamily:"'Montserrat',sans-serif",textTransform:"uppercase"}}>{r.name}</p>
                 <p style={{fontSize:8,letterSpacing:4,color:"#B8922A",marginTop:6,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif"}}>{r.country}</p>

@@ -22496,7 +22496,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
         )
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "80px 5%", background: "#fff" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "80px 5% 40px", background: "#fff" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 48, textAlign: "center" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 40, height: 1, background: "#B8922A", margin: "0 auto 16px" } }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 8, letterSpacing: 3, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 12 }, children: "Shop by Reel" }),
@@ -22529,8 +22529,8 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
             display: "inline-flex",
             alignItems: "center",
             gap: 10,
-            border: "1px solid rgba(255,255,255,.25)",
-            color: "#fff",
+            border: "1px solid #3c1152",
+            color: "#3c1152",
             padding: "13px 32px",
             fontSize: 10,
             letterSpacing: 3,
@@ -22542,16 +22542,18 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
           onMouseEnter: (e) => {
             e.currentTarget.style.background = "#B8922A";
             e.currentTarget.style.borderColor = "#B8922A";
+            e.currentTarget.style.color = "#fff";
           },
           onMouseLeave: (e) => {
             e.currentTarget.style.background = "transparent";
-            e.currentTarget.style.borderColor = "rgba(255,255,255,.25)";
+            e.currentTarget.style.borderColor = "#3c1152";
+            e.currentTarget.style.color = "#3c1152";
           },
           children: "\u25B6 Follow on TikTok"
         }
       ) })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { background: "#fff", borderTop: "1px solid #E8E4DC", borderBottom: "1px solid #E8E4DC", padding: "80px 5%", position: "relative", zIndex: 1 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24, textAlign: "center" }, className: "grid-4", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { background: "#fff", borderBottom: "1px solid #E8E4DC", padding: "40px 5% 80px", position: "relative", zIndex: 1 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 24, textAlign: "center" }, className: "grid-4", children: [
       {
         icon: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "32", height: "32", viewBox: "0 0 24 24", fill: "none", stroke: "#B8922A", strokeWidth: "1.2", strokeLinecap: "round", strokeLinejoin: "round", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "12", cy: "12", r: "10", fill: "rgba(184,146,42,0.03)" }),
@@ -22769,11 +22771,11 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
         setPage("product");
       } }, p.id)) })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { background: "#3c1152", padding: "96px 5%" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { background: "#3c1152", padding: "64px 5%" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeader, { eyebrow: "Reviews", title: "Loved Across the Gulf", light: true }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "grid-4", style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 1, background: "rgba(255,255,255,.15)" }, children: REVIEWS.map((r, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "#3c1152", padding: "48px 32px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", transition: "background 0.3s ease" }, onMouseEnter: (e) => e.currentTarget.style.background = "rgba(255,255,255,0.03)", onMouseLeave: (e) => e.currentTarget.style.background = "#3c1152", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "grid-4", style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 1, background: "rgba(255,255,255,.15)" }, children: REVIEWS.map((r, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "#3c1152", padding: "32px 24px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", transition: "background 0.3s ease" }, onMouseEnter: (e) => e.currentTarget.style.background = "rgba(255,255,255,0.03)", onMouseLeave: (e) => e.currentTarget.style.background = "#3c1152", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StarRating, { n: r.stars, color: "#B8922A" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { className: "disp", style: { fontSize: 14, color: "rgba(255,255,255,0.85)", lineHeight: 1.8, margin: "24px 0", fontStyle: "italic", fontWeight: 300 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { className: "disp", style: { fontSize: 14, color: "rgba(255,255,255,0.85)", lineHeight: 1.6, margin: "16px 0", fontStyle: "italic", fontWeight: 300 }, children: [
           '"',
           r.text,
           '"'
