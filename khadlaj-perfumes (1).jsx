@@ -397,6 +397,11 @@ function ProductCard({ p, onView, onCart }){
     "Biscotti Melon Musk": 0.94,
     "Bleu Glacé": 0.98,
     "Saraya": 0.88,
+    "Nafais Sharq Gift Set": 1.15,
+    "Khadlaj Nafais Sharq": 1.15,
+    "Island Gift Set": 1.15,
+    "Khadlaj Island Gift Set": 1.15,
+    "Cream Velvet Gift Set": 1.15,
   }[p.name] || 0.9;
   const imageShiftY = {
     "Island": -0.06,
