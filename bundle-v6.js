@@ -22086,21 +22086,11 @@ function ProductCard({ p, onView, onCart }) {
     "Biscotti Date Toffee": 0.88,
     "Biscotti Melon Musk": 0.94,
     "Bleu Glac\xE9": 0.98,
-    "Saraya": 0.88,
-    "Nafais Sharq Gift Set": 1.45,
-    "Khadlaj Nafais Sharq": 1.45,
-    "Island Gift Set": 1.45,
-    "Khadlaj Island Gift Set": 1.45,
-    "Cream Velvet Gift Set": 1.45
+    "Saraya": 0.88
   }[p.name] || 0.9;
   const imageShiftY = {
     "Island": -0.06,
-    "Cream Velvet": -0.035,
-    "Nafais Sharq Gift Set": 0.08,
-    "Khadlaj Nafais Sharq": 0.08,
-    "Island Gift Set": 0.08,
-    "Khadlaj Island Gift Set": 0.08,
-    "Cream Velvet Gift Set": 0.08
+    "Cream Velvet": -0.035
   }[p.name] || 0;
   const imageHoverScale = {
     "Island": 1.02,
