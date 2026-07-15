@@ -1070,7 +1070,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/IntoxicateMystique.3.png?v=1772518819",name:"Intoxicate Mystique"},
             {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Panache_1_jpg_c97c705a-aebf-4bf9-a621-f11b565e765d.jpg?v=1771333282",name:"Angel Dust"},
             {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ONYX-03.jpg?v=1762324228",name:"Onyx Gold"},
-            {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/shiyaaka-snow.png?v=1781615422",name:"Shiyaaka Snow"},
+            {src:"./assets/images/products/shiyaaka-snow-bottle.png",name:"Shiyaaka Snow"},
             {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/saraya_3.png?v=1781332291",name:"Saraya"},
             {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SAWAAR-03.jpg?v=1764151207",name:"Sawaar Vanille Blanc"},
             {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais_Magrib-3.jpg?v=1761115886",name:"Nafais Magrib"},
@@ -2007,9 +2007,6 @@ function SignupPage(){
         <div style={{maxWidth:1420,margin:"0 auto",display:"grid",gridTemplateColumns:".95fr 1.05fr",alignItems:"stretch",border:"1px solid #E8E0D2",boxShadow:"0 28px 80px rgba(0,0,0,.08)",background:"#fff"}} className="hero-split">
           <div className="auth-visual-panel" style={{position:"relative",overflow:"hidden",minHeight:640,background:"linear-gradient(135deg,#080808 0%,#15110A 72%,#060606 100%)",padding:"58px 52px",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
             <div style={{position:"absolute",top:-110,right:-90,width:340,height:340,borderRadius:"50%",background:"radial-gradient(circle,rgba(184,146,42,.28),rgba(184,146,42,0) 68%)"}}/>
-            <div style={{position:"absolute",right:"5%",bottom:"-2%",width:"54%",height:"76%",display:"flex",alignItems:"flex-end",justifyContent:"center",pointerEvents:"none"}}>
-              <img src="./assets/images/gifsets/creamvelvet_gift_user.png" alt="Khadlaj Cream Velvet Gift Set" style={{width:"100%",height:"100%",objectFit:"contain",filter:"drop-shadow(0 34px 70px rgba(0,0,0,.42))"}}/>
-            </div>
             <div style={{position:"relative",zIndex:2,maxWidth:470}}>
               <div style={{width:42,height:1,background:"#B8922A",marginBottom:22}}/>
               <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:18}}>Khadlaj Circle</p>
