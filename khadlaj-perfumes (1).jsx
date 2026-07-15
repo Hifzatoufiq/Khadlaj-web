@@ -311,6 +311,7 @@ const GLOBAL_CSS = `
   @keyframes lafedeGlow{0%,100%{opacity:.34;transform:scale(.94);}50%{opacity:.72;transform:scale(1.05);}}
   @keyframes lafedeSweep{0%{transform:translateX(-140%) rotate(16deg);opacity:0;}35%{opacity:.18;}100%{transform:translateX(140%) rotate(16deg);opacity:0;}}
 
+  .max-container { max-width: 1440px; margin: 0 auto; width: 100%; }
 
   /* ── Mobile responsive ── */
   @media(max-width:900px){
@@ -688,20 +689,22 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
       {/* ── NEW LAUNCH ── */}
       <section style={{padding:"84px 5% 96px", background:"linear-gradient(180deg, #fff 0%, #fcfaf7 100%)"}}>
-        <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:14,marginBottom:28,textAlign:"center"}}>
-          <SectionHeader eyebrow="New Launch" title="Fresh Arrivals" sub="A balanced spotlight on the latest fragrances, curated to feel clean and contemporary." />
-        </div>
+        <div className="max-container">
+          <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:14,marginBottom:28,textAlign:"center"}}>
+            <SectionHeader eyebrow="New Launch" title="Fresh Arrivals" sub="A balanced spotlight on the latest fragrances, curated to feel clean and contemporary." />
+          </div>
 
-        <div style={{display:"grid",gridTemplateColumns:"repeat(4,minmax(0,1fr))",gap:24,alignItems:"stretch"}} className="grid-4">
-          {newLaunches.map(p=>(
-            <ProductCard key={p.id} p={p} onView={(prod)=>{setViewProduct(prod);setPage("product");}} onCart={addToCart}/>
-          ))}
-        </div>
+          <div style={{display:"grid",gridTemplateColumns:"repeat(4,minmax(0,1fr))",gap:24,alignItems:"stretch"}} className="grid-4">
+            {newLaunches.map(p=>(
+              <ProductCard key={p.id} p={p} onView={(prod)=>{setViewProduct(prod);setPage("product");}} onCart={addToCart}/>
+            ))}
+          </div>
 
-        <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",gap:16,marginTop:18,flexWrap:"wrap",paddingTop:12,borderTop:"1px solid #EBE4DD"}}>
-          <p style={{fontSize:10.5,letterSpacing:2.5,color:"#888",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif"}}>
-            {newLaunches.length} fresh launches
-          </p>
+          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",gap:16,marginTop:18,flexWrap:"wrap",paddingTop:12,borderTop:"1px solid #EBE4DD"}}>
+            <p style={{fontSize:10.5,letterSpacing:2.5,color:"#888",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif"}}>
+              {newLaunches.length} fresh launches
+            </p>
+          </div>
         </div>
       </section>
 
@@ -1034,21 +1037,23 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       </section>
       {/* ── GIFT SETS ── */}
       <section style={{padding:"96px 5%",background:"#fff",borderTop:"1px solid #E8E4DC"}}>
-        <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",flexWrap:"wrap",gap:16,marginBottom:60}}>
-          <div>
-            <div style={{width:32,height:1,background:"#B8922A",marginBottom:18}}/>
-            <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Gifting</p>
-            <h2 className="disp" style={{fontSize:"clamp(30px,3.8vw,52px)",fontWeight:300,color:"#3c1152",lineHeight:1,letterSpacing:-1}}>
-              Curated<br/><em className="luxury-gold-text" style={{fontStyle:"normal"}}>Gift Collections</em>
-            </h2>
+        <div className="max-container">
+          <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",flexWrap:"wrap",gap:16,marginBottom:60}}>
+            <div>
+              <div style={{width:32,height:1,background:"#B8922A",marginBottom:18}}/>
+              <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Gifting</p>
+              <h2 className="disp" style={{fontSize:"clamp(30px,3.8vw,52px)",fontWeight:300,color:"#3c1152",lineHeight:1,letterSpacing:-1}}>
+                Curated<br/><em className="luxury-gold-text" style={{fontStyle:"normal"}}>Gift Collections</em>
+              </h2>
+            </div>
+            <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>setPage("gifts")}>View All Gifts</button>
           </div>
-          <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>setPage("gifts")}>View All Gifts</button>
-        </div>
 
-        <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:24}} className="grid-4">
-          {PRODUCTS.filter(p=>p.size==="Gift Set").slice(0,4).map(p=>(
-            <ProductCard key={p.id} p={p} onView={(prod)=>{setViewProduct(prod);setPage("product");}} />
-          ))}
+          <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:24}} className="grid-4">
+            {PRODUCTS.filter(p=>p.size==="Gift Set").slice(0,4).map(p=>(
+              <ProductCard key={p.id} p={p} onView={(prod)=>{setViewProduct(prod);setPage("product");}} />
+            ))}
+          </div>
         </div>
       </section>
       {/* ── TESTIMONIALS ── */}
@@ -1618,23 +1623,25 @@ function GiftsPage({ addToCart, setViewProduct, setPage }){
 
       {/* ── Live Gift Set Products (from PRODUCTS) ── */}
       <section style={{padding:"80px 5%",background:"#fff"}}>
-        <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",flexWrap:"wrap",gap:16,marginBottom:52}}>
-          <div>
-            <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Curated Collections</p>
-            <h2 className="disp" style={{fontSize:"clamp(28px,3.5vw,50px)",fontWeight:300,color:"#3c1152",letterSpacing:-1,lineHeight:1.05}}>
-              Gift Sets &amp; <em style={{fontStyle:"italic",color:"#B8922A"}}>Bundles</em>
-            </h2>
+        <div className="max-container">
+          <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",flexWrap:"wrap",gap:16,marginBottom:52}}>
+            <div>
+              <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Curated Collections</p>
+              <h2 className="disp" style={{fontSize:"clamp(28px,3.5vw,50px)",fontWeight:300,color:"#3c1152",letterSpacing:-1,lineHeight:1.05}}>
+                Gift Sets &amp; <em style={{fontStyle:"italic",color:"#B8922A"}}>Bundles</em>
+              </h2>
+            </div>
+            <div style={{display:"flex",flexDirection:"column",alignItems:"flex-end",gap:12}}>
+              <p style={{fontSize:12,color:"#888",fontFamily:"'Montserrat',sans-serif"}}>{visibleGiftProducts.length} of {giftProducts.length} gift sets</p>
+              <ProductFilterBar active={giftFilter} setActive={setGiftFilter} options={giftFilterOptions}/>
+            </div>
           </div>
-          <div style={{display:"flex",flexDirection:"column",alignItems:"flex-end",gap:12}}>
-            <p style={{fontSize:12,color:"#888",fontFamily:"'Montserrat',sans-serif"}}>{visibleGiftProducts.length} of {giftProducts.length} gift sets</p>
-            <ProductFilterBar active={giftFilter} setActive={setGiftFilter} options={giftFilterOptions}/>
-          </div>
-        </div>
 
-        <div style={{display:"grid",gridTemplateColumns:"repeat(4,minmax(0,1fr))",gap:24,alignItems:"stretch"}} className="grid-4">
-          {visibleGiftProducts.map(p=>(
-            <ProductCard key={p.id} p={p} onView={(prod)=>{if(setViewProduct){setViewProduct(prod);setPage("product");}}} onCart={addToCart}/>
-          ))}
+          <div style={{display:"grid",gridTemplateColumns:"repeat(4,minmax(0,1fr))",gap:24,alignItems:"stretch"}} className="grid-4">
+            {visibleGiftProducts.map(p=>(
+              <ProductCard key={p.id} p={p} onView={(prod)=>{if(setViewProduct){setViewProduct(prod);setPage("product");}}} onCart={addToCart}/>
+            ))}
+          </div>
         </div>
       </section>
 

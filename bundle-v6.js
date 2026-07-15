@@ -22003,6 +22003,7 @@ var GLOBAL_CSS = `
   @keyframes lafedeGlow{0%,100%{opacity:.34;transform:scale(.94);}50%{opacity:.72;transform:scale(1.05);}}
   @keyframes lafedeSweep{0%{transform:translateX(-140%) rotate(16deg);opacity:0;}35%{opacity:.18;}100%{transform:translateX(140%) rotate(16deg);opacity:0;}}
 
+  .max-container { max-width: 1440px; margin: 0 auto; width: 100%; }
 
   /* \u2500\u2500 Mobile responsive \u2500\u2500 */
   @media(max-width:900px){
@@ -22388,7 +22389,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 12, fontWeight: 400, letterSpacing: 8, color: "#E8E4DC", textTransform: "uppercase", whiteSpace: "nowrap", fontFamily: "'Montserrat',sans-serif" }, children: n }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { margin: "0 64px", color: "#C1A46A", fontSize: 10 }, children: "\u2726" })
     ] }, i)) }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "84px 5% 96px", background: "linear-gradient(180deg, #fff 0%, #fcfaf7 100%)" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { padding: "84px 5% 96px", background: "linear-gradient(180deg, #fff 0%, #fcfaf7 100%)" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "max-container", children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: 14, marginBottom: 28, textAlign: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeader, { eyebrow: "New Launch", title: "Fresh Arrivals", sub: "A balanced spotlight on the latest fragrances, curated to feel clean and contemporary." }) }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: 24, alignItems: "stretch" }, className: "grid-4", children: newLaunches.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
         setViewProduct(prod);
@@ -22398,7 +22399,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
         newLaunches.length,
         " fresh launches"
       ] }) })
-    ] }),
+    ] }) }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "0 5% 104px", background: "#fff" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { paddingTop: 96, marginBottom: 52, display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { textAlign: "left" }, children: [
@@ -22785,7 +22786,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
         ] })
       ] })
     ] }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "96px 5%", background: "#fff", borderTop: "1px solid #E8E4DC" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { padding: "96px 5%", background: "#fff", borderTop: "1px solid #E8E4DC" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "max-container", children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 16, marginBottom: 60 }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 32, height: 1, background: "#B8922A", marginBottom: 18 } }),
@@ -22802,7 +22803,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
         setViewProduct(prod);
         setPage("product");
       } }, p.id)) })
-    ] }),
+    ] }) }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { background: "#3c1152", padding: "64px 5%" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeader, { eyebrow: "Reviews", title: "Loved Across the Gulf", light: true }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "grid-4", style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 1, background: "rgba(255,255,255,.15)" }, children: REVIEWS.map((r, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "#3c1152", padding: "32px 24px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", transition: "background 0.3s ease" }, onMouseEnter: (e) => e.currentTarget.style.background = "rgba(255,255,255,0.03)", onMouseLeave: (e) => e.currentTarget.style.background = "#3c1152", children: [
@@ -23360,7 +23361,7 @@ function GiftsPage({ addToCart, setViewProduct, setPage }) {
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "rgba(255,255,255,.65)", maxWidth: 430, lineHeight: 1.8, fontSize: 14, fontFamily: "'Montserrat',sans-serif" }, children: "Every Khadlaj gift set arrives in premium packaging \u2014 a luxury experience from first glance." })
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "80px 5%", background: "#fff" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { padding: "80px 5%", background: "#fff" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "max-container", children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 16, marginBottom: 52 }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontWeight: 600, fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 12 }, children: "Curated Collections" }),
@@ -23385,7 +23386,7 @@ function GiftsPage({ addToCart, setViewProduct, setPage }) {
           setPage("product");
         }
       }, onCart: addToCart }, p.id)) })
-    ] }),
+    ] }) }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { background: "#3c1152", padding: "80px 5%", textAlign: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { maxWidth: 580, margin: "0 auto" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 40, height: 1, background: "#B8922A", margin: "0 auto 32px" } }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontWeight: 600, fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 16 }, children: "Custom Orders" }),
