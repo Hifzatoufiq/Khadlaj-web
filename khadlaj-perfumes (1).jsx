@@ -89,8 +89,6 @@ const PRODUCTS = [
   // ── New Best Sellers (requested list additions) ──
   { id:301, name:"Island Dreams",       col:"Master Perfumery", price:150, size:"100ml EDP",     badge:"Best Seller", gender:"Her",    notes:["Coconut","Vanilla","Musk"],     img:"./assets/images/products/island-dreams-cutout.png" },
   { id:302, name:"Ria",                 col:"Lafede",           price:125, size:"100ml EDP",     badge:"Best Seller", gender:"Her",    notes:["Rose","Jasmine","Amber"],       img:"./assets/images/products/ria-cutout.png" },
-  { id:303, name:"Pure Musk Pure Blend",col:"Atyaab",           price:200, size:"100ml EDP",     badge:"Best Seller", gender:"Unisex", notes:["White Musk","Clean","Iris"],    img:"./assets/images/products/pure-musk-pure-blend-cutout.png" },
-  { id:304, name:"Musk Ice",            col:"Atyaab",           price:150, size:"100ml EDP",     badge:"Best Seller", gender:"Unisex", notes:["Mint","Ice","White Musk"],      img:"./assets/images/products/musk-ice-cutout.png" },
   { id:305, name:"Karus",               col:"Lafede",           price:150, size:"100ml EDP",     badge:"Best Seller", gender:"Him",    notes:["Oud","Leather","Incense"],      img:"./assets/images/products/karus-cutout.png" },
 ];
 
@@ -416,7 +414,7 @@ function ProductCard({ p, onView, onCart }){
         width:"100%",
         height:"clamp(250px, 22vw, 330px)",
         overflow:"hidden",
-        background:"transparent",
+        background:"#F5F5F2",
         border:"none",
         boxShadow:"none",
         transition:"box-shadow .35s ease,border-color .35s ease"
@@ -568,8 +566,8 @@ function TikTokCard({ t }) {
       {/* Content (Disabled pointer events so user can click Play on the iframe) */}
       <div style={{position: "relative", zIndex: 3, padding: "30px 24px", color: "#fff", pointerEvents: "none"}}>
         <div style={{display:"flex", alignItems:"center", gap:12, marginBottom:20}}>
-          <div style={{width:48, height:48, borderRadius:"50%", background:"#fff", display:"flex", alignItems:"center", justifyContent:"center", padding:6}}>
-            <img src={t.img} alt="" style={{width:"100%", height:"100%", objectFit:"contain", mixBlendMode:"multiply", filter:"contrast(1.05) brightness(1.04)"}}/>
+          <div style={{width:48, height:48, borderRadius:"50%", background:"#F5F5F2", display:"flex", alignItems:"center", justifyContent:"center", padding:6}}>
+            <img src={t.img} alt="" style={{width:"100%", height:"100%", objectFit:"contain", mixBlendMode:"normal", filter:"contrast(1.02) brightness(0.98)"}}/>
           </div>
           <div>
             <p style={{fontSize:9, letterSpacing:2.5, textTransform:"uppercase", color:"#C1A46A", fontFamily:"'Montserrat',sans-serif", marginBottom:4}}>{t.tag || "Trending"}</p>
@@ -1424,7 +1422,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
           
           {/* ── Left: Static Product Image ── */}
           <div
-            style={{width:"100%", aspectRatio:"1/1", display:"flex", alignItems:"center", justifyContent:"center", background:"transparent", overflow:"hidden"}}
+            style={{width:"100%", aspectRatio:"1/1", display:"flex", alignItems:"center", justifyContent:"center", background:"#F5F5F2", borderRadius:"4px", overflow:"hidden"}}
             onMouseEnter={e=>{
               const img = e.currentTarget.querySelector('img');
               if (img) img.style.transform = "scale(1.05)";
@@ -1437,7 +1435,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
             <img
               src={product.img}
               alt={product.name}
-              style={{width:"92%", height:"92%", objectFit:"contain", mixBlendMode:"multiply", filter:"contrast(1.05) brightness(1.04)", transition:"transform .45s ease"}}
+              style={{width:"92%", height:"92%", objectFit:"contain", mixBlendMode:"normal", filter:"contrast(1.02) brightness(0.98)", transition:"transform .45s ease"}}
             />
           </div>
           {/* ── Right: Product Details (Sticky) ── */}
@@ -2370,7 +2368,7 @@ function Navbar({ page, setPage, cartCount }){
                 <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:48}} className="grid-3">
                   {searchResults.map(p=>(
                     <div key={p.id} onClick={()=>{setSearchOpen(false);setSearchQuery("");setSearchResults([]);setPage("product");}} style={{cursor:"pointer"}}>
-                      <div style={{position:"relative",aspectRatio:"3/4",overflow:"hidden",background:"#fff",border:"1px solid #F1ECE4"}}>
+                      <div style={{position:"relative",aspectRatio:"3/4",overflow:"hidden",background:"#F5F5F2",border:"1px solid #F1ECE4"}}>
                         <div style={{position:"absolute",inset:10,background:"radial-gradient(circle at 50% 42%, rgba(184,146,42,.10), rgba(255,255,255,0) 62%)"}}/>
                         <img src={p.img} alt={p.name} loading="lazy" style={{position:"relative",width:"100%",height:"100%",objectFit:"contain",padding:"16px",filter:"drop-shadow(0 12px 20px rgba(0,0,0,.08))"}}/>
                         <div style={{height:2,position:"absolute",bottom:0,left:0,right:0,background:"linear-gradient(90deg,#B8922A,#D4AF5A,#B8922A)"}}/>
@@ -2418,7 +2416,7 @@ function Navbar({ page, setPage, cartCount }){
               <span className="mob-search-left" style={{cursor:"pointer",display:"flex",alignItems:"center"}} onClick={()=>setSearchOpen(true)}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               </span>
-              <div className="hide-mob" style={{display:"grid",gridTemplateColumns:"repeat(4, auto)",gap:"5px 4px",alignItems:"center"}}>
+              <div className="hide-mob" style={{display:"grid",gridTemplateColumns:"repeat(4, auto)",gap:"7px 6px",alignItems:"center"}}>
                 <CountryContext.Consumer>
                   {({ activeCountry, setActiveCountry }) => (
                     COUNTRIES.map(c => {
@@ -2428,14 +2426,14 @@ function Navbar({ page, setPage, cartCount }){
                           key={c.name}
                           onClick={() => setActiveCountry(c)}
                           style={{
-                            display:"flex",alignItems:"center",gap:5,
-                            padding:"4px 8px",
+                            display:"flex",alignItems:"center",gap:7,
+                            padding:"6px 10px",
                             border: isActive ? "1px solid #B8922A" : "1px solid #E8E4DC",
                             borderRadius:3,
                             background: isActive ? "#FAF9F6" : "transparent",
                             cursor:"pointer",
                             fontFamily:"'Montserrat',sans-serif",
-                            fontSize:9.5,fontWeight: isActive ? 600 : 400,
+                            fontSize:11,fontWeight: isActive ? 700 : 500,
                             color: isActive ? "#B8922A" : "#555",
                             transition:"all .2s",
                           }}
@@ -2443,8 +2441,8 @@ function Navbar({ page, setPage, cartCount }){
                           onMouseLeave={e => { if(!isActive){ e.currentTarget.style.borderColor="#E8E4DC"; e.currentTarget.style.color="#555"; } }}
                         >
                           {c.flagUrl === "global"
-                            ? <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                            : <img src={c.flagUrl} alt={c.name} style={{width:15,height:10,objectFit:"cover",borderRadius:1,display:"block"}} />
+                            ? <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                            : <img src={c.flagUrl} alt={c.name} style={{width:20,height:14,objectFit:"cover",borderRadius:2,display:"block"}} />
                           }
                           {c.name}
                         </button>
