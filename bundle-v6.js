@@ -24478,6 +24478,91 @@ function Footer({ setPage }) {
     ] })
   ] });
 }
+function ScratchCard({ code, onReveal }) {
+  const canvasRef = import_react.default.useRef(null);
+  const [isRevealed, setIsRevealed] = import_react.default.useState(false);
+  import_react.default.useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas || isRevealed) return;
+    const ctx = canvas.getContext("2d");
+    const width = canvas.width;
+    const height = canvas.height;
+    const gradient = ctx.createLinearGradient(0, 0, width, height);
+    gradient.addColorStop(0, "#C8A97E");
+    gradient.addColorStop(0.5, "#E6D5B8");
+    gradient.addColorStop(1, "#B8922A");
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, width, height);
+    ctx.fillStyle = "rgba(255,255,255,0.7)";
+    ctx.font = "600 14px 'Montserrat', sans-serif";
+    ctx.textAlign = "center";
+    ctx.fillText("SCRATCH TO REVEAL", width / 2, height / 2 + 5);
+    let isDrawing = false;
+    const getMousePos = (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const clientX = e.touches && e.touches.length > 0 ? e.touches[0].clientX : e.clientX || 0;
+      const clientY = e.touches && e.touches.length > 0 ? e.touches[0].clientY : e.clientY || 0;
+      return {
+        x: (clientX - rect.left) * (canvas.width / rect.width),
+        y: (clientY - rect.top) * (canvas.height / rect.height)
+      };
+    };
+    const startDrawing = (e) => {
+      isDrawing = true;
+      scratch(e);
+    };
+    const stopDrawing = () => {
+      isDrawing = false;
+      checkReveal();
+    };
+    const scratch = (e) => {
+      if (!isDrawing) return;
+      const pos = getMousePos(e);
+      ctx.globalCompositeOperation = "destination-out";
+      ctx.beginPath();
+      ctx.arc(pos.x, pos.y, 24, 0, 2 * Math.PI);
+      ctx.fill();
+    };
+    const checkReveal = () => {
+      if (isRevealed) return;
+      const imageData = ctx.getImageData(0, 0, width, height);
+      const pixels = imageData.data;
+      let transparentCount = 0;
+      for (let i = 3; i < pixels.length; i += 4) {
+        if (pixels[i] === 0) transparentCount++;
+      }
+      const percent = transparentCount / (pixels.length / 4);
+      if (percent > 0.45) {
+        setIsRevealed(true);
+        if (onReveal) onReveal();
+      }
+    };
+    canvas.addEventListener("mousedown", startDrawing);
+    canvas.addEventListener("mousemove", scratch);
+    canvas.addEventListener("mouseup", stopDrawing);
+    canvas.addEventListener("mouseleave", stopDrawing);
+    const touchMove = (e) => {
+      if (e.cancelable) e.preventDefault();
+      scratch(e);
+    };
+    canvas.addEventListener("touchstart", startDrawing, { passive: true });
+    canvas.addEventListener("touchmove", touchMove, { passive: false });
+    canvas.addEventListener("touchend", stopDrawing);
+    return () => {
+      canvas.removeEventListener("mousedown", startDrawing);
+      canvas.removeEventListener("mousemove", scratch);
+      canvas.removeEventListener("mouseup", stopDrawing);
+      canvas.removeEventListener("mouseleave", stopDrawing);
+      canvas.removeEventListener("touchstart", startDrawing);
+      canvas.removeEventListener("touchmove", touchMove);
+      canvas.removeEventListener("touchend", stopDrawing);
+    };
+  }, [isRevealed, onReveal]);
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", width: 260, height: 80, margin: "0 auto", borderRadius: 8, overflow: "hidden", border: "2px dashed #C8A97E", background: "#fff", boxShadow: "inset 0 4px 10px rgba(0,0,0,0.05)" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 24, fontWeight: 700, color: "#3c1152", letterSpacing: 4, margin: 0 }, children: code }) }),
+    !isRevealed && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("canvas", { ref: canvasRef, width: 260, height: 80, style: { position: "absolute", inset: 0, cursor: "pointer", width: "100%", height: "100%" } })
+  ] });
+}
 function App() {
   const [activeCountry, setActiveCountry] = import_react.default.useState(COUNTRIES[0]);
   const formatPrice2 = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
@@ -24486,6 +24571,7 @@ function App() {
   const [viewProduct, setViewProduct] = (0, import_react.useState)(null);
   const [showPopup, setShowPopup] = (0, import_react.useState)(false);
   const [popupEmail, setPopupEmail] = (0, import_react.useState)("");
+  const [popupState, setPopupState] = (0, import_react.useState)("scratch");
   const [popupDone, setPopupDone] = (0, import_react.useState)(false);
   const cartCount = cartItems.reduce((sum, item) => sum + item.qty, 0);
   const addToCart = (product, qty = 1) => {
@@ -24757,45 +24843,19 @@ function App() {
             children: [
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => setShowPopup(false), style: { position: "absolute", top: 16, right: 16, background: "rgba(255,255,255,0.88)", border: "none", width: 34, height: 34, borderRadius: "50%", fontSize: 20, cursor: "pointer", color: "#3c1152", zIndex: 10, display: "flex", alignItems: "center", justifyContent: "center", backdropFilter: "blur(6px)", boxShadow: "0 8px 18px rgba(0,0,0,.08)" }, children: "\xD7" }),
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { flex: 0.9, position: "relative", minHeight: 310, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", background: "radial-gradient(circle at 50% 45%, rgba(184,146,42,.12), rgba(255,255,255,0) 58%), linear-gradient(180deg,#FBFBFB 0%, #F3F1EE 100%)", padding: "24px 18px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: "./assets/images/products/strawberry-shake_transparent.png", alt: "Strawberry Shake perfume", style: { width: "64%", height: "78%", objectFit: "contain", objectPosition: "center center", filter: "drop-shadow(0 16px 28px rgba(0,0,0,.13))" } }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: 1.15, padding: "34px 30px", display: "flex", flexDirection: "column", justifyContent: "center", background: "#fff" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { flex: 1.15, padding: "34px 30px", display: "flex", flexDirection: "column", justifyContent: "center", background: "#fff" }, children: popupState === "scratch" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }, children: [
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 22, height: 1, background: "#B8922A", marginBottom: 14 } }),
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 8, letterSpacing: 3.6, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 12, fontWeight: 600 }, children: "Welcome" }),
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "disp", style: { fontSize: 24, fontWeight: 300, color: "#3c1152", marginBottom: 9, lineHeight: 1.15 }, children: "Join the Khadlaj Circle" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { style: { fontSize: 11, color: "#777", lineHeight: 1.6, fontFamily: "'Montserrat',sans-serif", marginBottom: 18 }, children: [
-                  "Subscribe to receive ",
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { style: { color: "#3c1152", fontWeight: 600 }, children: "10% off" }),
-                  " your first order and exclusive access to new launches."
-                ] }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "relative", marginBottom: 16 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-                  "input",
-                  {
-                    type: "email",
-                    placeholder: "Your email address",
-                    value: popupEmail,
-                    onChange: (e) => setPopupEmail(e.target.value),
-                    style: { width: "100%", border: "1px solid #E8E4DC", padding: "13px 16px", fontSize: 10.5, outline: "none", fontFamily: "'Montserrat',sans-serif", background: "#FAFAFA", letterSpacing: 1, transition: "border-color 0.3s", borderRadius: 2 },
-                    onFocus: (e) => e.currentTarget.style.borderColor = "#111",
-                    onBlur: (e) => e.currentTarget.style.borderColor = "#E8E4DC"
-                  }
-                ) }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-                  "button",
-                  {
-                    onClick: () => {
-                      setPopupDone(true);
-                      setShowPopup(false);
-                    },
-                    style: { width: "100%", background: "#3c1152", color: "#fff", border: "none", padding: "14px", fontSize: 9.5, letterSpacing: 2.4, textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, transition: "background .3s", borderRadius: 2 },
-                    onMouseEnter: (e) => e.currentTarget.style.background = "#B8922A",
-                    onMouseLeave: (e) => e.currentTarget.style.background = "#111",
-                    children: "Unlock 10% Off"
-                  }
-                ),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 11, color: "#777", lineHeight: 1.6, fontFamily: "'Montserrat',sans-serif", marginBottom: 24 }, children: "Scratch the card below to reveal your exclusive 10% discount code." }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ScratchCard, { code: "KHADLAJ10", onReveal: () => {
+                  setTimeout(() => setPopupState("revealed"), 800);
+                } }),
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
                   "button",
                   {
                     onClick: () => setShowPopup(false),
-                    style: { background: "none", border: "none", fontSize: 8.5, letterSpacing: 2, color: "#aaa", textTransform: "uppercase", textAlign: "center", marginTop: 12, cursor: "pointer", fontFamily: "'Montserrat',sans-serif", borderBottom: "1px solid transparent", transition: "all 0.3s", paddingBottom: 2 },
+                    style: { background: "none", border: "none", fontSize: 8.5, letterSpacing: 2, color: "#aaa", textTransform: "uppercase", textAlign: "center", marginTop: 16, cursor: "pointer", fontFamily: "'Montserrat',sans-serif", borderBottom: "1px solid transparent", transition: "all 0.3s", paddingBottom: 2 },
                     onMouseEnter: (e) => {
                       e.currentTarget.style.color = "#111";
                       e.currentTarget.style.borderBottomColor = "#111";
@@ -24807,7 +24867,25 @@ function App() {
                     children: "No thanks"
                   }
                 )
-              ] })
+              ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "disp", style: { fontSize: 28, fontWeight: 400, color: "#B8922A", marginBottom: 9, lineHeight: 1.15 }, children: "Congratulations!" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 11, color: "#777", lineHeight: 1.6, fontFamily: "'Montserrat',sans-serif", marginBottom: 24 }, children: "Use this code at checkout to claim your 10% discount." }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { border: "2px dashed #B8922A", padding: "12px 24px", background: "#FAFAFA", borderRadius: 8, marginBottom: 20 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 24, fontWeight: 700, color: "#3c1152", letterSpacing: 4, margin: 0 }, children: "KHADLAJ10" }) }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                  "button",
+                  {
+                    onClick: () => {
+                      navigator.clipboard.writeText("KHADLAJ10");
+                      setPopupDone(true);
+                      setShowPopup(false);
+                    },
+                    style: { width: "100%", background: "#3c1152", color: "#fff", border: "none", padding: "14px", fontSize: 9.5, letterSpacing: 2.4, textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, transition: "background .3s", borderRadius: 2 },
+                    onMouseEnter: (e) => e.currentTarget.style.background = "#B8922A",
+                    onMouseLeave: (e) => e.currentTarget.style.background = "#111",
+                    children: "Copy Code & Shop Now"
+                  }
+                )
+              ] }) })
             ]
           }
         )

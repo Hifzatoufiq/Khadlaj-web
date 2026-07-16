@@ -2825,6 +2825,118 @@ function Footer({ setPage }){
   );
 }
 /* ═══════════════════════════════════════════════════════════════
+   SCRATCH CARD COMPONENT
+═══════════════════════════════════════════════════════════════ */
+function ScratchCard({ code, onReveal }) {
+  const canvasRef = React.useRef(null);
+  const [isRevealed, setIsRevealed] = React.useState(false);
+
+  React.useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas || isRevealed) return;
+    const ctx = canvas.getContext("2d");
+    const width = canvas.width;
+    const height = canvas.height;
+
+    // Fill with a nice gold gradient
+    const gradient = ctx.createLinearGradient(0, 0, width, height);
+    gradient.addColorStop(0, "#C8A97E");
+    gradient.addColorStop(0.5, "#E6D5B8");
+    gradient.addColorStop(1, "#B8922A");
+    
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, width, height);
+
+    // Add scratch text pattern
+    ctx.fillStyle = "rgba(255,255,255,0.7)";
+    ctx.font = "600 14px 'Montserrat', sans-serif";
+    ctx.textAlign = "center";
+    ctx.fillText("SCRATCH TO REVEAL", width/2, height/2 + 5);
+
+    let isDrawing = false;
+
+    const getMousePos = (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const clientX = e.touches && e.touches.length > 0 ? e.touches[0].clientX : (e.clientX || 0);
+      const clientY = e.touches && e.touches.length > 0 ? e.touches[0].clientY : (e.clientY || 0);
+      return {
+        x: (clientX - rect.left) * (canvas.width / rect.width),
+        y: (clientY - rect.top) * (canvas.height / rect.height)
+      };
+    };
+
+    const startDrawing = (e) => {
+      isDrawing = true;
+      scratch(e);
+    };
+
+    const stopDrawing = () => {
+      isDrawing = false;
+      checkReveal();
+    };
+
+    const scratch = (e) => {
+      if (!isDrawing) return;
+      const pos = getMousePos(e);
+      ctx.globalCompositeOperation = "destination-out";
+      ctx.beginPath();
+      ctx.arc(pos.x, pos.y, 24, 0, 2 * Math.PI);
+      ctx.fill();
+    };
+
+    const checkReveal = () => {
+      if(isRevealed) return;
+      const imageData = ctx.getImageData(0,0,width,height);
+      const pixels = imageData.data;
+      let transparentCount = 0;
+      for (let i = 3; i < pixels.length; i += 4) {
+        if (pixels[i] === 0) transparentCount++;
+      }
+      const percent = transparentCount / (pixels.length / 4);
+      if (percent > 0.45) {
+        setIsRevealed(true);
+        if(onReveal) onReveal();
+      }
+    };
+
+    canvas.addEventListener("mousedown", startDrawing);
+    canvas.addEventListener("mousemove", scratch);
+    canvas.addEventListener("mouseup", stopDrawing);
+    canvas.addEventListener("mouseleave", stopDrawing);
+
+    const touchMove = (e) => {
+      if(e.cancelable) e.preventDefault();
+      scratch(e);
+    };
+
+    canvas.addEventListener("touchstart", startDrawing, {passive:true});
+    canvas.addEventListener("touchmove", touchMove, {passive:false});
+    canvas.addEventListener("touchend", stopDrawing);
+
+    return () => {
+       canvas.removeEventListener("mousedown", startDrawing);
+       canvas.removeEventListener("mousemove", scratch);
+       canvas.removeEventListener("mouseup", stopDrawing);
+       canvas.removeEventListener("mouseleave", stopDrawing);
+       canvas.removeEventListener("touchstart", startDrawing);
+       canvas.removeEventListener("touchmove", touchMove);
+       canvas.removeEventListener("touchend", stopDrawing);
+    };
+  }, [isRevealed, onReveal]);
+
+  return (
+    <div style={{position:"relative", width: 260, height: 80, margin:"0 auto", borderRadius: 8, overflow:"hidden", border:"2px dashed #C8A97E", background:"#fff", boxShadow:"inset 0 4px 10px rgba(0,0,0,0.05)"}}>
+       <div style={{position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center"}}>
+          <p style={{fontSize: 24, fontWeight:700, color:"#3c1152", letterSpacing: 4, margin:0}}>{code}</p>
+       </div>
+       {!isRevealed && (
+         <canvas ref={canvasRef} width={260} height={80} style={{position:"absolute", inset:0, cursor:"pointer", width:"100%", height:"100%"}} />
+       )}
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
    ROOT APP
 ═══════════════════════════════════════════════════════════════ */
 export default function App(){
@@ -2835,6 +2947,7 @@ export default function App(){
   const [viewProduct, setViewProduct] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
   const [popupEmail, setPopupEmail] = useState("");
+  const [popupState, setPopupState] = useState("scratch"); // "email", "scratch", "revealed"
   const [popupDone, setPopupDone] = useState(false);
 
   const cartCount = cartItems.reduce((sum, item)=>sum + item.qty, 0);
@@ -3071,30 +3184,43 @@ export default function App(){
             </div>
             {/* Right form */}
             <div style={{flex:1.15, padding:"34px 30px",display:"flex",flexDirection:"column",justifyContent:"center",background:"#fff"}}>
-              <div style={{width:22,height:1,background:"#B8922A",marginBottom:14}}/>
-              <p style={{fontSize:8,letterSpacing:3.6,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12, fontWeight:600}}>Welcome</p>
-              <h3 className="disp" style={{fontSize:24,fontWeight:300,color:"#3c1152",marginBottom:9,lineHeight:1.15}}>Join the Khadlaj Circle</h3>
-              <p style={{fontSize:11,color:"#777",lineHeight:1.6,fontFamily:"'Montserrat',sans-serif",marginBottom:18}}>Subscribe to receive <strong style={{color:"#3c1152",fontWeight:600}}>10% off</strong> your first order and exclusive access to new launches.</p>
-              
-              <div style={{position:"relative", marginBottom:16}}>
-                <input type="email" placeholder="Your email address" value={popupEmail} onChange={e=>setPopupEmail(e.target.value)}
-                  style={{width:"100%",border:"1px solid #E8E4DC",padding:"13px 16px",fontSize:10.5,outline:"none",fontFamily:"'Montserrat',sans-serif",background:"#FAFAFA", letterSpacing:1, transition:"border-color 0.3s",borderRadius:2}}
-                  onFocus={e=>e.currentTarget.style.borderColor="#111"}
-                  onBlur={e=>e.currentTarget.style.borderColor="#E8E4DC"}
-                />
-              </div>
-              
-              <button
-                onClick={()=>{setPopupDone(true);setShowPopup(false);}}
-                style={{width:"100%",background:"#3c1152",color:"#fff",border:"none",padding:"14px",fontSize:9.5,letterSpacing:2.4,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:600,transition:"background .3s",borderRadius:2}}
-                onMouseEnter={e=>e.currentTarget.style.background="#B8922A"}
-                onMouseLeave={e=>e.currentTarget.style.background="#111"}
-              >Unlock 10% Off</button>
-              
-              <button onClick={()=>setShowPopup(false)} style={{background:"none", border:"none", fontSize:8.5, letterSpacing:2, color:"#aaa", textTransform:"uppercase", textAlign:"center", marginTop:12, cursor:"pointer", fontFamily:"'Montserrat',sans-serif", borderBottom:"1px solid transparent", transition:"all 0.3s", paddingBottom:2}}
-                onMouseEnter={e=>{e.currentTarget.style.color="#111"; e.currentTarget.style.borderBottomColor="#111";}}
-                onMouseLeave={e=>{e.currentTarget.style.color="#aaa"; e.currentTarget.style.borderBottomColor="transparent";}}
-              >No thanks</button>
+              {popupState === "scratch" ? (
+                <div style={{textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center"}}>
+                  <div style={{width:22,height:1,background:"#B8922A",marginBottom:14}}/>
+                  <p style={{fontSize:8,letterSpacing:3.6,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12, fontWeight:600}}>Welcome</p>
+                  <h3 className="disp" style={{fontSize:24,fontWeight:300,color:"#3c1152",marginBottom:9,lineHeight:1.15}}>Join the Khadlaj Circle</h3>
+                  <p style={{fontSize:11,color:"#777",lineHeight:1.6,fontFamily:"'Montserrat',sans-serif",marginBottom:24}}>Scratch the card below to reveal your exclusive 10% discount code.</p>
+                  
+                  <ScratchCard code="KHADLAJ10" onReveal={() => {
+                     setTimeout(() => setPopupState("revealed"), 800);
+                  }} />
+                  
+                  <button onClick={()=>setShowPopup(false)} style={{background:"none", border:"none", fontSize:8.5, letterSpacing:2, color:"#aaa", textTransform:"uppercase", textAlign:"center", marginTop:16, cursor:"pointer", fontFamily:"'Montserrat',sans-serif", borderBottom:"1px solid transparent", transition:"all 0.3s", paddingBottom:2}}
+                    onMouseEnter={e=>{e.currentTarget.style.color="#111"; e.currentTarget.style.borderBottomColor="#111";}}
+                    onMouseLeave={e=>{e.currentTarget.style.color="#aaa"; e.currentTarget.style.borderBottomColor="transparent";}}
+                  >No thanks</button>
+                </div>
+              ) : (
+                <div style={{textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center"}}>
+                  <h3 className="disp" style={{fontSize:28,fontWeight:400,color:"#B8922A",marginBottom:9,lineHeight:1.15}}>Congratulations!</h3>
+                  <p style={{fontSize:11,color:"#777",lineHeight:1.6,fontFamily:"'Montserrat',sans-serif",marginBottom:24}}>Use this code at checkout to claim your 10% discount.</p>
+                  
+                  <div style={{border:"2px dashed #B8922A", padding:"12px 24px", background:"#FAFAFA", borderRadius:8, marginBottom: 20}}>
+                     <p style={{fontSize: 24, fontWeight:700, color:"#3c1152", letterSpacing: 4, margin:0}}>KHADLAJ10</p>
+                  </div>
+
+                  <button
+                    onClick={()=>{
+                      navigator.clipboard.writeText("KHADLAJ10");
+                      setPopupDone(true);
+                      setShowPopup(false);
+                    }}
+                    style={{width:"100%",background:"#3c1152",color:"#fff",border:"none",padding:"14px",fontSize:9.5,letterSpacing:2.4,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:600,transition:"background .3s",borderRadius:2}}
+                    onMouseEnter={e=>e.currentTarget.style.background="#B8922A"}
+                    onMouseLeave={e=>e.currentTarget.style.background="#111"}
+                  >Copy Code & Shop Now</button>
+                </div>
+              )}
             </div>
           </div>
         </div>
