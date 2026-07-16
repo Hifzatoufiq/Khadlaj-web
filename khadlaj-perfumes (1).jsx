@@ -232,7 +232,7 @@ const GLOBAL_CSS = `
   ::-webkit-scrollbar-thumb{background:#000;}
   .hide-scrollbar::-webkit-scrollbar { display: none; }
   .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-  h1,h2,h3,h4,.disp{font-family:'Trajan Pro', 'Cinzel', serif; text-transform: uppercase;}
+  h1,h2,h3,h4,.disp{font-family:'Trajan Pro', 'Cinzel', serif; text-transform: uppercase; font-weight: 400 !important;}
   .mono{font-family:'Montserrat',sans-serif;}
   
   .country-dropdown { position: relative; display: inline-block; padding: 6px 0; }
@@ -925,8 +925,8 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           <div>
             <div style={{width:32,height:1,background:"#B8922A",marginBottom:16}}/>
             <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Olfactive Profiler</p>
-            <h2 className="disp" style={{fontSize:"clamp(30px,3.8vw,52px)",fontWeight:300,color:"#fff",lineHeight:1.05,letterSpacing:-1,marginBottom:24}}>
-              Khadlaj <em className="luxury-gold-text" style={{fontStyle:"normal"}}>Scent Finder</em>
+            <h2 className="disp" style={{fontSize:"clamp(30px,3.8vw,52px)",fontWeight:400,color:"#fff",lineHeight:1.05,letterSpacing:-1,marginBottom:24}}>
+              KHADLAJ <em className="luxury-gold-text" style={{fontStyle:"normal"}}>SCENT FINDER</em>
             </h2>
             <p style={{color:"rgba(255,255,255,0.7)",lineHeight:1.8,fontSize:14,maxWidth:440,fontFamily:"'Montserrat',sans-serif",marginBottom:32}}>
               Fragrance is a deeply personal language. Answer a few questions and our custom olfactive profiler will match you with a signature scent from our master perfume lines.
