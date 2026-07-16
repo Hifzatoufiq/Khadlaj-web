@@ -1681,41 +1681,47 @@ function StoryPage(){
   return (
     <div style={{background:"#fff"}}>
 
-      {/* ── Hero Banner (Video) ── */}
-      <div style={{position:"relative",height:"clamp(400px,60vw,800px)",overflow:"hidden",background:"#000"}}>
-        <video 
-          autoPlay muted loop playsInline 
-          style={{position:"absolute",top:0,left:0,width:"100%",height:"100%",objectFit:"cover"}}
-        >
-          <source src="https://cdn.shopify.com/videos/c/o/v/eedca68692644b0991d51fb3427d1bf4.mp4" type="video/mp4" />
-        </video>
-        <div style={{position:"absolute",inset:0,background:"linear-gradient(to top, rgba(18,9,23,1) 0%, rgba(18,9,23,0.1) 40%, rgba(18,9,23,0.4) 100%)"}}/>
-        <div style={{
-          position:"absolute",inset:0,
-          display:"flex",flexDirection:"column",
-          justifyContent:"center",
-          alignItems:"center",
-          padding:"0 6%",
-          textAlign:"center"
-        }}>
-          <h1 className="disp" style={{
-            fontSize:"clamp(40px,7vw,96px)",fontWeight:400,
-            color:"#fff",lineHeight:1.1,letterSpacing:2,marginBottom:20,
-            textShadow:"0 10px 30px rgba(0,0,0,0.5)"
-          }}>
-            OUR LEGACY
+      {/* ── Minimal Luxury Hero ── */}
+      <div style={{position:"relative",height:"clamp(280px, 40vw, 400px)",background:"#120917",display:"flex",alignItems:"center",justifyContent:"center",textAlign:"center",padding:"0 5%"}}>
+        <div>
+          <h1 className="disp" style={{fontSize:"clamp(40px,7vw,80px)",fontWeight:400,color:"#C8A97E",lineHeight:1.1,letterSpacing:4,marginBottom:16,textTransform:"uppercase"}}>
+            Our Legacy
           </h1>
-          <p style={{fontWeight:600,fontSize:11,letterSpacing:6,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:14}}>
+          <p style={{fontWeight:500,fontSize:10,letterSpacing:8,color:"#fff",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",opacity:0.8}}>
             Luxury & Elegance in every fragrance creation
           </p>
         </div>
       </div>
 
-      {/* ── Brand Summary Text ── */}
-      <div style={{padding:"80px 6% 40px", textAlign:"center", maxWidth:960, margin:"0 auto"}}>
-        <p style={{fontSize:"clamp(16px, 2vw, 20px)", color:C.muted, lineHeight:1.9, fontFamily:"'Montserrat',sans-serif"}}>
-          Khadlaj Perfumes, established in January 1997, is a UAE-based perfume house specializing in bespoke Arabic and French fragrances, including renowned home ambiance fragrances. We are dedicated to embodying luxury and elegance in every fragrance creation. Our specialties include Dehn Al Oud, rose, and musk, and we also offer high-quality niche fragrances. With a legacy spanning 29 years of creating high-quality fragrances, our brand has a global presence in over 80 countries and 15 showrooms—7 in the UAE and 8 in Oman. Additionally, Khadlaj Perfumes holds trademarks across most continents.
-        </p>
+      {/* ── Brand Story & Video Section ── */}
+      <div style={{background:"#FAFAFA", padding:"clamp(60px, 10vw, 120px) 5%"}}>
+        <div className="max-container hero-split" style={{display:"grid", gridTemplateColumns:"1fr 1.1fr", gap:"clamp(40px, 8vw, 100px)", alignItems:"center"}}>
+          
+          {/* Text Content */}
+          <div style={{display:"flex", flexDirection:"column", gap:"24px"}}>
+            <h2 className="disp" style={{fontSize:"clamp(32px,4vw,52px)",fontWeight:400,color:"#111",lineHeight:1.1}}>
+              Khadlaj Perfumes
+            </h2>
+            <div style={{width:60,height:1,background:"#C8A97E"}}/>
+            <p style={{fontSize:"15px", color:"#555", lineHeight:2.2, fontFamily:"'Montserrat',sans-serif", textAlign:"justify"}}>
+              Khadlaj Perfumes, established in January 1997, is a UAE-based perfume house specializing in bespoke Arabic and French fragrances, including renowned home ambiance fragrances. We are dedicated to embodying luxury and elegance in every fragrance creation.
+            </p>
+            <p style={{fontSize:"15px", color:"#555", lineHeight:2.2, fontFamily:"'Montserrat',sans-serif", textAlign:"justify"}}>
+              Our specialties include Dehn Al Oud, rose, and musk, and we also offer high-quality niche fragrances. With a legacy spanning 29 years of creating high-quality fragrances, our brand has a global presence in over 80 countries and 15 showrooms—7 in the UAE and 8 in Oman. Additionally, Khadlaj Perfumes holds trademarks across most continents.
+            </p>
+          </div>
+
+          {/* Video Content */}
+          <div style={{position:"relative", borderRadius:"4px", overflow:"hidden", boxShadow:"0 30px 60px rgba(0,0,0,0.12)", aspectRatio:"4/5", width:"100%", maxWidth:"540px", margin:"0 auto"}}>
+            <video 
+              autoPlay muted loop playsInline 
+              style={{width:"100%", height:"100%", objectFit:"cover"}}
+            >
+              <source src="https://cdn.shopify.com/videos/c/o/v/eedca68692644b0991d51fb3427d1bf4.mp4" type="video/mp4" />
+            </video>
+          </div>
+
+        </div>
       </div>
 
       <div style={{padding:"80px 5%"}}>
