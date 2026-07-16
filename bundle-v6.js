@@ -22247,7 +22247,7 @@ function ProductCard({ p, onView, onCart }) {
 }
 function SectionHeader({ eyebrow, title, sub, light = false }) {
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { textAlign: "center", marginBottom: 52 }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "eyebrow", style: { marginBottom: 14, color: "#B8922A" }, children: eyebrow }),
+    eyebrow && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "eyebrow", style: { marginBottom: 14, color: "#B8922A" }, children: eyebrow }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(28px,3.8vw,52px)", fontWeight: 300, color: light ? "#fff" : "#3c1152", lineHeight: 1.15, letterSpacing: "-0.5px", marginBottom: sub ? 14 : 0 }, children: title }),
     sub && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: light ? "rgba(255,255,255,0.7)" : "#777", fontSize: 14, maxWidth: 500, margin: "0 auto", lineHeight: 1.8, fontFamily: "'Montserrat',sans-serif" }, children: sub }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "gold-line", style: { marginTop: 22 } })
@@ -22391,7 +22391,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { margin: "0 64px", color: "#C1A46A", fontSize: 10 }, children: "\u2726" })
     ] }, i)) }) }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { padding: "84px 5% 96px", background: "linear-gradient(180deg, #fff 0%, #fcfaf7 100%)" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "max-container", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: 14, marginBottom: 28, textAlign: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeader, { eyebrow: "New Launch", title: "Fresh Arrivals", sub: "A balanced spotlight on the latest fragrances, curated to feel clean and contemporary." }) }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: 14, marginBottom: 28, textAlign: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeader, { title: "New Launch", sub: "A balanced spotlight on the latest fragrances, curated to feel clean and contemporary." }) }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: 24, alignItems: "stretch" }, className: "grid-4", children: newLaunches.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
         setViewProduct(prod);
         setPage("product");
