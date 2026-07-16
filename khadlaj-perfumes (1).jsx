@@ -2459,13 +2459,15 @@ function Navbar({ page, setPage, cartCount }){
         </div>
       )}
 
-      {/* ── Announcement bar ── */}
-      <div style={{background:"#3c1152",color:"#fff",textAlign:"center",padding:"10px 16px",fontSize:"9px",letterSpacing:"3px",fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",fontWeight:400}}>
-        USE "KHADLAJ25" FOR FLAT 25% DISCOUNT
-      </div>
+      {/* ── Sticky Header Wrapper ── */}
+      <div style={{position:"sticky",top:0,zIndex:100}}>
+        {/* ── Announcement bar ── */}
+        <div style={{background:"#3c1152",color:"#fff",textAlign:"center",padding:"10px 16px",fontSize:"9px",letterSpacing:"3px",fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",fontWeight:400}}>
+          USE "KHADLAJ25" FOR FLAT 25% DISCOUNT
+        </div>
 
-      {/* ── Main nav ── */}
-      <nav style={{position:"sticky",top:0,zIndex:100,background:"rgba(255,255,255,0.85)",backdropFilter:"blur(16px)",WebkitBackdropFilter:"blur(16px)",boxShadow:"0 4px 30px rgba(0,0,0,0.03)",borderBottom:"1px solid rgba(232,228,220,0.5)",transition:"all 0.3s"}}>
+        {/* ── Main nav ── */}
+        <nav style={{background:"rgba(255,255,255,0.85)",backdropFilter:"blur(16px)",WebkitBackdropFilter:"blur(16px)",boxShadow:"0 4px 30px rgba(0,0,0,0.03)",borderBottom:"1px solid rgba(232,228,220,0.5)",transition:"all 0.3s"}}>
         <div style={{padding:"0 5%"}}>
           <div style={{display:"grid",gridTemplateColumns:"1fr auto 1fr",alignItems:"center",minHeight:80,padding:"12px 0",gap:24}}>
             {/* Left utility */}
@@ -2642,7 +2644,7 @@ function Navbar({ page, setPage, cartCount }){
           </div>
         )}
       </nav>
-
+      </div>
       <style>{`.mob-burger{display:none!important;}@media(max-width:900px){.mob-burger{display:flex!important;}.mob-search-left{display:inline-block!important;}}@media(min-width:901px){.mob-search-left{display:none!important;}}`}</style>
     </>
   );
