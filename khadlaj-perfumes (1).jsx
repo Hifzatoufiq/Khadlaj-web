@@ -825,9 +825,8 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       <section style={{padding:"80px 5% 40px",background:"#fff"}}>
         <div style={{marginBottom:48,textAlign:"center"}}>
           <div style={{width:40,height:1,background:"#B8922A",margin:"0 auto 16px"}}/>
-          <p style={{fontWeight:600,fontSize:8,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Shop by Reel</p>
-          <h2 className="disp" style={{fontSize:"clamp(24px,3vw,42px)",fontWeight:300,color:"#3c1152",letterSpacing:-0.5,marginBottom:10,lineHeight:1.2}}>
-            Shop by Reel
+          <h2 className="disp" style={{fontSize:"clamp(24px,3vw,42px)",fontWeight:400,color:"#3c1152",letterSpacing:-0.5,marginBottom:10,lineHeight:1.2}}>
+            SHOP BY REEL
           </h2>
           <p style={{color:"#777",fontSize:12,fontFamily:"'Montserrat',sans-serif",letterSpacing:0.3}}>
             Browse fragrances through short, stylish reels and discover your next favorite scent.

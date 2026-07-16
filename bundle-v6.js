@@ -22530,8 +22530,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "80px 5% 40px", background: "#fff" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 48, textAlign: "center" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 40, height: 1, background: "#B8922A", margin: "0 auto 16px" } }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontWeight: 600, fontSize: 8, letterSpacing: 3, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 12 }, children: "Shop by Reel" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(24px,3vw,42px)", fontWeight: 300, color: "#3c1152", letterSpacing: -0.5, marginBottom: 10, lineHeight: 1.2 }, children: "Shop by Reel" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(24px,3vw,42px)", fontWeight: 400, color: "#3c1152", letterSpacing: -0.5, marginBottom: 10, lineHeight: 1.2 }, children: "SHOP BY REEL" }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "#777", fontSize: 12, fontFamily: "'Montserrat',sans-serif", letterSpacing: 0.3 }, children: "Browse fragrances through short, stylish reels and discover your next favorite scent." })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
