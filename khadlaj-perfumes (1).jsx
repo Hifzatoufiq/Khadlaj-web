@@ -1681,44 +1681,41 @@ function StoryPage(){
   return (
     <div style={{background:"#fff"}}>
 
-      {/* ── Hero Banner ── */}
-      <div style={{position:"relative",height:"clamp(340px,45vw,560px)",overflow:"hidden",background:"#3c1152"}}>
-        {/* Split background — founder photo left, perfume bottles right */}
-        <div style={{position:"absolute",inset:0,display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:1,background:"#3c1152"}}>
-          {[
-            {src:"./assets/images/products/island-packshot-tight_transparent.png",alt:"Island"},
-            {src:"./assets/images/products/shahi-oud_transparent.png",alt:"Hareem Al Sultan"},
-            {src:"./assets/images/products/pure-musk-pure-blend-cutout.png",alt:"Pure Musk Pure Blend"},
-          ].map((item,i)=>(
-            <div key={item.alt} style={{overflow:"hidden",background:i===1?"#F4EFE7":"#FBFAF7",display:"flex",alignItems:"center",justifyContent:"center"}}>
-              <img src={item.src} alt={item.alt}
-                style={{width:"78%",height:"86%",objectFit:"contain",opacity:.72,filter:"drop-shadow(0 24px 50px rgba(0,0,0,.25))"}}/>
-            </div>
-          ))}
-        </div>
-        {/* Unified dark overlay */}
-        <div style={{position:"absolute",inset:0,background:"linear-gradient(135deg,rgba(0,0,0,.75) 0%,rgba(0,0,0,.55) 50%,rgba(0,0,0,.70) 100%)"}}/>
-        {/* Content */}
+      {/* ── Hero Banner (Video) ── */}
+      <div style={{position:"relative",height:"clamp(400px,60vw,800px)",overflow:"hidden",background:"#000"}}>
+        <video 
+          autoPlay muted loop playsInline 
+          style={{position:"absolute",top:0,left:0,width:"100%",height:"100%",objectFit:"cover"}}
+        >
+          <source src="https://cdn.shopify.com/videos/c/o/v/eedca68692644b0991d51fb3427d1bf4.mp4" type="video/mp4" />
+        </video>
+        <div style={{position:"absolute",inset:0,background:"linear-gradient(to top, rgba(18,9,23,1) 0%, rgba(18,9,23,0.1) 40%, rgba(18,9,23,0.4) 100%)"}}/>
         <div style={{
           position:"absolute",inset:0,
           display:"flex",flexDirection:"column",
-          justifyContent:"flex-end",
-          padding:"0 6% 56px",
+          justifyContent:"center",
+          alignItems:"center",
+          padding:"0 6%",
+          textAlign:"center"
         }}>
-          <div style={{width:40,height:1,background:"#B8922A",marginBottom:20}}/>
-          <p style={{fontWeight:600,fontSize:9,letterSpacing:6,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:14}}>
-            Family-Owned · UAE · Est. 1997
-          </p>
           <h1 className="disp" style={{
-            fontSize:"clamp(48px,7vw,96px)",fontWeight:300,
-            color:"#fff",lineHeight:.92,letterSpacing:-3,marginBottom:20,
+            fontSize:"clamp(40px,7vw,96px)",fontWeight:400,
+            color:"#fff",lineHeight:1.1,letterSpacing:2,marginBottom:20,
+            textShadow:"0 10px 30px rgba(0,0,0,0.5)"
           }}>
-            Our Story
+            OUR LEGACY
           </h1>
-          <p style={{color:"rgba(255,255,255,.6)",fontSize:14,maxWidth:480,lineHeight:1.8,fontFamily:"'Montserrat',sans-serif"}}>
-            45 years of mastery. One family. 400+ fragrances that define Arabian perfumery.
+          <p style={{fontWeight:600,fontSize:11,letterSpacing:6,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:14}}>
+            Luxury & Elegance in every fragrance creation
           </p>
         </div>
+      </div>
+
+      {/* ── Brand Summary Text ── */}
+      <div style={{padding:"80px 6% 40px", textAlign:"center", maxWidth:960, margin:"0 auto"}}>
+        <p style={{fontSize:"clamp(16px, 2vw, 20px)", color:C.muted, lineHeight:1.9, fontFamily:"'Montserrat',sans-serif"}}>
+          Khadlaj Perfumes, established in January 1997, is a UAE-based perfume house specializing in bespoke Arabic and French fragrances, including renowned home ambiance fragrances. We are dedicated to embodying luxury and elegance in every fragrance creation. Our specialties include Dehn Al Oud, rose, and musk, and we also offer high-quality niche fragrances. With a legacy spanning 29 years of creating high-quality fragrances, our brand has a global presence in over 80 countries and 15 showrooms—7 in the UAE and 8 in Oman. Additionally, Khadlaj Perfumes holds trademarks across most continents.
+        </p>
       </div>
 
       <div style={{padding:"80px 5%"}}>
