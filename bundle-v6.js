@@ -21915,7 +21915,7 @@ var GLOBAL_CSS = `
   @import url('https://fonts.cdnfonts.com/css/trajan-pro');
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
-  body{background:#fff;color:#000;font-family:'Montserrat',sans-serif;}
+  body{background:#fff;color:#000;font-family:'Montserrat',sans-serif;overflow-x:hidden;}
   ::-webkit-scrollbar{width:3px;}
   ::-webkit-scrollbar-track{background:#fff;}
   ::-webkit-scrollbar-thumb{background:#000;}
@@ -24600,7 +24600,7 @@ function App() {
         return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HomePage, { setPage, addToCart, setViewProduct });
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CountryContext.Provider, { value: { activeCountry, setActiveCountry }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontFamily: "'Montserrat',sans-serif", background: "#fff", color: "#3c1152", minHeight: "100vh", overflowX: "hidden" }, children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CountryContext.Provider, { value: { activeCountry, setActiveCountry }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontFamily: "'Montserrat',sans-serif", background: "#fff", color: "#3c1152", minHeight: "100vh" }, children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { children: GLOBAL_CSS }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Navbar, { page, setPage, cartCount }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("main", { children: renderPage() }),
