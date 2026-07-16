@@ -232,7 +232,7 @@ const GLOBAL_CSS = `
   ::-webkit-scrollbar-thumb{background:#000;}
   .hide-scrollbar::-webkit-scrollbar { display: none; }
   .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-  h1,h2,h3,h4,.disp{font-family:'Trajan Pro', 'Cinzel', serif;}
+  h1,h2,h3,h4,.disp{font-family:'Trajan Pro', 'Cinzel', serif; text-transform: uppercase;}
   .mono{font-family:'Montserrat',sans-serif;}
 
   /* YSL-style primary button: solid black */
