@@ -22654,8 +22654,6 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
     )) }) }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { background: "#3c1152", padding: "96px 5%", color: "#fff", borderTop: "1px solid rgba(255,255,255,0.08)", position: "relative", zIndex: 1 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 64, alignItems: "center" }, className: "hero-split", children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 32, height: 1, background: "#B8922A", marginBottom: 16 } }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontWeight: 600, fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 12 }, children: "Olfactive Profiler" }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(30px,3.8vw,52px)", fontWeight: 400, color: "#fff", lineHeight: 1.05, letterSpacing: -1, marginBottom: 24 }, children: [
           "KHADLAJ ",
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { className: "luxury-gold-text", style: { fontStyle: "normal" }, children: "SCENT FINDER" })

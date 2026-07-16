@@ -922,8 +922,6 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           
           {/* Left info column */}
           <div>
-            <div style={{width:32,height:1,background:"#B8922A",marginBottom:16}}/>
-            <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Olfactive Profiler</p>
             <h2 className="disp" style={{fontSize:"clamp(30px,3.8vw,52px)",fontWeight:400,color:"#fff",lineHeight:1.05,letterSpacing:-1,marginBottom:24}}>
               KHADLAJ <em className="luxury-gold-text" style={{fontStyle:"normal"}}>SCENT FINDER</em>
             </h2>
