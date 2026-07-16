@@ -1035,10 +1035,8 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         <div className="max-container">
           <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",flexWrap:"wrap",gap:16,marginBottom:60}}>
             <div>
-              <div style={{width:32,height:1,background:"#B8922A",marginBottom:18}}/>
-              <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Gifting</p>
-              <h2 className="disp" style={{fontSize:"clamp(30px,3.8vw,52px)",fontWeight:300,color:"#3c1152",lineHeight:1,letterSpacing:-1}}>
-                Curated<br/><em className="luxury-gold-text" style={{fontStyle:"normal"}}>Gift Collections</em>
+              <h2 className="disp" style={{fontSize:"clamp(30px,3.8vw,52px)",fontWeight:400,color:"#3c1152",lineHeight:1,letterSpacing:-1}}>
+                CURATED<br/><em className="luxury-gold-text" style={{fontStyle:"normal"}}>GIFT COLLECTIONS</em>
               </h2>
             </div>
             <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>setPage("gifts")}>View All Gifts</button>
