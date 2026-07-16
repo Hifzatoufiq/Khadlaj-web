@@ -22806,7 +22806,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeader, { eyebrow: "Reviews", title: "Loved Across the Gulf", light: true }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "grid-4", style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 1, background: "rgba(255,255,255,.15)" }, children: REVIEWS.map((r, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "#3c1152", padding: "32px 24px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", transition: "background 0.3s ease" }, onMouseEnter: (e) => e.currentTarget.style.background = "rgba(255,255,255,0.03)", onMouseLeave: (e) => e.currentTarget.style.background = "#3c1152", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StarRating, { n: r.stars, color: "#B8922A" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { className: "disp", style: { fontSize: 14, color: "rgba(255,255,255,0.85)", lineHeight: 1.6, margin: "16px 0", fontStyle: "italic", fontWeight: 300 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { style: { fontSize: 14, color: "rgba(255,255,255,0.85)", lineHeight: 1.6, margin: "16px 0", fontStyle: "italic", fontWeight: 300, fontFamily: "'Montserrat',sans-serif" }, children: [
           '"',
           r.text,
           '"'
