@@ -22018,8 +22018,12 @@ var GLOBAL_CSS = `
   }
   .glow-up { animation: glowUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) both; }
 
-  .scratch-hover { transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s; }
+  .scratch-hover { transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s; width: 100%; max-width: 320px; }
   .scratch-hover:hover { transform: scale(1.04); box-shadow: inset 0 4px 10px rgba(0,0,0,0.4), 0 12px 30px rgba(184,146,42,0.25) !important; }
+
+  .popup-layout { display: flex; flex-direction: row; }
+  .popup-left { flex: 0.9; position: relative; min-height: 310px; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 50% 45%, rgba(184,146,42,.12), rgba(255,255,255,0) 58%), linear-gradient(180deg,#FBFBFB 0%, #F3F1EE 100%); padding: 24px 18px; }
+  .popup-right { flex: 1.15; padding: 40px 30px; display: flex; flex-direction: column; justify-content: center; background: #1A0B22; }
 
   .max-container { max-width: 1440px; margin: 0 auto; width: 100%; }
 
@@ -22067,6 +22071,10 @@ var GLOBAL_CSS = `
     .hero-subtitle { font-size: 13px !important; line-height: 1.6 !important; max-width: 100% !important; margin-bottom: 16px !important; }
     .hero-stats-row { gap: 10px !important; padding-top: 10px !important; flex-wrap: wrap !important; }
     .hero-stat-item { padding-right: 10px !important; margin-right: 10px !important; }
+    .popup-layout { flex-direction: column !important; }
+    .popup-left { min-height: 180px !important; padding: 16px !important; flex: none !important; }
+    .popup-left img { height: 140px !important; }
+    .popup-right { padding: 30px 20px !important; flex: none !important; }
   }
   @media(max-width:480px){
     .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;}
@@ -24861,13 +24869,12 @@ function App() {
         children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
           "div",
           {
-            className: "popup-in",
+            className: "popup-in popup-layout",
             onClick: (e) => e.stopPropagation(),
             style: {
               background: "#fff",
               maxWidth: 520,
-              width: "100%",
-              display: "flex",
+              width: "90%",
               overflow: "hidden",
               boxShadow: "0 32px 80px rgba(0,0,0,.4)",
               position: "relative",
@@ -24875,9 +24882,9 @@ function App() {
               border: "1px solid rgba(255,255,255,.45)"
             },
             children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => setShowPopup(false), style: { position: "absolute", top: 16, right: 16, background: "rgba(255,255,255,0.88)", border: "none", width: 34, height: 34, borderRadius: "50%", fontSize: 20, cursor: "pointer", color: "#3c1152", zIndex: 10, display: "flex", alignItems: "center", justifyContent: "center", backdropFilter: "blur(6px)", boxShadow: "0 8px 18px rgba(0,0,0,.08)" }, children: "\xD7" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { flex: 0.9, position: "relative", minHeight: 310, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", background: "radial-gradient(circle at 50% 45%, rgba(184,146,42,.12), rgba(255,255,255,0) 58%), linear-gradient(180deg,#FBFBFB 0%, #F3F1EE 100%)", padding: "24px 18px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: "./assets/images/products/strawberry-shake_transparent.png", className: "bottle-float", alt: "Strawberry Shake perfume", style: { width: "64%", height: "78%", objectFit: "contain", objectPosition: "center center", filter: "drop-shadow(0 16px 28px rgba(0,0,0,.13))" } }) }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { flex: 1.15, padding: "40px 30px", display: "flex", flexDirection: "column", justifyContent: "center", background: "#1A0B22" }, children: popupState === "scratch" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => setShowPopup(false), style: { position: "absolute", top: 12, right: 12, background: "rgba(255,255,255,0.88)", border: "none", width: 30, height: 30, borderRadius: "50%", fontSize: 18, cursor: "pointer", color: "#3c1152", zIndex: 10, display: "flex", alignItems: "center", justifyContent: "center", backdropFilter: "blur(6px)", boxShadow: "0 8px 18px rgba(0,0,0,.08)" }, children: "\xD7" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "popup-left", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: "./assets/images/products/strawberry-shake_transparent.png", className: "bottle-float", alt: "Strawberry Shake perfume", style: { width: "100%", height: "78%", objectFit: "contain", objectPosition: "center center", filter: "drop-shadow(0 16px 28px rgba(0,0,0,.13))" } }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "popup-right", children: popupState === "scratch" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }, children: [
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 22, height: 1, background: "#D4AF37", marginBottom: 16 } }),
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 4, color: "#D4AF37", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 14, fontWeight: 600 }, children: "Exclusive Privilege" }),
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "disp", style: { fontSize: 26, fontWeight: 400, color: "#F9F4EB", marginBottom: 12, lineHeight: 1.15 }, children: "Your Private Invitation" }),
