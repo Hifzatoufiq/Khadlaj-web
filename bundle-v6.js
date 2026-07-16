@@ -23062,9 +23062,9 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }) {
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { width: 40, height: 1, background: "#B8922A" } }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 4, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, margin: 0 }, children: "Elevate Your Aura" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(34px, 4vw, 52px)", fontWeight: 300, color: "#fff", lineHeight: 1.05, marginBottom: 24, letterSpacing: -1 }, children: [
-          "The Art of ",
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { style: { fontStyle: "italic", color: "#B8922A" }, children: "Layering" })
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(34px, 4vw, 52px)", fontWeight: 400, color: "#fff", lineHeight: 1.05, marginBottom: 24, letterSpacing: 2 }, children: [
+          "THE ART OF ",
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#B8922A" }, children: "LAYERING" })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 14, color: "rgba(255,255,255,0.65)", lineHeight: 1.85, fontFamily: "'Montserrat',sans-serif", marginBottom: 40, maxWidth: "480px" }, children: "True luxury lies in creating a scent that is uniquely yours. In Arabian perfumery, blending a rich, concentrated perfume oil with an airy Eau de Parfum creates a multidimensional sillage. Pair our masterfully crafted oils with your favorite sprays to leave an unforgettable signature trail." }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-gold", onClick: () => setPage("home"), style: { fontSize: 10, letterSpacing: 2, padding: "16px 40px", alignSelf: "flex-start" }, children: "Discover Oils & Extrait" })

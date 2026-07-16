@@ -1296,8 +1296,8 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }){
               <span style={{width:40, height:1, background:"#B8922A"}}/>
               <p style={{fontSize:9, letterSpacing:4, color:"#B8922A", textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", fontWeight:600, margin:0}}>Elevate Your Aura</p>
             </div>
-            <h2 className="disp" style={{fontSize:"clamp(34px, 4vw, 52px)", fontWeight:300, color:"#fff", lineHeight:1.05, marginBottom:24, letterSpacing:-1}}>
-              The Art of <em style={{fontStyle:"italic", color:"#B8922A"}}>Layering</em>
+            <h2 className="disp" style={{fontSize:"clamp(34px, 4vw, 52px)", fontWeight:400, color:"#fff", lineHeight:1.05, marginBottom:24, letterSpacing:2}}>
+              THE ART OF <span style={{color:"#B8922A"}}>LAYERING</span>
             </h2>
             <p style={{fontSize:14, color:"rgba(255,255,255,0.65)", lineHeight:1.85, fontFamily:"'Montserrat',sans-serif", marginBottom:40, maxWidth:"480px"}}>
               True luxury lies in creating a scent that is uniquely yours. In Arabian perfumery, blending a rich, concentrated perfume oil with an airy Eau de Parfum creates a multidimensional sillage. Pair our masterfully crafted oils with your favorite sprays to leave an unforgettable signature trail.
