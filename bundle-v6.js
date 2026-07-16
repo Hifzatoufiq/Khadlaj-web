@@ -21923,6 +21923,10 @@ var GLOBAL_CSS = `
   .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   h1,h2,h3,h4,.disp{font-family:'Trajan Pro', 'Cinzel', serif; text-transform: uppercase;}
   .mono{font-family:'Montserrat',sans-serif;}
+  
+  .country-dropdown { position: relative; display: inline-block; padding: 6px 0; }
+  .country-dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #E8E4DC; border-radius: 3px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 200; padding: 6px; min-width: 140px; margin-top: 4px; }
+  .country-dropdown:hover .country-dropdown-menu { display: flex; flex-direction: column; gap: 2px; }
 
   /* YSL-style primary button: solid black */
   .btn-gold{
@@ -24123,51 +24127,64 @@ function Navbar({ page, setPage, cartCount }) {
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "11", cy: "11", r: "8" }),
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "21", y1: "21", x2: "16.65", y2: "16.65" })
             ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "hide-mob", style: { display: "grid", gridTemplateColumns: "repeat(4, auto)", gap: "7px 6px", alignItems: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CountryContext.Consumer, { children: ({ activeCountry, setActiveCountry }) => COUNTRIES.map((c) => {
-              const isActive = activeCountry.name === c.name;
-              return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-                "button",
-                {
-                  onClick: () => setActiveCountry(c),
-                  style: {
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 7,
-                    padding: "6px 10px",
-                    border: isActive ? "1px solid #B8922A" : "1px solid #E8E4DC",
-                    borderRadius: 3,
-                    background: isActive ? "#FAF9F6" : "transparent",
-                    cursor: "pointer",
-                    fontFamily: "'Montserrat',sans-serif",
-                    fontSize: 11,
-                    fontWeight: isActive ? 700 : 500,
-                    color: isActive ? "#B8922A" : "#555",
-                    transition: "all .2s"
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "hide-mob country-dropdown", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CountryContext.Consumer, { children: ({ activeCountry, setActiveCountry }) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "6px 12px", border: "1px solid #E8E4DC", borderRadius: 3, background: "#FAF9F6", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontSize: 11, fontWeight: 600, color: "#3c1152" }, children: [
+                activeCountry.flagUrl === "global" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "15", height: "15", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.6", strokeLinecap: "round", strokeLinejoin: "round", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "12", cy: "12", r: "10" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "2", y1: "12", x2: "22", y2: "12" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" })
+                ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: activeCountry.flagUrl, alt: activeCountry.name, style: { width: 20, height: 14, objectFit: "cover", borderRadius: 2, display: "block" } }),
+                activeCountry.name,
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", { width: "12", height: "12", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", style: { marginLeft: "4px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "6 9 12 15 18 9" }) })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "country-dropdown-menu", children: COUNTRIES.map((c) => {
+                const isActive = activeCountry.name === c.name;
+                return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+                  "button",
+                  {
+                    onClick: () => setActiveCountry(c),
+                    style: {
+                      display: "flex",
+                      alignItems: "center",
+                      gap: 7,
+                      padding: "8px 12px",
+                      border: "none",
+                      borderRadius: 3,
+                      background: isActive ? "#F4F1EA" : "transparent",
+                      cursor: "pointer",
+                      fontFamily: "'Montserrat',sans-serif",
+                      fontSize: 11,
+                      fontWeight: isActive ? 600 : 500,
+                      color: isActive ? "#3c1152" : "#555",
+                      textAlign: "left",
+                      width: "100%",
+                      transition: "all .2s"
+                    },
+                    onMouseEnter: (e) => {
+                      if (!isActive) {
+                        e.currentTarget.style.background = "#FBFaf8";
+                        e.currentTarget.style.color = "#3c1152";
+                      }
+                    },
+                    onMouseLeave: (e) => {
+                      if (!isActive) {
+                        e.currentTarget.style.background = "transparent";
+                        e.currentTarget.style.color = "#555";
+                      }
+                    },
+                    children: [
+                      c.flagUrl === "global" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "15", height: "15", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.6", strokeLinecap: "round", strokeLinejoin: "round", children: [
+                        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "12", cy: "12", r: "10" }),
+                        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "2", y1: "12", x2: "22", y2: "12" }),
+                        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" })
+                      ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: c.flagUrl, alt: c.name, style: { width: 20, height: 14, objectFit: "cover", borderRadius: 2, display: "block" } }),
+                      c.name
+                    ]
                   },
-                  onMouseEnter: (e) => {
-                    if (!isActive) {
-                      e.currentTarget.style.borderColor = "#B8922A";
-                      e.currentTarget.style.color = "#B8922A";
-                    }
-                  },
-                  onMouseLeave: (e) => {
-                    if (!isActive) {
-                      e.currentTarget.style.borderColor = "#E8E4DC";
-                      e.currentTarget.style.color = "#555";
-                    }
-                  },
-                  children: [
-                    c.flagUrl === "global" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "15", height: "15", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.6", strokeLinecap: "round", strokeLinejoin: "round", children: [
-                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "12", cy: "12", r: "10" }),
-                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "2", y1: "12", x2: "22", y2: "12" }),
-                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" })
-                    ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: c.flagUrl, alt: c.name, style: { width: 20, height: 14, objectFit: "cover", borderRadius: 2, display: "block" } }),
-                    c.name
-                  ]
-                },
-                c.name
-              );
-            }) }) })
+                  c.name
+                );
+              }) })
+            ] }) }) })
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { onClick: () => setPage("home"), style: { cursor: "pointer", textAlign: "center", userSelect: "none", display: "flex", alignItems: "center", justifyContent: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
             "img",
