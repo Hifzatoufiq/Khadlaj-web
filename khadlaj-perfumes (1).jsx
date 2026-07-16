@@ -2858,20 +2858,33 @@ function ScratchCard({ code, onReveal }) {
     const width = canvas.width;
     const height = canvas.height;
 
-    // Fill with a nice gold gradient
-    const gradient = ctx.createLinearGradient(0, 0, width, height);
-    gradient.addColorStop(0, "#C8A97E");
-    gradient.addColorStop(0.5, "#E6D5B8");
-    gradient.addColorStop(1, "#B8922A");
+    // Fill with a radial luxury gold gradient
+    const cx = width / 2;
+    const cy = height / 2;
+    const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, width * 0.8);
+    gradient.addColorStop(0, "#EAC682");
+    gradient.addColorStop(1, "#9F7928");
     
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, width, height);
 
-    // Add scratch text pattern
-    ctx.fillStyle = "rgba(255,255,255,0.7)";
-    ctx.font = "600 14px 'Montserrat', sans-serif";
+    // Add an elegant inner border
+    ctx.strokeStyle = "rgba(255,255,255,0.4)";
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([4, 4]);
+    ctx.strokeRect(6, 6, width - 12, height - 12);
+
+    // Add text with drop shadow
+    ctx.shadowColor = "rgba(0,0,0,0.3)";
+    ctx.shadowBlur = 6;
+    ctx.shadowOffsetY = 2;
+    ctx.fillStyle = "#fff";
+    ctx.font = "600 13px 'Montserrat', sans-serif";
     ctx.textAlign = "center";
-    ctx.fillText("SCRATCH TO REVEAL", width/2, height/2 + 5);
+    ctx.textBaseline = "middle";
+    // Canvas API doesn't support letterSpacing directly in all browsers, so we'll just draw text
+    ctx.fillText("SCRATCH TO REVEAL", width/2, height/2);
+    ctx.shadowColor = "transparent"; // reset
 
     let isDrawing = false;
 
@@ -2945,9 +2958,9 @@ function ScratchCard({ code, onReveal }) {
   }, [isRevealed, onReveal]);
 
   return (
-    <div style={{position:"relative", width: 260, height: 80, margin:"0 auto", borderRadius: 8, overflow:"hidden", border:"2px dashed #C8A97E", background:"#fff", boxShadow:"inset 0 4px 10px rgba(0,0,0,0.05)"}}>
+    <div style={{position:"relative", width: 260, height: 80, margin:"0 auto", borderRadius: 4, overflow:"hidden", border:"2px solid #D4AF37", background:"#1A0B22", boxShadow:"inset 0 4px 10px rgba(0,0,0,0.4), 0 8px 24px rgba(184,146,42,0.15)"}}>
        <div style={{position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center"}}>
-          <p style={{fontSize: 24, fontWeight:700, color:"#3c1152", letterSpacing: 4, margin:0}}>{code}</p>
+          <p style={{fontSize: 22, fontWeight:700, color:"#D4AF37", letterSpacing: 4, margin:0, textShadow:"0 2px 10px rgba(212,175,55,0.3)"}}>{code}</p>
        </div>
        {!isRevealed && (
          <div style={{position:"absolute", inset:0, pointerEvents:"none", overflow:"hidden", borderRadius: 8}}>
@@ -3208,30 +3221,31 @@ export default function App(){
               <img src="./assets/images/products/strawberry-shake_transparent.png" className="bottle-float" alt="Strawberry Shake perfume" style={{width:"64%",height:"78%",objectFit:"contain",objectPosition:"center center",filter:"drop-shadow(0 16px 28px rgba(0,0,0,.13))"}}/>
             </div>
             {/* Right form */}
-            <div style={{flex:1.15, padding:"34px 30px",display:"flex",flexDirection:"column",justifyContent:"center",background:"#fff"}}>
+            <div style={{flex:1.15, padding:"40px 30px",display:"flex",flexDirection:"column",justifyContent:"center",background:"#1A0B22"}}>
               {popupState === "scratch" ? (
                 <div style={{textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center"}}>
-                  <div style={{width:22,height:1,background:"#B8922A",marginBottom:14}}/>
-                  <p style={{fontSize:8,letterSpacing:3.6,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12, fontWeight:600}}>Welcome</p>
-                  <h3 className="disp" style={{fontSize:24,fontWeight:300,color:"#3c1152",marginBottom:9,lineHeight:1.15}}>Join the Khadlaj Circle</h3>
-                  <p style={{fontSize:11,color:"#777",lineHeight:1.6,fontFamily:"'Montserrat',sans-serif",marginBottom:24}}>Scratch the card below to reveal your exclusive 10% discount code.</p>
+                  <div style={{width:22,height:1,background:"#D4AF37",marginBottom:16}}/>
+                  <p style={{fontSize:9,letterSpacing:4,color:"#D4AF37",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:14, fontWeight:600}}>Exclusive Privilege</p>
+                  <h3 className="disp" style={{fontSize:26,fontWeight:400,color:"#F9F4EB",marginBottom:12,lineHeight:1.15}}>Your Private Invitation</h3>
+                  <p style={{fontSize:11,color:"rgba(249,244,235,0.7)",lineHeight:1.6,fontFamily:"'Montserrat',sans-serif",marginBottom:30}}>Scratch the ticket below to reveal your secret Khadlaj Circle discount code.</p>
                   
                   <ScratchCard code="KHADLAJ10" onReveal={() => {
                      setTimeout(() => setPopupState("revealed"), 800);
                   }} />
                   
-                  <button onClick={()=>setShowPopup(false)} style={{background:"none", border:"none", fontSize:8.5, letterSpacing:2, color:"#aaa", textTransform:"uppercase", textAlign:"center", marginTop:16, cursor:"pointer", fontFamily:"'Montserrat',sans-serif", borderBottom:"1px solid transparent", transition:"all 0.3s", paddingBottom:2}}
-                    onMouseEnter={e=>{e.currentTarget.style.color="#111"; e.currentTarget.style.borderBottomColor="#111";}}
-                    onMouseLeave={e=>{e.currentTarget.style.color="#aaa"; e.currentTarget.style.borderBottomColor="transparent";}}
-                  >No thanks</button>
+                  <button onClick={()=>setShowPopup(false)} style={{background:"none", border:"none", fontSize:9, letterSpacing:2, color:"rgba(255,255,255,0.4)", textTransform:"uppercase", textAlign:"center", marginTop:24, cursor:"pointer", fontFamily:"'Montserrat',sans-serif", borderBottom:"1px solid transparent", transition:"all 0.3s", paddingBottom:2}}
+                    onMouseEnter={e=>{e.currentTarget.style.color="#D4AF37";}}
+                    onMouseLeave={e=>{e.currentTarget.style.color="rgba(255,255,255,0.4)";}}
+                  >Decline Offer</button>
                 </div>
               ) : (
                 <div className="glow-up" style={{textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center"}}>
-                  <h3 className="disp" style={{fontSize:28,fontWeight:400,color:"#B8922A",marginBottom:9,lineHeight:1.15}}>Congratulations!</h3>
-                  <p style={{fontSize:11,color:"#777",lineHeight:1.6,fontFamily:"'Montserrat',sans-serif",marginBottom:24}}>Use this code at checkout to claim your 10% discount.</p>
+                  <div style={{width:22,height:1,background:"#D4AF37",marginBottom:16}}/>
+                  <h3 className="disp" style={{fontSize:28,fontWeight:400,color:"#D4AF37",marginBottom:12,lineHeight:1.15}}>Congratulations!</h3>
+                  <p style={{fontSize:11,color:"rgba(249,244,235,0.7)",lineHeight:1.6,fontFamily:"'Montserrat',sans-serif",marginBottom:30}}>Your 10% discount has been unlocked. Apply this code at checkout.</p>
                   
-                  <div style={{border:"2px dashed #B8922A", padding:"12px 24px", background:"#FAFAFA", borderRadius:8, marginBottom: 20}}>
-                     <p style={{fontSize: 24, fontWeight:700, color:"#3c1152", letterSpacing: 4, margin:0}}>KHADLAJ10</p>
+                  <div style={{border:"1px solid rgba(212,175,55,0.4)", padding:"14px 28px", background:"rgba(212,175,55,0.05)", borderRadius:4, marginBottom: 24, boxShadow:"inset 0 0 20px rgba(0,0,0,0.5)"}}>
+                     <p style={{fontSize: 26, fontWeight:700, color:"#F9F4EB", letterSpacing: 5, margin:0, textShadow:"0 2px 10px rgba(255,255,255,0.1)"}}>KHADLAJ10</p>
                   </div>
 
                   <button
@@ -3240,9 +3254,9 @@ export default function App(){
                       setPopupDone(true);
                       setShowPopup(false);
                     }}
-                    style={{width:"100%",background:"#3c1152",color:"#fff",border:"none",padding:"14px",fontSize:9.5,letterSpacing:2.4,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:600,transition:"background .3s",borderRadius:2}}
-                    onMouseEnter={e=>e.currentTarget.style.background="#B8922A"}
-                    onMouseLeave={e=>e.currentTarget.style.background="#111"}
+                    style={{width:"100%",background:"#D4AF37",color:"#1A0B22",border:"none",padding:"16px",fontSize:10,letterSpacing:2.5,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:700,transition:"all .3s",borderRadius:2}}
+                    onMouseEnter={e=>{e.currentTarget.style.background="#F9F4EB"; e.currentTarget.style.boxShadow="0 4px 15px rgba(212,175,55,0.4)";}}
+                    onMouseLeave={e=>{e.currentTarget.style.background="#D4AF37"; e.currentTarget.style.boxShadow="none";}}
                   >Copy Code & Shop Now</button>
                 </div>
               )}
