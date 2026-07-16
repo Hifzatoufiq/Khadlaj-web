@@ -22022,6 +22022,7 @@ var GLOBAL_CSS = `
   .scratch-hover:hover { transform: scale(1.04); box-shadow: inset 0 4px 10px rgba(0,0,0,0.4), 0 12px 30px rgba(184,146,42,0.25) !important; }
 
   .popup-layout { display: flex; flex-direction: row; }
+  .popup-overlay { position: fixed; inset: 0; z-index: 300; background: rgba(0,0,0,.7); display: flex; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
   .popup-left { flex: 0.9; position: relative; min-height: 310px; display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at 50% 45%, rgba(184,146,42,.12), rgba(255,255,255,0) 58%), linear-gradient(180deg,#FBFBFB 0%, #F3F1EE 100%); padding: 24px 18px; }
   .popup-right { flex: 1.15; padding: 40px 30px; display: flex; flex-direction: column; justify-content: center; background: #1A0B22; }
 
@@ -22071,10 +22072,14 @@ var GLOBAL_CSS = `
     .hero-subtitle { font-size: 13px !important; line-height: 1.6 !important; max-width: 100% !important; margin-bottom: 16px !important; }
     .hero-stats-row { gap: 10px !important; padding-top: 10px !important; flex-wrap: wrap !important; }
     .hero-stat-item { padding-right: 10px !important; margin-right: 10px !important; }
+    .popup-overlay { align-items: flex-end !important; padding: 0 !important; }
     .popup-layout { flex-direction: column !important; }
-    .popup-left { min-height: 180px !important; padding: 16px !important; flex: none !important; }
-    .popup-left img { height: 140px !important; }
-    .popup-right { padding: 30px 20px !important; flex: none !important; }
+    .popup-in { border-radius: 24px 24px 0 0 !important; width: 100% !important; max-width: 100% !important; border: none !important; border-top: 1px solid rgba(212,175,55,0.3) !important; animation: slideUp .5s cubic-bezier(0.16, 1, 0.3, 1) both !important; }
+    @keyframes slideUp { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .popup-left { min-height: 120px !important; padding: 20px !important; background: transparent !important; flex: none !important; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .popup-left img { height: 110px !important; }
+    .popup-right { padding: 24px 16px 40px !important; flex: none !important; }
+    .disp.mobile-text { font-size: 22px !important; }
   }
   @media(max-width:480px){
     .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;}
@@ -24864,7 +24869,7 @@ function App() {
     showPopup && !popupDone && /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
       "div",
       {
-        style: { position: "fixed", inset: 0, zIndex: 300, background: "rgba(0,0,0,.7)", display: "flex", alignItems: "center", justifyContent: "center", padding: "20px", backdropFilter: "blur(5px)", WebkitBackdropFilter: "blur(5px)" },
+        className: "popup-overlay",
         onClick: () => setShowPopup(false),
         children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
           "div",
@@ -24887,7 +24892,7 @@ function App() {
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "popup-right", children: popupState === "scratch" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }, children: [
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 22, height: 1, background: "#D4AF37", marginBottom: 16 } }),
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 4, color: "#D4AF37", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 14, fontWeight: 600 }, children: "Exclusive Privilege" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "disp", style: { fontSize: 26, fontWeight: 400, color: "#F9F4EB", marginBottom: 12, lineHeight: 1.15 }, children: "Your Private Invitation" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "disp mobile-text", style: { fontSize: 26, fontWeight: 400, color: "#F9F4EB", marginBottom: 12, lineHeight: 1.15 }, children: "Your Private Invitation" }),
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 11, color: "rgba(249,244,235,0.7)", lineHeight: 1.6, fontFamily: "'Montserrat',sans-serif", marginBottom: 30 }, children: "Scratch the ticket below to reveal your secret Khadlaj Circle discount code." }),
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ScratchCard, { code: "KHADLAJ10", onReveal: () => {
                   setTimeout(() => setPopupState("revealed"), 800);
@@ -24908,7 +24913,7 @@ function App() {
                 )
               ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "glow-up", style: { textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center" }, children: [
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 22, height: 1, background: "#D4AF37", marginBottom: 16 } }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "disp", style: { fontSize: 28, fontWeight: 400, color: "#D4AF37", marginBottom: 12, lineHeight: 1.15 }, children: "Congratulations!" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "disp mobile-text", style: { fontSize: 28, fontWeight: 400, color: "#D4AF37", marginBottom: 12, lineHeight: 1.15 }, children: "Congratulations!" }),
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 11, color: "rgba(249,244,235,0.7)", lineHeight: 1.6, fontFamily: "'Montserrat',sans-serif", marginBottom: 30 }, children: "Your 10% discount has been unlocked. Apply this code at checkout." }),
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { border: "1px solid rgba(212,175,55,0.4)", padding: "14px 28px", background: "rgba(212,175,55,0.05)", borderRadius: 4, marginBottom: 24, boxShadow: "inset 0 0 20px rgba(0,0,0,0.5)" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 26, fontWeight: 700, color: "#F9F4EB", letterSpacing: 5, margin: 0, textShadow: "0 2px 10px rgba(255,255,255,0.1)" }, children: "KHADLAJ10" }) }),
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
