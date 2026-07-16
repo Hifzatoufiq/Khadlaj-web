@@ -22660,11 +22660,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
           "KHADLAJ ",
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { className: "luxury-gold-text", style: { fontStyle: "normal" }, children: "SCENT FINDER" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "rgba(255,255,255,0.7)", lineHeight: 1.8, fontSize: 14, maxWidth: 440, fontFamily: "'Montserrat',sans-serif", marginBottom: 32 }, children: "Fragrance is a deeply personal language. Answer a few questions and our custom olfactive profiler will match you with a signature scent from our master perfume lines." }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 14 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 22, color: "#B8922A" }, children: "\u2726" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { display: "inline-flex", flexDirection: "column", gap: 2, lineHeight: 1, letterSpacing: 3.4, fontFamily: "'Montserrat',sans-serif", textTransform: "uppercase", color: "#C9A24A" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "disp", style: { fontSize: 12, fontWeight: 300, letterSpacing: 0, color: "#C9A24A", textTransform: "none" }, children: "Where every scent has a story" }) })
-        ] })
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "rgba(255,255,255,0.7)", lineHeight: 1.8, fontSize: 14, maxWidth: 440, fontFamily: "'Montserrat',sans-serif", marginBottom: 32 }, children: "Fragrance is a deeply personal language. Answer a few questions and our custom olfactive profiler will match you with a signature scent from our master perfume lines." })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 12, padding: "40px 32px", minHeight: 380, display: "flex", flexDirection: "column", justifyContent: "center", position: "relative" }, children: [
         quizStep === 1 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { animation: "fadeUp .4s ease both" }, children: [

@@ -930,12 +930,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             <p style={{color:"rgba(255,255,255,0.7)",lineHeight:1.8,fontSize:14,maxWidth:440,fontFamily:"'Montserrat',sans-serif",marginBottom:32}}>
               Fragrance is a deeply personal language. Answer a few questions and our custom olfactive profiler will match you with a signature scent from our master perfume lines.
             </p>
-            <div style={{display:"flex", alignItems:"center", gap:14}}>
-              <span style={{fontSize:22, color:"#B8922A"}}>✦</span>
-              <span style={{display:"inline-flex", flexDirection:"column", gap:2, lineHeight:1, letterSpacing:3.4, fontFamily:"'Montserrat',sans-serif", textTransform:"uppercase", color:"#C9A24A"}}>
-                <span className="disp" style={{fontSize:12, fontWeight:300, letterSpacing:0, color:"#C9A24A", textTransform:"none"}}>Where every scent has a story</span>
-              </span>
-            </div>
+
           </div>
 
           {/* Right quiz container */}
