@@ -2180,8 +2180,8 @@ function CartPage({ cartItems, updateCartQty, removeFromCart, setPage, setViewPr
             <div style={{display:"flex",flexDirection:"column",gap:16}}>
               {cartItems.map(item=>(
                 <div key={item.id} className="cart-line" style={{display:"grid",gridTemplateColumns:"112px 1fr auto",gap:18,alignItems:"center",border:"1px solid #E8E4DC",padding:16,background:"#fff"}}>
-                  <div onClick={()=>{setViewProduct(item);setPage("product");}} style={{height:118,display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",background:"radial-gradient(circle at 50% 70%, rgba(0,0,0,.06), rgba(255,255,255,0) 58%)"}}>
-                    <img src={item.img} alt={item.name} style={{maxWidth:"92%",maxHeight:"92%",objectFit:"contain",filter:"drop-shadow(0 12px 18px rgba(0,0,0,.08))"}}/>
+                  <div onClick={()=>{setViewProduct(item);setPage("product");}} style={{height:118,width:"100%",overflow:"hidden",display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",background:"radial-gradient(circle at 50% 70%, rgba(0,0,0,.06), rgba(255,255,255,0) 58%)",padding:6}}>
+                    <img src={item.img} alt={item.name} style={{width:"100%",height:"100%",objectFit:"contain",filter:"drop-shadow(0 12px 18px rgba(0,0,0,.08))"}}/>
                   </div>
                   <div>
                     <p style={{fontSize:9,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginBottom:6}}>{item.col === "Lafede" ? "La Fede" : item.col}</p>

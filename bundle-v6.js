@@ -23780,7 +23780,7 @@ function CartPage({ cartItems, updateCartQty, removeFromCart, setPage, setViewPr
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { onClick: () => {
           setViewProduct(item);
           setPage("product");
-        }, style: { height: 118, display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", background: "radial-gradient(circle at 50% 70%, rgba(0,0,0,.06), rgba(255,255,255,0) 58%)" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: item.img, alt: item.name, style: { maxWidth: "92%", maxHeight: "92%", objectFit: "contain", filter: "drop-shadow(0 12px 18px rgba(0,0,0,.08))" } }) }),
+        }, style: { height: 118, width: "100%", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", background: "radial-gradient(circle at 50% 70%, rgba(0,0,0,.06), rgba(255,255,255,0) 58%)", padding: 6 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: item.img, alt: item.name, style: { width: "100%", height: "100%", objectFit: "contain", filter: "drop-shadow(0 12px 18px rgba(0,0,0,.08))" } }) }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 3, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, marginBottom: 6 }, children: item.col === "Lafede" ? "La Fede" : item.col }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { style: { fontSize: 16, letterSpacing: 1, textTransform: "uppercase", fontWeight: 600, marginBottom: 6 }, children: item.name }),
