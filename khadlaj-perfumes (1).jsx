@@ -315,6 +315,26 @@ const GLOBAL_CSS = `
   @keyframes lafedeGlow{0%,100%{opacity:.34;transform:scale(.94);}50%{opacity:.72;transform:scale(1.05);}}
   @keyframes lafedeSweep{0%{transform:translateX(-140%) rotate(16deg);opacity:0;}35%{opacity:.18;}100%{transform:translateX(140%) rotate(16deg);opacity:0;}}
 
+  /* Scratch Card Animations */
+  @keyframes floatY { 0% { transform: translateY(0px); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0px); } }
+  .bottle-float { animation: floatY 4s ease-in-out infinite; }
+  
+  @keyframes shimmerSweep { 0% { left: -100%; } 100% { left: 150%; } }
+  .shimmer-effect {
+    position: absolute; top: 0; left: -100%; width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmerSweep 2.5s infinite;
+    pointer-events: none;
+    transform: skewX(-20deg);
+  }
+  
+  @keyframes glowUp {
+    0% { transform: scale(0.9); opacity: 0; }
+    50% { transform: scale(1.05); opacity: 1; text-shadow: 0 0 20px rgba(184,146,42,0.6); }
+    100% { transform: scale(1); opacity: 1; text-shadow: 0 0 10px rgba(184,146,42,0.2); }
+  }
+  .glow-up { animation: glowUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) both; }
+
   .max-container { max-width: 1440px; margin: 0 auto; width: 100%; }
 
   /* ── Mobile responsive ── */
@@ -2930,6 +2950,11 @@ function ScratchCard({ code, onReveal }) {
           <p style={{fontSize: 24, fontWeight:700, color:"#3c1152", letterSpacing: 4, margin:0}}>{code}</p>
        </div>
        {!isRevealed && (
+         <div style={{position:"absolute", inset:0, pointerEvents:"none", overflow:"hidden", borderRadius: 8}}>
+            <div className="shimmer-effect"></div>
+         </div>
+       )}
+       {!isRevealed && (
          <canvas ref={canvasRef} width={260} height={80} style={{position:"absolute", inset:0, cursor:"pointer", width:"100%", height:"100%"}} />
        )}
     </div>
@@ -3180,7 +3205,7 @@ export default function App(){
             <button onClick={()=>setShowPopup(false)} style={{position:"absolute",top:16,right:16,background:"rgba(255,255,255,0.88)",border:"none",width:34,height:34,borderRadius:"50%",fontSize:20,cursor:"pointer",color:"#3c1152",zIndex:10,display:"flex",alignItems:"center",justifyContent:"center",backdropFilter:"blur(6px)",boxShadow:"0 8px 18px rgba(0,0,0,.08)"}}>×</button>
             {/* Left image */}
             <div style={{flex:.9, position:"relative",minHeight:310,overflow:"hidden", display:"flex", alignItems:"center", justifyContent:"center", background:"radial-gradient(circle at 50% 45%, rgba(184,146,42,.12), rgba(255,255,255,0) 58%), linear-gradient(180deg,#FBFBFB 0%, #F3F1EE 100%)", padding:"24px 18px"}}>
-              <img src="./assets/images/products/strawberry-shake_transparent.png" alt="Strawberry Shake perfume" style={{width:"64%",height:"78%",objectFit:"contain",objectPosition:"center center",filter:"drop-shadow(0 16px 28px rgba(0,0,0,.13))"}}/>
+              <img src="./assets/images/products/strawberry-shake_transparent.png" className="bottle-float" alt="Strawberry Shake perfume" style={{width:"64%",height:"78%",objectFit:"contain",objectPosition:"center center",filter:"drop-shadow(0 16px 28px rgba(0,0,0,.13))"}}/>
             </div>
             {/* Right form */}
             <div style={{flex:1.15, padding:"34px 30px",display:"flex",flexDirection:"column",justifyContent:"center",background:"#fff"}}>
@@ -3201,7 +3226,7 @@ export default function App(){
                   >No thanks</button>
                 </div>
               ) : (
-                <div style={{textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center"}}>
+                <div className="glow-up" style={{textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center"}}>
                   <h3 className="disp" style={{fontSize:28,fontWeight:400,color:"#B8922A",marginBottom:9,lineHeight:1.15}}>Congratulations!</h3>
                   <p style={{fontSize:11,color:"#777",lineHeight:1.6,fontFamily:"'Montserrat',sans-serif",marginBottom:24}}>Use this code at checkout to claim your 10% discount.</p>
                   
