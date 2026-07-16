@@ -22920,16 +22920,14 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }) {
         padding: "0 5%",
         textAlign: "center"
       }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 40, height: 1, background: "#B8922A", marginBottom: 24 } }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontWeight: 600, fontSize: 9, letterSpacing: 6, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 16 }, children: "Khadlaj \xB7 Est. 1997" }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { className: "disp", style: {
           fontSize: "clamp(42px,6vw,88px)",
-          fontWeight: 300,
+          fontWeight: 400,
           color: "#fff",
           lineHeight: 0.95,
           letterSpacing: -2,
           marginBottom: 20
-        }, children: "Fragrance Collections" }),
+        }, children: "FRAGRANCE COLLECTIONS" }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { style: {
           color: "rgba(255,255,255,.6)",
           fontSize: 14,
@@ -22939,15 +22937,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }) {
         }, children: [
           PRODUCTS.length,
           " unique creations \u2014 from everyday luxury to rare extrait"
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          "button",
-          {
-            onClick: () => setPage("lafede"),
-            style: { background: "transparent", color: "#fff", border: "1px solid rgba(255,255,255,.45)", padding: "10px 22px", fontSize: 9, letterSpacing: 2.2, textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif" },
-            children: "Explore La Fede"
-          }
-        )
+        ] })
       ] })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {

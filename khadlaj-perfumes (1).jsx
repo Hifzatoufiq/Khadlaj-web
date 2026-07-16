@@ -1180,15 +1180,11 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }){
           alignItems:"center",justifyContent:"center",
           padding:"0 5%",textAlign:"center",
         }}>
-          <div style={{width:40,height:1,background:"#B8922A",marginBottom:24}}/>
-          <p style={{fontWeight:600,fontSize:9,letterSpacing:6,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:16}}>
-            Khadlaj · Est. 1997
-          </p>
           <h1 className="disp" style={{
-            fontSize:"clamp(42px,6vw,88px)",fontWeight:300,
+            fontSize:"clamp(42px,6vw,88px)",fontWeight:400,
             color:"#fff",lineHeight:.95,letterSpacing:-2,marginBottom:20,
           }}>
-            Fragrance Collections
+            FRAGRANCE COLLECTIONS
           </h1>
           <p style={{
             color:"rgba(255,255,255,.6)",fontSize:14,
@@ -1197,12 +1193,6 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }){
           }}>
             {PRODUCTS.length} unique creations — from everyday luxury to rare extrait
           </p>
-          <button
-            onClick={()=>setPage("lafede")}
-            style={{background:"transparent",color:"#fff",border:"1px solid rgba(255,255,255,.45)",padding:"10px 22px",fontSize:9,letterSpacing:2.2,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif"}}
-          >
-            Explore La Fede
-          </button>
         </div>
       </div>
 
