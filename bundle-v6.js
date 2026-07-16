@@ -21777,12 +21777,6 @@ var SCENT_RIBBON = [
   "Agarwood",
   "Frankincense"
 ];
-var STATS = [
-  { v: "1997", l: "Year Founded" },
-  { v: "400+", l: "Unique Fragrances" },
-  { v: "30+", l: "Countries" },
-  { v: "1", l: "Master Perfumer" }
-];
 var PRODUCTS = [
   // ── Local products (own images) ──
   { id: 13, name: "Island", col: "EAU DE PARFUM", price: 150, size: "100ml Extrait", badge: "Best Seller", gender: "Unisex", notes: ["Marine", "Amber", "Oud"], img: "./assets/images/products/island-packshot-tight_transparent.png" },
@@ -23420,33 +23414,30 @@ function StoryPage() {
         }
       ) })
     ] }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "80px 5%" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center", marginBottom: 88 }, className: "hero-split", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "eyebrow", style: { marginBottom: 16 }, children: "\u25C8 \xB7 The Beginning" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(30px,4vw,52px)", fontWeight: 300, lineHeight: 1.2, marginBottom: 24 }, children: "Founder and Master Perfumer" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: C.muted, lineHeight: 1.9, fontSize: 15, marginBottom: 20 }, children: "Mohamed Iqbal Abdul Sattar, with over 45 years of experience in perfumery, is the esteemed founder and master perfumer of Khadlaj Perfumes." }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: C.muted, lineHeight: 1.9, fontSize: 15, marginBottom: 32 }, children: "He is recognized for his creation of some of our most cherished and opulent fragrances, including the iconic Hareem Al Sultan, Bukhoor Al Bahaar, and the luxurious Oud Pure and Musk Pure ranges. Mohamed\u2019s unparalleled expertise encompasses both exquisite natural essences and meticulously crafted synthetic compounds, with an ardent passion for Musk, Ruh Gulaab, oud, and vetiver." }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 20 }, children: STATS.map((s) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { border: `1px solid ${C.brass}28`, padding: "20px 22px" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "disp", style: { fontSize: 36, fontWeight: 600, color: C.brass }, children: s.v }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "eyebrow", style: { color: C.muted, marginTop: 4 }, children: s.l })
-          ] }, s.v)) })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", aspectRatio: "4/5", overflow: "hidden" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            "img",
-            {
-              src: "./assets/images/people/founder-mohamed-iqbal.png",
-              alt: "Mohamed Iqbal Abdul Sattar",
-              style: { width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "absolute", bottom: 0, left: 0, right: 0, background: `linear-gradient(to top,${C.obsidian}EE 0%,transparent 60%)`, padding: "28px 24px" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "disp", style: { fontSize: 22, color: C.champagne }, children: "Mohamed Iqbal Abdul Sattar" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "eyebrow", style: { color: C.brass, marginTop: 4 }, children: "Founder & Master Perfumer" })
-          ] })
-        ] })
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "#23152d", position: "relative", padding: "60px 5% 0px", display: "flex", flexDirection: "column", alignItems: "center" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "absolute", top: "-24px", left: "50%", transform: "translateX(-50%)", display: "flex", alignItems: "flex-start", gap: "4px" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", { width: "32", height: "32", viewBox: "0 0 40 40", fill: "none", xmlns: "http://www.w3.org/2000/svg", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M20 0C20 11 29 20 40 20C29 20 20 29 20 40C20 29 11 20 0 20C11 20 20 11 20 0Z", fill: "#D3B787" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", { width: "16", height: "16", viewBox: "0 0 40 40", fill: "none", xmlns: "http://www.w3.org/2000/svg", style: { marginTop: "18px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M20 0C20 11 29 20 40 20C29 20 20 29 20 40C20 29 11 20 0 20C11 20 20 11 20 0Z", fill: "#D3B787" }) })
       ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "max-container hero-split", style: { display: "grid", gridTemplateColumns: "0.9fr 1.1fr", gap: "clamp(40px, 6vw, 80px)", alignItems: "center", width: "100%" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "relative", transform: "translateY(30px)", zIndex: 10 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          "img",
+          {
+            src: "./assets/images/people/founder-mohamed-iqbal.png",
+            alt: "Mohamed Iqbal Abdul Sattar",
+            style: { width: "100%", height: "auto", display: "block", boxShadow: "0 20px 40px rgba(0,0,0,0.4)" }
+          }
+        ) }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", flexDirection: "column", gap: "24px", paddingBottom: "60px", paddingTop: "20px" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { borderLeft: "2px solid #fff", paddingLeft: "20px", display: "flex", flexDirection: "column", gap: "8px" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: "13px", color: "#fff", fontFamily: "'Montserrat',sans-serif", margin: 0 }, children: "Founder and Master Perfumer" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { style: { fontSize: "clamp(26px, 3vw, 36px)", fontWeight: 400, color: "#fff", fontFamily: "'Montserrat',sans-serif", margin: 0, letterSpacing: "0.5px" }, children: "Mohamed Iqbal Abdul Sattar" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "rgba(255,255,255,0.85)", lineHeight: 1.9, fontSize: 14, fontFamily: "'Montserrat',sans-serif", textAlign: "left" }, children: "Mohamed Iqbal Abdul Sattar, with over 45 years of experience in perfumery, is the esteemed founder and master perfumer of Khadlaj Perfumes. He is recognized for his creation of some of our most cherished and opulent fragrances, including the iconic Hareem Al Sultan, Bukhoor Al Bahaar, and the luxurious Oud Pure and Musk Pure ranges. Mohamed\u2019s unparalleled expertise encompasses both exquisite natural essences and meticulously crafted synthetic compounds, with an ardent passion for ingredients such as Musk, Ruh Gulaab, oud, and vetiver. His profound knowledge and unwavering commitment to uncompromising excellence epitomize Khadlaj Perfumes' dedication to crafting extraordinary and enduring fragrances." })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "80px 5%" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center", marginBottom: 88 }, className: "hero-split", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", aspectRatio: "4/5", overflow: "hidden" }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
