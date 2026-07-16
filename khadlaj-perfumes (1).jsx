@@ -335,6 +335,9 @@ const GLOBAL_CSS = `
   }
   .glow-up { animation: glowUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) both; }
 
+  .scratch-hover { transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s; }
+  .scratch-hover:hover { transform: scale(1.04); box-shadow: inset 0 4px 10px rgba(0,0,0,0.4), 0 12px 30px rgba(184,146,42,0.25) !important; }
+
   .max-container { max-width: 1440px; margin: 0 auto; width: 100%; }
 
   /* ── Mobile responsive ── */
@@ -2879,7 +2882,7 @@ function ScratchCard({ code, onReveal }) {
     ctx.shadowBlur = 6;
     ctx.shadowOffsetY = 2;
     ctx.fillStyle = "#fff";
-    ctx.font = "600 13px 'Montserrat', sans-serif";
+    ctx.font = "600 15px 'Montserrat', sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     // Canvas API doesn't support letterSpacing directly in all browsers, so we'll just draw text
@@ -2958,18 +2961,14 @@ function ScratchCard({ code, onReveal }) {
   }, [isRevealed, onReveal]);
 
   return (
-    <div style={{position:"relative", width: 260, height: 80, margin:"0 auto", borderRadius: 4, overflow:"hidden", border:"2px solid #D4AF37", background:"#1A0B22", boxShadow:"inset 0 4px 10px rgba(0,0,0,0.4), 0 8px 24px rgba(184,146,42,0.15)"}}>
+    <div className="scratch-hover" style={{position:"relative", width: 320, height: 100, margin:"0 auto", borderRadius: 4, overflow:"hidden", border:"2px solid #D4AF37", background:"#1A0B22", boxShadow:"inset 0 4px 10px rgba(0,0,0,0.4), 0 8px 24px rgba(184,146,42,0.15)"}}>
        <div style={{position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center"}}>
-          <p style={{fontSize: 22, fontWeight:700, color:"#D4AF37", letterSpacing: 4, margin:0, textShadow:"0 2px 10px rgba(212,175,55,0.3)"}}>{code}</p>
+          <p style={{fontSize: 30, fontWeight:700, color:"#D4AF37", letterSpacing: 5, margin:0, textShadow:"0 2px 10px rgba(212,175,55,0.3)"}}>{code}</p>
        </div>
-       {!isRevealed && (
-         <div style={{position:"absolute", inset:0, pointerEvents:"none", overflow:"hidden", borderRadius: 8}}>
-            <div className="shimmer-effect"></div>
-         </div>
-       )}
-       {!isRevealed && (
-         <canvas ref={canvasRef} width={260} height={80} style={{position:"absolute", inset:0, cursor:"pointer", width:"100%", height:"100%"}} />
-       )}
+       <div style={{position:"absolute", inset:0, pointerEvents:"none", overflow:"hidden", borderRadius: 8, opacity: isRevealed ? 0 : 1, transition: "opacity 0.6s ease"}}>
+          <div className="shimmer-effect"></div>
+       </div>
+       <canvas ref={canvasRef} width={320} height={100} style={{position:"absolute", inset:0, cursor:"pointer", width:"100%", height:"100%", opacity: isRevealed ? 0 : 1, transition: "opacity 0.6s ease", pointerEvents: isRevealed ? "none" : "auto"}} />
     </div>
   );
 }

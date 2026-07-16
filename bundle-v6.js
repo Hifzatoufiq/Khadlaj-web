@@ -22018,6 +22018,9 @@ var GLOBAL_CSS = `
   }
   .glow-up { animation: glowUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) both; }
 
+  .scratch-hover { transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s; }
+  .scratch-hover:hover { transform: scale(1.04); box-shadow: inset 0 4px 10px rgba(0,0,0,0.4), 0 12px 30px rgba(184,146,42,0.25) !important; }
+
   .max-container { max-width: 1440px; margin: 0 auto; width: 100%; }
 
   /* \u2500\u2500 Mobile responsive \u2500\u2500 */
@@ -24522,7 +24525,7 @@ function ScratchCard({ code, onReveal }) {
     ctx.shadowBlur = 6;
     ctx.shadowOffsetY = 2;
     ctx.fillStyle = "#fff";
-    ctx.font = "600 13px 'Montserrat', sans-serif";
+    ctx.font = "600 15px 'Montserrat', sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillText("SCRATCH TO REVEAL", width / 2, height / 2);
@@ -24588,10 +24591,10 @@ function ScratchCard({ code, onReveal }) {
       canvas.removeEventListener("touchend", stopDrawing);
     };
   }, [isRevealed, onReveal]);
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", width: 260, height: 80, margin: "0 auto", borderRadius: 4, overflow: "hidden", border: "2px solid #D4AF37", background: "#1A0B22", boxShadow: "inset 0 4px 10px rgba(0,0,0,0.4), 0 8px 24px rgba(184,146,42,0.15)" }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 22, fontWeight: 700, color: "#D4AF37", letterSpacing: 4, margin: 0, textShadow: "0 2px 10px rgba(212,175,55,0.3)" }, children: code }) }),
-    !isRevealed && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, pointerEvents: "none", overflow: "hidden", borderRadius: 8 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "shimmer-effect" }) }),
-    !isRevealed && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("canvas", { ref: canvasRef, width: 260, height: 80, style: { position: "absolute", inset: 0, cursor: "pointer", width: "100%", height: "100%" } })
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "scratch-hover", style: { position: "relative", width: 320, height: 100, margin: "0 auto", borderRadius: 4, overflow: "hidden", border: "2px solid #D4AF37", background: "#1A0B22", boxShadow: "inset 0 4px 10px rgba(0,0,0,0.4), 0 8px 24px rgba(184,146,42,0.15)" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 30, fontWeight: 700, color: "#D4AF37", letterSpacing: 5, margin: 0, textShadow: "0 2px 10px rgba(212,175,55,0.3)" }, children: code }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, pointerEvents: "none", overflow: "hidden", borderRadius: 8, opacity: isRevealed ? 0 : 1, transition: "opacity 0.6s ease" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "shimmer-effect" }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("canvas", { ref: canvasRef, width: 320, height: 100, style: { position: "absolute", inset: 0, cursor: "pointer", width: "100%", height: "100%", opacity: isRevealed ? 0 : 1, transition: "opacity 0.6s ease", pointerEvents: isRevealed ? "none" : "auto" } })
   ] });
 }
 function App() {
