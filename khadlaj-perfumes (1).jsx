@@ -2505,6 +2505,10 @@ function Navbar({ page, setPage, cartCount }){
 
       {/* ── Sticky Header Wrapper ── */}
       <div style={{position:"sticky",top:0,zIndex:100}}>
+        {/* ── Announcement bar ── */}
+        <div style={{background:"#3c1152",color:"#fff",textAlign:"center",padding:"10px 16px",fontSize:"9px",letterSpacing:"3px",fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",fontWeight:400}}>
+          USE "KHADLAJ25" FOR FLAT 25% DISCOUNT
+        </div>
 
         {/* ── Main nav ── */}
         <nav style={{background:"rgba(255,255,255,0.85)",backdropFilter:"blur(16px)",WebkitBackdropFilter:"blur(16px)",boxShadow:"0 4px 30px rgba(0,0,0,0.03)",borderBottom:"1px solid rgba(232,228,220,0.5)",transition:"all 0.3s"}}>

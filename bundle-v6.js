@@ -24105,221 +24105,224 @@ function Navbar({ page, setPage, cartCount }) {
         ] })
       ] })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "sticky", top: 0, zIndex: 100 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("nav", { style: { background: "rgba(255,255,255,0.85)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", boxShadow: "0 4px 30px rgba(0,0,0,0.03)", borderBottom: "1px solid rgba(232,228,220,0.5)", transition: "all 0.3s" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "0 5%" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center", minHeight: 80, padding: "12px 0", gap: 24 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: 12, alignItems: "center", paddingLeft: "20px" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "mob-search-left", style: { cursor: "pointer", display: "flex", alignItems: "center" }, onClick: () => setSearchOpen(true), children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "#111", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "11", cy: "11", r: "8" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "21", y1: "21", x2: "16.65", y2: "16.65" })
-            ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "hide-mob country-dropdown", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CountryContext.Consumer, { children: ({ activeCountry, setActiveCountry }) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "6px 12px", border: "1px solid #E8E4DC", borderRadius: 3, background: "#FAF9F6", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontSize: 11, fontWeight: 600, color: "#3c1152" }, children: [
-                activeCountry.flagUrl === "global" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "15", height: "15", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.6", strokeLinecap: "round", strokeLinejoin: "round", children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "12", cy: "12", r: "10" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "2", y1: "12", x2: "22", y2: "12" }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" })
-                ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: activeCountry.flagUrl, alt: activeCountry.name, style: { width: 20, height: 14, objectFit: "cover", borderRadius: 2, display: "block" } }),
-                activeCountry.name,
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", { width: "12", height: "12", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", style: { marginLeft: "4px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "6 9 12 15 18 9" }) })
-              ] }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "country-dropdown-menu", children: COUNTRIES.map((c) => {
-                const isActive = activeCountry.name === c.name;
-                return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-                  "button",
-                  {
-                    onClick: () => setActiveCountry(c),
-                    style: {
-                      display: "flex",
-                      alignItems: "center",
-                      gap: 7,
-                      padding: "8px 12px",
-                      border: "none",
-                      borderRadius: 3,
-                      background: isActive ? "#F4F1EA" : "transparent",
-                      cursor: "pointer",
-                      fontFamily: "'Montserrat',sans-serif",
-                      fontSize: 11,
-                      fontWeight: isActive ? 600 : 500,
-                      color: isActive ? "#3c1152" : "#555",
-                      textAlign: "left",
-                      width: "100%",
-                      transition: "all .2s"
-                    },
-                    onMouseEnter: (e) => {
-                      if (!isActive) {
-                        e.currentTarget.style.background = "#FBFaf8";
-                        e.currentTarget.style.color = "#3c1152";
-                      }
-                    },
-                    onMouseLeave: (e) => {
-                      if (!isActive) {
-                        e.currentTarget.style.background = "transparent";
-                        e.currentTarget.style.color = "#555";
-                      }
-                    },
-                    children: [
-                      c.flagUrl === "global" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "15", height: "15", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.6", strokeLinecap: "round", strokeLinejoin: "round", children: [
-                        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "12", cy: "12", r: "10" }),
-                        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "2", y1: "12", x2: "22", y2: "12" }),
-                        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" })
-                      ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: c.flagUrl, alt: c.name, style: { width: 20, height: 14, objectFit: "cover", borderRadius: 2, display: "block" } }),
-                      c.name
-                    ]
-                  },
-                  c.name
-                );
-              }) })
-            ] }) }) })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { onClick: () => setPage("home"), style: { cursor: "pointer", textAlign: "center", userSelect: "none", display: "flex", alignItems: "center", justifyContent: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            "img",
-            {
-              src: "/assets/images/khadlaj-logo.png",
-              alt: "Khadlaj Perfumes",
-              style: { height: "clamp(90px,11vw,135px)", width: "auto", objectFit: "contain", display: "block", maxWidth: 240, transition: "transform 0.3s ease" },
-              onMouseEnter: (e) => e.currentTarget.style.transform = "scale(1.02)",
-              onMouseLeave: (e) => e.currentTarget.style.transform = "scale(1)"
-            }
-          ) }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 24 }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "hide-mob", style: { fontSize: "11px", letterSpacing: "2px", color: "#3c1152", textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, transition: "color .2s" }, onMouseEnter: (e) => e.target.style.color = "#B8922A", onMouseLeave: (e) => e.target.style.color = "#3c1152", onClick: () => setPage("signup"), children: "Sign Up" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "hide-mob", style: { cursor: "pointer", display: "flex", alignItems: "center", transition: "transform .2s" }, onMouseEnter: (e) => e.currentTarget.style.transform = "scale(1.1)", onMouseLeave: (e) => e.currentTarget.style.transform = "scale(1)", onClick: () => setSearchOpen(true), children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "#111", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "11", cy: "11", r: "8" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "21", y1: "21", x2: "16.65", y2: "16.65" })
-            ] }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { onClick: () => setPage("cart"), style: { position: "relative", cursor: "pointer", transition: "transform .2s ease" }, onMouseEnter: (e) => e.currentTarget.style.transform = "scale(1.1)", onMouseLeave: (e) => e.currentTarget.style.transform = "scale(1)", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "#111", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "3", y1: "6", x2: "21", y2: "6" }),
-                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M16 10a4 4 0 01-8 0" })
-              ] }),
-              cartCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { position: "absolute", top: -5, right: -7, background: "#B8922A", color: "#fff", borderRadius: "50%", width: 14, height: 14, fontSize: 8, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 600, fontFamily: "'Montserrat',sans-serif" }, children: cartCount })
-            ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-              "button",
-              {
-                onClick: () => setMobileMenuOpen((o) => !o),
-                style: { display: "none", background: "none", border: "none", cursor: "pointer", padding: "4px", flexDirection: "column", gap: 5, justifyContent: "center", alignItems: "center" },
-                className: "mob-burger",
-                "aria-label": "Menu",
-                children: [
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { display: "block", width: 20, height: 1.5, background: "#3c1152", transition: "all .25s" } }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { display: "block", width: 20, height: 1.5, background: "#3c1152", transition: "all .25s" } }),
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { display: "block", width: 14, height: 1.5, background: "#3c1152", transition: "all .25s" } })
-                ]
-              }
-            )
-          ] })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "hide-mob", style: { display: "flex", justifyContent: "center", gap: 40, paddingBottom: 16, fontSize: "12px", letterSpacing: "1.5px", textTransform: "uppercase", color: "#3c1152", fontFamily: "'Montserrat',sans-serif", fontWeight: 600 }, children: [["Best Sellers", "collections"], ["Perfume Spray", "collections"], ["Perfume Oil", "collections"], ["Home & Ambience", "home"], ["La Fede", "lafede"], ["Gifts", "gifts"], ["Our legacy", "story"], ["Contact", "contact"]].map(([label, pg]) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          "span",
-          {
-            onClick: () => setPage(pg),
-            style: { cursor: "pointer", paddingBottom: 4, borderBottom: page === pg && !["Best Sellers", "Perfume Spray", "Perfume Oil", "Home & Ambience"].includes(label) ? "1px solid #B8922A" : "1px solid transparent", color: page === pg && !["Best Sellers", "Perfume Spray", "Perfume Oil", "Home & Ambience"].includes(label) ? "#B8922A" : "#111", transition: "all .25s ease" },
-            onMouseEnter: (e) => {
-              e.currentTarget.style.color = "#B8922A";
-              e.currentTarget.style.borderBottomColor = "#B8922A";
-            },
-            onMouseLeave: (e) => {
-              const isActive = page === pg && !["Best Sellers", "Perfume Spray", "Perfume Oil", "Home & Ambience"].includes(label);
-              e.currentTarget.style.color = isActive ? "#B8922A" : "#111";
-              e.currentTarget.style.borderBottomColor = isActive ? "#B8922A" : "transparent";
-            },
-            children: label
-          },
-          label
-        )) })
-      ] }),
-      mobileMenuOpen && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
-        background: "#fff",
-        borderTop: "1px solid #E0E0E0",
-        padding: "8px 0 20px",
-        position: "absolute",
-        top: "100%",
-        left: 0,
-        right: 0,
-        zIndex: 200,
-        boxShadow: "0 8px 32px rgba(0,0,0,.12)"
-      }, children: [
-        [["Best Sellers", "collections"], ["Perfume Spray", "collections"], ["Perfume Oil", "collections"], ["Home & Ambience", "home"], ["La Fede", "lafede"], ["Gifts", "gifts"], ["Our legacy", "story"], ["Sign Up", "signup"], ["Contact", "contact"]].map(([label, pg]) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-          "div",
-          {
-            onClick: () => {
-              setPage(pg);
-              setMobileMenuOpen(false);
-            },
-            style: {
-              padding: "14px 6%",
-              fontSize: 11,
-              letterSpacing: 2.5,
-              textTransform: "uppercase",
-              color: "#3c1152",
-              cursor: "pointer",
-              fontFamily: "'Montserrat',sans-serif",
-              borderBottom: "1px solid #F0EBE3",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between"
-            },
-            children: [
-              label,
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#B8922A", fontSize: 12 }, children: "\u2192" })
-            ]
-          },
-          label
-        )),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { padding: "14px 6% 0", display: "flex", gap: 12, flexWrap: "wrap" }, children: [["Instagram", SOCIAL_LINKS.instagram], ["TikTok", SOCIAL_LINKS.tiktok]].map(([s, href]) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          "a",
-          {
-            href,
-            target: "_blank",
-            rel: "noreferrer",
-            style: { fontSize: 9, letterSpacing: 2, color: "#888", border: "1px solid #E0E0E0", padding: "7px 14px", textDecoration: "none", fontFamily: "'Montserrat',sans-serif", textTransform: "uppercase" },
-            children: s
-          },
-          s
-        )) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "18px 6% 0", borderTop: "1px solid #F0EBE3", marginTop: 18 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 2, color: "#888", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 8, fontWeight: 600 }, children: "Select Country" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: 6, flexWrap: "wrap" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CountryContext.Consumer, { children: ({ activeCountry, setActiveCountry }) => COUNTRIES.map((c) => {
-            const isActive = activeCountry.name === c.name;
-            return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
-              "button",
-              {
-                onClick: () => {
-                  setActiveCountry(c);
-                  setMobileMenuOpen(false);
-                },
-                style: {
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 5,
-                  padding: "6px 12px",
-                  border: isActive ? "1px solid #B8922A" : "1px solid #E0E0E0",
-                  borderRadius: 4,
-                  background: isActive ? "#FAF9F6" : "#fff",
-                  cursor: "pointer",
-                  fontFamily: "'Montserrat',sans-serif",
-                  fontSize: 10,
-                  fontWeight: isActive ? 600 : 400,
-                  color: isActive ? "#B8922A" : "#555"
-                },
-                children: [
-                  c.flagUrl === "global" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "12", height: "12", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.6", strokeLinecap: "round", strokeLinejoin: "round", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "sticky", top: 0, zIndex: 100 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { background: "#3c1152", color: "#fff", textAlign: "center", padding: "10px 16px", fontSize: "9px", letterSpacing: "3px", fontFamily: "'DM Sans',sans-serif", textTransform: "uppercase", fontWeight: 400 }, children: 'USE "KHADLAJ25" FOR FLAT 25% DISCOUNT' }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("nav", { style: { background: "rgba(255,255,255,0.85)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", boxShadow: "0 4px 30px rgba(0,0,0,0.03)", borderBottom: "1px solid rgba(232,228,220,0.5)", transition: "all 0.3s" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "0 5%" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center", minHeight: 80, padding: "12px 0", gap: 24 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: 12, alignItems: "center", paddingLeft: "20px" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "mob-search-left", style: { cursor: "pointer", display: "flex", alignItems: "center" }, onClick: () => setSearchOpen(true), children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "#111", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "11", cy: "11", r: "8" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "21", y1: "21", x2: "16.65", y2: "16.65" })
+              ] }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "hide-mob country-dropdown", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CountryContext.Consumer, { children: ({ activeCountry, setActiveCountry }) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "6px 12px", border: "1px solid #E8E4DC", borderRadius: 3, background: "#FAF9F6", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontSize: 11, fontWeight: 600, color: "#3c1152" }, children: [
+                  activeCountry.flagUrl === "global" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "15", height: "15", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.6", strokeLinecap: "round", strokeLinejoin: "round", children: [
                     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "12", cy: "12", r: "10" }),
                     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "2", y1: "12", x2: "22", y2: "12" }),
                     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" })
-                  ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: c.flagUrl, alt: c.name, style: { width: 16, height: 11, objectFit: "cover", borderRadius: 1, display: "block" } }),
-                  c.name
-                ]
+                  ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: activeCountry.flagUrl, alt: activeCountry.name, style: { width: 20, height: 14, objectFit: "cover", borderRadius: 2, display: "block" } }),
+                  activeCountry.name,
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", { width: "12", height: "12", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", style: { marginLeft: "4px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "6 9 12 15 18 9" }) })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "country-dropdown-menu", children: COUNTRIES.map((c) => {
+                  const isActive = activeCountry.name === c.name;
+                  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+                    "button",
+                    {
+                      onClick: () => setActiveCountry(c),
+                      style: {
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 7,
+                        padding: "8px 12px",
+                        border: "none",
+                        borderRadius: 3,
+                        background: isActive ? "#F4F1EA" : "transparent",
+                        cursor: "pointer",
+                        fontFamily: "'Montserrat',sans-serif",
+                        fontSize: 11,
+                        fontWeight: isActive ? 600 : 500,
+                        color: isActive ? "#3c1152" : "#555",
+                        textAlign: "left",
+                        width: "100%",
+                        transition: "all .2s"
+                      },
+                      onMouseEnter: (e) => {
+                        if (!isActive) {
+                          e.currentTarget.style.background = "#FBFaf8";
+                          e.currentTarget.style.color = "#3c1152";
+                        }
+                      },
+                      onMouseLeave: (e) => {
+                        if (!isActive) {
+                          e.currentTarget.style.background = "transparent";
+                          e.currentTarget.style.color = "#555";
+                        }
+                      },
+                      children: [
+                        c.flagUrl === "global" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "15", height: "15", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.6", strokeLinecap: "round", strokeLinejoin: "round", children: [
+                          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "12", cy: "12", r: "10" }),
+                          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "2", y1: "12", x2: "22", y2: "12" }),
+                          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" })
+                        ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: c.flagUrl, alt: c.name, style: { width: 20, height: 14, objectFit: "cover", borderRadius: 2, display: "block" } }),
+                        c.name
+                      ]
+                    },
+                    c.name
+                  );
+                }) })
+              ] }) }) })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { onClick: () => setPage("home"), style: { cursor: "pointer", textAlign: "center", userSelect: "none", display: "flex", alignItems: "center", justifyContent: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              "img",
+              {
+                src: "/assets/images/khadlaj-logo.png",
+                alt: "Khadlaj Perfumes",
+                style: { height: "clamp(90px,11vw,135px)", width: "auto", objectFit: "contain", display: "block", maxWidth: 240, transition: "transform 0.3s ease" },
+                onMouseEnter: (e) => e.currentTarget.style.transform = "scale(1.02)",
+                onMouseLeave: (e) => e.currentTarget.style.transform = "scale(1)"
+              }
+            ) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 24 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "hide-mob", style: { fontSize: "11px", letterSpacing: "2px", color: "#3c1152", textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, transition: "color .2s" }, onMouseEnter: (e) => e.target.style.color = "#B8922A", onMouseLeave: (e) => e.target.style.color = "#3c1152", onClick: () => setPage("signup"), children: "Sign Up" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "hide-mob", style: { cursor: "pointer", display: "flex", alignItems: "center", transition: "transform .2s" }, onMouseEnter: (e) => e.currentTarget.style.transform = "scale(1.1)", onMouseLeave: (e) => e.currentTarget.style.transform = "scale(1)", onClick: () => setSearchOpen(true), children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "#111", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "11", cy: "11", r: "8" }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "21", y1: "21", x2: "16.65", y2: "16.65" })
+              ] }) }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { onClick: () => setPage("cart"), style: { position: "relative", cursor: "pointer", transition: "transform .2s ease" }, onMouseEnter: (e) => e.currentTarget.style.transform = "scale(1.1)", onMouseLeave: (e) => e.currentTarget.style.transform = "scale(1)", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "#111", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "3", y1: "6", x2: "21", y2: "6" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M16 10a4 4 0 01-8 0" })
+                ] }),
+                cartCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { position: "absolute", top: -5, right: -7, background: "#B8922A", color: "#fff", borderRadius: "50%", width: 14, height: 14, fontSize: 8, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 600, fontFamily: "'Montserrat',sans-serif" }, children: cartCount })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+                "button",
+                {
+                  onClick: () => setMobileMenuOpen((o) => !o),
+                  style: { display: "none", background: "none", border: "none", cursor: "pointer", padding: "4px", flexDirection: "column", gap: 5, justifyContent: "center", alignItems: "center" },
+                  className: "mob-burger",
+                  "aria-label": "Menu",
+                  children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { display: "block", width: 20, height: 1.5, background: "#3c1152", transition: "all .25s" } }),
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { display: "block", width: 20, height: 1.5, background: "#3c1152", transition: "all .25s" } }),
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { display: "block", width: 14, height: 1.5, background: "#3c1152", transition: "all .25s" } })
+                  ]
+                }
+              )
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "hide-mob", style: { display: "flex", justifyContent: "center", gap: 40, paddingBottom: 16, fontSize: "12px", letterSpacing: "1.5px", textTransform: "uppercase", color: "#3c1152", fontFamily: "'Montserrat',sans-serif", fontWeight: 600 }, children: [["Best Sellers", "collections"], ["Perfume Spray", "collections"], ["Perfume Oil", "collections"], ["Home & Ambience", "home"], ["La Fede", "lafede"], ["Gifts", "gifts"], ["Our legacy", "story"], ["Contact", "contact"]].map(([label, pg]) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            "span",
+            {
+              onClick: () => setPage(pg),
+              style: { cursor: "pointer", paddingBottom: 4, borderBottom: page === pg && !["Best Sellers", "Perfume Spray", "Perfume Oil", "Home & Ambience"].includes(label) ? "1px solid #B8922A" : "1px solid transparent", color: page === pg && !["Best Sellers", "Perfume Spray", "Perfume Oil", "Home & Ambience"].includes(label) ? "#B8922A" : "#111", transition: "all .25s ease" },
+              onMouseEnter: (e) => {
+                e.currentTarget.style.color = "#B8922A";
+                e.currentTarget.style.borderBottomColor = "#B8922A";
               },
-              c.name
-            );
-          }) }) })
+              onMouseLeave: (e) => {
+                const isActive = page === pg && !["Best Sellers", "Perfume Spray", "Perfume Oil", "Home & Ambience"].includes(label);
+                e.currentTarget.style.color = isActive ? "#B8922A" : "#111";
+                e.currentTarget.style.borderBottomColor = isActive ? "#B8922A" : "transparent";
+              },
+              children: label
+            },
+            label
+          )) })
+        ] }),
+        mobileMenuOpen && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
+          background: "#fff",
+          borderTop: "1px solid #E0E0E0",
+          padding: "8px 0 20px",
+          position: "absolute",
+          top: "100%",
+          left: 0,
+          right: 0,
+          zIndex: 200,
+          boxShadow: "0 8px 32px rgba(0,0,0,.12)"
+        }, children: [
+          [["Best Sellers", "collections"], ["Perfume Spray", "collections"], ["Perfume Oil", "collections"], ["Home & Ambience", "home"], ["La Fede", "lafede"], ["Gifts", "gifts"], ["Our legacy", "story"], ["Sign Up", "signup"], ["Contact", "contact"]].map(([label, pg]) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+            "div",
+            {
+              onClick: () => {
+                setPage(pg);
+                setMobileMenuOpen(false);
+              },
+              style: {
+                padding: "14px 6%",
+                fontSize: 11,
+                letterSpacing: 2.5,
+                textTransform: "uppercase",
+                color: "#3c1152",
+                cursor: "pointer",
+                fontFamily: "'Montserrat',sans-serif",
+                borderBottom: "1px solid #F0EBE3",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between"
+              },
+              children: [
+                label,
+                /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#B8922A", fontSize: 12 }, children: "\u2192" })
+              ]
+            },
+            label
+          )),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { padding: "14px 6% 0", display: "flex", gap: 12, flexWrap: "wrap" }, children: [["Instagram", SOCIAL_LINKS.instagram], ["TikTok", SOCIAL_LINKS.tiktok]].map(([s, href]) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            "a",
+            {
+              href,
+              target: "_blank",
+              rel: "noreferrer",
+              style: { fontSize: 9, letterSpacing: 2, color: "#888", border: "1px solid #E0E0E0", padding: "7px 14px", textDecoration: "none", fontFamily: "'Montserrat',sans-serif", textTransform: "uppercase" },
+              children: s
+            },
+            s
+          )) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "18px 6% 0", borderTop: "1px solid #F0EBE3", marginTop: 18 }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 2, color: "#888", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 8, fontWeight: 600 }, children: "Select Country" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: 6, flexWrap: "wrap" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CountryContext.Consumer, { children: ({ activeCountry, setActiveCountry }) => COUNTRIES.map((c) => {
+              const isActive = activeCountry.name === c.name;
+              return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+                "button",
+                {
+                  onClick: () => {
+                    setActiveCountry(c);
+                    setMobileMenuOpen(false);
+                  },
+                  style: {
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 5,
+                    padding: "6px 12px",
+                    border: isActive ? "1px solid #B8922A" : "1px solid #E0E0E0",
+                    borderRadius: 4,
+                    background: isActive ? "#FAF9F6" : "#fff",
+                    cursor: "pointer",
+                    fontFamily: "'Montserrat',sans-serif",
+                    fontSize: 10,
+                    fontWeight: isActive ? 600 : 400,
+                    color: isActive ? "#B8922A" : "#555"
+                  },
+                  children: [
+                    c.flagUrl === "global" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "12", height: "12", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.6", strokeLinecap: "round", strokeLinejoin: "round", children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "12", cy: "12", r: "10" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "2", y1: "12", x2: "22", y2: "12" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" })
+                    ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: c.flagUrl, alt: c.name, style: { width: 16, height: 11, objectFit: "cover", borderRadius: 1, display: "block" } }),
+                    c.name
+                  ]
+                },
+                c.name
+              );
+            }) }) })
+          ] })
         ] })
       ] })
-    ] }) }),
+    ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { children: `.mob-burger{display:none!important;}@media(max-width:900px){.mob-burger{display:flex!important;}.mob-search-left{display:inline-block!important;}}@media(min-width:901px){.mob-search-left{display:none!important;}}` })
   ] });
 }
