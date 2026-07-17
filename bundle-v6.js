@@ -21953,7 +21953,7 @@ var GLOBAL_CSS = `
   .fu{animation:fadeUp .65s ease both;}
 
   @keyframes ribbonScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-  .ribbon-inner{display:flex;animation:ribbonScroll 32s linear infinite;width:max-content;}
+  .ribbon-inner{display:flex;animation:ribbonScroll 80s linear infinite;width:max-content;}
 
   .reel-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 14px;-webkit-overflow-scrolling:touch;}
   .reel-track::-webkit-scrollbar{height:3px;}
