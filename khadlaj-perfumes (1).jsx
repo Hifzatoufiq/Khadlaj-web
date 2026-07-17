@@ -320,18 +320,20 @@ const GLOBAL_CSS = `
   .bottle-float { animation: floatY 4s ease-in-out infinite; }
 
   /* 25th Anniversary Section */
-  .khadlaj25-section { padding: 120px 5%; background: #FAF8F4; text-align: center; }
-  .k25-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 1300px; margin: 60px auto 0; align-items: stretch; }
-  .k25-card { position: relative; border-radius: 0; overflow: hidden; background: transparent; display: flex; flexDirection: column; transition: transform 0.4s ease; }
-  .k25-card:hover { transform: translateY(-10px); }
-  .k25-img-wrap { width: 100%; aspect-ratio: 1 / 1.05; height: auto; border-radius: 12px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); overflow: hidden; background: #fff; }
-  .k25-img-wrap img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); display: block; }
-  .k25-card:hover .k25-img-wrap img { transform: scale(1.05); }
-  .k25-content { padding: 35px 20px 10px; display: flex; flex-direction: column; align-items: center; flex: 1; }
-  .k25-title { font-family: 'Playfair Display', serif; font-size: 26px; color: #3c1152; margin-bottom: 12px; letter-spacing: 3px; text-transform: uppercase; }
-  .k25-subtitle { font-size: 13px; color: #666; letter-spacing: 1.5px; margin-bottom: 24px; text-transform: uppercase; font-weight: 500; }
-  .k25-btn { padding: 14px 32px; background: transparent; border: 1px solid #3c1152; color: #3c1152; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.3s; margin-top: auto; }
-  .k25-btn:hover { background: #3c1152; color: #fff; }
+  /* 25th Anniversary Section - Alternating Layout */
+  .khadlaj25-section { background: #FAF8F4; padding: 120px 0; overflow: hidden; }
+  .k25-header { text-align: center; padding: 0 5%; margin-bottom: 80px; }
+  .k25-row { display: flex; align-items: stretch; width: 100%; min-height: 80vh; overflow: hidden; }
+  .k25-reverse { flex-direction: row-reverse; }
+  .k25-image-pane { flex: 1; min-height: 80vh; position: relative; overflow: hidden; }
+  .k25-image-pane img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s ease; display: block; }
+  .k25-row:hover .k25-image-pane img { transform: scale(1.04); }
+  .k25-text-pane { flex: 1; padding: 10% 8%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; background: #FAF8F4; }
+  .k25-row-title { font-family: 'Playfair Display', serif; font-size: 56px; color: #3c1152; margin-bottom: 12px; letter-spacing: 4px; text-transform: uppercase; }
+  .k25-row-subtitle { font-size: 14px; color: #B8922A; letter-spacing: 2px; margin-bottom: 30px; text-transform: uppercase; font-weight: 600; }
+  .k25-row-desc { font-family: 'Montserrat', sans-serif; font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 40px; max-width: 500px; }
+  .k25-btn { padding: 16px 36px; background: transparent; border: 1px solid #3c1152; color: #3c1152; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.4s; }
+  .k25-btn:hover { background: #3c1152; color: #fff; transform: translateY(-3px); }
   
   @keyframes shimmerSweep { 0% { left: -100%; } 100% { left: 150%; } }
   .shimmer-effect {
@@ -416,9 +418,12 @@ const GLOBAL_CSS = `
     .popup-in{grid-template-columns:1fr!important;}
     .hero-layout { gap: 18px !important; }
     .hero-visual { min-height: 280px !important; }
-    .hero-headline { font-size: 26px !important; letter-spacing: 0 !important; }
-    .k25-grid { grid-template-columns: 1fr !important; gap: 50px !important; }
-    .khadlaj25-section { padding: 80px 5% !important; }
+    .k25-row { flex-direction: column !important; min-height: auto; }
+    .k25-image-pane { min-height: 500px; width: 100%; }
+    .k25-text-pane { padding: 80px 8% !important; align-items: center; text-align: center; }
+    .k25-row-title { font-size: 38px; }
+    .khadlaj25-section { padding: 80px 0 !important; }
+    .k25-header { margin-bottom: 50px; }
     .hero-cta-row { flex-direction: column !important; gap: 8px !important; width: 100% !important; }
     .hero-cta-row button { width: 100% !important; text-align: center !important; justify-content: center !important; }
     .hero-stats-row { border-top: none !important; padding-top: 0 !important; }
@@ -740,30 +745,37 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       </div>
 
       {/* ── 25TH ANNIVERSARY COLLECTION ── */}
+      {/* ── 25TH ANNIVERSARY COLLECTION ── */}
       <section className="khadlaj25-section">
-        <span style={{fontSize: 11, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontWeight: 600, display: "block", marginBottom: 16}}>The Milestone</span>
-        <h2 style={{fontFamily: "'Playfair Display', serif", fontSize: 46, color: "#3c1152", margin: 0, fontWeight: 500}}>25th Anniversary Collection</h2>
-        <p style={{fontFamily: "'Montserrat', sans-serif", fontSize: 15, color: "#555", maxWidth: 640, margin: "20px auto 0", lineHeight: 1.6}}>
-          Celebrating a quarter-century of olfactory excellence. A tribute to our legacy, crafted for those who value heritage and distinction.
-        </p>
+        <div className="k25-header">
+          <span style={{fontSize: 11, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontWeight: 600, display: "block", marginBottom: 16}}>The Milestone</span>
+          <h2 style={{fontFamily: "'Playfair Display', serif", fontSize: 46, color: "#3c1152", margin: 0, fontWeight: 500}}>25th Anniversary Collection</h2>
+          <p style={{fontFamily: "'Montserrat', sans-serif", fontSize: 15, color: "#555", maxWidth: 640, margin: "20px auto 0", lineHeight: 1.6}}>
+            Celebrating a quarter-century of olfactory excellence. A tribute to our legacy, crafted for those who value heritage and distinction.
+          </p>
+        </div>
 
-        <div className="k25-grid">
+        <div style={{display: "flex", flexDirection: "column"}}>
           {[
-            { name: "LOYALTY", subtitle: "Unwavering Bonds", img: "./assets/images/products/loyalty.png" },
-            { name: "TRUST", subtitle: "Foundation of Eternity", img: "./assets/images/products/trust.png" },
-            { name: "INTEGRITY", subtitle: "Essence of Character", img: "./assets/images/products/integrity.png" }
-          ].map((item, idx) => (
-            <div className="k25-card" key={idx}>
-              <div className="k25-img-wrap">
-                <img src={item.img} alt={item.name} />
+            { name: "LOYALTY", subtitle: "Unwavering Bonds", desc: "A captivating fragrance that symbolizes eternal commitment and deep connections, bottled for the discerning collector.", img: "./assets/images/products/loyalty.png" },
+            { name: "TRUST", subtitle: "Foundation of Eternity", desc: "Built on the essence of pure authenticity, leaving a trail of sophisticated confidence wherever you go.", img: "./assets/images/products/trust.png" },
+            { name: "INTEGRITY", subtitle: "Essence of Character", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "./assets/images/products/integrity.png" }
+          ].map((item, idx) => {
+            const isReverse = idx % 2 !== 0;
+            return (
+              <div className={`k25-row ${isReverse ? 'k25-reverse' : ''}`} key={idx}>
+                <div className="k25-image-pane">
+                  <img src={item.img} alt={item.name} />
+                </div>
+                <div className="k25-text-pane">
+                  <h3 className="k25-row-title">{item.name}</h3>
+                  <p className="k25-row-subtitle">{item.subtitle}</p>
+                  <p className="k25-row-desc">{item.desc}</p>
+                  <button className="k25-btn">Discover {item.name}</button>
+                </div>
               </div>
-              <div className="k25-content">
-                <h3 className="k25-title">{item.name}</h3>
-                <p className="k25-subtitle">{item.subtitle}</p>
-                <button className="k25-btn">Discover {item.name}</button>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
