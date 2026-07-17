@@ -340,11 +340,11 @@ const GLOBAL_CSS = `
   .gift-slider-track { display: flex; width: max-content; animation: slideGifts 20s linear infinite; }
   .gift-slider-track:hover { animation-play-state: paused; }
   @keyframes slideGifts { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-  .gift-slide-card { width: 380px; margin: 0 15px; background: #fff; border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.4s ease, box-shadow 0.4s ease; display: flex; flex-direction: column; }
-  .gift-slide-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
-  .gift-slide-img { width: 100%; height: 380px; background: #fff; display: flex; justify-content: center; align-items: center; overflow: hidden; }
-  .gift-slide-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-  .gift-slide-card:hover .gift-slide-img img { transform: scale(1.05); }
+  .gift-slide-card { width: 380px; margin: 0 15px; background: transparent; border-radius: 0; overflow: visible; cursor: pointer; transition: transform 0.4s ease; display: flex; flex-direction: column; }
+  .gift-slide-card:hover { transform: translateY(-12px); }
+  .gift-slide-img { width: 100%; height: 380px; background: transparent; display: flex; justify-content: center; align-items: center; overflow: visible; }
+  .gift-slide-img img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.6s ease; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.08)); }
+  .gift-slide-card:hover .gift-slide-img img { transform: scale(1.08); filter: drop-shadow(0 30px 40px rgba(0,0,0,0.15)); }
   .gift-slide-content { padding: 24px 20px 30px; text-align: center; flex: 1; display: flex; flex-direction: column; }
   .gift-slide-title { font-family: 'Playfair Display', serif; font-size: 22px; color: #3c1152; margin-bottom: 8px; }
   .gift-slide-desc { font-family: 'Montserrat', sans-serif; font-size: 12px; color: #777; margin-bottom: 20px; line-height: 1.5; flex: 1; }
@@ -865,7 +865,16 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         
         <div style={{marginTop: 60, position: "relative"}}>
           <div className="gift-slider-track">
-            {[...GIFT_SETS.slice(0, 4), ...GIFT_SETS.slice(0, 4)].map((gift, idx) => (
+            {[
+              { name: "Cloud Candy", desc: "A soft peach-pink gift set", price: 169, img: "./assets/images/gifsets/cloudcandy_gift_transparent.png" },
+              { name: "Nafais Sharq", desc: "Rich florals and warm woods", price: 150, img: "./assets/images/gifsets/nafais_gift_transparent.png" },
+              { name: "Island", desc: "The signature Island scent", price: 179, img: "./assets/images/gifsets/island_gift_transparent.png" },
+              { name: "Cream Velvet", desc: "Buttery caramel and vanilla", price: 160, img: "./assets/images/gifsets/creamvelvet_gift_user.png" },
+              { name: "Cloud Candy", desc: "A soft peach-pink gift set", price: 169, img: "./assets/images/gifsets/cloudcandy_gift_transparent.png" },
+              { name: "Nafais Sharq", desc: "Rich florals and warm woods", price: 150, img: "./assets/images/gifsets/nafais_gift_transparent.png" },
+              { name: "Island", desc: "The signature Island scent", price: 179, img: "./assets/images/gifsets/island_gift_transparent.png" },
+              { name: "Cream Velvet", desc: "Buttery caramel and vanilla", price: 160, img: "./assets/images/gifsets/creamvelvet_gift_user.png" }
+            ].map((gift, idx) => (
               <div className="gift-slide-card" key={idx} onClick={() => setPage("gifts")}>
                 <div className="gift-slide-img">
                   <img src={gift.img} alt={gift.name} />

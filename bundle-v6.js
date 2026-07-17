@@ -21840,18 +21840,6 @@ var PRODUCTS = [
   { id: 8002, name: "Frash Sara", col: "Perfume Spray", price: 38, size: "320ml Air Freshener", badge: "Unisex", gender: "Unisex", notes: ["Cedarwood", "Jasmine", "Amber"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Sara-1.jpg?v=1761544374" },
   { id: 8003, name: "Oud Pure Oud Jumeirah", col: "Perfume Spray", price: 200, size: "60ml EDP", badge: "For Her", gender: "Her", notes: ["Cedarwood", "Jasmine", "Amber"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Jumeirah-3.jpg?v=1783940923" }
 ];
-var GIFT_SETS = [
-  { id: 5, name: "Cloud Candy Gift Set", price: 169, pieces: 3, img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy3.jpg?v=1767169755", desc: "A soft peach-pink gift set with a playful, feminine profile and premium presentation." },
-  { id: 6, name: "Strawberry Shake Gift Set", price: 295, pieces: 2, img: "./assets/images/gifsets/strawberry-shake-giftset.png", desc: "A playful rose-pink set with a feminine, candy-like finish." },
-  { id: 7, name: "Biscotti Date Toffee Gift Set", price: 315, pieces: 2, img: "./assets/images/gifsets/biscotti-date-toffee-giftset.png", desc: "A warm gourmand set with rich coffee, date, and caramel styling." },
-  { id: 8, name: "Biscotti Melon Musk Gift Set", price: 315, pieces: 2, img: "./assets/images/gifsets/biscotti-melon-musk-giftset.png", desc: "A soft pastel presentation for a fresh melon and musk composition." },
-  { id: 9, name: "Uno Intimo Gift Set", price: 285, pieces: 2, img: "./assets/images/gifsets/uno-intimo-giftset.png", desc: "An elegant, polished set with a refined feminine profile." },
-  { id: 10, name: "Bleu Glac\xE9 Gift Set", price: 275, pieces: 2, img: "./assets/images/gifsets/blue-glace-giftset.png", desc: "A crisp blue presentation with a clean, modern freshness." },
-  { id: 11, name: "Shahi Oud Gift Set", price: 360, pieces: 2, img: "./assets/images/gifsets/shahi-oud-giftset.png", desc: "A bold black-and-gold gift set with a rich oud signature." },
-  { id: 12, name: "Island Gift Set", price: 179, pieces: 3, img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island3.jpg?v=1767168724", desc: "The signature Island scent in a luxury gift trio for him and her." },
-  { id: 13, name: "Cream Velvet Gift Set", price: 160, pieces: 3, img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-3.jpg?v=1779352383", desc: "Buttery caramel and warm vanilla in a beautifully curated gift set." },
-  { id: 14, name: "Nafais Sharq Gift Set", price: 150, pieces: 3, img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-3.jpg?v=1779352739", desc: "Rich florals, warm woods, and timeless Arabian allure." }
-];
 var REVIEWS = [
   { name: "Reem Al Hashimi", country: "UAE", stars: 5, text: "The richest oud I've ever worn. Lasts 14+ hours on my skin. Khadlaj has a customer for life." },
   { name: "Hamad Al Dosari", country: "Bahrain", stars: 5, text: "Bakhoor Noir is absolutely extraordinary. Authentic Arabian soul with a French elegance." },
@@ -22035,11 +22023,11 @@ var GLOBAL_CSS = `
   .gift-slider-track { display: flex; width: max-content; animation: slideGifts 20s linear infinite; }
   .gift-slider-track:hover { animation-play-state: paused; }
   @keyframes slideGifts { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-  .gift-slide-card { width: 380px; margin: 0 15px; background: #fff; border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.4s ease, box-shadow 0.4s ease; display: flex; flex-direction: column; }
-  .gift-slide-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
-  .gift-slide-img { width: 100%; height: 380px; background: #fff; display: flex; justify-content: center; align-items: center; overflow: hidden; }
-  .gift-slide-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-  .gift-slide-card:hover .gift-slide-img img { transform: scale(1.05); }
+  .gift-slide-card { width: 380px; margin: 0 15px; background: transparent; border-radius: 0; overflow: visible; cursor: pointer; transition: transform 0.4s ease; display: flex; flex-direction: column; }
+  .gift-slide-card:hover { transform: translateY(-12px); }
+  .gift-slide-img { width: 100%; height: 380px; background: transparent; display: flex; justify-content: center; align-items: center; overflow: visible; }
+  .gift-slide-img img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.6s ease; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.08)); }
+  .gift-slide-card:hover .gift-slide-img img { transform: scale(1.08); filter: drop-shadow(0 30px 40px rgba(0,0,0,0.15)); }
   .gift-slide-content { padding: 24px 20px 30px; text-align: center; flex: 1; display: flex; flex-direction: column; }
   .gift-slide-title { font-family: 'Playfair Display', serif; font-size: 22px; color: #3c1152; margin-bottom: 8px; }
   .gift-slide-desc { font-family: 'Montserrat', sans-serif; font-size: 12px; color: #777; margin-bottom: 20px; line-height: 1.5; flex: 1; }
@@ -22542,7 +22530,16 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { className: "gift-slider-section", children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeader, { eyebrow: "The Perfect Gift", title: "Curated Experiences", sub: "Discover exclusive bundles and handpicked selections designed for you." }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { marginTop: 60, position: "relative" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "gift-slider-track", children: [...GIFT_SETS.slice(0, 4), ...GIFT_SETS.slice(0, 4)].map((gift, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "gift-slide-card", onClick: () => setPage("gifts"), children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { marginTop: 60, position: "relative" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "gift-slider-track", children: [
+        { name: "Cloud Candy", desc: "A soft peach-pink gift set", price: 169, img: "./assets/images/gifsets/cloudcandy_gift_transparent.png" },
+        { name: "Nafais Sharq", desc: "Rich florals and warm woods", price: 150, img: "./assets/images/gifsets/nafais_gift_transparent.png" },
+        { name: "Island", desc: "The signature Island scent", price: 179, img: "./assets/images/gifsets/island_gift_transparent.png" },
+        { name: "Cream Velvet", desc: "Buttery caramel and vanilla", price: 160, img: "./assets/images/gifsets/creamvelvet_gift_user.png" },
+        { name: "Cloud Candy", desc: "A soft peach-pink gift set", price: 169, img: "./assets/images/gifsets/cloudcandy_gift_transparent.png" },
+        { name: "Nafais Sharq", desc: "Rich florals and warm woods", price: 150, img: "./assets/images/gifsets/nafais_gift_transparent.png" },
+        { name: "Island", desc: "The signature Island scent", price: 179, img: "./assets/images/gifsets/island_gift_transparent.png" },
+        { name: "Cream Velvet", desc: "Buttery caramel and vanilla", price: 160, img: "./assets/images/gifsets/creamvelvet_gift_user.png" }
+      ].map((gift, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "gift-slide-card", onClick: () => setPage("gifts"), children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "gift-slide-img", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: gift.img, alt: gift.name }) }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "gift-slide-content", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "gift-slide-title", children: gift.name }),
