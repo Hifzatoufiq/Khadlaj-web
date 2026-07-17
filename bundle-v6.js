@@ -22071,9 +22071,9 @@ var GLOBAL_CSS = `
     .hero-stats-row { gap: 10px !important; padding-top: 10px !important; flex-wrap: wrap !important; }
     .hero-stat-item { padding-right: 10px !important; margin-right: 10px !important; }
     .popup-overlay { align-items: flex-end !important; padding: 0 !important; }
-    .popup-in { border-radius: 24px 24px 0 0 !important; width: 100% !important; max-width: 100% !important; border: none !important; border-top: 1px solid rgba(212,175,55,0.3) !important; animation: slideUp .5s cubic-bezier(0.16, 1, 0.3, 1) both !important; padding: 40px 20px 50px !important; }
+    .popup-in { box-sizing: border-box !important; border-radius: 24px 24px 0 0 !important; width: 100% !important; max-width: 100vw !important; border: none !important; border-top: 1px solid rgba(212,175,55,0.3) !important; animation: slideUp .5s cubic-bezier(0.16, 1, 0.3, 1) both !important; padding: 35px 20px 40px !important; }
     @keyframes slideUp { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-    .disp.mobile-text { font-size: 22px !important; }
+    .disp.mobile-text { font-size: 19px !important; letter-spacing: 0.5px !important; }
   }
   @media(max-width:480px){
     .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;}
@@ -24907,6 +24907,7 @@ function App() {
               borderRadius: 12,
               border: "1px solid rgba(212,175,55,.45)",
               padding: "40px 30px",
+              boxSizing: "border-box",
               ...tiltStyle
             },
             children: [
