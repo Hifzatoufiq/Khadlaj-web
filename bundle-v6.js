@@ -24613,6 +24613,28 @@ function App() {
   const [popupEmail, setPopupEmail] = (0, import_react.useState)("");
   const [popupState, setPopupState] = (0, import_react.useState)("scratch");
   const [popupDone, setPopupDone] = (0, import_react.useState)(false);
+  const [tiltStyle, setTiltStyle] = (0, import_react.useState)({});
+  const handleTilt = (e) => {
+    if (window.innerWidth <= 600) return;
+    const el = e.currentTarget;
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = (y - centerY) / centerY * -10;
+    const rotateY = (x - centerX) / centerX * 10;
+    setTiltStyle({
+      transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`,
+      transition: "transform 0.1s ease-out"
+    });
+  };
+  const resetTilt = () => {
+    setTiltStyle({
+      transform: "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)",
+      transition: "transform 0.5s ease-out"
+    });
+  };
   const cartCount = cartItems.reduce((sum, item) => sum + item.qty, 0);
   const addToCart = (product, qty = 1) => {
     if (!product) return;
@@ -24869,16 +24891,19 @@ function App() {
           {
             className: "popup-in",
             onClick: (e) => e.stopPropagation(),
+            onMouseMove: handleTilt,
+            onMouseLeave: resetTilt,
             style: {
               background: "#1A0B22",
               maxWidth: 440,
               width: "90%",
-              overflow: "hidden",
+              overflow: "visible",
               boxShadow: "0 32px 80px rgba(0,0,0,.4)",
               position: "relative",
               borderRadius: 12,
               border: "1px solid rgba(212,175,55,.45)",
-              padding: "40px 30px"
+              padding: "40px 30px",
+              ...tiltStyle
             },
             children: [
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => setShowPopup(false), style: { position: "absolute", top: 12, right: 12, background: "rgba(212,175,55,0.1)", border: "none", width: 30, height: 30, borderRadius: "50%", fontSize: 18, cursor: "pointer", color: "#D4AF37", zIndex: 10, display: "flex", alignItems: "center", justifyContent: "center", transition: "all 0.3s" }, onMouseEnter: (e) => {
