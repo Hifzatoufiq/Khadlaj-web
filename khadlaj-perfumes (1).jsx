@@ -2967,7 +2967,7 @@ function ScratchCard({ code, onReveal }) {
   }, [isRevealed, onReveal]);
 
   return (
-    <div className="scratch-hover" style={{position:"relative", width: 320, height: 100, margin:"0 auto", borderRadius: 4, overflow:"hidden", border:"2px solid #D4AF37", background:"#1A0B22", boxShadow:"inset 0 4px 10px rgba(0,0,0,0.4), 0 8px 24px rgba(184,146,42,0.15)"}}>
+    <div className="scratch-hover" style={{position:"relative", width: 320, height: 100, margin:"0 auto", borderRadius: 4, overflow:"hidden", border:"2px solid #D4AF37", background:"#2a0a38", boxShadow:"inset 0 4px 10px rgba(0,0,0,0.4), 0 8px 24px rgba(184,146,42,0.15)"}}>
        <div style={{position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center"}}>
           <p style={{fontSize: 30, fontWeight:700, color:"#D4AF37", letterSpacing: 5, margin:0, textShadow:"0 2px 10px rgba(212,175,55,0.3)"}}>{code}</p>
        </div>
@@ -3241,7 +3241,7 @@ export default function App(){
             onMouseMove={handleTilt}
             onMouseLeave={resetTilt}
             style={{
-              background:"#1A0B22",maxWidth:440,width:"90%",
+              background:"linear-gradient(135deg, #3c1152 0%, #1A0B22 100%)",maxWidth:440,width:"90%",
               overflow:"visible",boxShadow:"0 32px 80px rgba(0,0,0,.4)",
               position:"relative", borderRadius:12,
               border:"1px solid rgba(212,175,55,.45)",

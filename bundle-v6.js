@@ -24597,7 +24597,7 @@ function ScratchCard({ code, onReveal }) {
       canvas.removeEventListener("touchend", stopDrawing);
     };
   }, [isRevealed, onReveal]);
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "scratch-hover", style: { position: "relative", width: 320, height: 100, margin: "0 auto", borderRadius: 4, overflow: "hidden", border: "2px solid #D4AF37", background: "#1A0B22", boxShadow: "inset 0 4px 10px rgba(0,0,0,0.4), 0 8px 24px rgba(184,146,42,0.15)" }, children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "scratch-hover", style: { position: "relative", width: 320, height: 100, margin: "0 auto", borderRadius: 4, overflow: "hidden", border: "2px solid #D4AF37", background: "#2a0a38", boxShadow: "inset 0 4px 10px rgba(0,0,0,0.4), 0 8px 24px rgba(184,146,42,0.15)" }, children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 30, fontWeight: 700, color: "#D4AF37", letterSpacing: 5, margin: 0, textShadow: "0 2px 10px rgba(212,175,55,0.3)" }, children: code }) }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, pointerEvents: "none", overflow: "hidden", borderRadius: 8, opacity: isRevealed ? 0 : 1, transition: "opacity 0.6s ease" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "shimmer-effect" }) }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("canvas", { ref: canvasRef, width: 320, height: 100, style: { position: "absolute", inset: 0, cursor: "pointer", width: "100%", height: "100%", opacity: isRevealed ? 0 : 1, transition: "opacity 0.6s ease", pointerEvents: isRevealed ? "none" : "auto" } })
@@ -24894,7 +24894,7 @@ function App() {
             onMouseMove: handleTilt,
             onMouseLeave: resetTilt,
             style: {
-              background: "#1A0B22",
+              background: "linear-gradient(135deg, #3c1152 0%, #1A0B22 100%)",
               maxWidth: 440,
               width: "90%",
               overflow: "visible",
