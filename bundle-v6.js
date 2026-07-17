@@ -22019,24 +22019,31 @@ var GLOBAL_CSS = `
   .k25-btn:hover { background: #3c1152; color: #fff; transform: translateY(-3px); }
 
   /* Gift Slider */
-  .gift-slider-section { padding: 80px 0 100px; background: #FAF8F4; overflow: hidden; position: relative; }
-  .gift-slider-track { display: flex; width: max-content; animation: slideGifts 20s linear infinite; }
+  .gift-slider-section { padding: 80px 0 100px; background: #fff; overflow: hidden; position: relative; }
+  .gift-slider-track { display: flex; width: max-content; animation: slideGifts 35s linear infinite; }
   .gift-slider-track:hover { animation-play-state: paused; }
   @keyframes slideGifts { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-  .gift-slide-card { width: 380px; margin: 0 15px; background: transparent; border-radius: 0; overflow: visible; cursor: pointer; transition: transform 0.4s ease; display: flex; flex-direction: column; }
-  .gift-slide-card:hover { transform: translateY(-12px); }
-  .gift-slide-img { width: 100%; height: 380px; background: transparent; display: flex; justify-content: center; align-items: center; overflow: visible; }
-  .gift-slide-img img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.6s ease; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.08)); }
+  
+  .gift-slide-card { width: 680px; height: 380px; margin: 0 20px; background: #F0EBE6; border: 1px solid #EBE4DD; border-radius: 4px; overflow: hidden; cursor: pointer; transition: transform 0.4s ease, box-shadow 0.4s ease; display: flex; flex-direction: row; }
+  .gift-slide-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0,0,0,0.08); }
+  
+  .gift-slide-img { flex: 1.3; position: relative; display: flex; justify-content: center; align-items: center; }
+  .gift-slide-img::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, transparent, #F0EBE6 90%); z-index: 1; pointer-events: none; }
+  .gift-slide-img img { width: 85%; height: 85%; object-fit: contain; transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1)); position: relative; z-index: 0; }
   .gift-slide-card:hover .gift-slide-img img { transform: scale(1.08); filter: drop-shadow(0 30px 40px rgba(0,0,0,0.15)); }
-  .gift-slide-content { padding: 24px 20px 30px; text-align: center; flex: 1; display: flex; flex-direction: column; }
-  .gift-slide-title { font-family: 'Playfair Display', serif; font-size: 22px; color: #3c1152; margin-bottom: 8px; }
-  .gift-slide-desc { font-family: 'Montserrat', sans-serif; font-size: 12px; color: #777; margin-bottom: 20px; line-height: 1.5; flex: 1; }
-  .gift-slide-btn { align-self: center; background: transparent; border: 1px solid #3c1152; color: #3c1152; padding: 10px 24px; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.3s; }
-  .gift-slide-card:hover .gift-slide-btn { background: #3c1152; color: #fff; }
+  
+  .gift-slide-content { flex: 1; padding: 10% 8% 10% 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; z-index: 2; }
+  .gift-slide-eyebrow { color: #888; font-size: 9px; letter-spacing: 4px; text-transform: uppercase; font-family: 'Montserrat',sans-serif; margin-bottom: 16px; font-weight: 600; }
+  .gift-slide-title { font-family: 'Playfair Display', serif; font-size: 42px; line-height: 1.1; color: #3c1152; margin-bottom: 30px; font-weight: 300; }
+  .gift-slide-btn { background: transparent; color: #3c1152; border: 1px solid #3c1152; padding: 14px 32px; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; cursor: pointer; transition: all 0.4s ease; width: max-content; }
+  .gift-slide-card:hover .gift-slide-btn { background: #B8922A; border-color: #B8922A; color: #fff; }
   
   @media(max-width: 768px) {
-    .gift-slide-card { width: 280px; }
-    .gift-slide-img { height: 280px; }
+    .gift-slide-card { width: 340px; height: auto; flex-direction: column; }
+    .gift-slide-img { height: 300px; flex: auto; }
+    .gift-slide-img::before { background: linear-gradient(to bottom, transparent, #F0EBE6 90%); }
+    .gift-slide-content { padding: 40px 20px; }
+    .gift-slide-title { font-size: 32px; }
   }
   
   @keyframes shimmerSweep { 0% { left: -100%; } 100% { left: 150%; } }
@@ -22542,12 +22549,15 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
       ].map((gift, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "gift-slide-card", onClick: () => setPage("gifts"), children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "gift-slide-img", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: gift.img, alt: gift.name }) }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "gift-slide-content", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "gift-slide-title", children: gift.name }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "gift-slide-desc", children: gift.desc }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { className: "gift-slide-btn", children: [
-            "Shop AED ",
-            gift.price
-          ] })
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "gift-slide-eyebrow", children: "Handpicked" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "gift-slide-title", children: [
+            gift.name.replace(" Gift Set", "").split(" ").map((word, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { children: [
+              word,
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {})
+            ] }, i)),
+            "Sets"
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "gift-slide-btn", children: "Shop Now" })
         ] })
       ] }, idx)) }) })
     ] }),
