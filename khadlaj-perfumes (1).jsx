@@ -706,7 +706,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           poster="./assets/images/banners/spring-banner.png"
           style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",display:"block",opacity:.8}}
         >
-          <source src="https://cdn.shopify.com/videos/c/o/v/eedca68692644b0991d51fb3427d1bf4.mp4" type="video/mp4"/>
+          <source src="./video/new-video.mp4" type="video/mp4"/>
         </video>
         <div style={{position:"absolute",inset:0,background:"linear-gradient(to bottom,rgba(8,8,8,.04) 0%,rgba(8,8,8,.18) 35%,rgba(8,8,8,.52) 100%)",pointerEvents:"none"}} />
         <div style={{position:"absolute",inset:0,background:"linear-gradient(90deg,rgba(0,0,0,.28) 0%,rgba(0,0,0,.05) 50%,rgba(0,0,0,.22) 100%)",pointerEvents:"none"}} />
