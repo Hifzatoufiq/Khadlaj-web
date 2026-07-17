@@ -334,6 +334,27 @@ const GLOBAL_CSS = `
   .k25-row-desc { font-family: 'Montserrat', sans-serif; font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 40px; max-width: 500px; }
   .k25-btn { padding: 16px 36px; background: transparent; border: 1px solid #3c1152; color: #3c1152; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.4s; }
   .k25-btn:hover { background: #3c1152; color: #fff; transform: translateY(-3px); }
+
+  /* Gift Slider */
+  .gift-slider-section { padding: 80px 0 100px; background: #FAF8F4; overflow: hidden; position: relative; }
+  .gift-slider-track { display: flex; width: max-content; animation: slideGifts 20s linear infinite; }
+  .gift-slider-track:hover { animation-play-state: paused; }
+  @keyframes slideGifts { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .gift-slide-card { width: 380px; margin: 0 15px; background: #fff; border-radius: 8px; overflow: hidden; cursor: pointer; transition: transform 0.4s ease, box-shadow 0.4s ease; display: flex; flex-direction: column; }
+  .gift-slide-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+  .gift-slide-img { width: 100%; height: 380px; background: #fff; display: flex; justify-content: center; align-items: center; overflow: hidden; }
+  .gift-slide-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+  .gift-slide-card:hover .gift-slide-img img { transform: scale(1.05); }
+  .gift-slide-content { padding: 24px 20px 30px; text-align: center; flex: 1; display: flex; flex-direction: column; }
+  .gift-slide-title { font-family: 'Playfair Display', serif; font-size: 22px; color: #3c1152; margin-bottom: 8px; }
+  .gift-slide-desc { font-family: 'Montserrat', sans-serif; font-size: 12px; color: #777; margin-bottom: 20px; line-height: 1.5; flex: 1; }
+  .gift-slide-btn { align-self: center; background: transparent; border: 1px solid #3c1152; color: #3c1152; padding: 10px 24px; font-size: 10px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.3s; }
+  .gift-slide-card:hover .gift-slide-btn { background: #3c1152; color: #fff; }
+  
+  @media(max-width: 768px) {
+    .gift-slide-card { width: 280px; }
+    .gift-slide-img { height: 280px; }
+  }
   
   @keyframes shimmerSweep { 0% { left: -100%; } 100% { left: 150%; } }
   .shimmer-effect {
@@ -838,75 +859,25 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
       
       
-      {/* ── PROMO SPLIT CARDS ── */}
-      <section style={{padding:"60px 5% 100px", background:"#fff"}}>
-        
+      {/* ── ANIMATED GIFT SLIDER ── */}
+      <section className="gift-slider-section">
         <SectionHeader eyebrow="The Perfect Gift" title="Curated Experiences" sub="Discover exclusive bundles and handpicked selections designed for you." />
-
-        <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(320px, 1fr))", gap:32}}>
-          
-          {/* Card 1: Build Your Own Bundle */}
-          <div style={{position:"relative", display:"flex", background:"#F0EBE6", overflow:"hidden", cursor:"pointer", minHeight:"360px", borderRadius:4, border:"1px solid #EBE4DD"}} 
-            onClick={() => setPage("collections")}
-            onMouseEnter={e=>{
-              e.currentTarget.querySelector('img').style.transform="scale(1.05)";
-              e.currentTarget.querySelector('button').style.background="#B8922A";
-              e.currentTarget.querySelector('button').style.borderColor="#B8922A";
-              e.currentTarget.querySelector('button').style.color="#fff";
-            }}
-            onMouseLeave={e=>{
-              e.currentTarget.querySelector('img').style.transform="scale(1)";
-              e.currentTarget.querySelector('button').style.background="transparent";
-              e.currentTarget.querySelector('button').style.borderColor="#111";
-              e.currentTarget.querySelector('button').style.color="#111";
-            }}
-          >
-            {/* Text Side */}
-            <div style={{flex:"1", display:"flex", flexDirection:"column", justifyContent:"center", padding:"12% 8%", zIndex:2}}>
-              <p style={{color:"#888", fontSize:9, letterSpacing:4, textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", marginBottom:12, fontWeight:600}}>Build Your</p>
-              <h2 className="disp" style={{color:"#3c1152", fontSize:"clamp(28px, 4vw, 46px)", lineHeight:1.1, marginBottom:28, fontWeight:300}}>Own Bundle</h2>
-              <button style={{background:"transparent", color:"#3c1152", border:"1px solid #3c1152", padding:"12px 32px", fontSize:10, letterSpacing:2.5, textTransform:"uppercase", cursor:"pointer", fontFamily:"'Montserrat',sans-serif", transition:"all .4s ease", width:"max-content"}}
-              >Create Now</button>
-            </div>
-            {/* Image Side */}
-            <div style={{flex:"1.3", position:"relative", overflow:"hidden"}}>
-               <div style={{position:"absolute", inset:0, background:"linear-gradient(to right, #F0EBE6 0%, transparent 50%)", zIndex:1}}></div>
-               <img src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-3.jpg?v=1779352383" alt="Build Your Own Bundle" 
-                style={{width:"100%", height:"100%", objectFit:"cover", objectPosition:"80% center", transition:"transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)"}} />
-            </div>
+        
+        <div style={{marginTop: 60, position: "relative"}}>
+          <div className="gift-slider-track">
+            {[...GIFT_SETS.slice(0, 4), ...GIFT_SETS.slice(0, 4)].map((gift, idx) => (
+              <div className="gift-slide-card" key={idx} onClick={() => setPage("gifts")}>
+                <div className="gift-slide-img">
+                  <img src={gift.img} alt={gift.name} />
+                </div>
+                <div className="gift-slide-content">
+                  <h3 className="gift-slide-title">{gift.name}</h3>
+                  <p className="gift-slide-desc">{gift.desc}</p>
+                  <button className="gift-slide-btn">Shop AED {gift.price}</button>
+                </div>
+              </div>
+            ))}
           </div>
-
-          {/* Card 2: Handpicked Gift Sets */}
-          <div style={{position:"relative", display:"flex", flexDirection:"row-reverse", background:"#F0EBE6", overflow:"hidden", cursor:"pointer", minHeight:"360px", borderRadius:4, border:"1px solid #EBE4DD"}}
-            onClick={() => { setPage("collections"); }}
-            onMouseEnter={e=>{
-              e.currentTarget.querySelector('img').style.transform="scale(1.05)";
-              e.currentTarget.querySelector('button').style.background="#B8922A";
-              e.currentTarget.querySelector('button').style.borderColor="#B8922A";
-              e.currentTarget.querySelector('button').style.color="#fff";
-            }}
-            onMouseLeave={e=>{
-              e.currentTarget.querySelector('img').style.transform="scale(1)";
-              e.currentTarget.querySelector('button').style.background="transparent";
-              e.currentTarget.querySelector('button').style.borderColor="#111";
-              e.currentTarget.querySelector('button').style.color="#111";
-            }}
-          >
-            {/* Text Side */}
-            <div style={{flex:"1", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"flex-end", textAlign:"right", padding:"12% 8%", zIndex:2}}>
-              <p style={{color:"#888", fontSize:9, letterSpacing:4, textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", marginBottom:12, fontWeight:600}}>Handpicked</p>
-              <h2 className="disp" style={{color:"#3c1152", fontSize:"clamp(28px, 4vw, 46px)", lineHeight:1.1, marginBottom:28, fontWeight:300}}>Gift Sets</h2>
-              <button style={{background:"transparent", color:"#3c1152", border:"1px solid #3c1152", padding:"12px 32px", fontSize:10, letterSpacing:2.5, textTransform:"uppercase", cursor:"pointer", fontFamily:"'Montserrat',sans-serif", transition:"all .4s ease", width:"max-content"}}
-              >Shop Now</button>
-            </div>
-            {/* Image Side */}
-            <div style={{flex:"1.3", position:"relative", overflow:"hidden"}}>
-               <div style={{position:"absolute", inset:0, background:"linear-gradient(to left, #F0EBE6 0%, transparent 50%)", zIndex:1}}></div>
-               <img src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-3.jpg?v=1779352739" alt="Handpicked Gift Sets" 
-                style={{width:"100%", height:"100%", objectFit:"cover", objectPosition:"20% center", transition:"transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)"}} />
-            </div>
-          </div>
-
         </div>
       </section>
 {/* ── TIKTOK REELS ── */}
