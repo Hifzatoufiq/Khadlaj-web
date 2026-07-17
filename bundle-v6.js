@@ -22007,8 +22007,9 @@ var GLOBAL_CSS = `
   .k25-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 1300px; margin: 60px auto 0; align-items: stretch; }
   .k25-card { position: relative; border-radius: 0; overflow: hidden; background: transparent; display: flex; flexDirection: column; transition: transform 0.4s ease; }
   .k25-card:hover { transform: translateY(-10px); }
-  .k25-img-wrap { width: 100%; height: 500px; background-size: 300% 125%; background-repeat: no-repeat; transition: background-size 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); border-radius: 12px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
-  .k25-card:hover .k25-img-wrap { background-size: 315% 131.25%; }
+  .k25-img-wrap { width: 100%; height: 500px; border-radius: 12px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); overflow: hidden; }
+  .k25-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); display: block; }
+  .k25-card:hover .k25-img-wrap img { transform: scale(1.05); }
   .k25-content { padding: 35px 20px 10px; display: flex; flex-direction: column; align-items: center; flex: 1; }
   .k25-title { font-family: 'Playfair Display', serif; font-size: 26px; color: #3c1152; margin-bottom: 12px; letter-spacing: 3px; text-transform: uppercase; }
   .k25-subtitle { font-size: 13px; color: #666; letter-spacing: 1.5px; margin-bottom: 24px; text-transform: uppercase; font-weight: 500; }
@@ -22437,14 +22438,11 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { style: { fontFamily: "'Playfair Display', serif", fontSize: 46, color: "#3c1152", margin: 0, fontWeight: 500 }, children: "25th Anniversary Collection" }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontFamily: "'Montserrat', sans-serif", fontSize: 15, color: "#555", maxWidth: 640, margin: "20px auto 0", lineHeight: 1.6 }, children: "Celebrating a quarter-century of olfactory excellence. A tribute to our legacy, crafted for those who value heritage and distinction." }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "k25-grid", children: [
-        { name: "LOYALTY", subtitle: "Unwavering Bonds", bgPos: "0% 0%" },
-        { name: "TRUST", subtitle: "Foundation of Eternity", bgPos: "50% 0%" },
-        { name: "INTEGRITY", subtitle: "Essence of Character", bgPos: "100% 0%" }
+        { name: "LOYALTY", subtitle: "Unwavering Bonds", img: "./assets/images/products/loyalty.png" },
+        { name: "TRUST", subtitle: "Foundation of Eternity", img: "./assets/images/products/trust.png" },
+        { name: "INTEGRITY", subtitle: "Essence of Character", img: "./assets/images/products/integrity.png" }
       ].map((item, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "k25-card", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "k25-img-wrap", style: {
-          backgroundImage: "url('./assets/images/banners/khadlaj25.png')",
-          backgroundPosition: item.bgPos
-        } }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "k25-img-wrap", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: item.img, alt: item.name }) }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "k25-content", children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "k25-title", children: item.name }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "k25-subtitle", children: item.subtitle }),
