@@ -318,6 +318,19 @@ const GLOBAL_CSS = `
   /* Scratch Card Animations */
   @keyframes floatY { 0% { transform: translateY(0px); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0px); } }
   .bottle-float { animation: floatY 4s ease-in-out infinite; }
+
+  /* 25th Anniversary Section */
+  .khadlaj25-section { padding: 120px 5%; background: #FAF8F4; text-align: center; }
+  .k25-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 1300px; margin: 60px auto 0; align-items: stretch; }
+  .k25-card { position: relative; border-radius: 0; overflow: hidden; background: transparent; display: flex; flexDirection: column; transition: transform 0.4s ease; }
+  .k25-card:hover { transform: translateY(-10px); }
+  .k25-img-wrap { width: 100%; height: 500px; background-size: 300% 125%; background-repeat: no-repeat; transition: background-size 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); border-radius: 12px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+  .k25-card:hover .k25-img-wrap { background-size: 315% 131.25%; }
+  .k25-content { padding: 35px 20px 10px; display: flex; flex-direction: column; align-items: center; flex: 1; }
+  .k25-title { font-family: 'Playfair Display', serif; font-size: 26px; color: #3c1152; margin-bottom: 12px; letter-spacing: 3px; text-transform: uppercase; }
+  .k25-subtitle { font-size: 13px; color: #666; letter-spacing: 1.5px; margin-bottom: 24px; text-transform: uppercase; font-weight: 500; }
+  .k25-btn { padding: 14px 32px; background: transparent; border: 1px solid #3c1152; color: #3c1152; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.3s; margin-top: auto; }
+  .k25-btn:hover { background: #3c1152; color: #fff; }
   
   @keyframes shimmerSweep { 0% { left: -100%; } 100% { left: 150%; } }
   .shimmer-effect {
@@ -403,6 +416,9 @@ const GLOBAL_CSS = `
     .hero-layout { gap: 18px !important; }
     .hero-visual { min-height: 280px !important; }
     .hero-headline { font-size: 26px !important; letter-spacing: 0 !important; }
+    .k25-grid { grid-template-columns: 1fr !important; gap: 50px !important; }
+    .khadlaj25-section { padding: 80px 5% !important; }
+    .k25-img-wrap { height: 420px !important; }
     .hero-cta-row { flex-direction: column !important; gap: 8px !important; width: 100% !important; }
     .hero-cta-row button { width: 100% !important; text-align: center !important; justify-content: center !important; }
     .hero-stats-row { border-top: none !important; padding-top: 0 !important; }
@@ -722,6 +738,35 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           ))}
         </div>
       </div>
+
+      {/* ── 25TH ANNIVERSARY COLLECTION ── */}
+      <section className="khadlaj25-section">
+        <span style={{fontSize: 11, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontWeight: 600, display: "block", marginBottom: 16}}>The Milestone</span>
+        <h2 style={{fontFamily: "'Playfair Display', serif", fontSize: 46, color: "#3c1152", margin: 0, fontWeight: 500}}>25th Anniversary Collection</h2>
+        <p style={{fontFamily: "'Montserrat', sans-serif", fontSize: 15, color: "#555", maxWidth: 640, margin: "20px auto 0", lineHeight: 1.6}}>
+          Celebrating a quarter-century of olfactory excellence. A tribute to our legacy, crafted for those who value heritage and distinction.
+        </p>
+
+        <div className="k25-grid">
+          {[
+            { name: "LOYALTY", subtitle: "Unwavering Bonds", bgPos: "0% 0%" },
+            { name: "TRUST", subtitle: "Foundation of Eternity", bgPos: "50% 0%" },
+            { name: "INTEGRITY", subtitle: "Essence of Character", bgPos: "100% 0%" }
+          ].map((item, idx) => (
+            <div className="k25-card" key={idx}>
+              <div className="k25-img-wrap" style={{
+                backgroundImage: "url('./assets/images/banners/khadlaj25.png')",
+                backgroundPosition: item.bgPos
+              }} />
+              <div className="k25-content">
+                <h3 className="k25-title">{item.name}</h3>
+                <p className="k25-subtitle">{item.subtitle}</p>
+                <button className="k25-btn">Discover {item.name}</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
 
       {/* ── NEW LAUNCH ── */}
       <section style={{padding:"84px 5% 96px", background:"linear-gradient(180deg, #fff 0%, #fcfaf7 100%)"}}>

@@ -22001,6 +22001,19 @@ var GLOBAL_CSS = `
   /* Scratch Card Animations */
   @keyframes floatY { 0% { transform: translateY(0px); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0px); } }
   .bottle-float { animation: floatY 4s ease-in-out infinite; }
+
+  /* 25th Anniversary Section */
+  .khadlaj25-section { padding: 120px 5%; background: #FAF8F4; text-align: center; }
+  .k25-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 1300px; margin: 60px auto 0; align-items: stretch; }
+  .k25-card { position: relative; border-radius: 0; overflow: hidden; background: transparent; display: flex; flexDirection: column; transition: transform 0.4s ease; }
+  .k25-card:hover { transform: translateY(-10px); }
+  .k25-img-wrap { width: 100%; height: 500px; background-size: 300% 125%; background-repeat: no-repeat; transition: background-size 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); border-radius: 12px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+  .k25-card:hover .k25-img-wrap { background-size: 315% 131.25%; }
+  .k25-content { padding: 35px 20px 10px; display: flex; flex-direction: column; align-items: center; flex: 1; }
+  .k25-title { font-family: 'Playfair Display', serif; font-size: 26px; color: #3c1152; margin-bottom: 12px; letter-spacing: 3px; text-transform: uppercase; }
+  .k25-subtitle { font-size: 13px; color: #666; letter-spacing: 1.5px; margin-bottom: 24px; text-transform: uppercase; font-weight: 500; }
+  .k25-btn { padding: 14px 32px; background: transparent; border: 1px solid #3c1152; color: #3c1152; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.3s; margin-top: auto; }
+  .k25-btn:hover { background: #3c1152; color: #fff; }
   
   @keyframes shimmerSweep { 0% { left: -100%; } 100% { left: 150%; } }
   .shimmer-effect {
@@ -22086,6 +22099,9 @@ var GLOBAL_CSS = `
     .hero-layout { gap: 18px !important; }
     .hero-visual { min-height: 280px !important; }
     .hero-headline { font-size: 26px !important; letter-spacing: 0 !important; }
+    .k25-grid { grid-template-columns: 1fr !important; gap: 50px !important; }
+    .khadlaj25-section { padding: 80px 5% !important; }
+    .k25-img-wrap { height: 420px !important; }
     .hero-cta-row { flex-direction: column !important; gap: 8px !important; width: 100% !important; }
     .hero-cta-row button { width: 100% !important; text-align: center !important; justify-content: center !important; }
     .hero-stats-row { border-top: none !important; padding-top: 0 !important; }
@@ -22416,6 +22432,29 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 12, fontWeight: 400, letterSpacing: 8, color: "#E8E4DC", textTransform: "uppercase", whiteSpace: "nowrap", fontFamily: "'Montserrat',sans-serif" }, children: n }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { margin: "0 64px", color: "#C1A46A", fontSize: 10 }, children: "\u2726" })
     ] }, i)) }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { className: "khadlaj25-section", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 11, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontWeight: 600, display: "block", marginBottom: 16 }, children: "The Milestone" }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { style: { fontFamily: "'Playfair Display', serif", fontSize: 46, color: "#3c1152", margin: 0, fontWeight: 500 }, children: "25th Anniversary Collection" }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontFamily: "'Montserrat', sans-serif", fontSize: 15, color: "#555", maxWidth: 640, margin: "20px auto 0", lineHeight: 1.6 }, children: "Celebrating a quarter-century of olfactory excellence. A tribute to our legacy, crafted for those who value heritage and distinction." }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "k25-grid", children: [
+        { name: "LOYALTY", subtitle: "Unwavering Bonds", bgPos: "0% 0%" },
+        { name: "TRUST", subtitle: "Foundation of Eternity", bgPos: "50% 0%" },
+        { name: "INTEGRITY", subtitle: "Essence of Character", bgPos: "100% 0%" }
+      ].map((item, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "k25-card", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "k25-img-wrap", style: {
+          backgroundImage: "url('./assets/images/banners/khadlaj25.png')",
+          backgroundPosition: item.bgPos
+        } }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "k25-content", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "k25-title", children: item.name }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "k25-subtitle", children: item.subtitle }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { className: "k25-btn", children: [
+            "Discover ",
+            item.name
+          ] })
+        ] })
+      ] }, idx)) })
+    ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { padding: "84px 5% 96px", background: "linear-gradient(180deg, #fff 0%, #fcfaf7 100%)" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "max-container", children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: 14, marginBottom: 28, textAlign: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeader, { title: "New Launch", sub: "A balanced spotlight on the latest fragrances, curated to feel clean and contemporary." }) }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(4,minmax(0,1fr))", gap: 24, alignItems: "stretch" }, className: "grid-4", children: newLaunches.map((p) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductCard, { p, onView: (prod) => {
