@@ -22388,7 +22388,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
   }).slice(0, 16);
   const newLaunches = PRODUCTS.filter((p) => p.badge === "New" && p.col !== "Lafede").slice(0, 4);
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { className: "hero-section", style: { position: "relative", width: "100%", height: "70vh", minHeight: "450px", overflow: "hidden", background: "url('./assets/images/banners/spring-banner.png') center/cover no-repeat #0a0a0a" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { className: "hero-section", style: { position: "relative", width: "100%", height: "70vh", minHeight: "450px", overflow: "hidden", background: "#0a0a0a" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
         "video",
         {
@@ -22405,7 +22405,6 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
           loop: true,
           playsInline: true,
           preload: "auto",
-          poster: "./assets/images/banners/spring-banner.png",
           style: { position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", display: "block", opacity: 0.8 },
           children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("source", { src: "./video/new-video.mp4", type: "video/mp4" })
         }
@@ -23724,7 +23723,7 @@ function SignupPage() {
   const title = mode === "forgot" ? "Reset Password" : mode === "login" ? "Welcome Back" : "Create your account";
   const subtitle = mode === "forgot" ? "Enter your email and we will send password reset instructions." : mode === "login" ? "Login to manage your Khadlaj profile, wishlist, and private offers." : "Join for launch previews, fragrance stories, and private offers.";
   return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { background: "linear-gradient(180deg,#fff 0%,#FAF8F4 100%)" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { padding: "74px 5% 96px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { maxWidth: 1420, margin: "0 auto", display: "grid", gridTemplateColumns: ".95fr 1.05fr", alignItems: "stretch", border: "1px solid #E8E0D2", boxShadow: "0 40px 100px rgba(0,0,0,.06)", background: "#fff" }, className: "hero-split", children: [
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "auth-visual-panel", style: { position: "relative", overflow: "hidden", minHeight: 680, background: "url('./assets/images/banners/spring-banner.png') center/cover", padding: "58px 52px", display: "flex", flexDirection: "column", justifyContent: "space-between" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "auth-visual-panel", style: { position: "relative", overflow: "hidden", minHeight: 680, background: "url('./assets/images/banners/gifts-wide-banner.png') center/cover", padding: "58px 52px", display: "flex", flexDirection: "column", justifyContent: "space-between" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(60,17,82,0.85) 0%, rgba(10,10,10,0.95) 100%)" } }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", top: -110, right: -90, width: 340, height: 340, borderRadius: "50%", background: "radial-gradient(circle,rgba(184,146,42,.28),rgba(184,146,42,0) 68%)", zIndex: 1 } }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", zIndex: 2, maxWidth: 470, marginTop: "auto", marginBottom: "auto" }, children: [
