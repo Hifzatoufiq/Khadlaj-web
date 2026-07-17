@@ -24116,14 +24116,14 @@ function Navbar({ page, setPage, cartCount }) {
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "21", y1: "21", x2: "16.65", y2: "16.65" })
               ] }) }),
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "hide-mob country-dropdown", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CountryContext.Consumer, { children: ({ activeCountry, setActiveCountry }) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, padding: "6px 12px", border: "1px solid #E8E4DC", borderRadius: 3, background: "#FAF9F6", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontSize: 11, fontWeight: 600, color: "#3c1152" }, children: [
-                  activeCountry.flagUrl === "global" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "15", height: "15", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.6", strokeLinecap: "round", strokeLinejoin: "round", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "10px 18px", border: "1px solid #E8E4DC", borderRadius: 4, background: "#FAF9F6", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontSize: 14, fontWeight: 600, color: "#3c1152" }, children: [
+                  activeCountry.flagUrl === "global" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.6", strokeLinecap: "round", strokeLinejoin: "round", children: [
                     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "12", cy: "12", r: "10" }),
                     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "2", y1: "12", x2: "22", y2: "12" }),
                     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" })
-                  ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: activeCountry.flagUrl, alt: activeCountry.name, style: { width: 20, height: 14, objectFit: "cover", borderRadius: 2, display: "block" } }),
+                  ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: activeCountry.flagUrl, alt: activeCountry.name, style: { width: 24, height: 17, objectFit: "cover", borderRadius: 2, display: "block" } }),
                   activeCountry.name,
-                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", { width: "12", height: "12", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", style: { marginLeft: "4px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "6 9 12 15 18 9" }) })
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", { width: "14", height: "14", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", style: { marginLeft: "6px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polyline", { points: "6 9 12 15 18 9" }) })
                 ] }),
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "country-dropdown-menu", children: COUNTRIES.map((c) => {
                   const isActive = activeCountry.name === c.name;

@@ -2523,13 +2523,13 @@ function Navbar({ page, setPage, cartCount }){
                 <CountryContext.Consumer>
                   {({ activeCountry, setActiveCountry }) => (
                     <>
-                      <div style={{display:"flex",alignItems:"center",gap:8,padding:"6px 12px",border:"1px solid #E8E4DC",borderRadius:3,background:"#FAF9F6",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontSize:11,fontWeight:600,color:"#3c1152"}}>
+                      <div style={{display:"flex",alignItems:"center",gap:10,padding:"10px 18px",border:"1px solid #E8E4DC",borderRadius:4,background:"#FAF9F6",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontSize:14,fontWeight:600,color:"#3c1152"}}>
                         {activeCountry.flagUrl === "global"
-                          ? <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                          : <img src={activeCountry.flagUrl} alt={activeCountry.name} style={{width:20,height:14,objectFit:"cover",borderRadius:2,display:"block"}} />
+                          ? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                          : <img src={activeCountry.flagUrl} alt={activeCountry.name} style={{width:24,height:17,objectFit:"cover",borderRadius:2,display:"block"}} />
                         }
                         {activeCountry.name}
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginLeft:"4px"}}><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginLeft:"6px"}}><polyline points="6 9 12 15 18 9"></polyline></svg>
                       </div>
                       <div className="country-dropdown-menu">
                         {COUNTRIES.map(c => {
