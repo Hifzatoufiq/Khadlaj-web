@@ -337,6 +337,7 @@ const GLOBAL_CSS = `
 
   .scratch-hover { transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s; width: 100%; max-width: 320px; }
   .scratch-hover:hover { transform: scale(1.04); box-shadow: inset 0 4px 10px rgba(0,0,0,0.4), 0 12px 30px rgba(184,146,42,0.25) !important; }
+  .scratch-text { font-size: 30px; letter-spacing: 5px; }
 
   .popup-overlay { position: fixed; inset: 0; z-index: 300; background: rgba(0,0,0,.7); display: flex; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
 
@@ -396,6 +397,8 @@ const GLOBAL_CSS = `
     .product-image-stage{height:clamp(150px,52vw,205px)!important;}
     .product-card-title{font-size:11px!important;line-height:1.25!important;}
     .product-note{font-size:6.2px!important;letter-spacing:0!important;padding:2.5px 3px!important;}
+    .scratch-text { font-size: 24px !important; letter-spacing: 3px !important; }
+    .scratch-hover { height: 85px !important; }
     .popup-in{grid-template-columns:1fr!important;}
     .hero-layout { gap: 18px !important; }
     .hero-visual { min-height: 280px !important; }
@@ -2967,9 +2970,9 @@ function ScratchCard({ code, onReveal }) {
   }, [isRevealed, onReveal]);
 
   return (
-    <div className="scratch-hover" style={{position:"relative", width: 320, height: 100, margin:"0 auto", borderRadius: 4, overflow:"hidden", border:"2px solid #D4AF37", background:"#2a0a38", boxShadow:"inset 0 4px 10px rgba(0,0,0,0.4), 0 8px 24px rgba(184,146,42,0.15)"}}>
+    <div className="scratch-hover" style={{position:"relative", width: "100%", maxWidth: 320, height: 100, margin:"0 auto", borderRadius: 4, overflow:"hidden", border:"2px solid #D4AF37", background:"#2a0a38", boxShadow:"inset 0 4px 10px rgba(0,0,0,0.4), 0 8px 24px rgba(184,146,42,0.15)"}}>
        <div style={{position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center"}}>
-          <p style={{fontSize: 30, fontWeight:700, color:"#D4AF37", letterSpacing: 5, margin:0, textShadow:"0 2px 10px rgba(212,175,55,0.3)"}}>{code}</p>
+          <p className="scratch-text" style={{fontWeight:700, color:"#D4AF37", margin:0, textShadow:"0 2px 10px rgba(212,175,55,0.3)"}}>{code}</p>
        </div>
        <div style={{position:"absolute", inset:0, pointerEvents:"none", overflow:"hidden", borderRadius: 8, opacity: isRevealed ? 0 : 1, transition: "opacity 0.6s ease"}}>
           <div className="shimmer-effect"></div>
