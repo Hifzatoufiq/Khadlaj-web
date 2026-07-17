@@ -324,8 +324,8 @@ const GLOBAL_CSS = `
   .k25-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; max-width: 1300px; margin: 60px auto 0; align-items: stretch; }
   .k25-card { position: relative; border-radius: 0; overflow: hidden; background: transparent; display: flex; flexDirection: column; transition: transform 0.4s ease; }
   .k25-card:hover { transform: translateY(-10px); }
-  .k25-img-wrap { width: 100%; height: 500px; border-radius: 12px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); overflow: hidden; }
-  .k25-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); display: block; }
+  .k25-img-wrap { width: 100%; aspect-ratio: 1 / 1.05; height: auto; border-radius: 12px; box-shadow: 0 30px 60px rgba(0,0,0,0.1); overflow: hidden; background: #fff; }
+  .k25-img-wrap img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1); display: block; }
   .k25-card:hover .k25-img-wrap img { transform: scale(1.05); }
   .k25-content { padding: 35px 20px 10px; display: flex; flex-direction: column; align-items: center; flex: 1; }
   .k25-title { font-family: 'Playfair Display', serif; font-size: 26px; color: #3c1152; margin-bottom: 12px; letter-spacing: 3px; text-transform: uppercase; }
@@ -419,7 +419,6 @@ const GLOBAL_CSS = `
     .hero-headline { font-size: 26px !important; letter-spacing: 0 !important; }
     .k25-grid { grid-template-columns: 1fr !important; gap: 50px !important; }
     .khadlaj25-section { padding: 80px 5% !important; }
-    .k25-img-wrap { height: 420px !important; }
     .hero-cta-row { flex-direction: column !important; gap: 8px !important; width: 100% !important; }
     .hero-cta-row button { width: 100% !important; text-align: center !important; justify-content: center !important; }
     .hero-stats-row { border-top: none !important; padding-top: 0 !important; }
