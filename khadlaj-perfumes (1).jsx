@@ -310,6 +310,17 @@ const GLOBAL_CSS = `
     animation:shimmer 3s linear infinite;
   }
 
+  /* Navbar Link Hover Effect */
+  .nav-link { position: relative; cursor: pointer; padding-bottom: 4px; color: #3c1152; transition: color 0.3s ease; display: inline-block; }
+  .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0%; height: 1.5px; background: #B8922A; transition: width 0.3s ease; }
+  .nav-link:hover { color: #B8922A; }
+  .nav-link:hover::after { width: 100%; }
+  .nav-link.active { color: #B8922A; }
+  .nav-link.active::after { width: 100%; }
+  
+  .mob-nav-link { transition: all 0.3s ease; }
+  .mob-nav-link:hover { background: #FAF8F4; color: #B8922A !important; padding-left: 8% !important; }
+
   @keyframes lafedeFloat{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-10px) scale(1.015);}}
   @keyframes lafedeFloatSmall{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(8px) rotate(1.5deg);}}
   @keyframes lafedeGlow{0%,100%{opacity:.34;transform:scale(.94);}50%{opacity:.72;transform:scale(1.05);}}
@@ -2687,12 +2698,14 @@ function Navbar({ page, setPage, cartCount }){
             </div>
           </div>
           <div className="hide-mob" style={{display:"flex",justifyContent:"center",gap:40,paddingBottom:16,fontSize:"12px",letterSpacing:"1.5px",textTransform:"uppercase",color:"#3c1152",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>
-            {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Contact","contact"]].map(([label,pg])=>(
-              <span key={label} onClick={()=>setPage(pg)} style={{cursor:"pointer",paddingBottom:4,borderBottom:(page===pg && !["Best Sellers","Perfume Spray","Perfume Oil","Home & Ambience"].includes(label))?"1px solid #B8922A":"1px solid transparent",color:(page===pg && !["Best Sellers","Perfume Spray","Perfume Oil","Home & Ambience"].includes(label))?"#B8922A":"#111",transition:"all .25s ease"}}
-                onMouseEnter={e=>{e.currentTarget.style.color="#B8922A";e.currentTarget.style.borderBottomColor="#B8922A";}}
-                onMouseLeave={e=>{const isActive=page===pg && !["Best Sellers","Perfume Spray","Perfume Oil","Home & Ambience"].includes(label);e.currentTarget.style.color=isActive?"#B8922A":"#111";e.currentTarget.style.borderBottomColor=isActive?"#B8922A":"transparent";}}
-              >{label}</span>
-            ))}
+            {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Contact","contact"]].map(([label,pg])=>{
+              const isActive = page===pg && !["Best Sellers","Perfume Spray","Perfume Oil","Home & Ambience"].includes(label);
+              return (
+                <span key={label} onClick={() => setPage(pg)} className={`nav-link ${isActive ? 'active' : ''}`}>
+                  {label}
+                </span>
+              );
+            })}
           </div>
         </div>
 
@@ -2709,6 +2722,7 @@ function Navbar({ page, setPage, cartCount }){
             {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Sign Up","signup"],["Contact","contact"]].map(([label,pg])=>(
               <div
                 key={label}
+                className="mob-nav-link"
                 onClick={()=>{setPage(pg);setMobileMenuOpen(false);}}
                 style={{
                   padding:"14px 6%",
