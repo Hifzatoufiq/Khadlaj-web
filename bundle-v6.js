@@ -22505,6 +22505,97 @@ function TikTokCard({ t }) {
     }
   );
 }
+function TrustBanner() {
+  const items = [
+    {
+      title: "SECURE PAYMENTS",
+      desc: "100% encrypted transactions",
+      icon: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", { x: "2", y: "5", width: "20", height: "14", rx: "2" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "2", y1: "10", x2: "22", y2: "10" })
+      ] })
+    },
+    {
+      title: "CRUELTY FREE",
+      desc: "Ethically crafted fragrances",
+      icon: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M13 16a3 3 0 0 1 2.24 5" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M18 12h.01" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M18 21h-8a4 4 0 0 1-4-4 7 7 0 0 1 7-7h.2L9.6 6.4a1 1 0 1 1 2.8-2.8L15.8 7h.2c3.3 0 6 2.7 6 6v1a2 2 0 0 1-2 2h-1a3 3 0 0 0-3 3" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M20 8.54V4a2 2 0 1 0-4 0v3" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M7.612 12.524a3 3 0 1 0-1.6 4.3" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M4 15.5v.01" })
+      ] })
+    },
+    {
+      title: "FREE SAMPLES",
+      desc: "With every single order",
+      icon: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M10 2v7.31" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M14 9.3V1.99" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M8.5 2h7" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M14 9.3a6.5 6.5 0 1 1-4 0" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M5.52 16h12.96" })
+      ] })
+    },
+    {
+      title: "GLOBAL SHIPPING",
+      desc: "Delivered worldwide",
+      icon: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("rect", { x: "1", y: "3", width: "15", height: "13" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("polygon", { points: "16 8 20 8 23 11 23 16 16 16 16 8" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "5.5", cy: "18.5", r: "2.5" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "18.5", cy: "18.5", r: "2.5" })
+      ] })
+    }
+  ];
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+    background: "linear-gradient(90deg, #F9F7F1 0%, #FFFFFF 50%, #F9F7F1 100%)",
+    borderTop: "1px solid #E8E4DC",
+    borderBottom: "1px solid #E8E4DC",
+    padding: "40px 5%"
+  }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+    maxWidth: 1440,
+    margin: "0 auto",
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+    gap: 30,
+    alignItems: "center"
+  }, children: items.map((it, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    textAlign: "center",
+    padding: "10px"
+  }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+      width: 50,
+      height: 50,
+      borderRadius: "50%",
+      background: "rgba(184,146,42,0.1)",
+      color: "#B8922A",
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      marginBottom: 16
+    }, children: it.icon }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { style: {
+      fontFamily: "'Montserrat', sans-serif",
+      fontSize: 11,
+      fontWeight: 700,
+      letterSpacing: 2,
+      color: "#3c1152",
+      textTransform: "uppercase",
+      marginBottom: 6
+    }, children: it.title }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: {
+      fontFamily: "'Playfair Display', serif",
+      fontSize: 13,
+      fontStyle: "italic",
+      color: "#888"
+    }, children: it.desc })
+  ] }, i)) }) });
+}
 function HomePage({ setPage, addToCart, setViewProduct }) {
   const [activeCat, setActiveCat] = (0, import_react.useState)("Best Sellers");
   const [hov, setHov] = (0, import_react.useState)(null);
@@ -23167,7 +23258,8 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }) {
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, background: "linear-gradient(to right, #120917 0%, rgba(18,9,23,0.3) 40%, transparent 100%)" } }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", bottom: "10%", right: "10%", width: "120px", height: "120px", background: "#B8922A", filter: "blur(80px)", opacity: 0.4, borderRadius: "50%" } })
       ] })
-    ] }) })
+    ] }) }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TrustBanner, {})
   ] });
 }
 function LaFedePage({ addToCart, setViewProduct, setPage }) {
