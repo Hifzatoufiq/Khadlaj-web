@@ -21994,12 +21994,22 @@ var GLOBAL_CSS = `
   }
 
   /* Navbar Link Hover Effect */
-  .nav-link { position: relative; cursor: pointer; padding-bottom: 4px; color: #3c1152; transition: color 0.3s ease; display: inline-block; }
-  .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0%; height: 1.5px; background: #B8922A; transition: width 0.3s ease; }
-  .nav-link:hover { color: #B8922A; }
-  .nav-link:hover::after { width: 100%; }
-  .nav-link.active { color: #B8922A; }
-  .nav-link.active::after { width: 100%; }
+  .nav-link { position: relative; cursor: pointer; padding-bottom: 10px; color: #3c1152; transition: color 0.4s ease, transform 0.4s ease; display: inline-block; }
+  .nav-link::after { 
+    content: '\u2726'; 
+    position: absolute; 
+    bottom: -10px; 
+    left: 50%; 
+    transform: translateX(-50%) scale(0) rotate(-90deg); 
+    opacity: 0; 
+    color: #B8922A; 
+    font-size: 11px;
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); 
+  }
+  .nav-link:hover { color: #B8922A; transform: translateY(-3px); }
+  .nav-link:hover::after { opacity: 1; transform: translateX(-50%) scale(1) rotate(0deg); }
+  .nav-link.active { color: #B8922A; transform: translateY(-3px); }
+  .nav-link.active::after { opacity: 1; transform: translateX(-50%) scale(1) rotate(0deg); }
   
   .mob-nav-link { transition: all 0.3s ease; }
   .mob-nav-link:hover { background: #FAF8F4; color: #B8922A !important; padding-left: 8% !important; }
