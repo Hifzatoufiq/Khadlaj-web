@@ -369,50 +369,52 @@ const GLOBAL_CSS = `
   }
   
   .k25-card-img-wrapper { 
-    height: 480px; width: 100%; overflow: hidden; position: relative; background: #000; flex-shrink: 0; 
-    border-radius: 210px 210px 0 0; /* Arched Top */
-    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    height: 480px; width: 100%; overflow: hidden; position: relative; background: #FAF8F4; flex-shrink: 0; 
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
   }
   .k25-card-img-wrapper::after {
-    content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(255,255,255,0.9), transparent 40%);
-    opacity: 0.6; transition: opacity 0.6s ease; pointer-events: none;
+    content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(255,255,255,1), transparent 30%);
+    opacity: 0.8; transition: opacity 0.6s ease; pointer-events: none;
   }
   .k25-card:hover .k25-card-img-wrapper::after { opacity: 0; }
   
   .k25-card-img-wrapper img { 
     width: 100%; height: 100%; object-fit: cover; display: block; 
     animation: subtleZoomPan 25s ease-in-out infinite;
-    filter: brightness(0.95);
+    filter: brightness(0.98);
     transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.8s ease;
   }
-  .k25-card:hover .k25-card-img-wrapper img { transform: scale(1.1); filter: brightness(1.05); }
+  .k25-card:hover .k25-card-img-wrapper img { transform: scale(1.08); filter: brightness(1.02); }
   
   .k25-card-content { 
-    padding: 35px 30px; text-align: center; position: relative; z-index: 2;
-    background: #3c1152; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
-    width: 85%; margin-top: -80px; /* Floating Box Overlap */
-    border-radius: 8px; box-shadow: 0 15px 35px rgba(60, 17, 82, 0.3);
-    border: 1px solid rgba(184,146,42,0.3);
+    padding: 40px 30px; text-align: center; position: relative; z-index: 2;
+    background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+    width: 90%; margin-top: -60px; /* Floating Glass Box */
+    border-radius: 16px; box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+    border: 1px solid rgba(255,255,255,1);
     flex-grow: 1; transition: all 0.6s ease;
   }
   .k25-card:hover .k25-card-content {
-    box-shadow: 0 20px 50px rgba(60, 17, 82, 0.5);
-    border-color: #B8922A;
+    box-shadow: 0 20px 50px rgba(184,146,42,0.15);
+    transform: translateY(-5px);
   }
   
-  .k25-card-title { font-family: 'Playfair Display', serif; font-size: 30px; color: #fff; margin-bottom: 8px; letter-spacing: 1px; }
+  .k25-card-title { font-family: 'Playfair Display', serif; font-size: 30px; color: #3c1152; margin-bottom: 8px; letter-spacing: 1px; }
   .k25-card-subtitle { font-size: 10px; color: #B8922A; letter-spacing: 3px; margin-bottom: 20px; text-transform: uppercase; font-weight: 600; }
-  .k25-card-desc { font-family: 'Montserrat', sans-serif; font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6; margin-bottom: 30px; transition: opacity 0.6s; }
+  .k25-card-desc { font-family: 'Montserrat', sans-serif; font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 30px; opacity: 0.85; transition: opacity 0.6s; }
   
   /* Creative Animated Button */
   .k25-card-btn { 
     margin-top: auto; position: relative; overflow: hidden; z-index: 1;
-    padding: 14px 32px; background: transparent; border: 1px solid #B8922A; color: #B8922A; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.4s; 
+    padding: 14px 32px; background: #fff; border: 1px solid #E8E4DC; color: #3c1152; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.4s; 
+    border-radius: 30px; /* Pill shaped button */
   }
   .k25-card-btn::after {
-    content: ''; position: absolute; top: 0; left: 0; width: 0%; height: 100%; background: #B8922A; z-index: -1; transition: width 0.4s ease;
+    content: ''; position: absolute; top: 0; left: 0; width: 0%; height: 100%; background: #FAF8F4; z-index: -1; transition: width 0.4s ease;
   }
-  .k25-card:hover .k25-card-btn { color: #3c1152; border-color: #B8922A; }
+  .k25-card:hover .k25-card-btn { color: #B8922A; border-color: #B8922A; }
   .k25-card:hover .k25-card-btn::after { width: 100%; }
 
   @media(max-width: 1024px) {
