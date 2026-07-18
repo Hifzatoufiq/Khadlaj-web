@@ -352,15 +352,16 @@ const GLOBAL_CSS = `
   
   .k25-card { 
     width: 420px; margin: 0 20px;
-    background: #FAF8F4; border: 1px solid rgba(193,164,106,0.2); 
+    background: #fff; border: 1px solid #E8E4DC; border-radius: 6px;
     overflow: hidden; position: relative; 
     transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); 
     display: flex; flex-direction: column; 
+    align-self: stretch;
   }
   .k25-card:hover { 
-    transform: translateY(-20px); 
+    transform: translateY(-15px); 
     box-shadow: 0 30px 60px rgba(60, 17, 82, 0.08); 
-    border-color: rgba(193,164,106,0.6);
+    border-color: #C1A46A;
   }
   
   @keyframes subtleZoomPan {
@@ -369,35 +370,34 @@ const GLOBAL_CSS = `
     100% { transform: scale(1.02) translate(0, 0); }
   }
   
-  .k25-card-img-wrapper { height: 450px; overflow: hidden; position: relative; background: #000; }
+  .k25-card-img-wrapper { height: 420px; overflow: hidden; position: relative; background: #000; flex-shrink: 0; }
   .k25-card-img-wrapper::after {
-    content: ''; position: absolute; inset: 0; background: linear-gradient(to top, #FAF8F4, transparent 50%);
-    opacity: 0.9; transition: opacity 0.6s ease; pointer-events: none;
+    content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(255,255,255,1), transparent 30%);
+    opacity: 0.8; transition: opacity 0.6s ease; pointer-events: none;
   }
   .k25-card:hover .k25-card-img-wrapper::after { opacity: 0; }
   
   .k25-card-img-wrapper img { 
     width: 100%; height: 100%; object-fit: cover; display: block; 
     animation: subtleZoomPan 25s ease-in-out infinite;
-    filter: brightness(0.9);
+    filter: brightness(0.95);
     transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.8s ease;
   }
-  .k25-card:hover .k25-card-img-wrapper img { transform: scale(1.1); filter: brightness(1.1); }
+  .k25-card:hover .k25-card-img-wrapper img { transform: scale(1.1); filter: brightness(1.05); }
   
   .k25-card-content { 
-    padding: 0 40px 50px; text-align: center; position: relative; z-index: 2;
-    transform: translateY(-40px); transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    padding: 30px 40px 40px; text-align: center; position: relative; z-index: 2;
+    background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+    flex-grow: 1; transition: all 0.6s ease;
   }
-  .k25-card:hover .k25-card-content { transform: translateY(-50px); }
   
-  .k25-card-title { font-family: 'Playfair Display', serif; font-size: 36px; color: #3c1152; margin-bottom: 8px; letter-spacing: 2px; }
-  .k25-card-subtitle { font-size: 11px; color: #B8922A; letter-spacing: 3px; margin-bottom: 20px; text-transform: uppercase; font-weight: 600; }
-  .k25-card-desc { font-family: 'Montserrat', sans-serif; font-size: 14px; color: #666; line-height: 1.7; margin-bottom: 30px; opacity: 0.7; transition: opacity 0.6s; }
-  .k25-card:hover .k25-card-desc { opacity: 1; }
+  .k25-card-title { font-family: 'Playfair Display', serif; font-size: 32px; color: #3c1152; margin-bottom: 8px; letter-spacing: 1px; }
+  .k25-card-subtitle { font-size: 10px; color: #B8922A; letter-spacing: 3px; margin-bottom: 20px; text-transform: uppercase; font-weight: 600; }
+  .k25-card-desc { font-family: 'Montserrat', sans-serif; font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 30px; opacity: 0.85; transition: opacity 0.6s; }
   
   /* Creative Animated Button */
   .k25-card-btn { 
-    position: relative; overflow: hidden; z-index: 1;
+    margin-top: auto; position: relative; overflow: hidden; z-index: 1;
     padding: 14px 32px; background: transparent; border: 1px solid #3c1152; color: #3c1152; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.4s; 
   }
   .k25-card-btn::after {
