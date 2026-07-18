@@ -22035,16 +22035,14 @@ var GLOBAL_CSS = `
   
   .k25-card { 
     width: 420px; margin: 0 20px;
-    background: #fff; border: 1px solid #E8E4DC; border-radius: 6px;
-    overflow: hidden; position: relative; 
+    background: transparent; border: none;
+    overflow: visible; position: relative; 
     transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); 
     display: flex; flex-direction: column; 
-    align-self: stretch;
+    align-items: center; align-self: stretch; justify-content: flex-start;
   }
   .k25-card:hover { 
     transform: translateY(-15px); 
-    box-shadow: 0 30px 60px rgba(60, 17, 82, 0.08); 
-    border-color: #C1A46A;
   }
   
   @keyframes subtleZoomPan {
@@ -22053,10 +22051,14 @@ var GLOBAL_CSS = `
     100% { transform: scale(1.02) translate(0, 0); }
   }
   
-  .k25-card-img-wrapper { height: 420px; overflow: hidden; position: relative; background: #000; flex-shrink: 0; }
+  .k25-card-img-wrapper { 
+    height: 480px; width: 100%; overflow: hidden; position: relative; background: #000; flex-shrink: 0; 
+    border-radius: 210px 210px 0 0; /* Arched Top */
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  }
   .k25-card-img-wrapper::after {
-    content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(255,255,255,1), transparent 30%);
-    opacity: 0.8; transition: opacity 0.6s ease; pointer-events: none;
+    content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(255,255,255,0.9), transparent 40%);
+    opacity: 0.6; transition: opacity 0.6s ease; pointer-events: none;
   }
   .k25-card:hover .k25-card-img-wrapper::after { opacity: 0; }
   
@@ -22069,12 +22071,19 @@ var GLOBAL_CSS = `
   .k25-card:hover .k25-card-img-wrapper img { transform: scale(1.1); filter: brightness(1.05); }
   
   .k25-card-content { 
-    padding: 30px 40px 40px; text-align: center; position: relative; z-index: 2;
+    padding: 35px 30px; text-align: center; position: relative; z-index: 2;
     background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+    width: 85%; margin-top: -80px; /* Floating Box Overlap */
+    border-radius: 8px; box-shadow: 0 15px 35px rgba(60, 17, 82, 0.08);
+    border: 1px solid #E8E4DC;
     flex-grow: 1; transition: all 0.6s ease;
   }
+  .k25-card:hover .k25-card-content {
+    box-shadow: 0 20px 50px rgba(60, 17, 82, 0.15);
+    border-color: #C1A46A;
+  }
   
-  .k25-card-title { font-family: 'Playfair Display', serif; font-size: 32px; color: #3c1152; margin-bottom: 8px; letter-spacing: 1px; }
+  .k25-card-title { font-family: 'Playfair Display', serif; font-size: 30px; color: #3c1152; margin-bottom: 8px; letter-spacing: 1px; }
   .k25-card-subtitle { font-size: 10px; color: #B8922A; letter-spacing: 3px; margin-bottom: 20px; text-transform: uppercase; font-weight: 600; }
   .k25-card-desc { font-family: 'Montserrat', sans-serif; font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 30px; opacity: 0.85; transition: opacity 0.6s; }
   
@@ -24185,7 +24194,7 @@ function Navbar({ page, setPage, cartCount }) {
       ] })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "sticky", top: 0, zIndex: 100 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { background: "#3c1152", color: "#fff", textAlign: "center", padding: "10px 16px", fontSize: "9px", letterSpacing: "3px", fontFamily: "'DM Sans',sans-serif", textTransform: "uppercase", fontWeight: 400 }, children: 'USE "KHADLAJ25" FOR FLAT 25% DISCOUNT' }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { background: "#3c1152", color: "#fff", textAlign: "center", padding: "14px 16px", fontSize: "12px", letterSpacing: "4px", fontFamily: "'DM Sans',sans-serif", textTransform: "uppercase", fontWeight: 500 }, children: 'USE "KHADLAJ25" FOR FLAT 25% DISCOUNT' }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("nav", { style: { background: "rgba(255,255,255,0.85)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", boxShadow: "0 4px 30px rgba(0,0,0,0.03)", borderBottom: "1px solid rgba(232,228,220,0.5)", transition: "all 0.3s" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "0 5%" }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center", minHeight: 80, padding: "12px 0", gap: 24 }, children: [
