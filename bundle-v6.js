@@ -22028,13 +22028,12 @@ var GLOBAL_CSS = `
   .khadlaj25-section { background: #FAF8F4; padding: 120px 0; overflow: hidden; }
   .k25-header { text-align: center; padding: 0 5%; margin-bottom: 80px; }
   
-  .k25-slider-container { width: 100%; overflow: hidden; position: relative; padding: 20px 0; }
-  .k25-slider-track { display: flex; width: max-content; animation: k25Slide 45s linear infinite; }
-  .k25-slider-track:hover { animation-play-state: paused; }
-  @keyframes k25Slide { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .k25-slider-container { width: 100%; overflow-x: auto; position: relative; padding: 20px 0; scroll-behavior: smooth; -ms-overflow-style: none; scrollbar-width: none; scroll-snap-type: x mandatory; }
+  .k25-slider-container::-webkit-scrollbar { display: none; }
+  .k25-slider-track { display: flex; width: max-content; }
   
   .k25-card { 
-    width: 420px; margin: 0 20px;
+    width: 420px; margin: 0 20px; scroll-snap-align: center;
     background: transparent; border: none;
     overflow: visible; position: relative; 
     transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); 
@@ -22678,29 +22677,45 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { style: { fontFamily: "'Playfair Display', serif", fontSize: 46, color: "#3c1152", margin: 0, fontWeight: 500 }, children: "25th Anniversary Collection" }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontFamily: "'Montserrat', sans-serif", fontSize: 15, color: "#555", maxWidth: 640, margin: "20px auto 0", lineHeight: 1.6 }, children: "Celebrating a quarter-century of olfactory excellence. A tribute to our legacy, crafted for those who value heritage and distinction." })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "k25-slider-container", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "k25-slider-track", children: [
-        { name: "LOYALTY", subtitle: "Unwavering Bonds", desc: "A captivating fragrance that symbolizes eternal commitment and deep connections, bottled for the discerning collector.", img: "./assets/images/products/loyalty.png" },
-        { name: "TRUST", subtitle: "Foundation of Eternity", desc: "Built on the essence of pure authenticity, leaving a trail of sophisticated confidence wherever you go.", img: "./assets/images/products/trust.png" },
-        { name: "INTEGRITY", subtitle: "Essence of Character", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "./assets/images/products/integrity.png" },
-        { name: "HERITAGE", subtitle: "Roots of Legacy", desc: "An aromatic tribute to the rich traditions and timeless stories woven into the very fabric of our heritage.", img: "./assets/images/products/heritage.png" },
-        { name: "EXPERIENCE", subtitle: "Journey of Senses", desc: "A bold, smoky revelation that envelops the senses in a dark, mysterious, and unforgettable olfactory journey.", img: "./assets/images/products/experience.png" },
-        { name: "LOYALTY", subtitle: "Unwavering Bonds", desc: "A captivating fragrance that symbolizes eternal commitment and deep connections, bottled for the discerning collector.", img: "./assets/images/products/loyalty.png" },
-        { name: "TRUST", subtitle: "Foundation of Eternity", desc: "Built on the essence of pure authenticity, leaving a trail of sophisticated confidence wherever you go.", img: "./assets/images/products/trust.png" },
-        { name: "INTEGRITY", subtitle: "Essence of Character", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "./assets/images/products/integrity.png" },
-        { name: "HERITAGE", subtitle: "Roots of Legacy", desc: "An aromatic tribute to the rich traditions and timeless stories woven into the rich fabric of our heritage.", img: "./assets/images/products/heritage.png" },
-        { name: "EXPERIENCE", subtitle: "Journey of Senses", desc: "A bold, smoky revelation that envelops the senses in a dark, mysterious, and unforgettable olfactory journey.", img: "./assets/images/products/experience.png" }
-      ].map((item, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "k25-card", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "k25-card-img-wrapper", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: item.img, alt: item.name }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "k25-card-content", children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "k25-card-title", children: item.name }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "k25-card-subtitle", children: item.subtitle }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "k25-card-desc", children: item.desc }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { className: "k25-card-btn", children: [
-            "Discover ",
-            item.name
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", padding: "0 2%" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => document.getElementById("k25-scroll-container").scrollBy({ left: -460, behavior: "smooth" }), style: { position: "absolute", left: "3%", top: "45%", transform: "translateY(-50%)", zIndex: 10, width: 56, height: 56, borderRadius: "50%", background: "#fff", border: "1px solid #E8E4DC", boxShadow: "0 10px 25px rgba(0,0,0,0.1)", cursor: "pointer", color: "#3c1152", display: "flex", alignItems: "center", justifyContent: "center", transition: "all .3s" }, onMouseEnter: (e) => {
+          e.currentTarget.style.background = "#3c1152";
+          e.currentTarget.style.color = "#fff";
+        }, onMouseLeave: (e) => {
+          e.currentTarget.style.background = "#fff";
+          e.currentTarget.style.color = "#3c1152";
+        }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M15 18l-6-6 6-6" }) }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => document.getElementById("k25-scroll-container").scrollBy({ left: 460, behavior: "smooth" }), style: { position: "absolute", right: "3%", top: "45%", transform: "translateY(-50%)", zIndex: 10, width: 56, height: 56, borderRadius: "50%", background: "#fff", border: "1px solid #E8E4DC", boxShadow: "0 10px 25px rgba(0,0,0,0.1)", cursor: "pointer", color: "#3c1152", display: "flex", alignItems: "center", justifyContent: "center", transition: "all .3s" }, onMouseEnter: (e) => {
+          e.currentTarget.style.background = "#3c1152";
+          e.currentTarget.style.color = "#fff";
+        }, onMouseLeave: (e) => {
+          e.currentTarget.style.background = "#fff";
+          e.currentTarget.style.color = "#3c1152";
+        }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M9 18l6-6-6-6" }) }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { id: "k25-scroll-container", className: "k25-slider-container", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "k25-slider-track", children: [
+          { name: "LOYALTY", subtitle: "Unwavering Bonds", desc: "A captivating fragrance that symbolizes eternal commitment and deep connections, bottled for the discerning collector.", img: "./assets/images/products/loyalty.png" },
+          { name: "TRUST", subtitle: "Foundation of Eternity", desc: "Built on the essence of pure authenticity, leaving a trail of sophisticated confidence wherever you go.", img: "./assets/images/products/trust.png" },
+          { name: "INTEGRITY", subtitle: "Essence of Character", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "./assets/images/products/integrity.png" },
+          { name: "HERITAGE", subtitle: "Roots of Legacy", desc: "An aromatic tribute to the rich traditions and timeless stories woven into the very fabric of our heritage.", img: "./assets/images/products/heritage.png" },
+          { name: "EXPERIENCE", subtitle: "Journey of Senses", desc: "A bold, smoky revelation that envelops the senses in a dark, mysterious, and unforgettable olfactory journey.", img: "./assets/images/products/experience.png" },
+          { name: "LOYALTY", subtitle: "Unwavering Bonds", desc: "A captivating fragrance that symbolizes eternal commitment and deep connections, bottled for the discerning collector.", img: "./assets/images/products/loyalty.png" },
+          { name: "TRUST", subtitle: "Foundation of Eternity", desc: "Built on the essence of pure authenticity, leaving a trail of sophisticated confidence wherever you go.", img: "./assets/images/products/trust.png" },
+          { name: "INTEGRITY", subtitle: "Essence of Character", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "./assets/images/products/integrity.png" },
+          { name: "HERITAGE", subtitle: "Roots of Legacy", desc: "An aromatic tribute to the rich traditions and timeless stories woven into the rich fabric of our heritage.", img: "./assets/images/products/heritage.png" },
+          { name: "EXPERIENCE", subtitle: "Journey of Senses", desc: "A bold, smoky revelation that envelops the senses in a dark, mysterious, and unforgettable olfactory journey.", img: "./assets/images/products/experience.png" }
+        ].map((item, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "k25-card", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "k25-card-img-wrapper", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: item.img, alt: item.name }) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "k25-card-content", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "k25-card-title", children: item.name }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "k25-card-subtitle", children: item.subtitle }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "k25-card-desc", children: item.desc }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { className: "k25-card-btn", children: [
+              "Discover ",
+              item.name
+            ] })
           ] })
-        ] })
-      ] }, idx)) }) })
+        ] }, idx)) }) })
+      ] })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { padding: "84px 5% 96px", background: "linear-gradient(180deg, #fff 0%, #fcfaf7 100%)" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "max-container", children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", gap: 14, marginBottom: 28, textAlign: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeader, { title: "New Launch", sub: "A balanced spotlight on the latest fragrances, curated to feel clean and contemporary." }) }),

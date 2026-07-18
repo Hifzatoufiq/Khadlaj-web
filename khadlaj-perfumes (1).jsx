@@ -345,13 +345,12 @@ const GLOBAL_CSS = `
   .khadlaj25-section { background: #FAF8F4; padding: 120px 0; overflow: hidden; }
   .k25-header { text-align: center; padding: 0 5%; margin-bottom: 80px; }
   
-  .k25-slider-container { width: 100%; overflow: hidden; position: relative; padding: 20px 0; }
-  .k25-slider-track { display: flex; width: max-content; animation: k25Slide 45s linear infinite; }
-  .k25-slider-track:hover { animation-play-state: paused; }
-  @keyframes k25Slide { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+  .k25-slider-container { width: 100%; overflow-x: auto; position: relative; padding: 20px 0; scroll-behavior: smooth; -ms-overflow-style: none; scrollbar-width: none; scroll-snap-type: x mandatory; }
+  .k25-slider-container::-webkit-scrollbar { display: none; }
+  .k25-slider-track { display: flex; width: max-content; }
   
   .k25-card { 
-    width: 420px; margin: 0 20px;
+    width: 420px; margin: 0 20px; scroll-snap-align: center;
     background: transparent; border: none;
     overflow: visible; position: relative; 
     transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); 
@@ -967,32 +966,42 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           </p>
         </div>
 
-        <div className="k25-slider-container">
-          <div className="k25-slider-track">
-            {[
-              { name: "LOYALTY", subtitle: "Unwavering Bonds", desc: "A captivating fragrance that symbolizes eternal commitment and deep connections, bottled for the discerning collector.", img: "./assets/images/products/loyalty.png" },
-              { name: "TRUST", subtitle: "Foundation of Eternity", desc: "Built on the essence of pure authenticity, leaving a trail of sophisticated confidence wherever you go.", img: "./assets/images/products/trust.png" },
-              { name: "INTEGRITY", subtitle: "Essence of Character", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "./assets/images/products/integrity.png" },
-              { name: "HERITAGE", subtitle: "Roots of Legacy", desc: "An aromatic tribute to the rich traditions and timeless stories woven into the very fabric of our heritage.", img: "./assets/images/products/heritage.png" },
-              { name: "EXPERIENCE", subtitle: "Journey of Senses", desc: "A bold, smoky revelation that envelops the senses in a dark, mysterious, and unforgettable olfactory journey.", img: "./assets/images/products/experience.png" },
-              { name: "LOYALTY", subtitle: "Unwavering Bonds", desc: "A captivating fragrance that symbolizes eternal commitment and deep connections, bottled for the discerning collector.", img: "./assets/images/products/loyalty.png" },
-              { name: "TRUST", subtitle: "Foundation of Eternity", desc: "Built on the essence of pure authenticity, leaving a trail of sophisticated confidence wherever you go.", img: "./assets/images/products/trust.png" },
-              { name: "INTEGRITY", subtitle: "Essence of Character", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "./assets/images/products/integrity.png" },
-              { name: "HERITAGE", subtitle: "Roots of Legacy", desc: "An aromatic tribute to the rich traditions and timeless stories woven into the rich fabric of our heritage.", img: "./assets/images/products/heritage.png" },
-              { name: "EXPERIENCE", subtitle: "Journey of Senses", desc: "A bold, smoky revelation that envelops the senses in a dark, mysterious, and unforgettable olfactory journey.", img: "./assets/images/products/experience.png" }
-            ].map((item, idx) => (
-              <div className="k25-card" key={idx}>
-                <div className="k25-card-img-wrapper">
-                  <img src={item.img} alt={item.name} />
+        <div style={{position: "relative", padding: "0 2%"}}>
+          <button onClick={() => document.getElementById("k25-scroll-container").scrollBy({left:-460, behavior:"smooth"})} style={{position: "absolute", left: "3%", top: "45%", transform: "translateY(-50%)", zIndex: 10, width: 56, height: 56, borderRadius: "50%", background: "#fff", border: "1px solid #E8E4DC", boxShadow: "0 10px 25px rgba(0,0,0,0.1)", cursor: "pointer", color: "#3c1152", display: "flex", alignItems: "center", justifyContent: "center", transition: "all .3s"}} onMouseEnter={(e)=>{e.currentTarget.style.background="#3c1152"; e.currentTarget.style.color="#fff";}} onMouseLeave={(e)=>{e.currentTarget.style.background="#fff"; e.currentTarget.style.color="#3c1152";}}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          
+          <button onClick={() => document.getElementById("k25-scroll-container").scrollBy({left:460, behavior:"smooth"})} style={{position: "absolute", right: "3%", top: "45%", transform: "translateY(-50%)", zIndex: 10, width: 56, height: 56, borderRadius: "50%", background: "#fff", border: "1px solid #E8E4DC", boxShadow: "0 10px 25px rgba(0,0,0,0.1)", cursor: "pointer", color: "#3c1152", display: "flex", alignItems: "center", justifyContent: "center", transition: "all .3s"}} onMouseEnter={(e)=>{e.currentTarget.style.background="#3c1152"; e.currentTarget.style.color="#fff";}} onMouseLeave={(e)=>{e.currentTarget.style.background="#fff"; e.currentTarget.style.color="#3c1152";}}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+
+          <div id="k25-scroll-container" className="k25-slider-container">
+            <div className="k25-slider-track">
+              {[
+                { name: "LOYALTY", subtitle: "Unwavering Bonds", desc: "A captivating fragrance that symbolizes eternal commitment and deep connections, bottled for the discerning collector.", img: "./assets/images/products/loyalty.png" },
+                { name: "TRUST", subtitle: "Foundation of Eternity", desc: "Built on the essence of pure authenticity, leaving a trail of sophisticated confidence wherever you go.", img: "./assets/images/products/trust.png" },
+                { name: "INTEGRITY", subtitle: "Essence of Character", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "./assets/images/products/integrity.png" },
+                { name: "HERITAGE", subtitle: "Roots of Legacy", desc: "An aromatic tribute to the rich traditions and timeless stories woven into the very fabric of our heritage.", img: "./assets/images/products/heritage.png" },
+                { name: "EXPERIENCE", subtitle: "Journey of Senses", desc: "A bold, smoky revelation that envelops the senses in a dark, mysterious, and unforgettable olfactory journey.", img: "./assets/images/products/experience.png" },
+                { name: "LOYALTY", subtitle: "Unwavering Bonds", desc: "A captivating fragrance that symbolizes eternal commitment and deep connections, bottled for the discerning collector.", img: "./assets/images/products/loyalty.png" },
+                { name: "TRUST", subtitle: "Foundation of Eternity", desc: "Built on the essence of pure authenticity, leaving a trail of sophisticated confidence wherever you go.", img: "./assets/images/products/trust.png" },
+                { name: "INTEGRITY", subtitle: "Essence of Character", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "./assets/images/products/integrity.png" },
+                { name: "HERITAGE", subtitle: "Roots of Legacy", desc: "An aromatic tribute to the rich traditions and timeless stories woven into the rich fabric of our heritage.", img: "./assets/images/products/heritage.png" },
+                { name: "EXPERIENCE", subtitle: "Journey of Senses", desc: "A bold, smoky revelation that envelops the senses in a dark, mysterious, and unforgettable olfactory journey.", img: "./assets/images/products/experience.png" }
+              ].map((item, idx) => (
+                <div className="k25-card" key={idx}>
+                  <div className="k25-card-img-wrapper">
+                    <img src={item.img} alt={item.name} />
+                  </div>
+                  <div className="k25-card-content">
+                    <h3 className="k25-card-title">{item.name}</h3>
+                    <p className="k25-card-subtitle">{item.subtitle}</p>
+                    <p className="k25-card-desc">{item.desc}</p>
+                    <button className="k25-card-btn">Discover {item.name}</button>
+                  </div>
                 </div>
-                <div className="k25-card-content">
-                  <h3 className="k25-card-title">{item.name}</h3>
-                  <p className="k25-card-subtitle">{item.subtitle}</p>
-                  <p className="k25-card-desc">{item.desc}</p>
-                  <button className="k25-card-btn">Discover {item.name}</button>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
