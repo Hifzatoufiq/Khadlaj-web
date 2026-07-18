@@ -323,17 +323,53 @@ const GLOBAL_CSS = `
   /* 25th Anniversary Section - Alternating Layout */
   .khadlaj25-section { background: #FAF8F4; padding: 120px 0; overflow: hidden; }
   .k25-header { text-align: center; padding: 0 5%; margin-bottom: 80px; }
-  .k25-row { display: flex; align-items: stretch; width: 100%; min-height: 80vh; overflow: hidden; }
+  .k25-row { display: flex; align-items: stretch; width: 100%; min-height: 80vh; overflow: hidden; position: relative; }
   .k25-reverse { flex-direction: row-reverse; }
-  .k25-image-pane { flex: 1; min-height: 80vh; position: relative; overflow: hidden; }
-  .k25-image-pane img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s ease; display: block; }
-  .k25-row:hover .k25-image-pane img { transform: scale(1.04); }
-  .k25-text-pane { flex: 1; padding: 10% 8%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; background: #FAF8F4; }
+  
+  @keyframes subtleZoomPan {
+    0% { transform: scale(1.02) translate(0, 0); }
+    50% { transform: scale(1.08) translate(-1%, 1%); }
+    100% { transform: scale(1.02) translate(0, 0); }
+  }
+  
+  .k25-image-pane { flex: 1; min-height: 80vh; position: relative; overflow: hidden; background: #000; }
+  .k25-image-pane img { 
+    width: 100%; height: 100%; object-fit: cover; display: block; 
+    animation: subtleZoomPan 25s ease-in-out infinite;
+    filter: brightness(0.9);
+    transition: filter 0.8s ease;
+  }
+  .k25-row:hover .k25-image-pane img { filter: brightness(1.1); }
+  
+  .k25-text-pane { flex: 1; padding: 10% 8%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; background: #FAF8F4; position: relative; }
+  
+  /* Delicate gold dividing line */
+  .k25-text-pane::before {
+    content: ''; position: absolute; top: 15%; bottom: 15%; left: 0; width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(193,164,106,0.6), transparent);
+    transform: scaleY(0); transform-origin: center;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .k25-reverse .k25-text-pane::before { left: auto; right: 0; }
+  .k25-row:hover .k25-text-pane::before { transform: scaleY(1); }
+
+  .k25-text-wrapper { transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
+  .k25-row:hover .k25-text-wrapper { transform: translateY(-10px); }
+
   .k25-row-title { font-family: 'Playfair Display', serif; font-size: 56px; color: #3c1152; margin-bottom: 12px; letter-spacing: 4px; text-transform: uppercase; }
   .k25-row-subtitle { font-size: 14px; color: #B8922A; letter-spacing: 2px; margin-bottom: 30px; text-transform: uppercase; font-weight: 600; }
   .k25-row-desc { font-family: 'Montserrat', sans-serif; font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 40px; max-width: 500px; }
-  .k25-btn { padding: 16px 36px; background: transparent; border: 1px solid #3c1152; color: #3c1152; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.4s; }
-  .k25-btn:hover { background: #3c1152; color: #fff; transform: translateY(-3px); }
+  
+  /* Creative Animated Button */
+  .k25-btn { 
+    position: relative; overflow: hidden; z-index: 1;
+    padding: 16px 36px; background: transparent; border: 1px solid #3c1152; color: #3c1152; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.4s; 
+  }
+  .k25-btn::after {
+    content: ''; position: absolute; top: 0; left: 0; width: 0%; height: 100%; background: #3c1152; z-index: -1; transition: width 0.4s ease;
+  }
+  .k25-btn:hover { color: #fff; border-color: #3c1152; }
+  .k25-btn:hover::after { width: 100%; }
 
   /* Gift Slider */
   .gift-slider-section { padding: 80px 0 100px; background: #fff; overflow: hidden; position: relative; }
@@ -794,10 +830,12 @@ function HomePage({ setPage, addToCart, setViewProduct }){
                   <img src={item.img} alt={item.name} />
                 </div>
                 <div className="k25-text-pane">
-                  <h3 className="k25-row-title">{item.name}</h3>
-                  <p className="k25-row-subtitle">{item.subtitle}</p>
-                  <p className="k25-row-desc">{item.desc}</p>
-                  <button className="k25-btn">Discover {item.name}</button>
+                  <div className="k25-text-wrapper">
+                    <h3 className="k25-row-title">{item.name}</h3>
+                    <p className="k25-row-subtitle">{item.subtitle}</p>
+                    <p className="k25-row-desc">{item.desc}</p>
+                    <button className="k25-btn">Discover {item.name}</button>
+                  </div>
                 </div>
               </div>
             );
