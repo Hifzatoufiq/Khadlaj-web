@@ -606,14 +606,18 @@ function ProductCard({ p, onView, onCart }){
     "Cream Velvet": 0.84,
     "Icon": 0.84,
     "Panache": 0.84,
-    "Biscotti Date Toffee": 0.88,
-    "Biscotti Melon Musk": 0.94,
-    "Bleu Glacé": 0.98,
-    "Saraya": 0.88,
+    "Biscotti Date Toffee": 0.80,
+    "Biscotti Melon Musk": 1.05,
+    "Bleu Glacé": 0.72,
+    "Saraya": 0.85,
   }[p.name] || 0.9;
   const imageShiftY = {
     "Island": -0.06,
     "Cream Velvet": -0.035,
+    "Biscotti Date Toffee": 0.0,
+    "Biscotti Melon Musk": 0.12,
+    "Bleu Glacé": -0.08,
+    "Saraya": 0.06,
   }[p.name] || 0;
   const imageHoverScale = {
     "Island": 1.02,
