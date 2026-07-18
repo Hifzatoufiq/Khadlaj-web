@@ -22090,43 +22090,40 @@ var GLOBAL_CSS = `
   }
 
   /* Discovery Grid */
-  .discovery-grid { display: flex; gap: 15px; padding: 0 5%; flex-wrap: nowrap; justify-content: center; }
+  .discovery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; padding: 0 5%; justify-items: center; }
   .discovery-card { 
-    flex: 1; min-width: 0; aspect-ratio: 3/4; 
+    width: 100%; max-width: 350px; aspect-ratio: 3/4; 
     border-radius: 8px; overflow: hidden; position: relative; cursor: pointer;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
   .discovery-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1); filter: brightness(0.85); }
   .discovery-card-overlay { 
-    position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,15,15,0.9) 0%, rgba(15,15,15,0.2) 50%, transparent 100%);
+    position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,15,15,0.9) 0%, rgba(15,15,15,0.2) 60%, transparent 100%);
     display: flex; flex-direction: column; justify-content: flex-end; padding: 30px 20px;
-    transform: translateY(20px); opacity: 0.8; transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform: translateY(0); opacity: 1; transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
-  .discovery-card:hover { transform: translateY(-15px); box-shadow: 0 25px 50px rgba(0,0,0,0.2); flex: 1.2; }
+  .discovery-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.2); }
   .discovery-card:hover img { transform: scale(1.08); filter: brightness(1.1); }
-  .discovery-card:hover .discovery-card-overlay { transform: translateY(0); opacity: 1; }
   
-  .discovery-type { font-size: 10px; color: #E8E4DC; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; font-weight: 500; font-family: 'Montserrat', sans-serif; opacity: 0.8; transform: translateY(10px); transition: all 0.6s 0.1s; }
-  .discovery-name { font-family: 'Playfair Display', serif; font-size: 26px; color: #fff; margin-bottom: 20px; transform: translateY(10px); transition: all 0.6s 0.2s; }
+  .discovery-type { font-size: 10px; color: #E8E4DC; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; font-weight: 500; font-family: 'Montserrat', sans-serif; opacity: 0.9; transition: all 0.6s 0.1s; }
+  .discovery-name { font-family: 'Playfair Display', serif; font-size: 26px; color: #fff; margin-bottom: 20px; transition: all 0.6s 0.2s; }
   .discovery-btn { 
     display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border: 1px solid rgba(255,255,255,0.4); color: #fff;
     font-size: 10px; text-transform: uppercase; letter-spacing: 2px; width: fit-content; transition: all 0.4s; font-family: 'Montserrat', sans-serif;
-    transform: translateY(10px); opacity: 0;
+    transform: translateY(0); opacity: 1;
   }
-  .discovery-card:hover .discovery-type, .discovery-card:hover .discovery-name, .discovery-card:hover .discovery-btn { transform: translateY(0); opacity: 1; }
   .discovery-card:hover .discovery-btn { background: #fff; color: #000; border-color: #fff; }
   
   @media(max-width: 1024px) {
-    .discovery-grid { flex-wrap: wrap; }
-    .discovery-card { flex: 1 1 calc(33.333% - 15px); min-width: 250px; aspect-ratio: 4/5; }
-    .discovery-card:hover { flex: 1 1 calc(33.333% - 15px); }
+    .discovery-grid { grid-template-columns: repeat(3, 1fr); }
   }
   @media(max-width: 768px) {
-    .discovery-grid { flex-direction: column; }
-    .discovery-card { flex: 1 1 100%; aspect-ratio: auto; height: 400px; }
-    .discovery-card:hover { flex: 1 1 100%; }
-    .discovery-card-overlay { opacity: 1; transform: none; }
-    .discovery-type, .discovery-name, .discovery-btn { transform: none; opacity: 1; }
+    .discovery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 0 3%; }
+    .discovery-card { aspect-ratio: 4/5; }
+  }
+  @media(max-width: 480px) {
+    .discovery-grid { grid-template-columns: 1fr; }
+    .discovery-card { aspect-ratio: auto; height: 400px; }
   }
 
   /* Gift Slider */
@@ -22960,6 +22957,9 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontFamily: "'Montserrat', sans-serif", fontSize: 15, color: "#555", maxWidth: 600, margin: "20px auto 0", lineHeight: 1.6 }, children: "Explore our most captivating signature fragrances, beautifully crafted to evoke unforgettable emotions." })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "discovery-grid", children: [
+        { name: "Hareem Al Sultan", type: "Masterpiece", img: "./assets/images/products/hareem-al-sultan.png" },
+        { name: "Fursan", type: "Royal Elegance", img: "./assets/images/products/fursan.png" },
+        { name: "L'imaginaire", type: "Artisan Creation", img: "./assets/images/products/limaginaire.jpg" },
         { name: "Nuha Cherry Blush", type: "Eau De Parfum", img: "./assets/images/products/nuha-cherry.jpg" },
         { name: "Island", type: "Premium Blend", img: "./assets/images/products/island-gold.jpg" },
         { name: "Cream Velvet", type: "Signature Collection", img: "./assets/images/products/cream-velvet-bottle.png" },
