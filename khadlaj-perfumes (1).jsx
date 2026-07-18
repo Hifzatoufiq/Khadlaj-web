@@ -406,6 +406,46 @@ const GLOBAL_CSS = `
     .k25-card-title { font-size: 28px; }
   }
 
+  /* Discovery Grid */
+  .discovery-grid { display: flex; gap: 15px; padding: 0 5%; flex-wrap: nowrap; justify-content: center; }
+  .discovery-card { 
+    flex: 1; min-width: 0; aspect-ratio: 3/4; 
+    border-radius: 8px; overflow: hidden; position: relative; cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .discovery-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1); filter: brightness(0.85); }
+  .discovery-card-overlay { 
+    position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,15,15,0.9) 0%, rgba(15,15,15,0.2) 50%, transparent 100%);
+    display: flex; flex-direction: column; justify-content: flex-end; padding: 30px 20px;
+    transform: translateY(20px); opacity: 0.8; transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .discovery-card:hover { transform: translateY(-15px); box-shadow: 0 25px 50px rgba(0,0,0,0.2); flex: 1.2; }
+  .discovery-card:hover img { transform: scale(1.08); filter: brightness(1.1); }
+  .discovery-card:hover .discovery-card-overlay { transform: translateY(0); opacity: 1; }
+  
+  .discovery-type { font-size: 10px; color: #E8E4DC; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 8px; font-weight: 500; font-family: 'Montserrat', sans-serif; opacity: 0.8; transform: translateY(10px); transition: all 0.6s 0.1s; }
+  .discovery-name { font-family: 'Playfair Display', serif; font-size: 26px; color: #fff; margin-bottom: 20px; transform: translateY(10px); transition: all 0.6s 0.2s; }
+  .discovery-btn { 
+    display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; border: 1px solid rgba(255,255,255,0.4); color: #fff;
+    font-size: 10px; text-transform: uppercase; letter-spacing: 2px; width: fit-content; transition: all 0.4s; font-family: 'Montserrat', sans-serif;
+    transform: translateY(10px); opacity: 0;
+  }
+  .discovery-card:hover .discovery-type, .discovery-card:hover .discovery-name, .discovery-card:hover .discovery-btn { transform: translateY(0); opacity: 1; }
+  .discovery-card:hover .discovery-btn { background: #fff; color: #000; border-color: #fff; }
+  
+  @media(max-width: 1024px) {
+    .discovery-grid { flex-wrap: wrap; }
+    .discovery-card { flex: 1 1 calc(33.333% - 15px); min-width: 250px; aspect-ratio: 4/5; }
+    .discovery-card:hover { flex: 1 1 calc(33.333% - 15px); }
+  }
+  @media(max-width: 768px) {
+    .discovery-grid { flex-direction: column; }
+    .discovery-card { flex: 1 1 100%; aspect-ratio: auto; height: 400px; }
+    .discovery-card:hover { flex: 1 1 100%; }
+    .discovery-card-overlay { opacity: 1; transform: none; }
+    .discovery-type, .discovery-name, .discovery-btn { transform: none; opacity: 1; }
+  }
+
   /* Gift Slider */
   .gift-slider-section { padding: 80px 0 100px; background: #fff; overflow: hidden; position: relative; }
   .gift-slider-track { display: flex; width: max-content; animation: slideGifts 35s linear infinite; }
@@ -1220,61 +1260,37 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       </section>
 
 
-      {/* ── KHADLAJ WORLD GRID ── */}
-      <section style={{padding:"0 5% 96px",background:"#fff"}}>
-        <div style={{textAlign:"center",paddingTop:96,marginBottom:52}}>
-          <div style={{width:40,height:1,background:"#B8922A",margin:"0 auto 20px"}}/>
-          <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:16}}>@KhadlajPerfumes</p>
-          <h2 className="disp" style={{fontSize:"clamp(28px,3.5vw,50px)",fontWeight:300,color:"#3c1152",letterSpacing:-0.5,lineHeight:1.1,marginBottom:20}}>
-            Feel the World of <em className="luxury-gold-text" style={{fontStyle:"normal"}}>Khadlaj</em>
+      {/* ── DISCOVER YOUR NEXT FAVORITE ── */}
+      <section style={{padding:"120px 0", background:"#FAF8F4", overflow:"hidden"}}>
+        <div style={{textAlign:"center", marginBottom:60}}>
+          <span style={{fontSize: 11, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontWeight: 600, display:"block", marginBottom:16}}>Curated Selections</span>
+          <h2 style={{fontFamily: "'Playfair Display', serif", fontSize: 46, color: "#3c1152", margin: 0, fontWeight: 500}}>
+            Discover Your Next Favorite
           </h2>
-          <p style={{fontSize:13,color:"#888",fontFamily:"'Montserrat',sans-serif",letterSpacing:.3,marginBottom:28,maxWidth:420,margin:"0 auto 28px"}}>
-            Real moments. Real fragrance. Follow us for the latest drops and stories.
+          <p style={{fontFamily: "'Montserrat', sans-serif", fontSize: 15, color: "#555", maxWidth: 600, margin: "20px auto 0", lineHeight: 1.6}}>
+            Explore our most captivating signature fragrances, beautifully crafted to evoke unforgettable emotions.
           </p>
-          <a
-            href={SOCIAL_LINKS.tiktok}
-            target="_blank" rel="noreferrer"
-            style={{
-              display:"inline-flex",alignItems:"center",gap:8,
-              border:"1px solid #000",color:"#3c1152",background:"transparent",
-              padding:"11px 28px",fontSize:9,letterSpacing:2.5,
-              textTransform:"uppercase",textDecoration:"none",
-              fontFamily:"'Montserrat',sans-serif",transition:"all .22s",
-            }}
-            onMouseEnter={e=>{e.currentTarget.style.background="#3c1152";e.currentTarget.style.color="#fff";}}
-            onMouseLeave={e=>{e.currentTarget.style.background="transparent";e.currentTarget.style.color="#3c1152";}}
-          >Follow Us</a>
         </div>
 
-                {/* Editorial Feed — Horizontal Scroll */}
-        <div className="reel-track hide-scrollbar" style={{padding:"0 5vw 40px"}}>
+        <div className="discovery-grid">
           {[
-            {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-3.jpg?v=1775636549",name:"Ihthiraam"},
-            {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/IntoxicateMystique.3.png?v=1772518819",name:"Intoxicate Mystique"},
-            {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Panache_1_jpg_c97c705a-aebf-4bf9-a621-f11b565e765d.jpg?v=1771333282",name:"Angel Dust"},
-            {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ONYX-03.jpg?v=1762324228",name:"Onyx Gold"},
-            {src:"./assets/images/products/shiyaaka-snow-bottle.png",name:"Shiyaaka Snow"},
-            {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/saraya_3.png?v=1781332291",name:"Saraya"},
-            {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SAWAAR-03.jpg?v=1764151207",name:"Sawaar Vanille Blanc"},
-            {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais_Magrib-3.jpg?v=1761115886",name:"Nafais Magrib"},
-            {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Qarar-3.jpg?v=1775637258",name:"Qarar"},
-            {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Zayan_Silver-3.jpg?v=1776430400",name:"Zayaan Silver"},
-            {src:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Icon.1.jpg?v=1773206615",name:"Icon"},
-          ].map((item,i)=>(
-            <div key={item.name} className="reel-card" style={{flex:"0 0 min(280px,75vw)",position:"relative",overflow:"hidden",aspectRatio:"4/5",cursor:"pointer",background:"#fff"}}>
-              <img src={item.src} alt={item.name} loading="lazy" 
-                style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center center",transition:"transform .8s ease"}}
-                onMouseEnter={e=>e.currentTarget.style.transform="scale(1.05)"}
-                onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}
-              />
-              <div style={{position:"absolute",inset:0,background:"linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 40%)",pointerEvents:"none"}}/>
-              <div style={{position:"absolute",bottom:0,left:0,right:0,padding:"20px",pointerEvents:"none"}}>
-                <p style={{fontWeight:600,fontSize:9,letterSpacing:2,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:4}}>World of Khadlaj</p>
-                <p className="disp" style={{fontSize:16,fontWeight:300,color:"#fff"}}>{item.name}</p>
+            {name: "Nuha Cherry Blush", type: "Eau De Parfum", img: "./assets/images/products/nuha-cherry.jpg"},
+            {name: "Island", type: "Premium Blend", img: "./assets/images/products/island-gold.jpg"},
+            {name: "Cream Velvet", type: "Signature Collection", img: "./assets/images/products/cream-velvet-bottle.png"},
+            {name: "Mocha Latte", type: "Gourmand Essence", img: "./assets/images/products/mocha-latte.png"},
+            {name: "Empire Victor", type: "Royal Heritage", img: "./assets/images/products/empire-victor.png"}
+          ].map((item, i) => (
+            <div key={item.name} className="discovery-card">
+              <img src={item.img} alt={item.name} loading="lazy" />
+              <div className="discovery-card-overlay">
+                <p className="discovery-type">{item.type}</p>
+                <h3 className="discovery-name">{item.name}</h3>
+                <span className="discovery-btn">Shop Now</span>
               </div>
             </div>
           ))}
-        </div></section>
+        </div>
+      </section>
     </>
   );
 }
