@@ -22282,6 +22282,18 @@ function ProductCard({ p, onView, onCart }) {
   const notes = p.notes || [];
   const collectionLabel = p.col === "Lafede" ? "La Fede" : p.col;
   const noteColors = ["#C8A96E", "#9C7B50", "#B8866A", "#7A9E8A", "#8B7EAA", "#B06A6A", "#6A8BAA", "#A09060"];
+  const imageScale = {
+    "Biscotti Date Toffee": 0.82,
+    "Biscotti Melon Musk": 0.88,
+    "Bleu Glac\xE9": 0.62,
+    "Saraya": 0.78
+  }[p.name] || 0.85;
+  const imageShiftY = {
+    "Biscotti Date Toffee": 0.02,
+    "Biscotti Melon Musk": 0.05,
+    "Bleu Glac\xE9": 0.02,
+    "Saraya": 0.06
+  }[p.name] || 0;
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
     "div",
     {
@@ -22361,7 +22373,7 @@ function ProductCard({ p, onView, onCart }) {
                 background: "transparent",
                 filter: "brightness(1.05) contrast(1.02)",
                 transition: "transform .8s cubic-bezier(0.25, 1, 0.25, 1)",
-                transform: hov ? `scale(0.95)` : `scale(0.85)`
+                transform: hov ? `translateY(calc(-2px + ${imageShiftY * 100}%)) scale(${imageScale * 1.05})` : `translateY(${imageShiftY * 100}%) scale(${imageScale})`
               }
             }
           ) }),
