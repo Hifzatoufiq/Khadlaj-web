@@ -23656,35 +23656,22 @@ function StoryPage() {
       ] })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "80px 5%" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center", marginBottom: 88 }, className: "hero-split", children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", aspectRatio: "4/5", overflow: "hidden" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-            "img",
-            {
-              src: "./assets/images/people/managing-director-asif.png",
-              alt: "Asif Mohamed Iqbal Katchi",
-              style: { width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }
-            }
-          ),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "absolute", bottom: 0, left: 0, right: 0, background: `linear-gradient(to top,${C.obsidian}EE 0%,transparent 60%)`, padding: "28px 24px" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "disp", style: { fontSize: 22, color: C.champagne }, children: "Asif Mohamed Iqbal Katchi" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "eyebrow", style: { color: C.brass, marginTop: 4 }, children: "Managing Director" })
-          ] })
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: 64, alignItems: "center", marginBottom: 88 }, className: "hero-split", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { paddingRight: "24px" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { borderLeft: "2px solid #3c1152", paddingLeft: "16px", marginBottom: "24px" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 14, color: "#3c1152", fontFamily: "'Montserrat', sans-serif", letterSpacing: 0.5, marginBottom: 8 }, children: "Managing Director" }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { style: { fontSize: "clamp(32px, 4vw, 42px)", fontWeight: 300, color: "#111", lineHeight: 1.2, margin: 0, fontFamily: "'Montserrat', sans-serif" }, children: "Asif Mohamed Iqbal Katchi" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "#444", lineHeight: 1.8, fontSize: 15, fontFamily: "'Montserrat', sans-serif", textAlign: "justify" }, children: "Asif Mohamed Iqbal Katchi, with over 18 years of profound experience, is dedicated to taking forward the illustrious legacy of his father, Mohamed Iqbal, by consistently delivering excellence in all endeavors. Mr. Asif's visionary and creatively-driven leadership aims for Khadlaj to transcend into a luxurious, trusted name synonymous with unparalleled reliability and a celebrated household name in the fragrance industry. Mr. Asif's passionate motto embodies a profound dedication to perfumery craftsmanship and an unwavering commitment to fostering creativity, innovation, and luxury. He has effectively navigated Khadlaj Perfumes through dynamic industry shifts, showcasing his agile and proactive approach in anticipating and mitigating challenges, thereby fortifying the company's formidable position as a leader in the competitive fragrance market." })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "eyebrow", style: { marginBottom: 16 }, children: "? \uFFFD Leadership" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(30px,4vw,52px)", fontWeight: 300, lineHeight: 1.2, marginBottom: 24 }, children: "Managing Director" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: C.muted, lineHeight: 1.9, fontSize: 15, marginBottom: 20 }, children: "Asif Mohamed Iqbal Katchi brings over 18 years of profound experience and carries forward the illustrious legacy of his father, Mohamed Iqbal, with a clear commitment to excellence in every endeavor." }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: C.muted, lineHeight: 1.9, fontSize: 15, marginBottom: 20 }, children: "His visionary and creatively driven leadership is focused on making Khadlaj a luxurious, trusted name in fragrance, synonymous with reliability, innovation, and a celebrated household presence across the industry." }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: C.muted, lineHeight: 1.9, fontSize: 15, marginBottom: 32 }, children: "Known for anticipating challenges with an agile and proactive mindset, Mr. Asif has helped navigate Khadlaj through dynamic market shifts while strengthening the company\uFFFDs position as a leader in perfumery craftsmanship and luxury." }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 20 }, children: [
-            { v: "18+", l: "Years of Experience" },
-            { v: "1", l: "Legacy to Lead" }
-          ].map((s) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { border: `1px solid ${C.brass}28`, padding: "20px 22px" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "disp", style: { fontSize: 36, fontWeight: 600, color: C.brass }, children: s.v }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "eyebrow", style: { color: C.muted, marginTop: 4 }, children: s.l })
-          ] }, s.v)) })
-        ] })
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "relative", aspectRatio: "4/3", overflow: "hidden" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          "img",
+          {
+            src: "./assets/images/people/managing-director-asif.png",
+            alt: "Asif Mohamed Iqbal Katchi",
+            style: { width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }
+          }
+        ) })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 48, marginBottom: 0 }, children: [
         "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/saraya_3.png?v=1781332291",
