@@ -601,33 +601,6 @@ function ProductCard({ p, onView, onCart }){
   const notes = p.notes || [];
   const collectionLabel = p.col === "Lafede" ? "La Fede" : p.col;
   const noteColors = ["#C8A96E","#9C7B50","#B8866A","#7A9E8A","#8B7EAA","#B06A6A","#6A8BAA","#A09060"];
-  const imageScale = {
-    "Island": 0.86,
-    "Cream Velvet": 0.84,
-    "Icon": 0.84,
-    "Panache": 0.84,
-    "Biscotti Date Toffee": 0.82,
-    "Biscotti Melon Musk": 0.88,
-    "Bleu Glacé": 0.62,
-    "Saraya": 0.78,
-  }[p.name] || 0.9;
-  const imageShiftY = {
-    "Island": -0.06,
-    "Cream Velvet": -0.035,
-    "Biscotti Date Toffee": 0.02,
-    "Biscotti Melon Musk": 0.05,
-    "Bleu Glacé": 0.02,
-    "Saraya": 0.06,
-  }[p.name] || 0;
-  const imageHoverScale = {
-    "Island": 1.02,
-    "Cream Velvet": 1.02,
-    "Icon": 1.02,
-    "Panache": 1.02,
-    "Biscotti Melon Musk": 1.04,
-    "Bleu Glacé": 1.02,
-    "Saraya": 1.02,
-  }[p.name] || 1.02;
 
   return (
     <div
@@ -694,14 +667,12 @@ function ProductCard({ p, onView, onCart }){
               width:"100%",
               height:"100%",
               objectFit:"contain",
-              objectPosition:"center bottom",
+              objectPosition:"center center",
               mixBlendMode:"multiply",
               background:"transparent",
               filter:"brightness(1.05) contrast(1.02)",
               transition:"transform .8s cubic-bezier(0.25, 1, 0.25, 1)",
-              transform: hov
-                ? `translateY(calc(-2px + ${imageShiftY * 100}%)) scale(${imageScale * imageHoverScale})`
-                : `translateY(${imageShiftY * 100}%) scale(${imageScale})`,
+              transform: hov ? `scale(0.95)` : `scale(0.85)`,
             }}
           />
         </div>
