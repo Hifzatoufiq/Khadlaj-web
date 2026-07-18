@@ -331,11 +331,23 @@ const GLOBAL_CSS = `
   .bottle-float { animation: floatY 4s ease-in-out infinite; }
 
   /* 25th Anniversary Section */
-  /* 25th Anniversary Section - Alternating Layout */
+  /* 25th Anniversary Section - Single Line Animated Layout */
   .khadlaj25-section { background: #FAF8F4; padding: 120px 0; overflow: hidden; }
   .k25-header { text-align: center; padding: 0 5%; margin-bottom: 80px; }
-  .k25-row { display: flex; align-items: stretch; width: 100%; min-height: 80vh; overflow: hidden; position: relative; }
-  .k25-reverse { flex-direction: row-reverse; }
+  
+  .k25-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 0 5%; max-width: 1400px; margin: 0 auto; }
+  
+  .k25-card { 
+    background: #FAF8F4; border: 1px solid rgba(193,164,106,0.2); 
+    overflow: hidden; position: relative; 
+    transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); 
+    display: flex; flex-direction: column; 
+  }
+  .k25-card:hover { 
+    transform: translateY(-20px); 
+    box-shadow: 0 30px 60px rgba(60, 17, 82, 0.08); 
+    border-color: rgba(193,164,106,0.6);
+  }
   
   @keyframes subtleZoomPan {
     0% { transform: scale(1.02) translate(0, 0); }
@@ -343,44 +355,52 @@ const GLOBAL_CSS = `
     100% { transform: scale(1.02) translate(0, 0); }
   }
   
-  .k25-image-pane { flex: 1; min-height: 80vh; position: relative; overflow: hidden; background: #000; }
-  .k25-image-pane img { 
+  .k25-card-img-wrapper { height: 450px; overflow: hidden; position: relative; background: #000; }
+  .k25-card-img-wrapper::after {
+    content: ''; position: absolute; inset: 0; background: linear-gradient(to top, #FAF8F4, transparent 50%);
+    opacity: 0.9; transition: opacity 0.6s ease; pointer-events: none;
+  }
+  .k25-card:hover .k25-card-img-wrapper::after { opacity: 0; }
+  
+  .k25-card-img-wrapper img { 
     width: 100%; height: 100%; object-fit: cover; display: block; 
     animation: subtleZoomPan 25s ease-in-out infinite;
     filter: brightness(0.9);
-    transition: filter 0.8s ease;
+    transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.8s ease;
   }
-  .k25-row:hover .k25-image-pane img { filter: brightness(1.1); }
+  .k25-card:hover .k25-card-img-wrapper img { transform: scale(1.1); filter: brightness(1.1); }
   
-  .k25-text-pane { flex: 1; padding: 10% 8%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; background: #FAF8F4; position: relative; }
-  
-  /* Delicate gold dividing line */
-  .k25-text-pane::before {
-    content: ''; position: absolute; top: 15%; bottom: 15%; left: 0; width: 1px;
-    background: linear-gradient(to bottom, transparent, rgba(193,164,106,0.6), transparent);
-    transform: scaleY(0); transform-origin: center;
-    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  .k25-card-content { 
+    padding: 0 40px 50px; text-align: center; position: relative; z-index: 2;
+    transform: translateY(-40px); transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
   }
-  .k25-reverse .k25-text-pane::before { left: auto; right: 0; }
-  .k25-row:hover .k25-text-pane::before { transform: scaleY(1); }
-
-  .k25-text-wrapper { transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); }
-  .k25-row:hover .k25-text-wrapper { transform: translateY(-10px); }
-
-  .k25-row-title { font-family: 'Playfair Display', serif; font-size: 56px; color: #3c1152; margin-bottom: 12px; letter-spacing: 4px; text-transform: uppercase; }
-  .k25-row-subtitle { font-size: 14px; color: #B8922A; letter-spacing: 2px; margin-bottom: 30px; text-transform: uppercase; font-weight: 600; }
-  .k25-row-desc { font-family: 'Montserrat', sans-serif; font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 40px; max-width: 500px; }
+  .k25-card:hover .k25-card-content { transform: translateY(-50px); }
+  
+  .k25-card-title { font-family: 'Playfair Display', serif; font-size: 36px; color: #3c1152; margin-bottom: 8px; letter-spacing: 2px; }
+  .k25-card-subtitle { font-size: 11px; color: #B8922A; letter-spacing: 3px; margin-bottom: 20px; text-transform: uppercase; font-weight: 600; }
+  .k25-card-desc { font-family: 'Montserrat', sans-serif; font-size: 14px; color: #666; line-height: 1.7; margin-bottom: 30px; opacity: 0.7; transition: opacity 0.6s; }
+  .k25-card:hover .k25-card-desc { opacity: 1; }
   
   /* Creative Animated Button */
-  .k25-btn { 
+  .k25-card-btn { 
     position: relative; overflow: hidden; z-index: 1;
-    padding: 16px 36px; background: transparent; border: 1px solid #3c1152; color: #3c1152; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.4s; 
+    padding: 14px 32px; background: transparent; border: 1px solid #3c1152; color: #3c1152; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.4s; 
   }
-  .k25-btn::after {
+  .k25-card-btn::after {
     content: ''; position: absolute; top: 0; left: 0; width: 0%; height: 100%; background: #3c1152; z-index: -1; transition: width 0.4s ease;
   }
-  .k25-btn:hover { color: #fff; border-color: #3c1152; }
-  .k25-btn:hover::after { width: 100%; }
+  .k25-card:hover .k25-card-btn { color: #fff; border-color: #3c1152; }
+  .k25-card:hover .k25-card-btn::after { width: 100%; }
+
+  @media(max-width: 1024px) {
+    .k25-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  }
+  @media(max-width: 768px) {
+    .k25-grid { grid-template-columns: 1fr; }
+    .k25-card-img-wrapper { height: 350px; }
+    .k25-card-content { padding: 0 20px 40px; }
+    .k25-card-title { font-size: 28px; }
+  }
 
   /* Gift Slider */
   .gift-slider-section { padding: 80px 0 100px; background: #fff; overflow: hidden; position: relative; }
@@ -828,29 +848,24 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           </p>
         </div>
 
-        <div style={{display: "flex", flexDirection: "column"}}>
+        <div className="k25-grid">
           {[
             { name: "LOYALTY", subtitle: "Unwavering Bonds", desc: "A captivating fragrance that symbolizes eternal commitment and deep connections, bottled for the discerning collector.", img: "./assets/images/products/loyalty.png" },
             { name: "TRUST", subtitle: "Foundation of Eternity", desc: "Built on the essence of pure authenticity, leaving a trail of sophisticated confidence wherever you go.", img: "./assets/images/products/trust.png" },
             { name: "INTEGRITY", subtitle: "Essence of Character", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "./assets/images/products/integrity.png" }
-          ].map((item, idx) => {
-            const isReverse = idx % 2 !== 0;
-            return (
-              <div className={`k25-row ${isReverse ? 'k25-reverse' : ''}`} key={idx}>
-                <div className="k25-image-pane">
-                  <img src={item.img} alt={item.name} />
-                </div>
-                <div className="k25-text-pane">
-                  <div className="k25-text-wrapper">
-                    <h3 className="k25-row-title">{item.name}</h3>
-                    <p className="k25-row-subtitle">{item.subtitle}</p>
-                    <p className="k25-row-desc">{item.desc}</p>
-                    <button className="k25-btn">Discover {item.name}</button>
-                  </div>
-                </div>
+          ].map((item, idx) => (
+            <div className="k25-card" key={idx}>
+              <div className="k25-card-img-wrapper">
+                <img src={item.img} alt={item.name} />
               </div>
-            );
-          })}
+              <div className="k25-card-content">
+                <h3 className="k25-card-title">{item.name}</h3>
+                <p className="k25-card-subtitle">{item.subtitle}</p>
+                <p className="k25-card-desc">{item.desc}</p>
+                <button className="k25-card-btn">Discover {item.name}</button>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
