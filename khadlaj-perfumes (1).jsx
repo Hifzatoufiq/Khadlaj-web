@@ -1099,7 +1099,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           </ul>
           
           <div>
-            <button className="btn-gold" onClick={()=>setPage("story")} style={{padding:"16px 40px", borderRadius:4, fontSize:13, letterSpacing:1}}>
+            <button className="btn-gold" onClick={()=>setPage("story")} style={{padding:"16px 40px", borderRadius:4, fontSize:13, letterSpacing:1, background:"#C8A97E", borderColor:"#C8A97E", color:"#fff"}}>
               Read More
             </button>
           </div>

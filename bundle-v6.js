@@ -22783,7 +22783,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 6, height: 6, borderRadius: "50%", background: "#C8A97E", flexShrink: 0 } }),
           point
         ] }, i)) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-gold", onClick: () => setPage("story"), style: { padding: "16px 40px", borderRadius: 4, fontSize: 13, letterSpacing: 1 }, children: "Read More" }) })
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-gold", onClick: () => setPage("story"), style: { padding: "16px 40px", borderRadius: 4, fontSize: 13, letterSpacing: 1, background: "#C8A97E", borderColor: "#C8A97E", color: "#fff" }, children: "Read More" }) })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { flex: "1 1 50%", minWidth: 300, position: "relative", minHeight: "600px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-3.jpg?v=1775636549", alt: "Khadlaj Luxury Perfume", style: { position: "absolute", width: "100%", height: "100%", objectFit: "cover" } }) })
     ] }),
