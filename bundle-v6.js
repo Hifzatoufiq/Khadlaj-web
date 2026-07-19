@@ -22673,7 +22673,16 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
     if (activeCat === "Unisex") return isKhadlajProduct && p.gender === "Unisex";
     return isKhadlajProduct && p.col === activeCat;
   }).slice(0, 16);
-  const newLaunches = PRODUCTS.filter((p) => p.badge === "New" && p.col !== "Lafede").slice(0, 4);
+  const newLaunches = [
+    { id: "nl1", name: "Karus Gold Absolu", price: 150, badge: "New", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/New_Project.png?v=1783662902" },
+    { id: "nl2", name: "La Fede Aura Vanilla Milk", price: 55, badge: "New", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_AURA_VANILLA_MILK_100_ML.png?v=1783938923" },
+    { id: "nl3", name: "Khadlaj Saraya Extrait", price: 105, badge: "New", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/saraya_3.png?v=1783938953" },
+    { id: "nl4", name: "Oud Muattar Mubakhar", price: 65, badge: "New", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OudMuattar_jpg.png?v=1784271987" },
+    { id: "nl5", name: "Dehnal Oudh Combodi", price: 65, badge: "New", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/DEHNAL_OUDH_COMBODI_3ML_-_Khadlaj_Perfumes-1964314.jpg?v=1722409163" },
+    { id: "nl6", name: "Zayaan Silver EDP", price: 150, badge: "New", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Zayan_Silver-3.jpg?v=1783936580" },
+    { id: "nl7", name: "Nafais Sharq Gift Set", price: 150, badge: "New", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-1.jpg?v=1779352739" },
+    { id: "nl8", name: "Cream Velvet Gift Set", price: 160, badge: "New", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-1.jpg?v=1779352383" }
+  ];
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { className: "hero-section", style: { position: "relative", width: "100%", height: "70vh", minHeight: "450px", overflow: "hidden", background: "#0a0a0a" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
