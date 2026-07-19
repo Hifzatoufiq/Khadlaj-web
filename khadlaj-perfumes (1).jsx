@@ -142,7 +142,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/NAFAIS-3.jpg?v=1783943403"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-1.jpg?v=1779352739"
   },
   {
     "id": 8711666925767,
@@ -157,7 +157,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Cream_Velvet_03.jpg?v=1783947094"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-1.jpg?v=1779352383"
   },
   {
     "id": 8679566770375,
@@ -173,6 +173,36 @@ const PRODUCTS = [
       "Amber"
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Zayan_Silver-3.jpg?v=1783936580"
+  },
+  {
+    "id": 8674610839751,
+    "name": "KHADLAJ SPECIAL MUKHALAT PERFUME OILS - DISCOVERY SET",
+    "col": "Gift Sets",
+    "price": 120,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KhadlajSpecial-1_026d234f-e548-4f74-aabb-a497d6153248.jpg?v=1776148221"
+  },
+  {
+    "id": 8674591408327,
+    "name": "THE GOURMAND COLLECTION BY KHADLAJ DISCOVERY SET",
+    "col": "Gift Sets",
+    "price": 125,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/TheGourmandCollection-4_b312994b-4740-40ef-b26d-52e29e7b094a.jpg?v=1776146949"
   },
   {
     "id": 8670778589383,
@@ -385,6 +415,36 @@ const PRODUCTS = [
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/STRAWBERRY_SHAKE-03.jpg?v=1783939703"
   },
   {
+    "id": 8586765697223,
+    "name": "KHADLAJ CLOUD CANDY GIFT SET",
+    "col": "Gift Sets",
+    "price": 169,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy3.jpg?v=1767169755"
+  },
+  {
+    "id": 8586762813639,
+    "name": "KHADLAJ ISLAND GIFT SET FOR HIM & HER (",
+    "col": "Gift Sets",
+    "price": 179,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island2.jpg?v=1767168643"
+  },
+  {
     "id": 8561163075783,
     "name": "SAWAAR VANILLE BLANC",
     "col": "Extrait De Parfum",
@@ -443,6 +503,21 @@ const PRODUCTS = [
       "Amber"
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais_Magrib-3.jpg?v=1783940515"
+  },
+  {
+    "id": 8530518868167,
+    "name": "HUROOF 3 PCS PERFUMES COLLECTION GIFT SET",
+    "col": "Gift Sets",
+    "price": 140,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/HuroofGiftBox-01.jpg?v=1761565289"
   },
   {
     "id": 8530334679239,
@@ -632,6 +707,21 @@ const PRODUCTS = [
       "Amber"
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Biscotti_Melon_Misk-3.jpg?v=1783942967"
+  },
+  {
+    "id": 8471917723847,
+    "name": "GRAND COLLECTION 3 PIECES GIFT SET",
+    "col": "Gift Sets",
+    "price": 210,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/GrandGiftBox-01.jpg?v=1756378107"
   },
   {
     "id": 8459140759751,
@@ -857,6 +947,21 @@ const PRODUCTS = [
       "Amber"
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_SHEIKH_OADIM-4.jpg?v=1748412371"
+  },
+  {
+    "id": 8375938580679,
+    "name": "SHUKRAN 4 PIECES SUMMER COLLECTION GIFT SET",
+    "col": "Gift Sets",
+    "price": 240,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shukran_Gift_Box-02.jpg?v=1747891789"
   },
   {
     "id": 8361494839495,
@@ -1376,6 +1481,51 @@ const PRODUCTS = [
       "Amber"
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/3_34.jpg?v=1783947834"
+  },
+  {
+    "id": 8230609912007,
+    "name": "KHADLAJ CELEBRATION 3 PIECES GIFT SET",
+    "col": "Gift Sets",
+    "price": 150,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/khadlaj-celebration-gift-set.jpg?v=1728481767"
+  },
+  {
+    "id": 8230573375687,
+    "name": "OUD POUR COLLECTION 3 PIECES DISCOVERY GIFT SET",
+    "col": "Gift Sets",
+    "price": 185,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/oud_pour_collection_discovery_gift_set_1e02c92c-bb05-4591-8f30-e7bd410e72c8.jpg?v=1728480539"
+  },
+  {
+    "id": 8230517342407,
+    "name": "FAAKHAR 2 PIECES GIFT SET",
+    "col": "Gift Sets",
+    "price": 110,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/faakhar_gift_set_khadlaj.jpg?v=1728474020"
   },
   {
     "id": 8230479855815,
@@ -2501,6 +2651,21 @@ const PRODUCTS = [
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/INFINI_ABSOLUTE_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1964798.jpg?v=1784011705"
   },
   {
+    "id": 7725565214919,
+    "name": "OUD LUXURY 4 PCS GIFT SET",
+    "col": "Gift Sets",
+    "price": 165,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_LUXURY_4_PCS_GIFT_SET_-_Khadlaj_Perfumes-1965584.jpg?v=1722411440"
+  },
+  {
     "id": 7582155407559,
     "name": "HAREEM AL SULTAN SILVER",
     "col": "Perfume Oils",
@@ -3175,6 +3340,66 @@ const PRODUCTS = [
       "Amber"
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ROOH_AL_OUD_12_ML_-_Khadlaj_Perfumes-1965864.jpg?v=1722411973"
+  },
+  {
+    "id": 7554095022279,
+    "name": "LAK WAHDAK 3 PCS GIFT SET",
+    "col": "Gift Sets",
+    "price": 126,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LAK_WAHDAK_3_PCS_GIFT_SET_-_Khadlaj_Perfumes-1965217.jpg?v=1722410731"
+  },
+  {
+    "id": 7554131591367,
+    "name": "FAKHAMA 3 PCS GIFT SET",
+    "col": "Gift Sets",
+    "price": 126,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FAKHAMA_3_PCS_GIFT_SET_FOR_WOMEN_-_Khadlaj_Perfumes-1964443.jpg?v=1722409366"
+  },
+  {
+    "id": 7554131984583,
+    "name": "ROYAL OUD 4 PCS GIFT SET",
+    "col": "Gift Sets",
+    "price": 158,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ROYAL_OUD_4_PCS_GIFT_SET_-_Khadlaj_Perfumes-1965908.jpg?v=1722412073"
+  },
+  {
+    "id": 7554136441031,
+    "name": "MY PARADISE 3 PCS GIFT SET",
+    "col": "Gift Sets",
+    "price": 150,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MY_PARADISE_3_PCS_GIFT_SET_-_Khadlaj_Perfumes-1965497.jpg?v=1722411273"
   },
   {
     "id": 7554129625287,
@@ -4112,6 +4337,36 @@ const PRODUCTS = [
       "Amber"
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_AL_BAHAAR_55_G_-_Khadlaj_Perfumes-1963970.jpg?v=1722408647"
+  },
+  {
+    "id": 7554204467399,
+    "name": "OPULENCE SHAIKH 3 PCS GIFT SET",
+    "col": "Gift Sets",
+    "price": 150,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OPULENCE_SHAIKH_3_PCS_GIFT_SET_FOR_MEN_-_Khadlaj_Perfumes-1965577.jpg?v=1722411426"
+  },
+  {
+    "id": 7554204369095,
+    "name": "OPULENCE AMEERA 3 PCS GIFT SET",
+    "col": "Gift Sets",
+    "price": 150,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OPULENCE_AMEERA_3_PCS_GIFT_SET_FOR_WOMEN_-_Khadlaj_Perfumes-1965543.jpg?v=1722411365"
   },
   {
     "id": 7554206859463,
