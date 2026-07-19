@@ -142,7 +142,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-3.jpg?v=1779352739"
+    "img": "./assets/images/products/nafais_gift_set_nobox.jpg"
   },
   {
     "id": 8711666925767,
@@ -157,7 +157,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-4.jpg?v=1779352383"
+    "img": "./assets/images/products/creamvelvet_gift_set_nobox.jpg"
   },
   {
     "id": 8679566770375,
@@ -187,7 +187,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KhadlajSpecial-2_28780ba7-e351-4765-99fa-6f064ac6a842.jpg?v=1776148221"
+    "img": "./assets/images/products/khadlaj_special_mukhalat_nobox.jpg"
   },
   {
     "id": 8670778589383,
@@ -412,7 +412,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy1.jpg?v=1767169755"
+    "img": "./assets/images/products/cloud_candy_gift_set_nobox.jpg"
   },
   {
     "id": 8586762813639,
@@ -427,7 +427,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island1.jpg?v=1767168752"
+    "img": "./assets/images/products/island_gift_set_nobox.jpg"
   },
   {
     "id": 8561163075783,
@@ -487,7 +487,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais_Magrib-3.jpg?v=1783940515"
+    "img": "./assets/images/products/nafais_gift_set_nobox.jpg"
   },
   {
     "id": 8530334679239,
@@ -691,7 +691,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island_Dreams-3.jpg?v=1783940088"
+    "img": "./assets/images/products/island_gift_set_nobox.jpg"
   },
   {
     "id": 8457608462535,
@@ -811,7 +811,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/NAFAIS-3.jpg?v=1783943403"
+    "img": "./assets/images/products/nafais_gift_set_nobox.jpg"
   },
   {
     "id": 8398776959175,
@@ -916,7 +916,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Cloud_Candy-3.jpg?v=1783945979"
+    "img": "./assets/images/products/cloud_candy_gift_set_nobox.jpg"
   },
   {
     "id": 8342080946375,
@@ -946,7 +946,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island_Vanilla-3.jpg?v=1783945707"
+    "img": "./assets/images/products/island_gift_set_nobox.jpg"
   },
   {
     "id": 8342076129479,
@@ -1332,7 +1332,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Cream_Velvet_03.jpg?v=1783947094"
+    "img": "./assets/images/products/creamvelvet_gift_set_nobox.jpg"
   },
   {
     "id": 8276542390471,
@@ -1624,7 +1624,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KHADLAJ_ISLAND_100_ML.jpg?v=1783946296"
+    "img": "./assets/images/products/island_gift_set_nobox.jpg"
   },
   {
     "id": 8143006892231,
