@@ -93,8 +93,8 @@ const PRODUCTS = [
     "topNotes": [],
     "midNotes": [],
     "baseNotes": [],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/TheGourmandCollection-2_52a94bd5-b24f-4e19-a2c3-4011791f16dc.jpg?v=1776147258",
-    "detailImages": ["https://cdn.shopify.com/s/files/1/0626/6119/8023/files/TheGourmandCollection-2_52a94bd5-b24f-4e19-a2c3-4011791f16dc.jpg?v=1776147258"]
+    "img": "./assets/images/gifsets/gourmand_nobox.png",
+    "detailImages": ["./assets/images/gifsets/gourmand_nobox.png"]
   },
   {
     "id": "8586765697223",
