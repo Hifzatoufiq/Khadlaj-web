@@ -142,7 +142,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-1.jpg?v=1779352739"
+    "img": "./assets/images/products/nafais_gift_set_nobox.jpg"
   },
   {
     "id": 8711666925767,
@@ -157,7 +157,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-1.jpg?v=1779352383"
+    "img": "./assets/images/products/creamvelvet_gift_set_nobox.jpg"
   },
   {
     "id": 8679566770375,
@@ -337,7 +337,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Panache_4_jpg_9a48384b-07d9-4332-9446-3afd35eb42ac.jpg?v=1771334327"
+    "img": "./assets/images/products/panache_nobox.png"
   },
   {
     "id": 8622015447239,
@@ -352,7 +352,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Copy_of_OudMuattarBahraini.3.png?v=1771070678"
+    "img": "./assets/images/products/bahraini_nobox.png"
   },
   {
     "id": 8608140460231,
@@ -367,7 +367,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CopyofOudMuattarKuwaiti.4_d17eb7b5-4810-4d9c-be13-3397010d78bb.png?v=1771069657"
+    "img": "./assets/images/products/kuwaiti_nobox.png"
   },
   {
     "id": 8604851437767,
@@ -517,7 +517,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/HuroofGiftBox-01.jpg?v=1761565289"
+    "img": "./assets/images/products/huroof_gift_set_nobox.jpg"
   },
   {
     "id": 8530334679239,
@@ -721,7 +721,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/GrandGiftBox-01.jpg?v=1756378107"
+    "img": "./assets/images/products/grand_gift_set_nobox.jpg"
   },
   {
     "id": 8459140759751,
