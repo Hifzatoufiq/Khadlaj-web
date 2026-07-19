@@ -23127,6 +23127,32 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "discovery-btn", children: "Shop Now" })
         ] })
       ] }, item.name)) })
+    ] }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { margin: "60px 5% 100px", borderRadius: 16, overflow: "hidden", background: "#120917", position: "relative", display: "flex", alignItems: "center", boxShadow: "0 30px 60px rgba(0,0,0,0.15)" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, background: "radial-gradient(circle at 75% 50%, rgba(200,169,126,0.15) 0%, transparent 60%)" } }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "max-container hero-split", style: { display: "grid", gridTemplateColumns: "1.2fr 0.8fr", alignItems: "center", width: "100%", position: "relative", zIndex: 2 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "8% 10%", color: "#fff" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 11, letterSpacing: 3, color: "#C8A97E", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, marginBottom: 16 }, children: "Real experiences. Real results." }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(32px, 4vw, 56px)", fontWeight: 300, color: "#fff", lineHeight: 1.1, marginBottom: 24 }, children: [
+            "Trusted by 50,000+ ",
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#C8A97E" }, children: "Happy Customers" })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 15, color: "rgba(255,255,255,0.75)", lineHeight: 1.8, fontFamily: "'Montserrat',sans-serif", marginBottom: 40, maxWidth: 500 }, children: "Join thousands of satisfied customers who rely on our quality, service, and consistency. With over 50,000 verified reviews, our community continues to grow every day." }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { className: "btn-gold", style: { display: "inline-flex", alignItems: "center", gap: 10, padding: "16px 40px", fontSize: 11, letterSpacing: 2 }, onClick: () => setPage("collections"), children: [
+            "Shop Now",
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "9", cy: "21", r: "1" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "20", cy: "21", r: "1" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" })
+            ] })
+          ] })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", height: "100%", minHeight: "min(400px, 40vw)", display: "flex", alignItems: "center", justifyContent: "center" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", width: "60%", height: "60%", background: "#C8A97E", filter: "blur(100px)", opacity: 0.25, borderRadius: "50%" } }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: "./assets/images/products/hareem-al-sultan-gold-cutout.png", alt: "Trusted Product", style: { maxHeight: "320px", height: "28vw", objectFit: "contain", filter: "drop-shadow(0 40px 60px rgba(0,0,0,0.6))", transform: "rotate(5deg)", transition: "transform 0.5s ease", cursor: "pointer" }, onMouseEnter: (e) => e.currentTarget.style.transform = "rotate(0deg) scale(1.05)", onMouseLeave: (e) => e.currentTarget.style.transform = "rotate(5deg) scale(1)" })
+        ] })
+      ] })
     ] })
   ] });
 }
