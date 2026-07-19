@@ -1078,8 +1078,8 @@ function HomePage({ setPage, addToCart, setViewProduct }){
               <span style={{width:30, height:1, background:"#C8A97E"}}/>
               Real experiences. Real results.
             </p>
-            <h2 className="disp" style={{fontSize:"clamp(36px, 4.5vw, 64px)", fontWeight:300, color:"#fff", lineHeight:1.05, marginBottom:24}}>
-              Trusted by 50,000+ <br/><span style={{color:"#C8A97E", fontStyle:"italic", fontWeight:400}}>Happy Customers</span>
+            <h2 style={{fontSize:"clamp(36px, 4.5vw, 64px)", fontWeight:700, fontFamily:"'Montserrat',sans-serif", color:"#fff", lineHeight:1.1, marginBottom:24, letterSpacing: "-1px", textTransform:"uppercase"}}>
+              Trusted by 50,000+ <br/><span style={{color:"#C8A97E", fontWeight:700}}>Happy Customers</span>
             </h2>
             <p style={{fontSize:15, color:"rgba(255,255,255,0.75)", lineHeight:1.9, fontFamily:"'Montserrat',sans-serif", marginBottom:48, maxWidth:500}}>
               Join thousands of satisfied customers who rely on our quality, service, and consistency. With over 50,000 verified reviews, our community continues to grow every day.
@@ -1095,13 +1095,13 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             
             <div style={{position:"relative", width:"100%", height:"100%", display:"flex", alignItems:"center", justifyContent:"center"}}>
               {/* Back Left Bottle */}
-              <img src="./assets/images/products/limaginaire.jpg" alt="Trusted Product" style={{position:"absolute", left:"10%", top:"15%", maxHeight:"220px", height:"20vw", objectFit:"contain", filter:"drop-shadow(0 20px 40px rgba(0,0,0,0.5)) blur(2px)", opacity:0.6, animation:"lafedeFloatSmall 7s ease-in-out infinite", mixBlendMode:"screen"}} />
+              <img src="./assets/images/products/nafais-magrib_transparent.png" alt="Trusted Product" style={{position:"absolute", left:"10%", top:"15%", maxHeight:"220px", height:"20vw", objectFit:"contain", filter:"drop-shadow(0 20px 40px rgba(0,0,0,0.5)) blur(2px)", opacity:0.6, animation:"lafedeFloatSmall 7s ease-in-out infinite", mixBlendMode:"screen"}} />
               
               {/* Back Right Bottle */}
-              <img src="./assets/images/products/fursan.png" alt="Trusted Product" style={{position:"absolute", right:"15%", bottom:"15%", maxHeight:"240px", height:"22vw", objectFit:"contain", filter:"drop-shadow(0 20px 40px rgba(0,0,0,0.5)) blur(1px)", opacity:0.8, animation:"lafedeFloatSmall 6s ease-in-out infinite reverse"}} />
+              <img src="./assets/images/products/shiyaaka_transparent.png" alt="Trusted Product" style={{position:"absolute", right:"15%", bottom:"15%", maxHeight:"240px", height:"22vw", objectFit:"contain", filter:"drop-shadow(0 20px 40px rgba(0,0,0,0.5)) blur(1px)", opacity:0.8, animation:"lafedeFloatSmall 6s ease-in-out infinite reverse"}} />
               
               {/* Main Center Bottle */}
-              <img src="./assets/images/products/hareem-al-sultan-gold-cutout.png" alt="Trusted Product" style={{position:"relative", zIndex:10, maxHeight:"360px", height:"32vw", objectFit:"contain", filter:"drop-shadow(0 40px 60px rgba(0,0,0,0.7))", animation:"lafedeFloat 5s ease-in-out infinite"}} />
+              <img src="./assets/images/products/intoxicate-mystique-cutout.png" alt="Trusted Product" style={{position:"relative", zIndex:10, maxHeight:"360px", height:"32vw", objectFit:"contain", filter:"drop-shadow(0 40px 60px rgba(0,0,0,0.7))", animation:"lafedeFloat 5s ease-in-out infinite"}} />
             </div>
           </div>
 
