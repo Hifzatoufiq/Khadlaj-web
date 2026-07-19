@@ -34,11 +34,9 @@ async function fetchAllLaFede() {
     const title = p.title.replace(/"/g, '\\"');
     const price = p.variants && p.variants[0] ? parseFloat(p.variants[0].price) : 100;
     
-    // Pick the 2nd image (index 1) if it exists, otherwise fallback to the 1st image
+    // As per user request, use the 1st image (index 0) to avoid boxes
     let img = '';
-    if (p.images && p.images.length > 1) {
-      img = p.images[1].src;
-    } else if (p.images && p.images.length > 0) {
+    if (p.images && p.images.length > 0) {
       img = p.images[0].src;
     }
     
