@@ -1582,33 +1582,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }){
         </div>
       </div>
 
-      {/* ── The Art of Layering (Creative Footer Banner) ── */}
-      <div style={{padding:"0 5% 96px"}}>
-        <div className="max-container hero-split" style={{display:"grid", gridTemplateColumns:"1.1fr 0.9fr", background:"#120917", borderRadius:"16px", overflow:"hidden", alignItems:"stretch", boxShadow:"0 32px 80px rgba(0,0,0,0.08)"}}>
-          <div style={{padding:"12% 10%", display:"flex", flexDirection:"column", justifyContent:"center"}}>
-            <div style={{display:"flex", alignItems:"center", gap:12, marginBottom:20}}>
-              <span style={{width:40, height:1, background:"#B8922A"}}/>
-              <p style={{fontSize:9, letterSpacing:4, color:"#B8922A", textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", fontWeight:600, margin:0}}>Elevate Your Aura</p>
-            </div>
-            <h2 className="disp" style={{fontSize:"clamp(34px, 4vw, 52px)", fontWeight:400, color:"#fff", lineHeight:1.05, marginBottom:24, letterSpacing:2}}>
-              THE ART OF <span style={{color:"#B8922A"}}>LAYERING</span>
-            </h2>
-            <p style={{fontSize:14, color:"rgba(255,255,255,0.65)", lineHeight:1.85, fontFamily:"'Montserrat',sans-serif", marginBottom:40, maxWidth:"480px"}}>
-              True luxury lies in creating a scent that is uniquely yours. In Arabian perfumery, blending a rich, concentrated perfume oil with an airy Eau de Parfum creates a multidimensional sillage. Pair our masterfully crafted oils with your favorite sprays to leave an unforgettable signature trail.
-            </p>
-            <button className="btn-gold" onClick={() => setPage("home")} style={{fontSize:10, letterSpacing:2, padding:"16px 40px", alignSelf:"flex-start"}}>Discover Oils &amp; Extrait</button>
-          </div>
-          <div style={{minHeight:"400px", position:"relative"}}>
-            <div style={{position:"absolute", inset:0, background:"url('https://cdn.shopify.com/s/files/1/0626/6119/8023/files/DEHNAL_OUDH_COMBODI_3ML_-_Khadlaj_Perfumes-1964314.jpg?v=1722409163') center/cover no-repeat"}} />
-            {/* Dark gradient overlay blending with the left side */}
-            <div style={{position:"absolute", inset:0, background:"linear-gradient(to right, #120917 0%, rgba(18,9,23,0.3) 40%, transparent 100%)"}} />
-            {/* Elegant glowing orb effect */}
-            <div style={{position:"absolute", bottom:"10%", right:"10%", width:"120px", height:"120px", background:"#B8922A", filter:"blur(80px)", opacity:0.4, borderRadius:"50%"}} />
-          </div>
-        </div>
-      </div>
-
-      <TrustBanner />
+            <TrustBanner />
     </div>
   );
 }
