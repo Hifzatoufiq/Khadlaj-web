@@ -2,7 +2,7 @@
   "version": 2,
   "builds": [
     { "src": "index.html", "use": "@vercel/static" },
-    { "src": "bundle-v6.js", "use": "@vercel/static" },
+    { "src": "bundle-*.js", "use": "@vercel/static" },
     { "src": "assets/**", "use": "@vercel/static" },
     { "src": "video/**", "use": "@vercel/static" }
   ],
@@ -10,7 +10,7 @@
     { "src": "/api/(.*)", "dest": "/api/$1" },
     { "src": "/video/(.*)", "dest": "/video/$1" },
     { "src": "/assets/(.*)", "dest": "/assets/$1" },
-    { "src": "/bundle-v6.js", "dest": "/bundle-v6.js" },
+    { "src": "/bundle-(.*)\\.js", "dest": "/bundle-$1.js" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
