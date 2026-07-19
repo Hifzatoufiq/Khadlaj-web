@@ -27176,8 +27176,8 @@ function ProductCard({ p, onView, onCart }) {
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9.5, letterSpacing: 3, color: "#B8922A", textTransform: "uppercase", marginBottom: 7, fontFamily: "'Montserrat',sans-serif", fontWeight: 600 }, children: collectionLabel }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "product-card-title", style: { fontSize: 15.5, fontWeight: 600, color: "#251737", lineHeight: 1.25, marginBottom: 5, textTransform: "uppercase", letterSpacing: 1.1 }, children: p.name }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "product-card-size", style: { fontSize: 12.5, color: "#888", marginBottom: 12, fontFamily: "'Montserrat',sans-serif", letterSpacing: 0.4, fontWeight: 400 }, children: p.size }),
-          notes.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "product-notes", style: { display: "flex", flexWrap: "nowrap", gap: 4, marginBottom: 12, justifyContent: "center", alignItems: "center", width: "100%" }, children: notes.map((n, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { className: "product-note", style: { display: "inline-flex", alignItems: "center", gap: 3, padding: "4px 7px", background: "#F5F5F5", fontSize: 8.5, letterSpacing: 0.7, color: "#666", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, whiteSpace: "nowrap" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "product-note-dot", style: { width: 5, height: 5, borderRadius: "50%", background: noteColors[i % noteColors.length], flexShrink: 0, display: "inline-block" } }),
+          notes.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "product-notes", style: { display: "flex", flexWrap: "nowrap", gap: 4, marginBottom: 12, justifyContent: "center", alignItems: "center", width: "100%" }, children: notes.map((n, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { className: "product-note", style: { display: "inline-flex", alignItems: "center", gap: 3, padding: "4px 7px", background: "#251737", fontSize: 8.5, letterSpacing: 0.7, color: "#B8922A", border: "1px solid rgba(200,169,126,0.3)", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, whiteSpace: "nowrap" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "product-note-dot", style: { width: 5, height: 5, borderRadius: "50%", background: "#B8922A", flexShrink: 0, display: "inline-block" } }),
             n
           ] }, n)) }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginTop: "auto", width: "100%", display: "flex", flexDirection: "column", alignItems: "center", gap: 6, paddingTop: 12, borderTop: "1px solid #F0F0F0" }, children: [
@@ -27397,7 +27397,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
     if (activeCat === "For Her") return isKhadlajProduct && p.gender === "Her";
     if (activeCat === "Unisex") return isKhadlajProduct && p.gender === "Unisex";
     return isKhadlajProduct && (p.col || "").toLowerCase() === activeCat.toLowerCase();
-  }).slice(0, 16);
+  }).slice(0, activeCat === "Best Sellers" ? 4 : 16);
   const newLaunches = PRODUCTS.filter((p) => p.badge === "New").slice(0, 8);
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { className: "hero-section", style: { position: "relative", width: "100%", height: "70vh", minHeight: "450px", overflow: "hidden", background: "#0a0a0a" }, children: [
