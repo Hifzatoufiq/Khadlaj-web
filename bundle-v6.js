@@ -21784,7 +21784,7 @@ var PRODUCTS = [
     "col": "Bakhoor",
     "price": 65,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "New",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -21814,7 +21814,7 @@ var PRODUCTS = [
     "col": "Lafede",
     "price": 55,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "New",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -21829,7 +21829,7 @@ var PRODUCTS = [
     "col": "Dehn Al Oudh",
     "price": 65,
     "size": "3ml",
-    "badge": "",
+    "badge": "New",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -21844,7 +21844,7 @@ var PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 105,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "New",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -21859,7 +21859,7 @@ var PRODUCTS = [
     "col": "Gift Sets",
     "price": 150,
     "size": "Gift Set",
-    "badge": "",
+    "badge": "New",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -21874,7 +21874,7 @@ var PRODUCTS = [
     "col": "Gift Sets",
     "price": 160,
     "size": "Gift Set",
-    "badge": "",
+    "badge": "New",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -21889,7 +21889,7 @@ var PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "New",
     "gender": "Him",
     "notes": [
       "Oud",
