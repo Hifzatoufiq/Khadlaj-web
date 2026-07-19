@@ -142,7 +142,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-3.jpg"
+    "img": "./assets/images/products/nafais_gift_set_nobox.jpg"
   },
   {
     "id": 8711666925767,
@@ -157,7 +157,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-3.jpg"
+    "img": "./assets/images/products/creamvelvet_gift_set_nobox.jpg"
   },
   {
     "id": 8679566770375,
@@ -517,7 +517,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Huroof_Gift_Box-02.jpg?v=1761565458"
+    "img": "./assets/images/products/huroof_gift_set_nobox.jpg"
   },
   {
     "id": 8530334679239,
@@ -721,7 +721,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/GrandGiftBox-03_3165934b-a570-4842-a425-aa3586ebf9ff.jpg?v=1756378107"
+    "img": "./assets/images/products/grand_gift_set_nobox.jpg"
   },
   {
     "id": 8459140759751,
