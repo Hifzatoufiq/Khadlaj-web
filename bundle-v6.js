@@ -22766,39 +22766,6 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
         " fresh launches"
       ] }) })
     ] }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { margin: "40px 5% 80px", borderRadius: 24, overflow: "hidden", background: "#120917", position: "relative", display: "flex", alignItems: "center", boxShadow: "0 40px 80px rgba(0,0,0,0.2)" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, background: "radial-gradient(circle at 75% 50%, rgba(200,169,126,0.15) 0%, transparent 60%)" } }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "max-container hero-split", style: { display: "grid", gridTemplateColumns: "1.2fr 0.8fr", alignItems: "center", width: "100%", position: "relative", zIndex: 2 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "8% 10%", color: "#fff" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { style: { fontSize: 11, letterSpacing: 4, color: "#C8A97E", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, marginBottom: 20, display: "flex", alignItems: "center", gap: 12 }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { width: 30, height: 1, background: "#C8A97E" } }),
-            "Real experiences. Real results."
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { style: { fontSize: "clamp(36px, 4.5vw, 64px)", fontWeight: 700, fontFamily: "'Montserrat',sans-serif", color: "#fff", lineHeight: 1.1, marginBottom: 24, letterSpacing: "-1px", textTransform: "uppercase" }, children: [
-            "Trusted by 50,000+ ",
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#C8A97E", fontWeight: 700 }, children: "Happy Customers" })
-          ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 15, color: "rgba(255,255,255,0.75)", lineHeight: 1.9, fontFamily: "'Montserrat',sans-serif", marginBottom: 48, maxWidth: 500 }, children: "Join thousands of satisfied customers who rely on our quality, service, and consistency. With over 50,000 verified reviews, our community continues to grow every day." }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { className: "btn-gold", style: { display: "inline-flex", alignItems: "center", gap: 12, padding: "18px 44px", fontSize: 12, letterSpacing: 2, borderRadius: 30 }, onClick: () => setPage("collections"), children: [
-            "Shop Now",
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "16", height: "16", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "9", cy: "21", r: "1" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "20", cy: "21", r: "1" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" })
-            ] })
-          ] })
-        ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", height: "100%", minHeight: "min(480px, 45vw)", display: "flex", alignItems: "center", justifyContent: "center" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", width: "70%", height: "70%", background: "#C8A97E", filter: "blur(120px)", opacity: 0.25, borderRadius: "50%" } }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: "./assets/images/products/nafais-magrib_transparent.png", alt: "Trusted Product", style: { position: "absolute", left: "-5%", top: "20%", maxHeight: "220px", height: "20vw", objectFit: "contain", filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.5)) blur(1px)", opacity: 0.65, animation: "lafedeFloatSmall 7s ease-in-out infinite" } }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: "./assets/images/products/shiyaaka_transparent.png", alt: "Trusted Product", style: { position: "absolute", right: "-10%", bottom: "20%", maxHeight: "240px", height: "22vw", objectFit: "contain", filter: "drop-shadow(0 20px 40px rgba(0,0,0,0.5)) blur(1px)", opacity: 0.75, animation: "lafedeFloatSmall 6s ease-in-out infinite reverse" } }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: "./assets/images/products/intoxicate-mystique-cutout.png", alt: "Trusted Product", style: { position: "relative", zIndex: 10, maxHeight: "380px", height: "34vw", objectFit: "contain", filter: "drop-shadow(0 40px 60px rgba(0,0,0,0.8))", animation: "lafedeFloat 5s ease-in-out infinite" } })
-          ] })
-        ] })
-      ] })
-    ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "0 5% 104px", background: "#fff" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { paddingTop: 96, marginBottom: 52, display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { textAlign: "left" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(32px,4vw,54px)", fontWeight: 300, color: "#3c1152", lineHeight: 1.15, letterSpacing: "-0.5px" }, children: "Where every scent has a story" }) }),
