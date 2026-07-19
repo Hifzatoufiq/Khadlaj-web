@@ -171,7 +171,7 @@ const GIFT_SETS = [
   { id:11, name:"Shahi Oud Gift Set",             price:360, pieces:2, img:"./assets/images/gifsets/shahi-oud-giftset.png",                                                                      desc:"A bold black-and-gold gift set with a rich oud signature." },
   { id:12, name:"Island Gift Set",               price:179, pieces:3, img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island3.jpg?v=1767168724",              desc:"The signature Island scent in a luxury gift trio for him and her." },
   { id:13, name:"Cream Velvet Gift Set",          price:160, pieces:3, img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-3.jpg?v=1779352383",        desc:"Buttery caramel and warm vanilla in a beautifully curated gift set." },
-  { id:14, name:"Nafais Sharq Gift Set",          price:150, pieces:3, img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-3.jpg?v=1779352739",      desc:"Rich florals, warm woods, and timeless Arabian allure." },
+  { id:14, name:"Nafais Sharq Gift Set",          price:150, pieces:3, img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-4.jpg?v=1779352739",      desc:"Rich florals, warm woods, and timeless Arabian allure." },
 ];
 
 const REVIEWS = [
@@ -965,7 +965,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
     { id: "nl5", name: "Dehnal Oudh Combodi", col: "Dehn Al Oudh", size: "3ml", notes: ["Oud", "Woody", "Earthy"], price: 65.00, badge: "New", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/DEHNAL_OUDH_COMBODI_3ML_-_Khadlaj_Perfumes-1964319.jpg?v=1722409168" },
     { id: "nl6", name: "Zayaan Silver", col: "Eau De Parfum", size: "100ml EDP", notes: ["Citrus", "Amber", "Woody"], price: 150.00, badge: "New", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Zayan_Silver-3.jpg?v=1783936580" },
     { id: "nl7", name: "Nafais Sharq Gift Set", col: "Gift Set", size: "3-Piece Set", notes: ["Floral", "Musk", "Oud"], price: 150.00, badge: "New", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-3.jpg?v=1779352739" },
-    { id: "nl8", name: "Cream Velvet", col: "Eau De Parfum", size: "100ml Extrait", notes: ["Cream", "Velvet", "Musk"], price: 130.00, badge: "New", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-4.jpg?v=1779352383" },
+    { id: "nl8", name: "Cream Velvet", col: "Eau De Parfum", size: "100ml Extrait", notes: ["Cream", "Velvet", "Musk"], price: 130.00, badge: "New", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-3.jpg?v=1779352383" },
   ];
 
   return (

@@ -22681,7 +22681,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
     { id: "nl5", name: "Dehnal Oudh Combodi", col: "Dehn Al Oudh", size: "3ml", notes: ["Oud", "Woody", "Earthy"], price: 65, badge: "New", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/DEHNAL_OUDH_COMBODI_3ML_-_Khadlaj_Perfumes-1964319.jpg?v=1722409168" },
     { id: "nl6", name: "Zayaan Silver", col: "Eau De Parfum", size: "100ml EDP", notes: ["Citrus", "Amber", "Woody"], price: 150, badge: "New", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Zayan_Silver-3.jpg?v=1783936580" },
     { id: "nl7", name: "Nafais Sharq Gift Set", col: "Gift Set", size: "3-Piece Set", notes: ["Floral", "Musk", "Oud"], price: 150, badge: "New", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-3.jpg?v=1779352739" },
-    { id: "nl8", name: "Cream Velvet", col: "Eau De Parfum", size: "100ml Extrait", notes: ["Cream", "Velvet", "Musk"], price: 130, badge: "New", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-4.jpg?v=1779352383" }
+    { id: "nl8", name: "Cream Velvet", col: "Eau De Parfum", size: "100ml Extrait", notes: ["Cream", "Velvet", "Musk"], price: 130, badge: "New", img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-3.jpg?v=1779352383" }
   ];
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { className: "hero-section", style: { position: "relative", width: "100%", height: "70vh", minHeight: "450px", overflow: "hidden", background: "#0a0a0a" }, children: [
