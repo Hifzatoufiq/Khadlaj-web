@@ -36,8 +36,18 @@ async function fetchAllLaFede() {
     "KARUS": "./assets/images/products/karus-cutout.png"
   };
 
+  const manualOverrides = {
+    "LAVISH LUNA": 0,
+    "UNO LUSSO": 2,
+    "STATESMAN": 1,
+    "FIRST LADY": 1,
+    "KINGSMAN": 1,
+    "MISS PREMIERE": 1
+  };
+
   allProducts.forEach(p => {
     let title = p.title.replace(/"/g, '\\"');
+    let originalTitleUpper = title.toUpperCase();
     
     // Extract size and type
     let sizeMatch = title.match(/(\d+\s*ML)/i);
@@ -58,17 +68,19 @@ async function fetchAllLaFede() {
 
     // Use cutout if available
     let img = '';
-    let foundCutout = Object.keys(cutouts).find(k => title.toUpperCase().includes(k));
+    let foundCutout = Object.keys(cutouts).find(k => originalTitleUpper.includes(k));
+    let foundOverride = Object.keys(manualOverrides).find(k => originalTitleUpper.includes(k));
+
     if (foundCutout) {
       img = cutouts[foundCutout];
+    } else if (foundOverride && p.images[manualOverrides[foundOverride]]) {
+      img = p.images[manualOverrides[foundOverride]].src;
     } else {
-      // Smart image selection
-      // Priority: Last image, unless we find one ending in 3 or 2
+      // Smart image selection fallback
       let bestImage = p.images && p.images.length > 0 ? p.images[p.images.length - 1].src : '';
       
       if (p.images && p.images.length > 2) {
-        // usually if there are 3 images, index 2 is bottle
-        bestImage = p.images[2].src;
+        bestImage = p.images[2].src; // often index 2 is bottle for 3-image sets unless overridden
       }
 
       for (let image of (p.images || [])) {
@@ -85,9 +97,9 @@ async function fetchAllLaFede() {
     let gender = "Unisex";
     if (p.tags && p.tags.includes("Women")) gender = "Her";
     if (p.tags && p.tags.includes("Men")) gender = "Him";
-    if (p.title.toUpperCase().includes("FOR MEN")) gender = "Him";
-    if (p.title.toUpperCase().includes("FOR WOMEN")) gender = "Her";
-    if (p.title.toUpperCase().includes("FOR MEN & WOMEN")) gender = "Unisex";
+    if (originalTitleUpper.includes("FOR MEN")) gender = "Him";
+    if (originalTitleUpper.includes("FOR WOMEN")) gender = "Her";
+    if (originalTitleUpper.includes("FOR MEN & WOMEN")) gender = "Unisex";
     
     let badge = gender === "Her" ? '"For Her"' : gender === "Him" ? '"For Him"' : 'null';
     if (gender === "Unisex") badge = '"Unisex"';
