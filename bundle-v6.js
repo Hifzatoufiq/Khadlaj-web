@@ -23692,6 +23692,29 @@ function StoryPage() {
           }
         ) })
       ] }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", marginBottom: 88 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { textAlign: "center", maxWidth: 800, marginBottom: 48 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(32px, 4vw, 42px)", fontWeight: 300, color: "#3c1152", lineHeight: 1.2, margin: 0, fontFamily: "'Montserrat', sans-serif" }, children: "Head Office & Manufacturing Unit" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 60, height: 1, background: "#C8A97E", margin: "24px auto" } }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "#555", lineHeight: 1.8, fontSize: 15, fontFamily: "'Montserrat', sans-serif" }, children: "At Khadlaj Perfumes, our operations are supported by state-of-the-art facilities and a strategic head office location:" })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, width: "100%" }, className: "hero-split", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "#FAFAFA", borderRadius: "8px", overflow: "hidden", boxShadow: "0 20px 40px rgba(0,0,0,0.06)", display: "flex", flexDirection: "column", transition: "transform 0.3s ease", cursor: "default" }, onMouseEnter: (e) => e.currentTarget.style.transform = "translateY(-10px)", onMouseLeave: (e) => e.currentTarget.style.transform = "translateY(0)", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { height: 280, overflow: "hidden" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: "https://images.unsplash.com/photo-1580982327559-c1202864eb05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", alt: "Manufacturing Unit", style: { width: "100%", height: "100%", objectFit: "cover" } }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "32px 32px", flex: 1, display: "flex", flexDirection: "column", background: "#fff" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { style: { fontSize: 22, fontWeight: 600, color: "#111", fontFamily: "'Montserrat', sans-serif", marginBottom: 16 }, children: "Manufacturing Unit" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 14, color: "#666", lineHeight: 1.8, fontFamily: "'Montserrat', sans-serif", margin: 0, textAlign: "justify" }, children: "Located in Ras Al Khaimah, our manufacturing facility is certified under ISO 9001: 2015 standards. Here, stringent quality control measures ensure that every product meets our exacting standards. Our production processes prioritize the use of authentic components to create high-quality fragrances, free from microbial or hazardous contaminants." })
+            ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "#FAFAFA", borderRadius: "8px", overflow: "hidden", boxShadow: "0 20px 40px rgba(0,0,0,0.06)", display: "flex", flexDirection: "column", transition: "transform 0.3s ease", cursor: "default" }, onMouseEnter: (e) => e.currentTarget.style.transform = "translateY(-10px)", onMouseLeave: (e) => e.currentTarget.style.transform = "translateY(0)", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { height: 280, overflow: "hidden" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", alt: "Head Office", style: { width: "100%", height: "100%", objectFit: "cover" } }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "32px 32px", flex: 1, display: "flex", flexDirection: "column", background: "#fff" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { style: { fontSize: 22, fontWeight: 600, color: "#111", fontFamily: "'Montserrat', sans-serif", marginBottom: 16 }, children: "Head Office" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 14, color: "#666", lineHeight: 1.8, fontFamily: "'Montserrat', sans-serif", margin: 0, textAlign: "justify" }, children: "Situated in Sharjah, our head office serves as the central hub for our global operations. From here, we oversee product development, marketing strategies, and customer relations. Our team is committed to innovation and excellence, ensuring that every aspect of our business reflects the values of Khadlaj Perfumes." })
+            ] })
+          ] })
+        ] })
+      ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 48, marginBottom: 0 }, children: [
         "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/saraya_3.png?v=1781332291",
         "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/IntoxicateMystique.3.png?v=1772518819",
