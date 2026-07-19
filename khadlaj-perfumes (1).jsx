@@ -1935,7 +1935,7 @@ const PRODUCTS = [
   },
   {
     "id": 7871133450439,
-    "name": "LÉ PRESTIGE KING",
+    "name": "L\u00c9 PRESTIGE KING",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -1950,7 +1950,7 @@ const PRODUCTS = [
   },
   {
     "id": 7887419048135,
-    "name": "LÉ PRESTIGE ROYAL",
+    "name": "L\u00c9 PRESTIGE ROYAL",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
