@@ -55,6 +55,20 @@ const STATS = [
 
 const PRODUCTS = [
   {
+    "id": "8711671578823",
+    "name": "KHADLAJ PERFUMES NAFAIS SHARQ GIFT SET FOR WOMEN",
+    "price": 150.0,
+    "size": "Gift Set",
+    "badge": "",
+    "col": "Gift Sets",
+    "gender": "Her",
+    "topNotes": [],
+    "midNotes": [],
+    "baseNotes": [],
+    "img": "./assets/images/gifsets/nafais_sharq_nobox.png",
+    "detailImages": ["./assets/images/gifsets/nafais_sharq_nobox.png"]
+  },
+  {
     "id": "8711666925767",
     "name": "CREAM VELVET GIFT SET",
     "price": 160.0,
@@ -65,8 +79,8 @@ const PRODUCTS = [
     "topNotes": [],
     "midNotes": [],
     "baseNotes": [],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Cream_Velvet_03.jpg?v=1783947094",
-    "detailImages": ["https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-2.jpg?v=1779352384"]
+    "img": "./assets/images/gifsets/cream_velvet_nobox.png",
+    "detailImages": ["./assets/images/gifsets/cream_velvet_nobox.png"]
   },
   {
     "id": "8674591408327",
@@ -93,8 +107,8 @@ const PRODUCTS = [
     "topNotes": [],
     "midNotes": [],
     "baseNotes": [],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Cloud_Candy-3.jpg?v=1783945979",
-    "detailImages": ["https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy3.jpg?v=1767169755"]
+    "img": "./assets/images/gifsets/cloud_candy_nobox.png",
+    "detailImages": ["./assets/images/gifsets/cloud_candy_nobox.png"]
   },
   {
     "id": "8586762813639",
@@ -107,8 +121,8 @@ const PRODUCTS = [
     "topNotes": [],
     "midNotes": [],
     "baseNotes": [],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island3.jpg",
-    "detailImages": ["https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island2.jpg?v=1767168643"]
+    "img": "./assets/images/gifsets/island_nobox.png",
+    "detailImages": ["./assets/images/gifsets/island_nobox.png"]
   },
   {
     "id": 8783764291783,
