@@ -1069,7 +1069,49 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       
       
 
-{/* ── FEATURED PRODUCTS ── */}
+      {/* ── WHAT SETS US APART ── */}
+      <section style={{display:"flex", flexWrap:"wrap", background:"#f6f4f0"}}>
+        {/* Left Content Area */}
+        <div style={{flex:"1 1 50%", padding:"8vw 6%", minWidth:300, display:"flex", flexDirection:"column", justifyContent:"center"}}>
+          <h2 className="disp" style={{fontSize:"clamp(32px, 4vw, 48px)", fontWeight:600, color:"#1a1125", lineHeight:1.1, marginBottom:24}}>
+            What Sets Khadlaj Apart
+          </h2>
+          <p style={{fontSize:15, color:"#4a4552", lineHeight:1.8, fontFamily:"'Montserrat',sans-serif", marginBottom:40, maxWidth:600}}>
+            Every Khadlaj fragrance is crafted using top-grade, internationally sourced perfume materials — the same grade used in original luxury fragrances worldwide. We use perfumer-grade, plant-based, halal ingredients to ensure safety, purity, and exceptional performance.
+          </p>
+          
+          <ul style={{listStyle:"none", padding:0, margin:"0 0 48px", display:"flex", flexDirection:"column", gap:16, color:"#333", fontFamily:"'Montserrat',sans-serif", fontSize:14, fontWeight:500}}>
+            {[
+              "150+ Premium Perfumes, the region's finest fragrance range",
+              "10+ Hand-Crafted Luxury Collections",
+              "Pure Premium Attars & Oils",
+              "Vegan & Cruelty Free",
+              "Free of Harmful Chemicals",
+              "Long-Lasting Formula — 12+ Hours",
+              "Proudly Made in the UAE",
+              "50,000+ Happy Customers Worldwide"
+            ].map((point, i) => (
+                <li key={i} style={{display:"flex", alignItems:"center", gap:12}}>
+                  <div style={{width:6, height:6, borderRadius:"50%", background:"#1a1125", flexShrink:0}}/>
+                  {point}
+                </li>
+            ))}
+          </ul>
+          
+          <div>
+            <button className="btn-dark" onClick={()=>setPage("story")} style={{padding:"16px 40px", borderRadius:4, fontSize:13, letterSpacing:1}}>
+              Read More
+            </button>
+          </div>
+        </div>
+
+        {/* Right Image Area */}
+        <div style={{flex:"1 1 50%", minWidth:300, position:"relative", minHeight:"600px"}}>
+          <img src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-3.jpg?v=1775636549" alt="Khadlaj Luxury Perfume" style={{position:"absolute", width:"100%", height:"100%", objectFit:"cover"}} />
+        </div>
+      </section>
+
+      {/* ── FEATURED PRODUCTS ── */}
       <section style={{padding:"0 5% 104px",background:"#fff"}}>
         <div style={{paddingTop:96,marginBottom:52,display:"flex",alignItems:"flex-end",justifyContent:"space-between",flexWrap:"wrap",gap:16}}>
           <div style={{textAlign:"left"}}>
