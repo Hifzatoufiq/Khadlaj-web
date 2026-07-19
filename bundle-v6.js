@@ -22073,7 +22073,7 @@ var GLOBAL_CSS = `
   
   .k25-card { 
     width: 380px; margin: 0 20px; scroll-snap-align: center;
-    background: #1a1125; border: 1px solid rgba(200,169,126,0.3);
+    background: #251737; border: 1px solid rgba(200,169,126,0.3);
     border-radius: 200px 200px 16px 16px;
     overflow: hidden; position: relative; 
     transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); 
@@ -22110,7 +22110,7 @@ var GLOBAL_CSS = `
   .k25-card-content { 
     padding: 20px 30px 40px; text-align: center; position: relative; z-index: 2;
     display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
-    width: 100%; background: #1a1125;
+    width: 100%; background: #251737;
     flex-grow: 1; transition: all 0.6s ease;
   }
   
