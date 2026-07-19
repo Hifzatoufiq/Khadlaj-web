@@ -54,125 +54,4832 @@ const STATS = [
 ];
 
 const PRODUCTS = [
-  { id: 4701, name: "LA FEDE INTOXICATE MYSTIQUE", col: "Lafede", price: 150, size: "100ml Extrait", badge: "For Him", gender: "Him", notes: ["Musk","Vanilla","Bergamot"], img: "./assets/images/products/intoxicate-mystique-cutout.png" },
-  { id: 4702, name: "LA FEDE EDGE INTENSE", col: "Lafede", price: 90, size: "100ml EDP", badge: "Unisex", gender: "Unisex", notes: ["Rose","Jasmine","Moss"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Edge_Intense-3.jpg?v=1776231578" },
-  { id: 4703, name: "LA FEDE EDGE ORIGINAL", col: "Lafede", price: 90, size: "100ml EDP", badge: "For Her", gender: "Her", notes: ["Amber","Vanilla","Jasmine"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Edge_Original-3.jpg?v=1776231633" },
-  { id: 4704, name: "LA FEDE SYMBOL OF LOVE", col: "Lafede", price: 110, size: "100ml EDP", badge: "For Her", gender: "Her", notes: ["Vanilla","Jasmine","Citrus"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Symbol_of_Love-3.jpg?v=1776230343" },
-  { id: 4705, name: "LA FEDE SYMBOL OF POWER", col: "Lafede", price: 110, size: "100ml EDP", badge: "Unisex", gender: "Unisex", notes: ["Jasmine","Bergamot","Patchouli"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Symbol_of_Power-3.jpg?v=1776230317" },
-  { id: 4706, name: "LA FEDE CHOCO BROWN", col: "Lafede", price: 100, size: "100ml EDP", badge: "For Her", gender: "Her", notes: ["Vanilla","Caramel","Chocolate"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Brown_Choco_4.jpg?v=1776231251" },
-  { id: 4707, name: "LA FEDE WHITE FOREST STRAWBERRY", col: "Lafede", price: 75, size: "100ml EDP", badge: "For Her", gender: "Her", notes: ["Amber","Vanilla","Rose"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/White_forest_strawberry_04.jpg?v=1776231284" },
-  { id: 4708, name: "LA FEDE CELESTE TOFFEE", col: "Lafede", price: 75, size: "100ml EDP", badge: "For Her", gender: "Her", notes: ["Musk","Vanilla","Tonka"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Toffee_04.jpg?v=1742357734" },
-  { id: 4709, name: "LA FEDE CELESTE FLUER", col: "Lafede", price: 75, size: "100ml EDP", badge: "For Her", gender: "Her", notes: ["Musk","Vanilla","Cedarwood"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Fleur_03.jpg?v=1742360819" },
-  { id: 4710, name: "LA FEDE CELESTE JOICE", col: "Lafede", price: 75, size: "100ml EDP", badge: "For Her", gender: "Her", notes: ["Vanilla","Rose","Jasmine"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Joice_03.jpg?v=1742361141" },
-  { id: 4711, name: "LA FEDE CELESTE AQUA", col: "Lafede", price: 75, size: "100ml EDP", badge: "Unisex", gender: "Unisex", notes: ["Musk","Amber","Jasmine"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Aqua_04.jpg?v=1742359413" },
-  { id: 4712, name: "LA FEDE INTOXICATE BLUE ELIXIR", col: "Lafede", price: 145, size: "100ml EDP", badge: "For Him", gender: "Him", notes: ["Vanilla","Bergamot","Lavender"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/5_c4a13b95-26a4-4cc9-88a2-95f2bc49601a.jpg?v=1724333212" },
-  { id: 4713, name: "LA FEDE INTOXICATE", col: "Lafede", price: 145, size: "100ml EDP", badge: "For Him", gender: "Him", notes: ["Musk","Amber","Vanilla"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_INTOXICATE_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965032.jpg?v=1722410335" },
-  { id: 4714, name: "LA FEDE AURA MANGA SPLASH", col: "Lafede", price: 70, size: "100ml EDP", badge: "For Her", gender: "Her", notes: ["Vanilla","Jasmine","Patchouli"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Manga_Splash_02.jpg?v=1776230669" },
-  { id: 4715, name: "LA FEDE AURA PISTA DESSERT", col: "Lafede", price: 70, size: "100ml EDP", badge: "For Her", gender: "Her", notes: ["Jasmine","Bergamot","Sandalwood"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Pista_dessert_03.jpg?v=1776230643" },
-  { id: 4716, name: "LA FEDE OPERA NOIR L'OR", col: "Lafede", price: 125, size: "100ml EDP", badge: "For Her", gender: "Her", notes: ["Oud","Rose","Jasmine"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_OPERA_NOIR_L_OR_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965191.png?v=1722410688" },
-  { id: 4717, name: "LA FEDE OPERA ROSE L'OR", col: "Lafede", price: 125, size: "100ml EDP", badge: "For Her", gender: "Her", notes: ["Musk","Vanilla","Rose"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_OPERA_ROSE_L_OR_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965204.png?v=1722410711" },
-  { id: 4718, name: "LA FEDE CRYSTALLIA IMPERIO", col: "Lafede", price: 130, size: "100ml EDP", badge: "Unisex", gender: "Unisex", notes: ["Amber","Jasmine","Sandalwood"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_CRYSTALLIA_IMPERIO_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965001.jpg?v=1776230499" },
-  { id: 4719, name: "LA FEDE CRYSTALLIA PRIMASO", col: "Lafede", price: 130, size: "100ml EDP", badge: "Unisex", gender: "Unisex", notes: ["Vanilla","Rose","Jasmine"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_CRYSTALLIA_PRIMASO_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965013.jpg?v=1776230465" },
-  { id: 4720, name: "LA FEDE MAGNUM EXTREME BLUE", col: "Lafede", price: 125, size: "100ml EDP", badge: "For Him", gender: "Him", notes: ["Vanilla","Ginger","Lavender"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_MAGNUM_EXTREME_BLUE_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965113.png?v=1722410527" },
-  { id: 4721, name: "LA FEDE MAGNUM WILD GREEN", col: "Lafede", price: 95, size: "100ml EDP", badge: "For Him", gender: "Him", notes: ["Musk","Amber","Vanilla"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_MAGNUM_WILD_GREEN_100ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965161.png?v=1722410622" },
-  { id: 4722, name: "LA FEDE MAGNUM GOLD EDITION", col: "Lafede", price: 125, size: "100ml EDP", badge: "For Him", gender: "Him", notes: ["Oud","Musk","Amber"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_MAGNUM_GOLD_EDITION_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965124.jpg?v=1722410550" },
-  { id: 4723, name: "LA FEDE MAGNUM SILVER EDITION", col: "Lafede", price: 125, size: "100ml EDP", badge: "For Him", gender: "Him", notes: ["Musk","Amber","Jasmine"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_MAGNUM_SILVER_EDITION_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965141.jpg?v=1722410580" },
-  { id: 4724, name: "LA FEDE AURA KISS OF ROSE", col: "Lafede", price: 70, size: "100ml EDP", badge: "For Her", gender: "Her", notes: ["Musk","Amber","Vanilla"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_AURA_KISS_OF_ROSE_100_ML_EDP_SPRAY_FOR_WOMEN_-_Khadlaj_Perfumes-1964980.jpg?v=1722410243" },
-  { id: 4725, name: "LA FEDE AURA CRISP FLOWER", col: "Lafede", price: 70, size: "100ml EDP", badge: "For Her", gender: "Her", notes: ["Musk","Vanilla","Jasmine"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_AURA_CRISP_FLOWER_100_ML_EDP_SPRAY_FOR_WOMEN_-_Khadlaj_Perfumes-1964971.jpg?v=1722410224" },
-  { id: 4726, name: "LA FEDE BELLE REVE SEGRATO VIOLA", col: "Lafede", price: 45, size: "100ml EDP", badge: "Unisex", gender: "Unisex", notes: ["Rose","Jasmine","Moss"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_BELLE_REVE_SEGRATO_VIOLA_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964993.jpg?v=1722410264" },
-  { id: 4727, name: "LA FEDE BELLA REVE DOLCE FLORE", col: "Lafede", price: 45, size: "100ml EDP", badge: "Unisex", gender: "Unisex", notes: ["Musk","Vanilla","Rose"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_BELLA_REVE_DOLCE_FLORE_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964987.jpg?v=1722410253" },
-  { id: 4728, name: "LA FEDE STATESMAN", col: "Lafede", price: 210, size: "75ml EDP", badge: "For Him", gender: "Him", notes: ["Amber","Vanilla","Bergamot"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_STATESMAN_75ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965211.jpg?v=1722410722" },
-  { id: 4729, name: "LA FEDE FIRST LADY", col: "Lafede", price: 210, size: "75ml EDP", badge: "For Her", gender: "Her", notes: ["Amber","Bergamot","Cedarwood"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_FIRST_LADY_75ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965021.jpg?v=1722410313" },
-  { id: 4730, name: "LA FEDE KINGSMAN", col: "Lafede", price: 210, size: "75ml EDP", badge: "For Him", gender: "Him", notes: ["Amber","Bergamot","Cedarwood"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_KINGSMAN_75ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965038.jpg?v=1722410344" },
-  { id: 4731, name: "LA FEDE MISS PREMIERE", col: "Lafede", price: 210, size: "75ml EDP", badge: "For Her", gender: "Her", notes: ["Musk","Rose","Jasmine"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_MISS_PREMIERE_75ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965168.jpg?v=1722410631" },
-  { id: 4732, name: "CODE MARRON OUD", col: "Lafede", price: 210, size: "100ml EDP", badge: "Unisex", gender: "Unisex", notes: ["Oud","Amber","Vanilla"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CODE_MARRON_OUD_100ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964258.jpg?v=1722409085" },
-  { id: 4733, name: "CODE ROUGE AMOUR", col: "Lafede", price: 210, size: "100ml EDP", badge: "For Him", gender: "Him", notes: ["Musk","Amber","Vanilla"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CODE_ROUGE_AMOUR_100ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964266.jpg?v=1722409101" },
-  { id: 4734, name: "CODE VERDE SUBLIME", col: "Lafede", price: 210, size: "100ml EDP", badge: "Unisex", gender: "Unisex", notes: ["Amber","Bergamot","Vetiver"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CODE_VERDE_SUBLIME_100ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964277.jpg?v=1722409110" },
-  { id: 4735, name: "CODE VIOLA NECTAR", col: "Lafede", price: 210, size: "100ml EDP", badge: "For Her", gender: "Her", notes: ["Musk","Bergamot","Patchouli"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CODE_VIOLA_NECTAR_100ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964283.jpg?v=1722409119" },
-  { id: 4736, name: "UNO INTIMO", col: "Lafede", price: 45, size: "100ml EDP", badge: "Unisex", gender: "Unisex", notes: ["Amber","Bergamot","Patchouli"], img: "./assets/images/products/uno-intimo-cutout.png" },
-  { id: 4737, name: "UNO SENSUALE", col: "Lafede", price: 55, size: "100ml EDP", badge: "Unisex", gender: "Unisex", notes: ["Musk","Amber","Vanilla"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/UNO_SENSUALE_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1966057.jpg?v=1722412374" },
-  { id: 4738, name: "UNO LUSSO", col: "Lafede", price: 42, size: "100ml EDP", badge: "Unisex", gender: "Unisex", notes: ["Musk","Vanilla","Rose"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/UNO_LUSSO_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1966048.jpg?v=1722412357" },
-  { id: 4739, name: "UNO DURABLE", col: "Lafede", price: 55, size: "100ml EDP", badge: "Unisex", gender: "Unisex", notes: ["Amber","Bergamot","Moss"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/UNO_DURABLE_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1966030.jpg?v=1722412319" },
-  { id: 4740, name: "LA FEDE LAVISH LUNA", col: "Lafede", price: 38, size: "100ml EDP", badge: "For Her", gender: "Her", notes: ["Vanilla","Sandalwood","Citrus"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_LAVISH_LUNA_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965055.png?v=1722410385" },
-  { id: 4741, name: "LA FEDE LAVISH ROUGE", col: "Lafede", price: 50, size: "100ml EDP", badge: "For Her", gender: "Her", notes: ["Musk","Amber","Rose"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_LAVISH_ROUGE_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965084.png?v=1722410458" },
-  { id: 4742, name: "LA FEDE LAVISH BLUSH", col: "Lafede", price: 50, size: "100ml EDP", badge: "For Her", gender: "Her", notes: ["Musk","Amber","Rose"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_LAVISH_BLUSH_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965051.png?v=1722410378" },
-  // ── Local products (own images) ──
-  { id:13, name:"Island",               col:"EAU DE PARFUM",    price:150, size:"100ml Extrait", badge:"Best Seller", gender:"Unisex", notes:["Marine","Amber","Oud"],        img:"./assets/images/products/island-packshot-tight_transparent.png" },
-  { id:14, name:"Cream Velvet",         col:"EAU DE PARFUM",    price:130, size:"100ml Extrait",      badge:"Best Seller", gender:"Unisex", notes:["Cream","Velvet","Musk"],        img:"./assets/images/products/cream-velvet_transparent.png" },
-  { id:15, name:"Cloud Candy",          col:"Atyaab",           price:325, size:"Gift Set",      badge:null,          gender:"Her",    notes:["Peach","Musk","Vanilla"],       img:"./assets/images/gifsets/cloudcandy_gift_transparent.png",     images:["./assets/images/gifsets/cloudcandy_gift_transparent.png","./assets/images/gifsets/cloudcandy_gift_transparent.png","./assets/images/products/cloud-candy-open-box.png","./assets/images/products/cloud-candy-back-box.png"] },
-  { id:16, name:"Strawberry Shake",     col:"Atyaab",           price:295, size:"100ml EDP",     badge:null,          gender:"Her",    notes:["Strawberry","Musk","Vanilla"],  img:"./assets/images/products/strawberry-shake_transparent.png" },
-  { id:17, name:"Biscotti Date Toffee", col:"Biscotti",           price:315, size:"100ml EDP",     badge:"New",         gender:"Unisex", notes:["Date","Coffee","Gourmand"],     img:"./assets/images/products/biscotti-date-toffee-cutout.png" },
-  { id:18, name:"Biscotti Melon Musk",  col:"Biscotti",           price:315, size:"100ml EDP",     badge:"New",         gender:"Unisex", notes:["Melon","Musk","Cream"],         img:"./assets/images/products/blue-glace-single-1-cutout.png" },
-  { id:20, name:"Shahi Oud",            col:"Master Perfumery", price:360, size:"100ml EDP",     badge:null,          gender:"Unisex", notes:["Oud","Amber","Saffron"],        img:"./assets/images/products/shahi-oud_transparent.png" },
-  { id:21, name:"Bleu Glacé",           col:"Atyaab",           price:275, size:"100ml EDP",     badge:"New",         gender:"Unisex", notes:["Marine","Bergamot","Musk"],     img:"./assets/images/products/bleu_glace_ai_transparent.png" },
-  // ── Live products from khadlaj-perfumes.com ──
-  { id:200, name:"Saraya",              col:"EAU DE PARFUM",    price:105, size:"60ml Extrait",  badge:"New",         gender:"Unisex", notes:["Amber","Bergamot","Vetiver"],   img:"./assets/images/products/saraya_transparent.png" },
-  { id:201, name:"Nafais Sharq Gift Set",col:"Atyaab",          price:150, size:"Gift Set",      badge:null,          gender:"Her",    notes:["Rose","Amber","Musk"],          img:"./assets/images/gifsets/nafais_gift_transparent.png" },
-
-  { id:203, name:"Zayaan Silver",       col:"Atyaab",           price:150, size:"100ml EDP",     badge:"New",         gender:"Him",    notes:["Citrus","Lavender","Sandalwood"],img:"./assets/images/products/zayaan-silver_transparent.png" },
-  { id:204, name:"Ihthiraam",           col:"EAU DE PARFUM",    price:150, size:"60ml Extrait",  badge:"New",         gender:"Unisex", notes:["Bergamot","Oud","Musk"],        img:"./assets/images/products/ihthiraam_transparent.png" },
-  { id:205, name:"Qarar",               col:"EAU DE PARFUM",    price:150, size:"60ml Extrait",  badge:"New",         gender:"Unisex", notes:["Oud","Leather","Vetiver"],      img:"./assets/images/products/qarar-cutout.png" },
-  { id:206, name:"Icon",                col:"Atyaab",           price:130, size:"100ml EDP",     badge:"Best Seller", gender:"Him",    notes:["Bergamot","Lavender","Amber"],  img:"./assets/images/products/icon_transparent.png" },
-  { id:208, name:"Panache",             col:"EAU DE PARFUM",    price:200, size:"100ml Extrait", badge:"Best Seller", gender:"Her",    notes:["Vanilla","Sandalwood","Musk"],  img:"./assets/images/products/panache-cutout.png" },
-  { id:209, name:"Onyx Silver",         col:"Atyaab",           price:125, size:"100ml EDP",     badge:"New",         gender:"Unisex", notes:["Bergamot","Patchouli","Tonka"], img:"./assets/images/products/onyx-silver_transparent.png" },
-  { id:210, name:"Nuha Bon Bon",        col:"Atyaab",           price:85,  size:"85ml EDP",      badge:"New",         gender:"Her",    notes:["Strawberry","Vanilla","Musk"],  img:"./assets/images/products/nuha-bon-bon-cutout.png" },
-  { id:211, name:"Sawaar",              col:"Master Perfumery", price:200, size:"100ml Extrait", badge:"Best Seller", gender:"Her",    notes:["Vanilla","Sandalwood","Amber"], img:"./assets/images/products/sawaar_transparent.png" },
-  { id:212, name:"Onyx",                col:"Atyaab",           price:125, size:"100ml EDP",     badge:"Best Seller", gender:"Him",    notes:["Cardamom","Sandalwood","Tonka"],img:"./assets/images/products/onyx_transparent.png" },
-  { id:213, name:"Shiyaaka",            col:"Master Perfumery", price:65,  size:"100ml EDP",     badge:"For Him", gender:"Him",    notes:["Bergamot","Vetiver","Cardamom"],img:"./assets/images/products/shiyaaka_transparent.png" },
-  { id:214, name:"Nafais Magrib",       col:"Atyaab",           price:110, size:"100ml EDP",     badge:"New",         gender:"Unisex", notes:["Citrus","Marine","Musk"],       img:"./assets/images/products/nafais-magrib_transparent.png" },
-  { id:215, name:"Island Gift Set",     col:"Master Perfumery", price:179, size:"Gift Set",      badge:null,          gender:"Unisex", notes:["Marine","Amber","Musk"],        img:"./assets/images/gifsets/island_gift_transparent.png" },
-  { id:216, name:"Cream Velvet Gift Set",col:"Master Perfumery",price:160, size:"Gift Set",      badge:null,          gender:"Unisex", notes:["Cream","Velvet","Musk"],        img:"./assets/images/gifsets/creamvelvet_gift_user.png" },
-
-  { id:22, name:"Hareem Al Sultan",     col:"Atyaab",           price:195, size:"75ml EDP",      badge:null,          gender:"Her",    notes:["Rose","Amber","Musk"],          img:"./assets/images/products/shahi-oud_transparent.png" },
-  { id:23, name:"Shiyaaka Shadow",      col:"Master Perfumery", price:340, size:"100ml EDP",     badge:"Limited",     gender:"Him",    notes:["Oud","Leather","Vetiver"],      img:"./assets/images/products/shiyaaka-shadow_transparent.png" },
-
-  // ── New Best Sellers (requested list additions) ──
-  { id:301, name:"Island Dreams",       col:"Master Perfumery", price:150, size:"100ml EDP",     badge:"For Her", gender:"Her",    notes:["Coconut","Vanilla","Musk"],     img:"./assets/images/products/island-dreams_transparent.png" },
-  { id: 2000, name: "Karus Gold Absolu", col: "Perfume Spray", price: 150.0, size: "100ml EDP", badge: "New", gender: "Unisex", notes: ["Bergamot", "Musk", "Oud"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/New_Project.png?v=1783662902" },
-  { id: 2001, name: "La Fede Aura Vanilla Milk", col: "Perfume Spray", price: 55.0, size: "100ml EDP", badge:"For Her", gender: "Her", notes: ["Bergamot", "Musk", "Oud"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_AURA_VANILLA_MILK_100_ML.png?v=1783938923" },
-
-  { id: 2003, name: "Khadlaj Saraya", col: "Perfume Spray", price: 105.0, size: "60ml Extrait", badge:"For Her", gender: "Her", notes: ["Bergamot", "Musk", "Oud"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/saraya_3.png?v=1783938953" },
-  { id: 2004, name: "Khadlaj Nafais Sharq", col: "Perfume Spray", price: 150.0, size: "Gift Set", badge: "New", gender: "Her", notes: ["Bergamot", "Musk", "Oud"], img: "./assets/images/gifsets/nafais_gift_transparent.png" },
-  { id: 2005, name: "Khadlaj Onyx Silver", col: "Perfume Spray", price: 160.0, size: "100ml EDP", badge:"Unisex", gender: "Unisex", notes: ["Bergamot", "Musk", "Oud"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OnyxSilver3.jpg?v=1783939577" },
-  { id: 2006, name: "Zayaan Silver", col: "Perfume Spray", price: 150.0, size: "100ml EDP", badge: "New", gender: "Unisex", notes: ["Bergamot", "Musk", "Oud"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Zayan_Silver-3.jpg?v=1783936580" },
-  { id: 2007, name: "Nuha Bon Bon", col: "Perfume Spray", price: 120.0, size: "85ml EDP", badge:"For Her", gender: "Her", notes: ["Bergamot", "Musk", "Oud"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/NUHA_BON_BON-03.jpg?v=1783939633" },
-
-  { id: 3001, name: "Khadlaj Ihthiraam", col: "Perfume Spray", price: 130.0, size: "60ml Extrait", badge:"For Her", gender: "Her", notes: ["Saffron", "Rose", "Musk"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-3.jpg?v=1783939279" },
-  { id: 3002, name: "Khadlaj Qarar", col: "Perfume Spray", price: 130.0, size: "60ml Extrait", badge: "New", gender: "Her", notes: ["Saffron", "Rose", "Musk"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Qarar-3.jpg?v=1783939057" },
-  { id: 3003, name: "Khadlaj Maya", col: "Perfume Spray", price: 50.0, size: "20ml Oil", badge:"Unisex", gender: "Unisex", notes: ["Saffron", "Rose", "Musk"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MAYA-02_c3c2b911-f853-426f-9a0f-01e3775ce526.jpg?v=1783939303" },
-  { id: 4000, name: "Khadlaj Icon", col: "Perfume Spray", price: 130.0, size: "100ml EDP", badge: "New", gender: "Unisex", notes: ["Vanilla", "Amber", "Oud"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Icon.1.jpg?v=1783939329" },
-  { id: 4001, name: "La Fede Intoxicate Mystique", col: "Perfume Spray", price: 150.0, size: "100ml Extrait", badge:"Unisex", gender: "Unisex", notes: ["Vanilla", "Amber", "Oud"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/IntoxicateMystique.3.png?v=1783939357" },
-  { id: 4002, name: "Bakhoor Fazaa", col: "Perfume Spray", price: 90.0, size: "120g Bakhoor", badge: "New", gender: "Unisex", notes: ["Vanilla", "Amber", "Oud"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Fazaa.1.jpg?v=1783939470" },
-  { id: 4003, name: "Bakhoor Izz", col: "Perfume Spray", price: 90.0, size: "120g Bakhoor", badge:"Unisex", gender: "Unisex", notes: ["Vanilla", "Amber", "Oud"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/bakhoor.1.jpg?v=1783939423" },
-  { id: 5000, name: "Oud Muattar Oud Al Rawda", col: "Perfume Spray", price: 35.0, size: "40g Bakhoor", badge:"Unisex", gender: "Unisex", notes: ["Cedarwood", "Jasmine", "Amber"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_OUD_AL_RAWDA.jpg?v=1783939385" },
-  { id: 5001, name: "Panache Angel Dust", col: "Perfume Spray", price: 200.0, size: "100ml Extrait", badge:"For Her", gender: "Her", notes: ["Cedarwood", "Jasmine", "Amber"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Panache_1_jpg_c97c705a-aebf-4bf9-a621-f11b565e765d.jpg?v=1783939496" },
-  { id: 5002, name: "Oud Muattar Bahraini", col: "Perfume Spray", price: 50.0, size: "60g Bakhoor", badge:"Unisex", gender: "Unisex", notes: ["Cedarwood", "Jasmine", "Amber"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OudMuattarBahraini.1_1.png?v=1783939522" },
-  { id: 5003, name: "Oud Muattar Kuwaiti", col: "Perfume Spray", price: 50.0, size: "60g Bakhoor", badge:"Unisex", gender: "Unisex", notes: ["Cedarwood", "Jasmine", "Amber"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CopyofOudMuattarKuwaiti.1.png?v=1783939555" },
-  { id: 6000, name: "Khadlaj Island Gift Set", col: "Perfume Spray", price: 179.0, size: "Gift Set", badge: "New", gender: "Unisex", notes: ["Cedarwood", "Jasmine", "Amber"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island2.jpg?v=1767168643" },
-  { id: 6001, name: "Sawaar Vanille Blanc", col: "Perfume Spray", price: 200.0, size: "100ml Extrait", badge:"For Her", gender: "Her", notes: ["Cedarwood", "Jasmine", "Amber"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SAWAAR-03.jpg?v=1783939807" },
-  { id: 6002, name: "Khadlaj Onyx Gold", col: "Perfume Spray", price: 125.0, size: "100ml EDP", badge: "New", gender: "Unisex", notes: ["Cedarwood", "Jasmine", "Amber"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ONYX-03.jpg?v=1783939937" },
-  { id: 6003, name: "Special Edition Shiyaaka Snow", col: "Perfume Spray", price: 126.0, size: "100ml EDP", badge:"Unisex", gender: "Unisex", notes: ["Cedarwood", "Jasmine", "Amber"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka_Shadow-3_bef3b7fa-b2c9-4ec5-adcc-0b3f9ac42034.jpg?v=1783941783" },
-  { id: 7000, name: "Khadlaj Nafais Magrib", col: "Perfume Spray", price: 110.0, size: "100ml EDP", badge:"For Her", gender: "Her", notes: ["Cedarwood", "Jasmine", "Amber"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais_Magrib-3.jpg?v=1783940515" },
-  { id: 7001, name: "Huroof Collection Gift Set", col: "Perfume Spray", price: 140.0, size: "Gift Set", badge:"For Her", gender: "Her", notes: ["Cedarwood", "Jasmine", "Amber"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/HuroofGiftBox-01.jpg?v=1761565289" },
-
-  { id: 8000, name: "Frash Qissa Eshq", col: "Perfume Spray", price: 35.0, size: "320ml Air Freshener", badge:"Unisex", gender: "Unisex", notes: ["Cedarwood", "Jasmine", "Amber"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Qisaa-Eshq-1.jpg?v=1761546490" },
-  { id: 8001, name: "Frash Qissa Turquoise", col: "Perfume Spray", price: 35.0, size: "320ml Air Freshener", badge:"Unisex", gender: "Unisex", notes: ["Cedarwood", "Jasmine", "Amber"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Qisaa-Turquoise-1.jpg?v=1761545495" },
-  { id: 8002, name: "Frash Sara", col: "Perfume Spray", price: 38.0, size: "320ml Air Freshener", badge:"Unisex", gender: "Unisex", notes: ["Cedarwood", "Jasmine", "Amber"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Sara-1.jpg?v=1761544374" },
-  { id: 8003, name: "Oud Pure Oud Jumeirah", col: "Perfume Spray", price: 200.0, size: "60ml EDP", badge:"For Her", gender: "Her", notes: ["Cedarwood", "Jasmine", "Amber"], img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Jumeirah-3.jpg?v=1783940923" },
+  {
+    "id": 8783764291783,
+    "name": "OUD MUATTAR MUBAKHAR 200G",
+    "col": "Bakhoor",
+    "price": 65,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OudMuattar_jpg.png?v=1784271987"
+  },
+  {
+    "id": 8757171159239,
+    "name": "KARUS GOLD ABSOLU 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/extra_visual_complimenting_the_overall_theme.png?v=1783490080"
+  },
+  {
+    "id": 8730021134535,
+    "name": "LA FEDE AURA VANILLA MILK 100 ML EDP SPRAY FOR WOMEN",
+    "col": "Lafede",
+    "price": 55,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/AURAVAN_2.png?v=1781349458"
+  },
+  {
+    "id": 7554136703175,
+    "name": "DEHNAL OUDH COMBODI 3ML",
+    "col": "Dehn Al Oudh",
+    "price": 65,
+    "size": "3ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/DEHNAL_OUDH_COMBODI_3ML_-_Khadlaj_Perfumes-1964319.jpg?v=1722409168"
+  },
+  {
+    "id": 8729896419527,
+    "name": "KHADLAJ SARAYA 60 ML EXTRAIT DE PARFUM SPRAY FOR MEN & WOMEN",
+    "col": "Extrait De Parfum",
+    "price": 105,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/saraya_1.jpg?v=1781332291"
+  },
+  {
+    "id": 8711671578823,
+    "name": "KHADLAJ PERFUMES NAFAIS SHARQ GIFT SET FOR WOMEN (EDP 100ML, BODY MIST SPRAY 250ML & PERFUME OIL 24ML)",
+    "col": "Gift Sets",
+    "price": 150,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-2.jpg?v=1779352739"
+  },
+  {
+    "id": 8711666925767,
+    "name": "KHADLAJ PERFUMES CREAM VELVET GIFT SET FOR WOMEN (EDP 100ML, BODY MIST SPRAY 250ML & PERFUME OIL 24ML)",
+    "col": "Gift Sets",
+    "price": 160,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-3.jpg?v=1779352383"
+  },
+  {
+    "id": 8679566770375,
+    "name": "ZAYAAN SILVER 100 ML EAU DE PARFUM FOR MEN",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ZayanSilver-1.jpg?v=1776430327"
+  },
+  {
+    "id": 8674610839751,
+    "name": "KHADLAJ SPECIAL MUKHALAT PERFUME OILS - DISCOVERY SET FOR MEN & WOMEN",
+    "col": "Gift Sets",
+    "price": 120,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KhadlajSpecial-3_2473ec8c-22e9-4cc7-a027-e237682d3c44.jpg?v=1776148221"
+  },
+  {
+    "id": 8674591408327,
+    "name": "THE GOURMAND COLLECTION BY KHADLAJ DISCOVERY SET FOR WOMEN",
+    "col": "Gift Sets",
+    "price": 125,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/TheGourmandCollection-2_52a94bd5-b24f-4e19-a2c3-4011791f16dc.jpg?v=1776147258"
+  },
+  {
+    "id": 8670778589383,
+    "name": "KHADLAJ IHTHIRAAM 60 ML EXTRAIT DE PARFUM SPRAY FOR MEN & WOMEN",
+    "col": "Extrait De Parfum",
+    "price": 130,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-1.jpg?v=1775635386"
+  },
+  {
+    "id": 8670809555143,
+    "name": "KHADLAJ QARAR 60 ML EXTRAIT DE PARFUM SPRAY FOR MEN & WOMEN",
+    "col": "Extrait De Parfum",
+    "price": 130,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Qarar-4.jpg?v=1775637258"
+  },
+  {
+    "id": 8659572293831,
+    "name": "KHADLAJ MAYA 20 ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Maya-infographics.jpg?v=1774346001"
+  },
+  {
+    "id": 8644257743047,
+    "name": "KHADLAJ ICON 100 ML EAU DE PARFUM SPRAY FOR MEN",
+    "col": "Eau De Parfum",
+    "price": 130,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Icon.3.jpg?v=1773206615"
+  },
+  {
+    "id": 8637240934599,
+    "name": "LA FEDE INTOXICATE MYSTIQUE 100 ML EXTRAIT DE PARFUM SPRAY FOR MEN",
+    "col": "Lafede",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/IntoxicateMystique.2.png?v=1772518819"
+  },
+  {
+    "id": 8626247041223,
+    "name": "BAKHOOR FAZAA 120 G",
+    "col": "Bakhoor",
+    "price": 90,
+    "size": "120 G",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Fazaa.3.jpg?v=1771483994"
+  },
+  {
+    "id": 8626292916423,
+    "name": "BAKHOOR IZZ 120 G",
+    "col": "Bakhoor",
+    "price": 90,
+    "size": "120 G",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Bakhoor.2.jpg?v=1771485596"
+  },
+  {
+    "id": 8633008914631,
+    "name": "OUD MUATTAR OUD AL RAWDA 40 G",
+    "col": "Bakhoor",
+    "price": 35,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/2_635fc15b-c7d6-4a21-a5df-6af1e6aac6ba.jpg?v=1772091740"
+  },
+  {
+    "id": 8624170139847,
+    "name": "PANACHE ANGEL DUST 100 ML EXTRAIT DE PARFUM SPRAY FOR WOMEN",
+    "col": "Extrait De Parfum",
+    "price": 200,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Panache_4_jpg_9a48384b-07d9-4332-9446-3afd35eb42ac.jpg?v=1771334327"
+  },
+  {
+    "id": 8622015447239,
+    "name": "OUD MUATTAR BAHRAINI 60 G",
+    "col": "Bakhoor",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Copy_of_OudMuattarBahraini.3.png?v=1771070678"
+  },
+  {
+    "id": 8608140460231,
+    "name": "OUD MUATTAR KUWAITI 60 G",
+    "col": "Bakhoor",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CopyofOudMuattarKuwaiti.4_d17eb7b5-4810-4d9c-be13-3397010d78bb.png?v=1771069657"
+  },
+  {
+    "id": 8604851437767,
+    "name": "KHADLAJ ONYX SILVER 100 ML EAU DE PARFUM FOR MEN AND WOMEN",
+    "col": "Eau De Parfum",
+    "price": 125,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Infographics_3.jpg?v=1769500010"
+  },
+  {
+    "id": 8597262368967,
+    "name": "NUHA BON BON 85 ML EAU DA PARFUM SPRAY FOR WOMEN",
+    "col": "Eau De Parfum",
+    "price": 85,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/NUHABONBON-01.jpg?v=1768477611"
+  },
+  {
+    "id": 8561538171079,
+    "name": "KHADLAJ STRAWBERRY SHAKE 100 ML EAU DE PARFUM SPRAY FOR WOMEN",
+    "col": "Eau De Parfum",
+    "price": 130,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/STRAWBERRY_SHAKE-04.jpg?v=1764228532"
+  },
+  {
+    "id": 8586765697223,
+    "name": "KHADLAJ CLOUD CANDY GIFT SET FOR WOMEN (EDP 100 ML, BODY SPRAY & PERFUME OIL ROLL ON 24 ML)",
+    "col": "Gift Sets",
+    "price": 169,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy4.jpg?v=1767169755"
+  },
+  {
+    "id": 8586762813639,
+    "name": "KHADLAJ ISLAND GIFT SET FOR HIM & HER (EDP 100 ML, BODY SPRAY & TRAVEL SIZE EDP 8 ML)",
+    "col": "Gift Sets",
+    "price": 179,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island4.jpg?v=1767168723"
+  },
+  {
+    "id": 8561163075783,
+    "name": "SAWAAR VANILLE BLANC 100 ML EXTRAIT DE PARFUM SPRAY FOR WOMEN",
+    "col": "Extrait De Parfum",
+    "price": 200,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SAWAAR-04.jpg?v=1764151317"
+  },
+  {
+    "id": 8540408479943,
+    "name": "KHADLAJ ONYX GOLD 100 ML EAU DE PARFUM FOR MEN",
+    "col": "Eau De Parfum",
+    "price": 125,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ONYX-04.jpg?v=1771045122"
+  },
+  {
+    "id": 8525945176263,
+    "name": "SPECIAL EDITION SHIYAAKA SNOW 100 ML EAU DE PARFUM FOR MEN",
+    "col": "Eau De Parfum",
+    "price": 126,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka_Shadow-2_6e5dfad3-1107-4934-9381-530aab4947df.jpg?v=1761113292"
+  },
+  {
+    "id": 8525961003207,
+    "name": "KHADLAJ NAFAIS MAGRIB 100 ML EAU DE PARFUM FOR MEN & WOMEN",
+    "col": "Eau De Parfum",
+    "price": 110,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KV-MAGRIB_revised_RESIZE_0360b6d6-6823-45f8-969c-6541e2f316ed.png?v=1771044919"
+  },
+  {
+    "id": 8530518868167,
+    "name": "HUROOF 3 PCS PERFUMES COLLECTION GIFT SET FOR MEN AND WOMEN",
+    "col": "Gift Sets",
+    "price": 140,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Huroof_Gift_Box-04.jpg?v=1761565412"
+  },
+  {
+    "id": 8530334679239,
+    "name": "OUD MUATTAR OUD HIND 24 G",
+    "col": "Bakhoor",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Hind-2.jpg?v=1761552400"
+  },
+  {
+    "id": 8530346279111,
+    "name": "OUD MUATTAR JUMEIRAH 24 G",
+    "col": "Bakhoor",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Jumeirah_Oud-2.jpg?v=1761553417"
+  },
+  {
+    "id": 8530211995847,
+    "name": "FRASH QISSA ESHQ AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 35,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Qisaa-Eshq-4.jpg?v=1761546631"
+  },
+  {
+    "id": 8530209407175,
+    "name": "FRASH QISSA TURQUOISE AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 35,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Qisaa-Turquoise-4.jpg?v=1761545652"
+  },
+  {
+    "id": 8530198069447,
+    "name": "FRASH SARA AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 38,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Sara-2.jpg?v=1761544487"
+  },
+  {
+    "id": 8526052262087,
+    "name": "OUD PURE OUD JUMEIRAH 60 ML MASTER PERFUMER COLLECTION EDP SPRAY FOR MEN & WOMEN",
+    "col": "Eau De Parfum",
+    "price": 200,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Jumeirah-4.jpg?v=1761130844"
+  },
+  {
+    "id": 8526040367303,
+    "name": "OUD PURE OUD BARAKAT 60 ML MASTER PERFUMER COLLECTION EDP SPRAY FOR MEN & WOMEN",
+    "col": "Eau De Parfum",
+    "price": 200,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Barakat-4.jpg?v=1761128935"
+  },
+  {
+    "id": 8525988200647,
+    "name": "OUD PURE OUD GALAZAID 60 ML MASTER PERFUMER COLLECTION EDP SPRAY FOR MEN & WOMEN",
+    "col": "Eau De Parfum",
+    "price": 200,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Galazaid-4.jpg?v=1761124960"
+  },
+  {
+    "id": 8516215439559,
+    "name": "KHADLAJ RIA 100 ML EAU DE PARFUM SPRAY FOR WOMEN",
+    "col": "Eau De Parfum",
+    "price": 125,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ria-2.jpg?v=1760188286"
+  },
+  {
+    "id": 8496480944327,
+    "name": "KHADLAJ MANSION 100 ML EAU DE PARFUM SPRAY FOR MEN AND WOMEN",
+    "col": "Eau De Parfum",
+    "price": 110,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Mansion-4.jpg?v=1758516798"
+  },
+  {
+    "id": 8488117600455,
+    "name": "PEACH VELVET 100 ML EXTRAIT DE PARFUM FOR WOMEN",
+    "col": "Extrait De Parfum",
+    "price": 130,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Peach_Velvet-04.jpg?v=1757677583"
+  },
+  {
+    "id": 8484193861831,
+    "name": "KHADLAJ TITAN 100 ML EAU DE PARFUM SPRAY FOR MEN",
+    "col": "Eau De Parfum",
+    "price": 110,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/TITAN-4.jpg?v=1757569342"
+  },
+  {
+    "id": 8473765675207,
+    "name": "BISCOTTI MELON MISK 100 ML EXTRAIT DE PARFUM SPRAY FOR WOMEN",
+    "col": "Extrait De Parfum",
+    "price": 110,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Biscotti_Melon_Misk-4.jpg?v=1776407629"
+  },
+  {
+    "id": 8471917723847,
+    "name": "GRAND COLLECTION 3 PIECES GIFT SET FOR WOMEN",
+    "col": "Gift Sets",
+    "price": 210,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/GrandGiftBox-03_3165934b-a570-4842-a425-aa3586ebf9ff.jpg?v=1756378107"
+  },
+  {
+    "id": 8459140759751,
+    "name": "KHADLAJ ISLAND DREAMS 100 ML EXTRAIT DE PARFUM",
+    "col": "Extrait De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island_Dreams-2.jpg?v=1754913375"
+  },
+  {
+    "id": 8457608462535,
+    "name": "LA FEDE CELEBRITY CRUSH 100ML EAU DE PARFUM",
+    "col": "Lafede",
+    "price": 130,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CELEBRITY_CRUSH-2.jpg?v=1754635450"
+  },
+  {
+    "id": 8457604071623,
+    "name": "LA FEDE CELEBRITY FAME 100ML EAU DE PARFUM",
+    "col": "Lafede",
+    "price": 130,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CELEBRITY_FAME-2.jpg?v=1754633724"
+  },
+  {
+    "id": 8443601223879,
+    "name": "ZAYAAN GOLD 100 ML EAU DE PARFUM FOR MEN",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Zayan_Gold-2_RESIZE.jpg?v=1754135197"
+  },
+  {
+    "id": 8416731889863,
+    "name": "LA FEDE EDGE INTENSE 100 ML EAU DE PARFUM FOR MEN & WOMEN",
+    "col": "Lafede",
+    "price": 90,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Edge_Intense-2.jpg?v=1776231578"
+  },
+  {
+    "id": 8416723861703,
+    "name": "LA FEDE EDGE ORIGINAL 100 ML EAU DE PARFUM FOR WOMEN",
+    "col": "Lafede",
+    "price": 90,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Edge_Original-2.jpg?v=1776231633"
+  },
+  {
+    "id": 8316886712519,
+    "name": "PRIVATE BLEND MUSK ICE EXTRAIT DE PARFUM 100 ML FOR WOMEN",
+    "col": "Extrait De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Musk",
+      "Floral",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Musk_Ice_04.jpg?v=1771398752"
+  },
+  {
+    "id": 8409302073543,
+    "name": "SPECIAL EDITION SHIYAAKA SHADOW 100 ML EAU DE PARFUM FOR MEN",
+    "col": "Eau De Parfum",
+    "price": 126,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka_Shadow-2_47aba695-803d-4144-8da4-03520663f712.jpg?v=1751436709"
+  },
+  {
+    "id": 8409289228487,
+    "name": "KHADLAJ NAFAIS SHARQ 100 ML EAU DE PARFUM FOR WOMEN",
+    "col": "Eau De Parfum",
+    "price": 110,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/NAFAIS-4.jpg?v=1751435284"
+  },
+  {
+    "id": 8398776959175,
+    "name": "BISCOTTI DATE TOFFEE 100 ML EXTRAIT DE PARFUM SPRAY FOR MEN & WOMEN",
+    "col": "Extrait De Parfum",
+    "price": 110,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Biscotti_Date_Toffee-2.jpg?v=1776407655"
+  },
+  {
+    "id": 8398776860871,
+    "name": "BISCOTTI CARAMEL POP 100 ML EXTRAIT DE PARFUM SPRAY FOR MEN & WOMEN",
+    "col": "Extrait De Parfum",
+    "price": 110,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Biscotti_Caramel_Pop-2.jpg?v=1776407678"
+  },
+  {
+    "id": 8386685599943,
+    "name": "OUD POUR LEATHER 100ML EDP SPRAY FOR MEN",
+    "col": "Eau De Parfum",
+    "price": 130,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/4_9ed32c65-3ec1-4a86-866e-9c0d4639a1c1.jpg?v=1748611017"
+  },
+  {
+    "id": 8385197375687,
+    "name": "OUD PURE MAGICAL THAI 3ML PURE PERFUME OIL",
+    "col": "Perfume Oils",
+    "price": 325,
+    "size": "3ML",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Magical_Thai_02.jpg?v=1748419221"
+  },
+  {
+    "id": 8385137639623,
+    "name": "DEHNAL OUD QAISAR SEUFI 3ML",
+    "col": "Dehn Al Oudh",
+    "price": 325,
+    "size": "3ML",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_OAISAR_SEUFI-4.jpg?v=1748414612"
+  },
+  {
+    "id": 8385113981127,
+    "name": "DEHNAL OUD SHEIKH QADIM 3ML",
+    "col": "Dehn Al Oudh",
+    "price": 325,
+    "size": "3ML",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_SHEIKH_OADIM-4.jpg?v=1748412371"
+  },
+  {
+    "id": 8375938580679,
+    "name": "SHUKRAN 4 PIECES SUMMER COLLECTION GIFT SET",
+    "col": "Gift Sets",
+    "price": 240,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shukran_Gift_Box-01.jpg?v=1747889782"
+  },
+  {
+    "id": 8361494839495,
+    "name": "CLOUD CANDY 100 ML EXTRAIT DE PARFUM SPRAY FOR WOMEN",
+    "col": "Extrait De Parfum",
+    "price": 130,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Cloud_Candy-2.jpg?v=1746078179"
+  },
+  {
+    "id": 8342080946375,
+    "name": "OUD MUATTAR QISSA 40 G",
+    "col": "Bakhoor",
+    "price": 35,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Qissa-02.jpg?v=1745840017"
+  },
+  {
+    "id": 8354691940551,
+    "name": "KHADLAJ ISLAND VANILLA DUNES 100 ML EXTRAIT DE PARFUM SPRAY",
+    "col": "Extrait De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Dunes_Static_2_copy.jpg?v=1744950927"
+  },
+  {
+    "id": 8342076129479,
+    "name": "OUD MUATTAR RUKAIYA 80 G",
+    "col": "Bakhoor",
+    "price": 35,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/2_6f08c36e-4beb-4b09-bdf6-fb68dd7b8427.jpg?v=1743684612"
+  },
+  {
+    "id": 8342075244743,
+    "name": "OUD MUATTAR AL BAHAAR 80 G",
+    "col": "Bakhoor",
+    "price": 27,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/2_a39244be-9fb7-4336-8e0c-7a6b8d964e4c.jpg?v=1743683567"
+  },
+  {
+    "id": 7734819553479,
+    "name": "MAISON L' IMAGINAIRE 100ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 158,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MAISON_L_IMAGINAIRE_100ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965355.jpg?v=1722411001"
+  },
+  {
+    "id": 8332571082951,
+    "name": "LA FEDE CELESTE JOICE 100 ML EAU DE PARFUM FOR WOMEN",
+    "col": "Lafede",
+    "price": 75,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Joice_03.jpg?v=1742361141"
+  },
+  {
+    "id": 8332579340487,
+    "name": "LA FEDE CELESTE FLUER 100 ML EAU DE PARFUM",
+    "col": "Lafede",
+    "price": 75,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Fleur_03.jpg?v=1742360819"
+  },
+  {
+    "id": 8332573081799,
+    "name": "LA FEDE CELESTE AQUA 100 ML EAU DE PARFUM",
+    "col": "Lafede",
+    "price": 75,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Aqua_04.jpg?v=1742359413"
+  },
+  {
+    "id": 8332570689735,
+    "name": "LA FEDE CELESTE TOFFEE 100 ML EAU DE PARFUM",
+    "col": "Lafede",
+    "price": 75,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Toffee_04.jpg?v=1742357734"
+  },
+  {
+    "id": 8331128668359,
+    "name": "LA FEDE SYMBOL OF LOVE 100 ML EAU DE PARFUM FOR WOMEN",
+    "col": "Lafede",
+    "price": 110,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Symbol_of_Love-3.jpg?v=1776230343"
+  },
+  {
+    "id": 8331129028807,
+    "name": "LA FEDE SYMBOL OF POWER 100 ML EAU DE PARFUM",
+    "col": "Lafede",
+    "price": 110,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Symbol_of_Power-3.jpg?v=1776230317"
+  },
+  {
+    "id": 8323950018759,
+    "name": "LA FEDE CHOCO BROWN 100 ML EAU DE PARFUM FOR WOMEN",
+    "col": "Lafede",
+    "price": 100,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Brown_Choco_4.jpg?v=1776231251"
+  },
+  {
+    "id": 8323929342151,
+    "name": "LA FEDE WHITE FOREST STRAWBERRY 100 ML EAU DE PARFUM FOR WOMEN",
+    "col": "Lafede",
+    "price": 75,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/White_forest_strawberry_04.jpg?v=1776231284"
+  },
+  {
+    "id": 8316886679751,
+    "name": "PRIVATE BLEND TOBAC EXTRA EXTRAIT DE PARFUM 100 ML",
+    "col": "Extrait De Parfum",
+    "price": 130,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Tobac_Extra_02.jpg?v=1740231906"
+  },
+  {
+    "id": 8263133561031,
+    "name": "MOCHA LATTE 100 ML EXTRAIT DE PARFUM SPRAY",
+    "col": "Extrait De Parfum",
+    "price": 100,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Mocha_Latte_02.jpg?v=1732862837"
+  },
+  {
+    "id": 8306104369351,
+    "name": "NUHA CHERRY BLUSH 85 ML EDP SPRAY FOR WOMEN",
+    "col": "Eau De Parfum",
+    "price": 85,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nuha_cherry_blush_02.jpg?v=1742290643"
+  },
+  {
+    "id": 8306103517383,
+    "name": "NUHA VANILLA PEARL 85 ML EDP SPRAY FOR WOMEN",
+    "col": "Eau De Parfum",
+    "price": 85,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nuha_Vanilla_Pearl_02.jpg?v=1738919720"
+  },
+  {
+    "id": 8300976472263,
+    "name": "DESERT ROSE 100 ML EXTRAIT DE PARFUM FOR WOMEN",
+    "col": "Extrait De Parfum",
+    "price": 130,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Desert_Rose_03.jpg?v=1738326632"
+  },
+  {
+    "id": 8300976341191,
+    "name": "BLEU GLACE 100 ML EXTRAIT DE PARFUM FOR MEN",
+    "col": "Extrait De Parfum",
+    "price": 130,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Bleu_Glace_03.jpg?v=1738325436"
+  },
+  {
+    "id": 8300764332231,
+    "name": "OPUS REBORN 100 ML EDP SPRAY FOR MEN",
+    "col": "Eau De Parfum",
+    "price": 90,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Opus_Reborn-04.jpg?v=1738300630"
+  },
+  {
+    "id": 8298206986439,
+    "name": "AZURE VELVET 100 ML EXTRAIT DE PARFUM",
+    "col": "Extrait De Parfum",
+    "price": 130,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Azure_Velvet_04.jpg?v=1737977940"
+  },
+  {
+    "id": 8297538945223,
+    "name": "JOHAYNA PURPLE 20 ML",
+    "col": "Perfume Oils",
+    "price": 45,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Perfume oil"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/3_c65ff337-7d6f-4807-aba0-e617570abc93.jpg?v=1737811492"
+  },
+  {
+    "id": 8297527967943,
+    "name": "ANABIA RED 20 ML",
+    "col": "Perfume Oils",
+    "price": 32,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Perfume oil"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/2_63be69de-5686-466a-a4e1-3d8c4b4962d2.jpg?v=1737806673"
+  },
+  {
+    "id": 8297521414343,
+    "name": "AMBER PURE 20 ML",
+    "col": "Perfume Oils",
+    "price": 45,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/2_a5852dcf-65ba-46de-ada7-c1be979dd92a.jpg?v=1737804730"
+  },
+  {
+    "id": 8289952399559,
+    "name": "ARABIAN TREASURE 20 ML",
+    "col": "Perfume Oils",
+    "price": 45,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/2_6df35fb1-e26c-46d6-af2a-a8eb3985c75c.jpg?v=1736916084"
+  },
+  {
+    "id": 8285560078535,
+    "name": "LA FEDE AURA PISTA DESSERT 100 ML EDP SPRAY FOR WOMEN",
+    "col": "Lafede",
+    "price": 70,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Pista_dessert_03.jpg?v=1776230643"
+  },
+  {
+    "id": 8285559816391,
+    "name": "LA FEDE AURA MANGA SPLASH 100 ML EDP SPRAY FOR WOMEN",
+    "col": "Lafede",
+    "price": 70,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Manga_Splash_02.jpg?v=1776230669"
+  },
+  {
+    "id": 8283965522119,
+    "name": "CREAM VELVET 100 ML EXTRAIT DE PARFUM FOR WOMEN",
+    "col": "Extrait De Parfum",
+    "price": 130,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet02.jpg?v=1736149095"
+  },
+  {
+    "id": 8276542390471,
+    "name": "RASAYEL VID 100 ML EAU DE PARFUM SPRAY FOR WOMEN",
+    "col": "Eau De Parfum",
+    "price": 90,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/3_01262bd2-f253-4b3d-9e5b-98a955cfa0a8.jpg?v=1776230721"
+  },
+  {
+    "id": 8276541243591,
+    "name": "RASAYEL SHAGAF 100 ML EAU DE PARFUM SPRAY FOR MEN",
+    "col": "Eau De Parfum",
+    "price": 90,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/3_32d7c1a6-95e5-4f8e-874f-f2c86ae58a5a.jpg?v=1776230769"
+  },
+  {
+    "id": 8275957448903,
+    "name": "SAQR AL BADIYA 100 ML EXTRAIT DE PARFUM SPRAY FOR MEN",
+    "col": "Extrait De Parfum",
+    "price": 140,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/1_861b563d-c8d8-4dd9-8eec-c71b7df34330.jpg?v=1734505060"
+  },
+  {
+    "id": 8263132709063,
+    "name": "CAFFE LATTE 100 ML EXTRAIT DE PARFUM SPRAY",
+    "col": "Extrait De Parfum",
+    "price": 100,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Cafe_Latte_02.jpg?v=1732860441"
+  },
+  {
+    "id": 8259368353991,
+    "name": "ANABIA BLUE 20ML",
+    "col": "Perfume Oils",
+    "price": 32,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Perfume oil"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/3_0fda46e3-b76b-4eeb-86d0-70981ce7cb19.jpg?v=1732252986"
+  },
+  {
+    "id": 8237332136135,
+    "name": "MUSK POUR AMBER 100ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 130,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Musk",
+      "Floral",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/4_22.jpg?v=1729333485"
+  },
+  {
+    "id": 8230609912007,
+    "name": "KHADLAJ CELEBRATION 3 PIECES GIFT SET",
+    "col": "Gift Sets",
+    "price": 150,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/khadlaj-celebration-gift-set.3jpg.jpg?v=1728482147"
+  },
+  {
+    "id": 8230573375687,
+    "name": "OUD POUR COLLECTION 3 PIECES DISCOVERY GIFT SET",
+    "col": "Gift Sets",
+    "price": 185,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/oud_pour_collection_discovery_gift_set1.jpg?v=1728478348"
+  },
+  {
+    "id": 8230517342407,
+    "name": "FAAKHAR 2 PIECES GIFT SET",
+    "col": "Gift Sets",
+    "price": 110,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Faakhar_Gift_Set_edp.jpg?v=1728475392"
+  },
+  {
+    "id": 8230479855815,
+    "name": "FLORAL COLLECTION 2 PCS EDP GIFT SET",
+    "col": "Gift Sets",
+    "price": 110,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/8.jpg?v=1728473163"
+  },
+  {
+    "id": 8210140102855,
+    "name": "OUD & MUSK 20 ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Perfume oil"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/2_f895ab7a-b9fd-4508-86e0-c6862c3323c2.jpg?v=1725714735"
+  },
+  {
+    "id": 8225224294599,
+    "name": "FURSAN BROWN 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 95,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/4_24df1924-f42f-49c4-a952-3baafb11cfaa.jpg?v=1727705273"
+  },
+  {
+    "id": 8221158047943,
+    "name": "FURSAN WHITE 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 90,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/4_17b65424-fa65-4e41-ab16-fce8aee4ddba.jpg?v=1727182710"
+  },
+  {
+    "id": 8220687958215,
+    "name": "MUSK COUTURE EDP SPRAY 100 ML",
+    "col": "Eau De Parfum",
+    "price": 118,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Musk",
+      "Floral",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/4_7efce928-5bee-410e-b72d-fd43e3f00849.jpg?v=1727096635"
+  },
+  {
+    "id": 8210117427399,
+    "name": "SARA 100 ML EXTRAIT DE PARFUM SPRAY FOR WOMEN",
+    "col": "Extrait De Parfum",
+    "price": 90,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/4_74d0bea6-1a4a-4977-9f87-347704104d0a.jpg?v=1725710763"
+  },
+  {
+    "id": 8207565914311,
+    "name": "GHADEER GOLD 100 ML EDP SPRAY FOR WOMEN",
+    "col": "Eau De Parfum",
+    "price": 85,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ghadeer_Gold_copy.jpg?v=1776230546"
+  },
+  {
+    "id": 8207561621703,
+    "name": "GHADEER SILVER 100 ML EDP SPRAY FOR MEN & WOMEN",
+    "col": "Eau De Parfum",
+    "price": 85,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ghadeer_Silver_copy.jpg?v=1776230585"
+  },
+  {
+    "id": 8207557296327,
+    "name": "MUSK AL SABAH 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 85,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Musk",
+      "Floral",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Musk_Alsabah_copy.jpg?v=1776231033"
+  },
+  {
+    "id": 8206430208199,
+    "name": "OUD AL SABAH 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 85,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Alsabah_copy.jpg?v=1776231101"
+  },
+  {
+    "id": 8203303518407,
+    "name": "PURE MUSK 20 ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Perfume oil"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/4_16.jpg?v=1724749017"
+  },
+  {
+    "id": 8203204690119,
+    "name": "JOHAYNA GREEN 20 ML",
+    "col": "Perfume Oils",
+    "price": 35,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Perfume oil"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/2_18.jpg?v=1724746085"
+  },
+  {
+    "id": 8199257358535,
+    "name": "LA FEDE INTOXICATE BLUE ELIXIR 100 ML EAU DE PARFUME SPRAY FOR MEN",
+    "col": "Lafede",
+    "price": 145,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/5_c4a13b95-26a4-4cc9-88a2-95f2bc49601a.jpg?v=1724333212"
+  },
+  {
+    "id": 8199234977991,
+    "name": "KHADLAJ ISLAND 100 ML EXTRAIT DE PARFUM SPRAY FOR MEN & WOMEN",
+    "col": "Extrait De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/5.jpg?v=1724330621"
+  },
+  {
+    "id": 8143006892231,
+    "name": "MUSK PURE MUSK BLEND CREATION OF IQBAL 60 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 200,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Musk",
+      "Floral",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MUSK_PURE_MUSK_BLEND_CREATION_OF_IQBAL_60_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965453.jpg?v=1722411187"
+  },
+  {
+    "id": 8138178920647,
+    "name": "KAYAAN SILVER 20 ML",
+    "col": "Perfume Oils",
+    "price": 100,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Perfume oil"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KAYAAN_SILVER_20_ML_-_Khadlaj_Perfumes-1964888.png?v=1722410062"
+  },
+  {
+    "id": 8137730195655,
+    "name": "LA FEDE MAGNUM EXTREME BLUE 100 ML EAU DE PARFUME SPRAY",
+    "col": "Lafede",
+    "price": 125,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_MAGNUM_EXTREME_BLUE_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965113.png?v=1722410527"
+  },
+  {
+    "id": 8137648177351,
+    "name": "LA FEDE MAGNUM WILD GREEN 100ML EAU DE PARFUME SPRAY",
+    "col": "Lafede",
+    "price": 95,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_MAGNUM_WILD_GREEN_100ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965161.png?v=1722410622"
+  },
+  {
+    "id": 8137641164999,
+    "name": "LA FEDE OPERA ROSE L'OR 100 ML EAU DE PARFUME SPRAY",
+    "col": "Lafede",
+    "price": 125,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_OPERA_ROSE_L_OR_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965204.png?v=1722410711"
+  },
+  {
+    "id": 8137639690439,
+    "name": "LA FEDE OPERA NOIR L'OR 100 ML EAU DE PARFUME SPRAY",
+    "col": "Lafede",
+    "price": 125,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_OPERA_NOIR_L_OR_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965191.png?v=1722410688"
+  },
+  {
+    "id": 8137137815751,
+    "name": "LA FEDE LAVISH BLUSH EDP SPRAY 100 ML",
+    "col": "Lafede",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_LAVISH_BLUSH_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965051.png?v=1722410378"
+  },
+  {
+    "id": 8137115205831,
+    "name": "LA FEDE LAVISH ROUGE EDP SPRAY 100 ML",
+    "col": "Lafede",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_LAVISH_ROUGE_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965084.png?v=1722410458"
+  },
+  {
+    "id": 8137080733895,
+    "name": "LA FEDE LAVISH LUNA EDP SPRAY 100 ML",
+    "col": "Lafede",
+    "price": 38,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_LAVISH_LUNA_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965064.jpg?v=1722410401"
+  },
+  {
+    "id": 8092526411975,
+    "name": "FRASH HAREEM AL SULTAN AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 35,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_HAREEM_AL_SULTAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964522.jpg?v=1722409483"
+  },
+  {
+    "id": 8092502786247,
+    "name": "OUD MUATTAR MAAMUL HANEEN 48 G",
+    "col": "Bakhoor",
+    "price": 21,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_MAAMUL_HANEEN_48_G_-_Khadlaj_Perfumes-1965673.jpg?v=1722411598"
+  },
+  {
+    "id": 8092416835783,
+    "name": "OUD MUATTAR MAAMUL WARDI 48 G",
+    "col": "Bakhoor",
+    "price": 21,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_MAAMUL_WARDI_48_G_-_Khadlaj_Perfumes-1965684.jpg?v=1722411621"
+  },
+  {
+    "id": 8092413296839,
+    "name": "OUD MUATTAR MAAMUL DAHABI 48 G",
+    "col": "Bakhoor",
+    "price": 21,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_MAAMUL_DAHABI_48_G_-_Khadlaj_Perfumes-1965662.jpg?v=1722411577"
+  },
+  {
+    "id": 8069288493255,
+    "name": "LA FEDE CRYSTALLIA PRIMASO 100 ML EAU DE PARFUME SPRAY",
+    "col": "Lafede",
+    "price": 130,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_CRYSTALLIA_PRIMASO_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965013.jpg?v=1776230465"
+  },
+  {
+    "id": 8069037031623,
+    "name": "LA FEDE CRYSTALLIA IMPERIO 100 ML EAU DE PARFUME SPRAY",
+    "col": "Lafede",
+    "price": 130,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_CRYSTALLIA_IMPERIO_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965001.jpg?v=1776230499"
+  },
+  {
+    "id": 8068803788999,
+    "name": "FRASH AFTER ECSTACY AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 35,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ASTER_ECSTACY_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964486.jpg?v=1722409424"
+  },
+  {
+    "id": 8055528456391,
+    "name": "QALBI LAK 2 PCS EDP GIFT SET",
+    "col": "Gift Sets",
+    "price": 110,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/QALBI_LAK_2_PCS_EDP_GIFT_SET_-_Khadlaj_Perfumes-1965811.jpg?v=1722411871"
+  },
+  {
+    "id": 8036476453063,
+    "name": "FRASH QISSA AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 35,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_QISSA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964622.jpg?v=1722409626"
+  },
+  {
+    "id": 8034253078727,
+    "name": "KAYAAN GOLD 20 ML",
+    "col": "Perfume Oils",
+    "price": 100,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KAYAAN_GOLD_20_ML_-_Khadlaj_Perfumes-1964871.jpg?v=1722410033"
+  },
+  {
+    "id": 7932349415623,
+    "name": "LE PRESTIGE BOLD 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LE_PRESTIGE_BOLD_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965227.jpg?v=1722410755"
+  },
+  {
+    "id": 7880529510599,
+    "name": "LE PRESTIGE EMPRESS  100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LE_PRESTIGE_EMPRESS_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965243.jpg?v=1722410792"
+  },
+  {
+    "id": 7871133450439,
+    "name": "LÉ PRESTIGE KING 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LE_PRESTIGE_KING_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965261.jpg?v=1722410823"
+  },
+  {
+    "id": 7887419048135,
+    "name": "LÉ PRESTIGE ROYAL 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LE_PRESTIGE_ROYAL_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965272.jpg?v=1722410843"
+  },
+  {
+    "id": 7923502710983,
+    "name": "FRASH AL MAJALIS AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 35,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_AL_MAJALIS_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964474.jpg?v=1722409409"
+  },
+  {
+    "id": 7923498844359,
+    "name": "FRASH SHAMOOKH AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 35,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_SHAMOOKH_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964647.jpg?v=1722409662"
+  },
+  {
+    "id": 7887478096071,
+    "name": "MALIKA GREEN 20 ML",
+    "col": "Perfume Oils",
+    "price": 100,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Perfume oil"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MALIKA_GREEN_20_ML_-_Khadlaj_Perfumes-1965389.jpg?v=1722411070"
+  },
+  {
+    "id": 7880505491655,
+    "name": "KHADLAJ 25 LOYALTY 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KHADLAJ_25_LOYALTY_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964943.jpg?v=1722410166"
+  },
+  {
+    "id": 7880500805831,
+    "name": "KHADLAJ 25 TRUST 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KHADLAJ_25_TRUST_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964951.jpg?v=1722410189"
+  },
+  {
+    "id": 7887475310791,
+    "name": "MALIKA RED 20 ML",
+    "col": "Perfume Oils",
+    "price": 100,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Perfume oil"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MALIKA_RED_20_ML_-_Khadlaj_Perfumes-1965405.jpg?v=1722411102"
+  },
+  {
+    "id": 7887470559431,
+    "name": "PINK MUSK 20 ML",
+    "col": "Perfume Oils",
+    "price": 100,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Perfume oil"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/PINK_MUSK_20_ML_-_Khadlaj_Perfumes-1965779.jpg?v=1722411818"
+  },
+  {
+    "id": 7887473180871,
+    "name": "PURPLE MUSK 20 ML",
+    "col": "Perfume Oils",
+    "price": 100,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Perfume oil"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/PURPLE_MUSK_20_ML_-_Khadlaj_Perfumes-1965799.jpg?v=1722411854"
+  },
+  {
+    "id": 7887397486791,
+    "name": "LA FEDE MAGNUM GOLD EDITION 100 ML EAU DE PARFUME SPRAY",
+    "col": "Lafede",
+    "price": 125,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_MAGNUM_GOLD_EDITION_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965124.jpg?v=1722410550"
+  },
+  {
+    "id": 7880493433031,
+    "name": "KHADLAJ 25 EXPERIENCE 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KHADLAJ_25_EXPERIENCE_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964901.jpg?v=1722410090"
+  },
+  {
+    "id": 7880390279367,
+    "name": "KHADLAJ 25 HERITAGE 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KHADLAJ_25_HERITAGE_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964916.jpg?v=1722410114"
+  },
+  {
+    "id": 7880382480583,
+    "name": "KHADLAJ 25 INTEGRITY 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KHADLAJ_25_INTEGRITY_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964928.jpg?v=1722410135"
+  },
+  {
+    "id": 7871045894343,
+    "name": "LA FEDE MAGNUM SILVER EDITION 100 ML EAU DE PARFUME SPRAY",
+    "col": "Lafede",
+    "price": 125,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_MAGNUM_SILVER_EDITION_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965141.jpg?v=1722410580"
+  },
+  {
+    "id": 7880367505607,
+    "name": "VALOR ENIGMA 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/VALOR_ENIGMA_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1966086.png?v=1722412439"
+  },
+  {
+    "id": 7880365375687,
+    "name": "VALOR MYSTIQUE 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/VALOR_MYSTIQUE_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1966132.png?v=1722412530"
+  },
+  {
+    "id": 7880362098887,
+    "name": "VALOR HONOR 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/VALOR_HONOR_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1966104.png?v=1722412477"
+  },
+  {
+    "id": 7880359706823,
+    "name": "VALOR CHIVALRY 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/VALOR_CHIVALRY_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1966066.jpg?v=1722412395"
+  },
+  {
+    "id": 7874350219463,
+    "name": "EMPIRE REGENT 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/EMPIRE_REGENT_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964380.jpg?v=1722409283"
+  },
+  {
+    "id": 7872604143815,
+    "name": "EMPIRE CROWN 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/EMPIRE_CROWN_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964333.jpg?v=1722409194"
+  },
+  {
+    "id": 7872603291847,
+    "name": "EMPIRE EMPRESS 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/EMPIRE_EMPRESS_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964358.jpg?v=1722409234"
+  },
+  {
+    "id": 7872601030855,
+    "name": "EMPIRE VICTOR 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/EMPIRE_VICTOR_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964416.jpg?v=1722409339"
+  },
+  {
+    "id": 7858357534919,
+    "name": "KARUS AMBER GOLD 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KARUS_AMBER_GOLD_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964826.jpg?v=1722409950"
+  },
+  {
+    "id": 7858351210695,
+    "name": "KARUS OUD FIRE 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KARUS_OUD_FIRE_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964847.jpg?v=1722409987"
+  },
+  {
+    "id": 7858340659399,
+    "name": "KARUS SECRET MUSK 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Musk",
+      "Floral",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KARUS_SECRET_MUSK_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964857.jpg?v=1722410004"
+  },
+  {
+    "id": 7858332958919,
+    "name": "KARUS BLU SPICE 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KARUS_BLU_SPICE_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964837.jpg?v=1722409967"
+  },
+  {
+    "id": 7852696993991,
+    "name": "BAKHOOR QUTOOF 55 GM",
+    "col": "Bakhoor",
+    "price": 35,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_QUTOOF_55_GM_-_Khadlaj_Perfumes-1964157.jpg?v=1722408931"
+  },
+  {
+    "id": 7838835802311,
+    "name": "HAREEM AL SULTAN 75 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 200,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/HAREEM_AL_SULTAN_75_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964710.jpg?v=1722409756"
+  },
+  {
+    "id": 7795424198855,
+    "name": "HAREEM AL SULTAN BLUE 35ML",
+    "col": "Perfume Oils",
+    "price": 75,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Perfume oil"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/HAREEM_AL_SULTAN_BLUE_35ML_-_Khadlaj_Perfumes-1964734.jpg?v=1722409795"
+  },
+  {
+    "id": 7792441295047,
+    "name": "RIMAAL GREEN 15 ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Perfume oil"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/RIMAAL_GREEN_15_ML_-_Khadlaj_Perfumes-1965849.jpg?v=1776231685"
+  },
+  {
+    "id": 7792438214855,
+    "name": "RIMAAL BROWN 15 ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Perfume oil"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/RIMAAL_BROWN_15_ML_-_Khadlaj_Perfumes-1965835.jpg?v=1776231735"
+  },
+  {
+    "id": 7792432414919,
+    "name": "WOW OUD 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 75,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/WOW_OUD_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1966165.jpg?v=1722412587"
+  },
+  {
+    "id": 7792427696327,
+    "name": "GAITH 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 85,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/GAITH_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964679.jpg?v=1722409712"
+  },
+  {
+    "id": 7792426582215,
+    "name": "NUHA 85 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 85,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/NUHA_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965518.jpg?v=1722411329"
+  },
+  {
+    "id": 7752183611591,
+    "name": "THE PROPOSAL SPECIAL OCCASION 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 200,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/THE_PROPOSAL_SPECIAL_OCCASION_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1966018.jpg?v=1722412292"
+  },
+  {
+    "id": 7752172765383,
+    "name": "THE PROPOSAL DATE NIGHT 100 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 200,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/THE_PROPOSAL_DATE_NIGHT_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1966005.jpg?v=1722412264"
+  },
+  {
+    "id": 7734805659847,
+    "name": "MAISON EPOQUE ARTISTIQUE 100ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 158,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MAISON_EPOQUE_ARTISTIQUE_100ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965320.jpg?v=1722410935"
+  },
+  {
+    "id": 7734795632839,
+    "name": "MAISON L' OR NOIR 100ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 158,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MAISON_L_OR_NOIR_100ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965373.jpg?v=1722411031"
+  },
+  {
+    "id": 7734460022983,
+    "name": "MAISON FLOR OUD 100ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 158,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MAISON_FLOR_OUD_100ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965338.jpg?v=1722410965"
+  },
+  {
+    "id": 7734459498695,
+    "name": "MAISON CREATION DE REVE 100ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 158,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MAISON_CREATION_DE_REVE_100ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965302.jpg?v=1722410900"
+  },
+  {
+    "id": 7726385529031,
+    "name": "INFINI ABSOLUTE EDP SPRAY 100 ML",
+    "col": "Eau De Parfum",
+    "price": 137,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/INFINI_ABSOLUTE_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1964802.jpg?v=1722409897"
+  },
+  {
+    "id": 7725565214919,
+    "name": "OUD LUXURY 4 PCS GIFT SET",
+    "col": "Gift Sets",
+    "price": 165,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_LUXURY_4_PCS_GIFT_SET_-_Khadlaj_Perfumes-1965592.jpg?v=1722411453"
+  },
+  {
+    "id": 7582155407559,
+    "name": "HAREEM AL SULTAN SILVER 35ML",
+    "col": "Perfume Oils",
+    "price": 75,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/HAREEM_AL_SULTAN_SILVER_35ML_-_Khadlaj_Perfumes-1964781.jpg?v=1722409866"
+  },
+  {
+    "id": 7582151672007,
+    "name": "HAREEM AL SULTAN GOLD 35ML",
+    "col": "Perfume Oils",
+    "price": 75,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/HAREEM_AL_SULTAN_GOLD_35ML_-_Khadlaj_Perfumes-1964755.jpg?v=1722409829"
+  },
+  {
+    "id": 7721533669575,
+    "name": "MUKHALATH MA'A WARD TAIBA 12 ML",
+    "col": "Perfume Oils",
+    "price": 280,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Perfume oil"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MUKHALATH_MA_A_WARD_TAIBA_12_ML_-_Khadlaj_Perfumes-1965438.jpg?v=1722411160"
+  },
+  {
+    "id": 7716614078663,
+    "name": "MAGNATE NOBLE 100ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 60,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MAGNATE_NOBLE_100ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965282.jpg?v=1722410859"
+  },
+  {
+    "id": 7716611293383,
+    "name": "MAGNATE PREMIER 100ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 60,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MAGNATE_PREMIER_100ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965288.jpg?v=1722410878"
+  },
+  {
+    "id": 7554205352135,
+    "name": "ROSE COUTURE EDP SPRAY 100 ML",
+    "col": "Eau De Parfum",
+    "price": 118,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ROSE_COUTURE_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965902.jpg?v=1722412060"
+  },
+  {
+    "id": 7677458972871,
+    "name": "OUD MUATTAR OUD AL MAQAAM 40 G",
+    "col": "Bakhoor",
+    "price": 35,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_OUD_AL_MAQAAM_40_G_-_Khadlaj_Perfumes-1965705.jpg?v=1722411668"
+  },
+  {
+    "id": 7677438492871,
+    "name": "OUD MUATTAR OUD AL SAADA 40 G",
+    "col": "Bakhoor",
+    "price": 35,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_OUD_AL_SAADA_40_G_-_Khadlaj_Perfumes-1965711.jpg?v=1722411681"
+  },
+  {
+    "id": 7676794765511,
+    "name": "LA FEDE BELLE REVE SEGRATO VIOLA 100 ML EDP SPRAY",
+    "col": "Lafede",
+    "price": 45,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_BELLE_REVE_SEGRATO_VIOLA_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964993.jpg?v=1722410264"
+  },
+  {
+    "id": 7676794339527,
+    "name": "LA FEDE BELLA REVE DOLCE FLORE 100 ML EDP SPRAY",
+    "col": "Lafede",
+    "price": 45,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_BELLA_REVE_DOLCE_FLORE_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964987.jpg?v=1722410253"
+  },
+  {
+    "id": 7651533717703,
+    "name": "MYSTICAL INDIAN OUD PURE 60 ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 200,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MYSTICAL_INDIAN-2.jpg?v=1762347212"
+  },
+  {
+    "id": 7651506225351,
+    "name": "HANEEN ROSE GOLD 20 ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/HANEEN_ROSE_GOLD_20_ML_-_Khadlaj_Perfumes-1964707.jpg?v=1722409751"
+  },
+  {
+    "id": 7651482337479,
+    "name": "HANEEN GOLD 20 ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/HANEEN_GOLD_20_ML_-_Khadlaj_Perfumes-1964697.jpg?v=1722409739"
+  },
+  {
+    "id": 7640196841671,
+    "name": "LA FEDE INTOXICATE 100 ML EDP SPRAY",
+    "col": "Lafede",
+    "price": 145,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_INTOXICATE_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965032.jpg?v=1722410335"
+  },
+  {
+    "id": 7640152965319,
+    "name": "BUKHOOR AL BAHAAR GOLD 55 G",
+    "col": "Bakhoor",
+    "price": 35,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BUKHOOR_AL_BAHAAR_GOLD_55_G_-_Khadlaj_Perfumes-1964230.jpg?v=1722409041"
+  },
+  {
+    "id": 7639215079623,
+    "name": "Mesmerizing Perfume Oil Set of 3 for Him & Her",
+    "col": "Perfume Oils",
+    "price": 69,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Deals"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Mesmerizing_Perfume_Oil_Set_of_3_for_Him_Her_-_Khadlaj_Perfumes-1965424.jpg?v=1722411133"
+  },
+  {
+    "id": 7638902571207,
+    "name": "Amazing Perfume Oil Set of 4 for Him",
+    "col": "Perfume Oils",
+    "price": 89,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Deals"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Amazing_Perfume_Oil_Set_of_4_for_Him_-_Khadlaj_Perfumes-1963945.jpg?v=1722408612"
+  },
+  {
+    "id": 7638901752007,
+    "name": "Enchant all with our Perfume Oil Set of 4 for Her",
+    "col": "Perfume Oils",
+    "price": 92,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Deals"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Enchant_all_with_our_Perfume_Oil_Set_of_4_for_Her_-_Khadlaj_Perfumes-1964431.jpg?v=1722409351"
+  },
+  {
+    "id": 7638899622087,
+    "name": "Exquisite Perfume Oil Set for Him and Her",
+    "col": "Perfume Oils",
+    "price": 69,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Deals"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Exquisite_Perfume_Oil_Set_for_Him_and_Her_-_Khadlaj_Perfumes-1964439.jpg?v=1722409361"
+  },
+  {
+    "id": 7638896869575,
+    "name": "Finest Perfume Oil Set for Him",
+    "col": "Perfume Oils",
+    "price": 69,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Deals"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Finest_Perfume_Oil_Set_for_Him_-_Khadlaj_Perfumes-1964454.jpg?v=1722409380"
+  },
+  {
+    "id": 7638896181447,
+    "name": "Luxurious Perfume Oil Set of 3 for Him",
+    "col": "Perfume Oils",
+    "price": 61,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Deals"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Luxurious_Perfume_Oil_Set_of_3_for_Him_-_Khadlaj_Perfumes-1965279.jpg?v=1722410854"
+  },
+  {
+    "id": 7627660591303,
+    "name": "OUD MUATTAR GHANAATI 100 G",
+    "col": "Bakhoor",
+    "price": 65,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_GHANAATI_100_G_-_Khadlaj_Perfumes-1965640.jpg?v=1722411540"
+  },
+  {
+    "id": 7627659509959,
+    "name": "OUD MUATTAR KHAWAATER 35 G",
+    "col": "Bakhoor",
+    "price": 35,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_KHAWAATER_35_G_-_Khadlaj_Perfumes-1965653.jpg?v=1722411561"
+  },
+  {
+    "id": 7602862031047,
+    "name": "STELLAR OUD 100 ML EDP SPRAY FOR MEN & WOMEN",
+    "col": "Eau De Parfum",
+    "price": 80,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/STELLAR_OUD_100_ML_EDP_SPRAY_FOR_MEN_WOMEN_-_Khadlaj_Perfumes-1965994.jpg?v=1722412243"
+  },
+  {
+    "id": 7602860949703,
+    "name": "STELLAR MUSK 100 ML EDP SPRAY FOR WOMEN",
+    "col": "Eau De Parfum",
+    "price": 80,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Musk",
+      "Floral",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/STELLAR_MUSK_100_ML_EDP_SPRAY_FOR_WOMEN_-_Khadlaj_Perfumes-1965981.jpg?v=1722412210"
+  },
+  {
+    "id": 7598654980295,
+    "name": "CASHMERE SUNSHINE MUSK 100 ML EDP SPRAY FOR MEN & WOMEN",
+    "col": "Eau De Parfum",
+    "price": 140,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Musk",
+      "Floral",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CASHMERE_SUNSHINE_MUSK_100_ML_EDP_SPRAY_FOR_MEN_WOMEN_-_Khadlaj_Perfumes-1964242.jpg?v=1776230402"
+  },
+  {
+    "id": 7598653505735,
+    "name": "CASHMERE WARM OUD 100 ML EDP SPRAY FOR MEN & WOMEN",
+    "col": "Eau De Parfum",
+    "price": 140,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CASHMERE_WARM_OUD_100_ML_EDP_SPRAY_FOR_MEN_WOMEN_-_Khadlaj_Perfumes-1964251.jpg?v=1776230425"
+  },
+  {
+    "id": 7598644396231,
+    "name": "LA FEDE AURA KISS OF ROSE 100 ML EDP SPRAY FOR WOMEN",
+    "col": "Lafede",
+    "price": 70,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_AURA_KISS_OF_ROSE_100_ML_EDP_SPRAY_FOR_WOMEN_-_Khadlaj_Perfumes-1964980.jpg?v=1722410243"
+  },
+  {
+    "id": 7598637777095,
+    "name": "LA FEDE AURA CRISP FLOWER 100 ML EAU DE PARFUME SPRAY FOR WOMEN",
+    "col": "Lafede",
+    "price": 70,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_AURA_CRISP_FLOWER_100_ML_EDP_SPRAY_FOR_WOMEN_-_Khadlaj_Perfumes-1964971.jpg?v=1722410224"
+  },
+  {
+    "id": 7582427381959,
+    "name": "MIBRAAK 18ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MIBRAAK_18ML_-_Khadlaj_Perfumes-1965429.jpg?v=1722411142"
+  },
+  {
+    "id": 7582424268999,
+    "name": "IBHAAR 18ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/IBHAAR_18ML_-_Khadlaj_Perfumes-1964791.jpg?v=1722409881"
+  },
+  {
+    "id": 7582421254343,
+    "name": "ASTOORA 18ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ASTOORA_18ML_-_Khadlaj_Perfumes-1963959.jpg?v=1722408632"
+  },
+  {
+    "id": 7582413947079,
+    "name": "FATIMA 15ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FATIMA_15ML_-_Khadlaj_Perfumes-1964450.jpg?v=1722409375"
+  },
+  {
+    "id": 7582409949383,
+    "name": "ANAB 18ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ANAB_18ML_-_Khadlaj_Perfumes-1963951.jpg?v=1722408623"
+  },
+  {
+    "id": 7582406574279,
+    "name": "AZAARI 17ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/AZAARI_17ML_-_Khadlaj_Perfumes-1963965.jpg?v=1722408643"
+  },
+  {
+    "id": 7582193680583,
+    "name": "GHAZLAAN 20ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/GHAZLAAN_20ML_-_Khadlaj_Perfumes-1964692.jpg?v=1722409728"
+  },
+  {
+    "id": 7582193057991,
+    "name": "RANIYA 18ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/RANIYA_18ML_-_Khadlaj_Perfumes-1965822.jpg?v=1722411890"
+  },
+  {
+    "id": 7582192304327,
+    "name": "AALIYA 27ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/AALIYA_27ML_-_Khadlaj_Perfumes-1963915.jpg?v=1722408574"
+  },
+  {
+    "id": 7582186242247,
+    "name": "ROOHI WA ROOHAK SILVER 20 ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ROOHI_WA_ROOHAK_SILVER_20_ML_-_Khadlaj_Perfumes-1965887.jpg?v=1722412025"
+  },
+  {
+    "id": 7582185095367,
+    "name": "ROOHI WA ROOHAK GOLD 20 ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ROOHI_WA_ROOHAK_GOLD_20_ML_-_Khadlaj_Perfumes-1965880.jpg?v=1722412014"
+  },
+  {
+    "id": 7582182899911,
+    "name": "ALF WARDAAT 30ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ALF_WARDAAT_30ML_-_Khadlaj_Perfumes-1963937.jpg?v=1722408602"
+  },
+  {
+    "id": 7582179262663,
+    "name": "AL FURSAN 18ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/AL_FURSAN_18ML_-_Khadlaj_Perfumes-1963922.jpg?v=1722408584"
+  },
+  {
+    "id": 7582167105735,
+    "name": "AL RIYAN 17ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/AL_RIYAN_17ML_-_Khadlaj_Perfumes-1963930.jpg?v=1722408593"
+  },
+  {
+    "id": 7582158979271,
+    "name": "JAMEEL 25ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/JAMEEL_25ML_-_Khadlaj_Perfumes-1964815.jpg?v=1722409916"
+  },
+  {
+    "id": 7582143119559,
+    "name": "ZAINAB 18 ML",
+    "col": "Perfume Oils",
+    "price": 45,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ZAINAB_18_ML_-_Khadlaj_Perfumes-1966174.jpg?v=1722412607"
+  },
+  {
+    "id": 7582139089095,
+    "name": "ROOH AL OUD 12 ML",
+    "col": "Dehn Al Oudh",
+    "price": 525,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ROOH_AL_OUD_12_ML_-_Khadlaj_Perfumes-1965867.jpg?v=1722412002"
+  },
+  {
+    "id": 7554095022279,
+    "name": "LAK WAHDAK 3 PCS GIFT SET",
+    "col": "Gift Sets",
+    "price": 126,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LAK_WAHDAK_3_PCS_GIFT_SET_-_Khadlaj_Perfumes-1965217.jpg?v=1722410731"
+  },
+  {
+    "id": 7554131591367,
+    "name": "FAKHAMA 3 PCS GIFT SET FOR WOMEN",
+    "col": "Gift Sets",
+    "price": 126,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FAKHAMA_3_PCS_GIFT_SET_FOR_WOMEN_-_Khadlaj_Perfumes-1964443.jpg?v=1722409366"
+  },
+  {
+    "id": 7554131984583,
+    "name": "ROYAL OUD 4 PCS GIFT SET",
+    "col": "Gift Sets",
+    "price": 158,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ROYAL_OUD_4_PCS_GIFT_SET_-_Khadlaj_Perfumes-1965908.jpg?v=1722412073"
+  },
+  {
+    "id": 7554136441031,
+    "name": "MY PARADISE 3 PCS GIFT SET",
+    "col": "Gift Sets",
+    "price": 150,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MY_PARADISE_3_PCS_GIFT_SET_-_Khadlaj_Perfumes-1965503.jpg?v=1722411282"
+  },
+  {
+    "id": 7554129625287,
+    "name": "FRASH DALOUAA AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 35,
+    "size": "320 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_DALOUAA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964500.jpg?v=1722409444"
+  },
+  {
+    "id": 7554137391303,
+    "name": "FRASH ZAHOOR AL KHALEEJ AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 38,
+    "size": "320 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ZAHOOR_AL_KHALEEJ_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964657.jpg?v=1722409676"
+  },
+  {
+    "id": 7554137456839,
+    "name": "FRASH ROMANCIA AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 38,
+    "size": "320 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ROMANCIA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964635.jpg?v=1722409643"
+  },
+  {
+    "id": 7554137555143,
+    "name": "FRASH MAKHMALI AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 38,
+    "size": "320 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAKHMALI_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964592.jpg?v=1722409579"
+  },
+  {
+    "id": 7554137522375,
+    "name": "FRASH MUSKY AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 38,
+    "size": "320 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MUSKY_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964605.jpg?v=1722409598"
+  },
+  {
+    "id": 7554137489607,
+    "name": "FRASH NASEEM AL WARD AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 38,
+    "size": "320 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_NASEEM_AL_WARD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964612.jpg?v=1722409609"
+  },
+  {
+    "id": 7554137915591,
+    "name": "BARWAAZ SOLID GREY EDP SPRAY 100ML",
+    "col": "Eau De Parfum",
+    "price": 35,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BARWAAZ_SOLID_GREY_EDP_SPRAY_100ML_-_Khadlaj_Perfumes-1964217.jpg?v=1722409024"
+  },
+  {
+    "id": 7554137653447,
+    "name": "FRASH LA YUQAWAM AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 38,
+    "size": "320 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_LA_YUQAWAM_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964541.jpg?v=1722409506"
+  },
+  {
+    "id": 7554138505415,
+    "name": "OUD MUATTAR GHALIYA 35 G",
+    "col": "Bakhoor",
+    "price": 35,
+    "size": "35 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_GHALIYA_35_G_-_Khadlaj_Perfumes-1965629.jpg?v=1722411520"
+  },
+  {
+    "id": 7554138439879,
+    "name": "OUD MUATTAR MUNAWWARA 35 G",
+    "col": "Bakhoor",
+    "price": 35,
+    "size": "35 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_MUNAWWARA_35_G_-_Khadlaj_Perfumes-1965699.jpg?v=1722411655"
+  },
+  {
+    "id": 7554137981127,
+    "name": "BARWAAZ SADDLE BROWN EDP 100 ML",
+    "col": "Eau De Parfum",
+    "price": 35,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BARWAAZ_SADDLE_BROWN_EDP_100_ML_-_Khadlaj_Perfumes-1964207.jpg?v=1722409006"
+  },
+  {
+    "id": 7554143355079,
+    "name": "SHAMOOKH SILVER 20ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "20 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SHAMOOKH_SILVER_20ML_-_Khadlaj_Perfumes-1965936.jpg?v=1722412131"
+  },
+  {
+    "id": 7554143092935,
+    "name": "FRASH MUKHALLAT SHUYOOKHI AIR FRESHENER 320 ML",
+    "col": "Eau De Parfum",
+    "price": 37,
+    "size": "320 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MUKHALLAT_SHUYOOKHI_AIR_FRESHENER_320_ML_-_Khadlaj_Perfumes-1964599.jpg?v=1722409589"
+  },
+  {
+    "id": 7554138865863,
+    "name": "BAKHOOR HANEEN 100 GMS",
+    "col": "Bakhoor",
+    "price": 53,
+    "size": "100 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_HANEEN_100_GMS_-_Khadlaj_Perfumes-1964078.jpg?v=1722408815"
+  },
+  {
+    "id": 7554138767559,
+    "name": "BAKHOOR MAHA 100 GMS",
+    "col": "Bakhoor",
+    "price": 53,
+    "size": "100 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_MAHA_100_GMS_-_Khadlaj_Perfumes-1964122.jpg?v=1722408881"
+  },
+  {
+    "id": 7554143748295,
+    "name": "MUSK WA OUD EDP SPRAY 100 ML",
+    "col": "Eau De Parfum",
+    "price": 50,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MUSK_WA_OUD_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965480.jpg?v=1771046715"
+  },
+  {
+    "id": 7554143715527,
+    "name": "MUSK WA WARD EDP SPRAY 100 ML",
+    "col": "Eau De Parfum",
+    "price": 50,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Musk",
+      "Floral",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MUSK_WA_WARD_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965493.jpg?v=1722411263"
+  },
+  {
+    "id": 7554143518919,
+    "name": "UNO INTIMO EDP SPRAY 100 ML",
+    "col": "Eau De Parfum",
+    "price": 45,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/UNO_INTIMO_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1966039.jpg?v=1722412337"
+  },
+  {
+    "id": 7554144043207,
+    "name": "OUD MUATTAR RIMAAL 40GM",
+    "col": "Bakhoor",
+    "price": 37,
+    "size": "40 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_RIMAAL_40GM_-_Khadlaj_Perfumes-1965726.jpg?v=1722411709"
+  },
+  {
+    "id": 7554144010439,
+    "name": "OUD MUATTAR SAMOU AL OUD 40GM",
+    "col": "Bakhoor",
+    "price": 37,
+    "size": "40 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_SAMOU_AL_OUD_40GM_-_Khadlaj_Perfumes-1965734.jpg?v=1722411724"
+  },
+  {
+    "id": 7554143813831,
+    "name": "MUSK RASAAS EDP SPRAY 100 ML",
+    "col": "Eau De Parfum",
+    "price": 50,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Musk",
+      "Floral",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MUSK_RASAAS_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965464.jpg?v=1722411209"
+  },
+  {
+    "id": 7554204664007,
+    "name": "FRASH MAHASIN KHAWATER AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 37,
+    "size": "320 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_KHAWATER_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964568.jpg?v=1722409547"
+  },
+  {
+    "id": 7554204631239,
+    "name": "FRASH MAHASIN OUD AL AHBAB AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 37,
+    "size": "320 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_OUD_AL_AHBAB_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964575.jpg?v=1722409556"
+  },
+  {
+    "id": 7554204532935,
+    "name": "FRASH MAHASIN SILVER AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 37,
+    "size": "320 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_SILVER_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964583.jpg?v=1722409570"
+  },
+  {
+    "id": 7554204500167,
+    "name": "FRASH ZAHRET AL LAILAK AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 37,
+    "size": "320 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ZAHRET_AL_LAILAK_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964664.jpg?v=1722409686"
+  },
+  {
+    "id": 7554204860615,
+    "name": "FRASH MAHASIN ABAYA AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 37,
+    "size": "320 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_ABAYA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964548.jpg?v=1722409516"
+  },
+  {
+    "id": 7554204827847,
+    "name": "FRASH MAHASIN AL RIYAN AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 37,
+    "size": "320 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_AL_RIYAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964555.jpg?v=1722409529"
+  },
+  {
+    "id": 7554204729543,
+    "name": "FRASH MAHASIN GOLD AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 37,
+    "size": "320 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_GOLD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964561.jpg?v=1722409537"
+  },
+  {
+    "id": 7554204991687,
+    "name": "FRASH AL ABYAD AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 37,
+    "size": "320 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_AL_ABYAD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964462.jpg?v=1722409389"
+  },
+  {
+    "id": 7554204958919,
+    "name": "FRASH BINT AKABIR AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 37,
+    "size": "320 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_BINT_AKABIR_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964493.jpg?v=1722409435"
+  },
+  {
+    "id": 7554204926151,
+    "name": "FRASH FARFASHA AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 37,
+    "size": "320 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_FARFASHA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964506.jpg?v=1722409455"
+  },
+  {
+    "id": 7554204893383,
+    "name": "FRASH KASAR AL SAADA AIR FRESHENER 320ML",
+    "col": "Eau De Parfum",
+    "price": 37,
+    "size": "320 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Air freshner"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_KASAR_AL_SAADA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964534.jpg?v=1722409496"
+  },
+  {
+    "id": 7554205122759,
+    "name": "SHAMOOKH GOLD 20ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "20 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SHAMOOKH_GOLD_20ML_-_Khadlaj_Perfumes-1965930.jpg?v=1722412120"
+  },
+  {
+    "id": 7554205089991,
+    "name": "MAZOON GOLD 18ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "18 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MAZOON_GOLD_18ML_-_Khadlaj_Perfumes-1965415.jpg?v=1722411119"
+  },
+  {
+    "id": 7554205057223,
+    "name": "MAZOON ROSE GOLD 18 ML",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "18 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MAZOON_ROSE_GOLD_18_ML_-_Khadlaj_Perfumes-1965421.jpg?v=1722411128"
+  },
+  {
+    "id": 7554205319367,
+    "name": "UNO DURABLE EDP SPRAY 100 ML",
+    "col": "Eau De Parfum",
+    "price": 55,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/UNO_DURABLE_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1966030.jpg?v=1722412319"
+  },
+  {
+    "id": 7554205253831,
+    "name": "UNO LUSSO EDP SPRAY 100 ML",
+    "col": "Eau De Parfum",
+    "price": 42,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/UNO_LUSSO_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1966048.jpg?v=1722412357"
+  },
+  {
+    "id": 7554205221063,
+    "name": "UNO SENSUALE EDP SPRAY 100 ML",
+    "col": "Eau De Parfum",
+    "price": 55,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/UNO_SENSUALE_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1966057.jpg?v=1722412374"
+  },
+  {
+    "id": 7554205155527,
+    "name": "SHAHI OUD EDP SPRAY 100 ML",
+    "col": "Eau De Parfum",
+    "price": 35,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SHAHI_OUD_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965922.jpg?v=1722412102"
+  },
+  {
+    "id": 7554205515975,
+    "name": "MUSK SAHRA EDP SPRAY 100 ML",
+    "col": "Eau De Parfum",
+    "price": 50,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Musk",
+      "Floral",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MUSK_SAHRA_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965469.jpg?v=1771046641"
+  },
+  {
+    "id": 7554205384903,
+    "name": "ROSE AND ROMANCE EDP SPRAY 100 ML",
+    "col": "Eau De Parfum",
+    "price": 50,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ROSE_AND_ROMANCE_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965890.jpg?v=1722412035"
+  },
+  {
+    "id": 7554205647047,
+    "name": "SHIYAAKA BLUE 100ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 65,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.Blue.4.jpg?v=1771043727"
+  },
+  {
+    "id": 7554205614279,
+    "name": "SHIYAAKA FOR MEN 100ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 65,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.4.jpg?v=1771043858"
+  },
+  {
+    "id": 7554205581511,
+    "name": "SHIYAAKA WHITE FOR WOMEN 100ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 65,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.White.4.jpg?v=1771044128"
+  },
+  {
+    "id": 7554205548743,
+    "name": "SHIYAAKA GOLD 100ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 65,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.Gold.4_1.jpg?v=1771044263"
+  },
+  {
+    "id": 7554206204103,
+    "name": "BAKHOOR TAIBA 58 G",
+    "col": "Bakhoor",
+    "price": 32,
+    "size": "58 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_TAIBA_58_G_-_Khadlaj_Perfumes-1964192.jpg?v=1722408984"
+  },
+  {
+    "id": 7554206105799,
+    "name": "OUD MUATTAR AL AZRAQ 40GM",
+    "col": "Bakhoor",
+    "price": 35,
+    "size": "40 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_AL_AZRAQ_40GM_-_Khadlaj_Perfumes-1965617.jpg?v=1722411501"
+  },
+  {
+    "id": 7554206040263,
+    "name": "OUD MUATTAR BADAR 30 G",
+    "col": "Bakhoor",
+    "price": 21,
+    "size": "30 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_BADAR_30_G_-_Khadlaj_Perfumes-1965623.jpg?v=1722411510"
+  },
+  {
+    "id": 7554206007495,
+    "name": "OUD MUATTAR MAJNOON 50 G",
+    "col": "Bakhoor",
+    "price": 27,
+    "size": "50 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_MAJNOON_50_G_-_Khadlaj_Perfumes-1965693.jpg?v=1722411639"
+  },
+  {
+    "id": 7554206367943,
+    "name": "BAKHOOR BAIT AL ATHEEQ 65 G",
+    "col": "Bakhoor",
+    "price": 21,
+    "size": "65 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_BAIT_AL_ATHEEQ_65_G_-_Khadlaj_Perfumes-1964021.jpg?v=1722408727"
+  },
+  {
+    "id": 7554206302407,
+    "name": "BAKHOOR BAIT AL ISRA 65 G",
+    "col": "Bakhoor",
+    "price": 21,
+    "size": "65 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_BAIT_AL_ISRA_65_G_-_Khadlaj_Perfumes-1964029.jpg?v=1722408736"
+  },
+  {
+    "id": 7554206236871,
+    "name": "BAKHOOR MARAH 55 G",
+    "col": "Bakhoor",
+    "price": 21,
+    "size": "55 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_MARAH_55_G_-_Khadlaj_Perfumes-1964130.jpg?v=1722408892"
+  },
+  {
+    "id": 7554206499015,
+    "name": "BAKHOOR TAHIYA 60 G",
+    "col": "Bakhoor",
+    "price": 21,
+    "size": "60 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_TAHIYA_60_G_-_Khadlaj_Perfumes-1964182.jpg?v=1722408972"
+  },
+  {
+    "id": 7554206466247,
+    "name": "BAKHOOR ASDAAF 70 G",
+    "col": "Bakhoor",
+    "price": 21,
+    "size": "70 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_ASDAAF_70_G_-_Khadlaj_Perfumes-1963992.jpg?v=1722408680"
+  },
+  {
+    "id": 7554206400711,
+    "name": "BAKHOOR ATEEB 70 G",
+    "col": "Bakhoor",
+    "price": 21,
+    "size": "70 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_ATEEB_70_G_-_Khadlaj_Perfumes-1964000.jpg?v=1722408690"
+  },
+  {
+    "id": 7554206630087,
+    "name": "BAKHOOR MUDHELA 60 G",
+    "col": "Bakhoor",
+    "price": 21,
+    "size": "60 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_MUDHELA_60_G_-_Khadlaj_Perfumes-1964138.jpg?v=1722408902"
+  },
+  {
+    "id": 7554206597319,
+    "name": "BAKHOOR NOUF 100 GMS",
+    "col": "Bakhoor",
+    "price": 53,
+    "size": "100 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_NOUF_100_GMS_-_Khadlaj_Perfumes-1964145.jpg?v=1722408913"
+  },
+  {
+    "id": 7554206564551,
+    "name": "BAKHOOR RUKAIYA 55GM",
+    "col": "Bakhoor",
+    "price": 27,
+    "size": "55 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_RUKAIYA_55GM_-_Khadlaj_Perfumes-1964165.jpg?v=1722408945"
+  },
+  {
+    "id": 7554206531783,
+    "name": "BAKHOOR SOUGAH 55 G",
+    "col": "Bakhoor",
+    "price": 32,
+    "size": "55 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_SOUGAH_55_G_-_Khadlaj_Perfumes-1964174.jpg?v=1722408957"
+  },
+  {
+    "id": 7554206793927,
+    "name": "BAKHOOR HOOR AL AIN 72GM",
+    "col": "Bakhoor",
+    "price": 27,
+    "size": "72 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_HOOR_AL_AIN_72GM_-_Khadlaj_Perfumes-1964087.jpg?v=1722408826"
+  },
+  {
+    "id": 7554206695623,
+    "name": "BAKHOOR INSHERAH 55GM",
+    "col": "Bakhoor",
+    "price": 35,
+    "size": "55 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_INSHERAH_55GM_-_Khadlaj_Perfumes-1964101.jpg?v=1722408852"
+  },
+  {
+    "id": 7554206662855,
+    "name": "BAKHOOR KHULOOD 72 G",
+    "col": "Bakhoor",
+    "price": 27,
+    "size": "72 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_KHULOOD_72_G_-_Khadlaj_Perfumes-1964116.jpg?v=1722408872"
+  },
+  {
+    "id": 7554206892231,
+    "name": "BAKHOOR BAIT AL AHLAM 45 G",
+    "col": "Bakhoor",
+    "price": 21,
+    "size": "45 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_BAIT_AL_AHLAM_45_G_-_Khadlaj_Perfumes-1964006.jpg?v=1722408714"
+  },
+  {
+    "id": 7554120188103,
+    "name": "BAKHOOR AMAAR 100 GMS",
+    "col": "Bakhoor",
+    "price": 53,
+    "size": "100 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_AMAAR_100_GMS_-_Khadlaj_Perfumes-1963985.jpg?v=1722408671"
+  },
+  {
+    "id": 7554206957767,
+    "name": "BAKHOOR AL BAHAAR 55 G",
+    "col": "Bakhoor",
+    "price": 35,
+    "size": "55 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_AL_BAHAAR_55_G_-_Khadlaj_Perfumes-1963977.jpg?v=1722408658"
+  },
+  {
+    "id": 7554204467399,
+    "name": "OPULENCE SHAIKH 3 PCS GIFT SET FOR MEN",
+    "col": "Gift Sets",
+    "price": 150,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OPULENCE_SHAIKH_3_PCS_GIFT_SET_FOR_MEN_-_Khadlaj_Perfumes-1965581.jpg?v=1722411434"
+  },
+  {
+    "id": 7554204369095,
+    "name": "OPULENCE AMEERA 3 PCS GIFT SET FOR WOMEN",
+    "col": "Gift Sets",
+    "price": 150,
+    "size": "Gift Set",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OPULENCE_AMEERA_3_PCS_GIFT_SET_FOR_WOMEN_-_Khadlaj_Perfumes-1965549.jpg?v=1722411375"
+  },
+  {
+    "id": 7554206859463,
+    "name": "BAKHOOR GANAA 120GM",
+    "col": "Bakhoor",
+    "price": 90,
+    "size": "120 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_GANAA_120GM_-_Khadlaj_Perfumes-1964064.jpg?v=1722408792"
+  },
+  {
+    "id": 7554206826695,
+    "name": "BAKHOOR HAKIM 100gm",
+    "col": "Bakhoor",
+    "price": 74,
+    "size": "100 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_HAKIM_100gm_-_Khadlaj_Perfumes-1964071.jpg?v=1722408803"
+  },
+  {
+    "id": 7554206269639,
+    "name": "BAKHOOR BU KHALIFA 120 G",
+    "col": "Bakhoor",
+    "price": 90,
+    "size": "120 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_BU_KHALIFA_120_G_-_Khadlaj_Perfumes-1964043.jpg?v=1722408756"
+  },
+  {
+    "id": 7554206171335,
+    "name": "BAKHOOR KASHMEERI 120GM",
+    "col": "Bakhoor",
+    "price": 90,
+    "size": "120 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_KASHMEERI_120GM_-_Khadlaj_Perfumes-1964108.jpg?v=1722408862"
+  },
+  {
+    "id": 7554206138567,
+    "name": "OUD MUATTAR AFZAL 24GM",
+    "col": "Bakhoor",
+    "price": 63,
+    "size": "24 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_AFZAL_24GM_-_Khadlaj_Perfumes-1965612.jpg?v=1722411489"
+  },
+  {
+    "id": 7554205909191,
+    "name": "MUSK POUR NARCIS 100ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 130,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Musk",
+      "Floral",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/NARCIS_FRONT.jpg?v=1784007325"
+  },
+  {
+    "id": 7554205876423,
+    "name": "OUD POUR BLUEBERRY 100ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 130,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BLUEBERRY_FRONT.jpg?v=1784007486"
+  },
+  {
+    "id": 7554205843655,
+    "name": "OUD POUR KLASSIK 100ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 130,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KLASSIK_FRONT.jpg?v=1784007666"
+  },
+  {
+    "id": 7554205810887,
+    "name": "OUD POUR NOBLE 100ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 130,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/NOBLE_BOX_FRONT.jpg?v=1784007899"
+  },
+  {
+    "id": 7554205778119,
+    "name": "OUD POUR ROUGE 100ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 130,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ROUGE_FRONT.jpg?v=1784008013"
+  },
+  {
+    "id": 7554205745351,
+    "name": "OUD POUR SHAIKH 100ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 130,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_POUR_SHAIKH_100ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965770.jpg?v=1722411793"
+  },
+  {
+    "id": 7554205712583,
+    "name": "LA FEDE FIRST LADY 75ML EDP SPRAY",
+    "col": "Lafede",
+    "price": 210,
+    "size": "75 ml",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_FIRST_LADY_75ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965024.jpg?v=1722410317"
+  },
+  {
+    "id": 7554205679815,
+    "name": "LA FEDE MISS PREMIERE 75ML EDP SPRAY",
+    "col": "Lafede",
+    "price": 210,
+    "size": "75 ml",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_MISS_PREMIERE_75ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965170.jpg?v=1722410635"
+  },
+  {
+    "id": 7554205483207,
+    "name": "PURE MUSK EDP SPRAY 100 ML",
+    "col": "Eau De Parfum",
+    "price": 50,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Musk",
+      "Floral",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/PURE_MUSK_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965784.jpg?v=1722411824"
+  },
+  {
+    "id": 7554205450439,
+    "name": "OMBRE NOTES EDP SPRAY 100 ML",
+    "col": "Eau De Parfum",
+    "price": 118,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OMBRE_NOTES_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965538.jpg?v=1722411355"
+  },
+  {
+    "id": 7554205188295,
+    "name": "INFINI EDP SPRAY 100ML",
+    "col": "Eau De Parfum",
+    "price": 53,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/INFINI_EDP_SPRAY_100ML_-_Khadlaj_Perfumes-1964805.jpg?v=1722409902"
+  },
+  {
+    "id": 7554143617223,
+    "name": "SENSUOS NIGHT EDP SPRAY 100 ML",
+    "col": "Eau De Parfum",
+    "price": 118,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SENSUOS_NIGHT_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965917.jpg?v=1722412090"
+  },
+  {
+    "id": 7554138603719,
+    "name": "OUD MUATTAR KHALAB 100GM",
+    "col": "Bakhoor",
+    "price": 60,
+    "size": "100 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_KHALAB_100GM_-_Khadlaj_Perfumes-1965646.jpg?v=1722411552"
+  },
+  {
+    "id": 7554138341575,
+    "name": "OUD MUATTAR QAISER 100GM",
+    "col": "Bakhoor",
+    "price": 60,
+    "size": "100 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_QAISER_100GM_-_Khadlaj_Perfumes-1965717.jpg?v=1722411695"
+  },
+  {
+    "id": 7554138079431,
+    "name": "OUD NOIR 100ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 118,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_NOIR_100ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965745.jpg?v=1722411745"
+  },
+  {
+    "id": 7554130182343,
+    "name": "CODE MARRON OUD 100ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 210,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CODE_MARRON_OUD_100ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964258.jpg?v=1722409085"
+  },
+  {
+    "id": 7554130116807,
+    "name": "CODE ROUGE AMOUR 100ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 210,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CODE_ROUGE_AMOUR_100ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964266.jpg?v=1722409101"
+  },
+  {
+    "id": 7554130051271,
+    "name": "CODE VERDE SUBLIME 100ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 210,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CODE_VERDE_SUBLIME_100ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964277.jpg?v=1722409110"
+  },
+  {
+    "id": 7554130018503,
+    "name": "CODE VIOLA NECTAR 100ML EDP SPRAY",
+    "col": "Eau De Parfum",
+    "price": 210,
+    "size": "100 ml",
+    "badge": "",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CODE_VIOLA_NECTAR_100ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964283.jpg?v=1722409119"
+  },
+  {
+    "id": 7554129952967,
+    "name": "LA FEDE KINGSMAN 75ML EDP SPRAY",
+    "col": "Lafede",
+    "price": 210,
+    "size": "75 ml",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_KINGSMAN_75ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965041.jpg?v=1722410349"
+  },
+  {
+    "id": 7554129887431,
+    "name": "LA FEDE STATESMAN 75ML EDP SPRAY",
+    "col": "Lafede",
+    "price": 210,
+    "size": "75 ml",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LA_FEDE_STATESMAN_75ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965213.jpg?v=1722410727"
+  },
+  {
+    "id": 7554120155335,
+    "name": "BAKHOOR BELAD ZAYED 120GM",
+    "col": "Bakhoor",
+    "price": 90,
+    "size": "120 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_BELAD_ZAYED_120GM_-_Khadlaj_Perfumes-1964036.jpg?v=1722408746"
+  },
+  {
+    "id": 7554120089799,
+    "name": "BAKHOOR DHIYAFA 120GM",
+    "col": "Bakhoor",
+    "price": 90,
+    "size": "120 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_DHIYAFA_120GM_-_Khadlaj_Perfumes-1964052.jpg?v=1722408770"
+  },
+  {
+    "id": 7554120057031,
+    "name": "BAKHOOR DUKHOON MAKNOON 100 G",
+    "col": "Bakhoor",
+    "price": 74,
+    "size": "100 g",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BAKHOOR_DUKHOON_MAKNOON_100_G_-_Khadlaj_Perfumes-1964060.jpg?v=1722408782"
+  },
+  {
+    "id": 7554119958727,
+    "name": "WILD INDONESIAN OUD PURE EDP SPRAY 60 ML",
+    "col": "Eau De Parfum",
+    "price": 200,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Wild_Indonesian-04.jpg?v=1764136825"
+  },
+  {
+    "id": 7554119925959,
+    "name": "DEHNAL OUD AQDAM 3ML",
+    "col": "Dehn Al Oudh",
+    "price": 95,
+    "size": "3 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/DEHNAL_OUD_AQDAM_3ML_-_Khadlaj_Perfumes-1964290.jpg?v=1722409129"
+  },
+  {
+    "id": 7554119893191,
+    "name": "DEHNAL OUD AZEEM 3ML",
+    "col": "Dehn Al Oudh",
+    "price": 95,
+    "size": "3 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/DEHNAL_OUD_AZEEM_3ML_-_Khadlaj_Perfumes-1964297.jpg?v=1722409138"
+  },
+  {
+    "id": 7554119860423,
+    "name": "DEHNAL OUD TURAAS 3ML",
+    "col": "Dehn Al Oudh",
+    "price": 95,
+    "size": "3 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/DEHNAL_OUD_TURAAS_3ML_-_Khadlaj_Perfumes-1964304.jpg?v=1722409149"
+  },
+  {
+    "id": 7554119794887,
+    "name": "DEHNAL OUDH ASAL 3 ML",
+    "col": "Dehn Al Oudh",
+    "price": 189,
+    "size": "3 ml",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/DEHNAL_OUDH_ASAL_3_ML_-_Khadlaj_Perfumes-1964311.jpg?v=1722409158"
+  }
 ];
 
-const GIFT_SETS = [
-  { id:5,  name:"Cloud Candy Gift Set",          price:169, pieces:3, img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy3.jpg?v=1767169755",          desc:"A soft peach-pink gift set with a playful, feminine profile and premium presentation." },
-  { id:6,  name:"Strawberry Shake Gift Set",      price:295, pieces:2, img:"./assets/images/gifsets/strawberry-shake-giftset.png",                                                               desc:"A playful rose-pink set with a feminine, candy-like finish." },
-  { id:7,  name:"Biscotti Date Toffee Gift Set",  price:315, pieces:2, img:"./assets/images/gifsets/biscotti-date-toffee-giftset.png",                                                           desc:"A warm gourmand set with rich coffee, date, and caramel styling." },
-  { id:8,  name:"Biscotti Melon Musk Gift Set",   price:315, pieces:2, img:"./assets/images/gifsets/biscotti-melon-musk-giftset.png",                                                            desc:"A soft pastel presentation for a fresh melon and musk composition." },
-  { id:9,  name:"Uno Intimo Gift Set",            price:285, pieces:2, img:"./assets/images/gifsets/uno-intimo-giftset.png",                                                                     desc:"An elegant, polished set with a refined feminine profile." },
-  { id:10, name:"Bleu Glacé Gift Set",            price:275, pieces:2, img:"./assets/images/gifsets/blue-glace-giftset.png",                                                                     desc:"A crisp blue presentation with a clean, modern freshness." },
-  { id:11, name:"Shahi Oud Gift Set",             price:360, pieces:2, img:"./assets/images/gifsets/shahi-oud-giftset.png",                                                                      desc:"A bold black-and-gold gift set with a rich oud signature." },
-  { id:12, name:"Island Gift Set",               price:179, pieces:3, img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island3.jpg?v=1767168724",              desc:"The signature Island scent in a luxury gift trio for him and her." },
-  { id:13, name:"Cream Velvet Gift Set",          price:160, pieces:3, img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-3.jpg?v=1779352383",        desc:"Buttery caramel and warm vanilla in a beautifully curated gift set." },
-  { id:14, name:"Nafais Sharq Gift Set",          price:150, pieces:3, img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-4.jpg?v=1779352739",      desc:"Rich florals, warm woods, and timeless Arabian allure." },
-];
 
 const REVIEWS = [
   { name:"Reem Al Hashimi",  country:"UAE",    stars:5, text:"The richest oud I've ever worn. Lasts 14+ hours on my skin. Khadlaj has a customer for life." },
