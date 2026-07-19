@@ -1070,7 +1070,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       
 
       {/* ── WHAT SETS US APART ── */}
-      <section style={{display:"flex", flexWrap:"wrap", background:"#120917"}}>
+      <section style={{display:"flex", flexWrap:"wrap", background:"#3c1152"}}>
         {/* Left Content Area */}
         <div style={{flex:"1 1 50%", padding:"8vw 6%", minWidth:300, display:"flex", flexDirection:"column", justifyContent:"center"}}>
           <h2 className="disp" style={{fontSize:"clamp(32px, 4vw, 48px)", fontWeight:600, color:"#fff", lineHeight:1.1, marginBottom:24}}>

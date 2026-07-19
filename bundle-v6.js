@@ -22766,7 +22766,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
         " fresh launches"
       ] }) })
     ] }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { display: "flex", flexWrap: "wrap", background: "#120917" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { display: "flex", flexWrap: "wrap", background: "#3c1152" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: "1 1 50%", padding: "8vw 6%", minWidth: 300, display: "flex", flexDirection: "column", justifyContent: "center" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(32px, 4vw, 48px)", fontWeight: 600, color: "#fff", lineHeight: 1.1, marginBottom: 24 }, children: "What Sets Khadlaj Apart" }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 15, color: "rgba(255,255,255,0.75)", lineHeight: 1.8, fontFamily: "'Montserrat',sans-serif", marginBottom: 40, maxWidth: 600 }, children: "Every Khadlaj fragrance is crafted using top-grade, internationally sourced perfume materials \u2014 the same grade used in original luxury fragrances worldwide. We use perfumer-grade, plant-based, halal ingredients to ensure safety, purity, and exceptional performance." }),
