@@ -21779,6 +21779,62 @@ var SCENT_RIBBON = [
 ];
 var PRODUCTS = [
   {
+    "id": "8711666925767",
+    "name": "CREAM VELVET GIFT SET",
+    "price": 160,
+    "size": "Gift Set",
+    "badge": "",
+    "col": "Gift Sets",
+    "gender": "Unisex",
+    "topNotes": [],
+    "midNotes": [],
+    "baseNotes": [],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-2.jpg?v=1779352384",
+    "detailImages": ["https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-2.jpg?v=1779352384"]
+  },
+  {
+    "id": "8674591408327",
+    "name": "THE GOURMAND COLLECTION BY KHADLAJ DISCOVERY SET FOR WOMEN",
+    "price": 125,
+    "size": "Gift Set",
+    "badge": "Sold Out",
+    "col": "Gift Sets",
+    "gender": "Unisex",
+    "topNotes": [],
+    "midNotes": [],
+    "baseNotes": [],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/TheGourmandCollection-2_52a94bd5-b24f-4e19-a2c3-4011791f16dc.jpg?v=1776147258",
+    "detailImages": ["https://cdn.shopify.com/s/files/1/0626/6119/8023/files/TheGourmandCollection-2_52a94bd5-b24f-4e19-a2c3-4011791f16dc.jpg?v=1776147258"]
+  },
+  {
+    "id": "8586765697223",
+    "name": "KHADLAJ CLOUD CANDY GIFT SET",
+    "price": 169,
+    "size": "Gift Set",
+    "badge": "",
+    "col": "Gift Sets",
+    "gender": "Unisex",
+    "topNotes": [],
+    "midNotes": [],
+    "baseNotes": [],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy3.jpg?v=1767169755",
+    "detailImages": ["https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy3.jpg?v=1767169755"]
+  },
+  {
+    "id": "8586762813639",
+    "name": "KHADLAJ ISLAND GIFT SET FOR HIM & HER",
+    "price": 179,
+    "size": "Gift Set",
+    "badge": "",
+    "col": "Gift Sets",
+    "gender": "Unisex",
+    "topNotes": [],
+    "midNotes": [],
+    "baseNotes": [],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island2.jpg?v=1767168643",
+    "detailImages": ["https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island2.jpg?v=1767168643"]
+  },
+  {
     "id": 8783764291783,
     "name": "OUD MUATTAR MUBAKHAR",
     "col": "Bakhoor",
@@ -21854,36 +21910,6 @@ var PRODUCTS = [
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/saraya_3.png?v=1783938953"
   },
   {
-    "id": 8711671578823,
-    "name": "NAFAIS SHARQ GIFT SET",
-    "col": "Gift Sets",
-    "price": 150,
-    "size": "Gift Set",
-    "badge": "New",
-    "gender": "Her",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-3.jpg?v=1779352739"
-  },
-  {
-    "id": 8711666925767,
-    "name": "CREAM VELVET GIFT SET",
-    "col": "Gift Sets",
-    "price": 160,
-    "size": "Gift Set",
-    "badge": "New",
-    "gender": "Her",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-4.jpg?v=1779352383"
-  },
-  {
     "id": 8679566770375,
     "name": "ZAYAAN SILVER",
     "col": "Eau De Parfum",
@@ -21897,21 +21923,6 @@ var PRODUCTS = [
       "Amber"
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Zayan_Silver-3.jpg?v=1783936580"
-  },
-  {
-    "id": 8674610839751,
-    "name": "KHADLAJ SPECIAL MUKHALAT PERFUME OILS - DISCOVERY SET",
-    "col": "Gift Sets",
-    "price": 120,
-    "size": "Gift Set",
-    "badge": "",
-    "gender": "Her",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KhadlajSpecial-2_28780ba7-e351-4765-99fa-6f064ac6a842.jpg?v=1776148221"
   },
   {
     "id": 8670778589383,
@@ -22124,36 +22135,6 @@ var PRODUCTS = [
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/STRAWBERRY_SHAKE-03.jpg?v=1783939703"
   },
   {
-    "id": 8586765697223,
-    "name": "KHADLAJ CLOUD CANDY GIFT SET",
-    "col": "Gift Sets",
-    "price": 169,
-    "size": "Gift Set",
-    "badge": "",
-    "gender": "Her",
-    "notes": [
-      "Oud",
-      "Woody",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy1.jpg?v=1767169755"
-  },
-  {
-    "id": 8586762813639,
-    "name": "KHADLAJ ISLAND GIFT SET FOR HIM & HER (",
-    "col": "Gift Sets",
-    "price": 179,
-    "size": "Gift Set",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island1.jpg?v=1767168752"
-  },
-  {
     "id": 8561163075783,
     "name": "SAWAAR VANILLE BLANC",
     "col": "Extrait De Parfum",
@@ -22211,7 +22192,7 @@ var PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais_Magrib-3.jpg?v=1783940515"
+    "img": "./assets/images/products/nafais_gift_set_nobox.jpg"
   },
   {
     "id": 8530334679239,
@@ -22415,7 +22396,7 @@ var PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island_Dreams-3.jpg?v=1783940088"
+    "img": "./assets/images/products/island_gift_set_nobox.jpg"
   },
   {
     "id": 8457608462535,
@@ -22535,7 +22516,7 @@ var PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/NAFAIS-3.jpg?v=1783943403"
+    "img": "./assets/images/products/nafais_gift_set_nobox.jpg"
   },
   {
     "id": 8398776959175,
@@ -22640,7 +22621,7 @@ var PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Cloud_Candy-3.jpg?v=1783945979"
+    "img": "./assets/images/products/cloud_candy_gift_set_nobox.jpg"
   },
   {
     "id": 8342080946375,
@@ -22670,7 +22651,7 @@ var PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island_Vanilla-3.jpg?v=1783945707"
+    "img": "./assets/images/products/island_gift_set_nobox.jpg"
   },
   {
     "id": 8342076129479,
@@ -23056,7 +23037,7 @@ var PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Cream_Velvet_03.jpg?v=1783947094"
+    "img": "./assets/images/products/creamvelvet_gift_set_nobox.jpg"
   },
   {
     "id": 8276542390471,
@@ -23145,21 +23126,6 @@ var PRODUCTS = [
       "Amber"
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/3_34.jpg?v=1783947834"
-  },
-  {
-    "id": 8230479855815,
-    "name": "FLORAL COLLECTION 2 PCS",
-    "col": "Gift Sets",
-    "price": 110,
-    "size": "Gift Set",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/1_3a2f964d-7677-459a-8ead-78182a5174eb.jpg?v=1728472953"
   },
   {
     "id": 8210140102855,
@@ -23348,7 +23314,7 @@ var PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KHADLAJ_ISLAND_100_ML.jpg?v=1783946296"
+    "img": "./assets/images/products/island_gift_set_nobox.jpg"
   },
   {
     "id": 8143006892231,
@@ -23583,21 +23549,6 @@ var PRODUCTS = [
       "Air freshner"
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ASTER_ECSTACY_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964479.jpg?v=1722409415"
-  },
-  {
-    "id": 8055528456391,
-    "name": "QALBI LAK 2 PCS",
-    "col": "Gift Sets",
-    "price": 110,
-    "size": "Gift Set",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/QALBI_LAK_2_PCS_EDP_GIFT_SET_-_Khadlaj_Perfumes-1965804.jpg?v=1722411860"
   },
   {
     "id": 8036476453063,
