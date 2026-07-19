@@ -157,7 +157,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-2.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-3.jpg"
   },
   {
     "id": 8679566770375,
