@@ -22070,80 +22070,74 @@ var GLOBAL_CSS = `
   .k25-slider-container::-webkit-scrollbar { display: none; }
   .k25-slider-track { display: flex; width: max-content; }
   
+  
   .k25-card { 
-    width: 420px; margin: 0 20px; scroll-snap-align: center;
-    background: transparent; border: none;
-    overflow: visible; position: relative; 
+    width: 380px; margin: 0 20px; scroll-snap-align: center;
+    background: #1a1125; border: 1px solid rgba(200,169,126,0.3);
+    border-radius: 200px 200px 16px 16px;
+    overflow: hidden; position: relative; 
     transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1); 
     display: flex; flex-direction: column; 
     align-items: center; align-self: stretch; justify-content: flex-start;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
   }
   .k25-card:hover { 
     transform: translateY(-15px); 
-  }
-  
-  @keyframes subtleZoomPan {
-    0% { transform: scale(1.02) translate(0, 0); }
-    50% { transform: scale(1.08) translate(-1%, 1%); }
-    100% { transform: scale(1.02) translate(0, 0); }
+    box-shadow: 0 30px 60px rgba(200,169,126,0.15);
+    border-color: rgba(200,169,126,0.8);
   }
   
   .k25-card-img-wrapper { 
-    height: 480px; width: 100%; overflow: hidden; position: relative; background: #FAF8F4; flex-shrink: 0; 
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    height: 420px; width: 100%; position: relative; 
+    background: radial-gradient(circle at 50% 50%, rgba(200,169,126,0.1) 0%, transparent 70%); 
+    flex-shrink: 0; 
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 200px 200px 0 0;
+    overflow: visible;
   }
-  .k25-card-img-wrapper::after {
-    content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(255,255,255,1), transparent 30%);
-    opacity: 0.8; transition: opacity 0.6s ease; pointer-events: none;
-  }
-  .k25-card:hover .k25-card-img-wrapper::after { opacity: 0; }
   
   .k25-card-img-wrapper img { 
-    width: 100%; height: 100%; object-fit: cover; display: block; 
-    animation: subtleZoomPan 25s ease-in-out infinite;
-    filter: brightness(0.98);
-    transition: transform 1s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.8s ease;
+    height: 85%; object-fit: contain; display: block; 
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.8s ease;
+    animation: lafedeFloat 6s ease-in-out infinite;
   }
-  .k25-card:hover .k25-card-img-wrapper img { transform: scale(1.08); filter: brightness(1.02); }
+  .k25-card:hover .k25-card-img-wrapper img { 
+    transform: scale(1.1) translateY(-10px); 
+    filter: drop-shadow(0 30px 40px rgba(0,0,0,0.7)) brightness(1.1); 
+  }
   
   .k25-card-content { 
-    padding: 40px 30px; text-align: center; position: relative; z-index: 2;
-    background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    padding: 20px 30px 40px; text-align: center; position: relative; z-index: 2;
     display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
-    width: 90%; margin-top: -60px; /* Floating Glass Box */
-    border-radius: 16px; box-shadow: 0 15px 40px rgba(0,0,0,0.06);
-    border: 1px solid rgba(255,255,255,1);
+    width: 100%; background: #1a1125;
     flex-grow: 1; transition: all 0.6s ease;
   }
-  .k25-card:hover .k25-card-content {
-    box-shadow: 0 20px 50px rgba(184,146,42,0.15);
-    transform: translateY(-5px);
-  }
   
-  .k25-card-title { font-family: 'Playfair Display', serif; font-size: 30px; color: #3c1152; margin-bottom: 8px; letter-spacing: 1px; }
-  .k25-card-subtitle { font-size: 10px; color: #B8922A; letter-spacing: 3px; margin-bottom: 20px; text-transform: uppercase; font-weight: 600; }
-  .k25-card-desc { font-family: 'Montserrat', sans-serif; font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 30px; opacity: 0.85; transition: opacity 0.6s; }
+  .k25-card-title { font-family: 'Playfair Display', serif; font-size: 32px; color: #fff; margin-bottom: 8px; letter-spacing: 2px; }
+  .k25-card-subtitle { font-size: 11px; color: #C8A97E; letter-spacing: 4px; margin-bottom: 24px; text-transform: uppercase; font-weight: 600; }
+  .k25-card-desc { font-family: 'Montserrat', sans-serif; font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.7; margin-bottom: 30px; }
   
   /* Creative Animated Button */
   .k25-card-btn { 
     margin-top: auto; position: relative; overflow: hidden; z-index: 1;
-    padding: 14px 32px; background: #fff; border: 1px solid #E8E4DC; color: #3c1152; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.4s; 
-    border-radius: 30px; /* Pill shaped button */
+    padding: 12px 0; background: transparent; border: none; 
+    border-bottom: 1px solid rgba(200,169,126,0.3); 
+    color: #C8A97E; font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; cursor: pointer; transition: all 0.4s; 
   }
   .k25-card-btn::after {
-    content: ''; position: absolute; top: 0; left: 0; width: 0%; height: 100%; background: #FAF8F4; z-index: -1; transition: width 0.4s ease;
+    content: ''; position: absolute; bottom: -1px; left: 0; width: 0%; height: 1px; background: #fff; z-index: 2; transition: width 0.4s ease;
   }
-  .k25-card:hover .k25-card-btn { color: #B8922A; border-color: #B8922A; }
+  .k25-card:hover .k25-card-btn { color: #fff; border-color: rgba(255,255,255,0.2); }
   .k25-card:hover .k25-card-btn::after { width: 100%; }
 
   @media(max-width: 1024px) {
-    .k25-card { width: 350px; }
+    .k25-card { width: 340px; }
   }
   @media(max-width: 768px) {
     .k25-card { width: 300px; }
-    .k25-card-img-wrapper { height: 350px; }
-    .k25-card-content { padding: 0 20px 40px; }
+    .k25-card-img-wrapper { height: 360px; }
+    .k25-card-content { padding: 10px 20px 30px; }
     .k25-card-title { font-size: 28px; }
   }
 
