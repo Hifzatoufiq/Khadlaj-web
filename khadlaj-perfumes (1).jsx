@@ -1651,7 +1651,7 @@ function LaFedePage({ addToCart, setViewProduct, setPage }){
         <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",gap:24,flexWrap:"wrap",marginBottom:40}}>
           <div>
             <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>La Fede</p>
-            <h2 className="disp" style={{fontSize:"clamp(34px,4.5vw,64px)",fontWeight:300,color:"#3c1152",lineHeight:1.05,letterSpacing:-1,marginBottom:12}}>Signature Selection</h2>
+            <h2 className="disp" style={{fontSize:"clamp(34px,4.5vw,64px)",fontWeight:300,color:"#3c1152",lineHeight:1.05,letterSpacing:-1,marginBottom:12}}>La Fede Eau De Parfum</h2>
             <p style={{fontSize:13,color:"#777",fontFamily:"'Montserrat',sans-serif",lineHeight:1.8,maxWidth:560}}>Bold, characterful fragrances presented in their own collection.</p>
           </div>
           <ProductFilterBar active={laFedeFilter} setActive={setLaFedeFilter} options={filterOptions}/>

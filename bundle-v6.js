@@ -23358,7 +23358,7 @@ function LaFedePage({ addToCart, setViewProduct, setPage }) {
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 24, flexWrap: "wrap", marginBottom: 40 }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontWeight: 600, fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 12 }, children: "La Fede" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(34px,4.5vw,64px)", fontWeight: 300, color: "#3c1152", lineHeight: 1.05, letterSpacing: -1, marginBottom: 12 }, children: "Signature Selection" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(34px,4.5vw,64px)", fontWeight: 300, color: "#3c1152", lineHeight: 1.05, letterSpacing: -1, marginBottom: 12 }, children: "La Fede Eau De Parfum" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 13, color: "#777", fontFamily: "'Montserrat',sans-serif", lineHeight: 1.8, maxWidth: 560 }, children: "Bold, characterful fragrances presented in their own collection." })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductFilterBar, { active: laFedeFilter, setActive: setLaFedeFilter, options: filterOptions })
