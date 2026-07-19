@@ -22032,7 +22032,7 @@ var GLOBAL_CSS = `
   }
 
   /* Navbar Link Hover Effect */
-  .nav-link { position: relative; cursor: pointer; padding-bottom: 10px; color: #3c1152; transition: color 0.4s ease, transform 0.4s ease; display: inline-block; }
+  .nav-link { position: relative; cursor: pointer; padding-bottom: 10px; color: #251737; transition: color 0.4s ease, transform 0.4s ease; display: inline-block; }
   .nav-link::after { 
     content: '\u2726'; 
     position: absolute; 
@@ -22193,8 +22193,8 @@ var GLOBAL_CSS = `
   
   .gift-slide-content { flex: 1; padding: 10% 8% 10% 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; z-index: 2; }
   .gift-slide-eyebrow { color: #888; font-size: 9px; letter-spacing: 4px; text-transform: uppercase; font-family: 'Montserrat',sans-serif; margin-bottom: 16px; font-weight: 600; }
-  .gift-slide-title { font-family: 'Playfair Display', serif; font-size: 42px; line-height: 1.1; color: #3c1152; margin-bottom: 30px; font-weight: 300; }
-  .gift-slide-btn { background: transparent; color: #3c1152; border: 1px solid #3c1152; padding: 14px 32px; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; cursor: pointer; transition: all 0.4s ease; width: max-content; }
+  .gift-slide-title { font-family: 'Playfair Display', serif; font-size: 42px; line-height: 1.1; color: #251737; margin-bottom: 30px; font-weight: 300; }
+  .gift-slide-btn { background: transparent; color: #251737; border: 1px solid #251737; padding: 14px 32px; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; cursor: pointer; transition: all 0.4s ease; width: max-content; }
   .gift-slide-card:hover .gift-slide-btn { background: #B8922A; border-color: #B8922A; color: #fff; }
   
   @media(max-width: 768px) {
@@ -22351,7 +22351,7 @@ function ProductCard({ p, onView, onCart }) {
           top: 12,
           left: 12,
           zIndex: 3,
-          background: p.badge === "Limited" ? "#5C0000" : p.badge === "New" ? "#B8922A" : "#3c1152",
+          background: p.badge === "Limited" ? "#5C0000" : p.badge === "New" ? "#B8922A" : "#251737",
           color: "#fff",
           fontSize: 9.5,
           letterSpacing: 2.5,
@@ -22429,7 +22429,7 @@ function ProductCard({ p, onView, onCart }) {
               },
               style: {
                 width: "100%",
-                background: "#3c1152",
+                background: "#251737",
                 color: "#fff",
                 border: "none",
                 padding: "12px",
@@ -22442,14 +22442,14 @@ function ProductCard({ p, onView, onCart }) {
                 transition: "background .3s"
               },
               onMouseEnter: (e) => e.target.style.background = "#B8922A",
-              onMouseLeave: (e) => e.target.style.background = "#3c1152",
+              onMouseLeave: (e) => e.target.style.background = "#251737",
               children: "Add to Bag"
             }
           ) })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "product-card-info", style: { padding: "16px 10px 18px", flex: 1, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9.5, letterSpacing: 3, color: "#B8922A", textTransform: "uppercase", marginBottom: 7, fontFamily: "'Montserrat',sans-serif", fontWeight: 600 }, children: collectionLabel }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "product-card-title", style: { fontSize: 15.5, fontWeight: 600, color: "#3c1152", lineHeight: 1.25, marginBottom: 5, textTransform: "uppercase", letterSpacing: 1.1 }, children: p.name }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h3", { className: "product-card-title", style: { fontSize: 15.5, fontWeight: 600, color: "#251737", lineHeight: 1.25, marginBottom: 5, textTransform: "uppercase", letterSpacing: 1.1 }, children: p.name }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "product-card-size", style: { fontSize: 12.5, color: "#888", marginBottom: 12, fontFamily: "'Montserrat',sans-serif", letterSpacing: 0.4, fontWeight: 400 }, children: p.size }),
           notes.length > 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "product-notes", style: { display: "flex", flexWrap: "nowrap", gap: 4, marginBottom: 12, justifyContent: "center", alignItems: "center", width: "100%" }, children: notes.map((n, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { className: "product-note", style: { display: "inline-flex", alignItems: "center", gap: 3, padding: "4px 7px", background: "#F5F5F5", fontSize: 8.5, letterSpacing: 0.7, color: "#666", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, whiteSpace: "nowrap" }, children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "product-note-dot", style: { width: 5, height: 5, borderRadius: "50%", background: noteColors[i % noteColors.length], flexShrink: 0, display: "inline-block" } }),
@@ -22460,7 +22460,7 @@ function ProductCard({ p, onView, onCart }) {
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { color: "#C8A96E", fontSize: 12, letterSpacing: 1 }, children: "\u2605".repeat(5) }),
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 10, color: "#aaa", fontFamily: "'Montserrat',sans-serif", fontWeight: 600 }, children: "(905)" })
             ] }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 17, fontWeight: 600, color: "#3c1152", fontFamily: "'Montserrat',sans-serif" }, children: formatPrice2(p.price) })
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 17, fontWeight: 600, color: "#251737", fontFamily: "'Montserrat',sans-serif" }, children: formatPrice2(p.price) })
           ] })
         ] })
       ]
@@ -22470,7 +22470,7 @@ function ProductCard({ p, onView, onCart }) {
 function SectionHeader({ eyebrow, title, sub, light = false }) {
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { textAlign: "center", marginBottom: 52 }, children: [
     eyebrow && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "eyebrow", style: { marginBottom: 14, color: "#B8922A" }, children: eyebrow }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(28px,3.8vw,52px)", fontWeight: 300, color: light ? "#fff" : "#3c1152", lineHeight: 1.15, letterSpacing: "-0.5px", marginBottom: sub ? 14 : 0 }, children: title }),
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(28px,3.8vw,52px)", fontWeight: 300, color: light ? "#fff" : "#251737", lineHeight: 1.15, letterSpacing: "-0.5px", marginBottom: sub ? 14 : 0 }, children: title }),
     sub && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: light ? "rgba(255,255,255,0.7)" : "#777", fontSize: 14, maxWidth: 500, margin: "0 auto", lineHeight: 1.8, fontFamily: "'Montserrat',sans-serif" }, children: sub }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "gold-line", style: { marginTop: 22 } })
   ] });
@@ -22488,7 +22488,7 @@ function TikTokCard({ t }) {
         flex: "0 0 320px",
         height: 520,
         position: "relative",
-        background: "#3c1152",
+        background: "#251737",
         borderRadius: 16,
         overflow: "hidden",
         display: "flex",
@@ -22627,7 +22627,7 @@ function TrustBanner() {
       fontSize: 11,
       fontWeight: 700,
       letterSpacing: 2,
-      color: "#3c1152",
+      color: "#251737",
       textTransform: "uppercase",
       marginBottom: 6
     }, children: it.title }),
@@ -22699,30 +22699,30 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, background: "linear-gradient(to bottom,rgba(8,8,8,.04) 0%,rgba(8,8,8,.18) 35%,rgba(8,8,8,.52) 100%)", pointerEvents: "none" } }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, background: "linear-gradient(90deg,rgba(0,0,0,.28) 0%,rgba(0,0,0,.05) 50%,rgba(0,0,0,.22) 100%)", pointerEvents: "none" } })
     ] }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { overflow: "hidden", background: "#3c1152", padding: "24px 0", borderTop: "1px solid rgba(193,164,106,0.15)", borderBottom: "1px solid rgba(193,164,106,0.15)" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "ribbon-inner", style: { display: "flex", alignItems: "center" }, children: [...SCENT_RIBBON, ...SCENT_RIBBON, ...SCENT_RIBBON].map((n, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { overflow: "hidden", background: "#251737", padding: "24px 0", borderTop: "1px solid rgba(193,164,106,0.15)", borderBottom: "1px solid rgba(193,164,106,0.15)" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "ribbon-inner", style: { display: "flex", alignItems: "center" }, children: [...SCENT_RIBBON, ...SCENT_RIBBON, ...SCENT_RIBBON].map((n, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 12, fontWeight: 400, letterSpacing: 8, color: "#E8E4DC", textTransform: "uppercase", whiteSpace: "nowrap", fontFamily: "'Montserrat',sans-serif" }, children: n }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { margin: "0 64px", color: "#C1A46A", fontSize: 10 }, children: "\u2726" })
     ] }, i)) }) }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { className: "khadlaj25-section", children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "k25-header", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 11, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontWeight: 600, display: "block", marginBottom: 16 }, children: "The Milestone" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { style: { fontFamily: "'Playfair Display', serif", fontSize: 46, color: "#3c1152", margin: 0, fontWeight: 500 }, children: "25th Anniversary Collection" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { style: { fontFamily: "'Playfair Display', serif", fontSize: 46, color: "#251737", margin: 0, fontWeight: 500 }, children: "25th Anniversary Collection" }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontFamily: "'Montserrat', sans-serif", fontSize: 15, color: "#555", maxWidth: 640, margin: "20px auto 0", lineHeight: 1.6 }, children: "Celebrating a quarter-century of olfactory excellence. A tribute to our legacy, crafted for those who value heritage and distinction." })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", padding: "0 2%" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => document.getElementById("k25-scroll-container").scrollBy({ left: -460, behavior: "smooth" }), style: { position: "absolute", left: "3%", top: "45%", transform: "translateY(-50%)", zIndex: 10, width: 56, height: 56, borderRadius: "50%", background: "#fff", border: "1px solid #E8E4DC", boxShadow: "0 10px 25px rgba(0,0,0,0.1)", cursor: "pointer", color: "#3c1152", display: "flex", alignItems: "center", justifyContent: "center", transition: "all .3s" }, onMouseEnter: (e) => {
-          e.currentTarget.style.background = "#3c1152";
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => document.getElementById("k25-scroll-container").scrollBy({ left: -460, behavior: "smooth" }), style: { position: "absolute", left: "3%", top: "45%", transform: "translateY(-50%)", zIndex: 10, width: 56, height: 56, borderRadius: "50%", background: "#fff", border: "1px solid #E8E4DC", boxShadow: "0 10px 25px rgba(0,0,0,0.1)", cursor: "pointer", color: "#251737", display: "flex", alignItems: "center", justifyContent: "center", transition: "all .3s" }, onMouseEnter: (e) => {
+          e.currentTarget.style.background = "#251737";
           e.currentTarget.style.color = "#fff";
         }, onMouseLeave: (e) => {
           e.currentTarget.style.background = "#fff";
-          e.currentTarget.style.color = "#3c1152";
+          e.currentTarget.style.color = "#251737";
         }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M15 18l-6-6 6-6" }) }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => document.getElementById("k25-scroll-container").scrollBy({ left: 460, behavior: "smooth" }), style: { position: "absolute", right: "3%", top: "45%", transform: "translateY(-50%)", zIndex: 10, width: 56, height: 56, borderRadius: "50%", background: "#fff", border: "1px solid #E8E4DC", boxShadow: "0 10px 25px rgba(0,0,0,0.1)", cursor: "pointer", color: "#3c1152", display: "flex", alignItems: "center", justifyContent: "center", transition: "all .3s" }, onMouseEnter: (e) => {
-          e.currentTarget.style.background = "#3c1152";
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => document.getElementById("k25-scroll-container").scrollBy({ left: 460, behavior: "smooth" }), style: { position: "absolute", right: "3%", top: "45%", transform: "translateY(-50%)", zIndex: 10, width: 56, height: 56, borderRadius: "50%", background: "#fff", border: "1px solid #E8E4DC", boxShadow: "0 10px 25px rgba(0,0,0,0.1)", cursor: "pointer", color: "#251737", display: "flex", alignItems: "center", justifyContent: "center", transition: "all .3s" }, onMouseEnter: (e) => {
+          e.currentTarget.style.background = "#251737";
           e.currentTarget.style.color = "#fff";
         }, onMouseLeave: (e) => {
           e.currentTarget.style.background = "#fff";
-          e.currentTarget.style.color = "#3c1152";
+          e.currentTarget.style.color = "#251737";
         }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("svg", { width: "24", height: "24", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round", strokeLinejoin: "round", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("path", { d: "M9 18l6-6-6-6" }) }) }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { id: "k25-scroll-container", className: "k25-slider-container", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "k25-slider-track", children: [
           { name: "LOYALTY", subtitle: "Unwavering Bonds", desc: "A captivating fragrance that symbolizes eternal commitment and deep connections, bottled for the discerning collector.", img: "./assets/images/products/loyalty.png" },
@@ -22760,7 +22760,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
         " fresh launches"
       ] }) })
     ] }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { display: "flex", flexWrap: "wrap", background: "#3c1152" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { display: "flex", flexWrap: "wrap", background: "#251737" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: "1 1 50%", padding: "8vw 6%", minWidth: 300, display: "flex", flexDirection: "column", justifyContent: "center" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(32px, 4vw, 48px)", fontWeight: 600, color: "#fff", lineHeight: 1.1, marginBottom: 24 }, children: "What Sets Khadlaj Apart" }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 15, color: "rgba(255,255,255,0.75)", lineHeight: 1.8, fontFamily: "'Montserrat',sans-serif", marginBottom: 40, maxWidth: 600 }, children: "Every Khadlaj fragrance is crafted using top-grade, internationally sourced perfume materials \u2014 the same grade used in original luxury fragrances worldwide. We use perfumer-grade, plant-based, halal ingredients to ensure safety, purity, and exceptional performance." }),
@@ -22783,7 +22783,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "0 5% 104px", background: "#fff" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { paddingTop: 96, marginBottom: 52, display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 16 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { textAlign: "left" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(32px,4vw,54px)", fontWeight: 300, color: "#3c1152", lineHeight: 1.15, letterSpacing: "-0.5px" }, children: "Where every scent has a story" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { textAlign: "left" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(32px,4vw,54px)", fontWeight: 300, color: "#251737", lineHeight: 1.15, letterSpacing: "-0.5px" }, children: "Where every scent has a story" }) }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-ghost", style: { flexShrink: 0 }, onClick: () => setPage("collections"), children: "View All" })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: 6, overflowX: "auto", paddingBottom: 4, marginBottom: 48, borderBottom: "1px solid #E8E4DC" }, children: CATEGORIES.map((c) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
@@ -22843,7 +22843,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "80px 5% 40px", background: "#fff" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 48, textAlign: "center" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 40, height: 1, background: "#B8922A", margin: "0 auto 16px" } }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(24px,3vw,42px)", fontWeight: 400, color: "#3c1152", letterSpacing: -0.5, marginBottom: 10, lineHeight: 1.2 }, children: "SHOP BY REEL" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(24px,3vw,42px)", fontWeight: 400, color: "#251737", letterSpacing: -0.5, marginBottom: 10, lineHeight: 1.2 }, children: "SHOP BY REEL" }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "#777", fontSize: 12, fontFamily: "'Montserrat',sans-serif", letterSpacing: 0.3 }, children: "Browse fragrances through short, stylish reels and discover your next favorite scent." })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
@@ -22872,8 +22872,8 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
             display: "inline-flex",
             alignItems: "center",
             gap: 10,
-            border: "1px solid #3c1152",
-            color: "#3c1152",
+            border: "1px solid #251737",
+            color: "#251737",
             padding: "13px 32px",
             fontSize: 10,
             letterSpacing: 3,
@@ -22889,8 +22889,8 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
           },
           onMouseLeave: (e) => {
             e.currentTarget.style.background = "transparent";
-            e.currentTarget.style.borderColor = "#3c1152";
-            e.currentTarget.style.color = "#3c1152";
+            e.currentTarget.style.borderColor = "#251737";
+            e.currentTarget.style.color = "#251737";
           },
           children: "\u25B6 Follow on TikTok"
         }
@@ -22959,13 +22959,13 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
         },
         children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { marginBottom: 22, display: "flex", justifyContent: "center" }, children: item.icon }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 11, fontWeight: 600, color: "#3c1152", letterSpacing: 2, fontFamily: "'Montserrat',sans-serif", marginBottom: 12, textTransform: "uppercase" }, children: item.title }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 11, fontWeight: 600, color: "#251737", letterSpacing: 2, fontFamily: "'Montserrat',sans-serif", marginBottom: 12, textTransform: "uppercase" }, children: item.title }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 12, color: "#777", lineHeight: 1.7, fontFamily: "'Montserrat',sans-serif", maxWidth: 220, margin: "0 auto" }, children: item.desc })
         ]
       },
       item.title
     )) }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { background: "#3c1152", padding: "96px 5%", color: "#fff", borderTop: "1px solid rgba(255,255,255,0.08)", position: "relative", zIndex: 1 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 64, alignItems: "center" }, className: "hero-split", children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { background: "#251737", padding: "96px 5%", color: "#fff", borderTop: "1px solid rgba(255,255,255,0.08)", position: "relative", zIndex: 1 }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 64, alignItems: "center" }, className: "hero-split", children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(30px,3.8vw,52px)", fontWeight: 400, color: "#fff", lineHeight: 1.05, letterSpacing: -1, marginBottom: 24 }, children: [
           "KHADLAJ ",
@@ -23092,7 +23092,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
     ] }) }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { padding: "96px 5%", background: "#fff", borderTop: "1px solid #E8E4DC" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "max-container", children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 16, marginBottom: 60 }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(30px,3.8vw,52px)", fontWeight: 400, color: "#3c1152", lineHeight: 1, letterSpacing: -1 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(30px,3.8vw,52px)", fontWeight: 400, color: "#251737", lineHeight: 1, letterSpacing: -1 }, children: [
           "CURATED",
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("br", {}),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { className: "luxury-gold-text", style: { fontStyle: "normal" }, children: "GIFT COLLECTIONS" })
@@ -23104,9 +23104,9 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
         setPage("product");
       } }, p.id)) })
     ] }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { background: "#3c1152", padding: "64px 5%" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { background: "#251737", padding: "64px 5%" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(SectionHeader, { eyebrow: "Reviews", title: "Loved Across the Gulf", light: true }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "grid-4", style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 1, background: "rgba(255,255,255,.15)" }, children: REVIEWS.map((r, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "#3c1152", padding: "32px 24px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", transition: "background 0.3s ease" }, onMouseEnter: (e) => e.currentTarget.style.background = "rgba(255,255,255,0.03)", onMouseLeave: (e) => e.currentTarget.style.background = "#3c1152", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "grid-4", style: { display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 1, background: "rgba(255,255,255,.15)" }, children: REVIEWS.map((r, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "#251737", padding: "32px 24px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", transition: "background 0.3s ease" }, onMouseEnter: (e) => e.currentTarget.style.background = "rgba(255,255,255,0.03)", onMouseLeave: (e) => e.currentTarget.style.background = "#251737", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StarRating, { n: r.stars, color: "#B8922A" }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { style: { fontSize: 14, color: "rgba(255,255,255,0.85)", lineHeight: 1.6, margin: "16px 0", fontStyle: "italic", fontWeight: 300, fontFamily: "'Montserrat',sans-serif" }, children: [
           '"',
@@ -23122,7 +23122,7 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "120px 0", background: "#FAF8F4", overflow: "hidden" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { textAlign: "center", marginBottom: 60 }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 11, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontWeight: 600, display: "block", marginBottom: 16 }, children: "Curated Selections" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { style: { fontFamily: "'Playfair Display', serif", fontSize: 46, color: "#3c1152", margin: 0, fontWeight: 500 }, children: "Discover Your Next Favorite" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { style: { fontFamily: "'Playfair Display', serif", fontSize: 46, color: "#251737", margin: 0, fontWeight: 500 }, children: "Discover Your Next Favorite" }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontFamily: "'Montserrat', sans-serif", fontSize: 15, color: "#555", maxWidth: 600, margin: "20px auto 0", lineHeight: 1.6 }, children: "Explore our most captivating signature fragrances, beautifully crafted to evoke unforgettable emotions." })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "discovery-grid", children: [
@@ -23165,7 +23165,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }) {
   if (sortBy === "price-asc") filtered = [...filtered].sort((a, b) => a.price - b.price);
   if (sortBy === "price-desc") filtered = [...filtered].sort((a, b) => b.price - a.price);
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "#fff" }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", height: "clamp(300px,38vw,500px)", overflow: "hidden", background: "#3c1152" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", height: "clamp(300px,38vw,500px)", overflow: "hidden", background: "#251737" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 0, display: "grid", gridTemplateColumns: "repeat(5,1fr)", gap: 2, opacity: 0.5 }, children: [
         "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/saraya_3.png?v=1781332291",
         "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-3.jpg?v=1775636549",
@@ -23231,7 +23231,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }) {
             max: 800,
             value: priceMax,
             onChange: (e) => setPriceMax(+e.target.value),
-            style: { width: 90, accentColor: "#3c1152" }
+            style: { width: 90, accentColor: "#251737" }
           }
         )
       ] }),
@@ -23242,7 +23242,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }) {
           onChange: (e) => setSortBy(e.target.value),
           style: {
             background: "#fff",
-            color: "#3c1152",
+            color: "#251737",
             border: "1px solid #E0E0E0",
             padding: "7px 12px",
             fontSize: 9,
@@ -23264,7 +23264,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }) {
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, marginBottom: 18 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 3, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, marginBottom: 6 }, children: "Shop By" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "disp", style: { fontSize: 22, lineHeight: 1, color: "#3c1152", fontWeight: 300 }, children: "Collections" })
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "disp", style: { fontSize: 22, lineHeight: 1, color: "#251737", fontWeight: 300 }, children: "Collections" })
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { width: 34, height: 34, border: "1px solid #E5D6B5", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", color: "#B8922A", fontSize: 15 }, children: "+" })
         ] }),
@@ -23272,7 +23272,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }) {
           "button",
           {
             onClick: () => setActiveCat(c),
-            style: { width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, textAlign: "left", background: activeCat === c ? "#3c1152" : "rgba(255,255,255,.72)", color: activeCat === c ? "#fff" : "#444", border: "1px solid", borderColor: activeCat === c ? "#3c1152" : "#EEE", padding: "12px 12px", marginBottom: 8, fontSize: 10, letterSpacing: 1.35, cursor: "pointer", fontWeight: activeCat === c ? 600 : 600, transition: "all .18s", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", boxShadow: activeCat === c ? "0 10px 24px rgba(60,17,82,.22)" : "none" },
+            style: { width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, textAlign: "left", background: activeCat === c ? "#251737" : "rgba(255,255,255,.72)", color: activeCat === c ? "#fff" : "#444", border: "1px solid", borderColor: activeCat === c ? "#251737" : "#EEE", padding: "12px 12px", marginBottom: 8, fontSize: 10, letterSpacing: 1.35, cursor: "pointer", fontWeight: activeCat === c ? 600 : 600, transition: "all .18s", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", boxShadow: activeCat === c ? "0 10px 24px rgba(60,17,82,.22)" : "none" },
             children: [
               /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("span", { style: { display: "flex", alignItems: "center", gap: 8 }, children: [
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { width: 6, height: 6, borderRadius: "50%", background: activeCat === c ? "#B8922A" : "#D7C59E", display: "inline-block", flexShrink: 0 } }),
@@ -23315,7 +23315,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage }) {
           setPage("product");
         }, onCart: addToCart }, p.id)) }),
         filtered.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { textAlign: "center", padding: "96px 0" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "disp", style: { fontSize: 36, fontWeight: 300, color: "#3c1152", marginBottom: 12 }, children: "No fragrances found" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { className: "disp", style: { fontSize: 36, fontWeight: 300, color: "#251737", marginBottom: 12 }, children: "No fragrances found" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 13, color: "#888", fontFamily: "'Montserrat',sans-serif" }, children: "Try adjusting the filters above." })
         ] })
       ] })
@@ -23354,7 +23354,7 @@ function LaFedePage({ addToCart, setViewProduct, setPage }) {
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 24, flexWrap: "wrap", marginBottom: 40 }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontWeight: 600, fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 12 }, children: "La Fede" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(34px,4.5vw,64px)", fontWeight: 300, color: "#3c1152", lineHeight: 1.05, letterSpacing: -1, marginBottom: 12 }, children: "La Fede Eau De Parfum" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(34px,4.5vw,64px)", fontWeight: 300, color: "#251737", lineHeight: 1.05, letterSpacing: -1, marginBottom: 12 }, children: "La Fede Eau De Parfum" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 13, color: "#777", fontFamily: "'Montserrat',sans-serif", lineHeight: 1.8, maxWidth: 560 }, children: "Bold, characterful fragrances presented in their own collection." })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(ProductFilterBar, { active: laFedeFilter, setActive: setLaFedeFilter, options: filterOptions })
@@ -23387,7 +23387,7 @@ function Accordion({ title, children, defaultOpen = false }) {
           textTransform: "uppercase",
           fontFamily: "'Montserrat',sans-serif",
           fontWeight: 600,
-          color: "#3c1152"
+          color: "#251737"
         },
         children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: title }),
@@ -23452,9 +23452,9 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }) {
   };
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "#fff", minHeight: "100vh" }, children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "32px 5% 0", maxWidth: 1440, margin: "0 auto", fontSize: 10, letterSpacing: 1.5, textTransform: "uppercase", color: "#888", fontFamily: "'Montserrat',sans-serif" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { cursor: "pointer", color: "#3c1152" }, onClick: () => setPage("home"), children: "Home" }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { cursor: "pointer", color: "#251737" }, onClick: () => setPage("home"), children: "Home" }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { margin: "0 12px" }, children: "|" }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { cursor: "pointer", color: "#3c1152" }, onClick: () => setPage("collections"), children: "Collections" }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { cursor: "pointer", color: "#251737" }, onClick: () => setPage("collections"), children: "Collections" }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { margin: "0 12px" }, children: "|" }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: product.name })
     ] }),
@@ -23482,17 +23482,17 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }) {
         }
       ),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { paddingTop: 8, maxWidth: 540, position: "sticky", top: 120, alignSelf: "start" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontWeight: 600, fontSize: 10, letterSpacing: 3, color: "#3c1152", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 16 }, children: "Khadlaj Perfumes" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { className: "disp", style: { fontSize: "clamp(36px, 4.5vw, 52px)", fontWeight: 300, color: "#3c1152", lineHeight: 1.05, letterSpacing: "-0.5px", textTransform: "uppercase", marginBottom: 16 }, children: product.name }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontWeight: 600, fontSize: 10, letterSpacing: 3, color: "#251737", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 16 }, children: "Khadlaj Perfumes" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { className: "disp", style: { fontSize: "clamp(36px, 4.5vw, 52px)", fontWeight: 300, color: "#251737", lineHeight: 1.05, letterSpacing: "-0.5px", textTransform: "uppercase", marginBottom: 16 }, children: product.name }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 8, marginBottom: 24 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StarRating, { n: 5, color: "#111" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { fontSize: 13, color: "#555", fontFamily: "'Montserrat',sans-serif", borderBottom: "1px solid #ccc", cursor: "pointer", paddingBottom: 2 }, children: "4.9 rating (55 reviews)" })
         ] }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 24, fontWeight: 400, color: "#3c1152", fontFamily: "'Montserrat',sans-serif", marginBottom: 8 }, children: formatPrice2(product.price) }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 24, fontWeight: 400, color: "#251737", fontFamily: "'Montserrat',sans-serif", marginBottom: 8 }, children: formatPrice2(product.price) }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 12, color: "#777", fontFamily: "'Montserrat',sans-serif", marginBottom: 40 }, children: "Tax included. Shipping calculated at checkout." }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 40 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 11, letterSpacing: 1.5, textTransform: "uppercase", color: "#3c1152", fontFamily: "'Montserrat',sans-serif", marginBottom: 12, fontWeight: 600 }, children: "Size" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { style: { border: "1px solid #3c1152", background: "#fff", color: "#3c1152", padding: "12px 28px", fontSize: 12, letterSpacing: 1.5, fontFamily: "'Montserrat',sans-serif", cursor: "default" }, children: product.size })
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 11, letterSpacing: 1.5, textTransform: "uppercase", color: "#251737", fontFamily: "'Montserrat',sans-serif", marginBottom: 12, fontWeight: 600 }, children: "Size" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { style: { border: "1px solid #251737", background: "#fff", color: "#251737", padding: "12px 28px", fontSize: 12, letterSpacing: 1.5, fontFamily: "'Montserrat',sans-serif", cursor: "default" }, children: product.size })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: 16, marginBottom: 32, flexWrap: "wrap" }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", border: "1px solid #E8E4DC", width: 130, height: 56 }, children: [
@@ -23508,7 +23508,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }) {
                 flex: 1,
                 minWidth: 200,
                 height: 56,
-                background: "#3c1152",
+                background: "#251737",
                 color: "#fff",
                 border: "none",
                 fontSize: 12,
@@ -23575,7 +23575,7 @@ function GiftsPage({ addToCart, setViewProduct, setPage }) {
     { value: "value", label: "Value Sets" }
   ];
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "#fff" }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", height: "clamp(280px,38vw,480px)", overflow: "hidden", background: "#3c1152" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", height: "clamp(280px,38vw,480px)", overflow: "hidden", background: "#251737" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
         "img",
         {
@@ -23609,7 +23609,7 @@ function GiftsPage({ addToCart, setViewProduct, setPage }) {
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 16, marginBottom: 52 }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontWeight: 600, fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 12 }, children: "Curated Collections" }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(28px,3.5vw,50px)", fontWeight: 300, color: "#3c1152", letterSpacing: -1, lineHeight: 1.05 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("h2", { className: "disp", style: { fontSize: "clamp(28px,3.5vw,50px)", fontWeight: 300, color: "#251737", letterSpacing: -1, lineHeight: 1.05 }, children: [
             "Gift Sets & ",
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("em", { style: { fontStyle: "italic", color: "#B8922A" }, children: "Bundles" })
           ] })
@@ -23631,7 +23631,7 @@ function GiftsPage({ addToCart, setViewProduct, setPage }) {
         }
       }, onCart: addToCart }, p.id)) })
     ] }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { background: "#3c1152", padding: "80px 5%", textAlign: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { maxWidth: 580, margin: "0 auto" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("section", { style: { background: "#251737", padding: "80px 5%", textAlign: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { maxWidth: 580, margin: "0 auto" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 40, height: 1, background: "#B8922A", margin: "0 auto 32px" } }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontWeight: 600, fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 16 }, children: "Custom Orders" }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(30px,4vw,56px)", fontWeight: 300, color: "#fff", marginBottom: 16, letterSpacing: -1 }, children: "Build Your Own Gift Box" }),
@@ -23643,7 +23643,7 @@ function GiftsPage({ addToCart, setViewProduct, setPage }) {
 }
 function StoryPage() {
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "#fff" }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "relative", height: "clamp(280px, 40vw, 400px)", background: "#120917", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "0 5%" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "relative", height: "clamp(280px, 40vw, 400px)", background: "#251737", display: "flex", alignItems: "center", justifyContent: "center", textAlign: "center", padding: "0 5%" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { className: "disp", style: { fontSize: "clamp(40px,7vw,80px)", fontWeight: 400, color: "#C8A97E", lineHeight: 1.1, letterSpacing: 4, marginBottom: 16, textTransform: "uppercase" }, children: "Our Legacy" }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontWeight: 500, fontSize: 10, letterSpacing: 8, color: "#fff", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", opacity: 0.8 }, children: "Luxury & Elegance in every fragrance creation" })
     ] }) }),
@@ -23692,8 +23692,8 @@ function StoryPage() {
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "80px 5%" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr 1.2fr", gap: 64, alignItems: "center", marginBottom: 88 }, className: "hero-split", children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { paddingRight: "24px" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { borderLeft: "2px solid #3c1152", paddingLeft: "16px", marginBottom: "24px" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 14, color: "#3c1152", fontFamily: "'Montserrat', sans-serif", letterSpacing: 0.5, marginBottom: 8 }, children: "Managing Director" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { borderLeft: "2px solid #251737", paddingLeft: "16px", marginBottom: "24px" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 14, color: "#251737", fontFamily: "'Montserrat', sans-serif", letterSpacing: 0.5, marginBottom: 8 }, children: "Managing Director" }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { style: { fontSize: "clamp(32px, 4vw, 42px)", fontWeight: 300, color: "#111", lineHeight: 1.2, margin: 0, fontFamily: "'Montserrat', sans-serif" }, children: "Asif Mohamed Iqbal Katchi" })
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "#444", lineHeight: 1.8, fontSize: 15, fontFamily: "'Montserrat', sans-serif", textAlign: "justify" }, children: "Asif Mohamed Iqbal Katchi, with over 18 years of profound experience, is dedicated to taking forward the illustrious legacy of his father, Mohamed Iqbal, by consistently delivering excellence in all endeavors. Mr. Asif's visionary and creatively-driven leadership aims for Khadlaj to transcend into a luxurious, trusted name synonymous with unparalleled reliability and a celebrated household name in the fragrance industry. Mr. Asif's passionate motto embodies a profound dedication to perfumery craftsmanship and an unwavering commitment to fostering creativity, innovation, and luxury. He has effectively navigated Khadlaj Perfumes through dynamic industry shifts, showcasing his agile and proactive approach in anticipating and mitigating challenges, thereby fortifying the company's formidable position as a leader in the competitive fragrance market." })
@@ -23709,7 +23709,7 @@ function StoryPage() {
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", flexDirection: "column", alignItems: "center", marginBottom: 88 }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { textAlign: "center", maxWidth: 800, marginBottom: 48 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(32px, 4vw, 42px)", fontWeight: 300, color: "#3c1152", lineHeight: 1.2, margin: 0, fontFamily: "'Montserrat', sans-serif" }, children: "Head Office & Manufacturing Unit" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(32px, 4vw, 42px)", fontWeight: 300, color: "#251737", lineHeight: 1.2, margin: 0, fontFamily: "'Montserrat', sans-serif" }, children: "Head Office & Manufacturing Unit" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 60, height: 1, background: "#C8A97E", margin: "24px auto" } }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "#555", lineHeight: 1.8, fontSize: 15, fontFamily: "'Montserrat', sans-serif" }, children: "At Khadlaj Perfumes, our operations are supported by state-of-the-art facilities and a strategic head office location:" })
         ] }),
@@ -23730,7 +23730,7 @@ function StoryPage() {
           ] })
         ] })
       ] }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { background: "#1c1326", margin: "0 -5.5% 88px", padding: "80px 5.5%", color: "#fff" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "max-container", style: { display: "flex", flexDirection: "column", gap: 80 }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { background: "#251737", margin: "0 -5.5% 88px", padding: "80px 5.5%", color: "#fff" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "max-container", style: { display: "flex", flexDirection: "column", gap: 80 }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "hero-split", style: { display: "grid", gridTemplateColumns: "0.8fr 1.2fr", gap: 48 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(32px, 4vw, 42px)", fontWeight: 300, color: "#fff", lineHeight: 1.2, margin: 0, fontFamily: "'Montserrat', sans-serif" }, children: "Values & Ethos" }),
@@ -23836,7 +23836,7 @@ function ContactPage() {
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 32, height: 1, background: "#B8922A", marginBottom: 20 } }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontWeight: 600, fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 14 }, children: "Reach Us" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(28px,3vw,44px)", fontWeight: 300, marginBottom: 24, lineHeight: 1.1, color: "#3c1152", letterSpacing: -1 }, children: "We'd Love to Hear From You" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(28px,3vw,44px)", fontWeight: 300, marginBottom: 24, lineHeight: 1.1, color: "#251737", letterSpacing: -1 }, children: "We'd Love to Hear From You" }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "#777", lineHeight: 1.85, fontSize: 14, marginBottom: 36, fontFamily: "'Montserrat',sans-serif" }, children: "Whether you're a fragrance enthusiast, a retail partner, or a gifting client \u2014 our team is here to help." }),
         [
           ["\u{1F4CD}", "Address", "Dubai, United Arab Emirates"],
@@ -23865,7 +23865,7 @@ function ContactPage() {
               rel: "noreferrer",
               style: {
                 border: "1px solid #000",
-                color: "#3c1152",
+                color: "#251737",
                 padding: "9px 16px",
                 fontSize: 9,
                 letterSpacing: 2,
@@ -23876,12 +23876,12 @@ function ContactPage() {
                 transition: "all .2s"
               },
               onMouseEnter: (e) => {
-                e.currentTarget.style.background = "#3c1152";
+                e.currentTarget.style.background = "#251737";
                 e.currentTarget.style.color = "#fff";
               },
               onMouseLeave: (e) => {
                 e.currentTarget.style.background = "transparent";
-                e.currentTarget.style.color = "#3c1152";
+                e.currentTarget.style.color = "#251737";
               },
               children: s
             },
@@ -23986,7 +23986,7 @@ function FloatingInput({ label, type, value, onChange }) {
         onChange,
         onFocus: () => setFocus(true),
         onBlur: () => setFocus(false),
-        style: { width: "100%", background: "#FAF8F4", border: "1px solid", borderColor: active ? "#B8922A" : "#E8E0D2", color: "#3c1152", padding: "24px 16px 8px", fontSize: 15, outline: "none", fontFamily: "'Montserrat',sans-serif", transition: "border-color 0.3s ease" }
+        style: { width: "100%", background: "#FAF8F4", border: "1px solid", borderColor: active ? "#B8922A" : "#E8E0D2", color: "#251737", padding: "24px 16px 8px", fontSize: 15, outline: "none", fontFamily: "'Montserrat',sans-serif", transition: "border-color 0.3s ease" }
       }
     )
   ] });
@@ -24017,35 +24017,35 @@ function SignupPage() {
       ] })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { padding: "52px", background: "#fff", display: "flex", flexDirection: "column", justifyContent: "center" }, children: done ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { textAlign: "center", padding: "52px 0", animation: "fadeIn .5s ease" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 64, height: 64, borderRadius: "50%", background: "#3c1152", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px", color: "#fff", fontSize: 13, letterSpacing: 2, fontFamily: "'Montserrat',sans-serif", fontWeight: 600, boxShadow: "0 12px 24px rgba(60,17,82,.2)" }, children: "OK" }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: 42, color: "#3c1152", fontWeight: 300, marginBottom: 12 }, children: done === "forgot" ? "Check Your Email" : done === "login" ? "Welcome Back" : "You're In" }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 64, height: 64, borderRadius: "50%", background: "#251737", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 24px", color: "#fff", fontSize: 13, letterSpacing: 2, fontFamily: "'Montserrat',sans-serif", fontWeight: 600, boxShadow: "0 12px 24px rgba(60,17,82,.2)" }, children: "OK" }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: 42, color: "#251737", fontWeight: 300, marginBottom: 12 }, children: done === "forgot" ? "Check Your Email" : done === "login" ? "Welcome Back" : "You're In" }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { color: "#777", fontSize: 14, lineHeight: 1.8, fontFamily: "'Montserrat',sans-serif" }, children: done === "forgot" ? "Password reset instructions have been prepared for your email." : done === "login" ? "You are ready to continue your Khadlaj experience." : "Thank you for joining the Khadlaj Circle." }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-ghost", onClick: () => setDone(""), style: { marginTop: 32, padding: "16px 32px", borderColor: "#3c1152", color: "#3c1152" }, children: "Continue" })
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-ghost", onClick: () => setDone(""), style: { marginTop: 32, padding: "16px 32px", borderColor: "#251737", color: "#251737" }, children: "Continue" })
     ] }) : /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "relative", zIndex: 1, animation: "fadeIn .4s ease" }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: mode === "forgot" ? "none" : "flex", gap: 32, borderBottom: "1px solid #E8E0D2", marginBottom: 42 }, children: ["login", "signup"].map((tab) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { onClick: () => setMode(tab), style: { border: "none", background: "transparent", color: mode === tab ? "#3c1152" : "#999", padding: "0 0 16px", fontSize: 11, letterSpacing: 2.4, textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, cursor: "pointer", position: "relative", transition: "color .3s ease" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: mode === "forgot" ? "none" : "flex", gap: 32, borderBottom: "1px solid #E8E0D2", marginBottom: 42 }, children: ["login", "signup"].map((tab) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("button", { onClick: () => setMode(tab), style: { border: "none", background: "transparent", color: mode === tab ? "#251737" : "#999", padding: "0 0 16px", fontSize: 11, letterSpacing: 2.4, textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, cursor: "pointer", position: "relative", transition: "color .3s ease" }, children: [
         tab === "login" ? "Login" : "Sign Up",
-        mode === tab && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { position: "absolute", bottom: -1, left: 0, right: 0, height: 2, background: "#3c1152", animation: "slideIn .3s ease" } })
+        mode === tab && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { position: "absolute", bottom: -1, left: 0, right: 0, height: 2, background: "#251737", animation: "slideIn .3s ease" } })
       ] }, tab)) }),
       mode === "forgot" && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 42, height: 1, background: "#B8922A", marginBottom: 22 } }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(32px,3.7vw,54px)", fontWeight: 300, lineHeight: 1.05, color: "#3c1152", marginBottom: 14 }, children: title }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(32px,3.7vw,54px)", fontWeight: 300, lineHeight: 1.05, color: "#251737", marginBottom: 14 }, children: title }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 14, color: "#777", lineHeight: 1.8, fontFamily: "'Montserrat',sans-serif", marginBottom: 36, maxWidth: 520 }, children: subtitle }),
       mode === "signup" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { animation: "fadeIn .4s ease" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FloatingInput, { label: "Full Name", type: "text", value: signupForm.name, onChange: (e) => setSignupForm({ ...signupForm, name: e.target.value }) }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FloatingInput, { label: "Email Address", type: "email", value: signupForm.email, onChange: (e) => setSignupForm({ ...signupForm, email: e.target.value }) }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FloatingInput, { label: "Phone Number", type: "tel", value: signupForm.phone, onChange: (e) => setSignupForm({ ...signupForm, phone: e.target.value }) }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FloatingInput, { label: "Password", type: "password", value: signupForm.password, onChange: (e) => setSignupForm({ ...signupForm, password: e.target.value }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => submit("signup"), style: { width: "100%", background: "#3c1152", color: "#fff", border: "none", padding: "20px", fontSize: 11, letterSpacing: 3, textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, marginTop: 12, boxShadow: "0 12px 24px rgba(60,17,82,.15)", transition: "all .3s ease" }, onMouseEnter: (e) => e.currentTarget.style.transform = "translateY(-2px)", onMouseLeave: (e) => e.currentTarget.style.transform = "translateY(0)", children: "Create Account" })
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => submit("signup"), style: { width: "100%", background: "#251737", color: "#fff", border: "none", padding: "20px", fontSize: 11, letterSpacing: 3, textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, marginTop: 12, boxShadow: "0 12px 24px rgba(60,17,82,.15)", transition: "all .3s ease" }, onMouseEnter: (e) => e.currentTarget.style.transform = "translateY(-2px)", onMouseLeave: (e) => e.currentTarget.style.transform = "translateY(0)", children: "Create Account" })
       ] }),
       mode === "login" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { animation: "fadeIn .4s ease" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FloatingInput, { label: "Email Address", type: "email", value: loginForm.email, onChange: (e) => setLoginForm({ ...loginForm, email: e.target.value }) }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FloatingInput, { label: "Password", type: "password", value: loginForm.password, onChange: (e) => setLoginForm({ ...loginForm, password: e.target.value }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", justifyContent: "flex-end", margin: "-12px 0 24px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => setMode("forgot"), style: { background: "transparent", border: "none", color: "#B8922A", fontSize: 10, letterSpacing: 1.5, textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, cursor: "pointer", transition: "color .3s ease" }, onMouseEnter: (e) => e.currentTarget.style.color = "#3c1152", onMouseLeave: (e) => e.currentTarget.style.color = "#B8922A", children: "Forgot Password?" }) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => submit("login"), style: { width: "100%", background: "#3c1152", color: "#fff", border: "none", padding: "20px", fontSize: 11, letterSpacing: 3, textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, boxShadow: "0 12px 24px rgba(60,17,82,.15)", transition: "all .3s ease" }, onMouseEnter: (e) => e.currentTarget.style.transform = "translateY(-2px)", onMouseLeave: (e) => e.currentTarget.style.transform = "translateY(0)", children: "Login" })
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", justifyContent: "flex-end", margin: "-12px 0 24px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => setMode("forgot"), style: { background: "transparent", border: "none", color: "#B8922A", fontSize: 10, letterSpacing: 1.5, textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, cursor: "pointer", transition: "color .3s ease" }, onMouseEnter: (e) => e.currentTarget.style.color = "#251737", onMouseLeave: (e) => e.currentTarget.style.color = "#B8922A", children: "Forgot Password?" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => submit("login"), style: { width: "100%", background: "#251737", color: "#fff", border: "none", padding: "20px", fontSize: 11, letterSpacing: 3, textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, boxShadow: "0 12px 24px rgba(60,17,82,.15)", transition: "all .3s ease" }, onMouseEnter: (e) => e.currentTarget.style.transform = "translateY(-2px)", onMouseLeave: (e) => e.currentTarget.style.transform = "translateY(0)", children: "Login" })
       ] }),
       mode === "forgot" && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { animation: "fadeIn .4s ease" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(FloatingInput, { label: "Email Address", type: "email", value: forgotEmail, onChange: (e) => setForgotEmail(e.target.value) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => submit("forgot"), style: { width: "100%", background: "#3c1152", color: "#fff", border: "none", padding: "20px", fontSize: 11, letterSpacing: 3, textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, boxShadow: "0 12px 24px rgba(60,17,82,.15)", transition: "all .3s ease" }, onMouseEnter: (e) => e.currentTarget.style.transform = "translateY(-2px)", onMouseLeave: (e) => e.currentTarget.style.transform = "translateY(0)", children: "Send Reset Link" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => setMode("login"), style: { width: "100%", background: "transparent", color: "#3c1152", border: "1px solid #3c1152", padding: "18px", fontSize: 11, letterSpacing: 2.6, textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, marginTop: 16, transition: "all .3s ease" }, onMouseEnter: (e) => e.currentTarget.style.background = "rgba(60,17,82,.04)", onMouseLeave: (e) => e.currentTarget.style.background = "transparent", children: "Back to Login" })
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => submit("forgot"), style: { width: "100%", background: "#251737", color: "#fff", border: "none", padding: "20px", fontSize: 11, letterSpacing: 3, textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, boxShadow: "0 12px 24px rgba(60,17,82,.15)", transition: "all .3s ease" }, onMouseEnter: (e) => e.currentTarget.style.transform = "translateY(-2px)", onMouseLeave: (e) => e.currentTarget.style.transform = "translateY(0)", children: "Send Reset Link" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => setMode("login"), style: { width: "100%", background: "transparent", color: "#251737", border: "1px solid #251737", padding: "18px", fontSize: 11, letterSpacing: 2.6, textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, marginTop: 16, transition: "all .3s ease" }, onMouseEnter: (e) => e.currentTarget.style.background = "rgba(60,17,82,.04)", onMouseLeave: (e) => e.currentTarget.style.background = "transparent", children: "Back to Login" })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 11, color: "#999", lineHeight: 1.7, fontFamily: "'Montserrat',sans-serif", marginTop: 32, textAlign: "center" }, children: "Your account is used for Khadlaj updates, wishlists, and private fragrance offers." })
     ] }) })
@@ -24061,7 +24061,7 @@ function CartPage({ cartItems, updateCartQty, removeFromCart, setPage, setViewPr
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: 20, flexWrap: "wrap", marginBottom: 44 }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontWeight: 600, fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 12 }, children: "Shopping Bag" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { className: "disp", style: { fontSize: "clamp(38px,5vw,68px)", fontWeight: 300, lineHeight: 1, color: "#3c1152" }, children: "Your Cart" })
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { className: "disp", style: { fontSize: "clamp(38px,5vw,68px)", fontWeight: 300, lineHeight: 1, color: "#251737" }, children: "Your Cart" })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-ghost", onClick: () => setPage("collections"), children: "Continue Shopping" })
     ] }),
@@ -24193,7 +24193,7 @@ function CheckoutPage({ cartItems, setPage, clearCart }) {
   return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { background: "#fff", minHeight: "100vh" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { padding: "70px 5% 96px", maxWidth: 1280, margin: "0 auto" }, children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginBottom: 44 }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontWeight: 600, fontSize: 9, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 12 }, children: "Secure Checkout" }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { className: "disp", style: { fontSize: "clamp(38px,5vw,68px)", fontWeight: 300, lineHeight: 1, color: "#3c1152" }, children: "Checkout" })
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { className: "disp", style: { fontSize: "clamp(38px,5vw,68px)", fontWeight: 300, lineHeight: 1, color: "#251737" }, children: "Checkout" })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { className: "grid-2", style: { display: "grid", gridTemplateColumns: "minmax(0,1.15fr) minmax(320px,.85fr)", gap: 34, alignItems: "start" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { border: "1px solid #E8E4DC", padding: "clamp(22px,4vw,38px)", background: "#fff" }, children: [
@@ -24279,7 +24279,7 @@ function CheckoutPage({ cartItems, setPage, clearCart }) {
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { style: { fontSize: 22, fontFamily: "'Montserrat',sans-serif" }, children: formatPrice2(total) })
         ] }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-gold", style: { width: "100%" }, onClick: submitOrder, children: "Place Order" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => setPage("cart"), style: { width: "100%", marginTop: 12, background: "transparent", border: "1px solid #3c1152", padding: "13px", fontSize: 10, letterSpacing: 2, textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, cursor: "pointer" }, children: "Back to Cart" })
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { onClick: () => setPage("cart"), style: { width: "100%", marginTop: 12, background: "transparent", border: "1px solid #251737", padding: "13px", fontSize: 10, letterSpacing: 2, textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, cursor: "pointer" }, children: "Back to Cart" })
       ] })
     ] })
   ] }) });
@@ -24315,7 +24315,7 @@ function Navbar({ page, setPage, cartCount }) {
             value: searchQuery,
             onChange: (e) => handleSearch(e.target.value),
             placeholder: "Search fragrances, collections, notes...",
-            style: { flex: 1, border: "none", outline: "none", fontSize: "clamp(16px,2.5vw,26px)", fontFamily: "'Trajan Pro', 'Cinzel', serif", fontWeight: 300, color: "#3c1152", background: "transparent" }
+            style: { flex: 1, border: "none", outline: "none", fontSize: "clamp(16px,2.5vw,26px)", fontFamily: "'Trajan Pro', 'Cinzel', serif", fontWeight: 300, color: "#251737", background: "transparent" }
           }
         ),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
@@ -24326,14 +24326,14 @@ function Navbar({ page, setPage, cartCount }) {
               setSearchQuery("");
               setSearchResults([]);
             },
-            style: { background: "none", border: "none", fontSize: 28, cursor: "pointer", color: "#3c1152", fontWeight: 300, lineHeight: 1 },
+            style: { background: "none", border: "none", fontSize: 28, cursor: "pointer", color: "#251737", fontWeight: 300, lineHeight: 1 },
             children: "\xD7"
           }
         )
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: 1, overflowY: "auto", paddingTop: 24 }, children: [
         searchQuery && searchResults.length === 0 && /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { textAlign: "center", paddingTop: 64 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { className: "disp", style: { fontSize: 28, fontWeight: 300, color: "#3c1152", marginBottom: 8 }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("p", { className: "disp", style: { fontSize: 28, fontWeight: 300, color: "#251737", marginBottom: 8 }, children: [
             'No results for "',
             searchQuery,
             '"'
@@ -24357,12 +24357,12 @@ function Navbar({ page, setPage, cartCount }) {
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { position: "absolute", inset: 10, background: "radial-gradient(circle at 50% 42%, rgba(184,146,42,.10), rgba(255,255,255,0) 62%)" } }),
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: p.img, alt: p.name, loading: "lazy", style: { position: "relative", width: "100%", height: "100%", objectFit: "contain", padding: "16px", filter: "drop-shadow(0 12px 20px rgba(0,0,0,.08))" } }),
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { height: 2, position: "absolute", bottom: 0, left: 0, right: 0, background: "linear-gradient(90deg,#B8922A,#D4AF5A,#B8922A)" } }),
-              p.badge && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { position: "absolute", top: 10, left: 10, background: p.badge === "New" ? "#B8922A" : p.badge === "Limited" ? "#5C0000" : "#3c1152", color: "#fff", fontSize: 8, letterSpacing: 2, padding: "3px 8px", fontFamily: "'Montserrat',sans-serif", textTransform: "uppercase" }, children: p.badge })
+              p.badge && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { position: "absolute", top: 10, left: 10, background: p.badge === "New" ? "#B8922A" : p.badge === "Limited" ? "#5C0000" : "#251737", color: "#fff", fontSize: 8, letterSpacing: 2, padding: "3px 8px", fontFamily: "'Montserrat',sans-serif", textTransform: "uppercase" }, children: p.badge })
             ] }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "10px 6px 14px" }, children: [
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontWeight: 600, fontSize: 9, color: "#B8922A", letterSpacing: 3, textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 3 }, children: p.col === "Lafede" ? "La Fede" : p.col }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 12, fontWeight: 600, color: "#3c1152", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 4, lineHeight: 1.2 }, children: p.name }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 13, fontWeight: 600, color: "#3c1152", fontFamily: "'Montserrat',sans-serif" }, children: formatPrice(p.price) })
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 12, fontWeight: 600, color: "#251737", textTransform: "uppercase", fontFamily: "'Montserrat',sans-serif", marginBottom: 4, lineHeight: 1.2 }, children: p.name }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 13, fontWeight: 600, color: "#251737", fontFamily: "'Montserrat',sans-serif" }, children: formatPrice(p.price) })
             ] })
           ] }, p.id)) })
         ] }),
@@ -24374,7 +24374,7 @@ function Navbar({ page, setPage, cartCount }) {
               onClick: () => handleSearch(s),
               style: { background: "#F7F5F2", border: "1px solid #E8E4DC", padding: "8px 16px", fontSize: 12, color: "#333", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", transition: "all .2s" },
               onMouseEnter: (e) => {
-                e.currentTarget.style.background = "#3c1152";
+                e.currentTarget.style.background = "#251737";
                 e.currentTarget.style.color = "#fff";
               },
               onMouseLeave: (e) => {
@@ -24389,7 +24389,7 @@ function Navbar({ page, setPage, cartCount }) {
       ] })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { position: "sticky", top: 0, zIndex: 100 }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { background: "#3c1152", color: "#fff", textAlign: "center", padding: "14px 16px", fontSize: "12px", letterSpacing: "4px", fontFamily: "'DM Sans',sans-serif", textTransform: "uppercase", fontWeight: 500 }, children: 'USE "KHADLAJ25" FOR FLAT 25% DISCOUNT' }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { background: "#251737", color: "#fff", textAlign: "center", padding: "14px 16px", fontSize: "12px", letterSpacing: "4px", fontFamily: "'DM Sans',sans-serif", textTransform: "uppercase", fontWeight: 500 }, children: 'USE "KHADLAJ25" FOR FLAT 25% DISCOUNT' }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("nav", { style: { background: "rgba(255,255,255,0.85)", backdropFilter: "blur(16px)", WebkitBackdropFilter: "blur(16px)", boxShadow: "0 4px 30px rgba(0,0,0,0.03)", borderBottom: "1px solid rgba(232,228,220,0.5)", transition: "all 0.3s" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { padding: "0 5%" }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center", minHeight: 80, padding: "12px 0", gap: 24 }, children: [
@@ -24399,7 +24399,7 @@ function Navbar({ page, setPage, cartCount }) {
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "21", y1: "21", x2: "16.65", y2: "16.65" })
               ] }) }),
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "hide-mob country-dropdown", children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CountryContext.Consumer, { children: ({ activeCountry, setActiveCountry }) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_jsx_runtime.Fragment, { children: [
-                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "10px 18px", border: "1px solid #E8E4DC", borderRadius: 4, background: "#FAF9F6", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontSize: 14, fontWeight: 600, color: "#3c1152" }, children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10, padding: "10px 18px", border: "1px solid #E8E4DC", borderRadius: 4, background: "#FAF9F6", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontSize: 14, fontWeight: 600, color: "#251737" }, children: [
                   activeCountry.flagUrl === "global" ? /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "20", height: "20", viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: "1.6", strokeLinecap: "round", strokeLinejoin: "round", children: [
                     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "12", cy: "12", r: "10" }),
                     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "2", y1: "12", x2: "22", y2: "12" }),
@@ -24426,7 +24426,7 @@ function Navbar({ page, setPage, cartCount }) {
                         fontFamily: "'Montserrat',sans-serif",
                         fontSize: 11,
                         fontWeight: isActive ? 600 : 500,
-                        color: isActive ? "#3c1152" : "#555",
+                        color: isActive ? "#251737" : "#555",
                         textAlign: "left",
                         width: "100%",
                         transition: "all .2s"
@@ -24434,7 +24434,7 @@ function Navbar({ page, setPage, cartCount }) {
                       onMouseEnter: (e) => {
                         if (!isActive) {
                           e.currentTarget.style.background = "#FBFaf8";
-                          e.currentTarget.style.color = "#3c1152";
+                          e.currentTarget.style.color = "#251737";
                         }
                       },
                       onMouseLeave: (e) => {
@@ -24468,7 +24468,7 @@ function Navbar({ page, setPage, cartCount }) {
               }
             ) }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", justifyContent: "flex-end", gap: 24 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "hide-mob", style: { fontSize: "11px", letterSpacing: "2px", color: "#3c1152", textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, transition: "color .2s" }, onMouseEnter: (e) => e.target.style.color = "#B8922A", onMouseLeave: (e) => e.target.style.color = "#3c1152", onClick: () => setPage("signup"), children: "Sign Up" }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "hide-mob", style: { fontSize: "11px", letterSpacing: "2px", color: "#251737", textTransform: "uppercase", cursor: "pointer", fontFamily: "'Montserrat',sans-serif", fontWeight: 600, transition: "color .2s" }, onMouseEnter: (e) => e.target.style.color = "#B8922A", onMouseLeave: (e) => e.target.style.color = "#251737", onClick: () => setPage("signup"), children: "Sign Up" }),
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { className: "hide-mob", style: { cursor: "pointer", display: "flex", alignItems: "center", transition: "transform .2s" }, onMouseEnter: (e) => e.currentTarget.style.transform = "scale(1.1)", onMouseLeave: (e) => e.currentTarget.style.transform = "scale(1)", onClick: () => setSearchOpen(true), children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("svg", { width: "18", height: "18", viewBox: "0 0 24 24", fill: "none", stroke: "#111", strokeWidth: "1.5", strokeLinecap: "round", strokeLinejoin: "round", children: [
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("circle", { cx: "11", cy: "11", r: "8" }),
                 /* @__PURE__ */ (0, import_jsx_runtime.jsx)("line", { x1: "21", y1: "21", x2: "16.65", y2: "16.65" })
@@ -24489,15 +24489,15 @@ function Navbar({ page, setPage, cartCount }) {
                   className: "mob-burger",
                   "aria-label": "Menu",
                   children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { display: "block", width: 20, height: 1.5, background: "#3c1152", transition: "all .25s" } }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { display: "block", width: 20, height: 1.5, background: "#3c1152", transition: "all .25s" } }),
-                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { display: "block", width: 14, height: 1.5, background: "#3c1152", transition: "all .25s" } })
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { display: "block", width: 20, height: 1.5, background: "#251737", transition: "all .25s" } }),
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { display: "block", width: 20, height: 1.5, background: "#251737", transition: "all .25s" } }),
+                    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { display: "block", width: 14, height: 1.5, background: "#251737", transition: "all .25s" } })
                   ]
                 }
               )
             ] })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "hide-mob", style: { display: "flex", justifyContent: "center", gap: 40, paddingBottom: 16, fontSize: "12px", letterSpacing: "1.5px", textTransform: "uppercase", color: "#3c1152", fontFamily: "'Montserrat',sans-serif", fontWeight: 600 }, children: [["Best Sellers", "collections"], ["Perfume Spray", "collections"], ["Perfume Oil", "collections"], ["Home & Ambience", "home"], ["La Fede", "lafede"], ["Gifts", "gifts"], ["Our legacy", "story"], ["Contact", "contact"]].map(([label, pg]) => {
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { className: "hide-mob", style: { display: "flex", justifyContent: "center", gap: 40, paddingBottom: 16, fontSize: "12px", letterSpacing: "1.5px", textTransform: "uppercase", color: "#251737", fontFamily: "'Montserrat',sans-serif", fontWeight: 600 }, children: [["Best Sellers", "collections"], ["Perfume Spray", "collections"], ["Perfume Oil", "collections"], ["Home & Ambience", "home"], ["La Fede", "lafede"], ["Gifts", "gifts"], ["Our legacy", "story"], ["Contact", "contact"]].map(([label, pg]) => {
             const isActive = page === pg && !["Best Sellers", "Perfume Spray", "Perfume Oil", "Home & Ambience"].includes(label);
             return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { onClick: () => setPage(pg), className: `nav-link ${isActive ? "active" : ""}`, children: label }, label);
           }) })
@@ -24526,7 +24526,7 @@ function Navbar({ page, setPage, cartCount }) {
                 fontSize: 11,
                 letterSpacing: 2.5,
                 textTransform: "uppercase",
-                color: "#3c1152",
+                color: "#251737",
                 cursor: "pointer",
                 fontFamily: "'Montserrat',sans-serif",
                 borderBottom: "1px solid #F0EBE3",
@@ -24598,7 +24598,7 @@ function Navbar({ page, setPage, cartCount }) {
 }
 function Footer({ setPage }) {
   return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("footer", { style: { background: "#fff", borderTop: "1px solid #E8E4DC" }, children: [
-    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { background: "#3c1152", padding: "80px 5%", textAlign: "center", borderBottom: "1px solid rgba(255,255,255,0.05)", borderTop: "1px solid rgba(193,164,106,0.15)" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { maxWidth: 560, margin: "0 auto" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { background: "#251737", padding: "80px 5%", textAlign: "center", borderBottom: "1px solid rgba(255,255,255,0.05)", borderTop: "1px solid rgba(193,164,106,0.15)" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { maxWidth: 560, margin: "0 auto" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 40, height: 1, background: "#B8922A", margin: "0 auto 18px" } }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 9, letterSpacing: 4, color: "#B8922A", textTransform: "uppercase", fontFamily: "'DM Sans',sans-serif", marginBottom: 14, fontWeight: 600 }, children: "Newsletter" }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(26px,3.5vw,42px)", fontWeight: 300, marginBottom: 14, color: "#fff", letterSpacing: "-0.5px" }, children: "Join the Khadlaj Circle" }),
@@ -24618,7 +24618,7 @@ function Footer({ setPage }) {
             style: { background: "#B8922A", border: "1px solid #B8922A", color: "#fff", padding: "16px 36px", fontSize: 10, letterSpacing: 2.5, textTransform: "uppercase", cursor: "pointer", fontFamily: "'DM Sans',sans-serif", fontWeight: 600, transition: "all .3s" },
             onMouseEnter: (e) => {
               e.currentTarget.style.background = "#fff";
-              e.currentTarget.style.color = "#3c1152";
+              e.currentTarget.style.color = "#251737";
               e.currentTarget.style.borderColor = "#fff";
             },
             onMouseLeave: (e) => {
@@ -24677,7 +24677,7 @@ function Footer({ setPage }) {
         )) }) })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: "8.5px", letterSpacing: 2.5, color: "#3c1152", textTransform: "uppercase", marginBottom: 24, fontFamily: "'Montserrat',sans-serif", fontWeight: 600 }, children: "Collections" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: "8.5px", letterSpacing: 2.5, color: "#251737", textTransform: "uppercase", marginBottom: 24, fontFamily: "'Montserrat',sans-serif", fontWeight: 600 }, children: "Collections" }),
         [["Atyaab", "collections"], ["La Fede", "lafede"], ["Master Perfumery", "collections"], ["Gift Sets", "gifts"], ["New Arrivals", "collections"], ["Best Sellers", "collections"]].map(([l, pg]) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
           "p",
           {
@@ -24691,7 +24691,7 @@ function Footer({ setPage }) {
         ))
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: "8.5px", letterSpacing: 2.5, color: "#3c1152", textTransform: "uppercase", marginBottom: 24, fontFamily: "'Montserrat',sans-serif", fontWeight: 600 }, children: "Company" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: "8.5px", letterSpacing: 2.5, color: "#251737", textTransform: "uppercase", marginBottom: 24, fontFamily: "'Montserrat',sans-serif", fontWeight: 600 }, children: "Company" }),
         [["Our Story", "story"], ["Contact Us", "contact"], ["Find a Store", "contact"], ["Careers", "contact"], ["Press", "contact"]].map(([l, pg]) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
           "p",
           {
@@ -24705,7 +24705,7 @@ function Footer({ setPage }) {
         ))
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: "8.5px", letterSpacing: 2.5, color: "#3c1152", textTransform: "uppercase", marginBottom: 24, fontFamily: "'Montserrat',sans-serif", fontWeight: 600 }, children: "Support" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: "8.5px", letterSpacing: 2.5, color: "#251737", textTransform: "uppercase", marginBottom: 24, fontFamily: "'Montserrat',sans-serif", fontWeight: 600 }, children: "Support" }),
         ["Shipping & Returns", "FAQ", "Track My Order", "Fragrance Guide", "Gift Wrapping"].map((l) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
           "p",
           {
@@ -24717,14 +24717,14 @@ function Footer({ setPage }) {
           l
         )),
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { marginTop: 32, paddingTop: 24, borderTop: "1px solid #e5e5e5" }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: "8px", letterSpacing: 2.5, color: "#3c1152", textTransform: "uppercase", marginBottom: 14, fontFamily: "'Montserrat',sans-serif", fontWeight: 600 }, children: "Ships With" }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: "8px", letterSpacing: 2.5, color: "#251737", textTransform: "uppercase", marginBottom: 14, fontFamily: "'Montserrat',sans-serif", fontWeight: 600 }, children: "Ships With" }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", flexWrap: "wrap", gap: 6 }, children: ["DHL", "Aramex", "EMX"].map((s) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { border: "1px solid #e5e5e5", padding: "4px 12px", fontSize: 9, color: "#444", fontFamily: "'Montserrat',sans-serif", letterSpacing: 1, background: "#fff", borderRadius: 1 }, children: s }, s)) })
         ] })
       ] })
     ] }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "#fff", borderTop: "1px solid #E8E4DC", padding: "30px 5%", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 20, fontSize: 9, color: "#888", letterSpacing: 1.5, fontFamily: "'Montserrat',sans-serif", textTransform: "uppercase" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { marginBottom: 10, color: "#3c1152", fontWeight: 600 }, children: "\xA9 2025 Khadlaj Perfumes LLC. All rights reserved. UAE." }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { marginBottom: 10, color: "#251737", fontWeight: 600 }, children: "\xA9 2025 Khadlaj Perfumes LLC. All rights reserved. UAE." }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: 24 }, children: ["Privacy Policy", "Terms of Use", "Cookie Settings"].map((l) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { cursor: "pointer", transition: "color .2s" }, onMouseEnter: (e) => e.target.style.color = "#B8922A", onMouseLeave: (e) => e.target.style.color = "#888", children: l }, l)) })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: 12, alignItems: "center" }, children: [
@@ -24748,7 +24748,7 @@ function Footer({ setPage }) {
             width: 32,
             height: 32,
             borderRadius: "50%",
-            background: "#3c1152",
+            background: "#251737",
             color: "#fff",
             textDecoration: "none",
             transition: "transform 0.2s, background 0.2s, color 0.2s"
@@ -24759,7 +24759,7 @@ function Footer({ setPage }) {
           },
           onMouseLeave: (e) => {
             e.currentTarget.style.transform = "scale(1)";
-            e.currentTarget.style.background = "#3c1152";
+            e.currentTarget.style.background = "#251737";
           },
           children: [
             social.hasDot && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: {
@@ -25000,7 +25000,7 @@ function App() {
         return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HomePage, { setPage, addToCart, setViewProduct });
     }
   };
-  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CountryContext.Provider, { value: { activeCountry, setActiveCountry }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontFamily: "'Montserrat',sans-serif", background: "#fff", color: "#3c1152", minHeight: "100vh" }, children: [
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(CountryContext.Provider, { value: { activeCountry, setActiveCountry }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { fontFamily: "'Montserrat',sans-serif", background: "#fff", color: "#251737", minHeight: "100vh" }, children: [
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("style", { children: GLOBAL_CSS }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Navbar, { page, setPage, cartCount }),
     /* @__PURE__ */ (0, import_jsx_runtime.jsx)("main", { children: renderPage() }),
@@ -25015,7 +25015,7 @@ function App() {
           bottom: 24,
           right: 24,
           zIndex: 200,
-          background: "#3c1152",
+          background: "#251737",
           color: "#fff",
           width: 46,
           height: 46,
@@ -25031,7 +25031,7 @@ function App() {
           e.currentTarget.style.transform = "scale(1.06)";
         },
         onMouseLeave: (e) => {
-          e.currentTarget.style.background = "#3c1152";
+          e.currentTarget.style.background = "#251737";
           e.currentTarget.style.transform = "scale(1)";
         },
         title: "Shop Now",
@@ -25047,7 +25047,7 @@ function App() {
           bottom: 24,
           left: 24,
           zIndex: 200,
-          background: "#3c1152",
+          background: "#251737",
           color: "#fff",
           width: 46,
           height: 46,
@@ -25065,7 +25065,7 @@ function App() {
           e.currentTarget.style.transform = "scale(1.06)";
         },
         onMouseLeave: (e) => {
-          e.currentTarget.style.background = "#3c1152";
+          e.currentTarget.style.background = "#251737";
           e.currentTarget.style.transform = "scale(1)";
         },
         title: "Chat with Us",
@@ -25089,7 +25089,7 @@ function App() {
       animation: "fadeUp 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both",
       fontFamily: "'Montserrat',sans-serif"
     }, children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "#3c1152", padding: "16px 20px", display: "flex", alignItems: "center", justifyContent: "space-between" }, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { background: "#251737", padding: "16px 20px", display: "flex", alignItems: "center", justifyContent: "space-between" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: 10 }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 8, height: 8, borderRadius: "50%", background: "#2ec4b6" } }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
@@ -25139,7 +25139,7 @@ function App() {
           {
             onClick: handleSendMessage,
             style: {
-              background: "#3c1152",
+              background: "#251737",
               border: "none",
               color: "#fff",
               padding: "10px 14px",
@@ -25167,7 +25167,7 @@ function App() {
             onMouseMove: handleTilt,
             onMouseLeave: resetTilt,
             style: {
-              background: "linear-gradient(135deg, #3c1152 0%, #1A0B22 100%)",
+              background: "linear-gradient(135deg, #251737 0%, #1A0B22 100%)",
               maxWidth: 440,
               width: "90%",
               overflow: "visible",
