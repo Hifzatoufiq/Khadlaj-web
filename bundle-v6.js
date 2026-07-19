@@ -23772,12 +23772,7 @@ function StoryPage() {
             ] })
           ] })
         ] })
-      ] }) }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 48, marginBottom: 0 }, children: [
-        "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/saraya_3.png?v=1781332291",
-        "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/IntoxicateMystique.3.png?v=1772518819",
-        "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Panache_1_jpg_c97c705a-aebf-4bf9-a621-f11b565e765d.jpg?v=1771333282"
-      ].map((src, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { aspectRatio: "4/5", overflow: "hidden" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src, alt: "", style: { width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" } }) }, i)) })
+      ] }) })
     ] })
   ] });
 }
