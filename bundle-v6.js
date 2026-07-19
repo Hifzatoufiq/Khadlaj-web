@@ -21780,7 +21780,7 @@ var SCENT_RIBBON = [
 var PRODUCTS = [
   {
     "id": 8783764291783,
-    "name": "OUD MUATTAR MUBAKHAR 200G",
+    "name": "OUD MUATTAR MUBAKHAR",
     "col": "Bakhoor",
     "price": 65,
     "size": "100ml EDP",
@@ -21795,7 +21795,7 @@ var PRODUCTS = [
   },
   {
     "id": 8757171159239,
-    "name": "KARUS GOLD ABSOLU 100 ML EDP SPRAY",
+    "name": "KARUS GOLD ABSOLU",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -21810,7 +21810,7 @@ var PRODUCTS = [
   },
   {
     "id": 8730021134535,
-    "name": "LA FEDE AURA VANILLA MILK 100 ML EDP SPRAY FOR WOMEN",
+    "name": "LA FEDE AURA VANILLA MILK",
     "col": "Lafede",
     "price": 55,
     "size": "100ml EDP",
@@ -21825,7 +21825,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554136703175,
-    "name": "DEHNAL OUDH COMBODI 3ML",
+    "name": "DEHNAL OUDH COMBODI",
     "col": "Dehn Al Oudh",
     "price": 65,
     "size": "3ml",
@@ -21836,11 +21836,11 @@ var PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/DEHNAL_OUDH_COMBODI_3ML_-_Khadlaj_Perfumes-1964314.jpg?v=1722409163"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/DEHNAL_OUDH_COMBODI_3ML_-_Khadlaj_Perfumes-1964319.jpg?v=1722409163"
   },
   {
     "id": 8729896419527,
-    "name": "KHADLAJ SARAYA 60 ML EXTRAIT DE PARFUM SPRAY FOR MEN & WOMEN",
+    "name": "KHADLAJ SARAYA",
     "col": "Extrait De Parfum",
     "price": 105,
     "size": "100ml EDP",
@@ -21855,7 +21855,7 @@ var PRODUCTS = [
   },
   {
     "id": 8711671578823,
-    "name": "KHADLAJ PERFUMES NAFAIS SHARQ GIFT SET FOR WOMEN (EDP 100ML, BODY MIST SPRAY 250ML & PERFUME OIL 24ML)",
+    "name": "NAFAIS SHARQ GIFT SET",
     "col": "Gift Sets",
     "price": 150,
     "size": "Gift Set",
@@ -21866,11 +21866,11 @@ var PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-1.jpg?v=1779352739"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais-Sharq-3.jpg?v=1779352739"
   },
   {
     "id": 8711666925767,
-    "name": "KHADLAJ PERFUMES CREAM VELVET GIFT SET FOR WOMEN (EDP 100ML, BODY MIST SPRAY 250ML & PERFUME OIL 24ML)",
+    "name": "CREAM VELVET GIFT SET",
     "col": "Gift Sets",
     "price": 160,
     "size": "Gift Set",
@@ -21881,11 +21881,11 @@ var PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-1.jpg?v=1779352383"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-4.jpg?v=1779352383"
   },
   {
     "id": 8679566770375,
-    "name": "ZAYAAN SILVER 100 ML EAU DE PARFUM FOR MEN",
+    "name": "ZAYAAN SILVER",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -21900,7 +21900,7 @@ var PRODUCTS = [
   },
   {
     "id": 8674610839751,
-    "name": "KHADLAJ SPECIAL MUKHALAT PERFUME OILS - DISCOVERY SET FOR MEN & WOMEN",
+    "name": "KHADLAJ SPECIAL MUKHALAT PERFUME OILS - DISCOVERY SET",
     "col": "Gift Sets",
     "price": 120,
     "size": "Gift Set",
@@ -21915,7 +21915,7 @@ var PRODUCTS = [
   },
   {
     "id": 8674591408327,
-    "name": "THE GOURMAND COLLECTION BY KHADLAJ DISCOVERY SET FOR WOMEN",
+    "name": "THE GOURMAND COLLECTION BY KHADLAJ DISCOVERY SET",
     "col": "Gift Sets",
     "price": 125,
     "size": "Gift Set",
@@ -21930,7 +21930,7 @@ var PRODUCTS = [
   },
   {
     "id": 8670778589383,
-    "name": "KHADLAJ IHTHIRAAM 60 ML EXTRAIT DE PARFUM SPRAY FOR MEN & WOMEN",
+    "name": "KHADLAJ IHTHIRAAM",
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "100ml EDP",
@@ -21945,7 +21945,7 @@ var PRODUCTS = [
   },
   {
     "id": 8670809555143,
-    "name": "KHADLAJ QARAR 60 ML EXTRAIT DE PARFUM SPRAY FOR MEN & WOMEN",
+    "name": "KHADLAJ QARAR",
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "100ml EDP",
@@ -21960,7 +21960,7 @@ var PRODUCTS = [
   },
   {
     "id": 8659572293831,
-    "name": "KHADLAJ MAYA 20 ML",
+    "name": "KHADLAJ MAYA",
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
@@ -21975,7 +21975,7 @@ var PRODUCTS = [
   },
   {
     "id": 8644257743047,
-    "name": "KHADLAJ ICON 100 ML EAU DE PARFUM SPRAY FOR MEN",
+    "name": "KHADLAJ ICON",
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100ml EDP",
@@ -21990,7 +21990,7 @@ var PRODUCTS = [
   },
   {
     "id": 8637240934599,
-    "name": "LA FEDE INTOXICATE MYSTIQUE 100 ML EXTRAIT DE PARFUM SPRAY FOR MEN",
+    "name": "LA FEDE INTOXICATE MYSTIQUE",
     "col": "Lafede",
     "price": 150,
     "size": "100ml EDP",
@@ -22005,7 +22005,7 @@ var PRODUCTS = [
   },
   {
     "id": 8626247041223,
-    "name": "BAKHOOR FAZAA 120 G",
+    "name": "BAKHOOR FAZAA",
     "col": "Bakhoor",
     "price": 90,
     "size": "120 G",
@@ -22020,7 +22020,7 @@ var PRODUCTS = [
   },
   {
     "id": 8626292916423,
-    "name": "BAKHOOR IZZ 120 G",
+    "name": "BAKHOOR IZZ",
     "col": "Bakhoor",
     "price": 90,
     "size": "120 G",
@@ -22035,7 +22035,7 @@ var PRODUCTS = [
   },
   {
     "id": 8633008914631,
-    "name": "OUD MUATTAR OUD AL RAWDA 40 G",
+    "name": "OUD MUATTAR OUD AL RAWDA",
     "col": "Bakhoor",
     "price": 35,
     "size": "100ml EDP",
@@ -22050,7 +22050,7 @@ var PRODUCTS = [
   },
   {
     "id": 8624170139847,
-    "name": "PANACHE ANGEL DUST 100 ML EXTRAIT DE PARFUM SPRAY FOR WOMEN",
+    "name": "PANACHE ANGEL DUST",
     "col": "Extrait De Parfum",
     "price": 200,
     "size": "100ml EDP",
@@ -22065,7 +22065,7 @@ var PRODUCTS = [
   },
   {
     "id": 8622015447239,
-    "name": "OUD MUATTAR BAHRAINI 60 G",
+    "name": "OUD MUATTAR BAHRAINI",
     "col": "Bakhoor",
     "price": 50,
     "size": "100ml EDP",
@@ -22080,7 +22080,7 @@ var PRODUCTS = [
   },
   {
     "id": 8608140460231,
-    "name": "OUD MUATTAR KUWAITI 60 G",
+    "name": "OUD MUATTAR KUWAITI",
     "col": "Bakhoor",
     "price": 50,
     "size": "100ml EDP",
@@ -22095,7 +22095,7 @@ var PRODUCTS = [
   },
   {
     "id": 8604851437767,
-    "name": "KHADLAJ ONYX SILVER 100 ML EAU DE PARFUM FOR MEN AND WOMEN",
+    "name": "KHADLAJ ONYX SILVER",
     "col": "Eau De Parfum",
     "price": 125,
     "size": "100ml EDP",
@@ -22110,7 +22110,7 @@ var PRODUCTS = [
   },
   {
     "id": 8597262368967,
-    "name": "NUHA BON BON 85 ML EAU DA PARFUM SPRAY FOR WOMEN",
+    "name": "NUHA BON BON",
     "col": "Eau De Parfum",
     "price": 85,
     "size": "100ml EDP",
@@ -22125,7 +22125,7 @@ var PRODUCTS = [
   },
   {
     "id": 8561538171079,
-    "name": "KHADLAJ STRAWBERRY SHAKE 100 ML EAU DE PARFUM SPRAY FOR WOMEN",
+    "name": "KHADLAJ STRAWBERRY SHAKE",
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100ml EDP",
@@ -22140,7 +22140,7 @@ var PRODUCTS = [
   },
   {
     "id": 8586765697223,
-    "name": "KHADLAJ CLOUD CANDY GIFT SET FOR WOMEN (EDP 100 ML, BODY SPRAY & PERFUME OIL ROLL ON 24 ML)",
+    "name": "KHADLAJ CLOUD CANDY GIFT SET",
     "col": "Gift Sets",
     "price": 169,
     "size": "Gift Set",
@@ -22155,7 +22155,7 @@ var PRODUCTS = [
   },
   {
     "id": 8586762813639,
-    "name": "KHADLAJ ISLAND GIFT SET FOR HIM & HER (EDP 100 ML, BODY SPRAY & TRAVEL SIZE EDP 8 ML)",
+    "name": "KHADLAJ ISLAND GIFT SET FOR HIM & HER (",
     "col": "Gift Sets",
     "price": 179,
     "size": "Gift Set",
@@ -22170,7 +22170,7 @@ var PRODUCTS = [
   },
   {
     "id": 8561163075783,
-    "name": "SAWAAR VANILLE BLANC 100 ML EXTRAIT DE PARFUM SPRAY FOR WOMEN",
+    "name": "SAWAAR VANILLE BLANC",
     "col": "Extrait De Parfum",
     "price": 200,
     "size": "100ml EDP",
@@ -22185,7 +22185,7 @@ var PRODUCTS = [
   },
   {
     "id": 8540408479943,
-    "name": "KHADLAJ ONYX GOLD 100 ML EAU DE PARFUM FOR MEN",
+    "name": "KHADLAJ ONYX GOLD",
     "col": "Eau De Parfum",
     "price": 125,
     "size": "100ml EDP",
@@ -22200,7 +22200,7 @@ var PRODUCTS = [
   },
   {
     "id": 8525945176263,
-    "name": "SPECIAL EDITION SHIYAAKA SNOW 100 ML EAU DE PARFUM FOR MEN",
+    "name": "SPECIAL EDITION SHIYAAKA SNOW",
     "col": "Eau De Parfum",
     "price": 126,
     "size": "100ml EDP",
@@ -22215,7 +22215,7 @@ var PRODUCTS = [
   },
   {
     "id": 8525961003207,
-    "name": "KHADLAJ NAFAIS MAGRIB 100 ML EAU DE PARFUM FOR MEN & WOMEN",
+    "name": "KHADLAJ NAFAIS MAGRIB",
     "col": "Eau De Parfum",
     "price": 110,
     "size": "100ml EDP",
@@ -22230,7 +22230,7 @@ var PRODUCTS = [
   },
   {
     "id": 8530518868167,
-    "name": "HUROOF 3 PCS PERFUMES COLLECTION GIFT SET FOR MEN AND WOMEN",
+    "name": "HUROOF 3 PCS PERFUMES COLLECTION GIFT SET",
     "col": "Gift Sets",
     "price": 140,
     "size": "100ml EDP",
@@ -22245,7 +22245,7 @@ var PRODUCTS = [
   },
   {
     "id": 8530334679239,
-    "name": "OUD MUATTAR OUD HIND 24 G",
+    "name": "OUD MUATTAR OUD HIND",
     "col": "Bakhoor",
     "price": 150,
     "size": "100ml EDP",
@@ -22260,7 +22260,7 @@ var PRODUCTS = [
   },
   {
     "id": 8530346279111,
-    "name": "OUD MUATTAR JUMEIRAH 24 G",
+    "name": "OUD MUATTAR JUMEIRAH",
     "col": "Bakhoor",
     "price": 150,
     "size": "100ml EDP",
@@ -22275,7 +22275,7 @@ var PRODUCTS = [
   },
   {
     "id": 8530211995847,
-    "name": "FRASH QISSA ESHQ AIR FRESHENER 320ML",
+    "name": "FRASH QISSA ESHQ AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 35,
     "size": "100ml EDP",
@@ -22288,7 +22288,7 @@ var PRODUCTS = [
   },
   {
     "id": 8530209407175,
-    "name": "FRASH QISSA TURQUOISE AIR FRESHENER 320ML",
+    "name": "FRASH QISSA TURQUOISE AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 35,
     "size": "100ml EDP",
@@ -22301,7 +22301,7 @@ var PRODUCTS = [
   },
   {
     "id": 8530198069447,
-    "name": "FRASH SARA AIR FRESHENER 320ML",
+    "name": "FRASH SARA AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 38,
     "size": "100ml EDP",
@@ -22314,7 +22314,7 @@ var PRODUCTS = [
   },
   {
     "id": 8526052262087,
-    "name": "OUD PURE OUD JUMEIRAH 60 ML MASTER PERFUMER COLLECTION EDP SPRAY FOR MEN & WOMEN",
+    "name": "OUD PURE OUD JUMEIRAH",
     "col": "Eau De Parfum",
     "price": 200,
     "size": "100ml EDP",
@@ -22329,7 +22329,7 @@ var PRODUCTS = [
   },
   {
     "id": 8526040367303,
-    "name": "OUD PURE OUD BARAKAT 60 ML MASTER PERFUMER COLLECTION EDP SPRAY FOR MEN & WOMEN",
+    "name": "OUD PURE OUD BARAKAT",
     "col": "Eau De Parfum",
     "price": 200,
     "size": "100ml EDP",
@@ -22344,7 +22344,7 @@ var PRODUCTS = [
   },
   {
     "id": 8525988200647,
-    "name": "OUD PURE OUD GALAZAID 60 ML MASTER PERFUMER COLLECTION EDP SPRAY FOR MEN & WOMEN",
+    "name": "OUD PURE OUD GALAZAID",
     "col": "Eau De Parfum",
     "price": 200,
     "size": "100ml EDP",
@@ -22359,7 +22359,7 @@ var PRODUCTS = [
   },
   {
     "id": 8516215439559,
-    "name": "KHADLAJ RIA 100 ML EAU DE PARFUM SPRAY FOR WOMEN",
+    "name": "KHADLAJ RIA",
     "col": "Eau De Parfum",
     "price": 125,
     "size": "100ml EDP",
@@ -22374,7 +22374,7 @@ var PRODUCTS = [
   },
   {
     "id": 8496480944327,
-    "name": "KHADLAJ MANSION 100 ML EAU DE PARFUM SPRAY FOR MEN AND WOMEN",
+    "name": "KHADLAJ MANSION",
     "col": "Eau De Parfum",
     "price": 110,
     "size": "100ml EDP",
@@ -22389,7 +22389,7 @@ var PRODUCTS = [
   },
   {
     "id": 8488117600455,
-    "name": "PEACH VELVET 100 ML EXTRAIT DE PARFUM FOR WOMEN",
+    "name": "PEACH VELVET",
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "100ml EDP",
@@ -22404,7 +22404,7 @@ var PRODUCTS = [
   },
   {
     "id": 8484193861831,
-    "name": "KHADLAJ TITAN 100 ML EAU DE PARFUM SPRAY FOR MEN",
+    "name": "KHADLAJ TITAN",
     "col": "Eau De Parfum",
     "price": 110,
     "size": "100ml EDP",
@@ -22419,7 +22419,7 @@ var PRODUCTS = [
   },
   {
     "id": 8473765675207,
-    "name": "BISCOTTI MELON MISK 100 ML EXTRAIT DE PARFUM SPRAY FOR WOMEN",
+    "name": "BISCOTTI MELON MISK",
     "col": "Extrait De Parfum",
     "price": 110,
     "size": "100ml EDP",
@@ -22434,7 +22434,7 @@ var PRODUCTS = [
   },
   {
     "id": 8471917723847,
-    "name": "GRAND COLLECTION 3 PIECES GIFT SET FOR WOMEN",
+    "name": "GRAND COLLECTION 3 PIECES GIFT SET",
     "col": "Gift Sets",
     "price": 210,
     "size": "100ml EDP",
@@ -22449,7 +22449,7 @@ var PRODUCTS = [
   },
   {
     "id": 8459140759751,
-    "name": "KHADLAJ ISLAND DREAMS 100 ML EXTRAIT DE PARFUM",
+    "name": "KHADLAJ ISLAND DREAMS",
     "col": "Extrait De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -22464,7 +22464,7 @@ var PRODUCTS = [
   },
   {
     "id": 8457608462535,
-    "name": "LA FEDE CELEBRITY CRUSH 100ML EAU DE PARFUM",
+    "name": "LA FEDE CELEBRITY CRUSH",
     "col": "Lafede",
     "price": 130,
     "size": "100ml EDP",
@@ -22479,7 +22479,7 @@ var PRODUCTS = [
   },
   {
     "id": 8457604071623,
-    "name": "LA FEDE CELEBRITY FAME 100ML EAU DE PARFUM",
+    "name": "LA FEDE CELEBRITY FAME",
     "col": "Lafede",
     "price": 130,
     "size": "100ml EDP",
@@ -22494,7 +22494,7 @@ var PRODUCTS = [
   },
   {
     "id": 8443601223879,
-    "name": "ZAYAAN GOLD 100 ML EAU DE PARFUM FOR MEN",
+    "name": "ZAYAAN GOLD",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -22509,7 +22509,7 @@ var PRODUCTS = [
   },
   {
     "id": 8416731889863,
-    "name": "LA FEDE EDGE INTENSE 100 ML EAU DE PARFUM FOR MEN & WOMEN",
+    "name": "LA FEDE EDGE INTENSE",
     "col": "Lafede",
     "price": 90,
     "size": "100ml EDP",
@@ -22524,7 +22524,7 @@ var PRODUCTS = [
   },
   {
     "id": 8416723861703,
-    "name": "LA FEDE EDGE ORIGINAL 100 ML EAU DE PARFUM FOR WOMEN",
+    "name": "LA FEDE EDGE ORIGINAL",
     "col": "Lafede",
     "price": 90,
     "size": "100ml EDP",
@@ -22539,7 +22539,7 @@ var PRODUCTS = [
   },
   {
     "id": 8316886712519,
-    "name": "PRIVATE BLEND MUSK ICE EXTRAIT DE PARFUM 100 ML FOR WOMEN",
+    "name": "PRIVATE BLEND MUSK ICE",
     "col": "Extrait De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -22554,7 +22554,7 @@ var PRODUCTS = [
   },
   {
     "id": 8409302073543,
-    "name": "SPECIAL EDITION SHIYAAKA SHADOW 100 ML EAU DE PARFUM FOR MEN",
+    "name": "SPECIAL EDITION SHIYAAKA SHADOW",
     "col": "Eau De Parfum",
     "price": 126,
     "size": "100ml EDP",
@@ -22569,7 +22569,7 @@ var PRODUCTS = [
   },
   {
     "id": 8409289228487,
-    "name": "KHADLAJ NAFAIS SHARQ 100 ML EAU DE PARFUM FOR WOMEN",
+    "name": "KHADLAJ NAFAIS SHARQ",
     "col": "Eau De Parfum",
     "price": 110,
     "size": "100ml EDP",
@@ -22584,7 +22584,7 @@ var PRODUCTS = [
   },
   {
     "id": 8398776959175,
-    "name": "BISCOTTI DATE TOFFEE 100 ML EXTRAIT DE PARFUM SPRAY FOR MEN & WOMEN",
+    "name": "BISCOTTI DATE TOFFEE",
     "col": "Extrait De Parfum",
     "price": 110,
     "size": "100ml EDP",
@@ -22599,7 +22599,7 @@ var PRODUCTS = [
   },
   {
     "id": 8398776860871,
-    "name": "BISCOTTI CARAMEL POP 100 ML EXTRAIT DE PARFUM SPRAY FOR MEN & WOMEN",
+    "name": "BISCOTTI CARAMEL POP",
     "col": "Extrait De Parfum",
     "price": 110,
     "size": "100ml EDP",
@@ -22614,7 +22614,7 @@ var PRODUCTS = [
   },
   {
     "id": 8386685599943,
-    "name": "OUD POUR LEATHER 100ML EDP SPRAY FOR MEN",
+    "name": "OUD POUR LEATHER",
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100ml EDP",
@@ -22629,7 +22629,7 @@ var PRODUCTS = [
   },
   {
     "id": 8385197375687,
-    "name": "OUD PURE MAGICAL THAI 3ML PURE PERFUME OIL",
+    "name": "OUD PURE MAGICAL THAI",
     "col": "Perfume Oils",
     "price": 325,
     "size": "3ML",
@@ -22644,7 +22644,7 @@ var PRODUCTS = [
   },
   {
     "id": 8385137639623,
-    "name": "DEHNAL OUD QAISAR SEUFI 3ML",
+    "name": "DEHNAL OUD QAISAR SEUFI",
     "col": "Dehn Al Oudh",
     "price": 325,
     "size": "3ML",
@@ -22659,7 +22659,7 @@ var PRODUCTS = [
   },
   {
     "id": 8385113981127,
-    "name": "DEHNAL OUD SHEIKH QADIM 3ML",
+    "name": "DEHNAL OUD SHEIKH QADIM",
     "col": "Dehn Al Oudh",
     "price": 325,
     "size": "3ML",
@@ -22689,7 +22689,7 @@ var PRODUCTS = [
   },
   {
     "id": 8361494839495,
-    "name": "CLOUD CANDY 100 ML EXTRAIT DE PARFUM SPRAY FOR WOMEN",
+    "name": "CLOUD CANDY",
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "100ml EDP",
@@ -22704,7 +22704,7 @@ var PRODUCTS = [
   },
   {
     "id": 8342080946375,
-    "name": "OUD MUATTAR QISSA 40 G",
+    "name": "OUD MUATTAR QISSA",
     "col": "Bakhoor",
     "price": 35,
     "size": "100ml EDP",
@@ -22719,7 +22719,7 @@ var PRODUCTS = [
   },
   {
     "id": 8354691940551,
-    "name": "KHADLAJ ISLAND VANILLA DUNES 100 ML EXTRAIT DE PARFUM SPRAY",
+    "name": "KHADLAJ ISLAND VANILLA DUNES",
     "col": "Extrait De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -22734,7 +22734,7 @@ var PRODUCTS = [
   },
   {
     "id": 8342076129479,
-    "name": "OUD MUATTAR RUKAIYA 80 G",
+    "name": "OUD MUATTAR RUKAIYA",
     "col": "Bakhoor",
     "price": 35,
     "size": "100ml EDP",
@@ -22749,7 +22749,7 @@ var PRODUCTS = [
   },
   {
     "id": 8342075244743,
-    "name": "OUD MUATTAR AL BAHAAR 80 G",
+    "name": "OUD MUATTAR AL BAHAAR",
     "col": "Bakhoor",
     "price": 27,
     "size": "100ml EDP",
@@ -22764,7 +22764,7 @@ var PRODUCTS = [
   },
   {
     "id": 7734819553479,
-    "name": "MAISON L' IMAGINAIRE 100ML EDP SPRAY",
+    "name": "MAISON L' IMAGINAIRE",
     "col": "Eau De Parfum",
     "price": 158,
     "size": "100ml EDP",
@@ -22779,7 +22779,7 @@ var PRODUCTS = [
   },
   {
     "id": 8332571082951,
-    "name": "LA FEDE CELESTE JOICE 100 ML EAU DE PARFUM FOR WOMEN",
+    "name": "LA FEDE CELESTE JOICE",
     "col": "Lafede",
     "price": 75,
     "size": "100ml EDP",
@@ -22794,7 +22794,7 @@ var PRODUCTS = [
   },
   {
     "id": 8332579340487,
-    "name": "LA FEDE CELESTE FLUER 100 ML EAU DE PARFUM",
+    "name": "LA FEDE CELESTE FLUER",
     "col": "Lafede",
     "price": 75,
     "size": "100ml EDP",
@@ -22809,7 +22809,7 @@ var PRODUCTS = [
   },
   {
     "id": 8332573081799,
-    "name": "LA FEDE CELESTE AQUA 100 ML EAU DE PARFUM",
+    "name": "LA FEDE CELESTE AQUA",
     "col": "Lafede",
     "price": 75,
     "size": "100ml EDP",
@@ -22824,7 +22824,7 @@ var PRODUCTS = [
   },
   {
     "id": 8332570689735,
-    "name": "LA FEDE CELESTE TOFFEE 100 ML EAU DE PARFUM",
+    "name": "LA FEDE CELESTE TOFFEE",
     "col": "Lafede",
     "price": 75,
     "size": "100ml EDP",
@@ -22839,7 +22839,7 @@ var PRODUCTS = [
   },
   {
     "id": 8331128668359,
-    "name": "LA FEDE SYMBOL OF LOVE 100 ML EAU DE PARFUM FOR WOMEN",
+    "name": "LA FEDE SYMBOL OF LOVE",
     "col": "Lafede",
     "price": 110,
     "size": "100ml EDP",
@@ -22854,7 +22854,7 @@ var PRODUCTS = [
   },
   {
     "id": 8331129028807,
-    "name": "LA FEDE SYMBOL OF POWER 100 ML EAU DE PARFUM",
+    "name": "LA FEDE SYMBOL OF POWER",
     "col": "Lafede",
     "price": 110,
     "size": "100ml EDP",
@@ -22869,7 +22869,7 @@ var PRODUCTS = [
   },
   {
     "id": 8323950018759,
-    "name": "LA FEDE CHOCO BROWN 100 ML EAU DE PARFUM FOR WOMEN",
+    "name": "LA FEDE CHOCO BROWN",
     "col": "Lafede",
     "price": 100,
     "size": "100ml EDP",
@@ -22884,7 +22884,7 @@ var PRODUCTS = [
   },
   {
     "id": 8323929342151,
-    "name": "LA FEDE WHITE FOREST STRAWBERRY 100 ML EAU DE PARFUM FOR WOMEN",
+    "name": "LA FEDE WHITE FOREST STRAWBERRY",
     "col": "Lafede",
     "price": 75,
     "size": "100ml EDP",
@@ -22899,7 +22899,7 @@ var PRODUCTS = [
   },
   {
     "id": 8316886679751,
-    "name": "PRIVATE BLEND TOBAC EXTRA EXTRAIT DE PARFUM 100 ML",
+    "name": "PRIVATE BLEND TOBAC EXTRA",
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "100ml EDP",
@@ -22914,7 +22914,7 @@ var PRODUCTS = [
   },
   {
     "id": 8263133561031,
-    "name": "MOCHA LATTE 100 ML EXTRAIT DE PARFUM SPRAY",
+    "name": "MOCHA LATTE",
     "col": "Extrait De Parfum",
     "price": 100,
     "size": "100ml EDP",
@@ -22929,7 +22929,7 @@ var PRODUCTS = [
   },
   {
     "id": 8306104369351,
-    "name": "NUHA CHERRY BLUSH 85 ML EDP SPRAY FOR WOMEN",
+    "name": "NUHA CHERRY BLUSH",
     "col": "Eau De Parfum",
     "price": 85,
     "size": "100ml EDP",
@@ -22944,7 +22944,7 @@ var PRODUCTS = [
   },
   {
     "id": 8306103517383,
-    "name": "NUHA VANILLA PEARL 85 ML EDP SPRAY FOR WOMEN",
+    "name": "NUHA VANILLA PEARL",
     "col": "Eau De Parfum",
     "price": 85,
     "size": "100ml EDP",
@@ -22959,7 +22959,7 @@ var PRODUCTS = [
   },
   {
     "id": 8300976472263,
-    "name": "DESERT ROSE 100 ML EXTRAIT DE PARFUM FOR WOMEN",
+    "name": "DESERT ROSE",
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "100ml EDP",
@@ -22974,7 +22974,7 @@ var PRODUCTS = [
   },
   {
     "id": 8300976341191,
-    "name": "BLEU GLACE 100 ML EXTRAIT DE PARFUM FOR MEN",
+    "name": "BLEU GLACE",
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "100ml EDP",
@@ -22989,7 +22989,7 @@ var PRODUCTS = [
   },
   {
     "id": 8300764332231,
-    "name": "OPUS REBORN 100 ML EDP SPRAY FOR MEN",
+    "name": "OPUS REBORN",
     "col": "Eau De Parfum",
     "price": 90,
     "size": "100ml EDP",
@@ -23004,7 +23004,7 @@ var PRODUCTS = [
   },
   {
     "id": 8298206986439,
-    "name": "AZURE VELVET 100 ML EXTRAIT DE PARFUM",
+    "name": "AZURE VELVET",
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "100ml EDP",
@@ -23019,7 +23019,7 @@ var PRODUCTS = [
   },
   {
     "id": 8297538945223,
-    "name": "JOHAYNA PURPLE 20 ML",
+    "name": "JOHAYNA PURPLE",
     "col": "Perfume Oils",
     "price": 45,
     "size": "100ml EDP",
@@ -23032,7 +23032,7 @@ var PRODUCTS = [
   },
   {
     "id": 8297527967943,
-    "name": "ANABIA RED 20 ML",
+    "name": "ANABIA RED",
     "col": "Perfume Oils",
     "price": 32,
     "size": "100ml EDP",
@@ -23045,7 +23045,7 @@ var PRODUCTS = [
   },
   {
     "id": 8297521414343,
-    "name": "AMBER PURE 20 ML",
+    "name": "AMBER PURE",
     "col": "Perfume Oils",
     "price": 45,
     "size": "100ml EDP",
@@ -23060,7 +23060,7 @@ var PRODUCTS = [
   },
   {
     "id": 8289952399559,
-    "name": "ARABIAN TREASURE 20 ML",
+    "name": "ARABIAN TREASURE",
     "col": "Perfume Oils",
     "price": 45,
     "size": "100ml EDP",
@@ -23075,7 +23075,7 @@ var PRODUCTS = [
   },
   {
     "id": 8285560078535,
-    "name": "LA FEDE AURA PISTA DESSERT 100 ML EDP SPRAY FOR WOMEN",
+    "name": "LA FEDE AURA PISTA DESSERT",
     "col": "Lafede",
     "price": 70,
     "size": "100ml EDP",
@@ -23090,7 +23090,7 @@ var PRODUCTS = [
   },
   {
     "id": 8285559816391,
-    "name": "LA FEDE AURA MANGA SPLASH 100 ML EDP SPRAY FOR WOMEN",
+    "name": "LA FEDE AURA MANGA SPLASH",
     "col": "Lafede",
     "price": 70,
     "size": "100ml EDP",
@@ -23105,7 +23105,7 @@ var PRODUCTS = [
   },
   {
     "id": 8283965522119,
-    "name": "CREAM VELVET 100 ML EXTRAIT DE PARFUM FOR WOMEN",
+    "name": "CREAM VELVET",
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "100ml EDP",
@@ -23120,7 +23120,7 @@ var PRODUCTS = [
   },
   {
     "id": 8276542390471,
-    "name": "RASAYEL VID 100 ML EAU DE PARFUM SPRAY FOR WOMEN",
+    "name": "RASAYEL VID",
     "col": "Eau De Parfum",
     "price": 90,
     "size": "100ml EDP",
@@ -23135,7 +23135,7 @@ var PRODUCTS = [
   },
   {
     "id": 8276541243591,
-    "name": "RASAYEL SHAGAF 100 ML EAU DE PARFUM SPRAY FOR MEN",
+    "name": "RASAYEL SHAGAF",
     "col": "Eau De Parfum",
     "price": 90,
     "size": "100ml EDP",
@@ -23150,7 +23150,7 @@ var PRODUCTS = [
   },
   {
     "id": 8275957448903,
-    "name": "SAQR AL BADIYA 100 ML EXTRAIT DE PARFUM SPRAY FOR MEN",
+    "name": "SAQR AL BADIYA",
     "col": "Extrait De Parfum",
     "price": 140,
     "size": "100ml EDP",
@@ -23165,7 +23165,7 @@ var PRODUCTS = [
   },
   {
     "id": 8263132709063,
-    "name": "CAFFE LATTE 100 ML EXTRAIT DE PARFUM SPRAY",
+    "name": "CAFFE LATTE",
     "col": "Extrait De Parfum",
     "price": 100,
     "size": "100ml EDP",
@@ -23180,7 +23180,7 @@ var PRODUCTS = [
   },
   {
     "id": 8259368353991,
-    "name": "ANABIA BLUE 20ML",
+    "name": "ANABIA BLUE",
     "col": "Perfume Oils",
     "price": 32,
     "size": "100ml EDP",
@@ -23193,7 +23193,7 @@ var PRODUCTS = [
   },
   {
     "id": 8237332136135,
-    "name": "MUSK POUR AMBER 100ML EDP SPRAY",
+    "name": "MUSK POUR AMBER",
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100ml EDP",
@@ -23253,7 +23253,7 @@ var PRODUCTS = [
   },
   {
     "id": 8230479855815,
-    "name": "FLORAL COLLECTION 2 PCS EDP GIFT SET",
+    "name": "FLORAL COLLECTION 2 PCS",
     "col": "Gift Sets",
     "price": 110,
     "size": "Gift Set",
@@ -23268,7 +23268,7 @@ var PRODUCTS = [
   },
   {
     "id": 8210140102855,
-    "name": "OUD & MUSK 20 ML",
+    "name": "OUD & MUSK",
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
@@ -23281,7 +23281,7 @@ var PRODUCTS = [
   },
   {
     "id": 8225224294599,
-    "name": "FURSAN BROWN 100 ML EDP SPRAY",
+    "name": "FURSAN BROWN",
     "col": "Eau De Parfum",
     "price": 95,
     "size": "100ml EDP",
@@ -23296,7 +23296,7 @@ var PRODUCTS = [
   },
   {
     "id": 8221158047943,
-    "name": "FURSAN WHITE 100 ML EDP SPRAY",
+    "name": "FURSAN WHITE",
     "col": "Eau De Parfum",
     "price": 90,
     "size": "100ml EDP",
@@ -23311,7 +23311,7 @@ var PRODUCTS = [
   },
   {
     "id": 8220687958215,
-    "name": "MUSK COUTURE EDP SPRAY 100 ML",
+    "name": "MUSK COUTURE",
     "col": "Eau De Parfum",
     "price": 118,
     "size": "100ml EDP",
@@ -23326,7 +23326,7 @@ var PRODUCTS = [
   },
   {
     "id": 8210117427399,
-    "name": "SARA 100 ML EXTRAIT DE PARFUM SPRAY FOR WOMEN",
+    "name": "SARA",
     "col": "Extrait De Parfum",
     "price": 90,
     "size": "100ml EDP",
@@ -23341,7 +23341,7 @@ var PRODUCTS = [
   },
   {
     "id": 8207565914311,
-    "name": "GHADEER GOLD 100 ML EDP SPRAY FOR WOMEN",
+    "name": "GHADEER GOLD",
     "col": "Eau De Parfum",
     "price": 85,
     "size": "100ml EDP",
@@ -23356,7 +23356,7 @@ var PRODUCTS = [
   },
   {
     "id": 8207561621703,
-    "name": "GHADEER SILVER 100 ML EDP SPRAY FOR MEN & WOMEN",
+    "name": "GHADEER SILVER",
     "col": "Eau De Parfum",
     "price": 85,
     "size": "100ml EDP",
@@ -23371,7 +23371,7 @@ var PRODUCTS = [
   },
   {
     "id": 8207557296327,
-    "name": "MUSK AL SABAH 100 ML EDP SPRAY",
+    "name": "MUSK AL SABAH",
     "col": "Eau De Parfum",
     "price": 85,
     "size": "100ml EDP",
@@ -23386,7 +23386,7 @@ var PRODUCTS = [
   },
   {
     "id": 8206430208199,
-    "name": "OUD AL SABAH 100 ML EDP SPRAY",
+    "name": "OUD AL SABAH",
     "col": "Eau De Parfum",
     "price": 85,
     "size": "100ml EDP",
@@ -23401,7 +23401,7 @@ var PRODUCTS = [
   },
   {
     "id": 8203303518407,
-    "name": "PURE MUSK 20 ML",
+    "name": "PURE MUSK",
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
@@ -23414,7 +23414,7 @@ var PRODUCTS = [
   },
   {
     "id": 8203204690119,
-    "name": "JOHAYNA GREEN 20 ML",
+    "name": "JOHAYNA GREEN",
     "col": "Perfume Oils",
     "price": 35,
     "size": "100ml EDP",
@@ -23427,7 +23427,7 @@ var PRODUCTS = [
   },
   {
     "id": 8199257358535,
-    "name": "LA FEDE INTOXICATE BLUE ELIXIR 100 ML EAU DE PARFUME SPRAY FOR MEN",
+    "name": "LA FEDE INTOXICATE BLUE ELIXIR",
     "col": "Lafede",
     "price": 145,
     "size": "100ml EDP",
@@ -23442,7 +23442,7 @@ var PRODUCTS = [
   },
   {
     "id": 8199234977991,
-    "name": "KHADLAJ ISLAND 100 ML EXTRAIT DE PARFUM SPRAY FOR MEN & WOMEN",
+    "name": "KHADLAJ ISLAND",
     "col": "Extrait De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -23457,7 +23457,7 @@ var PRODUCTS = [
   },
   {
     "id": 8143006892231,
-    "name": "MUSK PURE MUSK BLEND CREATION OF IQBAL 60 ML EDP SPRAY",
+    "name": "MUSK PURE MUSK BLEND CREATION OF IQBAL",
     "col": "Eau De Parfum",
     "price": 200,
     "size": "100ml EDP",
@@ -23472,7 +23472,7 @@ var PRODUCTS = [
   },
   {
     "id": 8138178920647,
-    "name": "KAYAAN SILVER 20 ML",
+    "name": "KAYAAN SILVER",
     "col": "Perfume Oils",
     "price": 100,
     "size": "100ml EDP",
@@ -23485,7 +23485,7 @@ var PRODUCTS = [
   },
   {
     "id": 8137730195655,
-    "name": "LA FEDE MAGNUM EXTREME BLUE 100 ML EAU DE PARFUME SPRAY",
+    "name": "LA FEDE MAGNUM EXTREME BLUE",
     "col": "Lafede",
     "price": 125,
     "size": "100ml EDP",
@@ -23500,7 +23500,7 @@ var PRODUCTS = [
   },
   {
     "id": 8137648177351,
-    "name": "LA FEDE MAGNUM WILD GREEN 100ML EAU DE PARFUME SPRAY",
+    "name": "LA FEDE MAGNUM WILD GREEN",
     "col": "Lafede",
     "price": 95,
     "size": "100ml EDP",
@@ -23515,7 +23515,7 @@ var PRODUCTS = [
   },
   {
     "id": 8137641164999,
-    "name": "LA FEDE OPERA ROSE L'OR 100 ML EAU DE PARFUME SPRAY",
+    "name": "LA FEDE OPERA ROSE L'OR",
     "col": "Lafede",
     "price": 125,
     "size": "100ml EDP",
@@ -23530,7 +23530,7 @@ var PRODUCTS = [
   },
   {
     "id": 8137639690439,
-    "name": "LA FEDE OPERA NOIR L'OR 100 ML EAU DE PARFUME SPRAY",
+    "name": "LA FEDE OPERA NOIR L'OR",
     "col": "Lafede",
     "price": 125,
     "size": "100ml EDP",
@@ -23545,7 +23545,7 @@ var PRODUCTS = [
   },
   {
     "id": 8137137815751,
-    "name": "LA FEDE LAVISH BLUSH EDP SPRAY 100 ML",
+    "name": "LA FEDE LAVISH BLUSH",
     "col": "Lafede",
     "price": 50,
     "size": "100ml EDP",
@@ -23560,7 +23560,7 @@ var PRODUCTS = [
   },
   {
     "id": 8137115205831,
-    "name": "LA FEDE LAVISH ROUGE EDP SPRAY 100 ML",
+    "name": "LA FEDE LAVISH ROUGE",
     "col": "Lafede",
     "price": 50,
     "size": "100ml EDP",
@@ -23575,7 +23575,7 @@ var PRODUCTS = [
   },
   {
     "id": 8137080733895,
-    "name": "LA FEDE LAVISH LUNA EDP SPRAY 100 ML",
+    "name": "LA FEDE LAVISH LUNA",
     "col": "Lafede",
     "price": 38,
     "size": "100ml EDP",
@@ -23590,7 +23590,7 @@ var PRODUCTS = [
   },
   {
     "id": 8092526411975,
-    "name": "FRASH HAREEM AL SULTAN AIR FRESHENER 320ML",
+    "name": "FRASH HAREEM AL SULTAN AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 35,
     "size": "100ml EDP",
@@ -23603,7 +23603,7 @@ var PRODUCTS = [
   },
   {
     "id": 8092502786247,
-    "name": "OUD MUATTAR MAAMUL HANEEN 48 G",
+    "name": "OUD MUATTAR MAAMUL HANEEN",
     "col": "Bakhoor",
     "price": 21,
     "size": "100ml EDP",
@@ -23618,7 +23618,7 @@ var PRODUCTS = [
   },
   {
     "id": 8092416835783,
-    "name": "OUD MUATTAR MAAMUL WARDI 48 G",
+    "name": "OUD MUATTAR MAAMUL WARDI",
     "col": "Bakhoor",
     "price": 21,
     "size": "100ml EDP",
@@ -23633,7 +23633,7 @@ var PRODUCTS = [
   },
   {
     "id": 8092413296839,
-    "name": "OUD MUATTAR MAAMUL DAHABI 48 G",
+    "name": "OUD MUATTAR MAAMUL DAHABI",
     "col": "Bakhoor",
     "price": 21,
     "size": "100ml EDP",
@@ -23648,7 +23648,7 @@ var PRODUCTS = [
   },
   {
     "id": 8069288493255,
-    "name": "LA FEDE CRYSTALLIA PRIMASO 100 ML EAU DE PARFUME SPRAY",
+    "name": "LA FEDE CRYSTALLIA PRIMASO",
     "col": "Lafede",
     "price": 130,
     "size": "100ml EDP",
@@ -23663,7 +23663,7 @@ var PRODUCTS = [
   },
   {
     "id": 8069037031623,
-    "name": "LA FEDE CRYSTALLIA IMPERIO 100 ML EAU DE PARFUME SPRAY",
+    "name": "LA FEDE CRYSTALLIA IMPERIO",
     "col": "Lafede",
     "price": 130,
     "size": "100ml EDP",
@@ -23678,7 +23678,7 @@ var PRODUCTS = [
   },
   {
     "id": 8068803788999,
-    "name": "FRASH AFTER ECSTACY AIR FRESHENER 320ML",
+    "name": "FRASH AFTER ECSTACY AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 35,
     "size": "100ml EDP",
@@ -23691,7 +23691,7 @@ var PRODUCTS = [
   },
   {
     "id": 8055528456391,
-    "name": "QALBI LAK 2 PCS EDP GIFT SET",
+    "name": "QALBI LAK 2 PCS",
     "col": "Gift Sets",
     "price": 110,
     "size": "Gift Set",
@@ -23706,7 +23706,7 @@ var PRODUCTS = [
   },
   {
     "id": 8036476453063,
-    "name": "FRASH QISSA AIR FRESHENER 320ML",
+    "name": "FRASH QISSA AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 35,
     "size": "100ml EDP",
@@ -23719,7 +23719,7 @@ var PRODUCTS = [
   },
   {
     "id": 8034253078727,
-    "name": "KAYAAN GOLD 20 ML",
+    "name": "KAYAAN GOLD",
     "col": "Perfume Oils",
     "price": 100,
     "size": "100ml EDP",
@@ -23734,7 +23734,7 @@ var PRODUCTS = [
   },
   {
     "id": 7932349415623,
-    "name": "LE PRESTIGE BOLD 100 ML EDP SPRAY",
+    "name": "LE PRESTIGE BOLD",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -23749,7 +23749,7 @@ var PRODUCTS = [
   },
   {
     "id": 7880529510599,
-    "name": "LE PRESTIGE EMPRESS  100 ML EDP SPRAY",
+    "name": "LE PRESTIGE EMPRESS",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -23764,7 +23764,7 @@ var PRODUCTS = [
   },
   {
     "id": 7871133450439,
-    "name": "L\xC9 PRESTIGE KING 100 ML EDP SPRAY",
+    "name": "L\xC9 PRESTIGE KING",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -23779,7 +23779,7 @@ var PRODUCTS = [
   },
   {
     "id": 7887419048135,
-    "name": "L\xC9 PRESTIGE ROYAL 100 ML EDP SPRAY",
+    "name": "L\xC9 PRESTIGE ROYAL",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -23794,7 +23794,7 @@ var PRODUCTS = [
   },
   {
     "id": 7923502710983,
-    "name": "FRASH AL MAJALIS AIR FRESHENER 320ML",
+    "name": "FRASH AL MAJALIS AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 35,
     "size": "100ml EDP",
@@ -23807,7 +23807,7 @@ var PRODUCTS = [
   },
   {
     "id": 7923498844359,
-    "name": "FRASH SHAMOOKH AIR FRESHENER 320ML",
+    "name": "FRASH SHAMOOKH AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 35,
     "size": "100ml EDP",
@@ -23820,7 +23820,7 @@ var PRODUCTS = [
   },
   {
     "id": 7887478096071,
-    "name": "MALIKA GREEN 20 ML",
+    "name": "MALIKA GREEN",
     "col": "Perfume Oils",
     "price": 100,
     "size": "100ml EDP",
@@ -23833,7 +23833,7 @@ var PRODUCTS = [
   },
   {
     "id": 7880505491655,
-    "name": "KHADLAJ 25 LOYALTY 100 ML EDP SPRAY",
+    "name": "KHADLAJ 25 LOYALTY",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -23848,7 +23848,7 @@ var PRODUCTS = [
   },
   {
     "id": 7880500805831,
-    "name": "KHADLAJ 25 TRUST 100 ML EDP SPRAY",
+    "name": "KHADLAJ 25 TRUST",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -23863,7 +23863,7 @@ var PRODUCTS = [
   },
   {
     "id": 7887475310791,
-    "name": "MALIKA RED 20 ML",
+    "name": "MALIKA RED",
     "col": "Perfume Oils",
     "price": 100,
     "size": "100ml EDP",
@@ -23876,7 +23876,7 @@ var PRODUCTS = [
   },
   {
     "id": 7887470559431,
-    "name": "PINK MUSK 20 ML",
+    "name": "PINK MUSK",
     "col": "Perfume Oils",
     "price": 100,
     "size": "100ml EDP",
@@ -23889,7 +23889,7 @@ var PRODUCTS = [
   },
   {
     "id": 7887473180871,
-    "name": "PURPLE MUSK 20 ML",
+    "name": "PURPLE MUSK",
     "col": "Perfume Oils",
     "price": 100,
     "size": "100ml EDP",
@@ -23902,7 +23902,7 @@ var PRODUCTS = [
   },
   {
     "id": 7887397486791,
-    "name": "LA FEDE MAGNUM GOLD EDITION 100 ML EAU DE PARFUME SPRAY",
+    "name": "LA FEDE MAGNUM GOLD EDITION",
     "col": "Lafede",
     "price": 125,
     "size": "100ml EDP",
@@ -23917,7 +23917,7 @@ var PRODUCTS = [
   },
   {
     "id": 7880493433031,
-    "name": "KHADLAJ 25 EXPERIENCE 100 ML EDP SPRAY",
+    "name": "KHADLAJ 25 EXPERIENCE",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -23932,7 +23932,7 @@ var PRODUCTS = [
   },
   {
     "id": 7880390279367,
-    "name": "KHADLAJ 25 HERITAGE 100 ML EDP SPRAY",
+    "name": "KHADLAJ 25 HERITAGE",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -23947,7 +23947,7 @@ var PRODUCTS = [
   },
   {
     "id": 7880382480583,
-    "name": "KHADLAJ 25 INTEGRITY 100 ML EDP SPRAY",
+    "name": "KHADLAJ 25 INTEGRITY",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -23962,7 +23962,7 @@ var PRODUCTS = [
   },
   {
     "id": 7871045894343,
-    "name": "LA FEDE MAGNUM SILVER EDITION 100 ML EAU DE PARFUME SPRAY",
+    "name": "LA FEDE MAGNUM SILVER EDITION",
     "col": "Lafede",
     "price": 125,
     "size": "100ml EDP",
@@ -23977,7 +23977,7 @@ var PRODUCTS = [
   },
   {
     "id": 7880367505607,
-    "name": "VALOR ENIGMA 100 ML EDP SPRAY",
+    "name": "VALOR ENIGMA",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -23992,7 +23992,7 @@ var PRODUCTS = [
   },
   {
     "id": 7880365375687,
-    "name": "VALOR MYSTIQUE 100 ML EDP SPRAY",
+    "name": "VALOR MYSTIQUE",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -24007,7 +24007,7 @@ var PRODUCTS = [
   },
   {
     "id": 7880362098887,
-    "name": "VALOR HONOR 100 ML EDP SPRAY",
+    "name": "VALOR HONOR",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -24022,7 +24022,7 @@ var PRODUCTS = [
   },
   {
     "id": 7880359706823,
-    "name": "VALOR CHIVALRY 100 ML EDP SPRAY",
+    "name": "VALOR CHIVALRY",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -24037,7 +24037,7 @@ var PRODUCTS = [
   },
   {
     "id": 7874350219463,
-    "name": "EMPIRE REGENT 100 ML EDP SPRAY",
+    "name": "EMPIRE REGENT",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -24052,7 +24052,7 @@ var PRODUCTS = [
   },
   {
     "id": 7872604143815,
-    "name": "EMPIRE CROWN 100 ML EDP SPRAY",
+    "name": "EMPIRE CROWN",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -24067,7 +24067,7 @@ var PRODUCTS = [
   },
   {
     "id": 7872603291847,
-    "name": "EMPIRE EMPRESS 100 ML EDP SPRAY",
+    "name": "EMPIRE EMPRESS",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -24082,7 +24082,7 @@ var PRODUCTS = [
   },
   {
     "id": 7872601030855,
-    "name": "EMPIRE VICTOR 100 ML EDP SPRAY",
+    "name": "EMPIRE VICTOR",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -24097,7 +24097,7 @@ var PRODUCTS = [
   },
   {
     "id": 7858357534919,
-    "name": "KARUS AMBER GOLD 100 ML EDP SPRAY",
+    "name": "KARUS AMBER GOLD",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -24112,7 +24112,7 @@ var PRODUCTS = [
   },
   {
     "id": 7858351210695,
-    "name": "KARUS OUD FIRE 100 ML EDP SPRAY",
+    "name": "KARUS OUD FIRE",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -24127,7 +24127,7 @@ var PRODUCTS = [
   },
   {
     "id": 7858340659399,
-    "name": "KARUS SECRET MUSK 100 ML EDP SPRAY",
+    "name": "KARUS SECRET MUSK",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -24142,7 +24142,7 @@ var PRODUCTS = [
   },
   {
     "id": 7858332958919,
-    "name": "KARUS BLU SPICE 100 ML EDP SPRAY",
+    "name": "KARUS BLU SPICE",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -24172,7 +24172,7 @@ var PRODUCTS = [
   },
   {
     "id": 7838835802311,
-    "name": "HAREEM AL SULTAN 75 ML EDP SPRAY",
+    "name": "HAREEM AL SULTAN",
     "col": "Eau De Parfum",
     "price": 200,
     "size": "100ml EDP",
@@ -24187,7 +24187,7 @@ var PRODUCTS = [
   },
   {
     "id": 7795424198855,
-    "name": "HAREEM AL SULTAN BLUE 35ML",
+    "name": "HAREEM AL SULTAN BLUE",
     "col": "Perfume Oils",
     "price": 75,
     "size": "100ml EDP",
@@ -24200,7 +24200,7 @@ var PRODUCTS = [
   },
   {
     "id": 7792441295047,
-    "name": "RIMAAL GREEN 15 ML",
+    "name": "RIMAAL GREEN",
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
@@ -24213,7 +24213,7 @@ var PRODUCTS = [
   },
   {
     "id": 7792438214855,
-    "name": "RIMAAL BROWN 15 ML",
+    "name": "RIMAAL BROWN",
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
@@ -24226,7 +24226,7 @@ var PRODUCTS = [
   },
   {
     "id": 7792432414919,
-    "name": "WOW OUD 100 ML EDP SPRAY",
+    "name": "WOW OUD",
     "col": "Eau De Parfum",
     "price": 75,
     "size": "100ml EDP",
@@ -24241,7 +24241,7 @@ var PRODUCTS = [
   },
   {
     "id": 7792427696327,
-    "name": "GAITH 100 ML EDP SPRAY",
+    "name": "GAITH",
     "col": "Eau De Parfum",
     "price": 85,
     "size": "100ml EDP",
@@ -24256,7 +24256,7 @@ var PRODUCTS = [
   },
   {
     "id": 7792426582215,
-    "name": "NUHA 85 ML EDP SPRAY",
+    "name": "NUHA",
     "col": "Eau De Parfum",
     "price": 85,
     "size": "100ml EDP",
@@ -24271,7 +24271,7 @@ var PRODUCTS = [
   },
   {
     "id": 7752183611591,
-    "name": "THE PROPOSAL SPECIAL OCCASION 100 ML EDP SPRAY",
+    "name": "THE PROPOSAL SPECIAL OCCASION",
     "col": "Eau De Parfum",
     "price": 200,
     "size": "100ml EDP",
@@ -24286,7 +24286,7 @@ var PRODUCTS = [
   },
   {
     "id": 7752172765383,
-    "name": "THE PROPOSAL DATE NIGHT 100 ML EDP SPRAY",
+    "name": "THE PROPOSAL DATE NIGHT",
     "col": "Eau De Parfum",
     "price": 200,
     "size": "100ml EDP",
@@ -24301,7 +24301,7 @@ var PRODUCTS = [
   },
   {
     "id": 7734805659847,
-    "name": "MAISON EPOQUE ARTISTIQUE 100ML EDP SPRAY",
+    "name": "MAISON EPOQUE ARTISTIQUE",
     "col": "Eau De Parfum",
     "price": 158,
     "size": "100ml EDP",
@@ -24316,7 +24316,7 @@ var PRODUCTS = [
   },
   {
     "id": 7734795632839,
-    "name": "MAISON L' OR NOIR 100ML EDP SPRAY",
+    "name": "MAISON L' OR NOIR",
     "col": "Eau De Parfum",
     "price": 158,
     "size": "100ml EDP",
@@ -24331,7 +24331,7 @@ var PRODUCTS = [
   },
   {
     "id": 7734460022983,
-    "name": "MAISON FLOR OUD 100ML EDP SPRAY",
+    "name": "MAISON FLOR OUD",
     "col": "Eau De Parfum",
     "price": 158,
     "size": "100ml EDP",
@@ -24346,7 +24346,7 @@ var PRODUCTS = [
   },
   {
     "id": 7734459498695,
-    "name": "MAISON CREATION DE REVE 100ML EDP SPRAY",
+    "name": "MAISON CREATION DE REVE",
     "col": "Eau De Parfum",
     "price": 158,
     "size": "100ml EDP",
@@ -24361,7 +24361,7 @@ var PRODUCTS = [
   },
   {
     "id": 7726385529031,
-    "name": "INFINI ABSOLUTE EDP SPRAY 100 ML",
+    "name": "INFINI ABSOLUTE",
     "col": "Eau De Parfum",
     "price": 137,
     "size": "100ml EDP",
@@ -24391,7 +24391,7 @@ var PRODUCTS = [
   },
   {
     "id": 7582155407559,
-    "name": "HAREEM AL SULTAN SILVER 35ML",
+    "name": "HAREEM AL SULTAN SILVER",
     "col": "Perfume Oils",
     "price": 75,
     "size": "100ml EDP",
@@ -24406,7 +24406,7 @@ var PRODUCTS = [
   },
   {
     "id": 7582151672007,
-    "name": "HAREEM AL SULTAN GOLD 35ML",
+    "name": "HAREEM AL SULTAN GOLD",
     "col": "Perfume Oils",
     "price": 75,
     "size": "100ml EDP",
@@ -24421,7 +24421,7 @@ var PRODUCTS = [
   },
   {
     "id": 7721533669575,
-    "name": "MUKHALATH MA'A WARD TAIBA 12 ML",
+    "name": "MUKHALATH MA'A WARD TAIBA",
     "col": "Perfume Oils",
     "price": 280,
     "size": "100ml EDP",
@@ -24434,7 +24434,7 @@ var PRODUCTS = [
   },
   {
     "id": 7716614078663,
-    "name": "MAGNATE NOBLE 100ML EDP SPRAY",
+    "name": "MAGNATE NOBLE",
     "col": "Eau De Parfum",
     "price": 60,
     "size": "100ml EDP",
@@ -24449,7 +24449,7 @@ var PRODUCTS = [
   },
   {
     "id": 7716611293383,
-    "name": "MAGNATE PREMIER 100ML EDP SPRAY",
+    "name": "MAGNATE PREMIER",
     "col": "Eau De Parfum",
     "price": 60,
     "size": "100ml EDP",
@@ -24464,7 +24464,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205352135,
-    "name": "ROSE COUTURE EDP SPRAY 100 ML",
+    "name": "ROSE COUTURE",
     "col": "Eau De Parfum",
     "price": 118,
     "size": "100 ml",
@@ -24479,7 +24479,7 @@ var PRODUCTS = [
   },
   {
     "id": 7677458972871,
-    "name": "OUD MUATTAR OUD AL MAQAAM 40 G",
+    "name": "OUD MUATTAR OUD AL MAQAAM",
     "col": "Bakhoor",
     "price": 35,
     "size": "100ml EDP",
@@ -24494,7 +24494,7 @@ var PRODUCTS = [
   },
   {
     "id": 7677438492871,
-    "name": "OUD MUATTAR OUD AL SAADA 40 G",
+    "name": "OUD MUATTAR OUD AL SAADA",
     "col": "Bakhoor",
     "price": 35,
     "size": "100ml EDP",
@@ -24509,7 +24509,7 @@ var PRODUCTS = [
   },
   {
     "id": 7676794765511,
-    "name": "LA FEDE BELLE REVE SEGRATO VIOLA 100 ML EDP SPRAY",
+    "name": "LA FEDE BELLE REVE SEGRATO VIOLA",
     "col": "Lafede",
     "price": 45,
     "size": "100ml EDP",
@@ -24524,7 +24524,7 @@ var PRODUCTS = [
   },
   {
     "id": 7676794339527,
-    "name": "LA FEDE BELLA REVE DOLCE FLORE 100 ML EDP SPRAY",
+    "name": "LA FEDE BELLA REVE DOLCE FLORE",
     "col": "Lafede",
     "price": 45,
     "size": "100ml EDP",
@@ -24539,7 +24539,7 @@ var PRODUCTS = [
   },
   {
     "id": 7651533717703,
-    "name": "MYSTICAL INDIAN OUD PURE 60 ML EDP SPRAY",
+    "name": "MYSTICAL INDIAN OUD PURE",
     "col": "Eau De Parfum",
     "price": 200,
     "size": "100ml EDP",
@@ -24554,7 +24554,7 @@ var PRODUCTS = [
   },
   {
     "id": 7651506225351,
-    "name": "HANEEN ROSE GOLD 20 ML",
+    "name": "HANEEN ROSE GOLD",
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
@@ -24569,7 +24569,7 @@ var PRODUCTS = [
   },
   {
     "id": 7651482337479,
-    "name": "HANEEN GOLD 20 ML",
+    "name": "HANEEN GOLD",
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
@@ -24584,7 +24584,7 @@ var PRODUCTS = [
   },
   {
     "id": 7640196841671,
-    "name": "LA FEDE INTOXICATE 100 ML EDP SPRAY",
+    "name": "LA FEDE INTOXICATE",
     "col": "Lafede",
     "price": 145,
     "size": "100ml EDP",
@@ -24599,7 +24599,7 @@ var PRODUCTS = [
   },
   {
     "id": 7640152965319,
-    "name": "BUKHOOR AL BAHAAR GOLD 55 G",
+    "name": "BUKHOOR AL BAHAAR GOLD",
     "col": "Bakhoor",
     "price": 35,
     "size": "100ml EDP",
@@ -24692,7 +24692,7 @@ var PRODUCTS = [
   },
   {
     "id": 7627660591303,
-    "name": "OUD MUATTAR GHANAATI 100 G",
+    "name": "OUD MUATTAR GHANAATI",
     "col": "Bakhoor",
     "price": 65,
     "size": "100ml EDP",
@@ -24707,7 +24707,7 @@ var PRODUCTS = [
   },
   {
     "id": 7627659509959,
-    "name": "OUD MUATTAR KHAWAATER 35 G",
+    "name": "OUD MUATTAR KHAWAATER",
     "col": "Bakhoor",
     "price": 35,
     "size": "100ml EDP",
@@ -24722,7 +24722,7 @@ var PRODUCTS = [
   },
   {
     "id": 7602862031047,
-    "name": "STELLAR OUD 100 ML EDP SPRAY FOR MEN & WOMEN",
+    "name": "STELLAR OUD",
     "col": "Eau De Parfum",
     "price": 80,
     "size": "100ml EDP",
@@ -24737,7 +24737,7 @@ var PRODUCTS = [
   },
   {
     "id": 7602860949703,
-    "name": "STELLAR MUSK 100 ML EDP SPRAY FOR WOMEN",
+    "name": "STELLAR MUSK",
     "col": "Eau De Parfum",
     "price": 80,
     "size": "100ml EDP",
@@ -24752,7 +24752,7 @@ var PRODUCTS = [
   },
   {
     "id": 7598654980295,
-    "name": "CASHMERE SUNSHINE MUSK 100 ML EDP SPRAY FOR MEN & WOMEN",
+    "name": "CASHMERE SUNSHINE MUSK",
     "col": "Eau De Parfum",
     "price": 140,
     "size": "100ml EDP",
@@ -24767,7 +24767,7 @@ var PRODUCTS = [
   },
   {
     "id": 7598653505735,
-    "name": "CASHMERE WARM OUD 100 ML EDP SPRAY FOR MEN & WOMEN",
+    "name": "CASHMERE WARM OUD",
     "col": "Eau De Parfum",
     "price": 140,
     "size": "100ml EDP",
@@ -24782,7 +24782,7 @@ var PRODUCTS = [
   },
   {
     "id": 7598644396231,
-    "name": "LA FEDE AURA KISS OF ROSE 100 ML EDP SPRAY FOR WOMEN",
+    "name": "LA FEDE AURA KISS OF ROSE",
     "col": "Lafede",
     "price": 70,
     "size": "100ml EDP",
@@ -24797,7 +24797,7 @@ var PRODUCTS = [
   },
   {
     "id": 7598637777095,
-    "name": "LA FEDE AURA CRISP FLOWER 100 ML EAU DE PARFUME SPRAY FOR WOMEN",
+    "name": "LA FEDE AURA CRISP FLOWER",
     "col": "Lafede",
     "price": 70,
     "size": "100ml EDP",
@@ -24812,7 +24812,7 @@ var PRODUCTS = [
   },
   {
     "id": 7582427381959,
-    "name": "MIBRAAK 18ML",
+    "name": "MIBRAAK",
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
@@ -24827,7 +24827,7 @@ var PRODUCTS = [
   },
   {
     "id": 7582424268999,
-    "name": "IBHAAR 18ML",
+    "name": "IBHAAR",
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
@@ -24842,7 +24842,7 @@ var PRODUCTS = [
   },
   {
     "id": 7582421254343,
-    "name": "ASTOORA 18ML",
+    "name": "ASTOORA",
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
@@ -24857,7 +24857,7 @@ var PRODUCTS = [
   },
   {
     "id": 7582413947079,
-    "name": "FATIMA 15ML",
+    "name": "FATIMA",
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
@@ -24872,7 +24872,7 @@ var PRODUCTS = [
   },
   {
     "id": 7582409949383,
-    "name": "ANAB 18ML",
+    "name": "ANAB",
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
@@ -24887,7 +24887,7 @@ var PRODUCTS = [
   },
   {
     "id": 7582406574279,
-    "name": "AZAARI 17ML",
+    "name": "AZAARI",
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
@@ -24902,7 +24902,7 @@ var PRODUCTS = [
   },
   {
     "id": 7582193680583,
-    "name": "GHAZLAAN 20ML",
+    "name": "GHAZLAAN",
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
@@ -24917,7 +24917,7 @@ var PRODUCTS = [
   },
   {
     "id": 7582193057991,
-    "name": "RANIYA 18ML",
+    "name": "RANIYA",
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
@@ -24932,7 +24932,7 @@ var PRODUCTS = [
   },
   {
     "id": 7582192304327,
-    "name": "AALIYA 27ML",
+    "name": "AALIYA",
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
@@ -24947,7 +24947,7 @@ var PRODUCTS = [
   },
   {
     "id": 7582186242247,
-    "name": "ROOHI WA ROOHAK SILVER 20 ML",
+    "name": "ROOHI WA ROOHAK SILVER",
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
@@ -24962,7 +24962,7 @@ var PRODUCTS = [
   },
   {
     "id": 7582185095367,
-    "name": "ROOHI WA ROOHAK GOLD 20 ML",
+    "name": "ROOHI WA ROOHAK GOLD",
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
@@ -24977,7 +24977,7 @@ var PRODUCTS = [
   },
   {
     "id": 7582182899911,
-    "name": "ALF WARDAAT 30ML",
+    "name": "ALF WARDAAT",
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
@@ -24992,7 +24992,7 @@ var PRODUCTS = [
   },
   {
     "id": 7582179262663,
-    "name": "AL FURSAN 18ML",
+    "name": "AL FURSAN",
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
@@ -25007,7 +25007,7 @@ var PRODUCTS = [
   },
   {
     "id": 7582167105735,
-    "name": "AL RIYAN 17ML",
+    "name": "AL RIYAN",
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
@@ -25022,7 +25022,7 @@ var PRODUCTS = [
   },
   {
     "id": 7582158979271,
-    "name": "JAMEEL 25ML",
+    "name": "JAMEEL",
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
@@ -25037,7 +25037,7 @@ var PRODUCTS = [
   },
   {
     "id": 7582143119559,
-    "name": "ZAINAB 18 ML",
+    "name": "ZAINAB",
     "col": "Perfume Oils",
     "price": 45,
     "size": "100ml EDP",
@@ -25052,7 +25052,7 @@ var PRODUCTS = [
   },
   {
     "id": 7582139089095,
-    "name": "ROOH AL OUD 12 ML",
+    "name": "ROOH AL OUD",
     "col": "Dehn Al Oudh",
     "price": 525,
     "size": "100ml EDP",
@@ -25082,7 +25082,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554131591367,
-    "name": "FAKHAMA 3 PCS GIFT SET FOR WOMEN",
+    "name": "FAKHAMA 3 PCS GIFT SET",
     "col": "Gift Sets",
     "price": 126,
     "size": "Gift Set",
@@ -25127,7 +25127,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554129625287,
-    "name": "FRASH DALOUAA AIR FRESHENER 320ML",
+    "name": "FRASH DALOUAA AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 35,
     "size": "320 ml",
@@ -25140,7 +25140,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554137391303,
-    "name": "FRASH ZAHOOR AL KHALEEJ AIR FRESHENER 320ML",
+    "name": "FRASH ZAHOOR AL KHALEEJ AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 38,
     "size": "320 ml",
@@ -25153,7 +25153,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554137456839,
-    "name": "FRASH ROMANCIA AIR FRESHENER 320ML",
+    "name": "FRASH ROMANCIA AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 38,
     "size": "320 ml",
@@ -25166,7 +25166,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554137555143,
-    "name": "FRASH MAKHMALI AIR FRESHENER 320ML",
+    "name": "FRASH MAKHMALI AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 38,
     "size": "320 ml",
@@ -25179,7 +25179,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554137522375,
-    "name": "FRASH MUSKY AIR FRESHENER 320ML",
+    "name": "FRASH MUSKY AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 38,
     "size": "320 ml",
@@ -25192,7 +25192,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554137489607,
-    "name": "FRASH NASEEM AL WARD AIR FRESHENER 320ML",
+    "name": "FRASH NASEEM AL WARD AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 38,
     "size": "320 ml",
@@ -25205,7 +25205,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554137915591,
-    "name": "BARWAAZ SOLID GREY EDP SPRAY 100ML",
+    "name": "BARWAAZ SOLID GREY",
     "col": "Eau De Parfum",
     "price": 35,
     "size": "100 ml",
@@ -25220,7 +25220,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554137653447,
-    "name": "FRASH LA YUQAWAM AIR FRESHENER 320ML",
+    "name": "FRASH LA YUQAWAM AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 38,
     "size": "320 ml",
@@ -25233,7 +25233,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554138505415,
-    "name": "OUD MUATTAR GHALIYA 35 G",
+    "name": "OUD MUATTAR GHALIYA",
     "col": "Bakhoor",
     "price": 35,
     "size": "35 g",
@@ -25248,7 +25248,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554138439879,
-    "name": "OUD MUATTAR MUNAWWARA 35 G",
+    "name": "OUD MUATTAR MUNAWWARA",
     "col": "Bakhoor",
     "price": 35,
     "size": "35 g",
@@ -25263,7 +25263,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554137981127,
-    "name": "BARWAAZ SADDLE BROWN EDP 100 ML",
+    "name": "BARWAAZ SADDLE BROWN",
     "col": "Eau De Parfum",
     "price": 35,
     "size": "100 ml",
@@ -25278,7 +25278,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554143355079,
-    "name": "SHAMOOKH SILVER 20ML",
+    "name": "SHAMOOKH SILVER",
     "col": "Perfume Oils",
     "price": 50,
     "size": "20 ml",
@@ -25293,7 +25293,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554143092935,
-    "name": "FRASH MUKHALLAT SHUYOOKHI AIR FRESHENER 320 ML",
+    "name": "FRASH MUKHALLAT SHUYOOKHI AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 37,
     "size": "320 ml",
@@ -25336,7 +25336,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554143748295,
-    "name": "MUSK WA OUD EDP SPRAY 100 ML",
+    "name": "MUSK WA OUD",
     "col": "Eau De Parfum",
     "price": 50,
     "size": "100 ml",
@@ -25351,7 +25351,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554143715527,
-    "name": "MUSK WA WARD EDP SPRAY 100 ML",
+    "name": "MUSK WA WARD",
     "col": "Eau De Parfum",
     "price": 50,
     "size": "100 ml",
@@ -25366,7 +25366,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554143518919,
-    "name": "UNO INTIMO EDP SPRAY 100 ML",
+    "name": "UNO INTIMO",
     "col": "Eau De Parfum",
     "price": 45,
     "size": "100 ml",
@@ -25411,7 +25411,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554143813831,
-    "name": "MUSK RASAAS EDP SPRAY 100 ML",
+    "name": "MUSK RASAAS",
     "col": "Eau De Parfum",
     "price": 50,
     "size": "100 ml",
@@ -25426,7 +25426,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554204664007,
-    "name": "FRASH MAHASIN KHAWATER AIR FRESHENER 320ML",
+    "name": "FRASH MAHASIN KHAWATER AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 37,
     "size": "320 ml",
@@ -25439,7 +25439,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554204631239,
-    "name": "FRASH MAHASIN OUD AL AHBAB AIR FRESHENER 320ML",
+    "name": "FRASH MAHASIN OUD AL AHBAB AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 37,
     "size": "320 ml",
@@ -25452,7 +25452,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554204532935,
-    "name": "FRASH MAHASIN SILVER AIR FRESHENER 320ML",
+    "name": "FRASH MAHASIN SILVER AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 37,
     "size": "320 ml",
@@ -25465,7 +25465,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554204500167,
-    "name": "FRASH ZAHRET AL LAILAK AIR FRESHENER 320ML",
+    "name": "FRASH ZAHRET AL LAILAK AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 37,
     "size": "320 ml",
@@ -25478,7 +25478,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554204860615,
-    "name": "FRASH MAHASIN ABAYA AIR FRESHENER 320ML",
+    "name": "FRASH MAHASIN ABAYA AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 37,
     "size": "320 ml",
@@ -25491,7 +25491,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554204827847,
-    "name": "FRASH MAHASIN AL RIYAN AIR FRESHENER 320ML",
+    "name": "FRASH MAHASIN AL RIYAN AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 37,
     "size": "320 ml",
@@ -25504,7 +25504,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554204729543,
-    "name": "FRASH MAHASIN GOLD AIR FRESHENER 320ML",
+    "name": "FRASH MAHASIN GOLD AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 37,
     "size": "320 ml",
@@ -25517,7 +25517,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554204991687,
-    "name": "FRASH AL ABYAD AIR FRESHENER 320ML",
+    "name": "FRASH AL ABYAD AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 37,
     "size": "320 ml",
@@ -25530,7 +25530,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554204958919,
-    "name": "FRASH BINT AKABIR AIR FRESHENER 320ML",
+    "name": "FRASH BINT AKABIR AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 37,
     "size": "320 ml",
@@ -25543,7 +25543,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554204926151,
-    "name": "FRASH FARFASHA AIR FRESHENER 320ML",
+    "name": "FRASH FARFASHA AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 37,
     "size": "320 ml",
@@ -25556,7 +25556,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554204893383,
-    "name": "FRASH KASAR AL SAADA AIR FRESHENER 320ML",
+    "name": "FRASH KASAR AL SAADA AIR FRESHENER",
     "col": "Eau De Parfum",
     "price": 37,
     "size": "320 ml",
@@ -25569,7 +25569,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205122759,
-    "name": "SHAMOOKH GOLD 20ML",
+    "name": "SHAMOOKH GOLD",
     "col": "Perfume Oils",
     "price": 50,
     "size": "20 ml",
@@ -25584,7 +25584,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205089991,
-    "name": "MAZOON GOLD 18ML",
+    "name": "MAZOON GOLD",
     "col": "Perfume Oils",
     "price": 50,
     "size": "18 ml",
@@ -25599,7 +25599,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205057223,
-    "name": "MAZOON ROSE GOLD 18 ML",
+    "name": "MAZOON ROSE GOLD",
     "col": "Perfume Oils",
     "price": 50,
     "size": "18 ml",
@@ -25614,7 +25614,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205319367,
-    "name": "UNO DURABLE EDP SPRAY 100 ML",
+    "name": "UNO DURABLE",
     "col": "Eau De Parfum",
     "price": 55,
     "size": "100 ml",
@@ -25629,7 +25629,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205253831,
-    "name": "UNO LUSSO EDP SPRAY 100 ML",
+    "name": "UNO LUSSO",
     "col": "Eau De Parfum",
     "price": 42,
     "size": "100 ml",
@@ -25644,7 +25644,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205221063,
-    "name": "UNO SENSUALE EDP SPRAY 100 ML",
+    "name": "UNO SENSUALE",
     "col": "Eau De Parfum",
     "price": 55,
     "size": "100 ml",
@@ -25659,7 +25659,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205155527,
-    "name": "SHAHI OUD EDP SPRAY 100 ML",
+    "name": "SHAHI OUD",
     "col": "Eau De Parfum",
     "price": 35,
     "size": "100 ml",
@@ -25674,7 +25674,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205515975,
-    "name": "MUSK SAHRA EDP SPRAY 100 ML",
+    "name": "MUSK SAHRA",
     "col": "Eau De Parfum",
     "price": 50,
     "size": "100 ml",
@@ -25689,7 +25689,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205384903,
-    "name": "ROSE AND ROMANCE EDP SPRAY 100 ML",
+    "name": "ROSE AND ROMANCE",
     "col": "Eau De Parfum",
     "price": 50,
     "size": "100 ml",
@@ -25704,7 +25704,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205647047,
-    "name": "SHIYAAKA BLUE 100ML EDP SPRAY",
+    "name": "SHIYAAKA BLUE",
     "col": "Eau De Parfum",
     "price": 65,
     "size": "100 ml",
@@ -25719,7 +25719,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205614279,
-    "name": "SHIYAAKA FOR MEN 100ML EDP SPRAY",
+    "name": "SHIYAAKA",
     "col": "Eau De Parfum",
     "price": 65,
     "size": "100 ml",
@@ -25734,7 +25734,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205581511,
-    "name": "SHIYAAKA WHITE FOR WOMEN 100ML EDP SPRAY",
+    "name": "SHIYAAKA WHITE",
     "col": "Eau De Parfum",
     "price": 65,
     "size": "100 ml",
@@ -25749,7 +25749,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205548743,
-    "name": "SHIYAAKA GOLD 100ML EDP SPRAY",
+    "name": "SHIYAAKA GOLD",
     "col": "Eau De Parfum",
     "price": 65,
     "size": "100 ml",
@@ -25764,7 +25764,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554206204103,
-    "name": "BAKHOOR TAIBA 58 G",
+    "name": "BAKHOOR TAIBA",
     "col": "Bakhoor",
     "price": 32,
     "size": "58 g",
@@ -25794,7 +25794,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554206040263,
-    "name": "OUD MUATTAR BADAR 30 G",
+    "name": "OUD MUATTAR BADAR",
     "col": "Bakhoor",
     "price": 21,
     "size": "30 g",
@@ -25809,7 +25809,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554206007495,
-    "name": "OUD MUATTAR MAJNOON 50 G",
+    "name": "OUD MUATTAR MAJNOON",
     "col": "Bakhoor",
     "price": 27,
     "size": "50 g",
@@ -25824,7 +25824,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554206367943,
-    "name": "BAKHOOR BAIT AL ATHEEQ 65 G",
+    "name": "BAKHOOR BAIT AL ATHEEQ",
     "col": "Bakhoor",
     "price": 21,
     "size": "65 g",
@@ -25839,7 +25839,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554206302407,
-    "name": "BAKHOOR BAIT AL ISRA 65 G",
+    "name": "BAKHOOR BAIT AL ISRA",
     "col": "Bakhoor",
     "price": 21,
     "size": "65 g",
@@ -25854,7 +25854,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554206236871,
-    "name": "BAKHOOR MARAH 55 G",
+    "name": "BAKHOOR MARAH",
     "col": "Bakhoor",
     "price": 21,
     "size": "55 g",
@@ -25869,7 +25869,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554206499015,
-    "name": "BAKHOOR TAHIYA 60 G",
+    "name": "BAKHOOR TAHIYA",
     "col": "Bakhoor",
     "price": 21,
     "size": "60 g",
@@ -25884,7 +25884,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554206466247,
-    "name": "BAKHOOR ASDAAF 70 G",
+    "name": "BAKHOOR ASDAAF",
     "col": "Bakhoor",
     "price": 21,
     "size": "70 g",
@@ -25899,7 +25899,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554206400711,
-    "name": "BAKHOOR ATEEB 70 G",
+    "name": "BAKHOOR ATEEB",
     "col": "Bakhoor",
     "price": 21,
     "size": "70 g",
@@ -25914,7 +25914,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554206630087,
-    "name": "BAKHOOR MUDHELA 60 G",
+    "name": "BAKHOOR MUDHELA",
     "col": "Bakhoor",
     "price": 21,
     "size": "60 g",
@@ -25959,7 +25959,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554206531783,
-    "name": "BAKHOOR SOUGAH 55 G",
+    "name": "BAKHOOR SOUGAH",
     "col": "Bakhoor",
     "price": 32,
     "size": "55 g",
@@ -26004,7 +26004,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554206662855,
-    "name": "BAKHOOR KHULOOD 72 G",
+    "name": "BAKHOOR KHULOOD",
     "col": "Bakhoor",
     "price": 27,
     "size": "72 g",
@@ -26019,7 +26019,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554206892231,
-    "name": "BAKHOOR BAIT AL AHLAM 45 G",
+    "name": "BAKHOOR BAIT AL AHLAM",
     "col": "Bakhoor",
     "price": 21,
     "size": "45 g",
@@ -26049,7 +26049,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554206957767,
-    "name": "BAKHOOR AL BAHAAR 55 G",
+    "name": "BAKHOOR AL BAHAAR",
     "col": "Bakhoor",
     "price": 35,
     "size": "55 g",
@@ -26064,7 +26064,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554204467399,
-    "name": "OPULENCE SHAIKH 3 PCS GIFT SET FOR MEN",
+    "name": "OPULENCE SHAIKH 3 PCS GIFT SET",
     "col": "Gift Sets",
     "price": 150,
     "size": "Gift Set",
@@ -26079,7 +26079,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554204369095,
-    "name": "OPULENCE AMEERA 3 PCS GIFT SET FOR WOMEN",
+    "name": "OPULENCE AMEERA 3 PCS GIFT SET",
     "col": "Gift Sets",
     "price": 150,
     "size": "Gift Set",
@@ -26124,7 +26124,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554206269639,
-    "name": "BAKHOOR BU KHALIFA 120 G",
+    "name": "BAKHOOR BU KHALIFA",
     "col": "Bakhoor",
     "price": 90,
     "size": "120 g",
@@ -26169,7 +26169,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205909191,
-    "name": "MUSK POUR NARCIS 100ML EDP SPRAY",
+    "name": "MUSK POUR NARCIS",
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100 ml",
@@ -26184,7 +26184,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205876423,
-    "name": "OUD POUR BLUEBERRY 100ML EDP SPRAY",
+    "name": "OUD POUR BLUEBERRY",
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100 ml",
@@ -26199,7 +26199,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205843655,
-    "name": "OUD POUR KLASSIK 100ML EDP SPRAY",
+    "name": "OUD POUR KLASSIK",
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100 ml",
@@ -26214,7 +26214,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205810887,
-    "name": "OUD POUR NOBLE 100ML EDP SPRAY",
+    "name": "OUD POUR NOBLE",
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100 ml",
@@ -26229,7 +26229,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205778119,
-    "name": "OUD POUR ROUGE 100ML EDP SPRAY",
+    "name": "OUD POUR ROUGE",
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100 ml",
@@ -26244,7 +26244,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205745351,
-    "name": "OUD POUR SHAIKH 100ML EDP SPRAY",
+    "name": "OUD POUR SHAIKH",
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100 ml",
@@ -26259,7 +26259,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205712583,
-    "name": "LA FEDE FIRST LADY 75ML EDP SPRAY",
+    "name": "LA FEDE FIRST LADY",
     "col": "Lafede",
     "price": 210,
     "size": "75 ml",
@@ -26274,7 +26274,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205679815,
-    "name": "LA FEDE MISS PREMIERE 75ML EDP SPRAY",
+    "name": "LA FEDE MISS PREMIERE",
     "col": "Lafede",
     "price": 210,
     "size": "75 ml",
@@ -26289,7 +26289,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205483207,
-    "name": "PURE MUSK EDP SPRAY 100 ML",
+    "name": "PURE MUSK",
     "col": "Eau De Parfum",
     "price": 50,
     "size": "100 ml",
@@ -26304,7 +26304,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205450439,
-    "name": "OMBRE NOTES EDP SPRAY 100 ML",
+    "name": "OMBRE NOTES",
     "col": "Eau De Parfum",
     "price": 118,
     "size": "100 ml",
@@ -26319,7 +26319,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554205188295,
-    "name": "INFINI EDP SPRAY 100ML",
+    "name": "INFINI",
     "col": "Eau De Parfum",
     "price": 53,
     "size": "100 ml",
@@ -26334,7 +26334,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554143617223,
-    "name": "SENSUOS NIGHT EDP SPRAY 100 ML",
+    "name": "SENSUOS NIGHT",
     "col": "Eau De Parfum",
     "price": 118,
     "size": "100 ml",
@@ -26379,7 +26379,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554138079431,
-    "name": "OUD NOIR 100ML EDP SPRAY",
+    "name": "OUD NOIR",
     "col": "Eau De Parfum",
     "price": 118,
     "size": "100 ml",
@@ -26394,7 +26394,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554130182343,
-    "name": "CODE MARRON OUD 100ML EDP SPRAY",
+    "name": "CODE MARRON OUD",
     "col": "Eau De Parfum",
     "price": 210,
     "size": "100 ml",
@@ -26409,7 +26409,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554130116807,
-    "name": "CODE ROUGE AMOUR 100ML EDP SPRAY",
+    "name": "CODE ROUGE AMOUR",
     "col": "Eau De Parfum",
     "price": 210,
     "size": "100 ml",
@@ -26424,7 +26424,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554130051271,
-    "name": "CODE VERDE SUBLIME 100ML EDP SPRAY",
+    "name": "CODE VERDE SUBLIME",
     "col": "Eau De Parfum",
     "price": 210,
     "size": "100 ml",
@@ -26439,7 +26439,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554130018503,
-    "name": "CODE VIOLA NECTAR 100ML EDP SPRAY",
+    "name": "CODE VIOLA NECTAR",
     "col": "Eau De Parfum",
     "price": 210,
     "size": "100 ml",
@@ -26454,7 +26454,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554129952967,
-    "name": "LA FEDE KINGSMAN 75ML EDP SPRAY",
+    "name": "LA FEDE KINGSMAN",
     "col": "Lafede",
     "price": 210,
     "size": "75 ml",
@@ -26469,7 +26469,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554129887431,
-    "name": "LA FEDE STATESMAN 75ML EDP SPRAY",
+    "name": "LA FEDE STATESMAN",
     "col": "Lafede",
     "price": 210,
     "size": "75 ml",
@@ -26514,7 +26514,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554120057031,
-    "name": "BAKHOOR DUKHOON MAKNOON 100 G",
+    "name": "BAKHOOR DUKHOON MAKNOON",
     "col": "Bakhoor",
     "price": 74,
     "size": "100 g",
@@ -26529,7 +26529,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554119958727,
-    "name": "WILD INDONESIAN OUD PURE EDP SPRAY 60 ML",
+    "name": "WILD INDONESIAN OUD PURE",
     "col": "Eau De Parfum",
     "price": 200,
     "size": "100ml EDP",
@@ -26544,7 +26544,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554119925959,
-    "name": "DEHNAL OUD AQDAM 3ML",
+    "name": "DEHNAL OUD AQDAM",
     "col": "Dehn Al Oudh",
     "price": 95,
     "size": "3 ml",
@@ -26559,7 +26559,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554119893191,
-    "name": "DEHNAL OUD AZEEM 3ML",
+    "name": "DEHNAL OUD AZEEM",
     "col": "Dehn Al Oudh",
     "price": 95,
     "size": "3 ml",
@@ -26574,7 +26574,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554119860423,
-    "name": "DEHNAL OUD TURAAS 3ML",
+    "name": "DEHNAL OUD TURAAS",
     "col": "Dehn Al Oudh",
     "price": 95,
     "size": "3 ml",
@@ -26589,7 +26589,7 @@ var PRODUCTS = [
   },
   {
     "id": 7554119794887,
-    "name": "DEHNAL OUDH ASAL 3 ML",
+    "name": "DEHNAL OUDH ASAL",
     "col": "Dehn Al Oudh",
     "price": 189,
     "size": "3 ml",
