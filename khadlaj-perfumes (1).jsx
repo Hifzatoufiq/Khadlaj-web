@@ -132,6 +132,7 @@ const PRODUCTS = [
   {
     "id": 8711671578823,
     "name": "NAFAIS SHARQ GIFT SET",
+    "detailImages": ["./assets/images/products/nafais_gift_set_nobox.jpg", "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/NAFAIS-3.jpg?v=1783943403"],
     "col": "Gift Sets",
     "price": 150,
     "size": "Gift Set",
@@ -147,6 +148,7 @@ const PRODUCTS = [
   {
     "id": 8711666925767,
     "name": "CREAM VELVET GIFT SET",
+    "detailImages": ["./assets/images/products/creamvelvet_gift_set_nobox.jpg", "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Cream_Velvet_03.jpg?v=1783947094"],
     "col": "Gift Sets",
     "price": 160,
     "size": "Gift Set",
@@ -507,6 +509,7 @@ const PRODUCTS = [
   {
     "id": 8530518868167,
     "name": "HUROOF 3 PCS PERFUMES COLLECTION GIFT SET",
+    "detailImages": ["./assets/images/products/huroof_gift_set_nobox.jpg"],
     "col": "Gift Sets",
     "price": 140,
     "size": "100ml EDP",
@@ -711,6 +714,7 @@ const PRODUCTS = [
   {
     "id": 8471917723847,
     "name": "GRAND COLLECTION 3 PIECES GIFT SET",
+    "detailImages": ["./assets/images/products/grand_gift_set_nobox.jpg"],
     "col": "Gift Sets",
     "price": 210,
     "size": "100ml EDP",
@@ -6487,23 +6491,35 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
       <div style={{maxWidth:1440, margin:"0 auto", padding:"40px 5% 120px"}}>
         <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"clamp(40px, 8vw, 100px)",}} className="grid-2">
           
-          {/* ── Left: Static Product Image ── */}
-          <div
-            style={{width:"100%", aspectRatio:"1/1", display:"flex", alignItems:"center", justifyContent:"center", background:"#fff", borderRadius:"4px", overflow:"hidden"}}
-            onMouseEnter={e=>{
-              const img = e.currentTarget.querySelector('img');
-              if (img) img.style.transform = "scale(1.05)";
-            }}
-            onMouseLeave={e=>{
-              const img = e.currentTarget.querySelector('img');
-              if (img) img.style.transform = "scale(1)";
-            }}
-          >
-            <img
-              src={product.img}
-              alt={product.name}
-              style={{width:"92%", height:"92%", objectFit:"contain", mixBlendMode:"normal", filter:"contrast(1.02) brightness(0.98)", transition:"transform .45s ease"}}
-            />
+          {/* ── Left: Product Image(s) ── */}
+          <div style={{width:"100%"}}>
+            {product.detailImages ? (
+              <div style={{display:"flex", flexDirection:"column", gap:16}}>
+                {product.detailImages.map((imgUrl, i) => (
+                  <div key={i} style={{width:"100%", aspectRatio:"1/1", display:"flex", alignItems:"center", justifyContent:"center", background:"#fff", borderRadius:"4px", overflow:"hidden"}}>
+                    <img src={imgUrl} alt={product.name} style={{width:"92%", height:"92%", objectFit:"contain", mixBlendMode:"normal", filter:"contrast(1.02) brightness(0.98)"}} />
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div
+                style={{width:"100%", aspectRatio:"1/1", display:"flex", alignItems:"center", justifyContent:"center", background:"#fff", borderRadius:"4px", overflow:"hidden"}}
+                onMouseEnter={e=>{
+                  const img = e.currentTarget.querySelector('img');
+                  if (img) img.style.transform = "scale(1.05)";
+                }}
+                onMouseLeave={e=>{
+                  const img = e.currentTarget.querySelector('img');
+                  if (img) img.style.transform = "scale(1)";
+                }}
+              >
+                <img
+                  src={product.img}
+                  alt={product.name}
+                  style={{width:"92%", height:"92%", objectFit:"contain", mixBlendMode:"normal", filter:"contrast(1.02) brightness(0.98)", transition:"transform .45s ease"}}
+                />
+              </div>
+            )}
           </div>
           {/* ── Right: Product Details (Sticky) ── */}
           <div style={{paddingTop:8, maxWidth:540, position:"sticky", top:120, alignSelf:"start"}}>
