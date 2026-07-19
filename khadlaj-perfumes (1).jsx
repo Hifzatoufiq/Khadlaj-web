@@ -2255,7 +2255,7 @@ function ContactPage(){
             Get in Touch
           </p>
           <h1 className="disp" style={{
-            fontSize:"clamp(44px,6vw,84px)",fontWeight:300,
+            fontSize:"clamp(32px, 8vw, 84px)",fontWeight:300,
             color:"#fff",lineHeight:.92,letterSpacing:-2,marginBottom:16,
           }}>Contact Us</h1>
           <p style={{color:"rgba(255,255,255,.55)",fontSize:13,maxWidth:420,lineHeight:1.8,fontFamily:"'Montserrat',sans-serif"}}>
@@ -2264,12 +2264,12 @@ function ContactPage(){
         </div>
       </div>
 
-      <div style={{padding:"80px 5% 96px",display:"grid",gridTemplateColumns:"1fr 1.35fr",gap:40,alignItems:"stretch"}} className="hero-split">
+      <div style={{padding:"clamp(40px, 6vw, 80px) 5% clamp(48px, 8vw, 96px)",display:"grid",gridTemplateColumns:"1fr 1.35fr",gap:40,alignItems:"stretch"}} className="hero-split">
         {/* Info */}
         <div>
           <div style={{width:32,height:1,background:"#B8922A",marginBottom:20}}/>
           <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:14}}>Reach Us</p>
-          <h2 className="disp" style={{fontSize:"clamp(28px,3vw,44px)",fontWeight:300,marginBottom:24,lineHeight:1.1,color:"#251737",letterSpacing:-1}}>We'd Love to Hear From You</h2>
+          <h2 className="disp" style={{fontSize:"clamp(24px, 6vw, 44px)",fontWeight:300,marginBottom:24,lineHeight:1.1,color:"#251737",letterSpacing:-1}}>We'd Love to Hear From You</h2>
           <p style={{color:"#777",lineHeight:1.85,fontSize:14,marginBottom:36,fontFamily:"'Montserrat',sans-serif"}}>
             Whether you're a fragrance enthusiast, a retail partner, or a gifting client — our team is here to help.
           </p>
@@ -2313,7 +2313,7 @@ function ContactPage(){
         </div>
 
         {/* Form */}
-        <div style={{position:"relative",overflow:"hidden",background:"linear-gradient(135deg,#090909 0%,#14110B 58%,#060606 100%)",padding:"44px 40px",boxShadow:"0 26px 70px rgba(0,0,0,.18)"}}>
+        <div style={{position:"relative",overflow:"hidden",background:"linear-gradient(135deg,#090909 0%,#14110B 58%,#060606 100%)",padding:"clamp(24px, 5vw, 44px) clamp(20px, 5vw, 40px)",boxShadow:"0 26px 70px rgba(0,0,0,.18)"}}>
           <div style={{position:"absolute",top:-120,right:-80,width:280,height:280,borderRadius:"50%",background:"radial-gradient(circle,rgba(184,146,42,.26),rgba(184,146,42,0) 68%)",pointerEvents:"none"}}/>
           <div style={{position:"absolute",left:0,top:0,bottom:0,width:4,background:"linear-gradient(180deg,#B8922A,#F0D080,#B8922A)"}}/>
           {sent ? (
