@@ -1095,13 +1095,13 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             
             <div style={{position:"relative", width:"100%", height:"100%", display:"flex", alignItems:"center", justifyContent:"center"}}>
               {/* Back Left Bottle */}
-              <img src="./assets/images/products/nafais-magrib_transparent.png" alt="Trusted Product" style={{position:"absolute", left:"10%", top:"15%", maxHeight:"220px", height:"20vw", objectFit:"contain", filter:"drop-shadow(0 20px 40px rgba(0,0,0,0.5)) blur(2px)", opacity:0.6, animation:"lafedeFloatSmall 7s ease-in-out infinite", mixBlendMode:"screen"}} />
+              <img src="./assets/images/products/nafais-magrib_transparent.png" alt="Trusted Product" style={{position:"absolute", left:"-5%", top:"20%", maxHeight:"220px", height:"20vw", objectFit:"contain", filter:"drop-shadow(0 20px 40px rgba(0,0,0,0.5)) blur(1px)", opacity:0.65, animation:"lafedeFloatSmall 7s ease-in-out infinite"}} />
               
               {/* Back Right Bottle */}
-              <img src="./assets/images/products/shiyaaka_transparent.png" alt="Trusted Product" style={{position:"absolute", right:"15%", bottom:"15%", maxHeight:"240px", height:"22vw", objectFit:"contain", filter:"drop-shadow(0 20px 40px rgba(0,0,0,0.5)) blur(1px)", opacity:0.8, animation:"lafedeFloatSmall 6s ease-in-out infinite reverse"}} />
+              <img src="./assets/images/products/shiyaaka_transparent.png" alt="Trusted Product" style={{position:"absolute", right:"-10%", bottom:"20%", maxHeight:"240px", height:"22vw", objectFit:"contain", filter:"drop-shadow(0 20px 40px rgba(0,0,0,0.5)) blur(1px)", opacity:0.75, animation:"lafedeFloatSmall 6s ease-in-out infinite reverse"}} />
               
               {/* Main Center Bottle */}
-              <img src="./assets/images/products/intoxicate-mystique-cutout.png" alt="Trusted Product" style={{position:"relative", zIndex:10, maxHeight:"360px", height:"32vw", objectFit:"contain", filter:"drop-shadow(0 40px 60px rgba(0,0,0,0.7))", animation:"lafedeFloat 5s ease-in-out infinite"}} />
+              <img src="./assets/images/products/intoxicate-mystique-cutout.png" alt="Trusted Product" style={{position:"relative", zIndex:10, maxHeight:"380px", height:"34vw", objectFit:"contain", filter:"drop-shadow(0 40px 60px rgba(0,0,0,0.8))", animation:"lafedeFloat 5s ease-in-out infinite"}} />
             </div>
           </div>
 
