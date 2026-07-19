@@ -2100,6 +2100,75 @@ function StoryPage(){
           </div>
         </div>
 
+        {/* Values & Ethos + Our Motto Banner */}
+        <div style={{background:"#1c1326", margin:"0 -5.5% 88px", padding:"80px 5.5%", color:"#fff"}}>
+          <div className="max-container" style={{display:"flex", flexDirection:"column", gap:80}}>
+            
+            {/* Values & Ethos */}
+            <div className="hero-split" style={{display:"grid", gridTemplateColumns:"0.8fr 1.2fr", gap:48}}>
+              <div>
+                <h2 className="disp" style={{fontSize:"clamp(32px, 4vw, 42px)", fontWeight:300, color:"#fff", lineHeight:1.2, margin:0, fontFamily:"'Montserrat', sans-serif"}}>
+                  Values &amp; Ethos
+                </h2>
+                <div style={{width:40,height:1,background:"#C8A97E",margin:"16px 0 24px"}}/>
+                <p style={{color: "rgba(255,255,255,0.7)", lineHeight: 1.8, fontSize: 14, fontFamily: "'Montserrat', sans-serif"}}>
+                  At Khadlaj Perfumes, we are guided by fundamental values that define our commitment to excellence:
+                </p>
+              </div>
+
+              <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(200px, 1fr))", gap:16}}>
+                {[
+                  { title: "Experience", text: "We continuously strive to understand customer needs and exceed expectations.", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A97E" strokeWidth="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> },
+                  { title: "Integrity", text: "We adhere to our morals and maintain transparency in all our dealings.", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A97E" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> },
+                  { title: "Heritage", text: "We honor our origins and uphold the legacy of our home.", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A97E" strokeWidth="1.5"><rect x="4" y="10" width="16" height="12" rx="2"/><path d="M12 2v8"/><path d="M8 5l4-3 4 3"/></svg> },
+                  { title: "Trust", text: "We are dedicated to fostering faith and confidence in our customers.", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A97E" strokeWidth="1.5"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> },
+                  { title: "Loyalty", text: "We prioritize building lasting, loyal relationships with our customers.", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A97E" strokeWidth="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> },
+                  { title: "Quality", text: "We set high standards and strive for excellence in every fragrance we create.", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A97E" strokeWidth="1.5"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg> }
+                ].map(item => (
+                  <div key={item.title} style={{background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.06)", borderRadius:8, padding:24, transition:"all 0.3s ease"}} onMouseEnter={e => {e.currentTarget.style.background="rgba(255,255,255,0.06)"; e.currentTarget.style.borderColor="rgba(200,169,126,0.3)";}} onMouseLeave={e => {e.currentTarget.style.background="rgba(255,255,255,0.03)"; e.currentTarget.style.borderColor="rgba(255,255,255,0.06)";}}>
+                    <div style={{marginBottom:16}}>{item.icon}</div>
+                    <h4 style={{fontSize:15, fontWeight:600, color:"#fff", fontFamily:"'Montserrat', sans-serif", marginBottom:8}}>{item.title}</h4>
+                    <p style={{fontSize:12, color:"rgba(255,255,255,0.6)", lineHeight:1.6, fontFamily:"'Montserrat', sans-serif", margin:0}}>{item.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div style={{width:"100%", height:1, background:"rgba(255,255,255,0.06)"}}/>
+
+            {/* Our Motto */}
+            <div>
+              <div style={{display:"flex", alignItems:"center", gap:12, marginBottom:32}}>
+                <h2 className="disp" style={{fontSize:"clamp(32px, 4vw, 42px)", fontWeight:300, color:"#fff", lineHeight:1.2, margin:0, fontFamily:"'Montserrat', sans-serif"}}>
+                  Our Motto
+                </h2>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A97E" strokeWidth="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+
+              <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(300px, 1fr))", gap:24}}>
+                {/* Vision Card */}
+                <div style={{position:"relative", overflow:"hidden", borderRadius:8, border:"1px solid rgba(255,255,255,0.1)", background:"linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.2) 100%)", padding:"40px 32px"}}>
+                  <div style={{position:"absolute", top:0, left:0, width:"4px", height:"100%", background:"#C8A97E"}}/>
+                  <h3 style={{fontSize:24, fontWeight:400, color:"#fff", fontFamily:"'Montserrat', sans-serif", marginBottom:16}}>Our vision</h3>
+                  <p style={{fontSize:14, color:"rgba(255,255,255,0.7)", lineHeight:1.8, fontFamily:"'Montserrat', sans-serif", margin:0}}>
+                    Our vision is to be a trusted name in the perfume industry and make our presence known in every household worldwide.
+                  </p>
+                </div>
+
+                {/* Mission Card */}
+                <div style={{position:"relative", overflow:"hidden", borderRadius:8, border:"1px solid rgba(255,255,255,0.1)", background:"linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.2) 100%)", padding:"40px 32px"}}>
+                  <div style={{position:"absolute", top:0, left:0, width:"4px", height:"100%", background:"#C8A97E"}}/>
+                  <h3 style={{fontSize:24, fontWeight:400, color:"#fff", fontFamily:"'Montserrat', sans-serif", marginBottom:16}}>Our mission</h3>
+                  <p style={{fontSize:14, color:"rgba(255,255,255,0.7)", lineHeight:1.8, fontFamily:"'Montserrat', sans-serif", margin:0}}>
+                    Our mission is to spread our wings across the globe gradually by opening up outlets across the GCC and worldwide.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
         {/* Lifestyle editorial */}
         <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:48,marginBottom:0}}>
           {[
