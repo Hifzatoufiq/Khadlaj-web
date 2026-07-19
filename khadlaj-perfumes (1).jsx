@@ -65,7 +65,7 @@ const PRODUCTS = [
     "topNotes": [],
     "midNotes": [],
     "baseNotes": [],
-    "img": "./assets/images/products/creamvelvet_gift_set_nobox.jpg",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Cream_Velvet_03.jpg?v=1783947094",
     "detailImages": ["https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-2.jpg?v=1779352384"]
   },
   {
@@ -93,7 +93,7 @@ const PRODUCTS = [
     "topNotes": [],
     "midNotes": [],
     "baseNotes": [],
-    "img": "./assets/images/products/cloud_candy_gift_set_nobox.jpg",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Cloud_Candy-3.jpg?v=1783945979",
     "detailImages": ["https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy3.jpg?v=1767169755"]
   },
   {
@@ -107,7 +107,7 @@ const PRODUCTS = [
     "topNotes": [],
     "midNotes": [],
     "baseNotes": [],
-    "img": "./assets/images/products/island_gift_set_nobox.jpg",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island3.jpg",
     "detailImages": ["https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island2.jpg?v=1767168643"]
   },
   {
