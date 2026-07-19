@@ -202,7 +202,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/TheGourmandCollection-4_b312994b-4740-40ef-b26d-52e29e7b094a.jpg?v=1776146949"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/TheGourmandCollection-3_36392120-d1dc-489b-8fff-992c3945e6e1.jpg?v=1776147258"
   },
   {
     "id": 8670778589383,
