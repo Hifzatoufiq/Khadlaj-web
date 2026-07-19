@@ -75,7 +75,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -594,7 +594,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 200,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -609,7 +609,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 200,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -624,7 +624,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 200,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -669,7 +669,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -969,7 +969,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -999,7 +999,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -1194,7 +1194,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 100,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -1284,7 +1284,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -1385,7 +1385,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -1445,7 +1445,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 100,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -1473,7 +1473,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Her",
     "notes": [
       "Musk",
@@ -1576,7 +1576,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 90,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -1722,7 +1722,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -1737,7 +1737,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 200,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
       "Musk",
@@ -2113,7 +2113,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -2128,7 +2128,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -2197,7 +2197,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -2302,7 +2302,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -2362,7 +2362,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -2407,7 +2407,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
       "Musk",
@@ -2422,7 +2422,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -2536,7 +2536,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 85,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -2611,7 +2611,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 158,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -3032,7 +3032,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 140,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
       "Musk",
@@ -3047,7 +3047,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 140,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -3969,7 +3969,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 50,
     "size": "100 ml",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -3984,7 +3984,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 65,
     "size": "100 ml",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -4029,7 +4029,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 65,
     "size": "100 ml",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -4449,7 +4449,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100 ml",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Her",
     "notes": [
       "Musk",
@@ -4479,7 +4479,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100 ml",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -4494,7 +4494,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100 ml",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -4569,7 +4569,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 50,
     "size": "100 ml",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
       "Musk",
@@ -4599,7 +4599,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 53,
     "size": "100 ml",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -4809,7 +4809,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 200,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -5665,7 +5665,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
     if(activeCat==="For Her") return isKhadlajProduct && p.gender==="Her";
     if(activeCat==="Unisex") return isKhadlajProduct && p.gender==="Unisex";
     return isKhadlajProduct && (p.col || '').toLowerCase() === activeCat.toLowerCase();
-  }).slice(0, activeCat === "Best Sellers" ? 4 : 16);
+  }).slice(0, activeCat === "Best Sellers" ? 6 : 16);
   const newLaunches = PRODUCTS.filter(p => p.badge === "New").slice(0, 8);
 
 
