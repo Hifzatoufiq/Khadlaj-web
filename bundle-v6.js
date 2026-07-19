@@ -22766,11 +22766,11 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
         " fresh launches"
       ] }) })
     ] }) }),
-    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { display: "flex", flexWrap: "wrap", background: "#f6f4f0" }, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("section", { style: { display: "flex", flexWrap: "wrap", background: "#120917" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: "1 1 50%", padding: "8vw 6%", minWidth: 300, display: "flex", flexDirection: "column", justifyContent: "center" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(32px, 4vw, 48px)", fontWeight: 600, color: "#1a1125", lineHeight: 1.1, marginBottom: 24 }, children: "What Sets Khadlaj Apart" }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 15, color: "#4a4552", lineHeight: 1.8, fontFamily: "'Montserrat',sans-serif", marginBottom: 40, maxWidth: 600 }, children: "Every Khadlaj fragrance is crafted using top-grade, internationally sourced perfume materials \u2014 the same grade used in original luxury fragrances worldwide. We use perfumer-grade, plant-based, halal ingredients to ensure safety, purity, and exceptional performance." }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", { style: { listStyle: "none", padding: 0, margin: "0 0 48px", display: "flex", flexDirection: "column", gap: 16, color: "#333", fontFamily: "'Montserrat',sans-serif", fontSize: 14, fontWeight: 500 }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h2", { className: "disp", style: { fontSize: "clamp(32px, 4vw, 48px)", fontWeight: 600, color: "#fff", lineHeight: 1.1, marginBottom: 24 }, children: "What Sets Khadlaj Apart" }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { fontSize: 15, color: "rgba(255,255,255,0.75)", lineHeight: 1.8, fontFamily: "'Montserrat',sans-serif", marginBottom: 40, maxWidth: 600 }, children: "Every Khadlaj fragrance is crafted using top-grade, internationally sourced perfume materials \u2014 the same grade used in original luxury fragrances worldwide. We use perfumer-grade, plant-based, halal ingredients to ensure safety, purity, and exceptional performance." }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("ul", { style: { listStyle: "none", padding: 0, margin: "0 0 48px", display: "flex", flexDirection: "column", gap: 16, color: "#fff", fontFamily: "'Montserrat',sans-serif", fontSize: 14, fontWeight: 500 }, children: [
           "150+ Premium Perfumes, the region's finest fragrance range",
           "10+ Hand-Crafted Luxury Collections",
           "Pure Premium Attars & Oils",
@@ -22780,10 +22780,10 @@ function HomePage({ setPage, addToCart, setViewProduct }) {
           "Proudly Made in the UAE",
           "50,000+ Happy Customers Worldwide"
         ].map((point, i) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("li", { style: { display: "flex", alignItems: "center", gap: 12 }, children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 6, height: 6, borderRadius: "50%", background: "#1a1125", flexShrink: 0 } }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { width: 6, height: 6, borderRadius: "50%", background: "#C8A97E", flexShrink: 0 } }),
           point
         ] }, i)) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-dark", onClick: () => setPage("story"), style: { padding: "16px 40px", borderRadius: 4, fontSize: 13, letterSpacing: 1 }, children: "Read More" }) })
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("button", { className: "btn-gold", onClick: () => setPage("story"), style: { padding: "16px 40px", borderRadius: 4, fontSize: 13, letterSpacing: 1 }, children: "Read More" }) })
       ] }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { flex: "1 1 50%", minWidth: 300, position: "relative", minHeight: "600px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("img", { src: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-3.jpg?v=1775636549", alt: "Khadlaj Luxury Perfume", style: { position: "absolute", width: "100%", height: "100%", objectFit: "cover" } }) })
     ] }),

@@ -1070,17 +1070,17 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       
 
       {/* ── WHAT SETS US APART ── */}
-      <section style={{display:"flex", flexWrap:"wrap", background:"#f6f4f0"}}>
+      <section style={{display:"flex", flexWrap:"wrap", background:"#120917"}}>
         {/* Left Content Area */}
         <div style={{flex:"1 1 50%", padding:"8vw 6%", minWidth:300, display:"flex", flexDirection:"column", justifyContent:"center"}}>
-          <h2 className="disp" style={{fontSize:"clamp(32px, 4vw, 48px)", fontWeight:600, color:"#1a1125", lineHeight:1.1, marginBottom:24}}>
+          <h2 className="disp" style={{fontSize:"clamp(32px, 4vw, 48px)", fontWeight:600, color:"#fff", lineHeight:1.1, marginBottom:24}}>
             What Sets Khadlaj Apart
           </h2>
-          <p style={{fontSize:15, color:"#4a4552", lineHeight:1.8, fontFamily:"'Montserrat',sans-serif", marginBottom:40, maxWidth:600}}>
+          <p style={{fontSize:15, color:"rgba(255,255,255,0.75)", lineHeight:1.8, fontFamily:"'Montserrat',sans-serif", marginBottom:40, maxWidth:600}}>
             Every Khadlaj fragrance is crafted using top-grade, internationally sourced perfume materials — the same grade used in original luxury fragrances worldwide. We use perfumer-grade, plant-based, halal ingredients to ensure safety, purity, and exceptional performance.
           </p>
           
-          <ul style={{listStyle:"none", padding:0, margin:"0 0 48px", display:"flex", flexDirection:"column", gap:16, color:"#333", fontFamily:"'Montserrat',sans-serif", fontSize:14, fontWeight:500}}>
+          <ul style={{listStyle:"none", padding:0, margin:"0 0 48px", display:"flex", flexDirection:"column", gap:16, color:"#fff", fontFamily:"'Montserrat',sans-serif", fontSize:14, fontWeight:500}}>
             {[
               "150+ Premium Perfumes, the region's finest fragrance range",
               "10+ Hand-Crafted Luxury Collections",
@@ -1092,14 +1092,14 @@ function HomePage({ setPage, addToCart, setViewProduct }){
               "50,000+ Happy Customers Worldwide"
             ].map((point, i) => (
                 <li key={i} style={{display:"flex", alignItems:"center", gap:12}}>
-                  <div style={{width:6, height:6, borderRadius:"50%", background:"#1a1125", flexShrink:0}}/>
+                  <div style={{width:6, height:6, borderRadius:"50%", background:"#C8A97E", flexShrink:0}}/>
                   {point}
                 </li>
             ))}
           </ul>
           
           <div>
-            <button className="btn-dark" onClick={()=>setPage("story")} style={{padding:"16px 40px", borderRadius:4, fontSize:13, letterSpacing:1}}>
+            <button className="btn-gold" onClick={()=>setPage("story")} style={{padding:"16px 40px", borderRadius:4, fontSize:13, letterSpacing:1}}>
               Read More
             </button>
           </div>
