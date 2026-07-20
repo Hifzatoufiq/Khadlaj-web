@@ -60,7 +60,7 @@ const PRODUCTS = [
     "col": "Master Perfumery",
     "price": 200.0,
     "size": "60ml EDP",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": ["Oud", "Woody", "Amber"],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Jumeirah-3.jpg?v=1783940923"
@@ -206,7 +206,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 105,
     "size": "100ml EDP",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -238,7 +238,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "100ml EDP",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -253,7 +253,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "100ml EDP",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -328,7 +328,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 125,
     "size": "100ml EDP",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -343,7 +343,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 85,
     "size": "100ml EDP",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -478,7 +478,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 110,
     "size": "100ml EDP",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -598,7 +598,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 90,
     "size": "100ml EDP",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -703,7 +703,7 @@ const PRODUCTS = [
     "col": "Perfume Oils",
     "price": 325,
     "size": "3ML",
-    "badge": "",
+    "badge": "New",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -718,7 +718,7 @@ const PRODUCTS = [
     "col": "Dehn Al Oudh",
     "price": 325,
     "size": "3ML",
-    "badge": "",
+    "badge": "New",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -733,7 +733,7 @@ const PRODUCTS = [
     "col": "Dehn Al Oudh",
     "price": 325,
     "size": "3ML",
-    "badge": "",
+    "badge": "New",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -793,7 +793,7 @@ const PRODUCTS = [
     "col": "Bakhoor",
     "price": 35,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "New",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -808,7 +808,7 @@ const PRODUCTS = [
     "col": "Bakhoor",
     "price": 27,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "New",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -1778,7 +1778,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 35,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "New",
     "gender": "Unisex",
     "notes": [
       "Air freshner"
@@ -1791,7 +1791,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 35,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "New",
     "gender": "Unisex",
     "notes": [
       "Air freshner"
@@ -2171,7 +2171,7 @@ const PRODUCTS = [
     "col": "Perfume Oils",
     "price": 75,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "New",
     "gender": "Unisex",
     "notes": [
       "Perfume oil"
