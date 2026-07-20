@@ -6268,10 +6268,11 @@ function GiftsPage({ addToCart, setViewProduct, setPage }){
       {/* ── Hero Banner ── */}
       <div style={{position:"relative",height:"clamp(280px,38vw,480px)",overflow:"hidden",background:"#251737"}}>
         <img
-          src="./assets/images/banners/gifts-wide-banner.png"
+          src="https://khadlaj-perfumes.com/cdn/shop/collections/GIFT_SETS_-_Khadlaj_Perfumes-1966211_1200x1200.jpg?v=1782971309"
           alt="Gift Sets"
-          style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center center",opacity:.88}}
+          style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center center",opacity:1}}
         />
+        <div style={{position:"absolute",inset:0,background:"linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0) 100%)"}}/>
         <div style={{
           position:"absolute",inset:0,
           display:"flex",flexDirection:"column",alignItems:"flex-start",justifyContent:"center",
