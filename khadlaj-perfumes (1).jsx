@@ -1385,7 +1385,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 85,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -1426,7 +1426,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "Best Seller",
+    "badge": "",
     "gender": "Unisex",
     "notes": [
       "Oud",
