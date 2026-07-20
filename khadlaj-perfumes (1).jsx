@@ -55,6 +55,17 @@ const STATS = [
 
 const PRODUCTS = [
   {
+    "id": 8526052262087,
+    "name": "OUD PURE OUD JUMEIRAH",
+    "col": "Master Perfumery",
+    "price": 200.0,
+    "size": "60ml EDP",
+    "badge": "For Unisex",
+    "gender": "Unisex",
+    "notes": ["Oud", "Woody", "Amber"],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Jumeirah-3.jpg?v=1783940923"
+  },
+  {
     "id": "8711671578823",
     "name": "KHADLAJ PERFUMES NAFAIS SHARQ GIFT SET FOR WOMEN",
     "price": 150.0,
@@ -429,7 +440,7 @@ const PRODUCTS = [
   {
     "id": 8526040367303,
     "name": "OUD PURE OUD BARAKAT",
-    "col": "Eau De Parfum",
+    "col": "Master Perfumery",
     "price": 200,
     "size": "100ml EDP",
     "badge": "Best Seller",
@@ -444,7 +455,7 @@ const PRODUCTS = [
   {
     "id": 8525988200647,
     "name": "OUD PURE OUD GALAZAID",
-    "col": "Eau De Parfum",
+    "col": "Master Perfumery",
     "price": 200,
     "size": "100ml EDP",
     "badge": "Best Seller",
@@ -1452,7 +1463,7 @@ const PRODUCTS = [
   {
     "id": 8143006892231,
     "name": "MUSK PURE MUSK BLEND CREATION OF IQBAL",
-    "col": "Eau De Parfum",
+    "col": "Master Perfumery",
     "price": 200,
     "size": "100ml EDP",
     "badge": "Best Seller",
@@ -5262,6 +5273,9 @@ function HomePage({ setPage, addToCart, setViewProduct }){
     if(activeCat==="For Him") return isKhadlajProduct && p.gender==="Him";
     if(activeCat==="For Her") return isKhadlajProduct && p.gender==="Her";
     if(activeCat==="Unisex") return isKhadlajProduct && p.gender==="Unisex";
+    if(activeCat==="Atyaab") return isKhadlajProduct && (p.col==="Perfume Oils" || p.col==="Atyaab");
+    if(activeCat==="EAU DE PARFUM") return isKhadlajProduct && p.col.toLowerCase() === "eau de parfum";
+    if(activeCat==="Master Perfumery") return isKhadlajProduct && p.col==="Master Perfumery";
     return isKhadlajProduct && (p.col || '').toLowerCase() === activeCat.toLowerCase();
   }).slice(0, activeCat === "Best Sellers" ? 6 : 16);
   const newLaunches = PRODUCTS.filter(p => p.badge === "New").slice(0, 8);
@@ -5792,7 +5806,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
     
     if(activeCat==="Atyaab") return isKhadlajProduct && (p.col==="Perfume Oils" || p.col==="Atyaab");
     if(activeCat==="EAU DE PARFUM") return isKhadlajProduct && p.col.toLowerCase() === "eau de parfum";
-    if(activeCat==="Master Perfumery") return isKhadlajProduct && (p.col==="Extrait De Parfum" || p.col==="Master Perfumery");
+    if(activeCat==="Master Perfumery") return isKhadlajProduct && p.col==="Master Perfumery";
     
     return isKhadlajProduct && p.col===activeCat;
   }).filter(p=>p.price<=priceMax);
@@ -5907,7 +5921,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
                   
                   if(c==="Atyaab") return isKhadlajProduct && (p.col==="Perfume Oils" || p.col==="Atyaab");
                   if(c==="EAU DE PARFUM") return isKhadlajProduct && p.col.toLowerCase() === "eau de parfum";
-                  if(c==="Master Perfumery") return isKhadlajProduct && (p.col==="Extrait De Parfum" || p.col==="Master Perfumery");
+                  if(c==="Master Perfumery") return isKhadlajProduct && p.col==="Master Perfumery";
                   
                   return isKhadlajProduct && p.col===c;
                 }).length}</span>
