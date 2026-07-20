@@ -913,7 +913,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/products/cloud_candy_gift_set_nobox.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Cloud_Candy-3.jpg?v=1783945979"
   },
   {
     "id": 8342080946375,
@@ -1329,7 +1329,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/products/creamvelvet_gift_set_nobox.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Cream_Velvet_03.jpg?v=1783947094"
   },
   {
     "id": 8276542390471,
