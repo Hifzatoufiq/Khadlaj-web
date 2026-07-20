@@ -583,7 +583,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 90,
     "size": "100ml EDP",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": [
       "Oud",
