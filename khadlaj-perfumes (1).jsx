@@ -27,13 +27,13 @@ const C = {
    DATA
 ═══════════════════════════════════════════════════════════════ */
 const COUNTRIES = [
-  { name:"UAE",      flagUrl:"./assets/images/flags/ae.png", currency:"AED", rate:1 },
-  { name:"Kuwait",   flagUrl:"./assets/images/flags/kw.png", currency:"KWD", rate:0.08 },
-  { name:"India",    flagUrl:"./assets/images/flags/in.png", currency:"INR", rate:22.5 },
-  { name:"Egypt",    flagUrl:"./assets/images/flags/eg.png", currency:"EGP", rate:13.2 },
-  { name:"Malaysia", flagUrl:"./assets/images/flags/my.png", currency:"MYR", rate:1.25 },
-  { name:"UK",       flagUrl:"./assets/images/flags/gb.png", currency:"GBP", rate:0.21 },
-  { name:"USA",      flagUrl:"./assets/images/flags/us.png", currency:"USD", rate:0.27 },
+  { name:"UAE",      flagUrl:"/assets/images/flags/ae.png", currency:"AED", rate:1 },
+  { name:"Kuwait",   flagUrl:"/assets/images/flags/kw.png", currency:"KWD", rate:0.08 },
+  { name:"India",    flagUrl:"/assets/images/flags/in.png", currency:"INR", rate:22.5 },
+  { name:"Egypt",    flagUrl:"/assets/images/flags/eg.png", currency:"EGP", rate:13.2 },
+  { name:"Malaysia", flagUrl:"/assets/images/flags/my.png", currency:"MYR", rate:1.25 },
+  { name:"UK",       flagUrl:"/assets/images/flags/gb.png", currency:"GBP", rate:0.21 },
+  { name:"USA",      flagUrl:"/assets/images/flags/us.png", currency:"USD", rate:0.27 },
   { name:"Global",   flagUrl:"global", currency:"USD", rate:0.27 },
 ];
 const CountryContext = React.createContext();
@@ -77,8 +77,8 @@ const PRODUCTS = [
     "midNotes": [],
     "baseNotes": [],
     "notes": ["Oud", "Musk", "Amber"],
-    "img": "./assets/images/gifsets/nafais_sharq_nobox.png",
-    "detailImages": ["./assets/images/gifsets/nafais_sharq_nobox.png"]
+    "img": "/assets/images/gifsets/nafais_sharq_nobox.png",
+    "detailImages": ["/assets/images/gifsets/nafais_sharq_nobox.png"]
   },
   {
     "id": "8711666925767",
@@ -92,8 +92,8 @@ const PRODUCTS = [
     "midNotes": [],
     "baseNotes": [],
     "notes": ["Oud", "Musk", "Amber"],
-    "img": "./assets/images/gifsets/cream_velvet_nobox.png",
-    "detailImages": ["./assets/images/gifsets/cream_velvet_nobox.png"]
+    "img": "/assets/images/gifsets/cream_velvet_nobox.png",
+    "detailImages": ["/assets/images/gifsets/cream_velvet_nobox.png"]
   },
   {
     "id": "8674591408327",
@@ -107,8 +107,8 @@ const PRODUCTS = [
     "midNotes": [],
     "baseNotes": [],
     "notes": ["Oud", "Musk", "Amber"],
-    "img": "./assets/images/gifsets/gourmand_nobox.png",
-    "detailImages": ["./assets/images/gifsets/gourmand_nobox.png"]
+    "img": "/assets/images/gifsets/gourmand_nobox.png",
+    "detailImages": ["/assets/images/gifsets/gourmand_nobox.png"]
   },
   {
     "id": "8586765697223",
@@ -122,8 +122,8 @@ const PRODUCTS = [
     "midNotes": [],
     "baseNotes": [],
     "notes": ["Oud", "Musk", "Amber"],
-    "img": "./assets/images/gifsets/cloud_candy_nobox.png",
-    "detailImages": ["./assets/images/gifsets/cloud_candy_nobox.png"]
+    "img": "/assets/images/gifsets/cloud_candy_nobox.png",
+    "detailImages": ["/assets/images/gifsets/cloud_candy_nobox.png"]
   },
   {
     "id": "8586762813639",
@@ -137,8 +137,8 @@ const PRODUCTS = [
     "midNotes": [],
     "baseNotes": [],
     "notes": ["Oud", "Musk", "Amber"],
-    "img": "./assets/images/gifsets/island_nobox.png",
-    "detailImages": ["./assets/images/gifsets/island_nobox.png"]
+    "img": "/assets/images/gifsets/island_nobox.png",
+    "detailImages": ["/assets/images/gifsets/island_nobox.png"]
   },
   {
     "id": 8783764291783,
@@ -425,7 +425,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/products/nafais_gift_set_nobox.jpg"
+    "img": "/assets/images/products/nafais_gift_set_nobox.jpg"
   },
   {
     "id": 8526040367303,
@@ -650,7 +650,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/products/nafais_gift_set_nobox.jpg"
+    "img": "/assets/images/products/nafais_gift_set_nobox.jpg"
   },
   {
     "id": 8398776959175,
@@ -710,7 +710,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_Magical_Thai_02.jpg"
+    "img": "/assets/images/smart_cropped/smart_Magical_Thai_02.jpg"
   },
   {
     "id": 8385137639623,
@@ -725,7 +725,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_OUD_OAISAR_SEUFI-3.jpg"
+    "img": "/assets/images/smart_cropped/smart_OUD_OAISAR_SEUFI-3.jpg"
   },
   {
     "id": 8385113981127,
@@ -740,7 +740,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_OUD_SHEIKH_OADIM-3.jpg"
+    "img": "/assets/images/smart_cropped/smart_OUD_SHEIKH_OADIM-3.jpg"
   },
   {
     "id": 8361494839495,
@@ -800,7 +800,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_2_6f08c36e-4beb-4b09-bdf6-fb68dd7b8427.jpg"
+    "img": "/assets/images/smart_cropped/smart_2_6f08c36e-4beb-4b09-bdf6-fb68dd7b8427.jpg"
   },
   {
     "id": 8342075244743,
@@ -815,7 +815,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_2_a39244be-9fb7-4336-8e0c-7a6b8d964e4c.jpg"
+    "img": "/assets/images/smart_cropped/smart_2_a39244be-9fb7-4336-8e0c-7a6b8d964e4c.jpg"
   },
   {
     "id": 7734819553479,
@@ -1433,7 +1433,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_Island2.jpg"
+    "img": "/assets/images/cropped/cropped_Island2.jpg"
   },
   {
     "id": 8143006892231,
@@ -1768,7 +1768,7 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "./assets/images/smart_cropped/smart_FRASH_AL_MAJALIS_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964465.jpg"
+    "img": "/assets/images/smart_cropped/smart_FRASH_AL_MAJALIS_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964465.jpg"
   },
   {
     "id": 7923498844359,
@@ -1781,7 +1781,7 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "./assets/images/smart_cropped/smart_FRASH_SHAMOOKH_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964639.jpg"
+    "img": "/assets/images/smart_cropped/smart_FRASH_SHAMOOKH_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964639.jpg"
   },
   {
     "id": 7887478096071,
@@ -2161,7 +2161,7 @@ const PRODUCTS = [
     "notes": [
       "Perfume oil"
     ],
-    "img": "./assets/images/smart_cropped/smart_product_post-_BUNDLE_12.jpg"
+    "img": "/assets/images/smart_cropped/smart_product_post-_BUNDLE_12.jpg"
   },
   {
     "id": 7792438214855,
@@ -2174,7 +2174,7 @@ const PRODUCTS = [
     "notes": [
       "Perfume oil"
     ],
-    "img": "./assets/images/smart_cropped/smart_RIMAAL_BROWN_15_ML_-_Khadlaj_Perfumes-1965826.jpg"
+    "img": "/assets/images/smart_cropped/smart_RIMAAL_BROWN_15_ML_-_Khadlaj_Perfumes-1965826.jpg"
   },
   {
     "id": 7792432414919,
@@ -2189,7 +2189,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_WOW_OUD_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1966157.jpg"
+    "img": "/assets/images/smart_cropped/smart_WOW_OUD_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1966157.jpg"
   },
   {
     "id": 7792427696327,
@@ -2204,7 +2204,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_GAITH_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964668.jpg"
+    "img": "/assets/images/smart_cropped/smart_GAITH_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964668.jpg"
   },
   {
     "id": 7792426582215,
@@ -2339,7 +2339,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_HAREEM_AL_SULTAN_SILVER_35ML_-_Khadlaj_Perfumes-1964773.jpg"
+    "img": "/assets/images/smart_cropped/smart_HAREEM_AL_SULTAN_SILVER_35ML_-_Khadlaj_Perfumes-1964773.jpg"
   },
   {
     "id": 7582151672007,
@@ -2354,7 +2354,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_HAREEM_AL_SULTAN_GOLD_35ML_-_Khadlaj_Perfumes-1964749.jpg"
+    "img": "/assets/images/smart_cropped/smart_HAREEM_AL_SULTAN_GOLD_35ML_-_Khadlaj_Perfumes-1964749.jpg"
   },
   {
     "id": 7721533669575,
@@ -2367,7 +2367,7 @@ const PRODUCTS = [
     "notes": [
       "Perfume oil"
     ],
-    "img": "./assets/images/smart_cropped/smart_MUKHALATH_MA_A_WARD_TAIBA_12_ML_-_Khadlaj_Perfumes-1965432.jpg"
+    "img": "/assets/images/smart_cropped/smart_MUKHALATH_MA_A_WARD_TAIBA_12_ML_-_Khadlaj_Perfumes-1965432.jpg"
   },
   {
     "id": 7716614078663,
@@ -2427,7 +2427,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_OUD_MUATTAR_OUD_AL_MAQAAM_40_G_-_Khadlaj_Perfumes-1965702.jpg"
+    "img": "/assets/images/smart_cropped/smart_OUD_MUATTAR_OUD_AL_MAQAAM_40_G_-_Khadlaj_Perfumes-1965702.jpg"
   },
   {
     "id": 7677438492871,
@@ -2442,7 +2442,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_OUD_MUATTAR_OUD_AL_SAADA_40_G_-_Khadlaj_Perfumes-1965708.jpg"
+    "img": "/assets/images/smart_cropped/smart_OUD_MUATTAR_OUD_AL_SAADA_40_G_-_Khadlaj_Perfumes-1965708.jpg"
   },
   {
     "id": 7676794765511,
@@ -2487,7 +2487,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_MYSTICAL_INDIAN-2.jpg"
+    "img": "/assets/images/smart_cropped/smart_MYSTICAL_INDIAN-2.jpg"
   },
   {
     "id": 7651506225351,
@@ -2502,7 +2502,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_HANEEN_ROSE_GOLD_20_ML_-_Khadlaj_Perfumes-1964702.jpg"
+    "img": "/assets/images/smart_cropped/smart_HANEEN_ROSE_GOLD_20_ML_-_Khadlaj_Perfumes-1964702.jpg"
   },
   {
     "id": 7651482337479,
@@ -2517,7 +2517,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_HANEEN_GOLD_20_ML_-_Khadlaj_Perfumes-1964693.jpg"
+    "img": "/assets/images/smart_cropped/smart_HANEEN_GOLD_20_ML_-_Khadlaj_Perfumes-1964693.jpg"
   },
   {
     "id": 7640196841671,
@@ -2640,7 +2640,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_OUD_MUATTAR_GHANAATI_100_G_-_Khadlaj_Perfumes-1965632.jpg"
+    "img": "/assets/images/smart_cropped/smart_OUD_MUATTAR_GHANAATI_100_G_-_Khadlaj_Perfumes-1965632.jpg"
   },
   {
     "id": 7627659509959,
@@ -2655,7 +2655,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_OUD_MUATTAR_KHAWAATER_35_G_-_Khadlaj_Perfumes-1965650.jpg"
+    "img": "/assets/images/smart_cropped/smart_OUD_MUATTAR_KHAWAATER_35_G_-_Khadlaj_Perfumes-1965650.jpg"
   },
   {
     "id": 7602862031047,
@@ -2670,7 +2670,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_STELLAR_OUD_100_ML_EDP_SPRAY_FOR_MEN_WOMEN_-_Khadlaj_Perfumes-1965984.jpg"
+    "img": "/assets/images/smart_cropped/smart_STELLAR_OUD_100_ML_EDP_SPRAY_FOR_MEN_WOMEN_-_Khadlaj_Perfumes-1965984.jpg"
   },
   {
     "id": 7602860949703,
@@ -2685,7 +2685,7 @@ const PRODUCTS = [
       "Floral",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_STELLAR_MUSK_100_ML_EDP_SPRAY_FOR_WOMEN_-_Khadlaj_Perfumes-1965978.jpg"
+    "img": "/assets/images/smart_cropped/smart_STELLAR_MUSK_100_ML_EDP_SPRAY_FOR_WOMEN_-_Khadlaj_Perfumes-1965978.jpg"
   },
   {
     "id": 7598654980295,
@@ -2760,7 +2760,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_MIBRAAK_18ML_-_Khadlaj_Perfumes-1965427.jpg"
+    "img": "/assets/images/smart_cropped/smart_MIBRAAK_18ML_-_Khadlaj_Perfumes-1965427.jpg"
   },
   {
     "id": 7582424268999,
@@ -2775,7 +2775,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_IBHAAR_18ML_-_Khadlaj_Perfumes-1964788.jpg"
+    "img": "/assets/images/smart_cropped/smart_IBHAAR_18ML_-_Khadlaj_Perfumes-1964788.jpg"
   },
   {
     "id": 7582421254343,
@@ -2790,7 +2790,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_ASTOORA_18ML_-_Khadlaj_Perfumes-1963955.jpg"
+    "img": "/assets/images/smart_cropped/smart_ASTOORA_18ML_-_Khadlaj_Perfumes-1963955.jpg"
   },
   {
     "id": 7582413947079,
@@ -2805,7 +2805,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_FATIMA_15ML_-_Khadlaj_Perfumes-1964446.jpg"
+    "img": "/assets/images/smart_cropped/smart_FATIMA_15ML_-_Khadlaj_Perfumes-1964446.jpg"
   },
   {
     "id": 7582409949383,
@@ -2820,7 +2820,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_ANAB_18ML_-_Khadlaj_Perfumes-1963948.jpg"
+    "img": "/assets/images/smart_cropped/smart_ANAB_18ML_-_Khadlaj_Perfumes-1963948.jpg"
   },
   {
     "id": 7582406574279,
@@ -2835,7 +2835,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_AZAARI_17ML_-_Khadlaj_Perfumes-1963961.jpg"
+    "img": "/assets/images/smart_cropped/smart_AZAARI_17ML_-_Khadlaj_Perfumes-1963961.jpg"
   },
   {
     "id": 7582193680583,
@@ -2850,7 +2850,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_GHAZLAAN_20ML_-_Khadlaj_Perfumes-1964689.jpg"
+    "img": "/assets/images/smart_cropped/smart_GHAZLAAN_20ML_-_Khadlaj_Perfumes-1964689.jpg"
   },
   {
     "id": 7582193057991,
@@ -2865,7 +2865,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_RANIYA_18ML_-_Khadlaj_Perfumes-1965818.jpg"
+    "img": "/assets/images/smart_cropped/smart_RANIYA_18ML_-_Khadlaj_Perfumes-1965818.jpg"
   },
   {
     "id": 7582192304327,
@@ -2880,7 +2880,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_AALIYA_27ML_-_Khadlaj_Perfumes-1963911.jpg"
+    "img": "/assets/images/smart_cropped/smart_AALIYA_27ML_-_Khadlaj_Perfumes-1963911.jpg"
   },
   {
     "id": 7582186242247,
@@ -2895,7 +2895,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_ROOHI_WA_ROOHAK_SILVER_20_ML_-_Khadlaj_Perfumes-1965884.jpg"
+    "img": "/assets/images/smart_cropped/smart_ROOHI_WA_ROOHAK_SILVER_20_ML_-_Khadlaj_Perfumes-1965884.jpg"
   },
   {
     "id": 7582185095367,
@@ -2910,7 +2910,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_ROOHI_WA_ROOHAK_GOLD_20_ML_-_Khadlaj_Perfumes-1965877.jpg"
+    "img": "/assets/images/smart_cropped/smart_ROOHI_WA_ROOHAK_GOLD_20_ML_-_Khadlaj_Perfumes-1965877.jpg"
   },
   {
     "id": 7582182899911,
@@ -2925,7 +2925,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_ALF_WARDAAT_30ML_-_Khadlaj_Perfumes-1963933.jpg"
+    "img": "/assets/images/smart_cropped/smart_ALF_WARDAAT_30ML_-_Khadlaj_Perfumes-1963933.jpg"
   },
   {
     "id": 7582179262663,
@@ -2940,7 +2940,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_AL_FURSAN_18ML_-_Khadlaj_Perfumes-1963918.jpg"
+    "img": "/assets/images/smart_cropped/smart_AL_FURSAN_18ML_-_Khadlaj_Perfumes-1963918.jpg"
   },
   {
     "id": 7582167105735,
@@ -2955,7 +2955,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_AL_RIYAN_17ML_-_Khadlaj_Perfumes-1963926.jpg"
+    "img": "/assets/images/smart_cropped/smart_AL_RIYAN_17ML_-_Khadlaj_Perfumes-1963926.jpg"
   },
   {
     "id": 7582158979271,
@@ -2970,7 +2970,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_JAMEEL_25ML_-_Khadlaj_Perfumes-1964811.jpg"
+    "img": "/assets/images/smart_cropped/smart_JAMEEL_25ML_-_Khadlaj_Perfumes-1964811.jpg"
   },
   {
     "id": 7582143119559,
@@ -2985,7 +2985,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_ZAINAB_18_ML_-_Khadlaj_Perfumes-1966171.jpg"
+    "img": "/assets/images/smart_cropped/smart_ZAINAB_18_ML_-_Khadlaj_Perfumes-1966171.jpg"
   },
   {
     "id": 7582139089095,
@@ -3000,7 +3000,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_ROOH_AL_OUD_12_ML_-_Khadlaj_Perfumes-1965864.jpg"
+    "img": "/assets/images/smart_cropped/smart_ROOH_AL_OUD_12_ML_-_Khadlaj_Perfumes-1965864.jpg"
   },
   {
     "id": 7554129625287,
@@ -3013,7 +3013,7 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "./assets/images/smart_cropped/smart_FRASH_DALOUAA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964497.jpg"
+    "img": "/assets/images/smart_cropped/smart_FRASH_DALOUAA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964497.jpg"
   },
   {
     "id": 7554137391303,
@@ -3026,7 +3026,7 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "./assets/images/smart_cropped/smart_FRASH_ZAHOOR_AL_KHALEEJ_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964652.jpg"
+    "img": "/assets/images/smart_cropped/smart_FRASH_ZAHOOR_AL_KHALEEJ_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964652.jpg"
   },
   {
     "id": 7554137456839,
@@ -3039,7 +3039,7 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "./assets/images/smart_cropped/smart_FRASH_ROMANCIA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964632.jpg"
+    "img": "/assets/images/smart_cropped/smart_FRASH_ROMANCIA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964632.jpg"
   },
   {
     "id": 7554137555143,
@@ -3052,7 +3052,7 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "./assets/images/smart_cropped/smart_FRASH_MAKHMALI_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964589.jpg"
+    "img": "/assets/images/smart_cropped/smart_FRASH_MAKHMALI_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964589.jpg"
   },
   {
     "id": 7554137522375,
@@ -3065,7 +3065,7 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "./assets/images/smart_cropped/smart_FRASH_MUSKY_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964602.jpg"
+    "img": "/assets/images/smart_cropped/smart_FRASH_MUSKY_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964602.jpg"
   },
   {
     "id": 7554137489607,
@@ -3078,7 +3078,7 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "./assets/images/smart_cropped/smart_FRASH_NASEEM_AL_WARD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964609.jpg"
+    "img": "/assets/images/smart_cropped/smart_FRASH_NASEEM_AL_WARD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964609.jpg"
   },
   {
     "id": 7554137915591,
@@ -3106,7 +3106,7 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "./assets/images/smart_cropped/smart_FRASH_LA_YUQAWAM_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964537.jpg"
+    "img": "/assets/images/smart_cropped/smart_FRASH_LA_YUQAWAM_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964537.jpg"
   },
   {
     "id": 7554138505415,
@@ -3121,7 +3121,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_OUD_MUATTAR_GHALIYA_35_G_-_Khadlaj_Perfumes-1965626.jpg"
+    "img": "/assets/images/smart_cropped/smart_OUD_MUATTAR_GHALIYA_35_G_-_Khadlaj_Perfumes-1965626.jpg"
   },
   {
     "id": 7554138439879,
@@ -3136,7 +3136,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_OUD_MUATTAR_MUNAWWARA_35_G_-_Khadlaj_Perfumes-1965696.jpg"
+    "img": "/assets/images/smart_cropped/smart_OUD_MUATTAR_MUNAWWARA_35_G_-_Khadlaj_Perfumes-1965696.jpg"
   },
   {
     "id": 7554137981127,
@@ -3166,7 +3166,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_SHAMOOKH_SILVER_20ML_-_Khadlaj_Perfumes-1965933.jpg"
+    "img": "/assets/images/smart_cropped/smart_SHAMOOKH_SILVER_20ML_-_Khadlaj_Perfumes-1965933.jpg"
   },
   {
     "id": 7554143092935,
@@ -3179,7 +3179,7 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "./assets/images/smart_cropped/smart_FRASH_MUKHALLAT_SHUYOOKHI_AIR_FRESHENER_320_ML_-_Khadlaj_Perfumes-1964596.jpg"
+    "img": "/assets/images/smart_cropped/smart_FRASH_MUKHALLAT_SHUYOOKHI_AIR_FRESHENER_320_ML_-_Khadlaj_Perfumes-1964596.jpg"
   },
   {
     "id": 7554138865863,
@@ -3194,7 +3194,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_BAKHOOR_HANEEN_100_GMS_-_Khadlaj_Perfumes-1964075.jpg"
+    "img": "/assets/images/smart_cropped/smart_BAKHOOR_HANEEN_100_GMS_-_Khadlaj_Perfumes-1964075.jpg"
   },
   {
     "id": 7554138767559,
@@ -3209,7 +3209,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_BAKHOOR_MAHA_100_GMS_-_Khadlaj_Perfumes-1964119.jpg"
+    "img": "/assets/images/smart_cropped/smart_BAKHOOR_MAHA_100_GMS_-_Khadlaj_Perfumes-1964119.jpg"
   },
   {
     "id": 7554143748295,
@@ -3239,7 +3239,7 @@ const PRODUCTS = [
       "Floral",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_MUSK_WA_WARD_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965487.jpg"
+    "img": "/assets/images/smart_cropped/smart_MUSK_WA_WARD_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965487.jpg"
   },
   {
     "id": 7554143518919,
@@ -3254,7 +3254,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_UNO_INTIMO_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1966033.jpg"
+    "img": "/assets/images/smart_cropped/smart_UNO_INTIMO_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1966033.jpg"
   },
   {
     "id": 7554144043207,
@@ -3269,7 +3269,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_OUD_MUATTAR_RIMAAL_40GM_-_Khadlaj_Perfumes-1965721.jpg"
+    "img": "/assets/images/smart_cropped/smart_OUD_MUATTAR_RIMAAL_40GM_-_Khadlaj_Perfumes-1965721.jpg"
   },
   {
     "id": 7554144010439,
@@ -3284,7 +3284,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/smart_cropped/smart_OUD_MUATTAR_SAMOU_AL_OUD_40GM_-_Khadlaj_Perfumes-1965730.jpg"
+    "img": "/assets/images/smart_cropped/smart_OUD_MUATTAR_SAMOU_AL_OUD_40GM_-_Khadlaj_Perfumes-1965730.jpg"
   },
   {
     "id": 7554143813831,
@@ -4464,14 +4464,14 @@ const REVIEWS = [
 const COLLECTIONS_DATA = [
   { name:"Atyaab", tagline:"Everyday Luxury", img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/NUHA_BON_BON-03.jpg?v=1768477660", desc:"Accessible, wearable scents for every moment. The Atyaab line brings refined Arabian perfumery into daily life without compromise." },
   { name:"Lafede", tagline:"Bold & Characterful", img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/IntoxicateMystique.3.png?v=1772518819", desc:"Intensely expressive fragrances that command attention. Lafede is for those who make their presence felt before they enter the room." },
-  { name:"Master Perfumery", tagline:"The Pinnacle of Craft", img:"./assets/images/products/shahi-oud_transparent.png", desc:"The finest expressions from our founder's private atelier. Rare ingredients, extraordinary sillage, and a story in every bottle." },
+  { name:"Master Perfumery", tagline:"The Pinnacle of Craft", img:"/assets/images/products/shahi-oud_transparent.png", desc:"The finest expressions from our founder's private atelier. Rare ingredients, extraordinary sillage, and a story in every bottle." },
 ];
 
 const TEAM = [
   {
     name:"Mohamed Iqbal Abdul Sattar",
     role:"Founder & Master Perfumer",
-    img:"./assets/images/people/founder-mohamed-iqbal.png",
+    img:"/assets/images/people/founder-mohamed-iqbal.png",
     bio:"With over 45 years of experience in perfumery, Mohamed Iqbal Abdul Sattar is the esteemed founder and master perfumer of Khadlaj Perfumes. He is recognized for creating cherished and opulent fragrances including Hareem Al Sultan, Bukhoor Al Bahaar, and the luxurious Oud Pure and Musk Pure ranges. His expertise spans exquisite natural essences and meticulously crafted synthetic compounds, with a deep passion for Musk, Ruh Gulaab, oud, and vetiver.",
   },
 ];
@@ -5294,16 +5294,16 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           <div id="k25-scroll-container" className="k25-slider-container">
             <div className="k25-slider-track">
               {[
-                { name: "LOYALTY", subtitle: "Unwavering Bonds", desc: "A captivating fragrance that symbolizes eternal commitment and deep connections, bottled for the discerning collector.", img: "./assets/images/products/loyalty.png" },
-                { name: "TRUST", subtitle: "Foundation of Eternity", desc: "Built on the essence of pure authenticity, leaving a trail of sophisticated confidence wherever you go.", img: "./assets/images/products/trust.png" },
-                { name: "INTEGRITY", subtitle: "Essence of Character", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "./assets/images/products/integrity.png" },
-                { name: "HERITAGE", subtitle: "Roots of Legacy", desc: "An aromatic tribute to the rich traditions and timeless stories woven into the very fabric of our heritage.", img: "./assets/images/products/heritage.png" },
-                { name: "EXPERIENCE", subtitle: "Journey of Senses", desc: "A bold, smoky revelation that envelops the senses in a dark, mysterious, and unforgettable olfactory journey.", img: "./assets/images/products/experience.png" },
-                { name: "LOYALTY", subtitle: "Unwavering Bonds", desc: "A captivating fragrance that symbolizes eternal commitment and deep connections, bottled for the discerning collector.", img: "./assets/images/products/loyalty.png" },
-                { name: "TRUST", subtitle: "Foundation of Eternity", desc: "Built on the essence of pure authenticity, leaving a trail of sophisticated confidence wherever you go.", img: "./assets/images/products/trust.png" },
-                { name: "INTEGRITY", subtitle: "Essence of Character", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "./assets/images/products/integrity.png" },
-                { name: "HERITAGE", subtitle: "Roots of Legacy", desc: "An aromatic tribute to the rich traditions and timeless stories woven into the rich fabric of our heritage.", img: "./assets/images/products/heritage.png" },
-                { name: "EXPERIENCE", subtitle: "Journey of Senses", desc: "A bold, smoky revelation that envelops the senses in a dark, mysterious, and unforgettable olfactory journey.", img: "./assets/images/products/experience.png" }
+                { name: "LOYALTY", subtitle: "Unwavering Bonds", desc: "A captivating fragrance that symbolizes eternal commitment and deep connections, bottled for the discerning collector.", img: "/assets/images/products/loyalty.png" },
+                { name: "TRUST", subtitle: "Foundation of Eternity", desc: "Built on the essence of pure authenticity, leaving a trail of sophisticated confidence wherever you go.", img: "/assets/images/products/trust.png" },
+                { name: "INTEGRITY", subtitle: "Essence of Character", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "/assets/images/products/integrity.png" },
+                { name: "HERITAGE", subtitle: "Roots of Legacy", desc: "An aromatic tribute to the rich traditions and timeless stories woven into the very fabric of our heritage.", img: "/assets/images/products/heritage.png" },
+                { name: "EXPERIENCE", subtitle: "Journey of Senses", desc: "A bold, smoky revelation that envelops the senses in a dark, mysterious, and unforgettable olfactory journey.", img: "/assets/images/products/experience.png" },
+                { name: "LOYALTY", subtitle: "Unwavering Bonds", desc: "A captivating fragrance that symbolizes eternal commitment and deep connections, bottled for the discerning collector.", img: "/assets/images/products/loyalty.png" },
+                { name: "TRUST", subtitle: "Foundation of Eternity", desc: "Built on the essence of pure authenticity, leaving a trail of sophisticated confidence wherever you go.", img: "/assets/images/products/trust.png" },
+                { name: "INTEGRITY", subtitle: "Essence of Character", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "/assets/images/products/integrity.png" },
+                { name: "HERITAGE", subtitle: "Roots of Legacy", desc: "An aromatic tribute to the rich traditions and timeless stories woven into the rich fabric of our heritage.", img: "/assets/images/products/heritage.png" },
+                { name: "EXPERIENCE", subtitle: "Journey of Senses", desc: "A bold, smoky revelation that envelops the senses in a dark, mysterious, and unforgettable olfactory journey.", img: "/assets/images/products/experience.png" }
               ].map((item, idx) => (
                 <div className="k25-card" key={idx}>
                   <div className="k25-card-img-wrapper">
@@ -5433,14 +5433,14 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         <div style={{marginTop: 60, position: "relative"}}>
           <div className="gift-slider-track">
             {[
-              { name: "Cloud Candy", desc: "A soft peach-pink gift set", price: 169, img: "./assets/images/gifsets/cloudcandy_gift_transparent.png" },
-              { name: "Nafais Sharq", desc: "Rich florals and warm woods", price: 150, img: "./assets/images/gifsets/nafais_gift_transparent.png" },
-              { name: "Island", desc: "The signature Island scent", price: 179, img: "./assets/images/gifsets/island_gift_transparent.png" },
-              { name: "Cream Velvet", desc: "Buttery caramel and vanilla", price: 160, img: "./assets/images/gifsets/creamvelvet_gift_user.png" },
-              { name: "Cloud Candy", desc: "A soft peach-pink gift set", price: 169, img: "./assets/images/gifsets/cloudcandy_gift_transparent.png" },
-              { name: "Nafais Sharq", desc: "Rich florals and warm woods", price: 150, img: "./assets/images/gifsets/nafais_gift_transparent.png" },
-              { name: "Island", desc: "The signature Island scent", price: 179, img: "./assets/images/gifsets/island_gift_transparent.png" },
-              { name: "Cream Velvet", desc: "Buttery caramel and vanilla", price: 160, img: "./assets/images/gifsets/creamvelvet_gift_user.png" }
+              { name: "Cloud Candy", desc: "A soft peach-pink gift set", price: 169, img: "/assets/images/gifsets/cloudcandy_gift_transparent.png" },
+              { name: "Nafais Sharq", desc: "Rich florals and warm woods", price: 150, img: "/assets/images/gifsets/nafais_gift_transparent.png" },
+              { name: "Island", desc: "The signature Island scent", price: 179, img: "/assets/images/gifsets/island_gift_transparent.png" },
+              { name: "Cream Velvet", desc: "Buttery caramel and vanilla", price: 160, img: "/assets/images/gifsets/creamvelvet_gift_user.png" },
+              { name: "Cloud Candy", desc: "A soft peach-pink gift set", price: 169, img: "/assets/images/gifsets/cloudcandy_gift_transparent.png" },
+              { name: "Nafais Sharq", desc: "Rich florals and warm woods", price: 150, img: "/assets/images/gifsets/nafais_gift_transparent.png" },
+              { name: "Island", desc: "The signature Island scent", price: 179, img: "/assets/images/gifsets/island_gift_transparent.png" },
+              { name: "Cream Velvet", desc: "Buttery caramel and vanilla", price: 160, img: "/assets/images/gifsets/creamvelvet_gift_user.png" }
             ].map((gift, idx) => (
               <div className="gift-slide-card" key={idx} onClick={() => setPage("gifts")}>
                 <div className="gift-slide-img">
@@ -5719,14 +5719,14 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
         <div className="discovery-grid">
           {[
-            {name: "Hareem Al Sultan", type: "Masterpiece", img: "./assets/images/products/hareem-al-sultan.png"},
-            {name: "Fursan", type: "Royal Elegance", img: "./assets/images/products/fursan.png"},
-            {name: "L'imaginaire", type: "Artisan Creation", img: "./assets/images/products/limaginaire.jpg"},
-            {name: "Nuha Cherry Blush", type: "Eau De Parfum", img: "./assets/images/products/nuha-cherry.jpg"},
-            {name: "Island", type: "Premium Blend", img: "./assets/images/products/island-gold.jpg"},
-            {name: "Cream Velvet", type: "Signature Collection", img: "./assets/images/products/cream-velvet-bottle.png"},
-            {name: "Mocha Latte", type: "Gourmand Essence", img: "./assets/images/products/mocha-latte.png"},
-            {name: "Empire Victor", type: "Royal Heritage", img: "./assets/images/products/empire-victor.png"}
+            {name: "Hareem Al Sultan", type: "Masterpiece", img: "/assets/images/products/hareem-al-sultan.png"},
+            {name: "Fursan", type: "Royal Elegance", img: "/assets/images/products/fursan.png"},
+            {name: "L'imaginaire", type: "Artisan Creation", img: "/assets/images/products/limaginaire.jpg"},
+            {name: "Nuha Cherry Blush", type: "Eau De Parfum", img: "/assets/images/products/nuha-cherry.jpg"},
+            {name: "Island", type: "Premium Blend", img: "/assets/images/products/island-gold.jpg"},
+            {name: "Cream Velvet", type: "Signature Collection", img: "/assets/images/products/cream-velvet-bottle.png"},
+            {name: "Mocha Latte", type: "Gourmand Essence", img: "/assets/images/products/mocha-latte.png"},
+            {name: "Empire Victor", type: "Royal Heritage", img: "/assets/images/products/empire-victor.png"}
           ].map((item, i) => (
             <div key={item.name} className="discovery-card">
               <img src={item.img} alt={item.name} loading="lazy" />
@@ -5952,8 +5952,8 @@ function LaFedePage({ addToCart, setViewProduct, setPage }){
         </div>
         <div style={{position:"relative",zIndex:2,minHeight:280,display:"flex",alignItems:"center",justifyContent:"center"}}>
           <div style={{position:"absolute",width:"70%",height:"72%",borderRadius:"50%",background:"radial-gradient(circle,rgba(184,146,42,.22),rgba(184,146,42,0) 68%)",animation:"lafedeGlow 4.5s ease-in-out infinite"}}/>
-          <img src="./assets/images/products/intoxicate-mystique-cutout.png" alt="La Fede Intoxicate Mystique" style={{height:"min(330px,28vw)",maxHeight:330,width:"auto",objectFit:"contain",filter:"drop-shadow(0 24px 52px rgba(0,0,0,.45))",animation:"lafedeFloat 4.6s ease-in-out infinite"}}/>
-          <img src="./assets/images/products/uno-intimo-cutout.png" alt="La Fede Uno Intimo" style={{position:"absolute",right:"8%",bottom:"4%",height:"min(220px,19vw)",maxHeight:220,width:"auto",objectFit:"contain",filter:"drop-shadow(0 22px 40px rgba(0,0,0,.35))",animation:"lafedeFloatSmall 5.2s ease-in-out infinite"}}/>
+          <img src="/assets/images/products/intoxicate-mystique-cutout.png" alt="La Fede Intoxicate Mystique" style={{height:"min(330px,28vw)",maxHeight:330,width:"auto",objectFit:"contain",filter:"drop-shadow(0 24px 52px rgba(0,0,0,.45))",animation:"lafedeFloat 4.6s ease-in-out infinite"}}/>
+          <img src="/assets/images/products/uno-intimo-cutout.png" alt="La Fede Uno Intimo" style={{position:"absolute",right:"8%",bottom:"4%",height:"min(220px,19vw)",maxHeight:220,width:"auto",objectFit:"contain",filter:"drop-shadow(0 22px 40px rgba(0,0,0,.35))",animation:"lafedeFloatSmall 5.2s ease-in-out infinite"}}/>
         </div>
       </section>
 
@@ -6230,7 +6230,7 @@ function GiftsPage({ addToCart, setViewProduct, setPage }){
       {/* ── Hero Banner ── */}
       <div style={{position:"relative",height:"clamp(280px,38vw,480px)",overflow:"hidden",background:"#251737"}}>
         <img
-          src="./assets/images/banners/gifts-wide-banner.png"
+          src="/assets/images/banners/gifts-wide-banner.png"
           alt="Gift Sets"
           style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center center",opacity:.88}}
         />
@@ -6345,7 +6345,7 @@ function StoryPage(){
           
           {/* Founder Image (Left) */}
           <div style={{position:"relative", transform:"translateY(30px)", zIndex:10}}>
-            <img src="./assets/images/people/founder-mohamed-iqbal.png"
+            <img src="/assets/images/people/founder-mohamed-iqbal.png"
               alt="Mohamed Iqbal Abdul Sattar" style={{width:"100%",height:"auto",display:"block",boxShadow:"0 20px 40px rgba(0,0,0,0.4)"}}/>
           </div>
 
@@ -6389,7 +6389,7 @@ function StoryPage(){
           </div>
 
           <div style={{position:"relative",aspectRatio:"4/3",overflow:"hidden"}}>
-            <img src="./assets/images/people/managing-director-asif.png"
+            <img src="/assets/images/people/managing-director-asif.png"
               alt="Asif Mohamed Iqbal Katchi" style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center top"}}/>
           </div>
 
@@ -6525,7 +6525,7 @@ function ContactPage(){
         <div style={{position:"absolute",inset:0,background:"radial-gradient(circle at 76% 46%, rgba(184,146,42,.18), rgba(184,146,42,0) 30%), linear-gradient(135deg,#130b1b 0%,#251737 58%,#0e0814 100%)"}}/>
         <div style={{position:"absolute",right:"7%",top:"7%",bottom:"7%",width:"42%",display:"flex",alignItems:"center",justifyContent:"center",pointerEvents:"none"}}>
           <img
-            src="./assets/images/products/zayaan-silver_transparent.png"
+            src="/assets/images/products/zayaan-silver_transparent.png"
             alt="Zayaan Silver perfume bottle"
             style={{width:"100%",height:"100%",objectFit:"contain",objectPosition:"center center",opacity:.78,filter:"drop-shadow(0 34px 60px rgba(0,0,0,.55))"}}
           />
@@ -6672,7 +6672,7 @@ function SignupPageOld(){
           <div style={{position:"relative",overflow:"hidden",minHeight:610,background:"linear-gradient(135deg,#080808 0%,#15110A 72%,#060606 100%)",padding:"58px 52px",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
             <div style={{position:"absolute",top:-110,right:-90,width:340,height:340,borderRadius:"50%",background:"radial-gradient(circle,rgba(184,146,42,.28),rgba(184,146,42,0) 68%)"}}/>
             <div style={{position:"absolute",right:"5%",bottom:"-2%",width:"54%",height:"76%",display:"flex",alignItems:"flex-end",justifyContent:"center",pointerEvents:"none"}}>
-              <img src="./assets/images/gifsets/cloudcandy_gift_transparent.png" alt="Khadlaj fragrances" style={{width:"100%",height:"100%",objectFit:"contain",filter:"drop-shadow(0 34px 70px rgba(0,0,0,.42))"}}/>
+              <img src="/assets/images/gifsets/cloudcandy_gift_transparent.png" alt="Khadlaj fragrances" style={{width:"100%",height:"100%",objectFit:"contain",filter:"drop-shadow(0 34px 70px rgba(0,0,0,.42))"}}/>
             </div>
             <div style={{position:"relative",zIndex:2,maxWidth:440}}>
               <div style={{width:42,height:1,background:"#B8922A",marginBottom:22}}/>
