@@ -60,7 +60,7 @@ const PRODUCTS = [
     "col": "Master Perfumery",
     "price": 200.0,
     "size": "60ml EDP",
-    "badge": "For Unisex",
+    "badge": "New",
     "gender": "Unisex",
     "notes": ["Oud", "Woody", "Amber"],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Jumeirah-3.jpg?v=1783940923"
@@ -84,7 +84,7 @@ const PRODUCTS = [
     "name": "CREAM VELVET GIFT SET",
     "price": 160.0,
     "size": "Gift Set",
-    "badge": "",
+    "badge": "New",
     "col": "Gift Sets",
     "gender": "Unisex",
     "topNotes": [],
@@ -112,7 +112,7 @@ const PRODUCTS = [
     "name": "KHADLAJ CLOUD CANDY GIFT SET",
     "price": 169.0,
     "size": "Gift Set",
-    "badge": "",
+    "badge": "New",
     "col": "Gift Sets",
     "gender": "Unisex",
     "topNotes": [],
@@ -126,7 +126,7 @@ const PRODUCTS = [
     "name": "KHADLAJ ISLAND GIFT SET FOR HIM & HER",
     "price": 179.0,
     "size": "Gift Set",
-    "badge": "",
+    "badge": "New",
     "col": "Gift Sets",
     "gender": "Unisex",
     "topNotes": [],
@@ -233,7 +233,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "New",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -248,7 +248,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "New",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -308,7 +308,7 @@ const PRODUCTS = [
     "col": "Bakhoor",
     "price": 35,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "New",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -338,7 +338,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 125,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "New",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -353,7 +353,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 85,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "New",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -428,7 +428,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 110,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "New",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -488,7 +488,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 110,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "New",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -593,7 +593,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 90,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "New",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -608,7 +608,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 90,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "New",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -5278,7 +5278,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
     if(activeCat==="Master Perfumery") return isKhadlajProduct && p.col==="Master Perfumery";
     return isKhadlajProduct && (p.col || '').toLowerCase() === activeCat.toLowerCase();
   }).slice(0, activeCat === "Best Sellers" ? 6 : 16);
-  const newLaunches = PRODUCTS.filter(p => p.badge === "New").slice(0, 8);
+  const newLaunches = PRODUCTS.filter(p => p.badge === "New").slice(0, 16);
 
 
   return (
