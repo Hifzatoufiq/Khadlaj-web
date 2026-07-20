@@ -2166,19 +2166,6 @@ const PRODUCTS = [
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/HAREEM_AL_SULTAN_Bottle.jpg?v=1783946128"
   },
   {
-    "id": 7795424198855,
-    "name": "HAREEM AL SULTAN BLUE",
-    "col": "Perfume Oils",
-    "price": 75,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Perfume oil"
-    ],
-    "img": "./assets/images/smart_cropped/smart_HAREEM_AL_SULTAN_BLUE_35ML_-_Khadlaj_Perfumes-1964718.jpg"
-  },
-  {
     "id": 7792441295047,
     "name": "RIMAAL GREEN",
     "col": "Perfume Oils",
