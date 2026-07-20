@@ -418,7 +418,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 110,
     "size": "100ml EDP",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -1448,7 +1448,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island2.jpg?v=1767168643"
+    "img": "./assets/images/cropped/cropped_Island2.jpg"
   },
   {
     "id": 8143006892231,
