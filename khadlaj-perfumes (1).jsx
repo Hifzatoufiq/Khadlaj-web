@@ -7451,7 +7451,15 @@ function Navbar({ page, setPage, cartCount }){
             {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Contact","contact"]].map(([label,pg])=>{
               const isActive = page===pg && !["Best Sellers","Perfume Spray","Perfume Oil","Home & Ambience"].includes(label);
               return (
-                <span key={label} onClick={() => setPage(pg)} className={`nav-link ${isActive ? 'active' : ''}`}>
+                <span key={label} onClick={() => {
+                  if(label === "Best Sellers" || label === "Perfume Spray" || label === "Perfume Oil" || label === "Master Perfumery") {
+                    setCollectionCategory(label === "Perfume Spray" ? "EAU DE PARFUM" : label === "Perfume Oil" ? "Atyaab" : label);
+                  } else if (pg === "collections") {
+                    setCollectionCategory("Khadlaj");
+                  }
+                  setPage(pg);
+                  window.scrollTo(0,0);
+                }} className={`nav-link ${isActive ? 'active' : ''}`}>
                   {label}
                 </span>
               );
@@ -7473,7 +7481,16 @@ function Navbar({ page, setPage, cartCount }){
               <div
                 key={label}
                 className="mob-nav-link"
-                onClick={()=>{setPage(pg);setMobileMenuOpen(false);}}
+                onClick={()=>{
+                  if(label === "Best Sellers" || label === "Perfume Spray" || label === "Perfume Oil" || label === "Master Perfumery") {
+                    setCollectionCategory(label === "Perfume Spray" ? "EAU DE PARFUM" : label === "Perfume Oil" ? "Atyaab" : label);
+                  } else if (pg === "collections") {
+                    setCollectionCategory("Khadlaj");
+                  }
+                  setPage(pg);
+                  setMobileMenuOpen(false);
+                  window.scrollTo(0,0);
+                }}
                 style={{
                   padding:"14px 6%",
                   fontSize:11,letterSpacing:2.5,
