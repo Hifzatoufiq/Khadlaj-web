@@ -1421,21 +1421,6 @@ const PRODUCTS = [
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/3_19.jpg?v=1724745977"
   },
   {
-    "id": 8199257358535,
-    "name": "LA FEDE INTOXICATE BLUE ELIXIR",
-    "col": "Lafede",
-    "price": 145,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Him",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/1_d331f9af-ebe5-4823-bdf4-42b99508b851.jpg?v=1724332648"
-  },
-  {
     "id": 8199234977991,
     "name": "KHADLAJ ISLAND",
     "col": "Extrait De Parfum",
