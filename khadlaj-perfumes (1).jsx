@@ -34,8 +34,8 @@ const COUNTRIES = [
   { name:"Malaysia", flagUrl:"./assets/images/flags/my.png", currency:"MYR", rate:1.25 },
   { name:"UK",       flagUrl:"./assets/images/flags/gb.png", currency:"GBP", rate:0.21 },
   { name:"USA",      flagUrl:"./assets/images/flags/us.png", currency:"USD", rate:0.27 },
-  { name:"Global",   flagUrl:"global", currency:"USD", rate:0.27 }
-  ];
+  { name:"Global",   flagUrl:"global", currency:"USD", rate:0.27 },
+];
 const CountryContext = React.createContext();
 
 
@@ -50,8 +50,8 @@ const STATS = [
   { v:"1997", l:"Year Founded" },
   { v:"400+", l:"Unique Fragrances" },
   { v:"30+",  l:"Countries" },
-  { v:"1",    l:"Master Perfumer" }
-  ];
+  { v:"1",    l:"Master Perfumer" },
+];
 
 const PRODUCTS = [
   {
@@ -697,7 +697,21 @@ const PRODUCTS = [
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_POUR_LEATHER.jpg?v=1783945848"
   },
-  
+  {
+    "id": 8385197375687,
+    "name": "OUD PURE MAGICAL THAI",
+    "col": "Perfume Oils",
+    "price": 325,
+    "size": "3ML",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
+    "img": "./assets/images/cropped/cropped_Magical_Thai_02.jpg"
+  },
   {
     "id": 8385137639623,
     "name": "DEHNAL OUD QAISAR SEUFI",
@@ -2911,10 +2925,66 @@ const PRODUCTS = [
     ],
     "img": "./assets/images/cropped/cropped_ROOHI_WA_ROOHAK_SILVER_20_ML_-_Khadlaj_Perfumes-1965884.jpg"
   },
-  
-  
-  
-  
+  {
+    "id": 7582185095367,
+    "name": "ROOHI WA ROOHAK GOLD",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "./assets/images/cropped/cropped_ROOHI_WA_ROOHAK_GOLD_20_ML_-_Khadlaj_Perfumes-1965877.jpg"
+  },
+  {
+    "id": 7582182899911,
+    "name": "ALF WARDAAT",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "./assets/images/cropped/cropped_ALF_WARDAAT_30ML_-_Khadlaj_Perfumes-1963933.jpg"
+  },
+  {
+    "id": 7582179262663,
+    "name": "AL FURSAN",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "./assets/images/cropped/cropped_AL_FURSAN_18ML_-_Khadlaj_Perfumes-1963918.jpg"
+  },
+  {
+    "id": 7582167105735,
+    "name": "AL RIYAN",
+    "col": "Perfume Oils",
+    "price": 50,
+    "size": "100ml EDP",
+    "badge": "",
+    "gender": "Unisex",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "./assets/images/cropped/cropped_AL_RIYAN_17ML_-_Khadlaj_Perfumes-1963926.jpg"
+  },
   {
     "id": 7582158979271,
     "name": "JAMEEL",
@@ -4416,14 +4486,14 @@ const REVIEWS = [
   { name:"Reem Al Hashimi",  country:"UAE",    stars:5, text:"The richest oud I've ever worn. Lasts 14+ hours on my skin. Khadlaj has a customer for life." },
   { name:"Hamad Al Dosari",  country:"Bahrain",stars:5, text:"Bakhoor Noir is absolutely extraordinary. Authentic Arabian soul with a French elegance." },
   { name:"Priya Nair",       country:"Dubai",  stars:5, text:"Ordered the Discovery Set as a gift — my friend was blown away by the packaging and quality." },
-  { name:"Mohammed Al Ghamdi",country:"KSA",   stars:5, text:"Been using Khadlaj for 6 years. Every year the quality gets better. Rose Taifi is a masterpiece." }
-  ];
+  { name:"Mohammed Al Ghamdi",country:"KSA",   stars:5, text:"Been using Khadlaj for 6 years. Every year the quality gets better. Rose Taifi is a masterpiece." },
+];
 
 const COLLECTIONS_DATA = [
   { name:"Atyaab", tagline:"Everyday Luxury", img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/NUHA_BON_BON-03.jpg?v=1768477660", desc:"Accessible, wearable scents for every moment. The Atyaab line brings refined Arabian perfumery into daily life without compromise." },
   { name:"Lafede", tagline:"Bold & Characterful", img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/IntoxicateMystique.3.png?v=1772518819", desc:"Intensely expressive fragrances that command attention. Lafede is for those who make their presence felt before they enter the room." },
-  { name:"Master Perfumery", tagline:"The Pinnacle of Craft", img:"./assets/images/products/shahi-oud_transparent.png", desc:"The finest expressions from our founder's private atelier. Rare ingredients, extraordinary sillage, and a story in every bottle." }
-  ];
+  { name:"Master Perfumery", tagline:"The Pinnacle of Craft", img:"./assets/images/products/shahi-oud_transparent.png", desc:"The finest expressions from our founder's private atelier. Rare ingredients, extraordinary sillage, and a story in every bottle." },
+];
 
 const TEAM = [
   {
@@ -4431,8 +4501,8 @@ const TEAM = [
     role:"Founder & Master Perfumer",
     img:"./assets/images/people/founder-mohamed-iqbal.png",
     bio:"With over 45 years of experience in perfumery, Mohamed Iqbal Abdul Sattar is the esteemed founder and master perfumer of Khadlaj Perfumes. He is recognized for creating cherished and opulent fragrances including Hareem Al Sultan, Bukhoor Al Bahaar, and the luxurious Oud Pure and Musk Pure ranges. His expertise spans exquisite natural essences and meticulously crafted synthetic compounds, with a deep passion for Musk, Ruh Gulaab, oud, and vetiver.",
-  }
-  ];
+  },
+];
 
 const REELS = [
   {
@@ -5485,8 +5555,8 @@ function HomePage({ setPage, addToCart, setViewProduct }){
               icon:<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(184,146,42,0.03)" /><rect x="6" y="8" width="12" height="8" rx="1" fill="rgba(184,146,42,0.1)" /><path d="M6 11h12M12 8v8" /><path d="M12 8c-.8-1-2.2-1.5-2.2-.5s1.2 1 2.2.5c.8-1 2.2-1.5 2.2-.5s-1.2 1-2.2.5z" /></svg>,
               title:"Luxury Packaging",
               desc:"Every order arrives gift-ready in premium Khadlaj packaging"
-            }
-  ].map((item,i)=>(
+            },
+          ].map((item,i)=>(
             <div key={item.title} style={{
               padding:"40px 28px",
               background:"#FCFBFA",
@@ -5746,8 +5816,8 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
             "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-3.jpg?v=1775636549",
             "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/IntoxicateMystique.3.png?v=1772518819",
             "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ONYX-03.jpg?v=1762324228",
-            "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/shiyaaka-snow.png?v=1781615422"
-  ].map((src,i)=>(
+            "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/shiyaaka-snow.png?v=1781615422",
+          ].map((src,i)=>(
             <div key={i} style={{overflow:"hidden",height:"100%",background:"#fff",display:"flex",alignItems:"center",justifyContent:"center"}}>
               <img src={src} alt="" style={{width:"86%",height:"86%",objectFit:"contain",objectPosition:"center"}}/>
             </div>
@@ -5892,7 +5962,7 @@ function LaFedePage({ addToCart, setViewProduct, setPage }){
     {value:"featured",label:"Featured"},
     {value:"new",label:"New"},
     {value:"top",label:"Top Selling"},
-    {value:"value",label:"Value Picks"}
+    {value:"value",label:"Value Picks"},
   ];
   return (
     <div style={{background:"#fff"}}>
@@ -6179,7 +6249,7 @@ function GiftsPage({ addToCart, setViewProduct, setPage }){
     {value:"featured",label:"Featured"},
     {value:"new",label:"New"},
     {value:"top",label:"Top Selling"},
-    {value:"value",label:"Value Sets"}
+    {value:"value",label:"Value Sets"},
   ];
 
   return (
@@ -6522,8 +6592,8 @@ function ContactPage(){
             ["📍","Address","Dubai, United Arab Emirates"],
             ["📞","Phone","+971 4 000 0000"],
             ["✉️","Email","hello@khadlaj-perfumes.com"],
-            ["⏰","Hours","Mon–Sat: 9am–6pm GST"]
-  ].map(([icon,label,val])=>(
+            ["⏰","Hours","Mon–Sat: 9am–6pm GST"],
+          ].map(([icon,label,val])=>(
             <div key={label} style={{display:"flex",gap:16,marginBottom:14,padding:"14px 0",borderBottom:"1px solid #F0EBE3"}}>
               <span style={{width:38,height:38,borderRadius:"50%",border:"1px solid #E2D2AD",display:"flex",alignItems:"center",justifyContent:"center",fontSize:16,flexShrink:0,marginTop:0,background:"#fff"}}>{icon}</span>
               <div>
@@ -6539,8 +6609,8 @@ function ContactPage(){
                 ["Instagram",SOCIAL_LINKS.instagram],
                 ["TikTok",SOCIAL_LINKS.tiktok],
                 ["Facebook",SOCIAL_LINKS.facebook],
-                ["YouTube",SOCIAL_LINKS.youtube]
-  ].map(([s,href])=>(
+                ["YouTube",SOCIAL_LINKS.youtube],
+              ].map(([s,href])=>(
                 <a key={s} href={href} target="_blank" rel="noreferrer"
                   style={{
                     border:"1px solid #000",color:"#251737",
@@ -6668,8 +6738,8 @@ function SignupPageOld(){
               {[
                 ["Name","name","text"],
                 ["Email","email","email"],
-                ["Phone","phone","tel"]
-  ].map(([label,key,type])=>(
+                ["Phone","phone","tel"],
+              ].map(([label,key,type])=>(
                 <div key={key} style={{marginBottom:18}}>
                   <label style={{fontSize:9,letterSpacing:2.8,color:"#9B8A67",display:"block",marginBottom:8,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>{label}</label>
                   <input type={type} value={form[key]} onChange={e=>setForm({...form,[key]:e.target.value})}
