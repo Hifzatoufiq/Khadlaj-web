@@ -5063,8 +5063,8 @@ function ProductCard({ p, onView, onCart }){
         {notes.length > 0 && (
           <div className="product-notes" style={{display:"flex", flexWrap:"nowrap", gap:4, marginBottom:12, justifyContent:"center", alignItems:"center", width:"100%"}}>
             {notes.map((n, i) => (
-              <span className="product-note" key={n} style={{display:"inline-flex", alignItems:"center", gap:3, padding:"4px 7px", background:"#fff", fontSize:8.5, letterSpacing:.7, color:"#251737", border:"1px solid #251737", textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", fontWeight:600, whiteSpace:"nowrap"}}>
-                <span className="product-note-dot" style={{width:5, height:5, borderRadius:"50%", background: "#B8922A", flexShrink:0, display:"inline-block"}}/>
+              <span className="product-note" key={n} style={{display:"inline-flex", alignItems:"center", gap:3, padding:"3px 6px", background:"#f5f5f5", fontSize:8, letterSpacing:.7, color:"#666", textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", fontWeight:600, whiteSpace:"nowrap", borderRadius:2}}>
+                <span className="product-note-dot" style={{width:4, height:4, borderRadius:"50%", background: "#C8A96E", flexShrink:0, display:"inline-block"}}/>
                 {n}
               </span>
             ))}
