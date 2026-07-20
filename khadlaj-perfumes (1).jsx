@@ -6567,7 +6567,7 @@ function ContactPage(){
             style={{width:"100%",height:"100%",objectFit:"contain",objectPosition:"center center",opacity:.78,filter:"drop-shadow(0 34px 60px rgba(0,0,0,.55))"}}
           />
         </div>
-        <div style={{position:"absolute",inset:0,background:"linear-gradient(90deg,rgba(0,0,0,.82) 0%,rgba(0,0,0,.64) 42%,rgba(0,0,0,.22) 100%)"}}/>
+        <div style={{position:"absolute",inset:0,background:"linear-gradient(90deg,rgba(37,23,55,.88) 0%,rgba(37,23,55,.64) 42%,rgba(37,23,55,.22) 100%)"}}/>
         <div style={{
           position:"absolute",inset:0,zIndex:2,
           display:"flex",flexDirection:"column",
