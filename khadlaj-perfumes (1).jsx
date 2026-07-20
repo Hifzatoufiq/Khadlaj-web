@@ -710,7 +710,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Magical_Thai_02.jpg?v=1748419221"
+    "img": "./assets/images/cropped/cropped_Magical_Thai_02.jpg"
   },
   {
     "id": 8385137639623,
@@ -725,7 +725,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_OAISAR_SEUFI-3.jpg?v=1748414554"
+    "img": "./assets/images/cropped/cropped_OUD_OAISAR_SEUFI-3.jpg"
   },
   {
     "id": 8385113981127,
@@ -740,7 +740,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_SHEIKH_OADIM-3.jpg?v=1748412272"
+    "img": "./assets/images/cropped/cropped_OUD_SHEIKH_OADIM-3.jpg"
   },
   {
     "id": 8361494839495,
@@ -800,7 +800,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/2_6f08c36e-4beb-4b09-bdf6-fb68dd7b8427.jpg?v=1743684612"
+    "img": "./assets/images/cropped/cropped_2_6f08c36e-4beb-4b09-bdf6-fb68dd7b8427.jpg"
   },
   {
     "id": 8342075244743,
@@ -815,7 +815,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/2_a39244be-9fb7-4336-8e0c-7a6b8d964e4c.jpg?v=1743683567"
+    "img": "./assets/images/cropped/cropped_2_a39244be-9fb7-4336-8e0c-7a6b8d964e4c.jpg"
   },
   {
     "id": 7734819553479,
@@ -1783,7 +1783,7 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_AL_MAJALIS_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964465.jpg?v=1722409395"
+    "img": "./assets/images/cropped/cropped_FRASH_AL_MAJALIS_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964465.jpg"
   },
   {
     "id": 7923498844359,
@@ -1796,7 +1796,7 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_SHAMOOKH_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964639.jpg?v=1722409649"
+    "img": "./assets/images/cropped/cropped_FRASH_SHAMOOKH_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964639.jpg"
   },
   {
     "id": 7887478096071,
@@ -2176,7 +2176,7 @@ const PRODUCTS = [
     "notes": [
       "Perfume oil"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/HAREEM_AL_SULTAN_BLUE_35ML_-_Khadlaj_Perfumes-1964718.jpg?v=1722409769"
+    "img": "./assets/images/cropped/cropped_HAREEM_AL_SULTAN_BLUE_35ML_-_Khadlaj_Perfumes-1964718.jpg"
   },
   {
     "id": 7792441295047,
@@ -2189,7 +2189,7 @@ const PRODUCTS = [
     "notes": [
       "Perfume oil"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/product_post-_BUNDLE_12.jpg?v=1776231735"
+    "img": "./assets/images/cropped/cropped_product_post-_BUNDLE_12.jpg"
   },
   {
     "id": 7792438214855,
@@ -2202,7 +2202,7 @@ const PRODUCTS = [
     "notes": [
       "Perfume oil"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/RIMAAL_BROWN_15_ML_-_Khadlaj_Perfumes-1965826.jpg?v=1776231735"
+    "img": "./assets/images/cropped/cropped_RIMAAL_BROWN_15_ML_-_Khadlaj_Perfumes-1965826.jpg"
   },
   {
     "id": 7792432414919,
@@ -2217,7 +2217,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/WOW_OUD_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1966157.jpg?v=1722412573"
+    "img": "./assets/images/cropped/cropped_WOW_OUD_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1966157.jpg"
   },
   {
     "id": 7792427696327,
@@ -2232,7 +2232,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/GAITH_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964668.jpg?v=1722409698"
+    "img": "./assets/images/cropped/cropped_GAITH_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964668.jpg"
   },
   {
     "id": 7792426582215,
