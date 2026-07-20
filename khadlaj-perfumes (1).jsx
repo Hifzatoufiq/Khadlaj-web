@@ -6272,21 +6272,6 @@ function GiftsPage({ addToCart, setViewProduct, setPage }){
           alt="Gift Sets"
           style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center center",opacity:1}}
         />
-        <div style={{position:"absolute",inset:0,background:"linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 60%, rgba(0,0,0,0) 100%)"}}/>
-        <div style={{
-          position:"absolute",inset:0,
-          display:"flex",flexDirection:"column",alignItems:"flex-start",justifyContent:"center",
-          padding:"0 6%",textAlign:"left",maxWidth:"56%",
-        }}>
-          <div style={{width:40,height:1,background:"#B8922A",marginBottom:24}}/>
-          <p style={{fontWeight:600,fontSize:9,letterSpacing:6,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:16}}>Khadlaj Gifting</p>
-          <h1 className="disp" style={{fontSize:"clamp(36px,5vw,68px)",fontWeight:300,color:"#fff",lineHeight:1,letterSpacing:-1.6,marginBottom:16}}>
-            The Gift of<br/><em style={{fontStyle:"italic",color:"#B8922A"}}>Authentic Fragrance</em>
-          </h1>
-          <p style={{color:"rgba(255,255,255,.65)",maxWidth:430,lineHeight:1.8,fontSize:14,fontFamily:"'Montserrat',sans-serif"}}>
-            Every Khadlaj gift set arrives in premium packaging — a luxury experience from first glance.
-          </p>
-        </div>
       </div>
 
       {/* ── Live Gift Set Products (from PRODUCTS) ── */}
@@ -6313,19 +6298,6 @@ function GiftsPage({ addToCart, setViewProduct, setPage }){
         </div>
       </section>
 
-      {/* ── Build Your Own CTA ── */}
-      <section style={{background:"#251737",padding:"80px 5%",textAlign:"center"}}>
-        <div style={{maxWidth:580,margin:"0 auto"}}>
-          <div style={{width:40,height:1,background:"#B8922A",margin:"0 auto 32px"}}/>
-          <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:16}}>Custom Orders</p>
-          <h2 className="disp" style={{fontSize:"clamp(30px,4vw,56px)",fontWeight:300,color:"#fff",marginBottom:16,letterSpacing:-1}}>Build Your Own Gift Box</h2>
-          <p style={{color:"rgba(255,255,255,.55)",fontSize:14,maxWidth:460,margin:"0 auto 40px",lineHeight:1.85,fontFamily:"'Montserrat',sans-serif"}}>
-            Choose any 2–6 fragrances and we'll present them in our signature gift packaging. Perfect for corporate gifting or weddings.
-          </p>
-          <button className="btn-gold" style={{fontSize:10,padding:"15px 44px",letterSpacing:3}}>Start Building</button>
-          <div style={{width:40,height:1,background:"#B8922A",margin:"32px auto 0"}}/>
-        </div>
-      </section>
     </div>
   );
 }
