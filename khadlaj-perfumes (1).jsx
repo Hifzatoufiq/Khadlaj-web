@@ -5929,10 +5929,13 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 /* ═══════════════════════════════════════════════════════════════
    PAGE: COLLECTIONS
 ═══════════════════════════════════════════════════════════════ */
-function CollectionsPage({ addToCart, setViewProduct, setPage }){
+function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategory }){
   const { activeCountry } = React.useContext(CountryContext);
   const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
-  const [activeCat, setActiveCat] = useState("Khadlaj");
+  const [activeCat, setActiveCat] = useState(collectionCategory || "Khadlaj");
+  React.useEffect(() => {
+    if(collectionCategory) setActiveCat(collectionCategory);
+  }, [collectionCategory]);
   const [sortBy, setSortBy] = useState("default");
   const [priceMax, setPriceMax] = useState(800);
 
@@ -6783,7 +6786,7 @@ function ContactPage(){
         </div>
 
         {/* Form */}
-        <div style={{position:"relative",overflow:"hidden",background:"linear-gradient(135deg,#090909 0%,#14110B 58%,#060606 100%)",padding:"clamp(24px, 5vw, 44px) clamp(20px, 5vw, 40px)",boxShadow:"0 26px 70px rgba(0,0,0,.18)"}}>
+        <div style={{position:"relative",overflow:"hidden",background:"linear-gradient(135deg,#251737 0%,#1A0F2E 100%)",padding:"clamp(24px, 5vw, 44px) clamp(20px, 5vw, 40px)",boxShadow:"0 26px 70px rgba(0,0,0,.18)"}}>
           <div style={{position:"absolute",top:-120,right:-80,width:280,height:280,borderRadius:"50%",background:"radial-gradient(circle,rgba(184,146,42,.26),rgba(184,146,42,0) 68%)",pointerEvents:"none"}}/>
           <div style={{position:"absolute",left:0,top:0,bottom:0,width:4,background:"linear-gradient(180deg,#B8922A,#F0D080,#B8922A)"}}/>
           {sent ? (
@@ -7942,9 +7945,9 @@ export default function App(){
   const renderPage = () => {
     switch(page){
       case "home":        return <HomePage setPage={setPage} addToCart={addToCart} setViewProduct={setViewProduct}/>;
-      case "collections": return <CollectionsPage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage}/>;
+      case "collections": return <CollectionsPage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage} collectionCategory={collectionCategory}/>;
       case "lafede":      return <LaFedePage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage}/>;
-      case "product":     return viewProduct ? <ProductPage product={viewProduct} addToCart={addToCart} setPage={setPage} setViewProduct={setViewProduct}/> : <CollectionsPage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage}/>;
+      case "product":     return viewProduct ? <ProductPage product={viewProduct} addToCart={addToCart} setPage={setPage} setViewProduct={setViewProduct}/> : <CollectionsPage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage} collectionCategory={collectionCategory}/>;
       case "gifts":       return <GiftsPage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage}/>;
       case "cart":        return <CartPage cartItems={cartItems} updateCartQty={updateCartQty} removeFromCart={removeFromCart} setPage={setPage} setViewProduct={setViewProduct}/>;
       case "checkout":    return <CheckoutPage cartItems={cartItems} setPage={setPage} clearCart={clearCart}/>;
