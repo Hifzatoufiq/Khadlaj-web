@@ -4908,7 +4908,7 @@ const GLOBAL_CSS = `
     .hero-stats-row { gap: 10px !important; padding-top: 10px !important; flex-wrap: wrap !important; }
     .hero-stat-item { padding-right: 10px !important; margin-right: 10px !important; }
     .popup-overlay { align-items: flex-end !important; padding: 0 !important; }
-    .popup-in { box-sizing: border-box !important; border-radius: 24px 24px 0 0 !important; width: 100% !important; max-width: 100vw !important; border: none !important; border-top: 1px solid rgba(212,175,55,0.3) !important; animation: slideUp .5s cubic-bezier(0.16, 1, 0.3, 1) both !important; padding: 35px 20px 40px !important; }
+    .popup-in { box-sizing: border-box !important; border-radius: 24px 24px 0 0 !important; width: 100% !important; max-width: 100% !important; border: none !important; border-top: 1px solid rgba(212,175,55,0.3) !important; animation: slideUp .5s cubic-bezier(0.16, 1, 0.3, 1) both !important; padding: 35px 20px 40px !important; }
     @keyframes slideUp { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
     .disp.mobile-text { font-size: 19px !important; letter-spacing: 0.5px !important; }
   }
