@@ -4065,7 +4065,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100 ml",
-    "badge": "Best Seller",
+    "badge": "New",
     "gender": "Unisex",
     "notes": [
       "Oud",
