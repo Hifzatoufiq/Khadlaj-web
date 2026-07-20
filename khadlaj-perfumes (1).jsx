@@ -27,13 +27,13 @@ const C = {
    DATA
 ═══════════════════════════════════════════════════════════════ */
 const COUNTRIES = [
-  { name:"UAE",      flagUrl:"https://flagcdn.com/w40/ae.png", currency:"AED", rate:1 },
-  { name:"Kuwait",   flagUrl:"https://flagcdn.com/w40/kw.png", currency:"KWD", rate:0.08 },
-  { name:"India",    flagUrl:"https://flagcdn.com/w40/in.png", currency:"INR", rate:22.5 },
-  { name:"Egypt",    flagUrl:"https://flagcdn.com/w40/eg.png", currency:"EGP", rate:13.2 },
-  { name:"Malaysia", flagUrl:"https://flagcdn.com/w40/my.png", currency:"MYR", rate:1.25 },
-  { name:"UK",       flagUrl:"https://flagcdn.com/w40/gb.png", currency:"GBP", rate:0.21 },
-  { name:"USA",      flagUrl:"https://flagcdn.com/w40/us.png", currency:"USD", rate:0.27 },
+  { name:"UAE",      flagUrl:"./assets/images/flags/ae.png", currency:"AED", rate:1 },
+  { name:"Kuwait",   flagUrl:"./assets/images/flags/kw.png", currency:"KWD", rate:0.08 },
+  { name:"India",    flagUrl:"./assets/images/flags/in.png", currency:"INR", rate:22.5 },
+  { name:"Egypt",    flagUrl:"./assets/images/flags/eg.png", currency:"EGP", rate:13.2 },
+  { name:"Malaysia", flagUrl:"./assets/images/flags/my.png", currency:"MYR", rate:1.25 },
+  { name:"UK",       flagUrl:"./assets/images/flags/gb.png", currency:"GBP", rate:0.21 },
+  { name:"USA",      flagUrl:"./assets/images/flags/us.png", currency:"USD", rate:0.27 },
   { name:"Global",   flagUrl:"global", currency:"USD", rate:0.27 },
 ];
 const CountryContext = React.createContext();
