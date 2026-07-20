@@ -330,7 +330,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Panache_4_jpg_9a48384b-07d9-4332-9446-3afd35eb42ac.jpg?v=1771334327"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Panache_2_jpg_0bc7a1f3-8af9-4188-98f1-c58151159f55.jpg?v=1771333283"
   },
   {
     "id": 8604851437767,
@@ -1196,7 +1196,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/1_b14b9e94-d424-46f2-b70a-42bb9e7f0859.jpg?v=1776230721"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/2_6aa7eaae-bcbe-487e-9be0-0aea3cc91b93.jpg?v=1776230721"
   },
   {
     "id": 8276541243591,
@@ -1211,7 +1211,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/1_2d82819d-6f72-4cf2-a7cd-32afa93a490d.jpg?v=1776230769"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/2_ab0ed6b5-ec07-4047-93e1-f6fa159c44df.jpg?v=1776230769"
   },
   {
     "id": 8275957448903,
