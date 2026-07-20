@@ -9,6 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+      // Add a cache buster parameter to force Vercel edge/browser to reload
+      if(window.location.search.indexOf('v=70') === -1) {
+        window.location.replace(window.location.pathname + '?v=70');
+      }
+    </script>
     <style>
       *{box-sizing:border-box;margin:0;padding:0;}
       html, body{overflow-x:hidden;max-width:100vw;width:100%;}
@@ -26,6 +32,6 @@
         document.body.innerHTML = '<div style="font-family:monospace;padding:40px;color:red;background:#fff;white-space:pre-wrap;"><h2>Unhandled Promise Rejection</h2>' + String(e.reason) + '</div>';
       });
     </script>
-    <script src="./bundle-v69.js"></script>
+    <script src="./bundle-v70.js"></script>
   </body>
 </html>
