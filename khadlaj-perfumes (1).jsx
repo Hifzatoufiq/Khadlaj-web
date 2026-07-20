@@ -323,21 +323,6 @@ const PRODUCTS = [
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_OUD_AL_RAWDA.jpg?v=1783939385"
   },
   {
-    "id": 8624170139847,
-    "name": "PANACHE ANGEL DUST",
-    "col": "Extrait De Parfum",
-    "price": 200,
-    "size": "100ml EDP",
-    "badge": "For Her",
-    "gender": "Her",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Panache_4_jpg_9a48384b-07d9-4332-9446-3afd35eb42ac.jpg?v=1771334327"
-  },
-  {
     "id": 8604851437767,
     "name": "KHADLAJ ONYX SILVER",
     "col": "Eau De Parfum",
