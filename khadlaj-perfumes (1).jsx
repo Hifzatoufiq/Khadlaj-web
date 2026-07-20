@@ -5278,7 +5278,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
     if(activeCat==="Master Perfumery") return isKhadlajProduct && p.col==="Master Perfumery";
     return isKhadlajProduct && (p.col || '').toLowerCase() === activeCat.toLowerCase();
   }).slice(0, activeCat === "Best Sellers" ? 6 : 16);
-  const newLaunches = PRODUCTS.filter(p => p.badge === "New").slice(0, 16);
+  const newLaunches = PRODUCTS.filter(p => p.badge === "New").slice(0, 8);
 
 
   return (
