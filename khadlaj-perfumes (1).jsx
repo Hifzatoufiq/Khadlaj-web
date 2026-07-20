@@ -70,7 +70,7 @@ const PRODUCTS = [
     "name": "KHADLAJ PERFUMES NAFAIS SHARQ GIFT SET FOR WOMEN",
     "price": 150.0,
     "size": "Gift Set",
-    "badge": "For Her",
+    "badge": "New",
     "col": "Gift Sets",
     "gender": "Her",
     "topNotes": [],
@@ -153,7 +153,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OudMuattar_jpg.png?v=1784271987"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Jumeirah-3.jpg?v=1783940923"
   },
   {
     "id": 8757171159239,
@@ -222,14 +222,14 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "For Him",
+    "badge": "New",
     "gender": "Him",
     "notes": [
       "Oud",
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Zayan_Silver-3.jpg?v=1783936580"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/saraya_3.png?v=1783938953"
   },
   
   {
@@ -268,14 +268,14 @@ const PRODUCTS = [
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
-    "badge": "For Her",
+    "badge": "New",
     "gender": "Her",
     "notes": [
       "Oud",
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MAYA-02_c3c2b911-f853-426f-9a0f-01e3775ce526.jpg?v=1783939303"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Qarar-3.jpg?v=1783939057"
   },
   {
     "id": 8644257743047,
@@ -358,14 +358,14 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100ml EDP",
-    "badge": "For Her",
+    "badge": "New",
     "gender": "Her",
     "notes": [
       "Oud",
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/STRAWBERRY_SHAKE-03.jpg?v=1783939703"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/NUHA_BON_BON-03.jpg?v=1783939633"
   },
   {
     "id": 8561163075783,
@@ -433,14 +433,14 @@ const PRODUCTS = [
     "col": "Master Perfumery",
     "price": 200,
     "size": "100ml EDP",
-    "badge": "Best Seller",
+    "badge": "New",
     "gender": "Unisex",
     "notes": [
       "Oud",
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Barakat-3.jpg?v=1783940266"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais_Magrib-3.jpg?v=1783940515"
   },
   {
     "id": 8525988200647,
@@ -493,14 +493,14 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "100ml EDP",
-    "badge": "For Her",
+    "badge": "New",
     "gender": "Her",
     "notes": [
       "Oud",
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/PeachVelvet-03.jpg?v=1783942044"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/mansion_2.jpg?v=1783942858"
   },
   {
     "id": 8484193861831,
@@ -613,14 +613,14 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "For Her",
+    "badge": "New",
     "gender": "Her",
     "notes": [
       "Musk",
       "Floral",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Musk_Ice_03.jpg?v=1784370680"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Edge_Original-3.jpg?v=1776231633"
   },
   {
     "id": 8409302073543,
@@ -703,7 +703,7 @@ const PRODUCTS = [
     "col": "Perfume Oils",
     "price": 325,
     "size": "3ML",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -718,7 +718,7 @@ const PRODUCTS = [
     "col": "Dehn Al Oudh",
     "price": 325,
     "size": "3ML",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -733,7 +733,7 @@ const PRODUCTS = [
     "col": "Dehn Al Oudh",
     "price": 325,
     "size": "3ML",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -793,7 +793,7 @@ const PRODUCTS = [
     "col": "Bakhoor",
     "price": 35,
     "size": "100ml EDP",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -808,7 +808,7 @@ const PRODUCTS = [
     "col": "Bakhoor",
     "price": 27,
     "size": "100ml EDP",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -1778,7 +1778,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 35,
     "size": "100ml EDP",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": [
       "Air freshner"
@@ -1791,7 +1791,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 35,
     "size": "100ml EDP",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": [
       "Air freshner"
@@ -2171,7 +2171,7 @@ const PRODUCTS = [
     "col": "Perfume Oils",
     "price": 75,
     "size": "100ml EDP",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": [
       "Perfume oil"
