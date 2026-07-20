@@ -7266,7 +7266,7 @@ function CheckoutPage({ cartItems, setPage, clearCart }){
   );
 }
 
-function Navbar({ page, setPage, cartCount }){
+function Navbar({ page, setPage, cartCount, setCollectionCategory }){
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -7980,7 +7980,7 @@ export default function App(){
     <CountryContext.Provider value={{ activeCountry, setActiveCountry }}>
     <div style={{fontFamily:"'Montserrat',sans-serif",background:"#fff",color:"#251737",minHeight:"100vh"}}>
       <style>{GLOBAL_CSS}</style>
-      <Navbar page={page} setPage={setPage} cartCount={cartCount}/>
+      <Navbar page={page} setPage={setPage} cartCount={cartCount} setCollectionCategory={setCollectionCategory}/>
       <main>{renderPage()}</main>
       <Footer setPage={setPage}/>
 
