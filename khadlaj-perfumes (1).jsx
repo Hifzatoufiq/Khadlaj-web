@@ -598,7 +598,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Galazaid-4.jpg?v=1761124960"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Galazaid-3.jpg?v=1761124822"
   },
   {
     "id": 8516215439559,
