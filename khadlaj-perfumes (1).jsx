@@ -292,36 +292,6 @@ const PRODUCTS = [
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/IntoxicateMystique.3.png?v=1783939357"
   },
   {
-    "id": 8626247041223,
-    "name": "BAKHOOR FAZAA",
-    "col": "Bakhoor",
-    "price": 90,
-    "size": "120 G",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Fazaa.4.jpg?v=1771484036"
-  },
-  {
-    "id": 8626292916423,
-    "name": "BAKHOOR IZZ",
-    "col": "Bakhoor",
-    "price": 90,
-    "size": "120 G",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Bakhoor.4.jpg?v=1771485596"
-  },
-  {
     "id": 8633008914631,
     "name": "OUD MUATTAR OUD AL RAWDA",
     "col": "Bakhoor",
@@ -350,36 +320,6 @@ const PRODUCTS = [
       "Amber"
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Panache_4_jpg_9a48384b-07d9-4332-9446-3afd35eb42ac.jpg?v=1771334327"
-  },
-  {
-    "id": 8622015447239,
-    "name": "OUD MUATTAR BAHRAINI",
-    "col": "Bakhoor",
-    "price": 50,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Oud",
-      "Woody",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Copy_of_OudMuattarBahraini.3.png?v=1771070678"
-  },
-  {
-    "id": 8608140460231,
-    "name": "OUD MUATTAR KUWAITI",
-    "col": "Bakhoor",
-    "price": 50,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Oud",
-      "Woody",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CopyofOudMuattarKuwaiti.4_d17eb7b5-4810-4d9c-be13-3397010d78bb.png?v=1771069657"
   },
   {
     "id": 8604851437767,
@@ -485,90 +425,6 @@ const PRODUCTS = [
       "Amber"
     ],
     "img": "./assets/images/products/nafais_gift_set_nobox.jpg"
-  },
-  {
-    "id": 8530334679239,
-    "name": "OUD MUATTAR OUD HIND",
-    "col": "Bakhoor",
-    "price": 150,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Oud",
-      "Woody",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Hind-2.jpg?v=1761552400"
-  },
-  {
-    "id": 8530346279111,
-    "name": "OUD MUATTAR JUMEIRAH",
-    "col": "Bakhoor",
-    "price": 150,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Oud",
-      "Woody",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Jumeirah_Oud-2.jpg?v=1761553417"
-  },
-  {
-    "id": 8530211995847,
-    "name": "FRASH QISSA ESHQ AIR FRESHENER",
-    "col": "Eau De Parfum",
-    "price": 35,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Air freshner"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Qisaa-Eshq-4.jpg?v=1761546631"
-  },
-  {
-    "id": 8530209407175,
-    "name": "FRASH QISSA TURQUOISE AIR FRESHENER",
-    "col": "Eau De Parfum",
-    "price": 35,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Air freshner"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Qisaa-Turquoise-4.jpg?v=1761545652"
-  },
-  {
-    "id": 8530198069447,
-    "name": "FRASH SARA AIR FRESHENER",
-    "col": "Eau De Parfum",
-    "price": 38,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Air freshner"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Sara-2.jpg?v=1761544487"
-  },
-  {
-    "id": 8526052262087,
-    "name": "OUD PURE OUD JUMEIRAH",
-    "col": "Eau De Parfum",
-    "price": 200,
-    "size": "100ml EDP",
-    "badge": "Best Seller",
-    "gender": "Unisex",
-    "notes": [
-      "Oud",
-      "Woody",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Jumeirah-3.jpg?v=1783940923"
   },
   {
     "id": 8526040367303,
@@ -5948,6 +5804,11 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
     if(activeCat==="For Him") return isKhadlajProduct && p.gender==="Him";
     if(activeCat==="For Her") return isKhadlajProduct && p.gender==="Her";
     if(activeCat==="Unisex") return isKhadlajProduct && p.gender==="Unisex";
+    
+    if(activeCat==="Atyaab") return isKhadlajProduct && (p.col==="Perfume Oils" || p.col==="Atyaab");
+    if(activeCat==="EAU DE PARFUM") return isKhadlajProduct && p.col.toLowerCase() === "eau de parfum";
+    if(activeCat==="Master Perfumery") return isKhadlajProduct && (p.col==="Extrait De Parfum" || p.col==="Master Perfumery");
+    
     return isKhadlajProduct && p.col===activeCat;
   }).filter(p=>p.price<=priceMax);
 
@@ -6058,6 +5919,11 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
                   if(c==="For Him") return isKhadlajProduct && p.gender==="Him";
                   if(c==="For Her") return isKhadlajProduct && p.gender==="Her";
                   if(c==="Unisex") return isKhadlajProduct && p.gender==="Unisex";
+                  
+                  if(c==="Atyaab") return isKhadlajProduct && (p.col==="Perfume Oils" || p.col==="Atyaab");
+                  if(c==="EAU DE PARFUM") return isKhadlajProduct && p.col.toLowerCase() === "eau de parfum";
+                  if(c==="Master Perfumery") return isKhadlajProduct && (p.col==="Extrait De Parfum" || p.col==="Master Perfumery");
+                  
                   return isKhadlajProduct && p.col===c;
                 }).length}</span>
               </button>
