@@ -7835,6 +7835,7 @@ export default function App(){
   const [activeCountry, setActiveCountry] = React.useState(COUNTRIES[0]);
   const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
   const [page, setPage] = useState("home");
+  const [collectionCategory, setCollectionCategory] = useState("Khadlaj");
   const [cartItems, setCartItems] = useState([]);
   const [viewProduct, setViewProduct] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
