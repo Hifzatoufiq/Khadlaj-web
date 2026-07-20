@@ -710,7 +710,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_Magical_Thai_02.jpg"
+    "img": "./assets/images/smart_cropped/smart_Magical_Thai_02.jpg"
   },
   {
     "id": 8385137639623,
@@ -725,7 +725,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_OUD_OAISAR_SEUFI-3.jpg"
+    "img": "./assets/images/smart_cropped/smart_OUD_OAISAR_SEUFI-3.jpg"
   },
   {
     "id": 8385113981127,
@@ -740,7 +740,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_OUD_SHEIKH_OADIM-3.jpg"
+    "img": "./assets/images/smart_cropped/smart_OUD_SHEIKH_OADIM-3.jpg"
   },
   {
     "id": 8361494839495,
@@ -800,7 +800,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_2_6f08c36e-4beb-4b09-bdf6-fb68dd7b8427.jpg"
+    "img": "./assets/images/smart_cropped/smart_2_6f08c36e-4beb-4b09-bdf6-fb68dd7b8427.jpg"
   },
   {
     "id": 8342075244743,
@@ -815,7 +815,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_2_a39244be-9fb7-4336-8e0c-7a6b8d964e4c.jpg"
+    "img": "./assets/images/smart_cropped/smart_2_a39244be-9fb7-4336-8e0c-7a6b8d964e4c.jpg"
   },
   {
     "id": 7734819553479,
@@ -1783,7 +1783,7 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "./assets/images/cropped/cropped_FRASH_AL_MAJALIS_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964465.jpg"
+    "img": "./assets/images/smart_cropped/smart_FRASH_AL_MAJALIS_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964465.jpg"
   },
   {
     "id": 7923498844359,
@@ -1796,7 +1796,7 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "./assets/images/cropped/cropped_FRASH_SHAMOOKH_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964639.jpg"
+    "img": "./assets/images/smart_cropped/smart_FRASH_SHAMOOKH_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964639.jpg"
   },
   {
     "id": 7887478096071,
@@ -2176,7 +2176,7 @@ const PRODUCTS = [
     "notes": [
       "Perfume oil"
     ],
-    "img": "./assets/images/cropped/cropped_HAREEM_AL_SULTAN_BLUE_35ML_-_Khadlaj_Perfumes-1964718.jpg"
+    "img": "./assets/images/smart_cropped/smart_HAREEM_AL_SULTAN_BLUE_35ML_-_Khadlaj_Perfumes-1964718.jpg"
   },
   {
     "id": 7792441295047,
@@ -2189,7 +2189,7 @@ const PRODUCTS = [
     "notes": [
       "Perfume oil"
     ],
-    "img": "./assets/images/cropped/cropped_product_post-_BUNDLE_12.jpg"
+    "img": "./assets/images/smart_cropped/smart_product_post-_BUNDLE_12.jpg"
   },
   {
     "id": 7792438214855,
@@ -2202,7 +2202,7 @@ const PRODUCTS = [
     "notes": [
       "Perfume oil"
     ],
-    "img": "./assets/images/cropped/cropped_RIMAAL_BROWN_15_ML_-_Khadlaj_Perfumes-1965826.jpg"
+    "img": "./assets/images/smart_cropped/smart_RIMAAL_BROWN_15_ML_-_Khadlaj_Perfumes-1965826.jpg"
   },
   {
     "id": 7792432414919,
@@ -2217,7 +2217,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_WOW_OUD_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1966157.jpg"
+    "img": "./assets/images/smart_cropped/smart_WOW_OUD_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1966157.jpg"
   },
   {
     "id": 7792427696327,
@@ -2232,7 +2232,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_GAITH_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964668.jpg"
+    "img": "./assets/images/smart_cropped/smart_GAITH_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964668.jpg"
   },
   {
     "id": 7792426582215,
@@ -2367,7 +2367,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_HAREEM_AL_SULTAN_SILVER_35ML_-_Khadlaj_Perfumes-1964773.jpg"
+    "img": "./assets/images/smart_cropped/smart_HAREEM_AL_SULTAN_SILVER_35ML_-_Khadlaj_Perfumes-1964773.jpg"
   },
   {
     "id": 7582151672007,
@@ -2382,7 +2382,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_HAREEM_AL_SULTAN_GOLD_35ML_-_Khadlaj_Perfumes-1964749.jpg"
+    "img": "./assets/images/smart_cropped/smart_HAREEM_AL_SULTAN_GOLD_35ML_-_Khadlaj_Perfumes-1964749.jpg"
   },
   {
     "id": 7721533669575,
@@ -2395,7 +2395,7 @@ const PRODUCTS = [
     "notes": [
       "Perfume oil"
     ],
-    "img": "./assets/images/cropped/cropped_MUKHALATH_MA_A_WARD_TAIBA_12_ML_-_Khadlaj_Perfumes-1965432.jpg"
+    "img": "./assets/images/smart_cropped/smart_MUKHALATH_MA_A_WARD_TAIBA_12_ML_-_Khadlaj_Perfumes-1965432.jpg"
   },
   {
     "id": 7716614078663,
@@ -2455,7 +2455,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_OUD_MUATTAR_OUD_AL_MAQAAM_40_G_-_Khadlaj_Perfumes-1965702.jpg"
+    "img": "./assets/images/smart_cropped/smart_OUD_MUATTAR_OUD_AL_MAQAAM_40_G_-_Khadlaj_Perfumes-1965702.jpg"
   },
   {
     "id": 7677438492871,
@@ -2470,7 +2470,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_OUD_MUATTAR_OUD_AL_SAADA_40_G_-_Khadlaj_Perfumes-1965708.jpg"
+    "img": "./assets/images/smart_cropped/smart_OUD_MUATTAR_OUD_AL_SAADA_40_G_-_Khadlaj_Perfumes-1965708.jpg"
   },
   {
     "id": 7676794765511,
@@ -2515,7 +2515,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_MYSTICAL_INDIAN-2.jpg"
+    "img": "./assets/images/smart_cropped/smart_MYSTICAL_INDIAN-2.jpg"
   },
   {
     "id": 7651506225351,
@@ -2530,7 +2530,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_HANEEN_ROSE_GOLD_20_ML_-_Khadlaj_Perfumes-1964702.jpg"
+    "img": "./assets/images/smart_cropped/smart_HANEEN_ROSE_GOLD_20_ML_-_Khadlaj_Perfumes-1964702.jpg"
   },
   {
     "id": 7651482337479,
@@ -2545,7 +2545,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_HANEEN_GOLD_20_ML_-_Khadlaj_Perfumes-1964693.jpg"
+    "img": "./assets/images/smart_cropped/smart_HANEEN_GOLD_20_ML_-_Khadlaj_Perfumes-1964693.jpg"
   },
   {
     "id": 7640196841671,
@@ -2668,7 +2668,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_OUD_MUATTAR_GHANAATI_100_G_-_Khadlaj_Perfumes-1965632.jpg"
+    "img": "./assets/images/smart_cropped/smart_OUD_MUATTAR_GHANAATI_100_G_-_Khadlaj_Perfumes-1965632.jpg"
   },
   {
     "id": 7627659509959,
@@ -2683,7 +2683,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_OUD_MUATTAR_KHAWAATER_35_G_-_Khadlaj_Perfumes-1965650.jpg"
+    "img": "./assets/images/smart_cropped/smart_OUD_MUATTAR_KHAWAATER_35_G_-_Khadlaj_Perfumes-1965650.jpg"
   },
   {
     "id": 7602862031047,
@@ -2698,7 +2698,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_STELLAR_OUD_100_ML_EDP_SPRAY_FOR_MEN_WOMEN_-_Khadlaj_Perfumes-1965984.jpg"
+    "img": "./assets/images/smart_cropped/smart_STELLAR_OUD_100_ML_EDP_SPRAY_FOR_MEN_WOMEN_-_Khadlaj_Perfumes-1965984.jpg"
   },
   {
     "id": 7602860949703,
@@ -2713,7 +2713,7 @@ const PRODUCTS = [
       "Floral",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_STELLAR_MUSK_100_ML_EDP_SPRAY_FOR_WOMEN_-_Khadlaj_Perfumes-1965978.jpg"
+    "img": "./assets/images/smart_cropped/smart_STELLAR_MUSK_100_ML_EDP_SPRAY_FOR_WOMEN_-_Khadlaj_Perfumes-1965978.jpg"
   },
   {
     "id": 7598654980295,
@@ -2788,7 +2788,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_MIBRAAK_18ML_-_Khadlaj_Perfumes-1965427.jpg"
+    "img": "./assets/images/smart_cropped/smart_MIBRAAK_18ML_-_Khadlaj_Perfumes-1965427.jpg"
   },
   {
     "id": 7582424268999,
@@ -2803,7 +2803,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_IBHAAR_18ML_-_Khadlaj_Perfumes-1964788.jpg"
+    "img": "./assets/images/smart_cropped/smart_IBHAAR_18ML_-_Khadlaj_Perfumes-1964788.jpg"
   },
   {
     "id": 7582421254343,
@@ -2818,7 +2818,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_ASTOORA_18ML_-_Khadlaj_Perfumes-1963955.jpg"
+    "img": "./assets/images/smart_cropped/smart_ASTOORA_18ML_-_Khadlaj_Perfumes-1963955.jpg"
   },
   {
     "id": 7582413947079,
@@ -2833,7 +2833,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_FATIMA_15ML_-_Khadlaj_Perfumes-1964446.jpg"
+    "img": "./assets/images/smart_cropped/smart_FATIMA_15ML_-_Khadlaj_Perfumes-1964446.jpg"
   },
   {
     "id": 7582409949383,
@@ -2848,7 +2848,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_ANAB_18ML_-_Khadlaj_Perfumes-1963948.jpg"
+    "img": "./assets/images/smart_cropped/smart_ANAB_18ML_-_Khadlaj_Perfumes-1963948.jpg"
   },
   {
     "id": 7582406574279,
@@ -2863,7 +2863,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_AZAARI_17ML_-_Khadlaj_Perfumes-1963961.jpg"
+    "img": "./assets/images/smart_cropped/smart_AZAARI_17ML_-_Khadlaj_Perfumes-1963961.jpg"
   },
   {
     "id": 7582193680583,
@@ -2878,7 +2878,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_GHAZLAAN_20ML_-_Khadlaj_Perfumes-1964689.jpg"
+    "img": "./assets/images/smart_cropped/smart_GHAZLAAN_20ML_-_Khadlaj_Perfumes-1964689.jpg"
   },
   {
     "id": 7582193057991,
@@ -2893,7 +2893,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_RANIYA_18ML_-_Khadlaj_Perfumes-1965818.jpg"
+    "img": "./assets/images/smart_cropped/smart_RANIYA_18ML_-_Khadlaj_Perfumes-1965818.jpg"
   },
   {
     "id": 7582192304327,
@@ -2908,7 +2908,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_AALIYA_27ML_-_Khadlaj_Perfumes-1963911.jpg"
+    "img": "./assets/images/smart_cropped/smart_AALIYA_27ML_-_Khadlaj_Perfumes-1963911.jpg"
   },
   {
     "id": 7582186242247,
@@ -2923,7 +2923,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_ROOHI_WA_ROOHAK_SILVER_20_ML_-_Khadlaj_Perfumes-1965884.jpg"
+    "img": "./assets/images/smart_cropped/smart_ROOHI_WA_ROOHAK_SILVER_20_ML_-_Khadlaj_Perfumes-1965884.jpg"
   },
   {
     "id": 7582185095367,
@@ -2938,7 +2938,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_ROOHI_WA_ROOHAK_GOLD_20_ML_-_Khadlaj_Perfumes-1965877.jpg"
+    "img": "./assets/images/smart_cropped/smart_ROOHI_WA_ROOHAK_GOLD_20_ML_-_Khadlaj_Perfumes-1965877.jpg"
   },
   {
     "id": 7582182899911,
@@ -2953,7 +2953,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_ALF_WARDAAT_30ML_-_Khadlaj_Perfumes-1963933.jpg"
+    "img": "./assets/images/smart_cropped/smart_ALF_WARDAAT_30ML_-_Khadlaj_Perfumes-1963933.jpg"
   },
   {
     "id": 7582179262663,
@@ -2968,7 +2968,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_AL_FURSAN_18ML_-_Khadlaj_Perfumes-1963918.jpg"
+    "img": "./assets/images/smart_cropped/smart_AL_FURSAN_18ML_-_Khadlaj_Perfumes-1963918.jpg"
   },
   {
     "id": 7582167105735,
@@ -2983,7 +2983,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_AL_RIYAN_17ML_-_Khadlaj_Perfumes-1963926.jpg"
+    "img": "./assets/images/smart_cropped/smart_AL_RIYAN_17ML_-_Khadlaj_Perfumes-1963926.jpg"
   },
   {
     "id": 7582158979271,
@@ -2998,7 +2998,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_JAMEEL_25ML_-_Khadlaj_Perfumes-1964811.jpg"
+    "img": "./assets/images/smart_cropped/smart_JAMEEL_25ML_-_Khadlaj_Perfumes-1964811.jpg"
   },
   {
     "id": 7582143119559,
@@ -3013,7 +3013,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_ZAINAB_18_ML_-_Khadlaj_Perfumes-1966171.jpg"
+    "img": "./assets/images/smart_cropped/smart_ZAINAB_18_ML_-_Khadlaj_Perfumes-1966171.jpg"
   },
   {
     "id": 7582139089095,
@@ -3028,7 +3028,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_ROOH_AL_OUD_12_ML_-_Khadlaj_Perfumes-1965864.jpg"
+    "img": "./assets/images/smart_cropped/smart_ROOH_AL_OUD_12_ML_-_Khadlaj_Perfumes-1965864.jpg"
   },
   {
     "id": 7554129625287,
@@ -3041,7 +3041,7 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "./assets/images/cropped/cropped_FRASH_DALOUAA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964497.jpg"
+    "img": "./assets/images/smart_cropped/smart_FRASH_DALOUAA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964497.jpg"
   },
   {
     "id": 7554137391303,
@@ -3054,7 +3054,7 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "./assets/images/cropped/cropped_FRASH_ZAHOOR_AL_KHALEEJ_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964652.jpg"
+    "img": "./assets/images/smart_cropped/smart_FRASH_ZAHOOR_AL_KHALEEJ_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964652.jpg"
   },
   {
     "id": 7554137456839,
@@ -3067,7 +3067,7 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "./assets/images/cropped/cropped_FRASH_ROMANCIA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964632.jpg"
+    "img": "./assets/images/smart_cropped/smart_FRASH_ROMANCIA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964632.jpg"
   },
   {
     "id": 7554137555143,
@@ -3080,7 +3080,7 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "./assets/images/cropped/cropped_FRASH_MAKHMALI_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964589.jpg"
+    "img": "./assets/images/smart_cropped/smart_FRASH_MAKHMALI_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964589.jpg"
   },
   {
     "id": 7554137522375,
@@ -3093,7 +3093,7 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "./assets/images/cropped/cropped_FRASH_MUSKY_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964602.jpg"
+    "img": "./assets/images/smart_cropped/smart_FRASH_MUSKY_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964602.jpg"
   },
   {
     "id": 7554137489607,
@@ -3106,7 +3106,7 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "./assets/images/cropped/cropped_FRASH_NASEEM_AL_WARD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964609.jpg"
+    "img": "./assets/images/smart_cropped/smart_FRASH_NASEEM_AL_WARD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964609.jpg"
   },
   {
     "id": 7554137915591,
@@ -3134,7 +3134,7 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "./assets/images/cropped/cropped_FRASH_LA_YUQAWAM_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964537.jpg"
+    "img": "./assets/images/smart_cropped/smart_FRASH_LA_YUQAWAM_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964537.jpg"
   },
   {
     "id": 7554138505415,
@@ -3149,7 +3149,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_OUD_MUATTAR_GHALIYA_35_G_-_Khadlaj_Perfumes-1965626.jpg"
+    "img": "./assets/images/smart_cropped/smart_OUD_MUATTAR_GHALIYA_35_G_-_Khadlaj_Perfumes-1965626.jpg"
   },
   {
     "id": 7554138439879,
@@ -3164,7 +3164,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_OUD_MUATTAR_MUNAWWARA_35_G_-_Khadlaj_Perfumes-1965696.jpg"
+    "img": "./assets/images/smart_cropped/smart_OUD_MUATTAR_MUNAWWARA_35_G_-_Khadlaj_Perfumes-1965696.jpg"
   },
   {
     "id": 7554137981127,
@@ -3194,7 +3194,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_SHAMOOKH_SILVER_20ML_-_Khadlaj_Perfumes-1965933.jpg"
+    "img": "./assets/images/smart_cropped/smart_SHAMOOKH_SILVER_20ML_-_Khadlaj_Perfumes-1965933.jpg"
   },
   {
     "id": 7554143092935,
@@ -3207,7 +3207,7 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "./assets/images/cropped/cropped_FRASH_MUKHALLAT_SHUYOOKHI_AIR_FRESHENER_320_ML_-_Khadlaj_Perfumes-1964596.jpg"
+    "img": "./assets/images/smart_cropped/smart_FRASH_MUKHALLAT_SHUYOOKHI_AIR_FRESHENER_320_ML_-_Khadlaj_Perfumes-1964596.jpg"
   },
   {
     "id": 7554138865863,
@@ -3222,7 +3222,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_BAKHOOR_HANEEN_100_GMS_-_Khadlaj_Perfumes-1964075.jpg"
+    "img": "./assets/images/smart_cropped/smart_BAKHOOR_HANEEN_100_GMS_-_Khadlaj_Perfumes-1964075.jpg"
   },
   {
     "id": 7554138767559,
@@ -3237,7 +3237,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_BAKHOOR_MAHA_100_GMS_-_Khadlaj_Perfumes-1964119.jpg"
+    "img": "./assets/images/smart_cropped/smart_BAKHOOR_MAHA_100_GMS_-_Khadlaj_Perfumes-1964119.jpg"
   },
   {
     "id": 7554143748295,
@@ -3267,7 +3267,7 @@ const PRODUCTS = [
       "Floral",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_MUSK_WA_WARD_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965487.jpg"
+    "img": "./assets/images/smart_cropped/smart_MUSK_WA_WARD_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965487.jpg"
   },
   {
     "id": 7554143518919,
@@ -3282,7 +3282,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_UNO_INTIMO_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1966033.jpg"
+    "img": "./assets/images/smart_cropped/smart_UNO_INTIMO_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1966033.jpg"
   },
   {
     "id": 7554144043207,
@@ -3297,7 +3297,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_OUD_MUATTAR_RIMAAL_40GM_-_Khadlaj_Perfumes-1965721.jpg"
+    "img": "./assets/images/smart_cropped/smart_OUD_MUATTAR_RIMAAL_40GM_-_Khadlaj_Perfumes-1965721.jpg"
   },
   {
     "id": 7554144010439,
@@ -3312,7 +3312,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "./assets/images/cropped/cropped_OUD_MUATTAR_SAMOU_AL_OUD_40GM_-_Khadlaj_Perfumes-1965730.jpg"
+    "img": "./assets/images/smart_cropped/smart_OUD_MUATTAR_SAMOU_AL_OUD_40GM_-_Khadlaj_Perfumes-1965730.jpg"
   },
   {
     "id": 7554143813831,
