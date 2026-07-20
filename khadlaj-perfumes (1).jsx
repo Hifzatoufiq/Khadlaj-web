@@ -59,7 +59,7 @@ const PRODUCTS = [
     "name": "KHADLAJ PERFUMES NAFAIS SHARQ GIFT SET FOR WOMEN",
     "price": 150.0,
     "size": "Gift Set",
-    "badge": "",
+    "badge": "For Her",
     "col": "Gift Sets",
     "gender": "Her",
     "topNotes": [],
@@ -160,7 +160,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 55,
     "size": "100ml EDP",
-    "badge": "New",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -206,7 +206,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "New",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -252,7 +252,7 @@ const PRODUCTS = [
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -267,7 +267,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -282,7 +282,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -312,7 +312,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 200,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -357,7 +357,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -372,7 +372,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 200,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -387,7 +387,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 125,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -402,7 +402,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 126,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -462,7 +462,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 125,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -492,7 +492,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "100ml EDP",
-    "badge": "Best Seller",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -507,7 +507,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 110,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -522,7 +522,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 110,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -532,27 +532,12 @@ const PRODUCTS = [
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Biscotti_Melon_Misk-3.jpg?v=1783942967"
   },
   {
-    "id": 8459140759751,
-    "name": "KHADLAJ ISLAND DREAMS",
-    "col": "Extrait De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island_Dreams-3.jpg?v=1783940088"
-  },
-  {
     "id": 8457608462535,
     "name": "LA FEDE CELEBRITY CRUSH",
     "col": "Lafede",
     "price": 130,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -567,7 +552,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 130,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -582,7 +567,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -627,7 +612,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Musk",
@@ -642,7 +627,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 126,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -657,7 +642,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 110,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -762,7 +747,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "100ml EDP",
-    "badge": "Best Seller",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -792,7 +777,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "Best Seller",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -852,7 +837,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 75,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -867,7 +852,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 75,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -897,7 +882,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 75,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -942,7 +927,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 100,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -957,7 +942,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 75,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -972,7 +957,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -1032,7 +1017,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -1062,7 +1047,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 90,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -1148,7 +1133,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 70,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -1163,7 +1148,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 70,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -1178,7 +1163,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "100ml EDP",
-    "badge": "Best Seller",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -1193,7 +1178,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 90,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -1208,7 +1193,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 90,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -1223,7 +1208,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 140,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -1266,7 +1251,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100ml EDP",
-    "badge": "Best Seller",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Musk",
@@ -1309,7 +1294,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 90,
     "size": "100ml EDP",
-    "badge": "Best Seller",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -1339,7 +1324,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 90,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -1354,7 +1339,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 85,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -1440,7 +1425,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 145,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -1498,7 +1483,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 125,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -1513,7 +1498,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 95,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -1528,7 +1513,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 125,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -1558,7 +1543,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 50,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -1573,7 +1558,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 50,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -1861,7 +1846,7 @@ const PRODUCTS = [
     "col": "Perfume Oils",
     "price": 100,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Perfume oil"
@@ -1874,7 +1859,7 @@ const PRODUCTS = [
     "col": "Perfume Oils",
     "price": 100,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Perfume oil"
@@ -1887,7 +1872,7 @@ const PRODUCTS = [
     "col": "Perfume Oils",
     "price": 100,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Perfume oil"
@@ -1915,7 +1900,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "Best Seller",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -1975,7 +1960,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -1990,7 +1975,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -2005,7 +1990,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -2020,7 +2005,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "Best Seller",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -2417,7 +2402,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 60,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -2447,7 +2432,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 118,
     "size": "100 ml",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -2567,7 +2552,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 145,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -2720,7 +2705,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 80,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Musk",
@@ -2765,7 +2750,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 70,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -2780,7 +2765,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 70,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -3128,7 +3113,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 35,
     "size": "100 ml",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -3186,7 +3171,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 35,
     "size": "100 ml",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -3274,7 +3259,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 50,
     "size": "100 ml",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Musk",
@@ -3289,7 +3274,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 45,
     "size": "100 ml",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -3537,7 +3522,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 55,
     "size": "100 ml",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -3552,7 +3537,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 42,
     "size": "100 ml",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -3567,7 +3552,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 55,
     "size": "100 ml",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -3582,7 +3567,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 35,
     "size": "100 ml",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -3612,7 +3597,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 50,
     "size": "100 ml",
-    "badge": "Best Seller",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -3627,7 +3612,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 65,
     "size": "100 ml",
-    "badge": "Best Seller",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -3642,7 +3627,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 65,
     "size": "100 ml",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -3657,7 +3642,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 65,
     "size": "100 ml",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -3672,7 +3657,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 65,
     "size": "100 ml",
-    "badge": "Best Seller",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -4062,7 +4047,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100 ml",
-    "badge": "Best Seller",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Musk",
@@ -4122,7 +4107,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100 ml",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -4137,7 +4122,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100 ml",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -4152,7 +4137,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 210,
     "size": "75 ml",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -4167,7 +4152,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 210,
     "size": "75 ml",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -4227,7 +4212,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 118,
     "size": "100 ml",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -4302,7 +4287,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 210,
     "size": "100 ml",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -4332,7 +4317,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 210,
     "size": "100 ml",
-    "badge": "",
+    "badge": "For Her",
     "gender": "Her",
     "notes": [
       "Oud",
@@ -4347,7 +4332,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 210,
     "size": "75 ml",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -4362,7 +4347,7 @@ const PRODUCTS = [
     "col": "Lafede",
     "price": 210,
     "size": "75 ml",
-    "badge": "",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -4422,7 +4407,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 200,
     "size": "100ml EDP",
-    "badge": "Best Seller",
+    "badge": "For Him",
     "gender": "Him",
     "notes": [
       "Oud",
