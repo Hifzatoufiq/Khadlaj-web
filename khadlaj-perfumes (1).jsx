@@ -76,6 +76,7 @@ const PRODUCTS = [
     "topNotes": [],
     "midNotes": [],
     "baseNotes": [],
+    "notes": ["Oud", "Musk", "Amber"],
     "img": "./assets/images/gifsets/nafais_sharq_nobox.png",
     "detailImages": ["./assets/images/gifsets/nafais_sharq_nobox.png"]
   },
@@ -90,6 +91,7 @@ const PRODUCTS = [
     "topNotes": [],
     "midNotes": [],
     "baseNotes": [],
+    "notes": ["Oud", "Musk", "Amber"],
     "img": "./assets/images/gifsets/cream_velvet_nobox.png",
     "detailImages": ["./assets/images/gifsets/cream_velvet_nobox.png"]
   },
@@ -104,6 +106,7 @@ const PRODUCTS = [
     "topNotes": [],
     "midNotes": [],
     "baseNotes": [],
+    "notes": ["Oud", "Musk", "Amber"],
     "img": "./assets/images/gifsets/gourmand_nobox.png",
     "detailImages": ["./assets/images/gifsets/gourmand_nobox.png"]
   },
@@ -118,6 +121,7 @@ const PRODUCTS = [
     "topNotes": [],
     "midNotes": [],
     "baseNotes": [],
+    "notes": ["Oud", "Musk", "Amber"],
     "img": "./assets/images/gifsets/cloud_candy_nobox.png",
     "detailImages": ["./assets/images/gifsets/cloud_candy_nobox.png"]
   },
@@ -132,6 +136,7 @@ const PRODUCTS = [
     "topNotes": [],
     "midNotes": [],
     "baseNotes": [],
+    "notes": ["Oud", "Musk", "Amber"],
     "img": "./assets/images/gifsets/island_nobox.png",
     "detailImages": ["./assets/images/gifsets/island_nobox.png"]
   },
