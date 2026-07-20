@@ -2367,7 +2367,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/HAREEM_AL_SULTAN_SILVER_35ML_-_Khadlaj_Perfumes-1964773.jpg?v=1722409856"
+    "img": "./assets/images/cropped/cropped_HAREEM_AL_SULTAN_SILVER_35ML_-_Khadlaj_Perfumes-1964773.jpg"
   },
   {
     "id": 7582151672007,
@@ -2455,7 +2455,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_OUD_AL_MAQAAM_40_G_-_Khadlaj_Perfumes-1965702.jpg?v=1722411662"
+    "img": "./assets/images/cropped/cropped_OUD_MUATTAR_OUD_AL_MAQAAM_40_G_-_Khadlaj_Perfumes-1965702.jpg"
   },
   {
     "id": 7677438492871,
@@ -2470,7 +2470,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_OUD_AL_SAADA_40_G_-_Khadlaj_Perfumes-1965708.jpg?v=1722411675"
+    "img": "./assets/images/cropped/cropped_OUD_MUATTAR_OUD_AL_SAADA_40_G_-_Khadlaj_Perfumes-1965708.jpg"
   },
   {
     "id": 7676794765511,
@@ -2515,7 +2515,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MYSTICAL_INDIAN-2.jpg?v=1762347212"
+    "img": "./assets/images/cropped/cropped_MYSTICAL_INDIAN-2.jpg"
   },
   {
     "id": 7651506225351,
@@ -2530,7 +2530,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/HANEEN_ROSE_GOLD_20_ML_-_Khadlaj_Perfumes-1964702.jpg?v=1722409746"
+    "img": "./assets/images/cropped/cropped_HANEEN_ROSE_GOLD_20_ML_-_Khadlaj_Perfumes-1964702.jpg"
   },
   {
     "id": 7651482337479,
@@ -2545,7 +2545,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/HANEEN_GOLD_20_ML_-_Khadlaj_Perfumes-1964693.jpg?v=1722409734"
+    "img": "./assets/images/cropped/cropped_HANEEN_GOLD_20_ML_-_Khadlaj_Perfumes-1964693.jpg"
   },
   {
     "id": 7640196841671,
@@ -2668,7 +2668,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_GHANAATI_100_G_-_Khadlaj_Perfumes-1965632.jpg?v=1722411528"
+    "img": "./assets/images/cropped/cropped_OUD_MUATTAR_GHANAATI_100_G_-_Khadlaj_Perfumes-1965632.jpg"
   },
   {
     "id": 7627659509959,
@@ -2683,7 +2683,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_KHAWAATER_35_G_-_Khadlaj_Perfumes-1965650.jpg?v=1722411556"
+    "img": "./assets/images/cropped/cropped_OUD_MUATTAR_KHAWAATER_35_G_-_Khadlaj_Perfumes-1965650.jpg"
   },
   {
     "id": 7602862031047,
@@ -2698,7 +2698,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/STELLAR_OUD_100_ML_EDP_SPRAY_FOR_MEN_WOMEN_-_Khadlaj_Perfumes-1965984.jpg?v=1722412237"
+    "img": "./assets/images/cropped/cropped_STELLAR_OUD_100_ML_EDP_SPRAY_FOR_MEN_WOMEN_-_Khadlaj_Perfumes-1965984.jpg"
   },
   {
     "id": 7602860949703,
@@ -2713,7 +2713,7 @@ const PRODUCTS = [
       "Floral",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/STELLAR_MUSK_100_ML_EDP_SPRAY_FOR_WOMEN_-_Khadlaj_Perfumes-1965978.jpg?v=1722412205"
+    "img": "./assets/images/cropped/cropped_STELLAR_MUSK_100_ML_EDP_SPRAY_FOR_WOMEN_-_Khadlaj_Perfumes-1965978.jpg"
   },
   {
     "id": 7598654980295,
@@ -2788,7 +2788,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/MIBRAAK_18ML_-_Khadlaj_Perfumes-1965427.jpg?v=1722411138"
+    "img": "./assets/images/cropped/cropped_MIBRAAK_18ML_-_Khadlaj_Perfumes-1965427.jpg"
   },
   {
     "id": 7582424268999,
