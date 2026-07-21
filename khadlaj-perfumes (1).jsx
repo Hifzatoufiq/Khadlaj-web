@@ -7588,8 +7588,12 @@ function ScratchCard({ code, onReveal }) {
       if (!isDrawing) return;
       const pos = getMousePos(e);
       ctx.globalCompositeOperation = "destination-out";
+      const radGrad = ctx.createRadialGradient(pos.x, pos.y, 10, pos.x, pos.y, 26);
+      radGrad.addColorStop(0, "rgba(0,0,0,1)");
+      radGrad.addColorStop(1, "rgba(0,0,0,0)");
+      ctx.fillStyle = radGrad;
       ctx.beginPath();
-      ctx.arc(pos.x, pos.y, 24, 0, 2 * Math.PI);
+      ctx.arc(pos.x, pos.y, 26, 0, 2 * Math.PI);
       ctx.fill();
     };
 
@@ -7634,9 +7638,22 @@ function ScratchCard({ code, onReveal }) {
   }, [isRevealed, onReveal]);
 
   return (
-    <div className="scratch-hover" style={{position:"relative", width: "100%", maxWidth: 320, height: 100, margin:"0 auto", borderRadius: 8, overflow:"hidden", border:"2px solid #F3E5AB", background:"linear-gradient(135deg, #1a0822, #3a1548)", boxShadow:"0 0 25px rgba(212,175,55,0.4), inset 0 0 20px rgba(212,175,55,0.2)"}}>
-       <div style={{position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center"}}>
-          <p className="scratch-text" style={{fontWeight:800, color:"#F3E5AB", margin:0, textShadow:"0 0 15px rgba(212,175,55,0.8), 0 0 30px rgba(212,175,55,0.5)", letterSpacing:"6px"}}>{code}</p>
+    <div className="scratch-hover" style={{position:"relative", width: "100%", maxWidth: 320, height: 100, margin:"0 auto", borderRadius: 8, overflow:"hidden", border:"2px solid #F3E5AB", background:"#111", boxShadow:"0 0 25px rgba(212,175,55,0.4), inset 0 0 20px rgba(212,175,55,0.2)"}}>
+       <div style={{position:"absolute", inset:0, display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", background:"radial-gradient(circle, #251737 0%, #0a0a0a 100%)"}}>
+          <div style={{position:"absolute", inset:0, opacity:0.12, background:"url('data:image/svg+xml;utf8,<svg width=\"20\" height=\"20\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"2\" cy=\"2\" r=\"1\" fill=\"%23D4AF37\"/></svg>') repeat"}} />
+          <span style={{fontSize:9, letterSpacing:4, color:"#D4AF37", textTransform:"uppercase", marginBottom:4, fontWeight:600, opacity:0.9, position:"relative", zIndex:2}}>Your Exclusive Gift</span>
+          <p className="scratch-text" style={{
+             fontWeight:900, 
+             margin:0, 
+             background: "linear-gradient(to right, #D4AF37, #FFF, #F3E5AB, #D4AF37)", 
+             WebkitBackgroundClip: "text", 
+             WebkitTextFillColor: "transparent", 
+             letterSpacing:"6px", 
+             fontSize: "28px",
+             filter: "drop-shadow(0 2px 10px rgba(212,175,55,0.5))",
+             position:"relative", 
+             zIndex:2
+          }}>{code}</p>
        </div>
        <div style={{position:"absolute", inset:0, pointerEvents:"none", overflow:"hidden", borderRadius: 8, opacity: isRevealed ? 0 : 1, transition: "opacity 0.6s ease"}}>
           <div className="shimmer-effect"></div>
