@@ -7581,7 +7581,7 @@ function ScratchCard({ code, onReveal }) {
     const startDrawing = (e) => {
       isDrawing = true;
       lastPos = getMousePos(e);
-      scratch(e);
+      // Removed scratch(e) so a single click doesn't immediately scratch a big circle
     };
 
     const stopDrawing = () => {
@@ -7592,8 +7592,14 @@ function ScratchCard({ code, onReveal }) {
     };
 
     const scratch = (e) => {
-      if (!isDrawing) return;
+      if (!isDrawing || !lastPos) return;
       const currentPos = getMousePos(e);
+      
+      // Prevent tiny micro-movements from counting as a scratch
+      const dx = currentPos.x - lastPos.x;
+      const dy = currentPos.y - lastPos.y;
+      if (dx * dx + dy * dy < 4) return; // Must move at least 2 pixels
+
       ctx.globalCompositeOperation = "destination-out";
       
       // Continuous smooth stroke scratching
@@ -7606,15 +7612,9 @@ function ScratchCard({ code, onReveal }) {
       ctx.shadowColor = "rgba(0,0,0,1)";
 
       ctx.beginPath();
-      if (lastPos) {
-        ctx.moveTo(lastPos.x, lastPos.y);
-        ctx.lineTo(currentPos.x, currentPos.y);
-        ctx.stroke();
-      } else {
-        ctx.moveTo(currentPos.x, currentPos.y);
-        ctx.lineTo(currentPos.x + 1, currentPos.y + 1);
-        ctx.stroke();
-      }
+      ctx.moveTo(lastPos.x, lastPos.y);
+      ctx.lineTo(currentPos.x, currentPos.y);
+      ctx.stroke();
       
       lastPos = currentPos;
     };
@@ -7628,7 +7628,8 @@ function ScratchCard({ code, onReveal }) {
         if (pixels[i] === 0) transparentCount++;
       }
       const percent = transparentCount / (pixels.length / 4);
-      if (percent > 0.45) {
+      // Increased threshold so they have to scratch at least 60% of the card
+      if (percent > 0.60) {
         setIsRevealed(true);
         if(onReveal) onReveal();
       }
