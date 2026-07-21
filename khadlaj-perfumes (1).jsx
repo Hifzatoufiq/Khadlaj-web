@@ -7223,7 +7223,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
             {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Contact","contact"]].map(([label,pg])=>{
               let isActive = false;
               if (page === pg) {
-                if (pg === "collections" || pg === "home") {
+                if (pg === "collections") {
                   isActive = false;
                 } else {
                   isActive = true;
@@ -7259,7 +7259,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
             {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Sign Up","signup"],["Contact","contact"]].map(([label,pg])=>{
               let isActive = false;
               if (page === pg) {
-                if (pg === "collections" || pg === "home") {
+                if (pg === "collections") {
                   isActive = false;
                 } else {
                   isActive = true;
