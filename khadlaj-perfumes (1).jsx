@@ -7792,7 +7792,7 @@ export default function App(){
   };
 
   useEffect(()=>{
-    const t = setTimeout(()=>setShowPopup(true), 6000);
+    // Custom popup disabled in favor of Common Ninja widget
     return ()=>clearTimeout(t);
   },[]);
 
@@ -8044,6 +8044,7 @@ export default function App(){
         </div>
       )}
     </div>
+      <div className="commonninja_component pid-950790ec-bd4f-4717-bad5-d98af52e309f"></div>
     </CountryContext.Provider>
   );
 }
