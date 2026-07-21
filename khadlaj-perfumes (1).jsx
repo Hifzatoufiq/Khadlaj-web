@@ -7505,33 +7505,55 @@ function ScratchCard({ code, onReveal }) {
     const width = canvas.width;
     const height = canvas.height;
 
-    // Fill with a radial luxury gold gradient
-    const cx = width / 2;
-    const cy = height / 2;
-    const gradient = ctx.createRadialGradient(cx, cy, 0, cx, cy, width * 0.8);
-    gradient.addColorStop(0, "#EAC682");
-    gradient.addColorStop(1, "#9F7928");
+    // Fill with a realistic silver foil texture
+    const gradient = ctx.createLinearGradient(0, 0, width, height);
+    gradient.addColorStop(0, "#c4c4c4");
+    gradient.addColorStop(0.3, "#e6e6e6");
+    gradient.addColorStop(0.7, "#9c9c9c");
+    gradient.addColorStop(1, "#c4c4c4");
     
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, width, height);
 
-    // Add an elegant inner border
-    ctx.strokeStyle = "rgba(255,255,255,0.4)";
-    ctx.lineWidth = 1.5;
-    ctx.setLineDash([4, 4]);
-    ctx.strokeRect(6, 6, width - 12, height - 12);
+    // Add noise to simulate metallic foil grain
+    const imgData = ctx.getImageData(0, 0, width, height);
+    const data = imgData.data;
+    for (let i = 0; i < data.length; i += 4) {
+      const noise = Math.random() * 40 - 20;
+      data[i] += noise;
+      data[i + 1] += noise;
+      data[i + 2] += noise;
+    }
+    ctx.putImageData(imgData, 0, 0);
 
-    // Add text with drop shadow
-    ctx.shadowColor = "rgba(0,0,0,0.3)";
-    ctx.shadowBlur = 6;
-    ctx.shadowOffsetY = 2;
-    ctx.fillStyle = "#fff";
-    ctx.font = "600 15px 'Montserrat', sans-serif";
+    // Draw scratch card wavy security pattern
+    ctx.strokeStyle = "rgba(0, 0, 0, 0.08)";
+    ctx.lineWidth = 1.5;
+    for(let y = 0; y < height; y += 8) {
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      for(let x = 0; x < width; x += 20) {
+         ctx.quadraticCurveTo(x + 10, y + 4, x + 20, y);
+      }
+      ctx.stroke();
+    }
+
+    // Add text with embossed look
+    ctx.font = "800 17px 'Montserrat', sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    // Canvas API doesn't support letterSpacing directly in all browsers, so we'll just draw text
+    
+    // Highlight (bottom right)
+    ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
+    ctx.fillText("SCRATCH TO REVEAL", width/2 + 1, height/2 + 1);
+    
+    // Shadow (top left)
+    ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
+    ctx.fillText("SCRATCH TO REVEAL", width/2 - 1, height/2 - 1);
+    
+    // Main text
+    ctx.fillStyle = "#707070";
     ctx.fillText("SCRATCH TO REVEAL", width/2, height/2);
-    ctx.shadowColor = "transparent"; // reset
 
     let isDrawing = false;
 
