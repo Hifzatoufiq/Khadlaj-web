@@ -7505,55 +7505,59 @@ function ScratchCard({ code, onReveal }) {
     const width = canvas.width;
     const height = canvas.height;
 
-    // Fill with a realistic silver foil texture
+    // Fill with a realistic luxury GOLD foil texture
     const gradient = ctx.createLinearGradient(0, 0, width, height);
-    gradient.addColorStop(0, "#c4c4c4");
-    gradient.addColorStop(0.3, "#e6e6e6");
-    gradient.addColorStop(0.7, "#9c9c9c");
-    gradient.addColorStop(1, "#c4c4c4");
+    gradient.addColorStop(0, "#855C0B");
+    gradient.addColorStop(0.2, "#D4AF37");
+    gradient.addColorStop(0.5, "#F3E5AB");
+    gradient.addColorStop(0.8, "#D4AF37");
+    gradient.addColorStop(1, "#855C0B");
     
     ctx.fillStyle = gradient;
     ctx.fillRect(0, 0, width, height);
 
-    // Add noise to simulate metallic foil grain
+    // Add noise to simulate metallic gold foil grain
     const imgData = ctx.getImageData(0, 0, width, height);
     const data = imgData.data;
     for (let i = 0; i < data.length; i += 4) {
-      const noise = Math.random() * 40 - 20;
-      data[i] += noise;
-      data[i + 1] += noise;
-      data[i + 2] += noise;
+      const noise = Math.random() * 30 - 15;
+      data[i] += noise;     // R
+      data[i + 1] += noise; // G
+      data[i + 2] += noise; // B
     }
     ctx.putImageData(imgData, 0, 0);
 
-    // Draw scratch card wavy security pattern
-    ctx.strokeStyle = "rgba(0, 0, 0, 0.08)";
-    ctx.lineWidth = 1.5;
-    for(let y = 0; y < height; y += 8) {
+    // Draw luxury geometric diamond pattern
+    ctx.strokeStyle = "rgba(133, 92, 11, 0.25)";
+    ctx.lineWidth = 1;
+    for(let y = -20; y < height + 20; y += 16) {
       ctx.beginPath();
-      ctx.moveTo(0, y);
-      for(let x = 0; x < width; x += 20) {
-         ctx.quadraticCurveTo(x + 10, y + 4, x + 20, y);
+      for(let x = -20; x < width + 20; x += 16) {
+         ctx.moveTo(x, y + 8);
+         ctx.lineTo(x + 8, y);
+         ctx.lineTo(x + 16, y + 8);
+         ctx.lineTo(x + 8, y + 16);
+         ctx.closePath();
       }
       ctx.stroke();
     }
 
     // Add text with embossed look
-    ctx.font = "800 17px 'Montserrat', sans-serif";
+    ctx.font = "800 15px 'Montserrat', sans-serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     
     // Highlight (bottom right)
-    ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
-    ctx.fillText("SCRATCH TO REVEAL", width/2 + 1, height/2 + 1);
+    ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
+    ctx.fillText("REVEAL VIP PRIVILEGE", width/2 + 1, height/2 + 1);
     
     // Shadow (top left)
-    ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
-    ctx.fillText("SCRATCH TO REVEAL", width/2 - 1, height/2 - 1);
+    ctx.fillStyle = "rgba(80, 50, 0, 0.6)";
+    ctx.fillText("REVEAL VIP PRIVILEGE", width/2 - 1, height/2 - 1);
     
     // Main text
-    ctx.fillStyle = "#707070";
-    ctx.fillText("SCRATCH TO REVEAL", width/2, height/2);
+    ctx.fillStyle = "#855C0B";
+    ctx.fillText("REVEAL VIP PRIVILEGE", width/2, height/2);
 
     let isDrawing = false;
 
@@ -7627,9 +7631,9 @@ function ScratchCard({ code, onReveal }) {
   }, [isRevealed, onReveal]);
 
   return (
-    <div className="scratch-hover" style={{position:"relative", width: "100%", maxWidth: 320, height: 100, margin:"0 auto", borderRadius: 4, overflow:"hidden", border:"2px solid #D4AF37", background:"#2a0a38", boxShadow:"inset 0 4px 10px rgba(0,0,0,0.4), 0 8px 24px rgba(184,146,42,0.15)"}}>
+    <div className="scratch-hover" style={{position:"relative", width: "100%", maxWidth: 320, height: 100, margin:"0 auto", borderRadius: 8, overflow:"hidden", border:"2px solid #F3E5AB", background:"linear-gradient(135deg, #1a0822, #3a1548)", boxShadow:"0 0 25px rgba(212,175,55,0.4), inset 0 0 20px rgba(212,175,55,0.2)"}}>
        <div style={{position:"absolute", inset:0, display:"flex", alignItems:"center", justifyContent:"center"}}>
-          <p className="scratch-text" style={{fontWeight:700, color:"#D4AF37", margin:0, textShadow:"0 2px 10px rgba(212,175,55,0.3)"}}>{code}</p>
+          <p className="scratch-text" style={{fontWeight:800, color:"#F3E5AB", margin:0, textShadow:"0 0 15px rgba(212,175,55,0.8), 0 0 30px rgba(212,175,55,0.5)", letterSpacing:"6px"}}>{code}</p>
        </div>
        <div style={{position:"absolute", inset:0, pointerEvents:"none", overflow:"hidden", borderRadius: 8, opacity: isRevealed ? 0 : 1, transition: "opacity 0.6s ease"}}>
           <div className="shimmer-effect"></div>
