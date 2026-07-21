@@ -7209,7 +7209,9 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
               let isActive = false;
               if (page === pg) {
                 if (pg === "collections") {
-                  isActive = false;
+                  if (label === "Best Sellers") isActive = (collectionCategory === "Best Sellers");
+                  else if (label === "Perfume Spray") isActive = (collectionCategory === "EAU DE PARFUM");
+                  else if (label === "Perfume Oil") isActive = (collectionCategory === "Atyaab");
                 } else {
                   isActive = true;
                 }
@@ -7245,7 +7247,9 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
               let isActive = false;
               if (page === pg) {
                 if (pg === "collections") {
-                  isActive = false;
+                  if (label === "Best Sellers") isActive = (collectionCategory === "Best Sellers");
+                  else if (label === "Perfume Spray") isActive = (collectionCategory === "EAU DE PARFUM");
+                  else if (label === "Perfume Oil") isActive = (collectionCategory === "Atyaab");
                 } else {
                   isActive = true;
                 }
