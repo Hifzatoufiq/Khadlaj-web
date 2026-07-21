@@ -7221,7 +7221,11 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory }){
           </div>
           <div className="hide-mob" style={{display:"flex",justifyContent:"center",gap:40,paddingBottom:16,fontSize:"12px",letterSpacing:"1.5px",textTransform:"uppercase",color:"#251737",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>
             {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Contact","contact"]].map(([label,pg])=>{
-              const isActive = page===pg && !["Best Sellers","Perfume Spray","Perfume Oil","Home & Ambience"].includes(label);
+              const isActive = (pg === "collections") ? 
+                (label === "Best Sellers" && collectionCategory === "Best Sellers") ||
+                (label === "Perfume Spray" && collectionCategory === "EAU DE PARFUM") ||
+                (label === "Perfume Oil" && collectionCategory === "Atyaab") :
+                (page === pg);
               return (
                 <span key={label} onClick={() => {
                   if(label === "Best Sellers" || label === "Perfume Spray" || label === "Perfume Oil" || label === "Master Perfumery") {
@@ -7249,7 +7253,13 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory }){
             zIndex:200,
             boxShadow:"0 8px 32px rgba(0,0,0,.12)",
           }}>
-            {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Sign Up","signup"],["Contact","contact"]].map(([label,pg])=>(
+            {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Sign Up","signup"],["Contact","contact"]].map(([label,pg])=>{
+              const isActive = (pg === "collections") ? 
+                (label === "Best Sellers" && collectionCategory === "Best Sellers") ||
+                (label === "Perfume Spray" && collectionCategory === "EAU DE PARFUM") ||
+                (label === "Perfume Oil" && collectionCategory === "Atyaab") :
+                (page === pg);
+              return (
               <div
                 key={label}
                 className="mob-nav-link"
@@ -7267,16 +7277,18 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory }){
                   padding:"14px 6%",
                   fontSize:11,letterSpacing:2.5,
                   textTransform:"uppercase",
-                  color:"#251737",cursor:"pointer",
+                  color: isActive ? "#B8922A" : "#251737",
+                  fontWeight: isActive ? 700 : 500,
+                  cursor:"pointer",
                   fontFamily:"'Montserrat',sans-serif",
                   borderBottom:"1px solid #F0EBE3",
                   display:"flex",alignItems:"center",justifyContent:"space-between",
                 }}
               >
                 {label}
-                <span style={{color:"#B8922A",fontSize:12}}>→</span>
+                <span style={{color:isActive ? "#B8922A" : "rgba(37,23,55,0.4)",fontSize:12}}>→</span>
               </div>
-            ))}
+            )})}
             <div style={{padding:"14px 6% 0",display:"flex",gap:12,flexWrap:"wrap"}}>
               {[["Instagram",SOCIAL_LINKS.instagram],["TikTok",SOCIAL_LINKS.tiktok]].map(([s,href])=>(
                 <a key={s} href={href} target="_blank" rel="noreferrer"
