@@ -7115,8 +7115,25 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory }){
       {/* ── Sticky Header Wrapper ── */}
       <div style={{position:"sticky",top:0,zIndex:100}}>
         {/* ── Announcement bar ── */}
-        <div style={{background:"#251737",color:"#fff",textAlign:"center",padding:"14px 16px",fontSize:"12px",letterSpacing:"4px",fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",fontWeight:500}}>
-          USE "KHADLAJ25" FOR FLAT 25% DISCOUNT
+        <div style={{
+          background: "linear-gradient(90deg, #100a18, #251737, #100a18)",
+          color: "#E8E4DC",
+          textAlign: "center",
+          padding: "10px 16px",
+          fontSize: "10.5px",
+          letterSpacing: "4px",
+          fontFamily: "'Montserrat', sans-serif",
+          textTransform: "uppercase",
+          fontWeight: 500,
+          borderBottom: "1px solid rgba(184, 146, 42, 0.4)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "12px"
+        }}>
+          <span style={{color: "#B8922A", fontSize: "14px"}}>✦</span>
+          <span>COMPLIMENTARY SHIPPING ON ORDERS OVER 300 AED | USE <strong style={{color:"#B8922A", fontWeight:600}}>"KHADLAJ25"</strong> FOR 25% OFF</span>
+          <span style={{color: "#B8922A", fontSize: "14px"}}>✦</span>
         </div>
 
         {/* ── Main nav ── */}
@@ -7216,7 +7233,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory }){
           <div className="hide-mob" style={{display:"flex",justifyContent:"center",gap:40,paddingBottom:16,fontSize:"12px",letterSpacing:"1.5px",textTransform:"uppercase",color:"#251737",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>
             {[
               {label: "Best Sellers", pg: "collections", filter: "Best Sellers"},
-              {label: "Master Perfumery", pg: "collections", filter: "Master Perfumery", badge: "VIP"},
+              {label: "Master Perfumery", pg: "collections", filter: "Master Perfumery"},
               {label: "Eaux De Parfum", pg: "collections", filter: "EAU DE PARFUM"},
               {label: "Precious Oils", pg: "collections", filter: "Atyaab"},
               {label: "Home & Ambience", pg: "home"},
@@ -7256,7 +7273,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory }){
           }}>
             {[
               {label: "Best Sellers", pg: "collections", filter: "Best Sellers"},
-              {label: "Master Perfumery", pg: "collections", filter: "Master Perfumery", badge: "VIP"},
+              {label: "Master Perfumery", pg: "collections", filter: "Master Perfumery"},
               {label: "Eaux De Parfum", pg: "collections", filter: "EAU DE PARFUM"},
               {label: "Precious Oils", pg: "collections", filter: "Atyaab"},
               {label: "Home & Ambience", pg: "home"},
