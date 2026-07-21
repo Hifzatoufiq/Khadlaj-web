@@ -4497,7 +4497,7 @@ const GLOBAL_CSS = `
   @import url('https://fonts.cdnfonts.com/css/trajan-pro');
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
-  body{background:#fff;color:#000;font-family:'Montserrat',sans-serif;overflow-x:hidden;}
+  body{background:#fff;color:#000;font-family:'Montserrat',sans-serif;overflow-x:clip;}
   ::-webkit-scrollbar{width:3px;}
   ::-webkit-scrollbar-track{background:#fff;}
   ::-webkit-scrollbar-thumb{background:#000;}
