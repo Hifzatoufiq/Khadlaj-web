@@ -7604,7 +7604,7 @@ function ScratchCard({ code, onReveal }) {
       ctx.globalCompositeOperation = "destination-out";
       ctx.lineJoin = "round";
       ctx.lineCap = "round";
-      ctx.lineWidth = 42;
+      ctx.lineWidth = 60; // Thicker brush for faster clearing
       ctx.shadowBlur = 4;
       ctx.shadowColor = "rgba(0,0,0,1)";
 
@@ -7627,10 +7627,12 @@ function ScratchCard({ code, onReveal }) {
       const pixels = imageData.data;
       let transparentCount = 0;
       for (let i = 3; i < pixels.length; i += 4) {
-        if (pixels[i] === 0) transparentCount++;
+        // Count partially transparent pixels as well since shadowBlur creates semi-transparent edges
+        if (pixels[i] < 128) transparentCount++;
       }
       const percent = transparentCount / (pixels.length / 4);
-      if (percent > 0.40) {
+      // Lowered threshold to 30% for a very fast reveal
+      if (percent > 0.30) {
         setIsRevealed(true);
         if(onReveal) onReveal();
       }
