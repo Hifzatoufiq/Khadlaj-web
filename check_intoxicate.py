@@ -1,0 +1,33 @@
+import urllib.request
+from PIL import Image
+from io import BytesIO
+import numpy as np
+
+urls = [
+    'https://cdn.shopify.com/s/files/1/0626/6119/8023/files/1_d331f9af-ebe5-4823-bdf4-42b99508b851.jpg?v=1724332648',
+    'https://cdn.shopify.com/s/files/1/0626/6119/8023/files/3_55be8249-3248-4936-b049-844c95abe87e.jpg?v=1724332903',
+    'https://cdn.shopify.com/s/files/1/0626/6119/8023/files/5_c4a13b95-26a4-4cc9-88a2-95f2bc49601a.jpg?v=1724333212'
+]
+
+for url in urls:
+    try:
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        response = urllib.request.urlopen(req)
+        pil_img = Image.open(BytesIO(response.read())).convert('RGB')
+        arr = np.array(pil_img)
+        diff = np.max(255 - arr, axis=2)
+        mask = diff > 15
+        
+        row_sums = np.sum(mask, axis=1)
+        col_sums = np.sum(mask, axis=0)
+        
+        non_zero_rows = np.where(row_sums > 5)[0]
+        non_zero_cols = np.where(col_sums > 5)[0]
+        
+        if len(non_zero_rows) > 0 and len(non_zero_cols) > 0:
+            h = non_zero_rows[-1] - non_zero_rows[0]
+            w = non_zero_cols[-1] - non_zero_cols[0]
+            aspect = w / h if h > 0 else 100.0
+            print(f"URL: {url}, Aspect: {aspect:.2f}")
+    except Exception as e:
+        print("Error:", e)
