@@ -7220,15 +7220,11 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
             </div>
           </div>
           <div className="hide-mob" style={{display:"flex",justifyContent:"center",gap:40,paddingBottom:16,fontSize:"12px",letterSpacing:"1.5px",textTransform:"uppercase",color:"#251737",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>
-            {[["Home","home"],["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Contact","contact"]].map(([label,pg])=>{
+            {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Contact","contact"]].map(([label,pg])=>{
               let isActive = false;
               if (page === pg) {
-                if (pg === "collections") {
-                  if (label === "Best Sellers") isActive = (collectionCategory === "Best Sellers");
-                  else if (label === "Perfume Spray") isActive = (collectionCategory === "EAU DE PARFUM");
-                  else if (label === "Perfume Oil") isActive = (collectionCategory === "Atyaab");
-                } else if (pg === "home") {
-                  isActive = (label === "Home");
+                if (pg === "collections" || pg === "home") {
+                  isActive = false;
                 } else {
                   isActive = true;
                 }
@@ -7260,15 +7256,11 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
             zIndex:200,
             boxShadow:"0 8px 32px rgba(0,0,0,.12)",
           }}>
-            {[["Home","home"],["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Sign Up","signup"],["Contact","contact"]].map(([label,pg])=>{
+            {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Sign Up","signup"],["Contact","contact"]].map(([label,pg])=>{
               let isActive = false;
               if (page === pg) {
-                if (pg === "collections") {
-                  if (label === "Best Sellers") isActive = (collectionCategory === "Best Sellers");
-                  else if (label === "Perfume Spray") isActive = (collectionCategory === "EAU DE PARFUM");
-                  else if (label === "Perfume Oil") isActive = (collectionCategory === "Atyaab");
-                } else if (pg === "home") {
-                  isActive = (label === "Home");
+                if (pg === "collections" || pg === "home") {
+                  isActive = false;
                 } else {
                   isActive = true;
                 }
