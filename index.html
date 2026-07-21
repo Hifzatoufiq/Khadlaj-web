@@ -23,30 +23,52 @@
       #preloader {
         position: fixed;
         top: 0; left: 0; width: 100vw; height: 100vh;
-        background: #fff;
+        background: #ffffff;
         z-index: 999999;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+        transition: transform 0.9s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
       }
       #preloader.loaded {
+        transform: translateY(-100%);
         opacity: 0;
-        visibility: hidden;
+        pointer-events: none;
       }
-      #preloader img {
+      .vip-logo {
         width: 220px;
-        animation: pulse 1.2s infinite alternate;
+        animation: vipPulse 2.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        margin-bottom: 30px;
       }
-      @keyframes pulse {
-        0% { transform: scale(0.95); opacity: 0.7; }
-        100% { transform: scale(1.05); opacity: 1; }
+      .vip-loader-bar {
+        width: 160px;
+        height: 1px;
+        background: rgba(184, 146, 42, 0.2);
+        position: relative;
+        overflow: hidden;
+      }
+      .vip-loader-bar::after {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; height: 100%; width: 40%;
+        background: #B8922A;
+        animation: vipProgress 1.6s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+      }
+      @keyframes vipPulse {
+        0%, 100% { transform: scale(1); opacity: 0.85; }
+        50% { transform: scale(1.03); opacity: 1; filter: drop-shadow(0 4px 15px rgba(184,146,42,0.15)); }
+      }
+      @keyframes vipProgress {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(300%); }
       }
     </style>
   </head>
   <body>
     <div id="preloader">
-      <img src="/assets/images/khadlaj-logo.png" alt="Khadlaj Logo Loading..." />
+      <img src="/assets/images/khadlaj-logo.png" alt="Khadlaj Logo" class="vip-logo" />
+      <div class="vip-loader-bar"></div>
     </div>
     <div id="root"></div>
     <script>
@@ -57,6 +79,6 @@
         document.body.innerHTML = '<div style="font-family:monospace;padding:40px;color:red;background:#fff;white-space:pre-wrap;"><h2>Unhandled Promise Rejection</h2>' + String(e.reason) + '</div>';
       });
     </script>
-    <script src="./bundle-v77.js"></script>
+    <script src="./bundle-v78.js"></script>
   </body>
 </html>
