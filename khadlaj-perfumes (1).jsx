@@ -397,21 +397,6 @@ const PRODUCTS = [
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka_Shadow-3_bef3b7fa-b2c9-4ec5-adcc-0b3f9ac42034.jpg?v=1783941783"
   },
   {
-    "id": 8525961003207,
-    "name": "KHADLAJ NAFAIS MAGRIB",
-    "col": "Eau De Parfum",
-    "price": 110,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "/assets/images/products/nafais_gift_set_nobox.jpg"
-  },
-  {
     "id": 8526040367303,
     "name": "OUD PURE OUD BARAKAT",
     "col": "Master Perfumery",
