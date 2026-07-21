@@ -7630,8 +7630,7 @@ function ScratchCard({ code, onReveal }) {
         if (pixels[i] === 0) transparentCount++;
       }
       const percent = transparentCount / (pixels.length / 4);
-      // Increased threshold so they have to scratch at least 60% of the card
-      if (percent > 0.60) {
+      if (percent > 0.40) {
         setIsRevealed(true);
         if(onReveal) onReveal();
       }
