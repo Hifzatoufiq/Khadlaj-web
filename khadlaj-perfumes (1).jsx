@@ -64,23 +64,7 @@ const PRODUCTS = [
     "gender": "Unisex",
     "notes": ["Oud", "Woody", "Amber"],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Jumeirah-3.jpg?v=1783940923"
-  },
-  {
-    "id": "8711671578823",
-    "name": "KHADLAJ PERFUMES NAFAIS SHARQ GIFT SET FOR WOMEN",
-    "price": 150.0,
-    "size": "Gift Set",
-    "badge": "",
-    "col": "Gift Sets",
-    "gender": "Her",
-    "topNotes": [],
-    "midNotes": [],
-    "baseNotes": [],
-    "notes": ["Oud", "Musk", "Amber"],
-    "img": "/assets/images/gifsets/nafais_sharq_nobox.png",
-    "detailImages": ["/assets/images/gifsets/nafais_sharq_nobox.png"]
-  },
-  {
+  },{
     "id": "8711666925767",
     "name": "CREAM VELVET GIFT SET",
     "price": 160.0,
@@ -636,23 +620,7 @@ const PRODUCTS = [
       "Amber"
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka_Shadow-3.jpg?v=1783943040"
-  },
-  {
-    "id": 8409289228487,
-    "name": "KHADLAJ NAFAIS SHARQ",
-    "col": "Eau De Parfum",
-    "price": 110,
-    "size": "100ml EDP",
-    "badge": "For Her",
-    "gender": "Her",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "/assets/images/products/nafais_gift_set_nobox.jpg"
-  },
-  {
+  },{
     "id": 8398776959175,
     "name": "BISCOTTI DATE TOFFEE",
     "col": "Extrait De Parfum",
@@ -5434,11 +5402,9 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           <div className="gift-slider-track">
             {[
               { name: "Cloud Candy", desc: "A soft peach-pink gift set", price: 169, img: "/assets/images/gifsets/cloudcandy_gift_transparent.png" },
-              { name: "Nafais Sharq", desc: "Rich florals and warm woods", price: 150, img: "/assets/images/gifsets/nafais_gift_transparent.png" },
               { name: "Island", desc: "The signature Island scent", price: 179, img: "/assets/images/gifsets/island_gift_transparent.png" },
               { name: "Cream Velvet", desc: "Buttery caramel and vanilla", price: 160, img: "/assets/images/gifsets/creamvelvet_gift_user.png" },
               { name: "Cloud Candy", desc: "A soft peach-pink gift set", price: 169, img: "/assets/images/gifsets/cloudcandy_gift_transparent.png" },
-              { name: "Nafais Sharq", desc: "Rich florals and warm woods", price: 150, img: "/assets/images/gifsets/nafais_gift_transparent.png" },
               { name: "Island", desc: "The signature Island scent", price: 179, img: "/assets/images/gifsets/island_gift_transparent.png" },
               { name: "Cream Velvet", desc: "Buttery caramel and vanilla", price: 160, img: "/assets/images/gifsets/creamvelvet_gift_user.png" }
             ].map((gift, idx) => (
