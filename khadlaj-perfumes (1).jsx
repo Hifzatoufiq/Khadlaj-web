@@ -7792,7 +7792,7 @@ export default function App(){
   };
 
   useEffect(()=>{
-    // Custom popup disabled in favor of Common Ninja widget
+    const t = setTimeout(()=>setShowPopup(true), 6000);
     return ()=>clearTimeout(t);
   },[]);
 
