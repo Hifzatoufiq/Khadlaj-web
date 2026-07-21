@@ -7220,12 +7220,12 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory }){
             </div>
           </div>
           <div className="hide-mob" style={{display:"flex",justifyContent:"center",gap:40,paddingBottom:16,fontSize:"12px",letterSpacing:"1.5px",textTransform:"uppercase",color:"#251737",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>
-            {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Contact","contact"]].map(([label,pg])=>{
+            {[["Home","home"],["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Contact","contact"]].map(([label,pg])=>{
               const isActive = (pg === "collections") ? 
                 (label === "Best Sellers" && collectionCategory === "Best Sellers") ||
                 (label === "Perfume Spray" && collectionCategory === "EAU DE PARFUM") ||
                 (label === "Perfume Oil" && collectionCategory === "Atyaab") :
-                (page === pg);
+                (pg === "home" ? (label === "Home" && page === "home") : page === pg);
               return (
                 <span key={label} onClick={() => {
                   if(label === "Best Sellers" || label === "Perfume Spray" || label === "Perfume Oil" || label === "Master Perfumery") {
@@ -7253,12 +7253,12 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory }){
             zIndex:200,
             boxShadow:"0 8px 32px rgba(0,0,0,.12)",
           }}>
-            {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Sign Up","signup"],["Contact","contact"]].map(([label,pg])=>{
+            {[["Home","home"],["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Sign Up","signup"],["Contact","contact"]].map(([label,pg])=>{
               const isActive = (pg === "collections") ? 
                 (label === "Best Sellers" && collectionCategory === "Best Sellers") ||
                 (label === "Perfume Spray" && collectionCategory === "EAU DE PARFUM") ||
                 (label === "Perfume Oil" && collectionCategory === "Atyaab") :
-                (page === pg);
+                (pg === "home" ? (label === "Home" && page === "home") : page === pg);
               return (
               <div
                 key={label}
