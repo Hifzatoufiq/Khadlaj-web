@@ -9,3 +9,14 @@ if (!rootEl) {
 }
 
 createRoot(rootEl).render(<App />);
+
+// Hide preloader after a short delay
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+      preloader.classList.add('loaded');
+      setTimeout(() => preloader.remove(), 600); // remove from DOM after fade out
+    }
+  }, 250);
+});
