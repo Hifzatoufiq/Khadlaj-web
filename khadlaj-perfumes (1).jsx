@@ -7214,19 +7214,30 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory }){
             </div>
           </div>
           <div className="hide-mob" style={{display:"flex",justifyContent:"center",gap:40,paddingBottom:16,fontSize:"12px",letterSpacing:"1.5px",textTransform:"uppercase",color:"#251737",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>
-            {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Contact","contact"]].map(([label,pg])=>{
-              const isActive = page===pg && !["Best Sellers","Perfume Spray","Perfume Oil","Home & Ambience"].includes(label);
+            {[
+              {label: "Best Sellers", pg: "collections", filter: "Best Sellers"},
+              {label: "Master Perfumery", pg: "collections", filter: "Master Perfumery", badge: "VIP"},
+              {label: "Eaux De Parfum", pg: "collections", filter: "EAU DE PARFUM"},
+              {label: "Precious Oils", pg: "collections", filter: "Atyaab"},
+              {label: "Home & Ambience", pg: "home"},
+              {label: "La Fede", pg: "lafede"},
+              {label: "Gifting", pg: "gifts"},
+              {label: "Heritage", pg: "story"},
+              {label: "Concierge", pg: "contact"}
+            ].map(({label, pg, filter, badge}) => {
+              const isActive = page===pg && !["Best Sellers","Master Perfumery","EAU DE PARFUM","Atyaab"].includes(filter);
               return (
                 <span key={label} onClick={() => {
-                  if(label === "Best Sellers" || label === "Perfume Spray" || label === "Perfume Oil" || label === "Master Perfumery") {
-                    setCollectionCategory(label === "Perfume Spray" ? "EAU DE PARFUM" : label === "Perfume Oil" ? "Atyaab" : label);
-                  } else if (pg === "collections") {
-                    setCollectionCategory("Khadlaj");
+                  if(filter) {
+                    setCollectionCategory(filter);
+                    setPage("collections");
+                  } else {
+                    setPage(pg);
                   }
-                  setPage(pg);
                   window.scrollTo(0,0);
-                }} className={`nav-link ${isActive ? 'active' : ''}`}>
+                }} className={`nav-link ${isActive ? 'active' : ''}`} style={{position:"relative"}}>
                   {label}
+                  {badge && <span style={{position:"absolute", top:"-10px", right:"-18px", background:"#B8922A", color:"#fff", fontSize:"7px", padding:"2px 5px", borderRadius:"2px", letterSpacing:"1px", animation:"pulse 2s infinite"}}>{badge}</span>}
                 </span>
               );
             })}
@@ -7243,17 +7254,28 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory }){
             zIndex:200,
             boxShadow:"0 8px 32px rgba(0,0,0,.12)",
           }}>
-            {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Sign Up","signup"],["Contact","contact"]].map(([label,pg])=>(
+            {[
+              {label: "Best Sellers", pg: "collections", filter: "Best Sellers"},
+              {label: "Master Perfumery", pg: "collections", filter: "Master Perfumery", badge: "VIP"},
+              {label: "Eaux De Parfum", pg: "collections", filter: "EAU DE PARFUM"},
+              {label: "Precious Oils", pg: "collections", filter: "Atyaab"},
+              {label: "Home & Ambience", pg: "home"},
+              {label: "Gifting", pg: "gifts"},
+              {label: "La Fede", pg: "lafede"},
+              {label: "Heritage", pg: "story"},
+              {label: "VIP Circle", pg: "signup"},
+              {label: "Concierge", pg: "contact"}
+            ].map(({label, pg, filter, badge}) => (
               <div
                 key={label}
                 className="mob-nav-link"
                 onClick={()=>{
-                  if(label === "Best Sellers" || label === "Perfume Spray" || label === "Perfume Oil" || label === "Master Perfumery") {
-                    setCollectionCategory(label === "Perfume Spray" ? "EAU DE PARFUM" : label === "Perfume Oil" ? "Atyaab" : label);
-                  } else if (pg === "collections") {
-                    setCollectionCategory("Khadlaj");
+                  if(filter) {
+                    setCollectionCategory(filter);
+                    setPage("collections");
+                  } else {
+                    setPage(pg);
                   }
-                  setPage(pg);
                   setMobileMenuOpen(false);
                   window.scrollTo(0,0);
                 }}
@@ -7267,7 +7289,10 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory }){
                   display:"flex",alignItems:"center",justifyContent:"space-between",
                 }}
               >
-                {label}
+                <div>
+                  {label}
+                  {badge && <span style={{marginLeft: 8, background:"#B8922A", color:"#fff", fontSize:"8px", padding:"2px 6px", borderRadius:"2px", letterSpacing:"1px", verticalAlign:"middle"}}>{badge}</span>}
+                </div>
                 <span style={{color:"#B8922A",fontSize:12}}>→</span>
               </div>
             ))}
