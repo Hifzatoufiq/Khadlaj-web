@@ -7581,7 +7581,7 @@ function ScratchCard({ code, onReveal }) {
     const startDrawing = (e) => {
       isDrawing = true;
       lastPos = getMousePos(e);
-      // Removed scratch(e) so a single click doesn't immediately scratch a big circle
+      scratch(e, true);
     };
 
     const stopDrawing = () => {
@@ -7591,30 +7591,32 @@ function ScratchCard({ code, onReveal }) {
       checkReveal();
     };
 
-    const scratch = (e) => {
+    const scratch = (e, isInitialClick = false) => {
       if (!isDrawing || !lastPos) return;
       const currentPos = getMousePos(e);
       
-      // Prevent tiny micro-movements from counting as a scratch
-      const dx = currentPos.x - lastPos.x;
-      const dy = currentPos.y - lastPos.y;
-      if (dx * dx + dy * dy < 4) return; // Must move at least 2 pixels
+      if (!isInitialClick) {
+        const dx = currentPos.x - lastPos.x;
+        const dy = currentPos.y - lastPos.y;
+        if (dx * dx + dy * dy < 4) return;
+      }
 
       ctx.globalCompositeOperation = "destination-out";
-      
-      // Continuous smooth stroke scratching
       ctx.lineJoin = "round";
       ctx.lineCap = "round";
       ctx.lineWidth = 42;
-      
-      // Slight shadow to soften edges like foil flaking
       ctx.shadowBlur = 4;
       ctx.shadowColor = "rgba(0,0,0,1)";
 
       ctx.beginPath();
-      ctx.moveTo(lastPos.x, lastPos.y);
-      ctx.lineTo(currentPos.x, currentPos.y);
-      ctx.stroke();
+      if (isInitialClick) {
+        ctx.arc(currentPos.x, currentPos.y, 21, 0, Math.PI * 2);
+        ctx.fill();
+      } else {
+        ctx.moveTo(lastPos.x, lastPos.y);
+        ctx.lineTo(currentPos.x, currentPos.y);
+        ctx.stroke();
+      }
       
       lastPos = currentPos;
     };
