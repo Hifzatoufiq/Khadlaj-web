@@ -8044,7 +8044,6 @@ export default function App(){
         </div>
       )}
     </div>
-      <div className="commonninja_component pid-950790ec-bd4f-4717-bad5-d98af52e309f"></div>
     </CountryContext.Provider>
   );
 }
