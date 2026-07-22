@@ -7504,164 +7504,138 @@ function Footer({ setPage }){
 function ScratchCard({ code, onReveal }) {
   const canvasRef = React.useRef(null);
   const [isRevealed, setIsRevealed] = React.useState(false);
+  const [prizeValue, setPrizeValue] = React.useState(code || "KHADLAJ10");
 
   React.useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas || isRevealed) return;
-    const ctx = canvas.getContext("2d");
-    const width = canvas.width;
-    const height = canvas.height;
+    const canvasElement = canvasRef.current;
+    if (!canvasElement || isRevealed) return;
+    const canvasContext = canvasElement.getContext("2d");
+    const width = canvasElement.width;
+    const height = canvasElement.height;
+    let isDragging = false;
 
-    // Premium Luxury Gold Foil Background
-    const baseGradient = ctx.createLinearGradient(0, 0, width, height);
-    baseGradient.addColorStop(0, "#C59B27");
-    baseGradient.addColorStop(0.3, "#F3E5AB");
-    baseGradient.addColorStop(0.5, "#D4AF37");
-    baseGradient.addColorStop(0.7, "#FFF");
-    baseGradient.addColorStop(1, "#A67C00");
-    ctx.fillStyle = baseGradient;
-    ctx.fillRect(0, 0, width, height);
+    const initializeCanvas = () => {
+      // Premium Luxury Gold Foil Background
+      const baseGradient = canvasContext.createLinearGradient(0, 0, width, height);
+      baseGradient.addColorStop(0, "#C59B27");
+      baseGradient.addColorStop(0.3, "#F3E5AB");
+      baseGradient.addColorStop(0.5, "#D4AF37");
+      baseGradient.addColorStop(0.7, "#FFF");
+      baseGradient.addColorStop(1, "#A67C00");
+      canvasContext.fillStyle = baseGradient;
+      canvasContext.fillRect(0, 0, width, height);
 
-    // Subtle metallic wave/sheen
-    const sheen = ctx.createLinearGradient(0, height, width, 0);
-    sheen.addColorStop(0, "rgba(255,255,255,0)");
-    sheen.addColorStop(0.45, "rgba(255,255,255,0)");
-    sheen.addColorStop(0.5, "rgba(255,255,255,0.6)");
-    sheen.addColorStop(0.55, "rgba(255,255,255,0)");
-    sheen.addColorStop(1, "rgba(255,255,255,0)");
-    ctx.fillStyle = sheen;
-    ctx.fillRect(0, 0, width, height);
+      // Subtle metallic wave/sheen
+      const sheen = canvasContext.createLinearGradient(0, height, width, 0);
+      sheen.addColorStop(0, "rgba(255,255,255,0)");
+      sheen.addColorStop(0.45, "rgba(255,255,255,0)");
+      sheen.addColorStop(0.5, "rgba(255,255,255,0.6)");
+      sheen.addColorStop(0.55, "rgba(255,255,255,0)");
+      sheen.addColorStop(1, "rgba(255,255,255,0)");
+      canvasContext.fillStyle = sheen;
+      canvasContext.fillRect(0, 0, width, height);
 
-    // Elegant inner border
-    ctx.strokeStyle = "rgba(166, 124, 0, 0.4)";
-    ctx.lineWidth = 1;
-    ctx.strokeRect(6, 6, width - 12, height - 12);
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.4)";
-    ctx.strokeRect(7, 7, width - 14, height - 14);
+      // Elegant inner border
+      canvasContext.strokeStyle = "rgba(166, 124, 0, 0.4)";
+      canvasContext.lineWidth = 1;
+      canvasContext.strokeRect(6, 6, width - 12, height - 12);
+      canvasContext.strokeStyle = "rgba(255, 255, 255, 0.4)";
+      canvasContext.strokeRect(7, 7, width - 14, height - 14);
 
-    // Subtle repeating minimal pattern (dots instead of loud diamonds)
-    ctx.fillStyle = "rgba(166, 124, 0, 0.15)";
-    for(let y = 10; y < height - 10; y += 8) {
-      for(let x = 10; x < width - 10; x += 8) {
-         ctx.beginPath();
-         ctx.arc(x, y, 0.5, 0, 2*Math.PI);
-         ctx.fill();
-      }
-    }
+      // Professional Serif Text
+      canvasContext.font = "600 16px 'Cinzel', 'Trajan Pro', serif";
+      canvasContext.textAlign = "center";
+      canvasContext.textBaseline = "middle";
+      canvasContext.letterSpacing = "2px"; 
+      
+      // Main text
+      canvasContext.fillStyle = "#251737";
+      canvasContext.fillText("SCRATCH TO REVEAL", width/2, height/2);
+    };
 
-    // Professional Serif Text
-    ctx.font = "600 16px 'Cinzel', 'Trajan Pro', serif";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.letterSpacing = "2px"; 
-    
-    // Very subtle elegant drop shadow for text depth
-    ctx.fillStyle = "rgba(255,255,255,0.7)";
-    ctx.fillText("SCRATCH TO REVEAL", width/2, height/2 + 1);
-    
-    // Main text
-    ctx.fillStyle = "#251737";
-    ctx.fillText("SCRATCH TO REVEAL", width/2, height/2);
-    
-    ctx.letterSpacing = "0px";
+    const scratch = (x, y) => {
+      canvasContext.globalCompositeOperation = "destination-out";
+      canvasContext.beginPath();
+      // Using circle arcs like the tutorial for realistic bumpy scratch animation
+      canvasContext.arc(x, y, 20, 0, 2 * Math.PI);
+      canvasContext.fill();
+    };
 
-    let isDrawing = false;
-    let lastPos = null;
-
-    const getMousePos = (e) => {
-      const rect = canvas.getBoundingClientRect();
-      const clientX = e.touches && e.touches.length > 0 ? e.touches[0].clientX : (e.clientX || 0);
-      const clientY = e.touches && e.touches.length > 0 ? e.touches[0].clientY : (e.clientY || 0);
-      return {
-        x: (clientX - rect.left) * (canvas.width / rect.width),
-        y: (clientY - rect.top) * (canvas.height / rect.height)
+    const getMouseCoordinates = (event) => {
+      const rect = canvasElement.getBoundingClientRect();
+      const clientX = event.touches && event.touches.length > 0 ? event.touches[0].pageX : event.pageX;
+      const clientY = event.touches && event.touches.length > 0 ? event.touches[0].pageY : event.pageY;
+      
+      // Calculate taking into account potential page scrolling
+      const x = (clientX || 0) - (rect.left + window.scrollX);
+      const y = (clientY || 0) - (rect.top + window.scrollY);
+      
+      // Scale to canvas internal resolution
+      return { 
+        x: x * (canvasElement.width / rect.width), 
+        y: y * (canvasElement.height / rect.height) 
       };
-    };
-
-    const startDrawing = (e) => {
-      isDrawing = true;
-      lastPos = getMousePos(e);
-      scratch(e, true);
-    };
-
-    const stopDrawing = () => {
-      if (!isDrawing) return;
-      isDrawing = false;
-      lastPos = null;
-      checkReveal();
-    };
-
-    const scratch = (e, isInitialClick = false) => {
-      if (!isDrawing || !lastPos) return;
-      const currentPos = getMousePos(e);
-      
-      if (!isInitialClick) {
-        const dx = currentPos.x - lastPos.x;
-        const dy = currentPos.y - lastPos.y;
-        if (dx * dx + dy * dy < 4) return;
-      }
-
-      ctx.globalCompositeOperation = "destination-out";
-      ctx.lineJoin = "round";
-      ctx.lineCap = "round";
-      ctx.lineWidth = 60; // Thicker brush for faster clearing
-      ctx.shadowBlur = 4;
-      ctx.shadowColor = "rgba(0,0,0,1)";
-
-      ctx.beginPath();
-      if (isInitialClick) {
-        ctx.arc(currentPos.x, currentPos.y, 21, 0, Math.PI * 2);
-        ctx.fill();
-      } else {
-        ctx.moveTo(lastPos.x, lastPos.y);
-        ctx.lineTo(currentPos.x, currentPos.y);
-        ctx.stroke();
-      }
-      
-      lastPos = currentPos;
     };
 
     const checkReveal = () => {
       if(isRevealed) return;
-      const imageData = ctx.getImageData(0,0,width,height);
+      const imageData = canvasContext.getImageData(0,0,width,height);
       const pixels = imageData.data;
       let transparentCount = 0;
       for (let i = 3; i < pixels.length; i += 4) {
-        // Count partially transparent pixels as well since shadowBlur creates semi-transparent edges
         if (pixels[i] < 128) transparentCount++;
       }
       const percent = transparentCount / (pixels.length / 4);
-      // Lowered threshold to 30% for a very fast reveal
-      if (percent > 0.30) {
+      if (percent > 0.35) {
         setIsRevealed(true);
         if(onReveal) onReveal();
       }
     };
 
-    canvas.addEventListener("mousedown", startDrawing);
-    canvas.addEventListener("mousemove", scratch);
-    canvas.addEventListener("mouseup", stopDrawing);
-    canvas.addEventListener("mouseleave", stopDrawing);
-
-    const touchMove = (e) => {
-      if(e.cancelable) e.preventDefault();
-      scratch(e);
+    const handleMouseDown = (event) => {
+      isDragging = true;
+      const { x, y } = getMouseCoordinates(event);
+      scratch(x, y);
     };
 
-    canvas.addEventListener("touchstart", startDrawing, {passive:true});
-    canvas.addEventListener("touchmove", touchMove, {passive:false});
-    canvas.addEventListener("touchend", stopDrawing);
+    const handleMouseMove = (event) => {
+      if (isDragging) {
+        event.preventDefault();
+        const { x, y } = getMouseCoordinates(event);
+        scratch(x, y);
+      }
+    };
+
+    const handleMouseUp = () => {
+      if (isDragging) {
+        isDragging = false;
+        checkReveal();
+      }
+    };
+
+    const handleMouseLeave = () => {
+      if (isDragging) {
+        isDragging = false;
+        checkReveal();
+      }
+    };
+
+    const isTouchDevice = 'ontouchstart' in window;
+
+    canvasElement.addEventListener(isTouchDevice ? "touchstart" : "mousedown", handleMouseDown, { passive: !isTouchDevice });
+    canvasElement.addEventListener(isTouchDevice ? "touchmove" : "mousemove", handleMouseMove, { passive: false });
+    canvasElement.addEventListener(isTouchDevice ? "touchend" : "mouseup", handleMouseUp);
+    canvasElement.addEventListener("mouseleave", handleMouseLeave);
+
+    initializeCanvas();
 
     return () => {
-       canvas.removeEventListener("mousedown", startDrawing);
-       canvas.removeEventListener("mousemove", scratch);
-       canvas.removeEventListener("mouseup", stopDrawing);
-       canvas.removeEventListener("mouseleave", stopDrawing);
-       canvas.removeEventListener("touchstart", startDrawing);
-       canvas.removeEventListener("touchmove", touchMove);
-       canvas.removeEventListener("touchend", stopDrawing);
+      canvasElement.removeEventListener(isTouchDevice ? "touchstart" : "mousedown", handleMouseDown);
+      canvasElement.removeEventListener(isTouchDevice ? "touchmove" : "mousemove", handleMouseMove);
+      canvasElement.removeEventListener(isTouchDevice ? "touchend" : "mouseup", handleMouseUp);
+      canvasElement.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [isRevealed, onReveal]);
+  }, [isRevealed]); // Removed onReveal to prevent constant re-rendering and erasing the canvas!
 
   return (
     <div className="scratch-hover" style={{position:"relative", width: "100%", maxWidth: 320, height: 100, margin:"0 auto", borderRadius: 8, overflow:"hidden", border:"2px solid #F3E5AB", background:"#111", boxShadow:"0 0 25px rgba(212,175,55,0.4), inset 0 0 20px rgba(212,175,55,0.2)"}}>
@@ -7679,12 +7653,29 @@ function ScratchCard({ code, onReveal }) {
              filter: "drop-shadow(0 2px 10px rgba(212,175,55,0.5))",
              position:"relative", 
              zIndex:2
-          }}>{code}</p>
+          }}>{prizeValue}</p>
        </div>
        <div style={{position:"absolute", inset:0, pointerEvents:"none", overflow:"hidden", borderRadius: 8, opacity: isRevealed ? 0 : 1, transition: "opacity 0.6s ease", zIndex:10}}>
           <div className="shimmer-effect"></div>
        </div>
-       <canvas ref={canvasRef} width={320} height={100} style={{position:"absolute", inset:0, cursor:"pointer", width:"100%", height:"100%", opacity: isRevealed ? 0 : 1, transition: "opacity 0.6s ease", pointerEvents: isRevealed ? "none" : "auto", zIndex:10}} />
+       <canvas 
+          ref={canvasRef} 
+          width={320} 
+          height={100} 
+          style={{
+             position:"absolute", inset:0, 
+             cursor: 'url("https://media.geeksforgeeks.org/wp-content/uploads/20231030101751/bx-eraser-icon.png"), auto', 
+             width:"100%", height:"100%", 
+             opacity: isRevealed ? 0 : 1, 
+             transition: "opacity 0.6s ease", 
+             pointerEvents: isRevealed ? "none" : "auto", 
+             zIndex:10,
+             WebkitUserSelect: "none",
+             userSelect: "none",
+             WebkitTouchCallout: "none",
+             WebkitTapHighlightColor: "transparent"
+          }} 
+       />
     </div>
   );
 }
