@@ -4857,7 +4857,7 @@ function ProductCard({ p, onView, onCart }){
     "Biscotti Melon Musk": 0.88,
     "Bleu Glacé": 0.62,
     "Saraya": 0.78,
-    "SPECIAL EDITION SHIYAAKA SNOW": 1.65,
+    "SPECIAL EDITION SHIYAAKA SNOW": 1.48,
     "PANACHE ANGEL DUST": 1.15,
     "KHADLAJ SARAYA": 1.08,
     "KHADLAJ QARAR": 1.08,
@@ -4872,6 +4872,8 @@ function ProductCard({ p, onView, onCart }){
     "Biscotti Melon Musk": 0.05,
     "Bleu Glacé": 0.02,
     "Saraya": 0.06,
+    "SPECIAL EDITION SHIYAAKA SNOW": -0.12,
+    "KHADLAJ SARAYA": 0.02
   }[p.name] || 0;
 
   return (
@@ -6031,12 +6033,12 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                 style={{width:"100%", aspectRatio:"1/1", display:"flex", alignItems:"center", justifyContent:"center", background:"#fff", borderRadius:"4px", overflow:"hidden"}}
                 onMouseEnter={e=>{
                   const img = e.currentTarget.querySelector('img');
-                  const sc = product.name === "SPECIAL EDITION SHIYAAKA SNOW" ? 1.65 : product.name === "PANACHE ANGEL DUST" ? 1.15 : 1;
+                  const sc = product.name === "SPECIAL EDITION SHIYAAKA SNOW" ? 1.48 : product.name === "PANACHE ANGEL DUST" ? 1.15 : 1;
                   if (img) img.style.transform = `scale(${sc * 1.05})`;
                 }}
                 onMouseLeave={e=>{
                   const img = e.currentTarget.querySelector('img');
-                  const sc = product.name === "SPECIAL EDITION SHIYAAKA SNOW" ? 1.65 : product.name === "PANACHE ANGEL DUST" ? 1.15 : 1;
+                  const sc = product.name === "SPECIAL EDITION SHIYAAKA SNOW" ? 1.48 : product.name === "PANACHE ANGEL DUST" ? 1.15 : 1;
                   if (img) img.style.transform = `scale(${sc})`;
                 }}
               >
@@ -6045,7 +6047,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                   alt={product.name}
                   style={{
                     width:"92%", height:"92%", objectFit:"contain", mixBlendMode:"normal", filter:"contrast(1.02) brightness(0.98)", transition:"transform .45s ease",
-                    transform: `scale(${product.name === "SPECIAL EDITION SHIYAAKA SNOW" ? 1.65 : product.name === "PANACHE ANGEL DUST" ? 1.15 : 1})`
+                    transform: `scale(${product.name === "SPECIAL EDITION SHIYAAKA SNOW" ? 1.48 : product.name === "PANACHE ANGEL DUST" ? 1.15 : 1})`
                   }}
                 />
               </div>
