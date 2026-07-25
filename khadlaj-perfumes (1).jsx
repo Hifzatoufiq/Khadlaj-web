@@ -4872,7 +4872,7 @@ function ProductCard({ p, onView, onCart }){
     "Biscotti Melon Musk": 0.05,
     "Bleu Glacé": 0.02,
     "Saraya": 0.06,
-    "SPECIAL EDITION SHIYAAKA SNOW": -0.12,
+    "SPECIAL EDITION SHIYAAKA SNOW": -0.24,
     "KHADLAJ SARAYA": 0.02
   }[p.name] || 0;
 
