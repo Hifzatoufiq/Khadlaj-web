@@ -4872,13 +4872,13 @@ function ProductCard({ p, onView, onCart }){
     "Biscotti Melon Musk": 0.05,
     "Bleu Glacé": 0.02,
     "Saraya": 0.06,
-    "SPECIAL EDITION SHIYAAKA SNOW": -0.24,
-    "ZAYAAN SILVER": -0.22,
-    "KHADLAJ ICON": -0.20,
-    "KHADLAJ QARAR": -0.16,
-    "KHADLAJ IHTHIRAAM": -0.16,
-    "PANACHE ANGEL DUST": -0.16,
-    "KHADLAJ SARAYA": 0.02
+    "SPECIAL EDITION SHIYAAKA SNOW": -0.06,
+    "ZAYAAN SILVER": 0.02,
+    "KHADLAJ ICON": 0,
+    "KHADLAJ QARAR": 0,
+    "KHADLAJ IHTHIRAAM": 0,
+    "PANACHE ANGEL DUST": 0,
+    "KHADLAJ SARAYA": 0.08
   }[p.name] || 0;
 
   return (
