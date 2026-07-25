@@ -5284,7 +5284,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       <section style={{padding:"84px 5% 96px", background:"linear-gradient(180deg, #fff 0%, #fcfaf7 100%)"}}>
         <div className="max-container">
           <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:14,marginBottom:28,textAlign:"center"}}>
-            <SectionHeader title="New Launch" sub="A balanced spotlight on the latest fragrances, curated to feel clean and contemporary." />
+            <SectionHeader title="New Launches" sub="A balanced spotlight on the latest fragrances, curated to feel clean and contemporary." />
           </div>
 
           <div style={{display:"grid",gridTemplateColumns:"repeat(4,minmax(0,1fr))",gap:24,alignItems:"stretch"}} className="grid-4">
