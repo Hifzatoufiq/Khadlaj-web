@@ -4857,7 +4857,15 @@ function ProductCard({ p, onView, onCart }){
     "Biscotti Melon Musk": 0.88,
     "Bleu Glacé": 0.62,
     "Saraya": 0.78,
-  }[p.name] || 0.85;
+    "SPECIAL EDITION SHIYAAKA SNOW": 1.42,
+    "PANACHE ANGEL DUST": 1.15,
+    "KHADLAJ SARAYA": 1.08,
+    "KHADLAJ QARAR": 1.08,
+    "KHADLAJ IHTHIRAAM": 1.08,
+    "KARUS GOLD ABSOLU": 1.05,
+    "ZAYAAN SILVER": 1.05,
+    "KHADLAJ ICON": 1.05
+  }[p.name] || 0.88;
 
   const imageShiftY = {
     "Biscotti Date Toffee": 0.02,
@@ -6023,17 +6031,22 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                 style={{width:"100%", aspectRatio:"1/1", display:"flex", alignItems:"center", justifyContent:"center", background:"#fff", borderRadius:"4px", overflow:"hidden"}}
                 onMouseEnter={e=>{
                   const img = e.currentTarget.querySelector('img');
-                  if (img) img.style.transform = "scale(1.05)";
+                  const sc = product.name === "SPECIAL EDITION SHIYAAKA SNOW" ? 1.4 : product.name === "PANACHE ANGEL DUST" ? 1.15 : 1;
+                  if (img) img.style.transform = `scale(${sc * 1.05})`;
                 }}
                 onMouseLeave={e=>{
                   const img = e.currentTarget.querySelector('img');
-                  if (img) img.style.transform = "scale(1)";
+                  const sc = product.name === "SPECIAL EDITION SHIYAAKA SNOW" ? 1.4 : product.name === "PANACHE ANGEL DUST" ? 1.15 : 1;
+                  if (img) img.style.transform = `scale(${sc})`;
                 }}
               >
                 <img
                   src={product.img}
                   alt={product.name}
-                  style={{width:"92%", height:"92%", objectFit:"contain", mixBlendMode:"normal", filter:"contrast(1.02) brightness(0.98)", transition:"transform .45s ease"}}
+                  style={{
+                    width:"92%", height:"92%", objectFit:"contain", mixBlendMode:"normal", filter:"contrast(1.02) brightness(0.98)", transition:"transform .45s ease",
+                    transform: `scale(${product.name === "SPECIAL EDITION SHIYAAKA SNOW" ? 1.4 : product.name === "PANACHE ANGEL DUST" ? 1.15 : 1})`
+                  }}
                 />
               </div>
             )}
