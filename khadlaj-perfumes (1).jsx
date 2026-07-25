@@ -4873,6 +4873,11 @@ function ProductCard({ p, onView, onCart }){
     "Bleu Glacé": 0.02,
     "Saraya": 0.06,
     "SPECIAL EDITION SHIYAAKA SNOW": -0.24,
+    "ZAYAAN SILVER": -0.08,
+    "KHADLAJ ICON": -0.06,
+    "KHADLAJ QARAR": -0.04,
+    "KHADLAJ IHTHIRAAM": -0.04,
+    "PANACHE ANGEL DUST": -0.06,
     "KHADLAJ SARAYA": 0.02
   }[p.name] || 0;
 
