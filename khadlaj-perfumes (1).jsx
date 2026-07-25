@@ -77,14 +77,14 @@ const PRODUCTS = [
   },
   {
     "id": 9100000000003,
-    "name": "SPECIAL EDITION SHIYAAKA SKY",
+    "name": "SPECIAL EDITION SHIYAAKA SNOW",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100 ML",
     "badge": "New",
     "gender": "Unisex",
     "notes": ["Fresh Citrus", "Sky Breeze", "Cedarwood"],
-    "img": "/assets/images/products/shiyaaka-cutout.png"
+    "img": "/assets/images/products/shiyaaka-snow-bottle.png"
   },
   {
     "id": 9100000000004,
@@ -376,21 +376,6 @@ const PRODUCTS = [
       "Amber"
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ONYX-03.jpg?v=1783939937"
-  },
-  {
-    "id": 8525945176263,
-    "name": "SPECIAL EDITION SHIYAAKA SNOW",
-    "col": "Eau De Parfum",
-    "price": 126,
-    "size": "100ml EDP",
-    "badge": "For Him",
-    "gender": "Him",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka_Shadow-3_bef3b7fa-b2c9-4ec5-adcc-0b3f9ac42034.jpg?v=1783941783"
   },
   {
     "id": 8526040367303,
