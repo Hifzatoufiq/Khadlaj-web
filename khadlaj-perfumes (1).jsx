@@ -54,6 +54,95 @@ const STATS = [
 
 const PRODUCTS = [
   {
+    "id": 9100000000001,
+    "name": "KARUS GOLD ABSOLU",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100 ML EDP SPRAY",
+    "badge": "New",
+    "gender": "Unisex",
+    "notes": ["Gold Oud", "Royal Amber", "Velvet Musk"],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/New_Project.png?v=1783662902"
+  },
+  {
+    "id": 9100000000002,
+    "name": "KHADLAJ SARAYA",
+    "col": "Extrait De Parfum",
+    "price": 105,
+    "size": "60 ML EXTRAIT DE PARFUM SPRAY FOR MEN & WOMEN",
+    "badge": "New",
+    "gender": "Unisex",
+    "notes": ["Precious Oud", "Saffron", "Rose"],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/saraya_3.png?v=1783938953"
+  },
+  {
+    "id": 9100000000003,
+    "name": "SPECIAL EDITION SHIYAAKA SKY",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100 ML EAU DE PARFUM",
+    "badge": "New",
+    "gender": "Unisex",
+    "notes": ["Fresh Citrus", "Sky Breeze", "Cedarwood"],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.Blue.4.jpg?v=1771043727"
+  },
+  {
+    "id": 9100000000004,
+    "name": "ZAYAAN SILVER",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100 ML EAU DE PARFUM FOR MEN",
+    "badge": "New",
+    "gender": "Him",
+    "notes": ["Bergamot", "Silver Vetiver", "Ambroxan"],
+    "img": "/assets/images/products/zayaan-silver_transparent.png"
+  },
+  {
+    "id": 9100000000005,
+    "name": "KHADLAJ QARAR",
+    "col": "Extrait De Parfum",
+    "price": 130,
+    "size": "60 ML EXTRAIT DE PARFUM SPRAY FOR MEN & WOMEN",
+    "badge": "New",
+    "gender": "Unisex",
+    "notes": ["Oud", "Musk", "Amber"],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Qarar-3.jpg?v=1783939057"
+  },
+  {
+    "id": 9100000000006,
+    "name": "KHADLAJ IHTHIRAAM",
+    "col": "Extrait De Parfum",
+    "price": 130,
+    "size": "60 ML EXTRAIT DE PARFUM SPRAY FOR MEN & WOMEN",
+    "badge": "New",
+    "gender": "Unisex",
+    "notes": ["Precious Wood", "Saffron", "Amber"],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-3.jpg?v=1783939279"
+  },
+  {
+    "id": 9100000000007,
+    "name": "KHADLAJ ICON",
+    "col": "Eau De Parfum",
+    "price": 130,
+    "size": "100 ML EAU DE PARFUM SPRAY FOR MEN",
+    "badge": "New",
+    "gender": "Him",
+    "notes": ["Bergamot", "Cardamom", "Cedar"],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Icon.1.jpg?v=1783939329"
+  },
+  {
+    "id": 9100000000008,
+    "name": "PANACHE ANGEL DUST",
+    "col": "Extrait De Parfum",
+    "price": 200,
+    "size": "100 ML EXTRAIT DE PARFUM SPRAY FOR WOMEN",
+    "badge": "New",
+    "gender": "Her",
+    "notes": ["Creamy Vanilla", "White Floral", "Musk"],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island1.jpg?v=1767168752"
+  },
+
+  {
     "id": 8526052262087,
     "name": "OUD PURE OUD JUMEIRAH",
     "col": "Master Perfumery",
@@ -139,21 +228,6 @@ const PRODUCTS = [
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Jumeirah-3.jpg?v=1783940923"
   },
   {
-    "id": 8757171159239,
-    "name": "KARUS GOLD ABSOLU",
-    "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/New_Project.png?v=1783662902"
-  },
-  {
     "id": 8730021134535,
     "name": "LA FEDE AURA VANILLA MILK",
     "col": "Lafede",
@@ -184,68 +258,6 @@ const PRODUCTS = [
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/DEHNAL_OUDH_COMBODI_3ML_-_Khadlaj_Perfumes-1964319.jpg"
   },
   {
-    "id": 8729896419527,
-    "name": "KHADLAJ SARAYA",
-    "col": "Extrait De Parfum",
-    "price": 105,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/saraya_3.png?v=1783938953"
-  },
-  
-  {
-    "id": 8679566770375,
-    "name": "ZAYAAN SILVER",
-    "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Him",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/saraya_3.png?v=1783938953"
-  },
-  
-  {
-    "id": 8670778589383,
-    "name": "KHADLAJ IHTHIRAAM",
-    "col": "Extrait De Parfum",
-    "price": 130,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-3.jpg?v=1783939279"
-  },
-  {
-    "id": 8670809555143,
-    "name": "KHADLAJ QARAR",
-    "col": "Extrait De Parfum",
-    "price": 130,
-    "size": "100ml EDP",
-    "badge": "New",
-    "gender": "Unisex",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Qarar-3.jpg?v=1783939057"
-  },
-  {
     "id": 8659572293831,
     "name": "KHADLAJ MAYA",
     "col": "Perfume Oils",
@@ -259,21 +271,6 @@ const PRODUCTS = [
       "Amber"
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Qarar-3.jpg?v=1783939057"
-  },
-  {
-    "id": 8644257743047,
-    "name": "KHADLAJ ICON",
-    "col": "Eau De Parfum",
-    "price": 130,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Him",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Icon.1.jpg?v=1783939329"
   },
   {
     "id": 8637240934599,
@@ -1043,7 +1040,7 @@ const PRODUCTS = [
     "col": "Perfume Oils",
     "price": 32,
     "size": "100ml EDP",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": [
       "Perfume oil"
@@ -1393,7 +1390,7 @@ const PRODUCTS = [
     "col": "Master Perfumery",
     "price": 200,
     "size": "100ml EDP",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": [
       "Musk",
@@ -2093,7 +2090,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 200,
     "size": "100ml EDP",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -3972,7 +3969,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100 ml",
-    "badge": "New",
+    "badge": "",
     "gender": "Her",
     "notes": [
       "Musk",
@@ -3987,7 +3984,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100 ml",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -4017,7 +4014,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100 ml",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -4047,7 +4044,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100 ml",
-    "badge": "New",
+    "badge": "",
     "gender": "Him",
     "notes": [
       "Oud",
@@ -4414,7 +4411,6 @@ const REVIEWS = [
 ];
 
 const COLLECTIONS_DATA = [
-  { name:"Atyaab", tagline:"Everyday Luxury", img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/NUHA_BON_BON-03.jpg?v=1768477660", desc:"Accessible, wearable scents for every moment. The Atyaab line brings refined Arabian perfumery into daily life without compromise." },
   { name:"Lafede", tagline:"Bold & Characterful", img:"https://cdn.shopify.com/s/files/1/0626/6119/8023/files/IntoxicateMystique.3.png?v=1772518819", desc:"Intensely expressive fragrances that command attention. Lafede is for those who make their presence felt before they enter the room." },
   { name:"Master Perfumery", tagline:"The Pinnacle of Craft", img:"/assets/images/products/shahi-oud_transparent.png", desc:"The finest expressions from our founder's private atelier. Rare ingredients, extraordinary sillage, and a story in every bottle." },
 ];
@@ -4486,7 +4482,7 @@ const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/",
   tiktok: "https://www.tiktok.com/@khadlaj.uk",
 };
-const CATEGORIES = ["Khadlaj","Best Sellers","New","For Him","For Her","Unisex","Atyaab","EAU DE PARFUM","Master Perfumery"];
+const CATEGORIES = ["Khadlaj","Best Sellers","New","For Him","For Her","Unisex","Perfume Oils","EAU DE PARFUM","Master Perfumery"];
 
 /* ═══════════════════════════════════════════════════════════════
    GLOBAL CSS
@@ -5017,7 +5013,6 @@ function SectionHeader({ eyebrow, title, sub, light=false }){
       {eyebrow && <p className="eyebrow" style={{marginBottom:14,color:"#B8922A"}}>{eyebrow}</p>}
       <h2 className="disp" style={{fontSize:"clamp(28px,3.8vw,52px)",fontWeight:300,color: light ? "#fff" : "#251737",lineHeight:1.15,letterSpacing:"-0.5px",marginBottom:sub?14:0}}>{title}</h2>
       {sub && <p style={{color: light ? "rgba(255,255,255,0.7)" : "#777",fontSize:14,maxWidth:500,margin:"0 auto",lineHeight:1.8,fontFamily:"'Montserrat',sans-serif"}}>{sub}</p>}
-      <div className="gold-line" style={{marginTop:22}}/>
     </div>
   );
 }
@@ -5193,7 +5188,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
     if(activeCat==="For Him") return isKhadlajProduct && p.gender==="Him";
     if(activeCat==="For Her") return isKhadlajProduct && p.gender==="Her";
     if(activeCat==="Unisex") return isKhadlajProduct && p.gender==="Unisex";
-    if(activeCat==="Atyaab") return isKhadlajProduct && (p.col==="Perfume Oils" || p.col==="Atyaab");
+    if(activeCat==="Perfume Oils") return isKhadlajProduct && (p.col==="Perfume Oils");
     if(activeCat==="EAU DE PARFUM") return isKhadlajProduct && p.col.toLowerCase() === "eau de parfum";
     if(activeCat==="Master Perfumery") return isKhadlajProduct && p.col==="Master Perfumery";
     return isKhadlajProduct && (p.col || '').toLowerCase() === activeCat.toLowerCase();
@@ -5418,7 +5413,6 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 {/* ── TIKTOK REELS ── */}
       <section style={{padding:"80px 5% 40px",background:"#fff"}}>
         <div style={{marginBottom:48,textAlign:"center"}}>
-          <div style={{width:40,height:1,background:"#B8922A",margin:"0 auto 16px"}}/>
           <h2 className="disp" style={{fontSize:"clamp(24px,3vw,42px)",fontWeight:400,color:"#251737",letterSpacing:-0.5,marginBottom:10,lineHeight:1.2}}>
             SHOP BY REEL
           </h2>
@@ -5722,7 +5716,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
     if(activeCat==="For Her") return isKhadlajProduct && p.gender==="Her";
     if(activeCat==="Unisex") return isKhadlajProduct && p.gender==="Unisex";
     
-    if(activeCat==="Atyaab") return isKhadlajProduct && (p.col==="Perfume Oils" || p.col==="Atyaab");
+    if(activeCat==="Perfume Oils") return isKhadlajProduct && (p.col==="Perfume Oils");
     if(activeCat==="EAU DE PARFUM") return isKhadlajProduct && p.col.toLowerCase() === "eau de parfum";
     if(activeCat==="Master Perfumery") return isKhadlajProduct && p.col==="Master Perfumery";
     
@@ -5837,7 +5831,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
                   if(c==="For Her") return isKhadlajProduct && p.gender==="Her";
                   if(c==="Unisex") return isKhadlajProduct && p.gender==="Unisex";
                   
-                  if(c==="Atyaab") return isKhadlajProduct && (p.col==="Perfume Oils" || p.col==="Atyaab");
+                  if(c==="Perfume Oils") return isKhadlajProduct && (p.col==="Perfume Oils");
                   if(c==="EAU DE PARFUM") return isKhadlajProduct && p.col.toLowerCase() === "eau de parfum";
                   if(c==="Master Perfumery") return isKhadlajProduct && p.col==="Master Perfumery";
                   
@@ -5898,7 +5892,6 @@ function LaFedePage({ addToCart, setViewProduct, setPage }){
         <div style={{position:"absolute",inset:0,background:"radial-gradient(circle at 74% 45%, rgba(184,146,42,.18), transparent 34%), linear-gradient(135deg,#060606 0%,#101010 54%,#050505 100%)"}}/>
         <div style={{position:"absolute",top:"-25%",bottom:"-25%",left:"44%",width:120,background:"linear-gradient(90deg,transparent,rgba(255,255,255,.16),transparent)",animation:"lafedeSweep 5.8s ease-in-out infinite",pointerEvents:"none"}}/>
         <div style={{position:"relative",zIndex:2}}>
-          <div style={{width:40,height:1,background:"#B8922A",marginBottom:16}}/>
           <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Dedicated Collection</p>
           <h1 className="disp" style={{fontSize:"clamp(40px,5.5vw,74px)",fontWeight:300,color:"#fff",lineHeight:.95,marginBottom:16}}>La Fede</h1>
           <p style={{color:"rgba(255,255,255,.68)",fontSize:13,maxWidth:480,lineHeight:1.8,fontFamily:"'Montserrat',sans-serif",marginBottom:24}}>
@@ -6248,7 +6241,6 @@ function StoryPage(){
             <h2 className="disp" style={{fontSize:"clamp(32px,4vw,52px)",fontWeight:400,color:"#111",lineHeight:1.1}}>
               Khadlaj Perfumes
             </h2>
-            <div style={{width:60,height:1,background:"#C8A97E"}}/>
             <p style={{fontSize:"15px", color:"#555", lineHeight:2.2, fontFamily:"'Montserrat',sans-serif", textAlign:"justify"}}>
               Khadlaj Perfumes, established in January 1997, is a UAE-based perfume house specializing in bespoke Arabic and French fragrances, including renowned home ambiance fragrances. We are dedicated to embodying luxury and elegance in every fragrance creation.
             </p>
@@ -6342,7 +6334,6 @@ function StoryPage(){
             <h2 className="disp" style={{fontSize:"clamp(32px, 4vw, 42px)", fontWeight:300, color:"#251737", lineHeight:1.2, margin:0, fontFamily:"'Montserrat', sans-serif"}}>
               Head Office &amp; Manufacturing Unit
             </h2>
-            <div style={{width:60,height:1,background:"#C8A97E",margin:"24px auto"}}/>
             <p style={{color: "#555", lineHeight: 1.8, fontSize: 15, fontFamily: "'Montserrat', sans-serif"}}>
               At Khadlaj Perfumes, our operations are supported by state-of-the-art facilities and a strategic head office location:
             </p>
@@ -6387,7 +6378,6 @@ function StoryPage(){
                 <h2 className="disp" style={{fontSize:"clamp(32px, 4vw, 42px)", fontWeight:300, color:"#fff", lineHeight:1.2, margin:0, fontFamily:"'Montserrat', sans-serif"}}>
                   Values &amp; Ethos
                 </h2>
-                <div style={{width:40,height:1,background:"#C8A97E",margin:"16px 0 24px"}}/>
                 <p style={{color: "rgba(255,255,255,0.7)", lineHeight: 1.8, fontSize: 14, fontFamily: "'Montserrat', sans-serif"}}>
                   At Khadlaj Perfumes, we are guided by fundamental values that define our commitment to excellence:
                 </p>
@@ -6479,7 +6469,6 @@ function ContactPage(){
           justifyContent:"flex-end",
           padding:"0 6% 52px",
         }}>
-          <div style={{width:40,height:1,background:"#B8922A",marginBottom:20}}/>
           <p style={{fontWeight:600,fontSize:9,letterSpacing:6,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:14}}>
             Get in Touch
           </p>
@@ -6496,7 +6485,6 @@ function ContactPage(){
       <div style={{padding:"clamp(40px, 6vw, 80px) 5% clamp(48px, 8vw, 96px)",display:"grid",gridTemplateColumns:"1fr 1.35fr",gap:40,alignItems:"stretch"}} className="hero-split">
         {/* Info */}
         <div>
-          <div style={{width:32,height:1,background:"#B8922A",marginBottom:20}}/>
           <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:14}}>Reach Us</p>
           <h2 className="disp" style={{fontSize:"clamp(24px, 6vw, 44px)",fontWeight:300,marginBottom:24,lineHeight:1.1,color:"#251737",letterSpacing:-1}}>We'd Love to Hear From You</h2>
           <p style={{color:"#777",lineHeight:1.85,fontSize:14,marginBottom:36,fontFamily:"'Montserrat',sans-serif"}}>
@@ -6554,7 +6542,6 @@ function ContactPage(){
             </div>
           ) : (
             <>
-              <div style={{width:32,height:1,background:"#B8922A",marginBottom:20}}/>
               <h3 className="disp" style={{fontSize:28,fontWeight:300,color:"#fff",marginBottom:32,letterSpacing:-0.5}}>Send a Message</h3>
               {[["Name","name","text"],["Email","email","email"],["Subject","subject","text"]].map(([label,key,type])=>(
                 <div key={key} style={{marginBottom:18}}>
@@ -6617,7 +6604,6 @@ function SignupPageOld(){
               <img src="/assets/images/gifsets/cloudcandy_gift_transparent.png" alt="Khadlaj fragrances" style={{width:"100%",height:"100%",objectFit:"contain",filter:"drop-shadow(0 34px 70px rgba(0,0,0,.42))"}}/>
             </div>
             <div style={{position:"relative",zIndex:2,maxWidth:440}}>
-              <div style={{width:42,height:1,background:"#B8922A",marginBottom:22}}/>
               <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:18}}>Khadlaj Circle</p>
               <h1 className="disp" style={{fontSize:"clamp(44px,5.6vw,82px)",fontWeight:300,lineHeight:.98,color:"#fff",marginBottom:22}}>Sign Up</h1>
               <p style={{fontSize:14,color:"rgba(255,255,255,.68)",lineHeight:1.9,maxWidth:420,fontFamily:"'Montserrat',sans-serif"}}>
@@ -6643,7 +6629,6 @@ function SignupPageOld(){
             </div>
           ) : (
             <div style={{position:"relative",zIndex:1}}>
-              <div style={{width:38,height:1,background:"#B8922A",marginBottom:20}}/>
               <p style={{fontWeight:600,fontSize:9,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:14}}>Member Access</p>
               <h2 className="disp" style={{fontSize:"clamp(32px,4vw,54px)",fontWeight:300,lineHeight:1.05,color:"#251737",marginBottom:14}}>Create your account</h2>
               <p style={{fontSize:13,color:"#777",lineHeight:1.8,fontFamily:"'Montserrat',sans-serif",marginBottom:30,maxWidth:520}}>
@@ -6718,7 +6703,6 @@ function SignupPage(){
             <div style={{position:"absolute",inset:0,background:"linear-gradient(135deg, rgba(60,17,82,0.85) 0%, rgba(10,10,10,0.95) 100%)"}}/>
             <div style={{position:"absolute",top:-110,right:-90,width:340,height:340,borderRadius:"50%",background:"radial-gradient(circle,rgba(184,146,42,.28),rgba(184,146,42,0) 68%)",zIndex:1}}/>
             <div style={{position:"relative",zIndex:2,maxWidth:470,marginTop:"auto",marginBottom:"auto"}}>
-              <div style={{width:42,height:1,background:"#B8922A",marginBottom:22}}/>
               <p style={{fontWeight:600,fontSize:9,letterSpacing:6,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:18}}>Khadlaj Circle</p>
               <h1 className="disp" style={{fontSize:"clamp(48px,6vw,84px)",fontWeight:300,lineHeight:.98,color:"#fff",marginBottom:24,letterSpacing:"-1px"}}>{mode==="login" ? "Login" : mode==="forgot" ? "Reset Password" : "Sign Up"}</h1>
               <p style={{fontSize:15,color:"rgba(255,255,255,.75)",lineHeight:1.9,maxWidth:430,fontFamily:"'Montserrat',sans-serif",fontWeight:300}}>
@@ -6747,7 +6731,7 @@ function SignupPage(){
                     </button>
                   ))}
                 </div>
-                {mode==="forgot" && <div style={{width:42,height:1,background:"#B8922A",marginBottom:22}}/>}
+                
                 
                 <h2 className="disp" style={{fontSize:"clamp(32px,3.7vw,54px)",fontWeight:300,lineHeight:1.05,color:"#251737",marginBottom:14}}>{title}</h2>
                 <p style={{fontSize:14,color:"#777",lineHeight:1.8,fontFamily:"'Montserrat',sans-serif",marginBottom:36,maxWidth:520}}>{subtitle}</p>
@@ -7210,7 +7194,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                 if (pg === "collections") {
                   if (label === "Best Sellers") isActive = (collectionCategory === "Best Sellers");
                   else if (label === "Perfume Spray") isActive = (collectionCategory === "EAU DE PARFUM");
-                  else if (label === "Perfume Oil") isActive = (collectionCategory === "Atyaab");
+                  else if (label === "Perfume Oil") isActive = (collectionCategory === "Perfume Oils");
                 } else {
                   isActive = true;
                 }
@@ -7218,7 +7202,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
               return (
                 <span key={label} onClick={() => {
                   if(label === "Best Sellers" || label === "Perfume Spray" || label === "Perfume Oil" || label === "Master Perfumery") {
-                    setCollectionCategory(label === "Perfume Spray" ? "EAU DE PARFUM" : label === "Perfume Oil" ? "Atyaab" : label);
+                    setCollectionCategory(label === "Perfume Spray" ? "EAU DE PARFUM" : label === "Perfume Oil" ? "Perfume Oils" : label);
                   } else if (pg === "collections") {
                     setCollectionCategory("Khadlaj");
                   }
@@ -7248,7 +7232,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                 if (pg === "collections") {
                   if (label === "Best Sellers") isActive = (collectionCategory === "Best Sellers");
                   else if (label === "Perfume Spray") isActive = (collectionCategory === "EAU DE PARFUM");
-                  else if (label === "Perfume Oil") isActive = (collectionCategory === "Atyaab");
+                  else if (label === "Perfume Oil") isActive = (collectionCategory === "Perfume Oils");
                 } else {
                   isActive = true;
                 }
@@ -7259,7 +7243,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                 className="mob-nav-link"
                 onClick={()=>{
                   if(label === "Best Sellers" || label === "Perfume Spray" || label === "Perfume Oil" || label === "Master Perfumery") {
-                    setCollectionCategory(label === "Perfume Spray" ? "EAU DE PARFUM" : label === "Perfume Oil" ? "Atyaab" : label);
+                    setCollectionCategory(label === "Perfume Spray" ? "EAU DE PARFUM" : label === "Perfume Oil" ? "Perfume Oils" : label);
                   } else if (pg === "collections") {
                     setCollectionCategory("Khadlaj");
                   }
@@ -7344,7 +7328,6 @@ function Footer({ setPage }){
       {/* Newsletter */}
       <div style={{background:"#251737",padding:"80px 5%",textAlign:"center",borderBottom:"1px solid rgba(255,255,255,0.05)",borderTop:"1px solid rgba(193,164,106,0.15)"}}>
         <div style={{maxWidth:560,margin:"0 auto"}}>
-          <div style={{width:40,height:1,background:"#B8922A",margin:"0 auto 18px"}}/>
           <p style={{fontSize:9,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif",marginBottom:14,fontWeight:600}}>Newsletter</p>
           <h2 className="disp" style={{fontSize:"clamp(26px,3.5vw,42px)",fontWeight:300,marginBottom:14,color:"#fff",letterSpacing:"-0.5px"}}>Join the Khadlaj Circle</h2>
           <p style={{color:"rgba(255,255,255,0.65)",fontSize:13,marginBottom:36,fontFamily:"'DM Sans',sans-serif",lineHeight:1.7}}>Get exclusive access to new launches and special offers</p>
@@ -7406,7 +7389,7 @@ function Footer({ setPage }){
         </div>
         <div>
           <p style={{fontSize:"8.5px",letterSpacing:2.5,color:"#251737",textTransform:"uppercase",marginBottom:24,fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>Collections</p>
-          {[["Atyaab","collections"],["La Fede","lafede"],["Master Perfumery","collections"],["Gift Sets","gifts"],["New Arrivals","collections"],["Best Sellers","collections"]].map(([l,pg])=>(
+          {[["Perfume Oils","collections"],["La Fede","lafede"],["Master Perfumery","collections"],["Gift Sets","gifts"],["New Arrivals","collections"],["Best Sellers","collections"]].map(([l,pg])=>(
             <p key={l} onClick={()=>setPage(pg)} style={{fontSize:12,color:"#555",marginBottom:14,cursor:"pointer",fontFamily:"'Montserrat',sans-serif",letterSpacing:.5,transition:"all .25s ease"}}
               onMouseEnter={e=>e.target.style.color="#B8922A"} onMouseLeave={e=>e.target.style.color="#555"}>{l}</p>
           ))}
