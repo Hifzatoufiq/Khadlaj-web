@@ -7957,8 +7957,7 @@ export default function App(){
               {popupState === "scratch" ? (
                 <div style={{textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center"}}>
                   <p style={{fontSize:15,letterSpacing:5,color:"#D4AF37",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:14, fontWeight:700}}>Exclusive Privilege</p>
-                  <h3 className="disp mobile-text" style={{fontSize:26,fontWeight:400,color:"#F9F4EB",marginBottom:12,lineHeight:1.15}}>Your Private Invitation</h3>
-                  <p style={{fontSize:11,color:"rgba(249,244,235,0.7)",lineHeight:1.6,fontFamily:"'Montserrat',sans-serif",marginBottom:30}}>Scratch the ticket below to reveal your secret Khadlaj Circle discount code.</p>
+                  <h3 className="disp mobile-text" style={{fontSize:26,fontWeight:400,color:"#F9F4EB",marginBottom:28,lineHeight:1.15}}>Your Private Invitation</h3>
                   
                   <ScratchCard code="KHADLAJ10" onReveal={() => {
                      setTimeout(() => setPopupState("revealed"), 800);
