@@ -62,7 +62,7 @@ const PRODUCTS = [
     "badge": "New",
     "gender": "Unisex",
     "notes": ["Gold Oud", "Royal Amber", "Velvet Musk"],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/New_Project.png?v=1783662902"
+    "img": "/assets/images/products/karus-cutout.png"
   },
   {
     "id": 9100000000002,
@@ -73,7 +73,7 @@ const PRODUCTS = [
     "badge": "New",
     "gender": "Unisex",
     "notes": ["Precious Oud", "Saffron", "Rose"],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/saraya_3.png?v=1783938953"
+    "img": "/assets/images/products/saraya-cutout.png"
   },
   {
     "id": 9100000000003,
@@ -84,7 +84,7 @@ const PRODUCTS = [
     "badge": "New",
     "gender": "Unisex",
     "notes": ["Fresh Citrus", "Sky Breeze", "Cedarwood"],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.Blue.4.jpg?v=1771043727"
+    "img": "/assets/images/products/shiyaaka-cutout.png"
   },
   {
     "id": 9100000000004,
@@ -106,7 +106,7 @@ const PRODUCTS = [
     "badge": "New",
     "gender": "Unisex",
     "notes": ["Oud", "Musk", "Amber"],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Qarar-3.jpg?v=1783939057"
+    "img": "/assets/images/products/qarar-cutout.png"
   },
   {
     "id": 9100000000006,
@@ -117,7 +117,7 @@ const PRODUCTS = [
     "badge": "New",
     "gender": "Unisex",
     "notes": ["Precious Wood", "Saffron", "Amber"],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-3.jpg?v=1783939279"
+    "img": "/assets/images/products/ihthiraam-cutout.png"
   },
   {
     "id": 9100000000007,
@@ -128,7 +128,7 @@ const PRODUCTS = [
     "badge": "New",
     "gender": "Him",
     "notes": ["Bergamot", "Cardamom", "Cedar"],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Icon.1.jpg?v=1783939329"
+    "img": "/assets/images/products/icon-cutout.png"
   },
   {
     "id": 9100000000008,
@@ -139,7 +139,7 @@ const PRODUCTS = [
     "badge": "New",
     "gender": "Her",
     "notes": ["Creamy Vanilla", "White Floral", "Musk"],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island1.jpg?v=1767168752"
+    "img": "/assets/images/products/panache-cutout.png"
   },
 
   {
@@ -4439,7 +4439,7 @@ const REELS = [
     caption: "A gorgeous creamy floral gourmand. Completely blind buy safe!",
     tag: "First Impressions",
     price: 200,
-    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island1.jpg?v=1767168752"
+    img: "/assets/images/products/panache-cutout.png"
   },
   {
     id: "7639701570875165985",
