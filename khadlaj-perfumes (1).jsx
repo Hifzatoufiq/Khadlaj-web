@@ -43,8 +43,7 @@ const PAYMENTS = ["Visa","Mastercard","Apple Pay","Google Pay","Tabby","Tamara",
 
 const NAV_LINKS = ["Best Sellers","Perfume Spray","Perfume Oil","Home & Ambience","Gifts","Our legacy","Contact"];
 
-const SCENT_RIBBON = ["Oud","Amber","Musk","Rose","Sandalwood","Saffron","Vanilla","Bergamot",
-  "Patchouli","Jasmine","Neroli","Cedarwood","Vetiver","Iris","Benzoin","Agarwood","Frankincense"];
+const SCENT_RIBBON = ["Island", "Icon", "Shiyaaka", "Empire", "Fursan", "Nuha", "Valor", "Velvet"];
 
 const STATS = [
   { v:"1997", l:"Year Founded" },
