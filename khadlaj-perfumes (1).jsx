@@ -84,7 +84,7 @@ const PRODUCTS = [
     "badge": "New",
     "gender": "Unisex",
     "notes": ["Fresh Citrus", "Sky Breeze", "Cedarwood"],
-    "img": "/assets/images/products/shiyaaka-snow-bottle.png"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/shiyaaka-snow.png?v=1781615422"
   },
   {
     "id": 9100000000004,
