@@ -7956,8 +7956,7 @@ export default function App(){
             <div style={{display:"flex",flexDirection:"column",justifyContent:"center"}}>
               {popupState === "scratch" ? (
                 <div style={{textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center"}}>
-                  <div style={{width:22,height:1,background:"#D4AF37",marginBottom:16}}/>
-                  <p style={{fontSize:9,letterSpacing:4,color:"#D4AF37",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:14, fontWeight:600}}>Exclusive Privilege</p>
+                  <p style={{fontSize:15,letterSpacing:5,color:"#D4AF37",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:14, fontWeight:700}}>Exclusive Privilege</p>
                   <h3 className="disp mobile-text" style={{fontSize:26,fontWeight:400,color:"#F9F4EB",marginBottom:12,lineHeight:1.15}}>Your Private Invitation</h3>
                   <p style={{fontSize:11,color:"rgba(249,244,235,0.7)",lineHeight:1.6,fontFamily:"'Montserrat',sans-serif",marginBottom:30}}>Scratch the ticket below to reveal your secret Khadlaj Circle discount code.</p>
                   
@@ -7972,8 +7971,7 @@ export default function App(){
                 </div>
               ) : (
                 <div className="glow-up" style={{textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center"}}>
-                  <div style={{width:22,height:1,background:"#D4AF37",marginBottom:12}}/>
-                  <p style={{fontSize:9,letterSpacing:4,color:"#D4AF37",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:10, fontWeight:600}}>Reward Claimed</p>
+                  <p style={{fontSize:15,letterSpacing:5,color:"#D4AF37",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12, fontWeight:700}}>Reward Claimed</p>
                   <h3 className="disp mobile-text" style={{fontSize:26,fontWeight:400,color:"#F9F4EB",marginBottom:12,lineHeight:1.15}}>VIP Privilege Unlocked</h3>
                   <p style={{fontSize:11,color:"rgba(249,244,235,0.7)",lineHeight:1.6,fontFamily:"'Montserrat',sans-serif",marginBottom:30}}>Your exclusive 10% discount is ready. Apply this code at checkout.</p>
                   
