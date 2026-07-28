@@ -4863,7 +4863,7 @@ function ProductCard({ p, onView, onCart }){
     "KHADLAJ QARAR": 1.08,
     "KHADLAJ IHTHIRAAM": 1.08,
     "KARUS GOLD ABSOLU": 1.05,
-    "ZAYAAN SILVER": 1.05,
+    "ZAYAAN SILVER": 0.88,
     "KHADLAJ ICON": 1.05
   }[p.name] || 0.88;
 
@@ -4876,7 +4876,7 @@ function ProductCard({ p, onView, onCart }){
     "SPECIAL EDITION SHIYAAKA SHADOW": 0,
     "KHADLAJ ISLAND": -0.02,
     "SAWAAR VANILLE BLANC": 0.15,
-    "ZAYAAN SILVER": 0.02,
+    "ZAYAAN SILVER": 0.0,
     "KHADLAJ ICON": 0,
     "KHADLAJ QARAR": 0,
     "KHADLAJ IHTHIRAAM": 0,
