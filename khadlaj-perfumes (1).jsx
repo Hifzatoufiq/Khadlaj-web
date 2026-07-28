@@ -5642,7 +5642,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       </section>
       {/* ── TESTIMONIALS ── */}
       <section style={{background:"#251737",padding:"64px 5%"}}>
-        <SectionHeader eyebrow="Reviews" title="Loved Across the Gulf" light={true} />
+        <SectionHeader eyebrow="Reviews" title="Loved Across the World" light={true} />
         <div className="grid-4" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:1,background:"rgba(255,255,255,.15)"}}>
           {REVIEWS.map((r,i)=>(
             <div key={i} style={{background:"#251737",padding:"32px 24px",display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center",transition:"background 0.3s ease"}} onMouseEnter={e=>e.currentTarget.style.background="rgba(255,255,255,0.03)"} onMouseLeave={e=>e.currentTarget.style.background="#251737"}>
