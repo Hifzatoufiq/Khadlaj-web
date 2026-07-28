@@ -54,6 +54,125 @@ const STATS = [
 
 const PRODUCTS = [
   {
+    "id": 8199234977991,
+    "name": "KHADLAJ ISLAND",
+    "col": "Extrait De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "New",
+    "gender": "Unisex",
+    "notes": ["Oud", "Musk", "Amber"],
+    "img": "/assets/images/products/island-packshot-tight_transparent.png"
+  },
+  {
+    "id": 8561163075783,
+    "name": "SAWAAR VANILLE BLANC",
+    "col": "Extrait De Parfum",
+    "price": 200,
+    "size": "100ml EDP",
+    "badge": "New",
+    "gender": "Her",
+    "notes": ["Oud", "Musk", "Amber"],
+    "img": "/assets/images/products/sawaar-cutout.png"
+  },
+  {
+    "id": 8409302073543,
+    "name": "SPECIAL EDITION SHIYAAKA SHADOW",
+    "col": "Eau De Parfum",
+    "price": 126,
+    "size": "100ml EDP",
+    "badge": "New",
+    "gender": "Him",
+    "notes": ["Oud", "Musk", "Amber"],
+    "img": "/assets/images/products/shiyaaka-shadow-cutout.png"
+  },
+  {
+    "id": 9100000000003,
+    "name": "SPECIAL EDITION SHIYAAKA SNOW",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100 ML",
+    "badge": "New",
+    "gender": "Unisex",
+    "notes": ["Fresh Citrus", "Sky Breeze", "Cedarwood"],
+    "img": "/assets/images/products/shiyaaka-snow-cutout.png"
+  },
+  {
+    "id": 8354691940551,
+    "name": "KHADLAJ ISLAND VANILLA DUNES",
+    "col": "Extrait De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "For Him",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island_Vanilla-3.jpg?v=1783945707"
+  },
+  {
+    "id": 7554205647047,
+    "name": "SHIYAAKA BLUE",
+    "col": "Eau De Parfum",
+    "price": 65,
+    "size": "100 ml",
+    "badge": "For Him",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.Blue.4.jpg?v=1771043727"
+  },
+  {
+    "id": 7554205614279,
+    "name": "SHIYAAKA",
+    "col": "Eau De Parfum",
+    "price": 65,
+    "size": "100 ml",
+    "badge": "For Him",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.4.jpg?v=1771043858"
+  },
+  {
+    "id": 7554205581511,
+    "name": "SHIYAAKA WHITE",
+    "col": "Eau De Parfum",
+    "price": 65,
+    "size": "100 ml",
+    "badge": "For Her",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.White.4.jpg?v=1771044128"
+  },
+  {
+    "id": 7554205548743,
+    "name": "SHIYAAKA GOLD",
+    "col": "Eau De Parfum",
+    "price": 65,
+    "size": "100 ml",
+    "badge": "For Her",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.Gold.4_1.jpg?v=1771044263"
+  },
+  {
     "id": 9100000000001,
     "name": "KARUS GOLD ABSOLU",
     "col": "Eau De Parfum",
@@ -75,17 +194,7 @@ const PRODUCTS = [
     "notes": ["Precious Oud", "Saffron", "Rose"],
     "img": "/assets/images/products/saraya-cutout.png"
   },
-  {
-    "id": 9100000000003,
-    "name": "SPECIAL EDITION SHIYAAKA SNOW",
-    "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100 ML",
-    "badge": "New",
-    "gender": "Unisex",
-    "notes": ["Fresh Citrus", "Sky Breeze", "Cedarwood"],
-    "img": "/assets/images/products/shiyaaka-snow-bottle.png"
-  },
+  
   {
     "id": 9100000000004,
     "name": "ZAYAAN SILVER",
@@ -347,21 +456,7 @@ const PRODUCTS = [
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/NUHA_BON_BON-03.jpg?v=1783939633"
   },
-  {
-    "id": 8561163075783,
-    "name": "SAWAAR VANILLE BLANC",
-    "col": "Extrait De Parfum",
-    "price": 200,
-    "size": "100ml EDP",
-    "badge": "For Her",
-    "gender": "Her",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SAWAAR-03.jpg?v=1783939807"
-  },
+
   {
     "id": 8540408479943,
     "name": "KHADLAJ ONYX GOLD",
@@ -572,21 +667,7 @@ const PRODUCTS = [
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Edge_Original-3.jpg?v=1776231633"
   },
-  {
-    "id": 8409302073543,
-    "name": "SPECIAL EDITION SHIYAAKA SHADOW",
-    "col": "Eau De Parfum",
-    "price": 126,
-    "size": "100ml EDP",
-    "badge": "For Him",
-    "gender": "Him",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka_Shadow-3.jpg?v=1783943040"
-  },{
+{
     "id": 8398776959175,
     "name": "BISCOTTI DATE TOFFEE",
     "col": "Extrait De Parfum",
@@ -706,21 +787,7 @@ const PRODUCTS = [
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Qissa-03.jpg?v=1745839937"
   },
-  {
-    "id": 8354691940551,
-    "name": "KHADLAJ ISLAND VANILLA DUNES",
-    "col": "Extrait De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
-    "badge": "For Him",
-    "gender": "Him",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island_Vanilla-3.jpg?v=1783945707"
-  },
+  
   {
     "id": 8342076129479,
     "name": "OUD MUATTAR RUKAIYA",
@@ -1354,21 +1421,7 @@ const PRODUCTS = [
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/3_19.jpg?v=1724745977"
   },
-  {
-    "id": 8199234977991,
-    "name": "KHADLAJ ISLAND",
-    "col": "Extrait De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "/assets/images/cropped/cropped_Island2.jpg"
-  },
+
   {
     "id": 8143006892231,
     "name": "MUSK PURE MUSK BLEND CREATION OF IQBAL",
@@ -3513,66 +3566,10 @@ const PRODUCTS = [
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ROSE_AND_ROMANCE_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965893.jpg?v=1784382622"
   },
-  {
-    "id": 7554205647047,
-    "name": "SHIYAAKA BLUE",
-    "col": "Eau De Parfum",
-    "price": 65,
-    "size": "100 ml",
-    "badge": "For Him",
-    "gender": "Him",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.Blue.4.jpg?v=1771043727"
-  },
-  {
-    "id": 7554205614279,
-    "name": "SHIYAAKA",
-    "col": "Eau De Parfum",
-    "price": 65,
-    "size": "100 ml",
-    "badge": "For Him",
-    "gender": "Him",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.4.jpg?v=1771043858"
-  },
-  {
-    "id": 7554205581511,
-    "name": "SHIYAAKA WHITE",
-    "col": "Eau De Parfum",
-    "price": 65,
-    "size": "100 ml",
-    "badge": "For Her",
-    "gender": "Her",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.White.4.jpg?v=1771044128"
-  },
-  {
-    "id": 7554205548743,
-    "name": "SHIYAAKA GOLD",
-    "col": "Eau De Parfum",
-    "price": 65,
-    "size": "100 ml",
-    "badge": "For Her",
-    "gender": "Her",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.Gold.4_1.jpg?v=1771044263"
-  },
+  
+  
+  
+  
   {
     "id": 7554206204103,
     "name": "BAKHOOR TAIBA",
@@ -4857,7 +4854,10 @@ function ProductCard({ p, onView, onCart }){
     "Biscotti Melon Musk": 0.88,
     "Bleu Glacé": 0.62,
     "Saraya": 0.78,
-    "SPECIAL EDITION SHIYAAKA SNOW": 1.48,
+    "SPECIAL EDITION SHIYAAKA SNOW": 1.30,
+    "SPECIAL EDITION SHIYAAKA SHADOW": 1.05,
+    "KHADLAJ ISLAND": 1.05,
+    "SAWAAR VANILLE BLANC": 1.05,
     "PANACHE ANGEL DUST": 1.15,
     "KHADLAJ SARAYA": 1.08,
     "KHADLAJ QARAR": 1.08,
@@ -4872,7 +4872,10 @@ function ProductCard({ p, onView, onCart }){
     "Biscotti Melon Musk": 0.05,
     "Bleu Glacé": 0.02,
     "Saraya": 0.06,
-    "SPECIAL EDITION SHIYAAKA SNOW": -0.06,
+    "SPECIAL EDITION SHIYAAKA SNOW": -0.02,
+    "SPECIAL EDITION SHIYAAKA SHADOW": 0,
+    "KHADLAJ ISLAND": 0,
+    "SAWAAR VANILLE BLANC": 0,
     "ZAYAAN SILVER": 0.02,
     "KHADLAJ ICON": 0,
     "KHADLAJ QARAR": 0,
@@ -6038,12 +6041,12 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                 style={{width:"100%", aspectRatio:"1/1", display:"flex", alignItems:"center", justifyContent:"center", background:"#fff", borderRadius:"4px", overflow:"hidden"}}
                 onMouseEnter={e=>{
                   const img = e.currentTarget.querySelector('img');
-                  const sc = product.name === "SPECIAL EDITION SHIYAAKA SNOW" ? 1.48 : product.name === "PANACHE ANGEL DUST" ? 1.15 : 1;
+                  const sc = product.name === "SPECIAL EDITION SHIYAAKA SNOW" ? 1.30 : product.name === "PANACHE ANGEL DUST" ? 1.15 : 1;
                   if (img) img.style.transform = `scale(${sc * 1.05})`;
                 }}
                 onMouseLeave={e=>{
                   const img = e.currentTarget.querySelector('img');
-                  const sc = product.name === "SPECIAL EDITION SHIYAAKA SNOW" ? 1.48 : product.name === "PANACHE ANGEL DUST" ? 1.15 : 1;
+                  const sc = product.name === "SPECIAL EDITION SHIYAAKA SNOW" ? 1.30 : product.name === "PANACHE ANGEL DUST" ? 1.15 : 1;
                   if (img) img.style.transform = `scale(${sc})`;
                 }}
               >
@@ -6052,7 +6055,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                   alt={product.name}
                   style={{
                     width:"92%", height:"92%", objectFit:"contain", mixBlendMode:"normal", filter:"contrast(1.02) brightness(0.98)", transition:"transform .45s ease",
-                    transform: `scale(${product.name === "SPECIAL EDITION SHIYAAKA SNOW" ? 1.48 : product.name === "PANACHE ANGEL DUST" ? 1.15 : 1})`
+                    transform: `scale(${product.name === "SPECIAL EDITION SHIYAAKA SNOW" ? 1.30 : product.name === "PANACHE ANGEL DUST" ? 1.15 : 1})`
                   }}
                 />
               </div>
