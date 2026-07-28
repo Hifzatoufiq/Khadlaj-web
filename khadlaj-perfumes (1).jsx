@@ -54,6 +54,39 @@ const STATS = [
 
 const PRODUCTS = [
   {
+    "id": 8199234977991,
+    "name": "KHADLAJ ISLAND",
+    "col": "Extrait De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "New",
+    "gender": "Unisex",
+    "notes": ["Oud", "Musk", "Amber"],
+    "img": "/assets/images/products/island-packshot-tight_transparent.png"
+  },
+  {
+    "id": 8561163075783,
+    "name": "SAWAAR VANILLE BLANC",
+    "col": "Extrait De Parfum",
+    "price": 200,
+    "size": "100ml EDP",
+    "badge": "New",
+    "gender": "Her",
+    "notes": ["Oud", "Musk", "Amber"],
+    "img": "/assets/images/products/sawaar-cutout.png"
+  },
+  {
+    "id": 8409302073543,
+    "name": "SPECIAL EDITION SHIYAAKA SHADOW",
+    "col": "Eau De Parfum",
+    "price": 126,
+    "size": "100ml EDP",
+    "badge": "New",
+    "gender": "Him",
+    "notes": ["Oud", "Musk", "Amber"],
+    "img": "/assets/images/products/shiyaaka-shadow-cutout.png"
+  },
+  {
     "id": 9100000000001,
     "name": "KARUS GOLD ABSOLU",
     "col": "Eau De Parfum",
@@ -347,21 +380,7 @@ const PRODUCTS = [
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/NUHA_BON_BON-03.jpg?v=1783939633"
   },
-  {
-    "id": 8561163075783,
-    "name": "SAWAAR VANILLE BLANC",
-    "col": "Extrait De Parfum",
-    "price": 200,
-    "size": "100ml EDP",
-    "badge": "For Her",
-    "gender": "Her",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SAWAAR-03.jpg?v=1783939807"
-  },
+
   {
     "id": 8540408479943,
     "name": "KHADLAJ ONYX GOLD",
@@ -572,21 +591,7 @@ const PRODUCTS = [
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Edge_Original-3.jpg?v=1776231633"
   },
-  {
-    "id": 8409302073543,
-    "name": "SPECIAL EDITION SHIYAAKA SHADOW",
-    "col": "Eau De Parfum",
-    "price": 126,
-    "size": "100ml EDP",
-    "badge": "For Him",
-    "gender": "Him",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka_Shadow-3.jpg?v=1783943040"
-  },{
+{
     "id": 8398776959175,
     "name": "BISCOTTI DATE TOFFEE",
     "col": "Extrait De Parfum",
@@ -1354,21 +1359,7 @@ const PRODUCTS = [
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/3_19.jpg?v=1724745977"
   },
-  {
-    "id": 8199234977991,
-    "name": "KHADLAJ ISLAND",
-    "col": "Extrait De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "/assets/images/cropped/cropped_Island2.jpg"
-  },
+
   {
     "id": 8143006892231,
     "name": "MUSK PURE MUSK BLEND CREATION OF IQBAL",
@@ -4858,6 +4849,9 @@ function ProductCard({ p, onView, onCart }){
     "Bleu Glacé": 0.62,
     "Saraya": 0.78,
     "SPECIAL EDITION SHIYAAKA SNOW": 1.48,
+    "SPECIAL EDITION SHIYAAKA SHADOW": 1.48,
+    "KHADLAJ ISLAND": 1.48,
+    "SAWAAR VANILLE BLANC": 1.48,
     "PANACHE ANGEL DUST": 1.15,
     "KHADLAJ SARAYA": 1.08,
     "KHADLAJ QARAR": 1.08,
@@ -4873,6 +4867,9 @@ function ProductCard({ p, onView, onCart }){
     "Bleu Glacé": 0.02,
     "Saraya": 0.06,
     "SPECIAL EDITION SHIYAAKA SNOW": -0.06,
+    "SPECIAL EDITION SHIYAAKA SHADOW": -0.06,
+    "KHADLAJ ISLAND": -0.06,
+    "SAWAAR VANILLE BLANC": -0.06,
     "ZAYAAN SILVER": 0.02,
     "KHADLAJ ICON": 0,
     "KHADLAJ QARAR": 0,
