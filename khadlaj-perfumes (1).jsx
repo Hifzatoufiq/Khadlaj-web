@@ -5656,6 +5656,24 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
         </div>
       </section>
+
+      {/* ── TESTIMONIALS ── */}
+      <section style={{background:"#251737",padding:"64px 5%"}}>
+        <SectionHeader eyebrow="Reviews" title="Loved Across the World" light={true} />
+        <div className="grid-4" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:1,background:"rgba(255,255,255,.15)"}}>
+          {REVIEWS.map((r,i)=>(
+            <div key={i} style={{background:"#251737",padding:"32px 24px",display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center",transition:"background 0.3s ease"}} onMouseEnter={e=>e.currentTarget.style.background="rgba(255,255,255,0.03)"} onMouseLeave={e=>e.currentTarget.style.background="#251737"}>
+              <StarRating n={r.stars} color="#B8922A"/>
+              <p style={{fontSize:14,color:"rgba(255,255,255,0.85)",lineHeight:1.6,margin:"16px 0",fontStyle:"italic",fontWeight:300,fontFamily:"'Montserrat',sans-serif"}}>"{r.text}"</p>
+              <div style={{marginTop:"auto"}}>
+                <p style={{fontSize:9,fontWeight:600,color:"#fff",letterSpacing:2,fontFamily:"'Montserrat',sans-serif",textTransform:"uppercase"}}>{r.name}</p>
+                <p style={{fontWeight:600,fontSize:8,letterSpacing:4,color:"#B8922A",marginTop:6,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif"}}>{r.country}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ── GIFT SETS ── */}
       <section style={{padding:"96px 5%",background:"#fff",borderTop:"1px solid #E8E4DC"}}>
         <div className="max-container">
@@ -5673,22 +5691,6 @@ function HomePage({ setPage, addToCart, setViewProduct }){
               <ProductCard key={p.id} p={p} onView={(prod)=>{setViewProduct(prod);setPage("product");}} />
             ))}
           </div>
-        </div>
-      </section>
-      {/* ── TESTIMONIALS ── */}
-      <section style={{background:"#251737",padding:"64px 5%"}}>
-        <SectionHeader eyebrow="Reviews" title="Loved Across the World" light={true} />
-        <div className="grid-4" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:1,background:"rgba(255,255,255,.15)"}}>
-          {REVIEWS.map((r,i)=>(
-            <div key={i} style={{background:"#251737",padding:"32px 24px",display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center",transition:"background 0.3s ease"}} onMouseEnter={e=>e.currentTarget.style.background="rgba(255,255,255,0.03)"} onMouseLeave={e=>e.currentTarget.style.background="#251737"}>
-              <StarRating n={r.stars} color="#B8922A"/>
-              <p style={{fontSize:14,color:"rgba(255,255,255,0.85)",lineHeight:1.6,margin:"16px 0",fontStyle:"italic",fontWeight:300,fontFamily:"'Montserrat',sans-serif"}}>"{r.text}"</p>
-              <div style={{marginTop:"auto"}}>
-                <p style={{fontSize:9,fontWeight:600,color:"#fff",letterSpacing:2,fontFamily:"'Montserrat',sans-serif",textTransform:"uppercase"}}>{r.name}</p>
-                <p style={{fontWeight:600,fontSize:8,letterSpacing:4,color:"#B8922A",marginTop:6,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif"}}>{r.country}</p>
-              </div>
-            </div>
-          ))}
         </div>
       </section>
 
