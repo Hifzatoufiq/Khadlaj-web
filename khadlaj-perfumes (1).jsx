@@ -87,6 +87,92 @@ const PRODUCTS = [
     "img": "/assets/images/products/shiyaaka-shadow-cutout.png"
   },
   {
+    "id": 9100000000003,
+    "name": "SPECIAL EDITION SHIYAAKA SNOW",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100 ML",
+    "badge": "New",
+    "gender": "Unisex",
+    "notes": ["Fresh Citrus", "Sky Breeze", "Cedarwood"],
+    "img": "/assets/images/products/shiyaaka-snow-bottle.png"
+  },
+  {
+    "id": 8354691940551,
+    "name": "KHADLAJ ISLAND VANILLA DUNES",
+    "col": "Extrait De Parfum",
+    "price": 150,
+    "size": "100ml EDP",
+    "badge": "For Him",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island_Vanilla-3.jpg?v=1783945707"
+  },
+  {
+    "id": 7554205647047,
+    "name": "SHIYAAKA BLUE",
+    "col": "Eau De Parfum",
+    "price": 65,
+    "size": "100 ml",
+    "badge": "For Him",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.Blue.4.jpg?v=1771043727"
+  },
+  {
+    "id": 7554205614279,
+    "name": "SHIYAAKA",
+    "col": "Eau De Parfum",
+    "price": 65,
+    "size": "100 ml",
+    "badge": "For Him",
+    "gender": "Him",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.4.jpg?v=1771043858"
+  },
+  {
+    "id": 7554205581511,
+    "name": "SHIYAAKA WHITE",
+    "col": "Eau De Parfum",
+    "price": 65,
+    "size": "100 ml",
+    "badge": "For Her",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.White.4.jpg?v=1771044128"
+  },
+  {
+    "id": 7554205548743,
+    "name": "SHIYAAKA GOLD",
+    "col": "Eau De Parfum",
+    "price": 65,
+    "size": "100 ml",
+    "badge": "For Her",
+    "gender": "Her",
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.Gold.4_1.jpg?v=1771044263"
+  },
+  {
     "id": 9100000000001,
     "name": "KARUS GOLD ABSOLU",
     "col": "Eau De Parfum",
@@ -108,17 +194,7 @@ const PRODUCTS = [
     "notes": ["Precious Oud", "Saffron", "Rose"],
     "img": "/assets/images/products/saraya-cutout.png"
   },
-  {
-    "id": 9100000000003,
-    "name": "SPECIAL EDITION SHIYAAKA SNOW",
-    "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100 ML",
-    "badge": "New",
-    "gender": "Unisex",
-    "notes": ["Fresh Citrus", "Sky Breeze", "Cedarwood"],
-    "img": "/assets/images/products/shiyaaka-snow-bottle.png"
-  },
+  
   {
     "id": 9100000000004,
     "name": "ZAYAAN SILVER",
@@ -711,21 +787,7 @@ const PRODUCTS = [
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Qissa-03.jpg?v=1745839937"
   },
-  {
-    "id": 8354691940551,
-    "name": "KHADLAJ ISLAND VANILLA DUNES",
-    "col": "Extrait De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
-    "badge": "For Him",
-    "gender": "Him",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island_Vanilla-3.jpg?v=1783945707"
-  },
+  
   {
     "id": 8342076129479,
     "name": "OUD MUATTAR RUKAIYA",
@@ -3504,66 +3566,10 @@ const PRODUCTS = [
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ROSE_AND_ROMANCE_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965893.jpg?v=1784382622"
   },
-  {
-    "id": 7554205647047,
-    "name": "SHIYAAKA BLUE",
-    "col": "Eau De Parfum",
-    "price": 65,
-    "size": "100 ml",
-    "badge": "For Him",
-    "gender": "Him",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.Blue.4.jpg?v=1771043727"
-  },
-  {
-    "id": 7554205614279,
-    "name": "SHIYAAKA",
-    "col": "Eau De Parfum",
-    "price": 65,
-    "size": "100 ml",
-    "badge": "For Him",
-    "gender": "Him",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.4.jpg?v=1771043858"
-  },
-  {
-    "id": 7554205581511,
-    "name": "SHIYAAKA WHITE",
-    "col": "Eau De Parfum",
-    "price": 65,
-    "size": "100 ml",
-    "badge": "For Her",
-    "gender": "Her",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.White.4.jpg?v=1771044128"
-  },
-  {
-    "id": 7554205548743,
-    "name": "SHIYAAKA GOLD",
-    "col": "Eau De Parfum",
-    "price": 65,
-    "size": "100 ml",
-    "badge": "For Her",
-    "gender": "Her",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.Gold.4_1.jpg?v=1771044263"
-  },
+  
+  
+  
+  
   {
     "id": 7554206204103,
     "name": "BAKHOOR TAIBA",
