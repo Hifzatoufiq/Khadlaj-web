@@ -5304,6 +5304,41 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       
 
       {/* ── WHAT SETS US APART ── */}
+      {/* ── DISCOVER YOUR NEXT FAVORITE ── */}
+      <section style={{padding:"120px 0", background:"#FAF8F4", overflow:"hidden"}}>
+        <div style={{textAlign:"center", marginBottom:60}}>
+          <span style={{fontSize: 11, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontWeight: 600, display:"block", marginBottom:16}}>Curated Selections</span>
+          <h2 style={{fontFamily: "'Playfair Display', serif", fontSize: 46, color: "#251737", margin: 0, fontWeight: 500}}>
+            Discover Your Next Favorite
+          </h2>
+          <p style={{fontFamily: "'Montserrat', sans-serif", fontSize: 15, color: "#555", maxWidth: 600, margin: "20px auto 0", lineHeight: 1.6}}>
+            Explore our most captivating signature fragrances, beautifully crafted to evoke unforgettable emotions.
+          </p>
+        </div>
+
+        <div className="discovery-grid">
+          {[
+            {name: "Hareem Al Sultan", type: "Masterpiece", img: "/assets/images/products/hareem-al-sultan.png"},
+            {name: "Fursan", type: "Royal Elegance", img: "/assets/images/products/fursan.png"},
+            {name: "L'imaginaire", type: "Artisan Creation", img: "/assets/images/products/limaginaire.jpg"},
+            {name: "Nuha Cherry Blush", type: "Eau De Parfum", img: "/assets/images/products/nuha-cherry.jpg"},
+            {name: "Island", type: "Premium Blend", img: "/assets/images/products/island-gold.jpg"},
+            {name: "Cream Velvet", type: "Signature Collection", img: "/assets/images/products/cream-velvet-bottle.png"},
+            {name: "Mocha Latte", type: "Gourmand Essence", img: "/assets/images/products/mocha-latte.png"},
+            {name: "Empire Victor", type: "Royal Heritage", img: "/assets/images/products/empire-victor.png"}
+          ].map((item, i) => (
+            <div key={item.name} className="discovery-card">
+              <img src={item.img} alt={item.name} loading="lazy" />
+              <div className="discovery-card-overlay">
+                <p className="discovery-type">{item.type}</p>
+                <h3 className="discovery-name">{item.name}</h3>
+                <span className="discovery-btn">Shop Now</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section style={{display:"flex", flexWrap:"wrap", background:"#251737"}}>
         {/* Left Content Area */}
         <div style={{flex:"1 1 50%", padding:"8vw 6%", minWidth:300, display:"flex", flexDirection:"column", justifyContent:"center"}}>
@@ -5658,40 +5693,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       </section>
 
 
-      {/* ── DISCOVER YOUR NEXT FAVORITE ── */}
-      <section style={{padding:"120px 0", background:"#FAF8F4", overflow:"hidden"}}>
-        <div style={{textAlign:"center", marginBottom:60}}>
-          <span style={{fontSize: 11, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontWeight: 600, display:"block", marginBottom:16}}>Curated Selections</span>
-          <h2 style={{fontFamily: "'Playfair Display', serif", fontSize: 46, color: "#251737", margin: 0, fontWeight: 500}}>
-            Discover Your Next Favorite
-          </h2>
-          <p style={{fontFamily: "'Montserrat', sans-serif", fontSize: 15, color: "#555", maxWidth: 600, margin: "20px auto 0", lineHeight: 1.6}}>
-            Explore our most captivating signature fragrances, beautifully crafted to evoke unforgettable emotions.
-          </p>
-        </div>
 
-        <div className="discovery-grid">
-          {[
-            {name: "Hareem Al Sultan", type: "Masterpiece", img: "/assets/images/products/hareem-al-sultan.png"},
-            {name: "Fursan", type: "Royal Elegance", img: "/assets/images/products/fursan.png"},
-            {name: "L'imaginaire", type: "Artisan Creation", img: "/assets/images/products/limaginaire.jpg"},
-            {name: "Nuha Cherry Blush", type: "Eau De Parfum", img: "/assets/images/products/nuha-cherry.jpg"},
-            {name: "Island", type: "Premium Blend", img: "/assets/images/products/island-gold.jpg"},
-            {name: "Cream Velvet", type: "Signature Collection", img: "/assets/images/products/cream-velvet-bottle.png"},
-            {name: "Mocha Latte", type: "Gourmand Essence", img: "/assets/images/products/mocha-latte.png"},
-            {name: "Empire Victor", type: "Royal Heritage", img: "/assets/images/products/empire-victor.png"}
-          ].map((item, i) => (
-            <div key={item.name} className="discovery-card">
-              <img src={item.img} alt={item.name} loading="lazy" />
-              <div className="discovery-card-overlay">
-                <p className="discovery-type">{item.type}</p>
-                <h3 className="discovery-name">{item.name}</h3>
-                <span className="discovery-btn">Shop Now</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
           </>
   );
 }
