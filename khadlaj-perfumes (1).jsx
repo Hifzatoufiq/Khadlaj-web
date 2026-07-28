@@ -41,7 +41,7 @@ const CountryContext = React.createContext();
 
 const PAYMENTS = ["Visa","Mastercard","Apple Pay","Google Pay","Tabby","Tamara","PayTabs","PayPal"];
 
-const NAV_LINKS = ["Best Sellers","Perfume Spray","Perfume Oil","Home & Ambience","Gifts","Our legacy","Contact"];
+const NAV_LINKS = ["Best Sellers","Perfume Spray","Perfume Oil","Home & Ambience","Gift Sets","Our legacy","Contact"];
 
 const SCENT_RIBBON = ["Island", "Icon", "Shiyaaka", "Empire", "Fursan", "Nuha", "Valor", "Velvet"];
 
@@ -7196,7 +7196,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
             </div>
           </div>
           <div className="hide-mob" style={{display:"flex",justifyContent:"center",gap:40,paddingBottom:16,fontSize:"12px",letterSpacing:"1.5px",textTransform:"uppercase",color:"#251737",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>
-            {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Contact","contact"]].map(([label,pg])=>{
+            {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gift Sets","gifts"],["Our legacy","story"],["Contact","contact"]].map(([label,pg])=>{
               let isActive = false;
               if (page === pg) {
                 if (pg === "collections") {
@@ -7234,7 +7234,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
             zIndex:200,
             boxShadow:"0 8px 32px rgba(0,0,0,.12)",
           }}>
-            {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gifts","gifts"],["Our legacy","story"],["Sign Up","signup"],["Contact","contact"]].map(([label,pg])=>{
+            {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gift Sets","gifts"],["Our legacy","story"],["Sign Up","signup"],["Contact","contact"]].map(([label,pg])=>{
               let isActive = false;
               if (page === pg) {
                 if (pg === "collections") {
