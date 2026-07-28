@@ -5492,55 +5492,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           </a>
         </div>
       </section>
-{/* ── WHY KHADLAJ — Trust strip ── */}
-      <section style={{background:"#fff",borderBottom:"1px solid #E8E4DC",padding:"40px 5% 80px",position:"relative",zIndex:1}}>
-        <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:24,textAlign:"center"}} className="grid-4">
-          {[
-            {
-              icon:<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(184,146,42,0.03)" /><path d="M12 22V12" /><path d="M12 12c2-2.5 4-3 5-5-2 .5-4.5 2-5 5z" fill="rgba(184,146,42,0.1)" /><path d="M12 12c-2-2.5-4-3-5-5 2 .5 4.5 2 5 5z" fill="rgba(184,146,42,0.1)" /><path d="M12 15c1.5-1.5 3-1.8 3.8-3-.8.3-2.2 1-3.8 3z" /><path d="M12 15c-1.5-1.5-3-1.8-3.8-3 .8.3 2.2 1 3.8 3z" /></svg>,
-              title:"Natural Ingredients",
-              desc:"Taif roses, Cambodian oud, French iris — ethically sourced"
-            },
-            {
-              icon:<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(184,146,42,0.03)" /><polygon points="12 6 13.5 9.5 17 9.5 14 11.5 15.5 15 12 13 8.5 15 10 11.5 7 9.5 10.5 9.5 12 6" fill="rgba(184,146,42,0.15)" /></svg>,
-              title:"Award-Winning",
-              desc:"Recognised fragrance house since 1997 across 30+ countries"
-            },
-            {
-              icon:<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(184,146,42,0.03)" /><rect x="6" y="8" width="8" height="6" rx="1" fill="rgba(184,146,42,0.1)" /><path d="M14 9h3l2 2v3h-5V9z" /><circle cx="8.5" cy="16.5" r="1.5" fill="#B8922A" /><circle cx="15.5" cy="16.5" r="1.5" fill="#B8922A" /></svg>,
-              title:"Free UAE Delivery",
-              desc:"Complimentary shipping on orders above AED 150"
-            },
-            {
-              icon:<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(184,146,42,0.03)" /><rect x="6" y="8" width="12" height="8" rx="1" fill="rgba(184,146,42,0.1)" /><path d="M6 11h12M12 8v8" /><path d="M12 8c-.8-1-2.2-1.5-2.2-.5s1.2 1 2.2.5c.8-1 2.2-1.5 2.2-.5s-1.2 1-2.2.5z" /></svg>,
-              title:"Luxury Packaging",
-              desc:"Every order arrives gift-ready in premium Khadlaj packaging"
-            },
-          ].map((item,i)=>(
-            <div key={item.title} style={{
-              padding:"40px 28px",
-              background:"#FCFBFA",
-              border:"1px solid #F0ECE6",
-              transition:"all .3s cubic-bezier(0.25, 0.8, 0.25, 1)",
-            }}
-            onMouseEnter={e=>{
-              e.currentTarget.style.transform="translateY(-6px)";
-              e.currentTarget.style.borderColor="#B8922A";
-              e.currentTarget.style.boxShadow="0 16px 36px rgba(184,146,42,0.08)";
-            }}
-            onMouseLeave={e=>{
-              e.currentTarget.style.transform="translateY(0)";
-              e.currentTarget.style.borderColor="#F0ECE6";
-              e.currentTarget.style.boxShadow="none";
-            }}
-            >
-              <div style={{marginBottom:22,display:"flex",justifyContent:"center"}}>{item.icon}</div>
-              <p style={{fontSize:11,fontWeight:600,color:"#251737",letterSpacing:2,fontFamily:"'Montserrat',sans-serif",marginBottom:12,textTransform:"uppercase"}}>{item.title}</p>
-              <p style={{fontSize:12,color:"#777",lineHeight:1.7,fontFamily:"'Montserrat',sans-serif",maxWidth:220,margin:"0 auto"}}>{item.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+
 
       {/* ── SCENT FINDER QUIZ ── */}
       <section style={{background:"#251737", padding:"96px 5%", color:"#fff", borderTop:"1px solid rgba(255,255,255,0.08)", position:"relative", zIndex:1}}>
@@ -5654,6 +5606,56 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
           </div>
 
+        </div>
+      </section>
+
+{/* ── WHY KHADLAJ — Trust strip ── */}
+      <section style={{background:"#fff",borderBottom:"1px solid #E8E4DC",padding:"40px 5% 80px",position:"relative",zIndex:1}}>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:24,textAlign:"center"}} className="grid-4">
+          {[
+            {
+              icon:<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(184,146,42,0.03)" /><path d="M12 22V12" /><path d="M12 12c2-2.5 4-3 5-5-2 .5-4.5 2-5 5z" fill="rgba(184,146,42,0.1)" /><path d="M12 12c-2-2.5-4-3-5-5 2 .5 4.5 2 5 5z" fill="rgba(184,146,42,0.1)" /><path d="M12 15c1.5-1.5 3-1.8 3.8-3-.8.3-2.2 1-3.8 3z" /><path d="M12 15c-1.5-1.5-3-1.8-3.8-3 .8.3 2.2 1 3.8 3z" /></svg>,
+              title:"Natural Ingredients",
+              desc:"Taif roses, Cambodian oud, French iris — ethically sourced"
+            },
+            {
+              icon:<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(184,146,42,0.03)" /><polygon points="12 6 13.5 9.5 17 9.5 14 11.5 15.5 15 12 13 8.5 15 10 11.5 7 9.5 10.5 9.5 12 6" fill="rgba(184,146,42,0.15)" /></svg>,
+              title:"Award-Winning",
+              desc:"Recognised fragrance house since 1997 across 30+ countries"
+            },
+            {
+              icon:<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(184,146,42,0.03)" /><rect x="6" y="8" width="8" height="6" rx="1" fill="rgba(184,146,42,0.1)" /><path d="M14 9h3l2 2v3h-5V9z" /><circle cx="8.5" cy="16.5" r="1.5" fill="#B8922A" /><circle cx="15.5" cy="16.5" r="1.5" fill="#B8922A" /></svg>,
+              title:"Free UAE Delivery",
+              desc:"Complimentary shipping on orders above AED 150"
+            },
+            {
+              icon:<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(184,146,42,0.03)" /><rect x="6" y="8" width="12" height="8" rx="1" fill="rgba(184,146,42,0.1)" /><path d="M6 11h12M12 8v8" /><path d="M12 8c-.8-1-2.2-1.5-2.2-.5s1.2 1 2.2.5c.8-1 2.2-1.5 2.2-.5s-1.2 1-2.2.5z" /></svg>,
+              title:"Luxury Packaging",
+              desc:"Every order arrives gift-ready in premium Khadlaj packaging"
+            },
+          ].map((item,i)=>(
+            <div key={item.title} style={{
+              padding:"40px 28px",
+              background:"#FCFBFA",
+              border:"1px solid #F0ECE6",
+              transition:"all .3s cubic-bezier(0.25, 0.8, 0.25, 1)",
+            }}
+            onMouseEnter={e=>{
+              e.currentTarget.style.transform="translateY(-6px)";
+              e.currentTarget.style.borderColor="#B8922A";
+              e.currentTarget.style.boxShadow="0 16px 36px rgba(184,146,42,0.08)";
+            }}
+            onMouseLeave={e=>{
+              e.currentTarget.style.transform="translateY(0)";
+              e.currentTarget.style.borderColor="#F0ECE6";
+              e.currentTarget.style.boxShadow="none";
+            }}
+            >
+              <div style={{marginBottom:22,display:"flex",justifyContent:"center"}}>{item.icon}</div>
+              <p style={{fontSize:11,fontWeight:600,color:"#251737",letterSpacing:2,fontFamily:"'Montserrat',sans-serif",marginBottom:12,textTransform:"uppercase"}}>{item.title}</p>
+              <p style={{fontSize:12,color:"#777",lineHeight:1.7,fontFamily:"'Montserrat',sans-serif",maxWidth:220,margin:"0 auto"}}>{item.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
