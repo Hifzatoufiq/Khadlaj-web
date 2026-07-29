@@ -113,6 +113,28 @@ const PRODUCTS = [
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island_Vanilla-3.jpg?v=1783945707"
   },
   {
+    "id": 9200000000003,
+    "name": "SHIYAAKA SKY",
+    "col": "Eau De Parfum",
+    "price": 65,
+    "size": "100 ml",
+    "badge": "New",
+    "gender": "Unisex",
+    "notes": ["Fresh Citrus", "Sky Breeze", "Cedarwood"],
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/shiyaaka-snow.png?v=1781615422"
+  },
+  {
+    "id": 9100000000001,
+    "name": "KARUS GOLD ABSOLU",
+    "col": "Eau De Parfum",
+    "price": 150,
+    "size": "100 ML",
+    "badge": "New",
+    "gender": "Unisex",
+    "notes": ["Gold Oud", "Royal Amber", "Velvet Musk"],
+    "img": "/assets/images/products/karus-cutout.png"
+  },
+  {
     "id": 7554205647047,
     "name": "SHIYAAKA BLUE",
     "col": "Eau De Parfum",
@@ -4839,7 +4861,6 @@ function ProductCard({ p, onView, onCart }){
     "SARAYA": 1.08,
     "QARAR": 1.08,
     "KHADLAJ IHTHIRAAM": 1.08,
-    "KARUS GOLD ABSOLU": 1.05,
     "ZAYAAN SILVER": 0.88,
     "KHADLAJ ICON": 1.05
   }[p.name] || 0.88;
