@@ -121,7 +121,7 @@ const PRODUCTS = [
     "badge": "New",
     "gender": "Unisex",
     "notes": ["Fresh Citrus", "Sky Breeze", "Cedarwood"],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/shiyaaka-snow.png?v=1781615422"
+    "img": "/assets/images/products/shiyaaka-sky-bottle.png"
   },
   {
     "id": 9100000000001,
@@ -4462,7 +4462,7 @@ const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/",
   tiktok: "https://www.tiktok.com/@khadlaj.uk",
 };
-const CATEGORIES = ["Khadlaj","Best Sellers","New","For Him","For Her","Unisex","Perfume Oils","EAU DE PARFUM","Master Perfumery"];
+const CATEGORIES = ["Best Sellers","New","For Him","For Her","Unisex","Perfume Oils","EAU DE PARFUM","Master Perfumery"];
 
 /* ═══════════════════════════════════════════════════════════════
    GLOBAL CSS
