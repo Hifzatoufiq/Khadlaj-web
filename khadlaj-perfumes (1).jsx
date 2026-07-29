@@ -5321,7 +5321,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             {name: "Nuha Cherry Blush", type: "Eau De Parfum", img: "/assets/images/products/nuha-cherry.jpg"},
             {name: "Cream Velvet", type: "Signature Collection", img: "/assets/images/products/cream-velvet-bottle.png"},
             {name: "Mocha Latte", type: "Gourmand Essence", img: "/assets/images/products/mocha-latte.png"},
-            {name: "Empire Victor", type: "Royal Heritage", img: "/assets/images/products/empire-victor.png"}
+            {name: "Shiyaaka Shadow", type: "Special Edition", img: "/assets/images/products/shiyaaka_custom_1.jpg"}
           ].map((item, i) => (
             <div key={item.name} className="discovery-card">
               <img src={item.img} alt={item.name} loading="lazy" />
