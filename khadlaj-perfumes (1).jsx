@@ -265,7 +265,7 @@ const PRODUCTS = [
 
   {
     "id": 8526052262087,
-    "name": "OUD PURE OUD JUMEIRAH",
+    "name": "OUD JUMEIRAH",
     "col": "Master Perfumery",
     "price": 200.0,
     "size": "60ml EDP",
@@ -486,7 +486,7 @@ const PRODUCTS = [
   },
   {
     "id": 8526040367303,
-    "name": "OUD PURE OUD BARAKAT",
+    "name": "OUD BARAKAT",
     "col": "Master Perfumery",
     "price": 200,
     "size": "100ml EDP",
@@ -501,7 +501,7 @@ const PRODUCTS = [
   },
   {
     "id": 8525988200647,
-    "name": "OUD PURE OUD GALAZAID",
+    "name": "GALAZAID",
     "col": "Master Perfumery",
     "price": 200,
     "size": "100ml EDP",
@@ -1422,7 +1422,7 @@ const PRODUCTS = [
 
   {
     "id": 8143006892231,
-    "name": "MUSK PURE MUSK BLEND CREATION OF IQBAL",
+    "name": "PURE MUSK PURE BLEND",
     "col": "Master Perfumery",
     "price": 200,
     "size": "100ml EDP",
