@@ -5315,13 +5315,13 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         <div className="discovery-grid">
           {[
             {name: "Island", type: "Premium Blend", img: "/assets/images/products/island-gold.jpg"},
-            {name: "Hareem Al Sultan", type: "Masterpiece", img: "/assets/images/products/hareem-al-sultan.png"},
+            {name: "Shiyaaka Sky", type: "Special Edition", img: "/assets/images/products/shiyaaka_custom_5_cropped.png"},
             {name: "Fursan", type: "Royal Elegance", img: "/assets/images/products/fursan.png"},
             {name: "L'imaginaire", type: "Artisan Creation", img: "/assets/images/products/limaginaire.jpg"},
             {name: "Nuha Cherry Blush", type: "Eau De Parfum", img: "/assets/images/products/nuha-cherry.jpg"},
             {name: "Cream Velvet", type: "Signature Collection", img: "/assets/images/products/cream-velvet-bottle.png"},
             {name: "Mocha Latte", type: "Gourmand Essence", img: "/assets/images/products/mocha-latte.png"},
-            {name: "Shiyaaka Shadow", type: "Special Edition", img: "/assets/images/products/shiyaaka_custom_1.jpg"}
+            {name: "Hareem Al Sultan", type: "Masterpiece", img: "/assets/images/products/hareem-al-sultan.png"}
           ].map((item, i) => (
             <div key={item.name} className="discovery-card">
               <img src={item.img} alt={item.name} loading="lazy" />
