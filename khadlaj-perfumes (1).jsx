@@ -4619,18 +4619,16 @@ const GLOBAL_CSS = `
     flex-shrink: 0; 
     display: flex; align-items: center; justify-content: center;
     border-radius: 200px 200px 0 0;
-    overflow: visible;
+    overflow: hidden;
   }
   
   .k25-card-img-wrapper img { 
-    height: 85%; object-fit: contain; display: block; 
-    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.6));
+    height: 100%; width: 100%; object-fit: cover; display: block; 
     transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.8s ease;
-    animation: lafedeFloat 6s ease-in-out infinite;
   }
   .k25-card:hover .k25-card-img-wrapper img { 
-    transform: scale(1.12) translateY(-15px); 
-    filter: drop-shadow(0 30px 45px rgba(0,0,0,0.8)) brightness(1.15); 
+    transform: scale(1.08); 
+    filter: brightness(1.15); 
   }
   
   .k25-card-content { 
