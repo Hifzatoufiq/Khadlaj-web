@@ -497,7 +497,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Nafais_Magrib-3.jpg?v=1783940515"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Barakat-3.jpg?v=1783940266"
   },
   {
     "id": 8525988200647,
