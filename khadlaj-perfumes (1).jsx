@@ -5341,22 +5341,19 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         {/* Left Content Area */}
         <div style={{flex:"1 1 50%", padding:"8vw 6%", minWidth:300, display:"flex", flexDirection:"column", justifyContent:"center"}}>
           <h2 className="disp" style={{fontSize:"clamp(32px, 4vw, 48px)", fontWeight:600, color:"#fff", lineHeight:1.1, marginBottom:24}}>
-            What Sets Khadlaj Apart
+            Discover Shiyaaka Sky
           </h2>
           <p style={{fontSize:15, color:"rgba(255,255,255,0.75)", lineHeight:1.8, fontFamily:"'Montserrat',sans-serif", marginBottom:40, maxWidth:600}}>
-            Every Khadlaj fragrance is crafted using top-grade, internationally sourced perfume materials — the same grade used in original luxury fragrances worldwide. We use perfumer-grade, plant-based, halal ingredients to ensure safety, purity, and exceptional performance.
+            Immerse yourself in the ultimate expression of freshness. Shiyaaka Sky brings together zesty citrus, the airy touch of a sky breeze, and the grounding warmth of cedarwood for a truly liberating olfactory experience.
           </p>
           
           <ul style={{listStyle:"none", padding:0, margin:"0 0 48px", display:"flex", flexDirection:"column", gap:16, color:"#fff", fontFamily:"'Montserrat',sans-serif", fontSize:14, fontWeight:500}}>
             {[
-              "150+ Premium Perfumes, the region's finest fragrance range",
-              "10+ Hand-Crafted Luxury Collections",
-              "Pure Premium Attars & Oils",
-              "Vegan & Cruelty Free",
-              "Free of Harmful Chemicals",
-              "Long-Lasting Formula — 12+ Hours",
-              "Proudly Made in the UAE",
-              "50,000+ Happy Customers Worldwide"
+              "Invigorating Fresh Citrus Opening",
+              "Airy & Breathable Sky Breeze Notes",
+              "Warm Cedarwood Foundation",
+              "Crafted for Everyday Elegance",
+              "Long-Lasting Uplifting Sillage"
             ].map((point, i) => (
                 <li key={i} style={{display:"flex", alignItems:"center", gap:12}}>
                   <div style={{width:6, height:6, borderRadius:"50%", background:"#C8A97E", flexShrink:0}}/>
@@ -5372,9 +5369,9 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           </div>
         </div>
 
-        {/* Right Image Area */}
+        {/* Right Video Area */}
         <div style={{flex:"1 1 50%", minWidth:300, position:"relative", minHeight:"600px"}}>
-          <img src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-3.jpg?v=1775636549" alt="Khadlaj Luxury Perfume" style={{position:"absolute", width:"100%", height:"100%", objectFit:"cover"}} />
+          <video src="/assets/videos/shiyaaka-sky-v2.mp4" autoPlay loop muted playsInline style={{position:"absolute", width:"100%", height:"100%", objectFit:"cover"}} />
         </div>
       </section>
 
