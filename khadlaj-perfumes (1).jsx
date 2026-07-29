@@ -175,7 +175,7 @@ const PRODUCTS = [
 
   {
     "id": 9100000000002,
-    "name": "KHADLAJ SARAYA",
+    "name": "SARAYA",
     "col": "Extrait De Parfum",
     "price": 105,
     "size": "60 ML",
@@ -198,7 +198,7 @@ const PRODUCTS = [
   },
   {
     "id": 9100000000005,
-    "name": "KHADLAJ QARAR",
+    "name": "QARAR",
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "60 ML",
@@ -4835,8 +4835,8 @@ function ProductCard({ p, onView, onCart }){
     "KHADLAJ ISLAND": 1.05,
     "SAWAAR VANILLE BLANC": 1.05,
     "PANACHE ANGEL DUST": 1.15,
-    "KHADLAJ SARAYA": 1.08,
-    "KHADLAJ QARAR": 1.08,
+    "SARAYA": 1.08,
+    "QARAR": 1.08,
     "KHADLAJ IHTHIRAAM": 1.08,
     "KARUS GOLD ABSOLU": 1.05,
     "ZAYAAN SILVER": 0.88,
@@ -4854,10 +4854,10 @@ function ProductCard({ p, onView, onCart }){
     "SAWAAR VANILLE BLANC": 0.15,
     "ZAYAAN SILVER": 0.0,
     "KHADLAJ ICON": 0,
-    "KHADLAJ QARAR": 0,
+    "QARAR": 0,
     "KHADLAJ IHTHIRAAM": 0,
     "PANACHE ANGEL DUST": 0,
-    "KHADLAJ SARAYA": 0.08
+    "SARAYA": 0.08
   }[p.name] || 0;
 
   return (
