@@ -5338,30 +5338,35 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       <section style={{display:"flex", flexWrap:"wrap", background:"#251737"}}>
         {/* Left Content Area */}
         <div style={{flex:"1 1 50%", padding:"8vw 6%", minWidth:300, display:"flex", flexDirection:"column", justifyContent:"center"}}>
-          <h2 className="disp" style={{fontSize:"clamp(32px, 4vw, 48px)", fontWeight:600, color:"#fff", lineHeight:1.1, marginBottom:24}}>
+          <span style={{display:"block", color:"#C8A97E", letterSpacing:4, fontSize:12, textTransform:"uppercase", marginBottom:16, fontWeight:600}}>The New Standard</span>
+          <h2 className="disp" style={{fontSize:"clamp(36px, 5vw, 56px)", fontWeight:400, color:"#fff", lineHeight:1.1, marginBottom:32, letterSpacing:"-0.5px"}}>
             Discover Shiyaaka Sky
           </h2>
-          <p style={{fontSize:15, color:"rgba(255,255,255,0.75)", lineHeight:1.8, fontFamily:"'Montserrat',sans-serif", marginBottom:40, maxWidth:600}}>
+          <p style={{fontSize:16, color:"rgba(255,255,255,0.85)", lineHeight:1.9, fontFamily:"'Montserrat',sans-serif", marginBottom:48, maxWidth:650, fontWeight:300}}>
             Immerse yourself in the ultimate expression of freshness. Shiyaaka Sky brings together zesty citrus, the airy touch of a sky breeze, and the grounding warmth of cedarwood for a truly liberating olfactory experience.
           </p>
           
-          <ul style={{listStyle:"none", padding:0, margin:"0 0 48px", display:"flex", flexDirection:"column", gap:16, color:"#fff", fontFamily:"'Montserrat',sans-serif", fontSize:14, fontWeight:500}}>
+          <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(240px, 1fr))", gap:24, marginBottom:56, maxWidth:700}}>
             {[
-              "Invigorating Fresh Citrus Opening",
-              "Airy & Breathable Sky Breeze Notes",
-              "Warm Cedarwood Foundation",
-              "Crafted for Everyday Elegance",
-              "Long-Lasting Uplifting Sillage"
+              "Invigorating Fresh Citrus",
+              "Breathable Sky Breeze",
+              "Warm Cedarwood Base",
+              "Everyday Elegance",
+              "Long-Lasting Sillage"
             ].map((point, i) => (
-                <li key={i} style={{display:"flex", alignItems:"center", gap:12}}>
-                  <div style={{width:6, height:6, borderRadius:"50%", background:"#C8A97E", flexShrink:0}}/>
-                  {point}
-                </li>
+                <div key={i} style={{display:"flex", alignItems:"flex-start", gap:16}}>
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C8A97E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginTop:2, flexShrink:0}}>
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span style={{color:"#fff", fontFamily:"'Montserrat',sans-serif", fontSize:15, fontWeight:400, lineHeight:1.4}}>{point}</span>
+                </div>
             ))}
-          </ul>
+          </div>
           
           <div>
-            <button className="btn-gold" onClick={()=>setPage("story")} style={{padding:"16px 40px", borderRadius:4, fontSize:13, letterSpacing:1, background:"#C8A97E", borderColor:"#C8A97E", color:"#fff"}}>
+            <button onClick={()=>setPage("story")} style={{padding:"18px 48px", borderRadius:0, fontSize:13, letterSpacing:2, background:"transparent", border:"1px solid #C8A97E", color:"#C8A97E", textTransform:"uppercase", transition:"all 0.3s ease", cursor:"pointer"}}
+              onMouseEnter={(e)=>{e.target.style.background="#C8A97E"; e.target.style.color="#fff";}}
+              onMouseLeave={(e)=>{e.target.style.background="transparent"; e.target.style.color="#C8A97E";}}>
               Read More
             </button>
           </div>
