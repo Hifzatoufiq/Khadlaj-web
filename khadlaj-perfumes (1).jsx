@@ -5229,10 +5229,10 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       {/* ── 25TH ANNIVERSARY COLLECTION ── */}
       <section className="khadlaj25-section">
         <div className="k25-header">
-          <span style={{fontSize: 11, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontWeight: 600, display: "block", marginBottom: 16}}>The Milestone</span>
-          <h2 style={{fontFamily: "'Playfair Display', serif", fontSize: 46, color: "#251737", margin: 0, fontWeight: 500}}>25th Anniversary Collection</h2>
+          <span style={{fontSize: 11, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontWeight: 600, display: "block", marginBottom: 16}}>The Masterpiece</span>
+          <h2 style={{fontFamily: "'Playfair Display', serif", fontSize: 46, color: "#251737", margin: 0, fontWeight: 500}}>Shiyaaka Collection</h2>
           <p style={{fontFamily: "'Montserrat', sans-serif", fontSize: 15, color: "#555", maxWidth: 640, margin: "20px auto 0", lineHeight: 1.6}}>
-            Celebrating a quarter-century of olfactory excellence. A tribute to our legacy, crafted for those who value heritage and distinction.
+            Experience the essence of modern sophistication. A definitive collection curated for elegance and timeless charm.
           </p>
         </div>
 
@@ -5248,15 +5248,15 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           <div id="k25-scroll-container" className="k25-slider-container">
             <div className="k25-slider-track">
               {[
-                { name: "LOYALTY", subtitle: "Unwavering Bonds", desc: "A captivating fragrance that symbolizes eternal commitment and deep connections, bottled for the discerning collector.", img: "/assets/images/products/loyalty.png" },
-                { name: "TRUST", subtitle: "Foundation of Eternity", desc: "Built on the essence of pure authenticity, leaving a trail of sophisticated confidence wherever you go.", img: "/assets/images/products/trust.png" },
-                { name: "INTEGRITY", subtitle: "Essence of Character", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "/assets/images/products/integrity.png" },
-                { name: "HERITAGE", subtitle: "Roots of Legacy", desc: "An aromatic tribute to the rich traditions and timeless stories woven into the very fabric of our heritage.", img: "/assets/images/products/heritage.png" },
+                { name: "SHIYAAKA SHADOW", subtitle: "Mysterious & Bold", desc: "A captivating fragrance that symbolizes modern masculinity, bottled for the discerning individual.", img: "/assets/images/products/shiyaaka_shadow_collection.png" },
+                { name: "SHIYAAKA BLUE", subtitle: "Fresh & Aquatic", desc: "Built on the essence of pure freshness, leaving a trail of sophisticated confidence wherever you go.", img: "/assets/images/products/shiyaaka_blue_collection.png" },
+                { name: "SHIYAAKA", subtitle: "Timeless Elegance", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "/assets/images/products/shiyaaka_silver_collection.png" },
+                { name: "SHIYAAKA SNOW", subtitle: "Crisp & Pure", desc: "An aromatic tribute to the frosty freshness, woven into the very fabric of our heritage.", img: "/assets/images/products/shiyaaka_snow_collection.png" },
                 { name: "EXPERIENCE", subtitle: "Journey of Senses", desc: "A bold, smoky revelation that envelops the senses in a dark, mysterious, and unforgettable olfactory journey.", img: "/assets/images/products/experience.png" },
-                { name: "LOYALTY", subtitle: "Unwavering Bonds", desc: "A captivating fragrance that symbolizes eternal commitment and deep connections, bottled for the discerning collector.", img: "/assets/images/products/loyalty.png" },
-                { name: "TRUST", subtitle: "Foundation of Eternity", desc: "Built on the essence of pure authenticity, leaving a trail of sophisticated confidence wherever you go.", img: "/assets/images/products/trust.png" },
-                { name: "INTEGRITY", subtitle: "Essence of Character", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "/assets/images/products/integrity.png" },
-                { name: "HERITAGE", subtitle: "Roots of Legacy", desc: "An aromatic tribute to the rich traditions and timeless stories woven into the rich fabric of our heritage.", img: "/assets/images/products/heritage.png" },
+                { name: "SHIYAAKA SHADOW", subtitle: "Mysterious & Bold", desc: "A captivating fragrance that symbolizes modern masculinity, bottled for the discerning individual.", img: "/assets/images/products/shiyaaka_shadow_collection.png" },
+                { name: "SHIYAAKA BLUE", subtitle: "Fresh & Aquatic", desc: "Built on the essence of pure freshness, leaving a trail of sophisticated confidence wherever you go.", img: "/assets/images/products/shiyaaka_blue_collection.png" },
+                { name: "SHIYAAKA", subtitle: "Timeless Elegance", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "/assets/images/products/shiyaaka_silver_collection.png" },
+                { name: "SHIYAAKA SNOW", subtitle: "Crisp & Pure", desc: "An aromatic tribute to the frosty freshness, woven into the very fabric of our heritage.", img: "/assets/images/products/shiyaaka_snow_collection.png" },
                 { name: "EXPERIENCE", subtitle: "Journey of Senses", desc: "A bold, smoky revelation that envelops the senses in a dark, mysterious, and unforgettable olfactory journey.", img: "/assets/images/products/experience.png" }
               ].map((item, idx) => (
                 <div className="k25-card" key={idx}>
