@@ -125,7 +125,7 @@ const PRODUCTS = [
   },
   {
     "id": 9100000000001,
-    "name": "KARUS GOLD ABSOLU",
+    "name": "KARUS OUD FIRE",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100 ML",
@@ -4852,7 +4852,7 @@ function ProductCard({ p, onView, onCart }){
     "Saraya": 0.78,
     "SPECIAL EDITION SHIYAAKA SNOW": 1.35,
     "SPECIAL EDITION SHIYAAKA SHADOW": 1.05,
-    "KARUS GOLD ABSOLU": 1.05,
+    "KARUS OUD FIRE": 1.05,
     "KHADLAJ ISLAND": 1.05,
     "SAWAAR VANILLE BLANC": 1.05,
     "PANACHE ANGEL DUST": 1.15,
