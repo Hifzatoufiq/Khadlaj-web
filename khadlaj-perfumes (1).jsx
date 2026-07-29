@@ -7169,7 +7169,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
             {/* Logo */}
             <div onClick={()=>setPage("home")} style={{cursor:"pointer",textAlign:"center",userSelect:"none",display:"flex",alignItems:"center",justifyContent:"center"}}>
               <img
-                src="/assets/images/purple-logo.png"
+                src="/assets/images/purple-logo.png?v=2"
                 alt="Khadlaj Perfumes"
                 style={{height:"clamp(90px,11vw,135px)",width:"auto",objectFit:"contain",display:"block",maxWidth:240,transition:"transform 0.3s ease"}}
                 onMouseEnter={e=>e.currentTarget.style.transform="scale(1.02)"}
@@ -7361,7 +7361,7 @@ function Footer({ setPage }){
       <div style={{background:"#FAF9F6",padding:"80px 6% 48px",display:"grid",gridTemplateColumns:"2fr 1fr 1fr 1fr",gap:48,borderTop:"1px solid #f0f0f0"}} className="grid-3">
         <div>
           <img
-            src="/assets/images/purple-logo.png"
+            src="/assets/images/purple-logo.png?v=2"
             alt="Khadlaj Perfumes"
             style={{height:126,width:"auto",objectFit:"contain",display:"block",marginBottom:24}}
           />
