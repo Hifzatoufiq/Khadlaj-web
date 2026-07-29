@@ -177,7 +177,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.White.4.jpg?v=1771044128"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.White.1.jpg?v=2"
   },
   {
     "id": 7554205548743,
@@ -192,7 +192,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.Gold.4_1.jpg?v=1771044263"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.Gold.1.jpg?v=2"
   },
 
   {
