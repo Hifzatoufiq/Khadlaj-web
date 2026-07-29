@@ -7018,7 +7018,8 @@ function CheckoutPage({ cartItems, setPage, clearCart }){
   );
 }
 
-function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCategory }){
+function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCategory, activeCountry }){
+  const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -7809,7 +7810,7 @@ export default function App(){
     <CountryContext.Provider value={{ activeCountry, setActiveCountry }}>
     <div style={{fontFamily:"'Montserrat',sans-serif",background:"#fff",color:"#251737",minHeight:"100vh"}}>
       <style>{GLOBAL_CSS + `\n@keyframes spin { 100% { transform: rotate(360deg); } }`}</style>
-      <Navbar page={page} setPage={setPage} cartCount={cartCount} setCollectionCategory={setCollectionCategory} collectionCategory={collectionCategory}/>
+      <Navbar page={page} setPage={setPage} cartCount={cartCount} setCollectionCategory={setCollectionCategory} collectionCategory={collectionCategory} activeCountry={activeCountry}/>
       <main>{renderPage()}</main>
       <Footer setPage={setPage}/>
 
