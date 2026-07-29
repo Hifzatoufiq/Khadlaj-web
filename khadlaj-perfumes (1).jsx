@@ -121,7 +121,7 @@ const PRODUCTS = [
     "badge": "New",
     "gender": "Unisex",
     "notes": ["Fresh Citrus", "Sky Breeze", "Cedarwood"],
-    "img": "/assets/images/products/shiyaaka-sky-bottle.png"
+    "img": "/assets/images/products/shiyaaka_custom_5.png"
   },
   {
     "id": 9100000000001,
