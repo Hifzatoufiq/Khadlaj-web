@@ -172,17 +172,7 @@ const PRODUCTS = [
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.Gold.4_1.jpg?v=1771044263"
   },
-  {
-    "id": 9100000000001,
-    "name": "KARUS GOLD ABSOLU",
-    "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100 ML",
-    "badge": "New",
-    "gender": "Unisex",
-    "notes": ["Gold Oud", "Royal Amber", "Velvet Musk"],
-    "img": "/assets/images/products/karus-cutout.png"
-  },
+
   {
     "id": 9100000000002,
     "name": "KHADLAJ SARAYA",
