@@ -59,7 +59,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 150,
     "size": "100ml EDP",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": ["Oud", "Musk", "Amber"],
     "img": "/assets/images/products/island-packshot-tight_transparent.png"
@@ -70,7 +70,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 200,
     "size": "100ml EDP",
-    "badge": "New",
+    "badge": "",
     "gender": "Her",
     "notes": ["Oud", "Musk", "Amber"],
     "img": "/assets/images/products/sawaar-cutout.png"
@@ -81,7 +81,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 126,
     "size": "100ml EDP",
-    "badge": "New",
+    "badge": "",
     "gender": "Him",
     "notes": ["Oud", "Musk", "Amber"],
     "img": "/assets/images/products/shiyaaka-shadow-cutout.png"
@@ -92,7 +92,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100 ML",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": ["Fresh Citrus", "Sky Breeze", "Cedarwood"],
     "img": "/assets/images/products/shiyaaka-snow-cutout.png"
@@ -179,7 +179,7 @@ const PRODUCTS = [
     "col": "Extrait De Parfum",
     "price": 105,
     "size": "60 ML",
-    "badge": "New",
+    "badge": "",
     "gender": "Unisex",
     "notes": ["Precious Oud", "Saffron", "Rose"],
     "img": "/assets/images/products/saraya-cutout.png"
@@ -407,7 +407,7 @@ const PRODUCTS = [
     "col": "Eau De Parfum",
     "price": 125,
     "size": "100ml EDP",
-    "badge": "",
+    "badge": "New",
     "gender": "Unisex",
     "notes": [
       "Oud",
@@ -4832,6 +4832,7 @@ function ProductCard({ p, onView, onCart }){
     "Saraya": 0.78,
     "SPECIAL EDITION SHIYAAKA SNOW": 1.35,
     "SPECIAL EDITION SHIYAAKA SHADOW": 1.05,
+    "KARUS GOLD ABSOLU": 1.05,
     "KHADLAJ ISLAND": 1.05,
     "SAWAAR VANILLE BLANC": 1.05,
     "PANACHE ANGEL DUST": 1.15,
@@ -5294,11 +5295,11 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
         <div className="discovery-grid">
           {[
+            {name: "Island", type: "Premium Blend", img: "/assets/images/products/island-gold.jpg"},
             {name: "Hareem Al Sultan", type: "Masterpiece", img: "/assets/images/products/hareem-al-sultan.png"},
             {name: "Fursan", type: "Royal Elegance", img: "/assets/images/products/fursan.png"},
             {name: "L'imaginaire", type: "Artisan Creation", img: "/assets/images/products/limaginaire.jpg"},
             {name: "Nuha Cherry Blush", type: "Eau De Parfum", img: "/assets/images/products/nuha-cherry.jpg"},
-            {name: "Island", type: "Premium Blend", img: "/assets/images/products/island-gold.jpg"},
             {name: "Cream Velvet", type: "Signature Collection", img: "/assets/images/products/cream-velvet-bottle.png"},
             {name: "Mocha Latte", type: "Gourmand Essence", img: "/assets/images/products/mocha-latte.png"},
             {name: "Empire Victor", type: "Royal Heritage", img: "/assets/images/products/empire-victor.png"}
