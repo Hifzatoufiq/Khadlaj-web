@@ -5265,7 +5265,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
                     <h3 className="k25-card-title">{item.name}</h3>
                     <p className="k25-card-subtitle">{item.subtitle}</p>
                     <p className="k25-card-desc">{item.desc}</p>
-                    <button className="k25-card-btn">Discover {item.name}</button>
+                    <button className="k25-card-btn">Discover</button>
                   </div>
                 </div>
               ))}
