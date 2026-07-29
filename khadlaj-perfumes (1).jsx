@@ -5246,16 +5246,16 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           <div id="k25-scroll-container" className="k25-slider-container">
             <div className="k25-slider-track">
               {[
-                { name: "SHIYAAKA SHADOW", subtitle: "Mysterious & Bold", desc: "A captivating fragrance that symbolizes modern masculinity, bottled for the discerning individual.", img: "/assets/images/products/shiyaaka_custom_1.jpg" },
-                { name: "SHIYAAKA BLUE", subtitle: "Fresh & Aquatic", desc: "Built on the essence of pure freshness, leaving a trail of sophisticated confidence wherever you go.", img: "/assets/images/products/shiyaaka_custom_2.jpg" },
-                { name: "SHIYAAKA", subtitle: "Timeless Elegance", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "/assets/images/products/shiyaaka_custom_3.jpg" },
-                { name: "SHIYAAKA SNOW", subtitle: "Crisp & Pure", desc: "An aromatic tribute to the frosty freshness, woven into the very fabric of our heritage.", img: "/assets/images/products/shiyaaka_custom_4.png" },
-                { name: "EXPERIENCE", subtitle: "Journey of Senses", desc: "A bold, smoky revelation that envelops the senses in a dark, mysterious, and unforgettable olfactory journey.", img: "/assets/images/products/shiyaaka_custom_5.png" },
-                { name: "SHIYAAKA SHADOW", subtitle: "Mysterious & Bold", desc: "A captivating fragrance that symbolizes modern masculinity, bottled for the discerning individual.", img: "/assets/images/products/shiyaaka_custom_1.jpg" },
-                { name: "SHIYAAKA BLUE", subtitle: "Fresh & Aquatic", desc: "Built on the essence of pure freshness, leaving a trail of sophisticated confidence wherever you go.", img: "/assets/images/products/shiyaaka_custom_2.jpg" },
-                { name: "SHIYAAKA", subtitle: "Timeless Elegance", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "/assets/images/products/shiyaaka_custom_3.jpg" },
-                { name: "SHIYAAKA SNOW", subtitle: "Crisp & Pure", desc: "An aromatic tribute to the frosty freshness, woven into the very fabric of our heritage.", img: "/assets/images/products/shiyaaka_custom_4.png" },
-                { name: "EXPERIENCE", subtitle: "Journey of Senses", desc: "A bold, smoky revelation that envelops the senses in a dark, mysterious, and unforgettable olfactory journey.", img: "/assets/images/products/shiyaaka_custom_5.png" }
+                { name: "SPECIAL EDITION SHIYAAKA SKY 100 ML EAU DE PARFUM", subtitle: "Fresh & Uplifting", desc: "A refreshing blend of fresh citrus and sky breeze notes, anchored by a warm cedarwood foundation.", img: "/assets/images/products/shiyaaka_custom_5.png" },
+                { name: "SPECIAL EDITION SHIYAAKA SHADOW 100 ML EAU DE PARFUM FOR MEN", subtitle: "Mysterious & Bold", desc: "A captivating fragrance that symbolizes modern masculinity, bottled for the discerning individual.", img: "/assets/images/products/shiyaaka_custom_1.jpg" },
+                { name: "SPECIAL EDITION SHIYAAKA SNOW 100 ML EAU DE PARFUM FOR MEN", subtitle: "Crisp & Pure", desc: "An aromatic tribute to the frosty freshness, woven into the very fabric of our heritage.", img: "/assets/images/products/shiyaaka_custom_4.png" },
+                { name: "SHIYAAKA GOLD 100ML EDP SPRAY", subtitle: "Timeless Elegance", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "/assets/images/products/shiyaaka_custom_3.jpg" },
+                { name: "SHIYAAKA BLUE 100ML EDP SPRAY", subtitle: "Fresh & Aquatic", desc: "Built on the essence of pure freshness, leaving a trail of sophisticated confidence wherever you go.", img: "/assets/images/products/shiyaaka_custom_2.jpg" },
+                { name: "SPECIAL EDITION SHIYAAKA SKY 100 ML EAU DE PARFUM", subtitle: "Fresh & Uplifting", desc: "A refreshing blend of fresh citrus and sky breeze notes, anchored by a warm cedarwood foundation.", img: "/assets/images/products/shiyaaka_custom_5.png" },
+                { name: "SPECIAL EDITION SHIYAAKA SHADOW 100 ML EAU DE PARFUM FOR MEN", subtitle: "Mysterious & Bold", desc: "A captivating fragrance that symbolizes modern masculinity, bottled for the discerning individual.", img: "/assets/images/products/shiyaaka_custom_1.jpg" },
+                { name: "SPECIAL EDITION SHIYAAKA SNOW 100 ML EAU DE PARFUM FOR MEN", subtitle: "Crisp & Pure", desc: "An aromatic tribute to the frosty freshness, woven into the very fabric of our heritage.", img: "/assets/images/products/shiyaaka_custom_4.png" },
+                { name: "SHIYAAKA GOLD 100ML EDP SPRAY", subtitle: "Timeless Elegance", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "/assets/images/products/shiyaaka_custom_3.jpg" },
+                { name: "SHIYAAKA BLUE 100ML EDP SPRAY", subtitle: "Fresh & Aquatic", desc: "Built on the essence of pure freshness, leaving a trail of sophisticated confidence wherever you go.", img: "/assets/images/products/shiyaaka_custom_2.jpg" }
               ].map((item, idx) => (
                 <div className="k25-card" key={idx}>
                   <div className="k25-card-img-wrapper">
