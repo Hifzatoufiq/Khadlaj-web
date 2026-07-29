@@ -380,7 +380,7 @@ const PRODUCTS = [
   },
   {
     "id": 8659572293831,
-    "name": "KHADLAJ MAYA",
+    "name": "QARAR",
     "col": "Perfume Oils",
     "price": 50,
     "size": "100ml EDP",
