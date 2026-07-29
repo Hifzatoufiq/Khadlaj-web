@@ -5364,10 +5364,13 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           </div>
           
           <div>
-            <button onClick={()=>setPage("story")} style={{padding:"18px 48px", borderRadius:0, fontSize:13, letterSpacing:2, background:"transparent", border:"1px solid #C8A97E", color:"#C8A97E", textTransform:"uppercase", transition:"all 0.3s ease", cursor:"pointer"}}
+            <button onClick={()=>{
+                const skyProduct = PRODUCTS.find(p=>p.name==="SHIYAAKA SKY" || p.id===9200000000003);
+                if(skyProduct) { setViewProduct(skyProduct); setPage("product"); }
+              }} style={{padding:"18px 48px", borderRadius:0, fontSize:13, letterSpacing:2, background:"transparent", border:"1px solid #C8A97E", color:"#C8A97E", textTransform:"uppercase", transition:"all 0.3s ease", cursor:"pointer"}}
               onMouseEnter={(e)=>{e.target.style.background="#C8A97E"; e.target.style.color="#fff";}}
               onMouseLeave={(e)=>{e.target.style.background="transparent"; e.target.style.color="#C8A97E";}}>
-              Read More
+              Shop Now
             </button>
           </div>
         </div>
