@@ -652,21 +652,7 @@ const PRODUCTS = [
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Edge_Original-2.jpg?v=1776231633"
   },
-  {
-    "id": 8316886712519,
-    "name": "PRIVATE BLEND MUSK ICE",
-    "col": "Extrait De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Her",
-    "notes": [
-      "Musk",
-      "Floral",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Edge_Original-3.jpg?v=1776231633"
-  },
+
 {
     "id": 8398776959175,
     "name": "BISCOTTI DATE TOFFEE",
