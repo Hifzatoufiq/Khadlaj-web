@@ -6183,7 +6183,14 @@ function GiftsPage({ addToCart, setViewProduct, setPage }){
   return (
     <div style={{background:"#fff"}}>
 
-
+      {/* ── Hero Banner ── */}
+      <div style={{width:"100%",background:"#251737"}}>
+        <img
+          src="/assets/images/banners/my-paradise-banner.png"
+          alt="Gift Sets"
+          style={{width:"100%",height:"auto",display:"block"}}
+        />
+      </div>
 
       {/* ── Live Gift Set Products (from PRODUCTS) ── */}
       <section style={{padding:"80px 5%",background:"#fff"}}>
