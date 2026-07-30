@@ -125,14 +125,14 @@ const PRODUCTS = [
   },
   {
     "id": 9100000000001,
-    "name": "KARUS OUD FIRE",
+    "name": "KARUS GOLD ABSOLU",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100 ML",
     "badge": "New",
     "gender": "Unisex",
     "notes": ["Gold Oud", "Royal Amber", "Velvet Musk"],
-    "img": "/assets/images/products/karus-cutout.png"
+    "img": "/assets/images/products/karus-gold-absolu.png"
   },
   {
     "id": 7554205647047,
@@ -2061,11 +2061,11 @@ const PRODUCTS = [
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KARUS_AMBER_GOLD_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964823.jpg?v=1783949629"
   },
   {
-    "id": 7858351210695,
-    "name": "KARUS OUD FIRE",
+    "id": 7554157838535,
+    "name": "KARUS GOLD ABSOLU",
     "col": "Eau De Parfum",
     "price": 150,
-    "size": "100ml EDP",
+    "size": "100 ml",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2073,7 +2073,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KARUS_OUD_FIRE_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964843.jpg?v=1783949663"
+    "img": "/assets/images/products/karus-gold-absolu.png"
   },
   {
     "id": 7858340659399,
@@ -4852,7 +4852,7 @@ function ProductCard({ p, onView, onCart }){
     "Saraya": 0.78,
     "SPECIAL EDITION SHIYAAKA SNOW": 1.35,
     "SPECIAL EDITION SHIYAAKA SHADOW": 1.05,
-    "KARUS OUD FIRE": 1.05,
+    "KARUS GOLD ABSOLU": 1.05,
     "KHADLAJ ISLAND": 1.05,
     "SAWAAR VANILLE BLANC": 1.05,
     "PANACHE ANGEL DUST": 1.15,
