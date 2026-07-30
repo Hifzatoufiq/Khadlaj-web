@@ -5420,7 +5420,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       
       {/* ── ANIMATED GIFT SLIDER ── */}
       <section className="gift-slider-section">
-        <SectionHeader eyebrow="The Perfect Gift" title="Curated Experiences" sub="Discover exclusive bundles and handpicked selections designed for you." />
+        <SectionHeader title="CURATED GIFT COLLECTION" />
         
         <div style={{marginTop: 60, position: "relative"}}>
           <div className="gift-slider-track">
