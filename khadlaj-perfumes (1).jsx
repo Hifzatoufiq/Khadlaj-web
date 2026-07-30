@@ -2146,7 +2146,7 @@ const PRODUCTS = [
     "notes": [
       "Perfume oil"
     ],
-    "img": "/assets/images/smart_cropped/smart_product_post-_BUNDLE_12.jpg"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/RIMAAL_GREEN_15_ML_-_Khadlaj_Perfumes-1965844.jpg?v=1776231685"
   },
   {
     "id": 7792438214855,
