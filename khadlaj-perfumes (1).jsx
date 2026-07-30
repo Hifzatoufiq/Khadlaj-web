@@ -5677,7 +5677,17 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         </div>
       </section>
 
-
+      {/* ── PROMOTIONAL BANNER ── */}
+      <section style={{padding: "64px 5%", background: "#fdfbf7"}}>
+        <div className="max-container" style={{cursor: "pointer", transition: "transform 0.3s ease"}} onClick={()=>setPage("gifts")} onMouseEnter={e=>e.currentTarget.style.transform="scale(1.01)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}>
+          <img 
+            src="/assets/images/banners/gifts-wide-banner.png" 
+            alt="The Perfect Gift Collection" 
+            style={{width: "100%", height: "auto", borderRadius: 4, boxShadow: "0 20px 40px rgba(0,0,0,0.08)", display: "block"}} 
+            loading="lazy"
+          />
+        </div>
+      </section>
 
           </>
   );
