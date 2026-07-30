@@ -132,7 +132,7 @@ const PRODUCTS = [
     "badge": "New",
     "gender": "Unisex",
     "notes": ["Gold Oud", "Royal Amber", "Velvet Musk"],
-    "img": "/assets/images/products/karus-gold-absolu.png"
+    "img": "/assets/images/products/karus-gold-absolu.png?v=2"
   },
   {
     "id": 7554205647047,
@@ -2073,7 +2073,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "/assets/images/products/karus-gold-absolu.png"
+    "img": "/assets/images/products/karus-gold-absolu.png?v=2"
   },
   {
     "id": 7858340659399,
