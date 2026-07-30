@@ -5449,52 +5449,6 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           </div>
         </div>
       </section>
-{/* ── TIKTOK REELS ── */}
-      <section style={{padding:"80px 5% 40px",background:"#fff"}}>
-        <div style={{marginBottom:48,textAlign:"center"}}>
-          <h2 className="disp" style={{fontSize:"clamp(24px,3vw,42px)",fontWeight:400,color:"#251737",letterSpacing:-0.5,marginBottom:10,lineHeight:1.2}}>
-            SHOP BY REEL
-          </h2>
-          <p style={{color:"#777",fontSize:12,fontFamily:"'Montserrat',sans-serif",letterSpacing:0.3}}>
-            Browse fragrances through short, stylish reels and discover your next favorite scent.
-          </p>
-        </div>
-
-        {/* Actual TikTok video embeds */}
-        <div 
-          className="reel-track hide-scrollbar"
-          style={{
-            display:"flex", gap:20, overflowX:"auto", scrollSnapType:"x mandatory",
-            padding:"10px 5% 30px", margin:"0 -5%", scrollBehavior:"smooth"
-          }}
-        >
-          {REELS.map((t, idx) => (
-            <TikTokCard key={idx} t={t} />
-          ))}
-        </div>
-
-        <div style={{textAlign:"center",marginTop:44}}>
-          <a
-            href={SOCIAL_LINKS.tiktok}
-            target="_blank"
-            rel="noreferrer"
-            style={{
-              display:"inline-flex",alignItems:"center",gap:10,
-              border:"1px solid #251737",
-              color:"#251737",padding:"13px 32px",
-              fontSize:10,letterSpacing:3,textTransform:"uppercase",
-              textDecoration:"none",fontFamily:"'Montserrat',sans-serif",
-              transition:"all .2s",
-            }}
-            onMouseEnter={e=>{e.currentTarget.style.background="#B8922A";e.currentTarget.style.borderColor="#B8922A";e.currentTarget.style.color="#fff";}}
-            onMouseLeave={e=>{e.currentTarget.style.background="transparent";e.currentTarget.style.borderColor="#251737";e.currentTarget.style.color="#251737";}}
-          >
-            ▶ Follow on TikTok
-          </a>
-        </div>
-      </section>
-
-
       {/* ── SCENT FINDER QUIZ ── */}
       <section style={{background:"#251737", padding:"96px 5%", color:"#fff", borderTop:"1px solid rgba(255,255,255,0.08)", position:"relative", zIndex:1}}>
         <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(320px, 1fr))", gap:64, alignItems:"center"}} className="hero-split">
@@ -5609,6 +5563,54 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
         </div>
       </section>
+
+
+
+{/* ── TIKTOK REELS ── */}
+      <section style={{padding:"80px 5% 40px",background:"#fff"}}>
+        <div style={{marginBottom:48,textAlign:"center"}}>
+          <h2 className="disp" style={{fontSize:"clamp(24px,3vw,42px)",fontWeight:400,color:"#251737",letterSpacing:-0.5,marginBottom:10,lineHeight:1.2}}>
+            SHOP BY REEL
+          </h2>
+          <p style={{color:"#777",fontSize:12,fontFamily:"'Montserrat',sans-serif",letterSpacing:0.3}}>
+            Browse fragrances through short, stylish reels and discover your next favorite scent.
+          </p>
+        </div>
+
+        {/* Actual TikTok video embeds */}
+        <div 
+          className="reel-track hide-scrollbar"
+          style={{
+            display:"flex", gap:20, overflowX:"auto", scrollSnapType:"x mandatory",
+            padding:"10px 5% 30px", margin:"0 -5%", scrollBehavior:"smooth"
+          }}
+        >
+          {REELS.map((t, idx) => (
+            <TikTokCard key={idx} t={t} />
+          ))}
+        </div>
+
+        <div style={{textAlign:"center",marginTop:44}}>
+          <a
+            href={SOCIAL_LINKS.tiktok}
+            target="_blank"
+            rel="noreferrer"
+            style={{
+              display:"inline-flex",alignItems:"center",gap:10,
+              border:"1px solid #251737",
+              color:"#251737",padding:"13px 32px",
+              fontSize:10,letterSpacing:3,textTransform:"uppercase",
+              textDecoration:"none",fontFamily:"'Montserrat',sans-serif",
+              transition:"all .2s",
+            }}
+            onMouseEnter={e=>{e.currentTarget.style.background="#B8922A";e.currentTarget.style.borderColor="#B8922A";e.currentTarget.style.color="#fff";}}
+            onMouseLeave={e=>{e.currentTarget.style.background="transparent";e.currentTarget.style.borderColor="#251737";e.currentTarget.style.color="#251737";}}
+          >
+            ▶ Follow on TikTok
+          </a>
+        </div>
+      </section>
+
 
 {/* ── WHY KHADLAJ — Trust strip ── */}
       <section style={{background:"#fff",borderBottom:"1px solid #E8E4DC",padding:"40px 5% 80px",position:"relative",zIndex:1}}>
