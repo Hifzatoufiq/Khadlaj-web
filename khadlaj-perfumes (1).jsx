@@ -116,7 +116,7 @@ const PRODUCTS = [
     "id": 9200000000003,
     "name": "SHIYAAKA SKY",
     "col": "Eau De Parfum",
-    "price": 65,
+    "price": 150,
     "size": "100 ml",
     "badge": "New",
     "gender": "Unisex",
