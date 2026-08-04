@@ -66,6 +66,8 @@ with open('bundle-v207.js', 'r', encoding='utf-8') as f:
 # Replace local image paths with absolute github pages paths so they work in Shopify!
 bundle_code = bundle_code.replace('"/assets/', '"https://hifzatoufiq.github.io/Khadlaj-web/assets/')
 bundle_code = bundle_code.replace("'./assets/", "'https://hifzatoufiq.github.io/Khadlaj-web/assets/")
+bundle_code = bundle_code.replace('"./assets/', '"https://hifzatoufiq.github.io/Khadlaj-web/assets/')
+bundle_code = bundle_code.replace("'/assets/", "'https://hifzatoufiq.github.io/Khadlaj-web/assets/")
 
 with open(os.path.join(theme_dir, 'assets', 'bundle-v207-shopify.js'), 'w', encoding='utf-8') as f:
     f.write(bundle_code)
