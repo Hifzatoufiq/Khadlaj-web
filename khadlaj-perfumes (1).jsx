@@ -7092,14 +7092,14 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
       {/* ── Sticky Header Wrapper ── */}
       <div style={{position:"sticky",top:0,zIndex:100}}>
         {/* ── Announcement bar ── */}
-        <div style={{background:"#251737",color:"#fff",textAlign:"center",padding:"14px 16px",fontSize:"12px",letterSpacing:"4px",fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",fontWeight:500}}>
+        <div style={{background:"#251737",color:"#fff",textAlign:"center",padding:"8px 16px",fontSize:"12px",letterSpacing:"4px",fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",fontWeight:500}}>
           USE "KHADLAJ25" FOR FLAT 25% DISCOUNT
         </div>
 
         {/* ── Main nav ── */}
         <nav style={{background:"rgba(255,255,255,0.85)",backdropFilter:"blur(16px)",WebkitBackdropFilter:"blur(16px)",boxShadow:"0 4px 30px rgba(0,0,0,0.03)",borderBottom:"1px solid rgba(232,228,220,0.5)",transition:"all 0.3s"}}>
         <div style={{padding:"0 5%"}}>
-          <div style={{display:"grid",gridTemplateColumns:"1fr auto 1fr",alignItems:"center",minHeight:80,padding:"12px 0",gap:24}}>
+          <div style={{display:"grid",gridTemplateColumns:"1fr auto 1fr",alignItems:"center",minHeight:60,padding:"6px 0",gap:24}}>
             {/* Left utility */}
             <div style={{display:"flex",gap:12,alignItems:"center",paddingLeft:"20px"}}>
               <span className="mob-search-left" style={{cursor:"pointer",display:"flex",alignItems:"center"}} onClick={()=>setSearchOpen(true)}>
@@ -7160,7 +7160,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
               <img
                 src="/assets/images/purple-logo.png?v=2"
                 alt="Khadlaj Perfumes"
-                style={{height:"clamp(90px,11vw,135px)",width:"auto",objectFit:"contain",display:"block",maxWidth:240,transition:"transform 0.3s ease"}}
+                style={{height:"clamp(55px,8vw,90px)",width:"auto",objectFit:"contain",display:"block",maxWidth:240,transition:"transform 0.3s ease"}}
                 onMouseEnter={e=>e.currentTarget.style.transform="scale(1.02)"}
                 onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}
               />
@@ -7190,7 +7190,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
               </button>
             </div>
           </div>
-          <div className="hide-mob" style={{display:"flex",justifyContent:"center",gap:40,paddingBottom:16,fontSize:"12px",letterSpacing:"1.5px",textTransform:"uppercase",color:"#251737",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>
+          <div className="hide-mob" style={{display:"flex",justifyContent:"center",gap:40,paddingBottom:8,fontSize:"12px",letterSpacing:"1.5px",textTransform:"uppercase",color:"#251737",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>
             {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gift Sets","gifts"],["Our legacy","story"]].map(([label,pg])=>{
               let isActive = false;
               if (page === pg) {
