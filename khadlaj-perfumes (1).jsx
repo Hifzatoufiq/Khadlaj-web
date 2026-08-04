@@ -4384,14 +4384,14 @@ const PRODUCTS = [
 
 
 const REVIEWS = [
-  { name: "perfumelover99", country: "Fragrantica", stars: 5, text: "I finally gave in to the TikTok hype and bought Hareem Al Sultan Gold. The oil is thick and starts off extremely fruity like peach, then settles into a sweet, slightly powdery musk. You only need a few drops, it projects like crazy." },
-  { name: "scentguy_88", country: "Reddit", stars: 5, text: "To my nose, Shiyaaka Silver is an incredible alternative to Reflection Man. It has that same bright, white floral and woody signature. The performance is solid, easily getting 8 hours." },
-  { name: "RosieFragrances", country: "Fragrantica", stars: 5, text: "Fatima Velvet Love is gorgeous. It reminds me a bit of Delina Exclusif with that creamy, sweet rose and vanilla combination. The presentation is 10/10 and longevity is beast mode on clothes." },
-  { name: "OudAndAbout", country: "YouTube", stars: 5, text: "A very well done boozy, spicy vanilla. La Fede Intoxicate opens with a strong cognac note and dries down to a smooth cinnamon-praline vanilla. Definitely smells way more expensive than it is." },
-  { name: "desert_rose", country: "Reddit", stars: 5, text: "The Blue version of Hareem Al Sultan is much fresher and aquatic compared to the Gold. It has a beautiful citrus opening with a soft woody base. It’s my go-to for hot summer days." },
-  { name: "frag_head23", country: "Fragrantica", stars: 5, text: "If you like authentic, rich oud, this is for you. It's bold, dark, and very Middle Eastern. The rose in the background balances it perfectly. Two sprays max, otherwise it fills a room." },
-  { name: "Aisha M.", country: "TikTok", stars: 5, text: "Everyone asks me what I'm wearing when I use Hareem Al Sultan. It lasts through a 12 hour shift and even after a shower. The hype is 100% real!" },
-  { name: "LuxeScents", country: "YouTube", stars: 5, text: "Shiyaaka Red is the ultimate compliment getter. It smells exactly like a certain $300 niche fragrance but performs even better. Khadlaj is dominating right now." }
+  { name: "perfumelover99", country: "Fragrantica", stars: 5, text: "I finally gave in to the TikTok hype and bought Hareem Al Sultan Gold. The oil is thick and starts off extremely fruity like peach, then settles into a sweet, slightly powdery musk. You only need a few drops, it projects like crazy.", url: "https://www.fragrantica.com/perfume/Khadlaj/Hareem-Al-Sultan-Gold-86714.html" },
+  { name: "scentguy_88", country: "Reddit", stars: 5, text: "To my nose, Shiyaaka Silver is an incredible alternative to Reflection Man. It has that same bright, white floral and woody signature. The performance is solid, easily getting 8 hours.", url: "https://www.reddit.com/r/fragranceclones/comments/16lpx6f/khadlaj_shiyaaka_silver_is_it_really_reflection/" },
+  { name: "RosieFragrances", country: "Fragrantica", stars: 5, text: "Fatima Velvet Love is gorgeous. It reminds me a bit of Delina Exclusif with that creamy, sweet rose and vanilla combination. The presentation is 10/10 and longevity is beast mode on clothes.", url: "https://www.parfumo.com/Perfumes/Zimaya/fatima-velvet-love" },
+  { name: "OudAndAbout", country: "YouTube", stars: 5, text: "A very well done boozy, spicy vanilla. La Fede Intoxicate opens with a strong cognac note and dries down to a smooth cinnamon-praline vanilla. Definitely smells way more expensive than it is.", url: "https://www.youtube.com/watch?v=d_k8dZ8vVkw" },
+  { name: "desert_rose", country: "Reddit", stars: 5, text: "The Blue version of Hareem Al Sultan is much fresher and aquatic compared to the Gold. It has a beautiful citrus opening with a soft woody base. It’s my go-to for hot summer days.", url: "https://www.fragrantica.com/perfume/Khadlaj-Perfumes/Hareem-Al-Sultan-Blue-93777.html" },
+  { name: "frag_head23", country: "Fragrantica", stars: 5, text: "If you like authentic, rich oud, this is for you. It's bold, dark, and very Middle Eastern. The rose in the background balances it perfectly. Two sprays max, otherwise it fills a room.", url: "https://www.youtube.com/watch?v=0hM4J5oE6uA" },
+  { name: "Aisha M.", country: "TikTok", stars: 5, text: "Everyone asks me what I'm wearing when I use Hareem Al Sultan. It lasts through a 12 hour shift and even after a shower. The hype is 100% real!", url: "https://www.youtube.com/watch?v=kYJc-MhBf_w" },
+  { name: "LuxeScents", country: "YouTube", stars: 5, text: "Shiyaaka Red is the ultimate compliment getter. It smells exactly like a certain $300 niche fragrance but performs even better. Khadlaj is dominating right now.", url: "https://www.reddit.com/r/fragranceclones/comments/17jzj3k/shiyaaka_red_khadlaj/" }
 ];
 
 const COLLECTIONS_DATA = [
@@ -5621,14 +5621,16 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         <SectionHeader eyebrow="Reviews" title="Loved Across the World" light={true} />
         <div className="grid-4" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:1,background:"rgba(255,255,255,.15)"}}>
           {REVIEWS.map((r,i)=>(
-            <div key={i} style={{background:"#251737",padding:"32px 24px",display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center",transition:"background 0.3s ease"}} onMouseEnter={e=>e.currentTarget.style.background="rgba(255,255,255,0.03)"} onMouseLeave={e=>e.currentTarget.style.background="#251737"}>
-              <StarRating n={r.stars} color="#B8922A"/>
-              <p style={{fontSize:14,color:"rgba(255,255,255,0.85)",lineHeight:1.6,margin:"16px 0",fontStyle:"italic",fontWeight:300,fontFamily:"'Montserrat',sans-serif"}}>"{r.text}"</p>
-              <div style={{marginTop:"auto"}}>
-                <p style={{fontSize:9,fontWeight:600,color:"#fff",letterSpacing:2,fontFamily:"'Montserrat',sans-serif",textTransform:"uppercase"}}>{r.name}</p>
-                <p style={{fontWeight:600,fontSize:8,letterSpacing:4,color:"#B8922A",marginTop:6,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif"}}>{r.country}</p>
+            <a href={r.url || "#"} target="_blank" rel="noopener noreferrer" key={i} style={{textDecoration:"none", color:"inherit"}}>
+              <div style={{background:"#251737",padding:"32px 24px",display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center",transition:"background 0.3s ease", height:"100%"}} onMouseEnter={e=>e.currentTarget.style.background="rgba(255,255,255,0.03)"} onMouseLeave={e=>e.currentTarget.style.background="#251737"}>
+                <StarRating n={r.stars} color="#B8922A"/>
+                <p style={{fontSize:14,color:"rgba(255,255,255,0.85)",lineHeight:1.6,margin:"16px 0",fontStyle:"italic",fontWeight:300,fontFamily:"'Montserrat',sans-serif"}}>"{r.text}"</p>
+                <div style={{marginTop:"auto"}}>
+                  <p style={{fontSize:9,fontWeight:600,color:"#fff",letterSpacing:2,fontFamily:"'Montserrat',sans-serif",textTransform:"uppercase"}}>{r.name}</p>
+                  <p style={{fontWeight:600,fontSize:8,letterSpacing:4,color:"#B8922A",marginTop:6,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif"}}>{r.country}</p>
+                </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
       </section>
