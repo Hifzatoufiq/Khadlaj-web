@@ -7099,7 +7099,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
         {/* ── Main nav ── */}
         <nav style={{background:"rgba(255,255,255,0.85)",backdropFilter:"blur(16px)",WebkitBackdropFilter:"blur(16px)",boxShadow:"0 4px 30px rgba(0,0,0,0.03)",borderBottom:"1px solid rgba(232,228,220,0.5)",transition:"all 0.3s"}}>
         <div style={{padding:"0 5%"}}>
-          <div style={{display:"grid",gridTemplateColumns:"1fr auto 1fr",alignItems:"center",minHeight:80,padding:"12px 0",gap:24}}>
+          <div style={{display:"grid",gridTemplateColumns:"1fr auto 1fr",alignItems:"center",minHeight:"auto",padding:"16px 0",gap:24}}>
             {/* Left utility */}
             <div style={{display:"flex",gap:12,alignItems:"center",paddingLeft:"20px"}}>
               <span className="mob-search-left" style={{cursor:"pointer",display:"flex",alignItems:"center"}} onClick={()=>setSearchOpen(true)}>
@@ -7160,7 +7160,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
               <img
                 src="/assets/images/purple-logo.png?v=2"
                 alt="Khadlaj Perfumes"
-                style={{height:"clamp(90px,11vw,135px)",width:"auto",objectFit:"contain",display:"block",maxWidth:240,transition:"transform 0.3s ease"}}
+                style={{width:"clamp(85px, 12vw, 120px)",height:"auto",objectFit:"contain",display:"block",transition:"transform 0.3s ease"}}
                 onMouseEnter={e=>e.currentTarget.style.transform="scale(1.02)"}
                 onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}
               />
