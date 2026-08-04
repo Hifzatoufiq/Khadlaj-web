@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-video"
+    },
+    "promotional": {
+      "type": "promotional-banner"
+    },
+    "new_launches": {
+      "type": "new-launches"
+    },
+    "collections": {
+      "type": "featured-collections"
+    },
+    "testimonials": {
+      "type": "testimonials"
+    }
+  },
+  "order": [
+    "hero",
+    "new_launches",
+    "collections",
+    "testimonials",
+    "promotional"
+  ]
+}
