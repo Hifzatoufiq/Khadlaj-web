@@ -55,7 +55,7 @@ const STATS = [
 const PRODUCTS = [
   {
     "id": 8199234977991,
-    "name": "KHADLAJ ISLAND",
+    "name": "ISLAND",
     "col": "Extrait De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -99,7 +99,7 @@ const PRODUCTS = [
   },
   {
     "id": 8354691940551,
-    "name": "KHADLAJ ISLAND VANILLA DUNES",
+    "name": "ISLAND VANILLA DUNES",
     "col": "Extrait De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -231,7 +231,7 @@ const PRODUCTS = [
   },
   {
     "id": 9100000000006,
-    "name": "KHADLAJ IHTHIRAAM",
+    "name": "IHTHIRAAM",
     "col": "Extrait De Parfum",
     "price": 130,
     "size": "60 ML",
@@ -242,7 +242,7 @@ const PRODUCTS = [
   },
   {
     "id": 9100000000007,
-    "name": "KHADLAJ ICON",
+    "name": "ICON",
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100 ML",
@@ -305,7 +305,7 @@ const PRODUCTS = [
   },
   {
     "id": "8586765697223",
-    "name": "KHADLAJ CLOUD CANDY GIFT SET",
+    "name": "CLOUD CANDY GIFT SET",
     "price": 169.0,
     "size": "Gift Set",
     "badge": "",
@@ -320,7 +320,7 @@ const PRODUCTS = [
   },
   {
     "id": "8586762813639",
-    "name": "KHADLAJ ISLAND GIFT SET FOR HIM & HER",
+    "name": "ISLAND GIFT SET FOR HIM & HER",
     "price": 179.0,
     "size": "Gift Set",
     "badge": "",
@@ -425,7 +425,7 @@ const PRODUCTS = [
   },
   {
     "id": 8604851437767,
-    "name": "KHADLAJ ONYX SILVER",
+    "name": "ONYX SILVER",
     "col": "Eau De Parfum",
     "price": 125,
     "size": "100ml EDP",
@@ -455,7 +455,7 @@ const PRODUCTS = [
   },
   {
     "id": 8561538171079,
-    "name": "KHADLAJ STRAWBERRY SHAKE",
+    "name": "STRAWBERRY SHAKE",
     "col": "Eau De Parfum",
     "price": 130,
     "size": "100ml EDP",
@@ -471,7 +471,7 @@ const PRODUCTS = [
 
   {
     "id": 8540408479943,
-    "name": "KHADLAJ ONYX GOLD",
+    "name": "ONYX GOLD",
     "col": "Eau De Parfum",
     "price": 125,
     "size": "100ml EDP",
@@ -516,7 +516,7 @@ const PRODUCTS = [
   },
   {
     "id": 8516215439559,
-    "name": "KHADLAJ RIA",
+    "name": "RIA",
     "col": "Eau De Parfum",
     "price": 125,
     "size": "100ml EDP",
@@ -531,7 +531,7 @@ const PRODUCTS = [
   },
   {
     "id": 8496480944327,
-    "name": "KHADLAJ MANSION",
+    "name": "MANSION",
     "col": "Eau De Parfum",
     "price": 110,
     "size": "100ml EDP",
@@ -561,7 +561,7 @@ const PRODUCTS = [
   },
   {
     "id": 8484193861831,
-    "name": "KHADLAJ TITAN",
+    "name": "TITAN",
     "col": "Eau De Parfum",
     "price": 110,
     "size": "100ml EDP",
@@ -1783,7 +1783,7 @@ const PRODUCTS = [
   },
   {
     "id": 7880505491655,
-    "name": "KHADLAJ 25 LOYALTY",
+    "name": "25 LOYALTY",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -1798,7 +1798,7 @@ const PRODUCTS = [
   },
   {
     "id": 7880500805831,
-    "name": "KHADLAJ 25 TRUST",
+    "name": "25 TRUST",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -1867,7 +1867,7 @@ const PRODUCTS = [
   },
   {
     "id": 7880493433031,
-    "name": "KHADLAJ 25 EXPERIENCE",
+    "name": "25 EXPERIENCE",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -1882,7 +1882,7 @@ const PRODUCTS = [
   },
   {
     "id": 7880390279367,
-    "name": "KHADLAJ 25 HERITAGE",
+    "name": "25 HERITAGE",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -1897,7 +1897,7 @@ const PRODUCTS = [
   },
   {
     "id": 7880382480583,
-    "name": "KHADLAJ 25 INTEGRITY",
+    "name": "25 INTEGRITY",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100ml EDP",
@@ -4853,14 +4853,14 @@ function ProductCard({ p, onView, onCart }){
     "SPECIAL EDITION SHIYAAKA SNOW": 1.35,
     "SPECIAL EDITION SHIYAAKA SHADOW": 1.05,
     "KARUS GOLD ABSOLU": 1.05,
-    "KHADLAJ ISLAND": 1.05,
+    "ISLAND": 1.05,
     "SAWAAR VANILLE BLANC": 1.05,
     "PANACHE ANGEL DUST": 1.15,
     "SARAYA": 1.08,
     "QARAR": 1.08,
-    "KHADLAJ IHTHIRAAM": 1.08,
+    "IHTHIRAAM": 1.08,
     "ZAYAAN SILVER": 0.88,
-    "KHADLAJ ICON": 1.05
+    "ICON": 1.05
   }[p.name] || 0.88;
 
   const imageShiftY = {
