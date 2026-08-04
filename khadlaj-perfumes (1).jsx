@@ -5205,7 +5205,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       <section className="hero-section" style={{position:"relative",width:"100%",height:"70vh",minHeight:"450px",overflow:"hidden",background:"#0a0a0a"}}>
         <video
           className="hero-video"
-          src="./assets/videos/duty-free-small.mp4"
+          src="./assets/videos/duty-free.mp4"
           autoPlay muted loop playsInline preload="auto"
           style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",display:"block",opacity:.8}}
         />
@@ -5379,7 +5379,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
         {/* Right Video Area */}
         <div style={{flex:"1 1 50%", minWidth:300, position:"relative", minHeight:"600px"}}>
-          <video src="/assets/videos/shiyaaka-sky-v2-small.mp4" autoPlay loop muted playsInline style={{position:"absolute", width:"100%", height:"100%", objectFit:"cover"}} />
+          <video src="/assets/videos/shiyaaka-sky-v2.mp4" autoPlay loop muted playsInline style={{position:"absolute", width:"100%", height:"100%", objectFit:"cover"}} />
         </div>
       </section>
 
