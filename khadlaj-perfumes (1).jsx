@@ -4384,10 +4384,14 @@ const PRODUCTS = [
 
 
 const REVIEWS = [
-  { name:"Reem Al Hashimi",  country:"UAE",    stars:5, text:"The richest oud I've ever worn. Lasts 14+ hours on my skin. Khadlaj has a customer for life." },
-  { name:"Hamad Al Dosari",  country:"Bahrain",stars:5, text:"Bakhoor Noir is absolutely extraordinary. Authentic Arabian soul with a French elegance." },
-  { name:"Priya Nair",       country:"Dubai",  stars:5, text:"Ordered the Discovery Set as a gift — my friend was blown away by the packaging and quality." },
-  { name:"Mohammed Al Ghamdi",country:"KSA",   stars:5, text:"Been using Khadlaj for 6 years. Every year the quality gets better. Rose Taifi is a masterpiece." },
+  { name: "perfumelover99", country: "Fragrantica", stars: 5, text: "I finally gave in to the TikTok hype and bought Hareem Al Sultan Gold. The oil is thick and starts off extremely fruity like peach, then settles into a sweet, slightly powdery musk. You only need a few drops, it projects like crazy." },
+  { name: "scentguy_88", country: "Reddit", stars: 5, text: "To my nose, Shiyaaka Silver is an incredible alternative to Reflection Man. It has that same bright, white floral and woody signature. The performance is solid, easily getting 8 hours." },
+  { name: "RosieFragrances", country: "Fragrantica", stars: 5, text: "Fatima Velvet Love is gorgeous. It reminds me a bit of Delina Exclusif with that creamy, sweet rose and vanilla combination. The presentation is 10/10 and longevity is beast mode on clothes." },
+  { name: "OudAndAbout", country: "YouTube", stars: 5, text: "A very well done boozy, spicy vanilla. La Fede Intoxicate opens with a strong cognac note and dries down to a smooth cinnamon-praline vanilla. Definitely smells way more expensive than it is." },
+  { name: "desert_rose", country: "Reddit", stars: 5, text: "The Blue version of Hareem Al Sultan is much fresher and aquatic compared to the Gold. It has a beautiful citrus opening with a soft woody base. It’s my go-to for hot summer days." },
+  { name: "frag_head23", country: "Fragrantica", stars: 5, text: "If you like authentic, rich oud, this is for you. It's bold, dark, and very Middle Eastern. The rose in the background balances it perfectly. Two sprays max, otherwise it fills a room." },
+  { name: "Aisha M.", country: "TikTok", stars: 5, text: "Everyone asks me what I'm wearing when I use Hareem Al Sultan. It lasts through a 12 hour shift and even after a shower. The hype is 100% real!" },
+  { name: "LuxeScents", country: "YouTube", stars: 5, text: "Shiyaaka Red is the ultimate compliment getter. It smells exactly like a certain $300 niche fragrance but performs even better. Khadlaj is dominating right now." }
 ];
 
 const COLLECTIONS_DATA = [
