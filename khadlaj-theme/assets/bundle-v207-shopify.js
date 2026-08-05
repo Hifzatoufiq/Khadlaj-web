@@ -12845,7 +12845,7 @@
     },
     {
       "id": 7554205614279,
-      "name": "SHIYAAKA",
+      "name": "SHIYAAKA MEN",
       "col": "Eau De Parfum",
       "price": 65,
       "size": "100 ml",
