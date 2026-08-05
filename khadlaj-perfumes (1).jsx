@@ -466,7 +466,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/NUHA_BON_BON-03.jpg?v=1783939633"
+    "img": "/assets/images/products/strawberry-shake.png"
   },
 
   {

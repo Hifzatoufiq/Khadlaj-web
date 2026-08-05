@@ -13158,7 +13158,7 @@
         "Musk",
         "Amber"
       ],
-      "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/NUHA_BON_BON-03.jpg?v=1783939633"
+      "img": "https://hifzatoufiq.github.io/Khadlaj-web/assets/images/products/strawberry-shake.png"
     },
     {
       "id": 8540408479943,
