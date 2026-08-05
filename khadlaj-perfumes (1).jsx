@@ -4370,14 +4370,10 @@ const PRODUCTS = [
 
 
 const REVIEWS = [
-  { name: "perfumelover99", country: "Fragrantica", stars: 5, text: "I finally gave in to the TikTok hype and bought Hareem Al Sultan Gold. The oil is thick and starts off extremely fruity like peach, then settles into a sweet, slightly powdery musk. You only need a few drops, it projects like crazy.", url: "https://www.fragrantica.com/perfume/Khadlaj/Hareem-Al-Sultan-Gold-86714.html" },
-  { name: "scentguy_88", country: "Reddit", stars: 5, text: "To my nose, Shiyaaka Silver is an incredible alternative to Reflection Man. It has that same bright, white floral and woody signature. The performance is solid, easily getting 8 hours.", url: "https://www.reddit.com/r/fragranceclones/comments/16lpx6f/khadlaj_shiyaaka_silver_is_it_really_reflection/" },
-  { name: "RosieFragrances", country: "Fragrantica", stars: 5, text: "Fatima Velvet Love is gorgeous. It reminds me a bit of Delina Exclusif with that creamy, sweet rose and vanilla combination. The presentation is 10/10 and longevity is beast mode on clothes.", url: "https://www.parfumo.com/Perfumes/Zimaya/fatima-velvet-love" },
-  { name: "OudAndAbout", country: "YouTube", stars: 5, text: "A very well done boozy, spicy vanilla. La Fede Intoxicate opens with a strong cognac note and dries down to a smooth cinnamon-praline vanilla. Definitely smells way more expensive than it is.", url: "https://www.youtube.com/watch?v=d_k8dZ8vVkw" },
-  { name: "desert_rose", country: "Reddit", stars: 5, text: "The Blue version of Hareem Al Sultan is much fresher and aquatic compared to the Gold. It has a beautiful citrus opening with a soft woody base. It’s my go-to for hot summer days.", url: "https://www.fragrantica.com/perfume/Khadlaj-Perfumes/Hareem-Al-Sultan-Blue-93777.html" },
-  { name: "frag_head23", country: "Fragrantica", stars: 5, text: "If you like authentic, rich oud, this is for you. It's bold, dark, and very Middle Eastern. The rose in the background balances it perfectly. Two sprays max, otherwise it fills a room.", url: "https://www.youtube.com/watch?v=0hM4J5oE6uA" },
-  { name: "Aisha M.", country: "TikTok", stars: 5, text: "Everyone asks me what I'm wearing when I use Hareem Al Sultan. It lasts through a 12 hour shift and even after a shower. The hype is 100% real!", url: "https://www.youtube.com/watch?v=kYJc-MhBf_w" },
-  { name: "LuxeScents", country: "YouTube", stars: 5, text: "Shiyaaka Red is the ultimate compliment getter. It smells exactly like a certain $300 niche fragrance but performs even better. Khadlaj is dominating right now.", url: "https://www.reddit.com/r/fragranceclones/comments/17jzj3k/shiyaaka_red_khadlaj/" }
+  { name: "Verified Buyer", country: "Dubai", stars: 5, text: "The perfumes are really good I went to Original testor stores, stores like afnan & Rasasi but this perfume brand blew my mind. The perfumes were really good and strong in the initial smelling. Good discounts & good perfumes.", url: "" },
+  { name: "Verified Buyer", country: "Online", stars: 5, text: "Hareem al sultan the viral perfume oil is from khadlaj perfumes, they do have a great collection of exotic perfumes and oils. Most products comes in a very good package.", url: "" },
+  { name: "Verified Buyer", country: "Dubai", stars: 5, text: "Nice perfume amezing long lasting fragrance, value of money,And very kind and supportive staff, Very nice experience with khadlaj", url: "" },
+  { name: "Verified Buyer", country: "Online", stars: 5, text: "Amazing fragrances depends on mood , type , flavour and long lasting. Have purchased their all time famous klassik is much more to give to your mood while interacting with other people And done lot of repeated purchases", url: "" }
 ];
 
 const COLLECTIONS_DATA = [
