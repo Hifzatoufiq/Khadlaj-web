@@ -17823,8 +17823,7 @@
       "video",
       {
         className: "hero-video",
-        src: "./assets/videos/duty-free.mp4",
-        poster: "./assets/videos/duty-free-poster.jpg",
+        src: "https://cdn.shopify.com/videos/c/o/v/72cc17c9b4814387bc03c19cae9c00e2.mp4",
         autoPlay: true,
         muted: true,
         loop: true,
@@ -17894,7 +17893,7 @@
         }
       },
       "Shop Now"
-    ))), /* @__PURE__ */ import_react.default.createElement("div", { style: { flex: "1 1 50%", minWidth: 300, position: "relative", minHeight: "600px" } }, /* @__PURE__ */ import_react.default.createElement("video", { src: "/assets/videos/shiyaaka-sky-v2.mp4", poster: "/assets/videos/shiyaaka-sky-poster.jpg", autoPlay: true, loop: true, muted: true, playsInline: true, preload: "auto", style: { position: "absolute", width: "100%", height: "100%", objectFit: "cover" } }))), /* @__PURE__ */ import_react.default.createElement("section", { style: { padding: "0 5% 104px", background: "#fff" } }, /* @__PURE__ */ import_react.default.createElement("div", { style: { paddingTop: 96, marginBottom: 52, display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 16 } }, /* @__PURE__ */ import_react.default.createElement("div", { style: { textAlign: "left" } }, /* @__PURE__ */ import_react.default.createElement("h2", { className: "disp", style: { fontSize: "clamp(32px,4vw,54px)", fontWeight: 300, color: "#251737", lineHeight: 1.15, letterSpacing: "-0.5px" } }, "Where every scent has a story")), /* @__PURE__ */ import_react.default.createElement("button", { className: "btn-ghost", style: { flexShrink: 0 }, onClick: () => setPage("collections") }, "View All")), /* @__PURE__ */ import_react.default.createElement("div", { style: { display: "flex", gap: 6, overflowX: "auto", paddingBottom: 4, marginBottom: 48, borderBottom: "1px solid #E8E4DC" } }, CATEGORIES.map((c) => /* @__PURE__ */ import_react.default.createElement(
+    ))), /* @__PURE__ */ import_react.default.createElement("div", { style: { flex: "1 1 50%", minWidth: 300, position: "relative", minHeight: "600px" } }, /* @__PURE__ */ import_react.default.createElement("video", { src: "/assets/videos/shiyaaka-sky-v2.mp4", autoPlay: true, loop: true, muted: true, playsInline: true, preload: "auto", style: { position: "absolute", width: "100%", height: "100%", objectFit: "cover" } }))), /* @__PURE__ */ import_react.default.createElement("section", { style: { padding: "0 5% 104px", background: "#fff" } }, /* @__PURE__ */ import_react.default.createElement("div", { style: { paddingTop: 96, marginBottom: 52, display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: 16 } }, /* @__PURE__ */ import_react.default.createElement("div", { style: { textAlign: "left" } }, /* @__PURE__ */ import_react.default.createElement("h2", { className: "disp", style: { fontSize: "clamp(32px,4vw,54px)", fontWeight: 300, color: "#251737", lineHeight: 1.15, letterSpacing: "-0.5px" } }, "Where every scent has a story")), /* @__PURE__ */ import_react.default.createElement("button", { className: "btn-ghost", style: { flexShrink: 0 }, onClick: () => setPage("collections") }, "View All")), /* @__PURE__ */ import_react.default.createElement("div", { style: { display: "flex", gap: 6, overflowX: "auto", paddingBottom: 4, marginBottom: 48, borderBottom: "1px solid #E8E4DC" } }, CATEGORIES.map((c) => /* @__PURE__ */ import_react.default.createElement(
       "button",
       {
         key: c,
