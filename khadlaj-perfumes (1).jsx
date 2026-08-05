@@ -5205,7 +5205,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       <section className="hero-section" style={{position:"relative",width:"100%",height:"70vh",minHeight:"450px",overflow:"hidden",background:"#0a0a0a"}}>
         <video
           className="hero-video"
-          src="https://cdn.shopify.com/videos/c/o/v/72cc17c9b4814387bc03c19cae9c00e2.mp4"
+          src="./assets/videos/duty-free.mp4"
           autoPlay muted loop playsInline preload="auto"
           style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",display:"block",opacity:.8}}
         />

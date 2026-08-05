@@ -17823,7 +17823,7 @@
       "video",
       {
         className: "hero-video",
-        src: "https://cdn.shopify.com/videos/c/o/v/72cc17c9b4814387bc03c19cae9c00e2.mp4",
+        src: "https://hifzatoufiq.github.io/Khadlaj-web/assets/videos/duty-free.mp4",
         autoPlay: true,
         muted: true,
         loop: true,
