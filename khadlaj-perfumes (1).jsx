@@ -6025,28 +6025,15 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
               <div style={{display:"flex", flexDirection:"column", gap:40, paddingBottom:80}}>
                 {product.detailImages.map((imgUrl, i) => {
                   let style = {width:"100%", overflow:"hidden", background:"#FAFAFA", display:"flex", alignItems:"center", justifyContent:"center"};
-                  let imgStyle = {width:"100%", height:"100%", objectFit:"cover", mixBlendMode:"multiply", filter:"contrast(1.05)"};
+                  let imgStyle = {width:"100%", height:"auto", objectFit:"contain", mixBlendMode:"multiply", filter:"contrast(1.05)"};
                   
                   if(i === 0) {
                     style.aspectRatio = "4/5";
-                  } else if (i === 1) {
-                    style.width = "100%";
-                    style.aspectRatio = "1/1";
-                    style.padding = "5%";
-                    imgStyle.objectFit = "contain";
-                  } else if (i === 2) {
-                    style.width = "100%";
-                    style.aspectRatio = "4/3";
-                  } else if (i === 3) {
-                    style.width = "100%";
-                    style.aspectRatio = "1/1";
-                    style.padding = "10%";
-                    imgStyle.objectFit = "contain";
+                    imgStyle.objectFit = "cover";
+                    imgStyle.height = "100%";
                   } else {
-                    style.width = "100%";
-                    style.aspectRatio = "4/5";
+                    style.padding = "40px";
                   }
-
                   return (
                     <div key={i} style={style}>
                       <img src={imgUrl} alt={product.name} style={imgStyle} />
