@@ -128,6 +128,14 @@ const PRODUCTS = [
       "https://khadlaj-perfumes.com/cdn/shop/files/Screenshot_2026-06-12_154730.png?v=1781264869",
       "https://khadlaj-perfumes.com/cdn/shop/files/skynotes_jpg.jpg?v=1781264809",
       "https://khadlaj-perfumes.com/cdn/shop/files/Screenshot_2026-06-12_154835.png?v=1781264927"
+    ],
+    "desc": [
+      "Shiyaaka Sky is a refined expression of freshness and modern sophistication, crafted for those who embrace confidence, freedom, and effortless elegance.",
+      "The fragrance opens with a vibrant burst of bergamot, mandarin, and verbena, creating a crisp and uplifting introduction that feels as refreshing as a clear summer sky. At its heart, a luminous blend of neroli, geranium, orange blossom, and green notes unfolds, bringing a clean floral character balanced by natural freshness and airy vitality.",
+      "As the scent settles, ambroxan, vetiver, musk, and sandalwood create a smooth and sophisticated foundation. The result is a lasting trail that is clean, woody, and subtly sensual, leaving an unforgettable impression of understated luxury.",
+      "<strong>Fragrance Family:</strong> Fresh Aromatic Woody",
+      "<strong>Olfactory Profile:</strong> Bright • Airy • Elegant • Modern",
+      "Shiyaaka Sky captures the feeling of limitless horizons and endless possibilities—a fragrance that embodies freshness elevated to a new level of sophistication."
     ]
   },
   {
@@ -6146,8 +6154,16 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
              {/* ACCORDIONS */}
              <div style={{borderTop:"1px solid #eee"}}>
                <Accordion title="Description" defaultOpen>
-                 <p style={{marginBottom:12, fontSize:13, lineHeight:1.6, color:"#444", fontWeight:300}}>Experience the timeless elegance of {product.name}. Crafted with precision and the finest ingredients, this fragrance is a true testament to the art of Arabian perfumery.</p>
-                 {product.desc && <p style={{fontSize:13, lineHeight:1.6, color:"#444", fontWeight:300}}>{product.desc}</p>}
+                 {Array.isArray(product.desc) ? (
+                   product.desc.map((para, i) => (
+                     <p key={i} style={{marginBottom:12, fontSize:13, lineHeight:1.6, color:"#444", fontWeight:300}} dangerouslySetInnerHTML={{__html: para}} />
+                   ))
+                 ) : (
+                   <>
+                     <p style={{marginBottom:12, fontSize:13, lineHeight:1.6, color:"#444", fontWeight:300}}>Experience the timeless elegance of {product.name}. Crafted with precision and the finest ingredients, this fragrance is a true testament to the art of Arabian perfumery.</p>
+                     {product.desc && <p style={{fontSize:13, lineHeight:1.6, color:"#444", fontWeight:300}}>{product.desc}</p>}
+                   </>
+                 )}
                </Accordion>
                
                <Accordion title="Fragrance Notes">
