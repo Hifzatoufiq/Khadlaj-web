@@ -10,11 +10,12 @@ if (!rootEl) {
 
 createRoot(rootEl).render(<App />);
 
-// Hide preloader quickly after app renders (max 1 second delay)
-setTimeout(() => {
+window.hidePreloader = () => {
   const preloader = document.getElementById('preloader');
-  if (preloader) {
+  if (preloader && !preloader.classList.contains('loaded')) {
     preloader.classList.add('loaded');
-    setTimeout(() => preloader.remove(), 1000); // remove from DOM after slide out
+    setTimeout(() => preloader.remove(), 1000);
   }
-}, 1000);
+};
+// Fallback if video takes too long
+setTimeout(window.hidePreloader, 3500);

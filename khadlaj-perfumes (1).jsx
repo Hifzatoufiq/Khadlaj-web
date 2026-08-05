@@ -5207,6 +5207,8 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           className="hero-video"
           src={window.__VIDEO_URL__ || "./assets/videos/duty-free.mp4"}
           autoPlay muted loop playsInline preload="auto"
+          onCanPlay={() => window.hidePreloader && window.hidePreloader()}
+          onLoadedData={() => window.hidePreloader && window.hidePreloader()}
           style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",display:"block",opacity:.8}}
         />
         <div style={{position:"absolute",inset:0,background:"linear-gradient(to bottom,rgba(8,8,8,.04) 0%,rgba(8,8,8,.18) 35%,rgba(8,8,8,.52) 100%)",pointerEvents:"none"}} />
