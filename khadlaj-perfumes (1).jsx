@@ -378,21 +378,7 @@ const PRODUCTS = [
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/DEHNAL_OUDH_COMBODI_3ML_-_Khadlaj_Perfumes-1964319.jpg"
   },
-  {
-    "id": 8659572293831,
-    "name": "QARAR",
-    "col": "Perfume Oils",
-    "price": 50,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Her",
-    "notes": [
-      "Oud",
-      "Musk",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Qarar-3.jpg?v=1783939057"
-  },
+
   {
     "id": 8637240934599,
     "name": "LA FEDE INTOXICATE MYSTIQUE",
