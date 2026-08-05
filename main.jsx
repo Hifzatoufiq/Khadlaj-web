@@ -17,5 +17,5 @@ window.hidePreloader = () => {
     setTimeout(() => preloader.remove(), 1000);
   }
 };
-// Fallback if video takes too long
-setTimeout(window.hidePreloader, 3500);
+// Hide preloader quickly so website opens instantly
+setTimeout(window.hidePreloader, 300);
