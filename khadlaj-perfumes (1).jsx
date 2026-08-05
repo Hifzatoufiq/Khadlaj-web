@@ -121,7 +121,12 @@ const PRODUCTS = [
     "badge": "New",
     "gender": "Unisex",
     "notes": ["Fresh Citrus", "Sky Breeze", "Cedarwood"],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SPECIAL_EDITION_SHIYAAKA_SKY.png?v=1783938999"
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SPECIAL_EDITION_SHIYAAKA_SKY.png?v=1783938999",
+    "detailImages": [
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SPECIAL_EDITION_SHIYAAKA_SKY.png?v=1783938999",
+      "/assets/images/products/shiyaaka_custom_5_cropped.png",
+      "/assets/images/products/shiyaaka_custom_6_cropped.png"
+    ]
   },
   {
     "id": 9100000000001,
@@ -6007,10 +6012,10 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
           {/* ── Left: Product Image(s) ── */}
           <div style={{width:"100%"}}>
             {product.detailImages ? (
-              <div style={{display:"flex", flexDirection:"column", gap:16}}>
+              <div style={{display:"grid", gridTemplateColumns:"repeat(2, 1fr)", gap:12}}>
                 {product.detailImages.map((imgUrl, i) => (
-                  <div key={i} style={{width:"100%", aspectRatio:"1/1", display:"flex", alignItems:"center", justifyContent:"center", background:"#fff", borderRadius:"4px", overflow:"hidden"}}>
-                    <img src={imgUrl} alt={product.name} style={{width:"92%", height:"92%", objectFit:"contain", mixBlendMode:"normal", filter:"contrast(1.02) brightness(0.98)"}} />
+                  <div key={i} style={{gridColumn: i === 0 ? "span 2" : "span 1", aspectRatio: i===0 ? "4/4" : "1/1", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", background:"#F7F7F7", borderRadius:12, overflow:"hidden"}}>
+                    <img src={imgUrl} alt={product.name} style={{width:"100%", height:"100%", objectFit:"cover", mixBlendMode:"multiply"}} />
                   </div>
                 ))}
               </div>
@@ -6104,6 +6109,32 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                </div>
              </div>
 
+             {/* FREQUENTLY BOUGHT TOGETHER */}
+             <div style={{marginBottom:48, padding:24, background:"#FDFDFD", border:"1px solid #E8E4DC", borderRadius:12}}>
+               <h3 style={{fontSize:12, fontWeight:600, color:"#251737", textTransform:"uppercase", letterSpacing:1.5, marginBottom:20}}>Frequently Bought Together</h3>
+               <div style={{display:"flex", alignItems:"center", gap:16, marginBottom:24}}>
+                  <div style={{width:64, height:64, background:"#fff", borderRadius:8, display:"flex", alignItems:"center", justifyContent:"center", border:"1px solid #eee"}}>
+                    <img src={product.img} style={{maxHeight:"80%", maxWidth:"80%", objectFit:"contain"}} alt="Product 1" />
+                  </div>
+                  <span style={{fontSize:16, color:"#ccc", fontWeight:300}}>+</span>
+                  <div style={{width:64, height:64, background:"#fff", borderRadius:8, display:"flex", alignItems:"center", justifyContent:"center", border:"1px solid #eee"}}>
+                    <img src={PRODUCTS[4].img} style={{maxHeight:"80%", maxWidth:"80%", objectFit:"contain"}} alt="Product 2" />
+                  </div>
+                  <div style={{marginLeft:"auto", textAlign:"right"}}>
+                    <div style={{fontSize:11, color:"#999", textDecoration:"line-through", fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(product.price + PRODUCTS[4].price + 20)}</div>
+                    <div style={{fontSize:16, fontWeight:600, color:"#251737", fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(product.price + PRODUCTS[4].price)}</div>
+                  </div>
+               </div>
+               <button 
+                 onClick={()=>{addToCart(product,1); addToCart(PRODUCTS[4],1); setAdded(true); setTimeout(()=>setAdded(false),2200);}}
+                 style={{width:"100%", height:44, background:"#fff", border:"1px solid #251737", color:"#251737", textTransform:"uppercase", letterSpacing:2, fontSize:10, fontWeight:600, cursor:"pointer", transition:"all 0.3s"}}
+                 onMouseEnter={e=>{e.currentTarget.style.background="#251737"; e.currentTarget.style.color="#fff";}}
+                 onMouseLeave={e=>{e.currentTarget.style.background="#fff"; e.currentTarget.style.color="#251737";}}
+               >
+                 Add Bundle to Bag
+               </button>
+             </div>
+
              {/* ACCORDIONS */}
              <div>
                <Accordion title="Description" defaultOpen>
@@ -6125,6 +6156,28 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                  <p>Orders are processed within 1-2 business days. Free shipping on all orders over AED 200 within the UAE. International shipping rates apply and will be calculated at checkout.</p>
                </Accordion>
              </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── UPSELL SECTION ── */}
+      <div style={{maxWidth:1000, margin:"0 auto 100px", padding:"0 5%"}}>
+        <div style={{display:"flex", gap:32, padding:32, background:"#251737", borderRadius:16, color:"#fff", alignItems:"center", flexWrap:"wrap"}}>
+          <div style={{width:120, height:120, background:"#fff", borderRadius:12, display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, overflow:"hidden"}}>
+            <img src={PRODUCTS[1].img} style={{maxHeight:"90%", maxWidth:"90%", objectFit:"contain"}} alt={PRODUCTS[1].name} />
+          </div>
+          <div style={{flex:1, minWidth:250}}>
+            <p style={{fontSize:10, textTransform:"uppercase", letterSpacing:2, color:"#B8922A", marginBottom:8, fontFamily:"'Montserrat',sans-serif", fontWeight:600}}>Perfect Pairing</p>
+            <h3 style={{fontSize:24, fontWeight:400, marginBottom:8, fontFamily:"'Cinzel', serif"}}>{PRODUCTS[1].name}</h3>
+            <p style={{fontSize:13, color:"rgba(255,255,255,0.7)", marginBottom:16, fontFamily:"'Montserrat',sans-serif", lineHeight:1.5, maxWidth:400}}>Elevate your signature scent with this exquisite complementary product, designed to layer perfectly.</p>
+            <button 
+              onClick={()=>{addToCart(PRODUCTS[1],1); setAdded(true); setTimeout(()=>setAdded(false),2200);}}
+              style={{background:"transparent", border:"none", color:"#fff", borderBottom:"1px solid #B8922A", paddingBottom:4, fontSize:12, textTransform:"uppercase", letterSpacing:1.5, cursor:"pointer", transition:"color 0.3s", fontFamily:"'Montserrat',sans-serif", fontWeight:600}}
+              onMouseEnter={e=>e.currentTarget.style.color="#B8922A"}
+              onMouseLeave={e=>e.currentTarget.style.color="#fff"}
+            >
+              Add for {formatPrice(PRODUCTS[1].price)}
+            </button>
           </div>
         </div>
       </div>
