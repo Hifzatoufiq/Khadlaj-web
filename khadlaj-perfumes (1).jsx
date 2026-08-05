@@ -6030,17 +6030,13 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                   if(i === 0) {
                     style.aspectRatio = "4/5";
                   } else if (i === 1) {
-                    style.width = "75%";
-                    style.marginRight = "auto";
-                    style.aspectRatio = "3/4";
+                    style.width = "100%";
+                    style.aspectRatio = "1/1";
+                    style.padding = "5%";
+                    imgStyle.objectFit = "contain";
                   } else if (i === 2) {
-                    style.width = "60%";
-                    style.marginLeft = "auto";
-                    style.marginTop = "-35%";
-                    style.aspectRatio = "3/4";
-                    style.position = "relative";
-                    style.zIndex = 2;
-                    style.boxShadow = "0 30px 60px rgba(0,0,0,0.1)";
+                    style.width = "100%";
+                    style.aspectRatio = "4/3";
                   } else if (i === 3) {
                     style.width = "100%";
                     style.aspectRatio = "1/1";
