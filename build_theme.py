@@ -31,6 +31,9 @@ theme_liquid = """<!doctype html>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   {{ content_for_header }}
   {{ 'index.css' | asset_url | stylesheet_tag }}
+  <script>
+    window.__VIDEO_URL__ = "{{ 'duty-free.mp4' | asset_url }}";
+  </script>
 </head>
 <body>
   {{ content_for_layout }}
@@ -62,6 +65,9 @@ with open(os.path.join(theme_dir, 'config', 'settings_schema.json'), 'w', encodi
 # 4. Copy and modify assets
 with open('bundle-v207.js', 'r', encoding='utf-8') as f:
     bundle_code = f.read()
+
+# Copy the video file directly into the theme assets folder so Shopify serves it!
+shutil.copy('assets/videos/duty-free.mp4', os.path.join(theme_dir, 'assets', 'duty-free.mp4'))
 
 # Replace local image paths with absolute github pages paths so they work in Shopify!
 bundle_code = bundle_code.replace('"/assets/', '"https://hifzatoufiq.github.io/Khadlaj-web/assets/')

@@ -7,6 +7,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   {{ content_for_header }}
   {{ 'index.css' | asset_url | stylesheet_tag }}
+  <script>
+    window.__VIDEO_URL__ = "{{ 'duty-free.mp4' | asset_url }}";
+  </script>
 </head>
 <body>
   {{ content_for_layout }}

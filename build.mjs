@@ -9,6 +9,7 @@ await esbuild.build({
   jsxFactory: 'React.createElement',
   jsxFragment: 'React.Fragment',
   define: { 'process.env.NODE_ENV': '"production"' },
+  minify: true,
 });
 
 console.log('Build OK');
