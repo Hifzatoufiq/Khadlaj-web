@@ -6168,7 +6168,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
       </div>
 
       {/* ── UPSELL SECTION (Dark Theme) ── */}
-      <div style={{background:"#111", padding:"80px 5%", color:"#fff", marginBottom:80}}>
+      <div style={{background:"#251737", padding:"80px 5%", color:"#fff", marginBottom:80}}>
         <div style={{maxWidth:1000, margin:"0 auto", display:"flex", gap:48, alignItems:"center", flexWrap:"wrap"}}>
           <div style={{width:200, height:250, background:"#fff", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, overflow:"hidden"}}>
             <img src={PRODUCTS[1].img} style={{maxHeight:"90%", maxWidth:"90%", objectFit:"contain", mixBlendMode:"multiply"}} alt={PRODUCTS[1].name} />
