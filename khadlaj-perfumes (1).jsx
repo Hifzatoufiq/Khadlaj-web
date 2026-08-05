@@ -123,9 +123,11 @@ const PRODUCTS = [
     "notes": ["Fresh Citrus", "Sky Breeze", "Cedarwood"],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SPECIAL_EDITION_SHIYAAKA_SKY.png?v=1783938999",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SPECIAL_EDITION_SHIYAAKA_SKY.png?v=1783938999",
-      "/assets/images/products/shiyaaka_custom_5_cropped.png",
-      "/assets/images/products/shiyaaka_custom_6_cropped.png"
+      "https://khadlaj-perfumes.com/cdn/shop/files/SPECIAL_EDITION_SHIYAAKA_SKY.png?v=1783938999",
+      "https://khadlaj-perfumes.com/cdn/shop/files/Screenshot_2026-06-12_154715.png?v=1781264869",
+      "https://khadlaj-perfumes.com/cdn/shop/files/Screenshot_2026-06-12_154730.png?v=1781264869",
+      "https://khadlaj-perfumes.com/cdn/shop/files/skynotes_jpg.jpg?v=1781264809",
+      "https://khadlaj-perfumes.com/cdn/shop/files/Screenshot_2026-06-12_154835.png?v=1781264927"
     ]
   },
   {
@@ -6012,12 +6014,41 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
           {/* ── Left: High-End Image Layout ── */}
           <div style={{width:"100%"}}>
             {product.detailImages ? (
-              <div style={{display:"grid", gridTemplateColumns:"repeat(2, 1fr)", gap:8}}>
-                {product.detailImages.map((imgUrl, i) => (
-                  <div key={i} style={{gridColumn: i === 0 ? "span 2" : "span 1", aspectRatio: i===0 ? "4/5" : "1/1", width:"100%", display:"flex", alignItems:"center", justifyContent:"center", background:"#FAFAFA", overflow:"hidden"}}>
-                    <img src={imgUrl} alt={product.name} style={{width:"100%", height:"100%", objectFit:"cover", mixBlendMode:"multiply", filter:"contrast(1.05)"}} />
-                  </div>
-                ))}
+              <div style={{display:"flex", flexDirection:"column", gap:40, paddingBottom:80}}>
+                {product.detailImages.map((imgUrl, i) => {
+                  let style = {width:"100%", overflow:"hidden", background:"#FAFAFA", display:"flex", alignItems:"center", justifyContent:"center"};
+                  let imgStyle = {width:"100%", height:"100%", objectFit:"cover", mixBlendMode:"multiply", filter:"contrast(1.05)"};
+                  
+                  if(i === 0) {
+                    style.aspectRatio = "4/5";
+                  } else if (i === 1) {
+                    style.width = "75%";
+                    style.marginRight = "auto";
+                    style.aspectRatio = "3/4";
+                  } else if (i === 2) {
+                    style.width = "60%";
+                    style.marginLeft = "auto";
+                    style.marginTop = "-35%";
+                    style.aspectRatio = "3/4";
+                    style.position = "relative";
+                    style.zIndex = 2;
+                    style.boxShadow = "0 30px 60px rgba(0,0,0,0.1)";
+                  } else if (i === 3) {
+                    style.width = "100%";
+                    style.aspectRatio = "1/1";
+                    style.padding = "10%";
+                    imgStyle.objectFit = "contain";
+                  } else {
+                    style.width = "100%";
+                    style.aspectRatio = "4/5";
+                  }
+
+                  return (
+                    <div key={i} style={style}>
+                      <img src={imgUrl} alt={product.name} style={imgStyle} />
+                    </div>
+                  );
+                })}
               </div>
             ) : (
               <div style={{width:"100%", aspectRatio:"4/5", display:"flex", alignItems:"center", justifyContent:"center", background:"#FAFAFA", overflow:"hidden"}}>
