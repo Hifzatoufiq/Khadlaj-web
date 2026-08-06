@@ -6234,37 +6234,39 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
 
              {/* ACTIONS (Qty + Add to Cart + Wishlist) */}
              <div style={{display:"flex", gap:16, marginBottom:16, flexWrap:"wrap"}}>
-               {/* Minimalist Quantity */}
-               <div style={{display:"flex", alignItems:"center", borderBottom:"1px solid #111", width:100, height:48}}>
-                  <button onClick={()=>setQty(q=>Math.max(1,q-1))} style={{flex:1, height:"100%", border:"none", background:"transparent", fontSize:20, cursor:"pointer", color:"#111", fontWeight:300}}>−</button>
-                  <span style={{flex:1, textAlign:"center", fontSize:14, fontFamily:"'Montserrat',sans-serif", fontWeight:300}}>{qty}</span>
-                  <button onClick={()=>setQty(q=>q+1)} style={{flex:1, height:"100%", border:"none", background:"transparent", fontSize:20, cursor:"pointer", color:"#111", fontWeight:300}}>+</button>
+               {/* Premium Quantity */}
+               <div style={{display:"flex", alignItems:"center", border:"1px solid #eaeaea", borderRadius:4, width:110, height:48, background:"#fff", boxShadow:"0 2px 8px rgba(0,0,0,0.02)"}}>
+                  <button onClick={()=>setQty(q=>Math.max(1,q-1))} style={{flex:1, height:"100%", border:"none", background:"transparent", fontSize:18, cursor:"pointer", color:"#888", transition:"color 0.2s"}} onMouseEnter={e=>e.currentTarget.style.color="#111"} onMouseLeave={e=>e.currentTarget.style.color="#888"}>−</button>
+                  <span style={{flex:1, textAlign:"center", fontSize:14, fontFamily:"'Montserrat',sans-serif", fontWeight:600, color:"#111"}}>{qty}</span>
+                  <button onClick={()=>setQty(q=>q+1)} style={{flex:1, height:"100%", border:"none", background:"transparent", fontSize:18, cursor:"pointer", color:"#888", transition:"color 0.2s"}} onMouseEnter={e=>e.currentTarget.style.color="#111"} onMouseLeave={e=>e.currentTarget.style.color="#888"}>+</button>
                </div>
                
                {/* Sleek Add to Bag */}
                <button 
                  onClick={handleAdd} 
                  style={{
-                   flex:1, minWidth:200, height:48, background:"#111", color:"#fff", border:"1px solid #111", 
-                   fontSize:11, fontWeight:500, letterSpacing:2, textTransform:"uppercase", 
-                   fontFamily:"'Montserrat',sans-serif", cursor:"pointer", transition:"all .3s ease"
+                   flex:1, minWidth:200, height:48, background:"#111", color:"#fff", border:"none", borderRadius:4,
+                   fontSize:12, fontWeight:600, letterSpacing:1.5, textTransform:"uppercase", 
+                   fontFamily:"'Montserrat',sans-serif", cursor:"pointer", transition:"all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                   boxShadow: "0 4px 14px rgba(0,0,0,0.15)"
                  }} 
-                 onMouseEnter={e=>{e.currentTarget.style.background="#fff"; e.currentTarget.style.color="#111";}} 
-                 onMouseLeave={e=>{e.currentTarget.style.background="#111"; e.currentTarget.style.color="#fff";}}
+                 onMouseEnter={e=>{e.currentTarget.style.background="#333"; e.currentTarget.style.transform="translateY(-2px)"; e.currentTarget.style.boxShadow="0 6px 20px rgba(0,0,0,0.2)";}} 
+                 onMouseLeave={e=>{e.currentTarget.style.background="#111"; e.currentTarget.style.transform="none"; e.currentTarget.style.boxShadow="0 4px 14px rgba(0,0,0,0.15)";}}
                >
                  {added ? "Added to Bag" : "Add to Bag"}
                </button>
 
-               {/* Buy Now Button */}
+               {/* Premium Buy Now Button */}
                <button 
                  onClick={() => { handleAdd(); setPage("cart"); }} 
                  style={{
-                   flex:1, minWidth:200, height:48, background:"#C8A97E", color:"#fff", border:"1px solid #C8A97E", 
-                   fontSize:11, fontWeight:500, letterSpacing:2, textTransform:"uppercase", 
-                   fontFamily:"'Montserrat',sans-serif", cursor:"pointer", transition:"all .3s ease"
+                   flex:1, minWidth:200, height:48, background:"linear-gradient(135deg, #B8922A 0%, #E6C875 50%, #B8922A 100%)", color:"#fff", border:"none", borderRadius:4,
+                   fontSize:12, fontWeight:700, letterSpacing:1.5, textTransform:"uppercase", backgroundSize:"200% auto",
+                   fontFamily:"'Montserrat',sans-serif", cursor:"pointer", transition:"all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                   boxShadow: "0 4px 15px rgba(184,146,42,0.3)"
                  }} 
-                 onMouseEnter={e=>{e.currentTarget.style.background="#fff"; e.currentTarget.style.color="#C8A97E";}} 
-                 onMouseLeave={e=>{e.currentTarget.style.background="#C8A97E"; e.currentTarget.style.color="#fff";}}
+                 onMouseEnter={e=>{e.currentTarget.style.backgroundPosition="right center"; e.currentTarget.style.transform="translateY(-2px)"; e.currentTarget.style.boxShadow="0 8px 25px rgba(184,146,42,0.5)";}} 
+                 onMouseLeave={e=>{e.currentTarget.style.backgroundPosition="left center"; e.currentTarget.style.transform="none"; e.currentTarget.style.boxShadow="0 4px 15px rgba(184,146,42,0.3)";}}
                >
                  Buy Now
                </button>
@@ -6273,11 +6275,12 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                <button 
                  onClick={()=>alert("Added to Wishlist!")}
                  style={{
-                   width:48, height:48, background:"#fff", color:"#111", border:"1px solid #ddd", borderRadius:"50%",
-                   display:"flex", alignItems:"center", justifyContent:"center", cursor:"pointer", transition:"border-color 0.3s"
+                   width:48, height:48, background:"#fff", color:"#111", border:"1px solid #eaeaea", borderRadius:4,
+                   display:"flex", alignItems:"center", justifyContent:"center", cursor:"pointer", transition:"all 0.3s ease",
+                   boxShadow:"0 2px 8px rgba(0,0,0,0.02)"
                  }}
-                 onMouseEnter={e=>e.currentTarget.style.borderColor="#111"}
-                 onMouseLeave={e=>e.currentTarget.style.borderColor="#ddd"}
+                 onMouseEnter={e=>{e.currentTarget.style.borderColor="#111"; e.currentTarget.style.transform="translateY(-2px)"; e.currentTarget.style.boxShadow="0 4px 12px rgba(0,0,0,0.08)";}}
+                 onMouseLeave={e=>{e.currentTarget.style.borderColor="#eaeaea"; e.currentTarget.style.transform="none"; e.currentTarget.style.boxShadow="0 2px 8px rgba(0,0,0,0.02)";}}
                  title="Add to Wishlist"
                >
                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
