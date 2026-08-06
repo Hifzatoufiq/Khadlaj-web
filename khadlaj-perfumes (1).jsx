@@ -177,7 +177,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://hifzatoufiq.github.io/Khadlaj-web/assets/images/products/shiya_men.png"
+    "img": "https://hifzatoufiq.github.io/Khadlaj-web/assets/images/products/shiya_men_v3.png"
   },
   {
     "id": 7554205581511,
@@ -5252,13 +5252,13 @@ function HomePage({ setPage, addToCart, setViewProduct }){
                 { name: "SHIYAAKA SNOW", subtitle: "Crisp & Pure", desc: "An aromatic tribute to the frosty freshness, woven into the very fabric of our heritage.", img: "/assets/images/products/shiyaaka_custom_4.png" },
                 { name: "SHIYAAKA GOLD", subtitle: "Timeless Elegance", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "/assets/images/products/shiyaaka_custom_2.jpg" },
                 { name: "SHIYAAKA BLUE", subtitle: "Fresh & Aquatic", desc: "Built on the essence of pure freshness, leaving a trail of sophisticated confidence wherever you go.", img: "/assets/images/products/shiyaaka_custom_1.jpg" },
-                { name: "SHIYAAKA MEN", subtitle: "Bold & Classic", desc: "A signature masculine scent blending rich spices with deep woody undertones.", img: "/assets/images/products/shiya_men.png" },
+                { name: "SHIYAAKA MEN", subtitle: "Bold & Classic", desc: "A signature masculine scent blending rich spices with deep woody undertones.", img: "/assets/images/products/shiya_men_v3.png" },
                 { name: "SHIYAAKA SKY", subtitle: "Fresh & Uplifting", desc: "A refreshing blend of fresh citrus and sky breeze notes, anchored by a warm cedarwood foundation.", img: "/assets/images/products/shiyaaka_custom_5_cropped.png" },
                 { name: "SHIYAAKA SHADOW", subtitle: "Mysterious & Bold", desc: "A captivating fragrance that symbolizes modern masculinity, bottled for the discerning individual.", img: "/assets/images/products/shiyaaka_custom_3.jpg" },
                 { name: "SHIYAAKA SNOW", subtitle: "Crisp & Pure", desc: "An aromatic tribute to the frosty freshness, woven into the very fabric of our heritage.", img: "/assets/images/products/shiyaaka_custom_4.png" },
                 { name: "SHIYAAKA GOLD", subtitle: "Timeless Elegance", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "/assets/images/products/shiyaaka_custom_2.jpg" },
                 { name: "SHIYAAKA BLUE", subtitle: "Fresh & Aquatic", desc: "Built on the essence of pure freshness, leaving a trail of sophisticated confidence wherever you go.", img: "/assets/images/products/shiyaaka_custom_1.jpg" },
-                { name: "SHIYAAKA MEN", subtitle: "Bold & Classic", desc: "A signature masculine scent blending rich spices with deep woody undertones.", img: "/assets/images/products/shiya_men.png" }
+                { name: "SHIYAAKA MEN", subtitle: "Bold & Classic", desc: "A signature masculine scent blending rich spices with deep woody undertones.", img: "/assets/images/products/shiya_men_v3.png" }
               ].map((item, idx) => (
                 <div className="k25-card" key={idx}>
                   <div className="k25-card-img-wrapper">
