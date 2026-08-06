@@ -4623,6 +4623,32 @@ const GLOBAL_CSS = `
     overflow: hidden;
   }
   
+  .product-layout-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    grid-template-areas: 
+      "images details"
+      "story details";
+    gap: 0 clamp(40px, 8vw, 120px);
+    align-items: start;
+  }
+  .product-layout-images { grid-area: images; width: 100%; }
+  .product-layout-details { grid-area: details; width: 100%; position: sticky; top: 120px; padding-top: 16px; max-width: 500px; }
+  .product-layout-story { grid-area: story; margin-top: 80px; padding-right: 40px; }
+
+  @media (max-width: 900px) {
+    .product-layout-grid {
+      grid-template-columns: 100%;
+      grid-template-areas: 
+        "images"
+        "details"
+        "story";
+      gap: 40px 0;
+    }
+    .product-layout-details { position: relative; top: 0; padding-top: 0; max-width: 100%; }
+    .product-layout-story { margin-top: 0px; padding-right: 0; }
+  }
+  
   .k25-card-img-wrapper img { 
     height: 100%; width: 100%; object-fit: cover; display: block; 
     transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.8s ease;
@@ -6047,10 +6073,10 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
 
       {/* ── Main Product Section ── */}
       <div style={{maxWidth:1440, margin:"0 auto", padding:"40px 5% 120px"}}>
-        <div style={{display:"grid",gridTemplateColumns:"1.2fr 1fr",gap:"clamp(40px, 8vw, 120px)", alignItems:"start"}} className="grid-2">
+        <div className="product-layout-grid">
           
           {/* ── Left: Advanced Interactive Gallery ── */}
-          <div style={{width:"100%"}}>
+          <div className="product-layout-images">
             {(() => {
               const images = product.detailImages || [product.img];
               return (
@@ -6113,9 +6139,10 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                 </div>
               );
             })()}
+          </div>
 
-            {/* ── Rich Product Story Section (Under Image) ── */}
-            <div style={{marginTop:80, paddingRight:40}}>
+          {/* ── Rich Product Story Section (Under Image) ── */}
+          <div className="product-layout-story">
               <h2 style={{fontSize:28, fontFamily:"'Cinzel', serif", fontWeight:400, color:"#111", marginBottom:24, letterSpacing:1}}>The Story of {product.name}</h2>
               {Array.isArray(product.desc) ? (
                 product.desc.map((para, i) => (
@@ -6156,11 +6183,9 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                 </div>
               </div>
             </div>
-            
-          </div>
           
           {/* ── Right: Minimalist Product Details (Sticky) ── */}
-          <div style={{paddingTop:16, maxWidth:500, position:"sticky", top:120}}>
+          <div className="product-layout-details">
              {/* EYEBROW */}
              <p style={{fontWeight:600,fontSize:10, letterSpacing:3, color:"#888", textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", marginBottom:12}}>Khadlaj Perfumes</p>
              
