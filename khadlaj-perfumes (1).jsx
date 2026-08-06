@@ -6129,12 +6129,23 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                <span style={{fontSize:12, color:"#555", fontFamily:"'Montserrat',sans-serif", borderBottom:"1px solid #ddd", cursor:"pointer", paddingBottom:2}}>4.9 rating (55 reviews)</span>
              </div>
 
-             {/* PRICE */}
-             <p style={{fontSize:22, fontWeight:300, color:"#111", fontFamily:"'Montserrat',sans-serif", marginBottom:8}}>{formatPrice(product.price)}</p>
-             <p style={{fontSize:11, color:"#888", fontFamily:"'Montserrat',sans-serif", marginBottom:40}}>Tax included. Shipping calculated at checkout.</p>
+             {/* PRICE & STOCK */}
+             <div style={{display:"flex", alignItems:"baseline", justifyContent:"space-between", marginBottom:8}}>
+               <p style={{fontSize:22, fontWeight:300, color:"#111", fontFamily:"'Montserrat',sans-serif", margin:0}}>{formatPrice(product.price)}</p>
+               <span style={{fontSize:12, color:"#2E7D32", fontFamily:"'Montserrat',sans-serif", fontWeight:500}}>In Stock</span>
+             </div>
+             <p style={{fontSize:11, color:"#888", fontFamily:"'Montserrat',sans-serif", marginBottom:24}}>Tax included. Shipping calculated at checkout.</p>
 
-             {/* ACTIONS (Qty + Add to Cart) */}
-             <div style={{display:"flex", gap:16, marginBottom:40, flexWrap:"wrap"}}>
+             {/* SHORT DESCRIPTION EXCERPT */}
+             <div style={{fontSize:13, lineHeight:1.6, color:"#444", fontWeight:300, fontFamily:"'Montserrat',sans-serif", marginBottom:32}}>
+               {Array.isArray(product.desc) 
+                  ? <span dangerouslySetInnerHTML={{__html: product.desc[0]}} /> 
+                  : (product.desc ? product.desc.substring(0, 150) + "..." : "Experience the timeless elegance of " + product.name + ".")}
+               <span onClick={()=>window.scrollTo({top: document.body.scrollHeight/2, behavior:'smooth'})} style={{color:"#111", borderBottom:"1px solid #111", cursor:"pointer", marginLeft:8, fontWeight:400}}>Read more</span>
+             </div>
+
+             {/* ACTIONS (Qty + Add to Cart + Wishlist) */}
+             <div style={{display:"flex", gap:16, marginBottom:16, flexWrap:"wrap"}}>
                {/* Minimalist Quantity */}
                <div style={{display:"flex", alignItems:"center", borderBottom:"1px solid #111", width:100, height:48}}>
                   <button onClick={()=>setQty(q=>Math.max(1,q-1))} style={{flex:1, height:"100%", border:"none", background:"transparent", fontSize:20, cursor:"pointer", color:"#111", fontWeight:300}}>−</button>
@@ -6155,6 +6166,66 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                >
                  {added ? "Added to Bag" : "Add to Bag"}
                </button>
+
+               {/* Wishlist Button */}
+               <button 
+                 onClick={()=>alert("Added to Wishlist!")}
+                 style={{
+                   width:48, height:48, background:"#fff", color:"#111", border:"1px solid #ddd", borderRadius:"50%",
+                   display:"flex", alignItems:"center", justifyContent:"center", cursor:"pointer", transition:"border-color 0.3s"
+                 }}
+                 onMouseEnter={e=>e.currentTarget.style.borderColor="#111"}
+                 onMouseLeave={e=>e.currentTarget.style.borderColor="#ddd"}
+                 title="Add to Wishlist"
+               >
+                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+               </button>
+             </div>
+
+             {/* EXPRESS CHECKOUT BUTTONS */}
+             <button 
+               onClick={()=>alert("Redirecting to PayPal Checkout...")}
+               style={{
+                 width:"100%", height:48, background:"#FFC439", color:"#111", border:"none", borderRadius:4,
+                 fontSize:14, fontWeight:600, cursor:"pointer", transition:"background 0.3s", fontFamily:"Arial, sans-serif",
+                 display:"flex", alignItems:"center", justifyContent:"center", gap:8, marginBottom:8
+               }}
+               onMouseEnter={e=>e.currentTarget.style.background="#F4B82A"}
+               onMouseLeave={e=>e.currentTarget.style.background="#FFC439"}
+             >
+               Pay with <strong style={{color:"#003087", fontStyle:"italic", fontSize:18, display:"inline-flex", gap:2}}>PayPal</strong>
+             </button>
+             <button 
+               style={{
+                 width:"100%", height:40, background:"#fff", color:"#111", border:"1px solid #ddd", borderRadius:4,
+                 fontSize:12, fontWeight:500, cursor:"pointer", transition:"background 0.3s", fontFamily:"'Montserrat',sans-serif",
+                 marginBottom:32
+               }}
+               onMouseEnter={e=>e.currentTarget.style.background="#FAFAFA"}
+               onMouseLeave={e=>e.currentTarget.style.background="#fff"}
+             >
+               More Payment Options
+             </button>
+
+             {/* REWARDS GAMIFICATION BOX */}
+             <div style={{border:"1px solid #eee", borderRadius:8, padding:20, marginBottom:32, background:"#fff", boxShadow:"0 2px 8px rgba(0,0,0,0.02)"}}>
+               <div style={{display:"flex", alignItems:"center", gap:12, marginBottom:16}}>
+                 <div style={{width:32, height:32, background:"#FFF3E0", color:"#FF9800", borderRadius:4, display:"flex", alignItems:"center", justifyContent:"center"}}>
+                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
+                 </div>
+                 <div>
+                   <p style={{fontSize:12, fontWeight:600, color:"#111", fontFamily:"'Montserrat',sans-serif", margin:0}}>Free Gift</p>
+                   <p style={{fontSize:10, color:"#888", fontFamily:"'Montserrat',sans-serif", margin:0, marginTop:2}}>0 of 1 is ready to claim</p>
+                 </div>
+               </div>
+               <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:12}}>
+                 <p style={{fontSize:12, color:"#111", fontFamily:"'Montserrat',sans-serif", fontWeight:500, margin:0, maxWidth:"60%"}}>Spend at least {formatPrice(250)} to get rewards</p>
+                 <span style={{background:"#2E7D32", color:"#fff", padding:"4px 10px", borderRadius:12, fontSize:10, fontWeight:600, fontFamily:"'Montserrat',sans-serif"}}>Special Reward</span>
+               </div>
+               <p style={{fontSize:11, color:"#555", fontFamily:"'Montserrat',sans-serif", marginBottom:8}}>Buy {formatPrice(Math.max(0, 250 - product.price))} more to unlock this reward</p>
+               <div style={{width:"100%", height:6, background:"#eee", borderRadius:3, overflow:"hidden"}}>
+                 <div style={{width:`${Math.min(100, (product.price / 250)*100)}%`, height:"100%", background:"#2E7D32", borderRadius:3}}></div>
+               </div>
              </div>
 
              {/* FREQUENTLY BOUGHT TOGETHER (Minimalist) */}
@@ -6227,6 +6298,14 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                <Accordion title="Shipping & Returns">
                  <p style={{fontSize:13, lineHeight:1.6, color:"#444", fontWeight:300}}>Orders are processed within 1-2 business days. Free shipping on all orders over AED 200 within the UAE. International shipping rates apply and will be calculated at checkout.</p>
                </Accordion>
+             </div>
+
+             {/* PAYMENT ICONS */}
+             <div style={{marginTop:32, paddingTop:24, borderTop:"1px solid #eee", display:"flex", alignItems:"center", gap:12, flexWrap:"wrap"}}>
+               <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" height="14" alt="Visa" style={{objectFit:"contain"}}/>
+               <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" height="20" alt="Mastercard" style={{objectFit:"contain"}}/>
+               <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg" height="24" alt="Apple Pay" style={{objectFit:"contain"}}/>
+               <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" height="16" alt="PayPal" style={{objectFit:"contain"}}/>
              </div>
           </div>
         </div>
