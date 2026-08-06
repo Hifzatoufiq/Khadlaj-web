@@ -5993,6 +5993,34 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
   const [added, setAdded] = useState(false);
   const related = PRODUCTS.filter(p=>p.col===product.col && p.id!==product.id).slice(0,3);
 
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [zoomStyle, setZoomStyle] = useState({ transformOrigin: "center center", transform: "scale(1)" });
+  
+  const handleMouseMove = (e) => {
+    const { left, top, width, height } = e.currentTarget.getBoundingClientRect();
+    const x = ((e.clientX - left) / width) * 100;
+    const y = ((e.clientY - top) / height) * 100;
+    setZoomStyle({ transformOrigin: `${x}% ${y}%`, transform: "scale(2)" });
+  };
+  
+  const handleMouseLeave = () => {
+    setZoomStyle({ transformOrigin: "center center", transform: "scale(1)" });
+  };
+
+  const handleShare = async () => {
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: product.name,
+          text: `Check out ${product.name} at Khadlaj Perfumes`,
+          url: window.location.href,
+        });
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert("Link copied to clipboard!");
+      }
+    } catch (err) {}
+  };
   useEffect(()=>{
     window.scrollTo(0,0);
   }, [product.id]);
@@ -6019,33 +6047,70 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
       <div style={{maxWidth:1440, margin:"0 auto", padding:"40px 5% 120px"}}>
         <div style={{display:"grid",gridTemplateColumns:"1.2fr 1fr",gap:"clamp(40px, 8vw, 120px)", alignItems:"start"}} className="grid-2">
           
-          {/* ── Left: High-End Image Layout ── */}
+          {/* ── Left: Advanced Interactive Gallery ── */}
           <div style={{width:"100%"}}>
-            {product.detailImages ? (
-              <div style={{display:"flex", flexDirection:"column", gap:40, paddingBottom:80}}>
-                {product.detailImages.map((imgUrl, i) => {
-                  let style = {width:"100%", overflow:"hidden", background:"#FAFAFA", display:"flex", alignItems:"center", justifyContent:"center"};
-                  let imgStyle = {width:"100%", height:"auto", objectFit:"contain", mixBlendMode:"multiply", filter:"contrast(1.05)"};
-                  
-                  if(i === 0) {
-                    style.aspectRatio = "4/5";
-                    imgStyle.objectFit = "cover";
-                    imgStyle.height = "100%";
-                  } else {
-                    style.padding = "40px";
-                  }
-                  return (
-                    <div key={i} style={style}>
-                      <img src={imgUrl} alt={product.name} style={imgStyle} />
+            {(() => {
+              const images = product.detailImages || [product.img];
+              return (
+                <div style={{display:"flex", gap:24, width:"100%"}}>
+                  {/* Thumbnails */}
+                  <div style={{display:"flex", flexDirection:"column", gap:12, width:80, flexShrink:0}}>
+                    {images.map((imgUrl, i) => (
+                      <div 
+                        key={i} 
+                        onClick={() => setActiveImageIndex(i)}
+                        style={{
+                          width:80, height:80, 
+                          border: activeImageIndex === i ? "2px solid #B8922A" : "1px solid #ddd", 
+                          borderRadius: 8, 
+                          overflow:"hidden", 
+                          cursor:"pointer", 
+                          display:"flex", alignItems:"center", justifyContent:"center", 
+                          background:"#FAFAFA",
+                          transition:"border-color 0.2s"
+                        }}
+                      >
+                        <img src={imgUrl} style={{width:"100%", height:"100%", objectFit:"contain", mixBlendMode:"multiply"}} alt="Thumbnail" />
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Main Viewer */}
+                  <div 
+                    style={{flex:1, aspectRatio:"4/5", background:"#FAFAFA", borderRadius:8, position:"relative", overflow:"hidden", cursor:"crosshair"}}
+                    onMouseMove={handleMouseMove}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <img 
+                      src={images[activeImageIndex]} 
+                      alt={product.name} 
+                      style={{
+                        width:"100%", height:"100%", 
+                        objectFit:"contain", padding:"5%", mixBlendMode:"multiply", filter:"contrast(1.05)",
+                        transition:"transform 0.1s ease-out",
+                        ...zoomStyle
+                      }} 
+                    />
+
+                    {/* Share Button Overlay */}
+                    <div 
+                      onClick={(e) => { e.stopPropagation(); handleShare(); }}
+                      style={{
+                        position:"absolute", top:16, right:16, 
+                        width:40, height:40, borderRadius:"50%", background:"#fff", 
+                        display:"flex", alignItems:"center", justifyContent:"center", 
+                        boxShadow:"0 4px 12px rgba(0,0,0,0.1)", cursor:"pointer",
+                        zIndex:10, transition:"transform 0.2s"
+                      }}
+                      onMouseEnter={e=>e.currentTarget.style.transform="scale(1.05)"}
+                      onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}
+                    >
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#251737" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
                     </div>
-                  );
-                })}
-              </div>
-            ) : (
-              <div style={{width:"100%", aspectRatio:"4/5", display:"flex", alignItems:"center", justifyContent:"center", background:"#FAFAFA", overflow:"hidden"}}>
-                <img src={product.img} alt={product.name} style={{width:"100%", height:"100%", objectFit:"cover", mixBlendMode:"multiply", filter:"contrast(1.05)"}} />
-              </div>
-            )}
+                  </div>
+                </div>
+              );
+            })()}
           </div>
           
           {/* ── Right: Minimalist Product Details (Sticky) ── */}
