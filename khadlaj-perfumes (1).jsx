@@ -4634,7 +4634,7 @@ const GLOBAL_CSS = `
   }
   .product-layout-images { grid-area: images; width: 100%; }
   .product-layout-details { grid-area: details; width: 100%; position: sticky; top: 120px; padding-top: 16px; max-width: 500px; }
-  .product-layout-story { grid-area: story; margin-top: 80px; padding-right: 40px; }
+  .product-layout-story { grid-area: story; margin-top: 32px; padding-right: 40px; }
 
   @media (max-width: 900px) {
     .product-layout-grid {
