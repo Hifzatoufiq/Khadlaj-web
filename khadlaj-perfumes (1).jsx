@@ -6213,6 +6213,20 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                  {added ? "Added to Bag" : "Add to Bag"}
                </button>
 
+               {/* Buy Now Button */}
+               <button 
+                 onClick={() => { handleAdd(); setPage("cart"); }} 
+                 style={{
+                   flex:1, minWidth:200, height:48, background:"#C8A97E", color:"#fff", border:"1px solid #C8A97E", 
+                   fontSize:11, fontWeight:500, letterSpacing:2, textTransform:"uppercase", 
+                   fontFamily:"'Montserrat',sans-serif", cursor:"pointer", transition:"all .3s ease"
+                 }} 
+                 onMouseEnter={e=>{e.currentTarget.style.background="#fff"; e.currentTarget.style.color="#C8A97E";}} 
+                 onMouseLeave={e=>{e.currentTarget.style.background="#C8A97E"; e.currentTarget.style.color="#fff";}}
+               >
+                 Buy Now
+               </button>
+
                {/* Wishlist Button */}
                <button 
                  onClick={()=>alert("Added to Wishlist!")}
