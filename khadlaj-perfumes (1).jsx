@@ -5279,7 +5279,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       <section className="hero-section" style={{position:"relative",width:"100%",height:"70vh",minHeight:"450px",overflow:"hidden",background:"#0a0a0a"}}>
         <video
           className="hero-video"
-          src={window.__VIDEO_URL__ || "./assets/videos/duty-free.mp4"}
+          src="https://cdn.shopify.com/videos/c/o/v/72cc17c9b4814387bc03c19cae9c00e2.mp4"
           autoPlay muted loop playsInline preload="auto"
           onCanPlay={() => window.hidePreloader && window.hidePreloader()}
           onLoadedData={() => window.hidePreloader && window.hidePreloader()}
@@ -5457,7 +5457,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
         {/* Right Video Area */}
         <div style={{flex:"1 1 50%", minWidth:300, position:"relative", minHeight:"600px"}}>
-          <video src="/assets/videos/shiyaaka-sky-v2.mp4" autoPlay loop muted playsInline preload="auto" style={{position:"absolute", width:"100%", height:"100%", objectFit:"cover"}} />
+          <video src={window.__SHIYAAKA_VIDEO_URL__ || "/assets/videos/shiyaaka-sky-v2.mp4"} autoPlay loop muted playsInline preload="auto" style={{position:"absolute", width:"100%", height:"100%", objectFit:"cover"}} />
         </div>
       </section>
 

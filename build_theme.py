@@ -33,6 +33,7 @@ theme_liquid = """<!doctype html>
   {{ 'index.css' | asset_url | stylesheet_tag }}
   <script>
     window.__VIDEO_URL__ = "{{ 'duty-free.mp4' | asset_url }}";
+    window.__SHIYAAKA_VIDEO_URL__ = "{{ 'shiyaaka-sky-v2.mp4' | asset_url }}";
   </script>
 </head>
 <body>
@@ -72,6 +73,7 @@ with open('bundle-v207.js', 'r', encoding='utf-8') as f:
 
 # Copy the video file directly into the theme assets folder so Shopify serves it!
 shutil.copy('assets/videos/duty-free.mp4', os.path.join(theme_dir, 'assets', 'duty-free.mp4'))
+shutil.copy('assets/videos/shiyaaka-sky-v2.mp4', os.path.join(theme_dir, 'assets', 'shiyaaka-sky-v2.mp4'))
 
 # Replace local image paths with absolute github pages paths so they work in Shopify!
 bundle_code = bundle_code.replace('"/assets/', '"https://hifzatoufiq.github.io/Khadlaj-web/assets/')
