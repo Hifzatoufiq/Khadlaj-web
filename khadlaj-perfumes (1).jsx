@@ -4626,6 +4626,7 @@ const GLOBAL_CSS = `
   .product-layout-grid {
     display: grid;
     grid-template-columns: 1.2fr 1fr;
+    grid-template-rows: max-content auto;
     grid-template-areas: 
       "images details"
       "story details";
@@ -6224,7 +6225,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
              <p style={{fontSize:11, color:"#888", fontFamily:"'Montserrat',sans-serif", marginBottom:24}}>Tax included. Shipping calculated at checkout.</p>
 
              {/* SHORT DESCRIPTION EXCERPT */}
-             <div style={{fontSize:13, lineHeight:1.6, color:"#444", fontWeight:300, fontFamily:"'Montserrat',sans-serif", marginBottom:32}}>
+             <div style={{fontSize:15, lineHeight:1.8, color:"#444", fontWeight:300, fontFamily:"'Montserrat',sans-serif", marginBottom:32}}>
                {Array.isArray(product.desc) 
                   ? <span dangerouslySetInnerHTML={{__html: product.desc[0]}} /> 
                   : (product.desc ? product.desc.substring(0, 150) + "..." : "Experience the timeless elegance of " + product.name + ".")}
