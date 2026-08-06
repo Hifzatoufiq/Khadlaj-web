@@ -4407,52 +4407,52 @@ const TEAM = [
 
 const REELS = [
   {
-    id: "7602275376135408918",
-    title: "Hareem Al Sultan Gold Review",
+    id: "7369114430497361170",
+    title: "Shiyaaka Perfume Review",
     caption: "The viral sensation on #perfumetok. Does it live up to the hype?",
     tag: "Viral on TikTok",
-    price: 195,
+    price: 126,
     img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy1.jpg?v=1767169755"
   },
   {
-    id: "7614741288168066334",
-    title: "Panache First Impressions",
-    caption: "A gorgeous creamy floral gourmand. Completely blind buy safe!",
+    id: "7324677889293634817",
+    title: "Shiyaaka Silver First Impressions",
+    caption: "A gorgeous scent profile. Completely blind buy safe!",
     tag: "First Impressions",
-    price: 200,
+    price: 126,
     img: "/assets/images/products/panache-cutout.png"
   },
   {
-    id: "7639701570875165985",
-    title: "Shiyaaka Silver - Affordable Niche?",
+    id: "7624542837278870805",
+    title: "Waheed Perfumes Review",
     caption: "This smells 10x more expensive than it is. Unbelievable quality.",
     tag: "Hidden Gem",
-    price: 126,
+    price: 200,
     img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SHAHI_OUD_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965925.jpg?v=1722412108"
   },
   {
-    id: "7608773049986469134",
-    title: "Island Extrait Layering Combo",
-    caption: "How I layer Khadlaj Island for a 24-hour scent bubble.",
-    tag: "Layering Tip",
-    price: 355,
+    id: "7504908791528377608",
+    title: "Khadlaj Perfumes Deep Dive",
+    caption: "How to find your perfect signature scent with Khadlaj.",
+    tag: "Perfume Tips",
+    price: 150,
     img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/UNO_INTIMO_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1966036.jpg?v=1722412332"
   },
   {
-    id: "7643796160100191496",
-    title: "Zayaan Silver Unboxing",
+    id: "7455362471231114503",
+    title: "Zahra's Khadlaj Favorites",
     caption: "The packaging on this is insane. Luxury on a budget.",
     tag: "Unboxing",
-    price: 150,
-    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Bleu_Glace_02.jpg?v=1738325363"
+    price: 180,
+    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LE_PRESTIGE_TRIUMPH_-_Khadlaj_Perfumes-1966158.jpg?v=1722412558"
   },
   {
-    id: "7602275376135408918",
-    title: "Cream Velvet - Compliment Getter",
-    caption: "Wore this today and got stopped 3 times. Must have for gourmand lovers.",
-    tag: "Review",
-    price: 345,
-    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-3.jpg?v=1779352383"
+    id: "7336459568240807176",
+    title: "Khadlaj Sponsored Post",
+    caption: "Our best-selling fragrances of the year.",
+    tag: "Bestseller",
+    price: 210,
+    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LE_PRESTIGE_TRIUMPH_-_Khadlaj_Perfumes-1966158.jpg?v=1722412558"
   }
 ];
 
