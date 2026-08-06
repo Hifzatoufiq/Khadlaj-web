@@ -177,7 +177,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.1.jpg?v=1771043858"
+    "img": "https://hifzatoufiq.github.io/Khadlaj-web/assets/images/products/shiyaaka_men.png"
   },
   {
     "id": 7554205581511,
