@@ -6146,15 +6146,28 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
               <h2 style={{fontSize:28, fontFamily:"'Cinzel', serif", fontWeight:400, color:"#111", marginBottom:24, letterSpacing:1}}>The Story of {product.name}</h2>
               {Array.isArray(product.desc) ? (
                 product.desc.map((para, i) => (
-                  <p key={i} style={{marginBottom:24, fontSize:15, lineHeight:1.8, color:"#444", fontWeight:300, fontFamily:"'Montserrat',sans-serif"}} dangerouslySetInnerHTML={{__html: para}} />
+                  <p key={i} style={{marginBottom:24, fontSize:15, lineHeight:1.8, color:"#444", fontWeight:300, fontFamily:"'Montserrat',sans-serif", display: (!storyExpanded && i > 0) ? 'none' : 'block'}} dangerouslySetInnerHTML={{__html: para}} />
                 ))
               ) : (
                 <>
-                  <p style={{marginBottom:24, fontSize:15, lineHeight:1.8, color:"#444", fontWeight:300, fontFamily:"'Montserrat',sans-serif"}}>
+                  <p style={{marginBottom:24, fontSize:15, lineHeight:1.8, color:"#444", fontWeight:300, fontFamily:"'Montserrat',sans-serif", WebkitLineClamp: storyExpanded ? 'unset' : 4, WebkitBoxOrient: 'vertical', display: '-webkit-box', overflow: 'hidden'}}>
                     {product.desc || `Experience the timeless elegance of ${product.name}. Crafted with precision and the finest ingredients, this fragrance is a true testament to the art of Arabian perfumery.`}
                   </p>
                 </>
               )}
+              
+              <button 
+                onClick={() => setStoryExpanded(!storyExpanded)}
+                style={{
+                  background: 'none', border: 'none', color: '#111', fontSize: 13, fontWeight: 600, 
+                  textTransform: 'uppercase', letterSpacing: 1, padding: 0, borderBottom: '1px solid #111', 
+                  cursor: 'pointer', marginBottom: 24, transition: 'opacity 0.2s'
+                }}
+                onMouseEnter={e=>e.currentTarget.style.opacity=0.7}
+                onMouseLeave={e=>e.currentTarget.style.opacity=1}
+              >
+                {storyExpanded ? 'Read Less' : 'Read More'}
+              </button>
 
               {/* Fragrance Profile Visual Grid */}
               <h3 style={{fontSize:18, fontFamily:"'Montserrat',sans-serif", fontWeight:500, color:"#111", marginTop:48, marginBottom:24, textTransform:"uppercase", letterSpacing:2}}>Olfactory Profile</h3>
