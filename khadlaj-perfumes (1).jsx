@@ -6019,6 +6019,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
   const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
+  const [storyExpanded, setStoryExpanded] = useState(false);
   const related = PRODUCTS.filter(p=>p.col===product.col && p.id!==product.id).slice(0,3);
 
   const [activeImageIndex, setActiveImageIndex] = useState(0);
