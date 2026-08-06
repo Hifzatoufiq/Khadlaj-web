@@ -6323,7 +6323,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
 
              {/* PAYMENT ICONS */}
              <div style={{marginTop:32, paddingTop:24, borderTop:"1px solid #eee", display:"flex", alignItems:"center", gap:12, flexWrap:"wrap"}}>
-               <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" height="14" alt="Visa" style={{objectFit:"contain"}}/>
+               <span style={{fontSize: 18, fontWeight: 900, color: '#1a1f71', fontStyle: 'italic', letterSpacing: '-0.5px', marginRight: 4, fontFamily: 'Arial, sans-serif'}}>VISA</span>
                <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" height="20" alt="Mastercard" style={{objectFit:"contain"}}/>
                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg" height="24" alt="Apple Pay" style={{objectFit:"contain"}}/>
                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" height="16" alt="PayPal" style={{objectFit:"contain"}}/>
