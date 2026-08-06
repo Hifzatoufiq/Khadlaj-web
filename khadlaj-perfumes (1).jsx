@@ -4647,6 +4647,8 @@ const GLOBAL_CSS = `
     }
     .product-layout-details { position: relative; top: 0; padding-top: 0; max-width: 100%; }
     .product-layout-story { margin-top: 0px; padding-right: 0; }
+    .product-gallery-wrapper { flex-direction: column-reverse !important; gap: 16px !important; }
+    .product-thumbnails { flex-direction: row !important; width: 100% !important; overflow-x: auto; padding-bottom: 8px; }
   }
   
   .k25-card-img-wrapper img { 
@@ -6081,15 +6083,15 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
             {(() => {
               const images = product.detailImages || [product.img];
               return (
-                <div style={{display:"flex", gap:24, width:"100%"}}>
+                <div className="product-gallery-wrapper" style={{display:"flex", gap:24, width:"100%"}}>
                   {/* Thumbnails */}
-                  <div style={{display:"flex", flexDirection:"column", gap:12, width:80, flexShrink:0}}>
+                  <div className="product-thumbnails" style={{display:"flex", flexDirection:"column", gap:12, width:80, flexShrink:0}}>
                     {images.map((imgUrl, i) => (
                       <div 
                         key={i} 
                         onClick={() => setActiveImageIndex(i)}
                         style={{
-                          width:80, height:80, 
+                          width:80, height:80, flexShrink:0,
                           border: activeImageIndex === i ? "2px solid #B8922A" : "1px solid #ddd", 
                           borderRadius: 8, 
                           overflow:"hidden", 
