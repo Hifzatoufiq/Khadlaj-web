@@ -6111,6 +6111,50 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                 </div>
               );
             })()}
+
+            {/* ── Rich Product Story Section (Under Image) ── */}
+            <div style={{marginTop:80, paddingRight:40}}>
+              <h2 style={{fontSize:28, fontFamily:"'Cinzel', serif", fontWeight:400, color:"#111", marginBottom:24, letterSpacing:1}}>The Story of {product.name}</h2>
+              {Array.isArray(product.desc) ? (
+                product.desc.map((para, i) => (
+                  <p key={i} style={{marginBottom:24, fontSize:15, lineHeight:1.8, color:"#444", fontWeight:300, fontFamily:"'Montserrat',sans-serif"}} dangerouslySetInnerHTML={{__html: para}} />
+                ))
+              ) : (
+                <>
+                  <p style={{marginBottom:24, fontSize:15, lineHeight:1.8, color:"#444", fontWeight:300, fontFamily:"'Montserrat',sans-serif"}}>
+                    {product.desc || `Experience the timeless elegance of ${product.name}. Crafted with precision and the finest ingredients, this fragrance is a true testament to the art of Arabian perfumery.`}
+                  </p>
+                </>
+              )}
+
+              {/* Fragrance Profile Visual Grid */}
+              <h3 style={{fontSize:18, fontFamily:"'Montserrat',sans-serif", fontWeight:500, color:"#111", marginTop:48, marginBottom:24, textTransform:"uppercase", letterSpacing:2}}>Olfactory Profile</h3>
+              
+              <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(140px, 1fr))", gap:16}}>
+                {/* Top Notes */}
+                <div style={{background:"#FAFAFA", padding:24, borderRadius:8, textAlign:"center", border:"1px solid #eee"}}>
+                  <div style={{fontSize:10, textTransform:"uppercase", letterSpacing:2, color:"#B8922A", marginBottom:8, fontWeight:600}}>Top Notes</div>
+                  <div style={{fontSize:14, color:"#111", fontFamily:"'Montserrat',sans-serif", fontWeight:400}}>
+                    {product.notes && product.notes.length >= 1 ? product.notes[0] : "Bergamot, Citrus"}
+                  </div>
+                </div>
+                {/* Heart Notes */}
+                <div style={{background:"#FAFAFA", padding:24, borderRadius:8, textAlign:"center", border:"1px solid #eee"}}>
+                  <div style={{fontSize:10, textTransform:"uppercase", letterSpacing:2, color:"#B8922A", marginBottom:8, fontWeight:600}}>Heart Notes</div>
+                  <div style={{fontSize:14, color:"#111", fontFamily:"'Montserrat',sans-serif", fontWeight:400}}>
+                    {product.notes && product.notes.length >= 2 ? product.notes[1] : "Floral, Jasmine"}
+                  </div>
+                </div>
+                {/* Base Notes */}
+                <div style={{background:"#FAFAFA", padding:24, borderRadius:8, textAlign:"center", border:"1px solid #eee"}}>
+                  <div style={{fontSize:10, textTransform:"uppercase", letterSpacing:2, color:"#B8922A", marginBottom:8, fontWeight:600}}>Base Notes</div>
+                  <div style={{fontSize:14, color:"#111", fontFamily:"'Montserrat',sans-serif", fontWeight:400}}>
+                    {product.notes && product.notes.length >= 3 ? product.notes[2] : "Musk, Amber, Wood"}
+                  </div>
+                </div>
+              </div>
+            </div>
+            
           </div>
           
           {/* ── Right: Minimalist Product Details (Sticky) ── */}
@@ -6272,30 +6316,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
 
              {/* ACCORDIONS */}
              <div style={{borderTop:"1px solid #eee"}}>
-               <Accordion title="Description" defaultOpen>
-                 {Array.isArray(product.desc) ? (
-                   product.desc.map((para, i) => (
-                     <p key={i} style={{marginBottom:12, fontSize:13, lineHeight:1.6, color:"#444", fontWeight:300}} dangerouslySetInnerHTML={{__html: para}} />
-                   ))
-                 ) : (
-                   <>
-                     <p style={{marginBottom:12, fontSize:13, lineHeight:1.6, color:"#444", fontWeight:300}}>Experience the timeless elegance of {product.name}. Crafted with precision and the finest ingredients, this fragrance is a true testament to the art of Arabian perfumery.</p>
-                     {product.desc && <p style={{fontSize:13, lineHeight:1.6, color:"#444", fontWeight:300}}>{product.desc}</p>}
-                   </>
-                 )}
-               </Accordion>
-               
-               <Accordion title="Fragrance Notes">
-                  {product.notes && product.notes.length > 0 ? (
-                    <ul style={{paddingLeft:16, margin:0, display:"flex", flexDirection:"column", gap:8, fontSize:13, lineHeight:1.6, color:"#444", fontWeight:300}}>
-                      {product.notes.map(n=><li key={n}>{n}</li>)}
-                    </ul>
-                  ) : (
-                    <p style={{fontSize:13, lineHeight:1.6, color:"#444", fontWeight:300}}>A harmonious blend of signature Khadlaj notes crafted for a lasting impression.</p>
-                  )}
-               </Accordion>
-
-               <Accordion title="Shipping & Returns">
+               <Accordion title="Shipping & Returns" defaultOpen>
                  <p style={{fontSize:13, lineHeight:1.6, color:"#444", fontWeight:300}}>Orders are processed within 1-2 business days. Free shipping on all orders over AED 200 within the UAE. International shipping rates apply and will be calculated at checkout.</p>
                </Accordion>
              </div>
