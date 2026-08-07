@@ -5456,8 +5456,8 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         </div>
 
         {/* Right Video Area */}
-        <div style={{flex:"1 1 50%", minWidth:300, position:"relative", minHeight:"600px"}}>
-          <video src={window.__SHIYAAKA_VIDEO_URL__ || "/assets/videos/shiyaaka-sky-v3.mp4"} autoPlay loop muted playsInline preload="auto" style={{position:"absolute", width:"100%", height:"100%", objectFit:"cover"}} />
+        <div style={{flex:"1 1 50%", minWidth:300, position:"relative", minHeight:"600px", backgroundColor:"#251737"}}>
+          <video src={window.__SHIYAAKA_VIDEO_URL__ || "/assets/videos/shiyaaka-sky-v3.mp4"} autoPlay loop muted playsInline preload="auto" style={{position:"absolute", width:"100%", height:"100%", objectFit:"contain"}} />
         </div>
       </section>
 
