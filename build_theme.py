@@ -42,7 +42,7 @@ theme_liquid = """<!doctype html>
     <div class="vip-loader-bar"></div>
   </div>
   {{ content_for_layout }}
-  <script src="{{ 'bundle-v207-shopify.js' | asset_url }}"></script>
+  <script src="{{ 'bundle-v208-shopify.js' | asset_url }}"></script>
 </body>
 </html>"""
 with open(os.path.join(theme_dir, 'layout', 'theme.liquid'), 'w', encoding='utf-8') as f:
@@ -68,7 +68,7 @@ with open(os.path.join(theme_dir, 'config', 'settings_schema.json'), 'w', encodi
     f.write(settings_schema)
 
 # 4. Copy and modify assets
-with open('bundle-v207.js', 'r', encoding='utf-8') as f:
+with open('bundle-v208.js', 'r', encoding='utf-8') as f:
     bundle_code = f.read()
 
 # Copy the video file directly into the theme assets folder so Shopify serves it!
@@ -81,7 +81,7 @@ bundle_code = bundle_code.replace("'./assets/", "'https://hifzatoufiq.github.io/
 bundle_code = bundle_code.replace('"./assets/', '"https://hifzatoufiq.github.io/Khadlaj-web/assets/')
 bundle_code = bundle_code.replace("'/assets/", "'https://hifzatoufiq.github.io/Khadlaj-web/assets/")
 
-with open(os.path.join(theme_dir, 'assets', 'bundle-v207-shopify.js'), 'w', encoding='utf-8') as f:
+with open(os.path.join(theme_dir, 'assets', 'bundle-v208-shopify.js'), 'w', encoding='utf-8') as f:
     f.write(bundle_code)
 
 # 5. Zip it up

@@ -3,7 +3,7 @@ import * as esbuild from 'esbuild';
 await esbuild.build({
   entryPoints: ['main.jsx'],
   bundle: true,
-  outfile: 'bundle-v207.js',
+  outfile: 'bundle-v208.js',
   format: 'iife',
   loader: { '.jsx': 'jsx', '.js': 'js' },
   jsxFactory: 'React.createElement',
