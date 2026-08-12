@@ -38,6 +38,29 @@ const COUNTRIES = [
 ];
 const CountryContext = React.createContext();
 
+// ── Cloudinary CDN config ──────────────────────────────────────────────────
+// Sign up free at cloudinary.com and paste your cloud name below.
+const CLOUDINARY_CLOUD = ""; // e.g. "khadlaj-perfumes"
+const _CDN = CLOUDINARY_CLOUD
+  ? `https://res.cloudinary.com/${CLOUDINARY_CLOUD}/image/fetch/f_auto,q_auto`
+  : null;
+
+function getOptimizedImage(url, width = 600) {
+  if (!url || typeof url !== 'string') return url;
+  // Shopify / Khadlaj store CDN — add width & webp params
+  if (url.includes('cdn.shopify.com') || url.includes('khadlaj-perfumes.com/cdn')) {
+    const sep = url.includes('?') ? '&' : '?';
+    if (!url.includes('width=')) return `${url}${sep}width=${width}&format=webp`;
+    return url;
+  }
+  // Cloudinary fetch — auto-format, auto-quality, resize any image
+  if (_CDN) {
+    const abs = url.startsWith('/') ? (typeof window !== 'undefined' ? window.location.origin : '') + url : url;
+    return `${_CDN},w_${width}/${encodeURIComponent(abs)}`;
+  }
+  return url;
+}
+
 
 const PAYMENTS = ["Visa","Mastercard","Apple Pay","Google Pay","Tabby","Tamara","PayTabs","PayPal"];
 
@@ -5018,7 +5041,7 @@ function ProductCard({ p, onView, onCart }){
         }}/>
         <div style={{position:"absolute", inset:"42px 0 26px 0", display:"flex", alignItems:"flex-end", justifyContent:"center"}}>
           <img
-            src={p.img} alt={p.name} loading="lazy"
+            src={getOptimizedImage(p.img,500)} alt={p.name} loading="lazy"
             style={{
               width:"100%",
               height:"100%",
@@ -5151,7 +5174,7 @@ function TikTokCard({ t }) {
       <div style={{position: "relative", zIndex: 3, padding: "30px 24px", color: "#fff", pointerEvents: "none"}}>
         <div style={{display:"flex", alignItems:"center", gap:12, marginBottom:20}}>
           <div style={{width:48, height:48, borderRadius:"50%", background:"#fff", display:"flex", alignItems:"center", justifyContent:"center", padding:6}}>
-            <img src={t.img} alt="" style={{width:"100%", height:"100%", objectFit:"contain", mixBlendMode:"normal", filter:"contrast(1.02) brightness(0.98)"}}/>
+            <img decoding="async" src={getOptimizedImage(t.img,400)} alt="" style={{width:"100%", height:"100%", objectFit:"contain", mixBlendMode:"normal", filter:"contrast(1.02) brightness(0.98)"}}/>
           </div>
           <div>
             <p style={{fontSize:9, letterSpacing:2.5, textTransform:"uppercase", color:"#C1A46A", fontFamily:"'Montserrat',sans-serif", marginBottom:4}}>{t.tag || "Trending"}</p>
@@ -5346,7 +5369,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
               ].map((item, idx) => (
                 <div className="k25-card" key={idx}>
                   <div className="k25-card-img-wrapper">
-                    <img src={item.img} alt={item.name} />
+                    <img loading="lazy" decoding="async" src={getOptimizedImage(item.img,500)} alt={item.name} />
                   </div>
                   <div className="k25-card-content">
                     <h3 className="k25-card-title">{item.name}</h3>
@@ -5411,7 +5434,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             {name: "Hareem Al Sultan", type: "Masterpiece", img: "/assets/images/products/hareem-al-sultan.png"}
           ].map((item, i) => (
             <div key={item.name} className="discovery-card">
-              <img src={item.img} alt={item.name} loading="lazy" />
+              <img decoding="async" src={getOptimizedImage(item.img,500)} alt={item.name} loading="lazy" />
               <div className="discovery-card-overlay">
                 <p className="discovery-type">{item.type}</p>
                 <h3 className="discovery-name">{item.name}</h3>
@@ -5521,7 +5544,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             ].map((gift, idx) => (
               <div className="gift-slide-card" key={idx} onClick={() => setPage("gifts")}>
                 <div className="gift-slide-img">
-                  <img src={gift.img} alt={gift.name} />
+                  <img loading="lazy" decoding="async" src={getOptimizedImage(gift.img,500)} alt={gift.name} />
                 </div>
                 <div className="gift-slide-content">
                   <p className="gift-slide-eyebrow">Handpicked</p>
@@ -5618,7 +5641,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
                 {/* Result Box */}
                 <div style={{display:"flex", alignItems:"center", gap:20, background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.08)", padding:20, borderRadius:8, marginBottom:24, textAlign:"left"}}>
                   <div style={{width:80, height:80, background:"#fff", borderRadius:6, padding:8, display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0}}>
-                    <img src={quizResult.img} alt={quizResult.name} style={{width:"100%", height:"100%", objectFit:"contain"}}/>
+                    <img loading="lazy" decoding="async" src={getOptimizedImage(quizResult.img,600)} alt={quizResult.name} style={{width:"100%", height:"100%", objectFit:"contain"}}/>
                   </div>
                   <div>
                     <p style={{fontSize:8, color:"#B8922A", letterSpacing:2, textTransform:"uppercase", margin:0, fontWeight:600, fontFamily:"'Montserrat',sans-serif"}}>{quizResult.col}</p>
@@ -5823,7 +5846,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
             "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/shiyaaka-snow.png?v=1781615422",
           ].map((src,i)=>(
             <div key={i} style={{overflow:"hidden",height:"100%",background:"#fff",display:"flex",alignItems:"center",justifyContent:"center"}}>
-              <img src={src} alt="" style={{width:"86%",height:"86%",objectFit:"contain",objectPosition:"center"}}/>
+              <img decoding="async" src={getOptimizedImage(src,800)} alt="" style={{width:"86%",height:"86%",objectFit:"contain",objectPosition:"center"}}/>
             </div>
           ))}
         </div>
@@ -5983,8 +6006,8 @@ function LaFedePage({ addToCart, setViewProduct, setPage }){
         </div>
         <div style={{position:"relative",zIndex:2,minHeight:280,display:"flex",alignItems:"center",justifyContent:"center"}}>
           <div style={{position:"absolute",width:"70%",height:"72%",borderRadius:"50%",background:"radial-gradient(circle,rgba(184,146,42,.22),rgba(184,146,42,0) 68%)",animation:"lafedeGlow 4.5s ease-in-out infinite"}}/>
-          <img src="/assets/images/products/intoxicate-mystique-cutout.png" alt="La Fede Intoxicate Mystique" style={{height:"min(330px,28vw)",maxHeight:330,width:"auto",objectFit:"contain",filter:"drop-shadow(0 24px 52px rgba(0,0,0,.45))",animation:"lafedeFloat 4.6s ease-in-out infinite"}}/>
-          <img src="/assets/images/products/uno-intimo-cutout.png" alt="La Fede Uno Intimo" style={{position:"absolute",right:"8%",bottom:"4%",height:"min(220px,19vw)",maxHeight:220,width:"auto",objectFit:"contain",filter:"drop-shadow(0 22px 40px rgba(0,0,0,.35))",animation:"lafedeFloatSmall 5.2s ease-in-out infinite"}}/>
+          <img decoding="async" src={getOptimizedImage("/assets/images/products/intoxicate-mystique-cutout.png",700)} alt="La Fede Intoxicate Mystique" style={{height:"min(330px,28vw)",maxHeight:330,width:"auto",objectFit:"contain",filter:"drop-shadow(0 24px 52px rgba(0,0,0,.45))",animation:"lafedeFloat 4.6s ease-in-out infinite"}}/>
+          <img decoding="async" src={getOptimizedImage("/assets/images/products/uno-intimo-cutout.png",700)} alt="La Fede Uno Intimo" style={{position:"absolute",right:"8%",bottom:"4%",height:"min(220px,19vw)",maxHeight:220,width:"auto",objectFit:"contain",filter:"drop-shadow(0 22px 40px rgba(0,0,0,.35))",animation:"lafedeFloatSmall 5.2s ease-in-out infinite"}}/>
         </div>
       </section>
 
@@ -6157,7 +6180,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                           transition:"border-color 0.2s"
                         }}
                       >
-                        <img src={imgUrl} style={{width:"100%", height:"100%", objectFit:"contain", mixBlendMode:"multiply"}} alt="Thumbnail" />
+                        <img decoding="async" src={getOptimizedImage(imgUrl,700)} style={{width:"100%", height:"100%", objectFit:"contain", mixBlendMode:"multiply"}} alt="Thumbnail" />
                       </div>
                     ))}
                   </div>
@@ -6168,7 +6191,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                     onMouseMove={handleMouseMove}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <img 
+                    <img decoding="async" 
                       src={images[activeImageIndex]} 
                       alt={product.name} 
                       style={{
@@ -6393,11 +6416,11 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                <h3 style={{fontSize:11, fontWeight:500, color:"#555", textTransform:"uppercase", letterSpacing:1.5, marginBottom:24, fontFamily:"'Montserrat',sans-serif"}}>Frequently Bought Together</h3>
                <div style={{display:"flex", alignItems:"center", gap:16, marginBottom:24}}>
                   <div style={{width:56, height:56, background:"#FAFAFA", display:"flex", alignItems:"center", justifyContent:"center"}}>
-                    <img src={product.img} style={{maxHeight:"90%", maxWidth:"90%", objectFit:"contain", mixBlendMode:"multiply"}} alt="Product 1" />
+                    <img loading="lazy" decoding="async" src={getOptimizedImage(product.img,700)} style={{maxHeight:"90%", maxWidth:"90%", objectFit:"contain", mixBlendMode:"multiply"}} alt="Product 1" />
                   </div>
                   <span style={{fontSize:14, color:"#ccc", fontWeight:300}}>+</span>
                   <div style={{width:56, height:56, background:"#FAFAFA", display:"flex", alignItems:"center", justifyContent:"center"}}>
-                    <img src={PRODUCTS[4].img} style={{maxHeight:"90%", maxWidth:"90%", objectFit:"contain", mixBlendMode:"multiply"}} alt="Product 2" />
+                    <img decoding="async" src={getOptimizedImage(PRODUCTS[4].img,700)} style={{maxHeight:"90%", maxWidth:"90%", objectFit:"contain", mixBlendMode:"multiply"}} alt="Product 2" />
                   </div>
                   <div style={{marginLeft:"auto", textAlign:"right"}}>
                     <div style={{fontSize:10, color:"#999", textDecoration:"line-through", fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(product.price + PRODUCTS[4].price + 20)}</div>
@@ -6440,9 +6463,9 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
              {/* PAYMENT ICONS */}
              <div style={{marginTop:32, paddingTop:24, borderTop:"1px solid #eee", display:"flex", alignItems:"center", gap:12, flexWrap:"wrap"}}>
                <span style={{fontSize: 18, fontWeight: 900, color: '#1a1f71', fontStyle: 'italic', letterSpacing: '-0.5px', marginRight: 4, fontFamily: 'Arial, sans-serif'}}>VISA</span>
-               <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" height="20" alt="Mastercard" style={{objectFit:"contain"}}/>
-               <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg" height="24" alt="Apple Pay" style={{objectFit:"contain"}}/>
-               <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" height="16" alt="PayPal" style={{objectFit:"contain"}}/>
+               <img decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" height="20" alt="Mastercard" style={{objectFit:"contain"}}/>
+               <img decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg" height="24" alt="Apple Pay" style={{objectFit:"contain"}}/>
+               <img decoding="async" src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" height="16" alt="PayPal" style={{objectFit:"contain"}}/>
              </div>
           </div>
         </div>
@@ -6452,7 +6475,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
       <div style={{background:"#251737", padding:"80px 5%", color:"#fff", marginBottom:80}}>
         <div style={{maxWidth:1000, margin:"0 auto", display:"flex", gap:48, alignItems:"center", flexWrap:"wrap"}}>
           <div style={{width:200, height:250, background:"#fff", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, overflow:"hidden"}}>
-            <img src={PRODUCTS[1].img} style={{maxHeight:"90%", maxWidth:"90%", objectFit:"contain", mixBlendMode:"multiply"}} alt={PRODUCTS[1].name} />
+            <img decoding="async" src={getOptimizedImage(PRODUCTS[1].img,700)} style={{maxHeight:"90%", maxWidth:"90%", objectFit:"contain", mixBlendMode:"multiply"}} alt={PRODUCTS[1].name} />
           </div>
           <div style={{flex:1, minWidth:250}}>
             <p style={{fontSize:10, textTransform:"uppercase", letterSpacing:3, color:"#B8922A", marginBottom:12, fontFamily:"'Montserrat',sans-serif", fontWeight:500}}>Complete The Collection</p>
@@ -6606,7 +6629,7 @@ function StoryPage(){
           
           {/* Founder Image (Left) */}
           <div style={{position:"relative", transform:"translateY(30px)", zIndex:10}}>
-            <img src="/assets/images/people/founder-mohamed-iqbal.png"
+            <img loading="lazy" decoding="async" src={getOptimizedImage("/assets/images/people/founder-mohamed-iqbal.png",600)}
               alt="Mohamed Iqbal Abdul Sattar" style={{width:"100%",height:"auto",display:"block",boxShadow:"0 20px 40px rgba(0,0,0,0.4)"}}/>
           </div>
 
@@ -6650,7 +6673,7 @@ function StoryPage(){
           </div>
 
           <div style={{position:"relative",aspectRatio:"4/3",overflow:"hidden"}}>
-            <img src="/assets/images/people/managing-director-asif.png"
+            <img loading="lazy" decoding="async" src={getOptimizedImage("/assets/images/people/managing-director-asif.png",600)}
               alt="Asif Mohamed Iqbal Katchi" style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center top"}}/>
           </div>
 
@@ -6670,7 +6693,7 @@ function StoryPage(){
             {/* Manufacturing Unit */}
             <div style={{background:"#FAFAFA", borderRadius:"8px", overflow:"hidden", boxShadow:"0 20px 40px rgba(0,0,0,0.06)", display:"flex", flexDirection:"column", transition:"transform 0.3s ease", cursor:"default"}} onMouseEnter={e => e.currentTarget.style.transform="translateY(-10px)"} onMouseLeave={e => e.currentTarget.style.transform="translateY(0)"}>
               <div style={{height: 280, overflow:"hidden"}}>
-                <img src="https://images.unsplash.com/photo-1580982327559-c1202864eb05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Manufacturing Unit" style={{width:"100%", height:"100%", objectFit:"cover"}}/>
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1580982327559-c1202864eb05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Manufacturing Unit" style={{width:"100%", height:"100%", objectFit:"cover"}}/>
               </div>
               <div style={{padding:"32px 32px", flex:1, display:"flex", flexDirection:"column", background:"#fff"}}>
                 <h3 style={{fontSize:22, fontWeight:600, color:"#111", fontFamily:"'Montserrat', sans-serif", marginBottom:16}}>Manufacturing Unit</h3>
@@ -6683,7 +6706,7 @@ function StoryPage(){
             {/* Head Office */}
             <div style={{background:"#FAFAFA", borderRadius:"8px", overflow:"hidden", boxShadow:"0 20px 40px rgba(0,0,0,0.06)", display:"flex", flexDirection:"column", transition:"transform 0.3s ease", cursor:"default"}} onMouseEnter={e => e.currentTarget.style.transform="translateY(-10px)"} onMouseLeave={e => e.currentTarget.style.transform="translateY(0)"}>
               <div style={{height: 280, overflow:"hidden"}}>
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Head Office" style={{width:"100%", height:"100%", objectFit:"cover"}}/>
+                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Head Office" style={{width:"100%", height:"100%", objectFit:"cover"}}/>
               </div>
               <div style={{padding:"32px 32px", flex:1, display:"flex", flexDirection:"column", background:"#fff"}}>
                 <h3 style={{fontSize:22, fontWeight:600, color:"#111", fontFamily:"'Montserrat', sans-serif", marginBottom:16}}>Head Office</h3>
@@ -6928,7 +6951,7 @@ function SignupPageOld(){
           <div style={{position:"relative",overflow:"hidden",minHeight:610,background:"linear-gradient(135deg,#080808 0%,#15110A 72%,#060606 100%)",padding:"58px 52px",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
             <div style={{position:"absolute",top:-110,right:-90,width:340,height:340,borderRadius:"50%",background:"radial-gradient(circle,rgba(184,146,42,.28),rgba(184,146,42,0) 68%)"}}/>
             <div style={{position:"absolute",right:"5%",bottom:"-2%",width:"54%",height:"76%",display:"flex",alignItems:"flex-end",justifyContent:"center",pointerEvents:"none"}}>
-              <img src="/assets/images/gifsets/cloudcandy_gift_transparent.png" alt="Khadlaj fragrances" style={{width:"100%",height:"100%",objectFit:"contain",filter:"drop-shadow(0 34px 70px rgba(0,0,0,.42))"}}/>
+              <img loading="lazy" decoding="async" src={getOptimizedImage("/assets/images/gifsets/cloudcandy_gift_transparent.png",800)} alt="Khadlaj fragrances" style={{width:"100%",height:"100%",objectFit:"contain",filter:"drop-shadow(0 34px 70px rgba(0,0,0,.42))"}}/>
             </div>
             <div style={{position:"relative",zIndex:2,maxWidth:440}}>
               <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:18}}>Khadlaj Circle</p>
@@ -7135,7 +7158,7 @@ function CartPage({ cartItems, updateCartQty, removeFromCart, setPage, setViewPr
               {cartItems.map(item=>(
                 <div key={item.id} className="cart-line" style={{display:"grid",gridTemplateColumns:"112px 1fr auto",gap:18,alignItems:"center",border:"1px solid #E8E4DC",padding:16,background:"#fff"}}>
                   <div onClick={()=>{setViewProduct(item);setPage("product");}} style={{height:118,width:"100%",overflow:"hidden",display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",background:"radial-gradient(circle at 50% 70%, rgba(0,0,0,.06), rgba(255,255,255,0) 58%)",padding:6}}>
-                    <img src={item.img} alt={item.name} style={{width:"100%",height:"100%",objectFit:"contain",filter:"drop-shadow(0 12px 18px rgba(0,0,0,.08))"}}/>
+                    <img loading="lazy" decoding="async" src={getOptimizedImage(item.img,500)} alt={item.name} style={{width:"100%",height:"100%",objectFit:"contain",filter:"drop-shadow(0 12px 18px rgba(0,0,0,.08))"}}/>
                   </div>
                   <div>
                     <p style={{fontSize:9,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginBottom:6}}>{item.col === "Lafede" ? "La Fede" : item.col}</p>
@@ -7307,7 +7330,7 @@ function CheckoutPage({ cartItems, setPage, clearCart }){
               {cartItems.map(item=>(
                 <div key={item.id} style={{display:"grid",gridTemplateColumns:"58px 1fr auto",gap:10,alignItems:"center"}}>
                   <div style={{height:64,display:"flex",alignItems:"center",justifyContent:"center",background:"#fff"}}>
-                    <img src={item.img} alt={item.name} style={{maxWidth:"90%",maxHeight:"90%",objectFit:"contain"}}/>
+                    <img loading="lazy" decoding="async" src={getOptimizedImage(item.img,500)} alt={item.name} style={{maxWidth:"90%",maxHeight:"90%",objectFit:"contain"}}/>
                   </div>
                   <div>
                     <p style={{fontSize:11,fontWeight:600,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",lineHeight:1.25}}>{item.name}</p>
@@ -7382,7 +7405,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                     <div key={p.id} onClick={()=>{setSearchOpen(false);setSearchQuery("");setSearchResults([]);setPage("product");}} style={{cursor:"pointer"}}>
                       <div style={{position:"relative",aspectRatio:"3/4",overflow:"hidden",background:"#fff",border:"1px solid #F1ECE4"}}>
                         <div style={{position:"absolute",inset:10,background:"radial-gradient(circle at 50% 42%, rgba(184,146,42,.10), rgba(255,255,255,0) 62%)"}}/>
-                        <img src={p.img} alt={p.name} loading="lazy" style={{position:"relative",width:"100%",height:"100%",objectFit:"contain",padding:"16px",filter:"drop-shadow(0 12px 20px rgba(0,0,0,.08))"}}/>
+                        <img decoding="async" src={getOptimizedImage(p.img,500)} alt={p.name} loading="lazy" style={{position:"relative",width:"100%",height:"100%",objectFit:"contain",padding:"16px",filter:"drop-shadow(0 12px 20px rgba(0,0,0,.08))"}}/>
                         <div style={{height:2,position:"absolute",bottom:0,left:0,right:0,background:"linear-gradient(90deg,#B8922A,#D4AF5A,#B8922A)"}}/>
                         {p.badge&&<span style={{position:"absolute",top:10,left:10,background:p.badge==="New"?"#B8922A":p.badge==="Limited"?"#5C0000":"#251737",color:"#fff",fontSize:8,letterSpacing:2,padding:"3px 8px",fontFamily:"'Montserrat',sans-serif",textTransform:"uppercase"}}>{p.badge}</span>}
                       </div>
@@ -7437,7 +7460,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                       <div style={{display:"flex",alignItems:"center",gap:10,padding:"10px 18px",border:"1px solid #E8E4DC",borderRadius:4,background:"#FAF9F6",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontSize:14,fontWeight:600,color:"#251737"}}>
                         {activeCountry.flagUrl === "global"
                           ? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                          : <img src={activeCountry.flagUrl} alt={activeCountry.name} style={{width:24,height:17,objectFit:"cover",borderRadius:2,display:"block"}} />
+                          : <img decoding="async" src={activeCountry.flagUrl} alt={activeCountry.name} style={{width:24,height:17,objectFit:"cover",borderRadius:2,display:"block"}} />
                         }
                         {activeCountry.name}
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginLeft:"6px"}}><polyline points="6 9 12 15 18 9"></polyline></svg>
@@ -7468,7 +7491,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                             >
                               {c.flagUrl === "global"
                                 ? <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                                : <img src={c.flagUrl} alt={c.name} style={{width:20,height:14,objectFit:"cover",borderRadius:2,display:"block"}} />
+                                : <img decoding="async" src={c.flagUrl} alt={c.name} style={{width:20,height:14,objectFit:"cover",borderRadius:2,display:"block"}} />
                               }
                               {c.name}
                             </button>
@@ -7628,7 +7651,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                         >
                           {c.flagUrl === "global"
                             ? <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                            : <img src={c.flagUrl} alt={c.name} style={{width:16,height:11,objectFit:"cover",borderRadius:1,display:"block"}} />
+                            : <img decoding="async" src={c.flagUrl} alt={c.name} style={{width:16,height:11,objectFit:"cover",borderRadius:1,display:"block"}} />
                           }
                           {c.name}
                         </button>
@@ -7706,7 +7729,7 @@ function Footer({ setPage }){
                     {c.flagUrl === "global" ? (
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{color:"#222"}}><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                     ) : (
-                      <img src={c.flagUrl} alt="" style={{width:16,height:11,objectFit:"cover",borderRadius:1}} />
+                      <img decoding="async" src={c.flagUrl} alt="" style={{width:16,height:11,objectFit:"cover",borderRadius:1}} />
                     )}
                     <span style={{fontSize:9,color:"#222",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>{c.name}</span>
                   </div>
