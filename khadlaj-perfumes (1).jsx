@@ -7487,49 +7487,49 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
 
       {/* ── Sticky Header Wrapper ── */}
       <div style={{position:"sticky",top:0,zIndex:100}}>
-        {/* ── Social Media Bar ── */}
+        {/* ── Announcement bar with social icons ── */}
         <div style={{
-          background: "#1a1a2e",
-          padding: "10px 5%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: 12,
+          background:"#251737", color:"#fff",
+          padding:"10px 5%",
+          display:"flex", alignItems:"center", justifyContent:"space-between",
+          position:"relative",
         }}>
-          {[
-            { label: "Facebook", href: SOCIAL_LINKS.facebook, svg: <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg> },
-            { label: "Twitter / X", href: "https://x.com/khadlajperfumes", svg: <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg> },
-            { label: "Instagram", href: SOCIAL_LINKS.instagram, svg: <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> },
-            { label: "LinkedIn", href: SOCIAL_LINKS.linkedin, svg: <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg> },
-            { label: "YouTube", href: SOCIAL_LINKS.youtube, svg: <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 9.48 9.75 15.02" fill="#1a1a2e"/></svg> },
-          ].map(({ label, href, svg }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={label}
-              title={label}
-              style={{
-                width: 36, height: 36,
-                borderRadius: "50%",
-                background: "#2d2d44",
-                display: "flex", alignItems: "center", justifyContent: "center",
-                textDecoration: "none",
-                transition: "background .2s, transform .2s",
-                flexShrink: 0,
-              }}
-              onMouseEnter={e => { e.currentTarget.style.background = "#B8922A"; e.currentTarget.style.transform = "translateY(-2px) scale(1.08)"; }}
-              onMouseLeave={e => { e.currentTarget.style.background = "#2d2d44"; e.currentTarget.style.transform = "translateY(0) scale(1)"; }}
-            >
-              {svg}
-            </a>
-          ))}
-        </div>
+          {/* Left spacer (mirrors icon group width for centering) */}
+          <div style={{width:160, flexShrink:0}} />
 
-        {/* ── Announcement bar ── */}
-        <div style={{background:"#251737",color:"#fff",textAlign:"center",padding:"14px 16px",fontSize:"12px",letterSpacing:"4px",fontFamily:"'DM Sans',sans-serif",textTransform:"uppercase",fontWeight:500}}>
-          USE "KHADLAJ25" FOR FLAT 25% DISCOUNT
+          {/* Center: discount text */}
+          <p style={{
+            fontSize:"11px", letterSpacing:"3.5px",
+            fontFamily:"'Montserrat',sans-serif",
+            textTransform:"uppercase", fontWeight:600,
+            textAlign:"center", flex:1,
+            color:"#fff",
+          }}>
+            USE &quot;KHADLAJ25&quot; FOR FLAT 25% DISCOUNT
+          </p>
+
+          {/* Right: Social icons */}
+          <div style={{display:"flex", alignItems:"center", gap:8, width:160, justifyContent:"flex-end", flexShrink:0}}>
+            {[
+              { label:"Facebook",   href:SOCIAL_LINKS.facebook,    svg:<svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg> },
+              { label:"X / Twitter",href:"https://x.com/khadlajperfumes", svg:<svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> },
+              { label:"Instagram",  href:SOCIAL_LINKS.instagram,   svg:<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> },
+              { label:"LinkedIn",   href:SOCIAL_LINKS.linkedin,    svg:<svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg> },
+              { label:"YouTube",    href:SOCIAL_LINKS.youtube,     svg:<svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 9.48 9.75 15.02" fill="#251737"/></svg> },
+            ].map(({ label, href, svg }) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
+                style={{
+                  width:28, height:28, borderRadius:"50%",
+                  background:"rgba(255,255,255,0.12)",
+                  display:"flex", alignItems:"center", justifyContent:"center",
+                  textDecoration:"none", flexShrink:0,
+                  transition:"background .2s, transform .2s",
+                }}
+                onMouseEnter={e=>{ e.currentTarget.style.background="#B8922A"; e.currentTarget.style.transform="scale(1.12)"; }}
+                onMouseLeave={e=>{ e.currentTarget.style.background="rgba(255,255,255,0.12)"; e.currentTarget.style.transform="scale(1)"; }}
+              >{svg}</a>
+            ))}
+          </div>
         </div>
 
         {/* ── Main nav ── */}
