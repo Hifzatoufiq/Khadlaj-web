@@ -7412,6 +7412,19 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
   const [searchResults, setSearchResults] = useState([]);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const announcements = [
+    "FREE SHIPPING WITHIN THE UAE ABOVE AED150",
+    'USE "KHADLAJ25" FOR FLAT 25% DISCOUNT'
+  ];
+  const [announcementIdx, setAnnouncementIdx] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setAnnouncementIdx((prev) => (prev + 1) % announcements.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
   const handleSearch = (q) => {
     setSearchQuery(q);
     if (!q.trim()) { setSearchResults([]); return; }
@@ -7498,15 +7511,16 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
           {/* Left spacer — desktop only */}
           <div className="hide-mob" style={{width:160, flexShrink:0}} />
 
-          {/* Center: discount text */}
-          <p style={{
+          {/* Center: discount / shipping text */}
+          <p key={announcementIdx} style={{
             fontSize:"10px", letterSpacing:"2.5px",
             fontFamily:"'Montserrat',sans-serif",
             textTransform:"uppercase", fontWeight:600,
             textAlign:"center", flex:1,
             color:"#fff", whiteSpace:"nowrap",
+            animation: "fadeIn .5s ease"
           }}>
-            USE &quot;KHADLAJ25&quot; FOR FLAT 25% DISCOUNT
+            {announcements[announcementIdx]}
           </p>
 
           {/* Right: Social icons — desktop only */}
