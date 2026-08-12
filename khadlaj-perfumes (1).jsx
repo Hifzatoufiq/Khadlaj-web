@@ -5802,7 +5802,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             {
               icon:<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(184,146,42,0.03)" /><polygon points="12 6 13.5 9.5 17 9.5 14 11.5 15.5 15 12 13 8.5 15 10 11.5 7 9.5 10.5 9.5 12 6" fill="rgba(184,146,42,0.15)" /></svg>,
               title:"Award-Winning",
-              desc:"Recognised fragrance house since 1997 across 30+ countries"
+              desc:"Recognised fragrance house since 1997 across 90+ countries"
             },
             {
               icon:<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(184,146,42,0.03)" /><rect x="6" y="8" width="8" height="6" rx="1" fill="rgba(184,146,42,0.1)" /><path d="M14 9h3l2 2v3h-5V9z" /><circle cx="8.5" cy="16.5" r="1.5" fill="#B8922A" /><circle cx="15.5" cy="16.5" r="1.5" fill="#B8922A" /></svg>,
