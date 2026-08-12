@@ -5169,31 +5169,73 @@ function TikTokCard({ t }) {
         }}
       />
 
-      {/* Gradient Overlay (Disabled pointer events so user can click video controls) */}
+      {/* Bottom gradient */}
       <div style={{
         position: "absolute", inset: 0, zIndex: 2,
-        background: "linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 60%)",
-        pointerEvents: "none"
+        background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 55%, rgba(0,0,0,0) 100%)",
+        pointerEvents: "none",
+        opacity: hov ? 1 : 0.7,
+        transition: "opacity .4s ease"
       }}/>
 
-      {/* Content (Disabled pointer events so user can click Play on the iframe) */}
-      <div style={{position: "relative", zIndex: 3, padding: "30px 24px", color: "#fff", pointerEvents: "none"}}>
-        <div style={{display:"flex", alignItems:"center", gap:12, marginBottom:20}}>
-          <div style={{width:48, height:48, borderRadius:"50%", background:"#fff", display:"flex", alignItems:"center", justifyContent:"center", padding:6}}>
-            <img decoding="async" src={getOptimizedImage(t.img,400)} alt="" style={{width:"100%", height:"100%", objectFit:"contain", mixBlendMode:"normal", filter:"contrast(1.02) brightness(0.98)"}}/>
-          </div>
-          <div>
-            <p style={{fontSize:9, letterSpacing:2.5, textTransform:"uppercase", color:"#C1A46A", fontFamily:"'Montserrat',sans-serif", marginBottom:4}}>{t.tag || "Trending"}</p>
-            <p style={{fontSize:18, fontWeight:400, fontFamily:"'Montserrat',sans-serif", lineHeight:1, color:"#fff"}}>{t.title}</p>
-          </div>
+      {/* Authentic TikTok-style bottom bar */}
+      <div style={{
+        position: "relative", zIndex: 3,
+        padding: "20px 20px 22px",
+        color: "#fff",
+        pointerEvents: "none",
+        display: "flex",
+        flexDirection: "column",
+        gap: 10,
+      }}>
+        {/* Handle row */}
+        <div style={{display:"flex", alignItems:"center", gap:8}}>
+          {/* TikTok icon */}
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.31 6.31 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.87a8.18 8.18 0 0 0 4.78 1.52V7.01a4.85 4.85 0 0 1-1.01-.32z"/>
+          </svg>
+          <span style={{
+            fontSize: 13, fontWeight: 700,
+            fontFamily:"'Montserrat',sans-serif",
+            letterSpacing: 0.3, color:"#fff"
+          }}>@khadlajperfumes</span>
         </div>
-        
-        <div style={{display:"flex", alignItems:"center", justifyContent:"space-between", borderTop:"1px solid rgba(255,255,255,0.15)", paddingTop:16}}>
-          <p style={{fontSize:16, fontWeight:600, fontFamily:"'Montserrat',sans-serif", color:"#fff"}}>{formatPrice(t.price)}</p>
-          <span style={{fontSize:11, letterSpacing:2, textTransform:"uppercase", fontWeight:600, fontFamily:"'Montserrat',sans-serif", display:"flex", alignItems:"center", gap:6, color:"#fff"}}>
-            Shop Now <span>&rarr;</span>
-          </span>
-        </div>
+
+        {/* Caption */}
+        <p style={{
+          fontSize: 11, lineHeight: 1.5,
+          fontFamily:"'Montserrat',sans-serif",
+          color:"rgba(255,255,255,0.8)",
+          letterSpacing: 0.2,
+          margin: 0,
+        }}>{t.caption}</p>
+
+        {/* Watch button */}
+        <a
+          href={`https://www.tiktok.com/video/${t.id}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{
+            pointerEvents: "auto",
+            display: "inline-flex", alignItems:"center", gap:6,
+            background: "rgba(255,255,255,0.12)",
+            border: "1px solid rgba(255,255,255,0.25)",
+            borderRadius: 100,
+            padding: "6px 14px",
+            fontSize: 10, letterSpacing: 1.5,
+            textTransform: "uppercase",
+            color:"#fff", textDecoration:"none",
+            fontFamily:"'Montserrat',sans-serif",
+            fontWeight: 600,
+            width: "fit-content",
+            backdropFilter: "blur(8px)",
+            transition: "background .2s",
+          }}
+          onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.25)"}
+          onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.12)"}
+        >
+          ▶ Watch on TikTok
+        </a>
       </div>
     </div>
   );
