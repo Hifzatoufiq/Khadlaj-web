@@ -369,9 +369,9 @@ Error generating stack: `+a.message+`
     .hero-subtitle { font-size: 13px !important; line-height: 1.6 !important; max-width: 100% !important; margin-bottom: 16px !important; }
     .hero-stats-row { gap: 10px !important; padding-top: 10px !important; flex-wrap: wrap !important; }
     .hero-stat-item { padding-right: 10px !important; margin-right: 10px !important; }
-    .popup-overlay { align-items: flex-end !important; padding: 0 !important; }
-    .popup-in { box-sizing: border-box !important; border-radius: 24px 24px 0 0 !important; width: 100% !important; max-width: 100% !important; border: none !important; border-top: 1px solid rgba(212,175,55,0.3) !important; animation: slideUp .5s cubic-bezier(0.16, 1, 0.3, 1) both !important; padding: 35px 20px 40px !important; }
-    @keyframes slideUp { from { transform: translateY(100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    .popup-overlay { align-items: center !important; padding: 16px !important; }
+    .popup-in { box-sizing: border-box !important; border-radius: 16px !important; width: 92% !important; max-width: 420px !important; border: 1px solid rgba(212,175,55,0.3) !important; animation: popIn .35s cubic-bezier(0.34, 1.56, 0.64, 1) both !important; padding: 32px 20px 28px !important; }
+    @keyframes popIn { from { transform: scale(0.88); opacity: 0; } to { transform: scale(1); opacity: 1; } }
     .disp.mobile-text { font-size: 19px !important; letter-spacing: 0.5px !important; }
   }
   @media(max-width:480px){
