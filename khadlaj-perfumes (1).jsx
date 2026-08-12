@@ -7412,19 +7412,6 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
   const [searchResults, setSearchResults] = useState([]);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const announcements = [
-    "FREE SHIPPING WITHIN THE UAE ABOVE AED150",
-    'USE "KHADLAJ25" FOR FLAT 25% DISCOUNT'
-  ];
-  const [announcementIdx, setAnnouncementIdx] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setAnnouncementIdx((prev) => (prev + 1) % announcements.length);
-    }, 4000);
-    return () => clearInterval(timer);
-  }, []);
-
   const handleSearch = (q) => {
     setSearchQuery(q);
     if (!q.trim()) { setSearchResults([]); return; }
@@ -7511,16 +7498,15 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
           {/* Left spacer — desktop only */}
           <div className="hide-mob" style={{width:160, flexShrink:0}} />
 
-          {/* Center: discount / shipping text */}
-          <p key={announcementIdx} style={{
+          {/* Center: shipping text */}
+          <p style={{
             fontSize:"10px", letterSpacing:"2.5px",
             fontFamily:"'Montserrat',sans-serif",
             textTransform:"uppercase", fontWeight:600,
             textAlign:"center", flex:1,
             color:"#fff", whiteSpace:"nowrap",
-            animation: "fadeIn .5s ease"
           }}>
-            {announcements[announcementIdx]}
+            FREE SHIPPING WITHIN THE UAE ABOVE AED150
           </p>
 
           {/* Right: Social icons — desktop only */}
@@ -8275,17 +8261,20 @@ export default function App(){
         >🛍</button>
       )}
 
-      {/* ── Chatbot Floating Button ── */}
+      {/* ── Chatbot Floating Button (Placed on right side) ── */}
       <button
         onClick={()=>setChatOpen(!chatOpen)}
         style={{
-          position:"fixed",bottom:24,left:24,zIndex:200,
-          background:"#251737",color:"#fff",
-          width:46,height:46,borderRadius:"50%",
-          border:"none",cursor:"pointer",
-          boxShadow:"0 8px 28px rgba(0,0,0,.25)",
-          display:"flex",alignItems:"center",justifyContent:"center",
-          transition:"background .2s,transform .2s",
+          position:"fixed",
+          bottom: (page==="main" || page==="home") ? 80 : 24,
+          right: 24,
+          zIndex: 200,
+          background: "#251737", color: "#fff",
+          width: 46, height: 46, borderRadius: "50%",
+          border: "none", cursor: "pointer",
+          boxShadow: "0 8px 28px rgba(0,0,0,.25)",
+          display: "flex", alignItems: "center", justifyContent: "center",
+          transition: "background .2s,transform .2s,bottom .2s",
         }}
         onMouseEnter={e=>{e.currentTarget.style.background="#B8922A";e.currentTarget.style.transform="scale(1.06)";}}
         onMouseLeave={e=>{e.currentTarget.style.background="#251737";e.currentTarget.style.transform="scale(1)";}}
@@ -8294,16 +8283,20 @@ export default function App(){
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       </button>
 
-      {/* ── Chatbot Window Panel ── */}
+      {/* ── Chatbot Window Panel (Placed on right side) ── */}
       {chatOpen && (
         <div style={{
-          position:"fixed", bottom:84, left:24, width:320, height:420,
-          zIndex:200, background:"rgba(255, 255, 255, 0.98)",
-          border:"1px solid rgba(0,0,0,0.1)", borderRadius:12,
-          boxShadow:"0 16px 40px rgba(0,0,0,0.15)",
-          display:"flex", flexDirection:"column", overflow:"hidden",
-          animation:"fadeUp 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both",
-          fontFamily:"'Montserrat',sans-serif"
+          position:"fixed",
+          bottom: (page==="main" || page==="home") ? 136 : 80,
+          right: 24,
+          width: 320, height: 420,
+          maxWidth: "calc(100vw - 32px)",
+          zIndex: 200, background: "rgba(255, 255, 255, 0.98)",
+          border: "1px solid rgba(0,0,0,0.1)", borderRadius: 12,
+          boxShadow: "0 16px 40px rgba(0,0,0,0.15)",
+          display: "flex", flexDirection: "column", overflow: "hidden",
+          animation: "fadeUp 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both",
+          fontFamily: "'Montserrat',sans-serif"
         }}>
           {/* Header */}
           <div style={{background:"#251737", padding:"16px 20px", display:"flex", alignItems:"center", justifyContent:"space-between"}}>
