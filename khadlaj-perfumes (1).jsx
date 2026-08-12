@@ -6152,7 +6152,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
       
       {/* ── Breadcrumbs ── */}
       <div style={{padding:"32px 5% 0", maxWidth:1440, margin:"0 auto", fontSize:10, letterSpacing:1.5, textTransform:"uppercase", color:"#888", fontFamily:"'Montserrat',sans-serif"}}>
-        <span style={{cursor:"pointer", color:"#251737", transition:"color 0.2s"}} onMouseEnter={e=>e.currentTarget.style.color="#B8922A"} onMouseLeave={e=>e.currentTarget.style.color="#251737"} onClick={()=>setPage("home")}>Home</span>
+        <span style={{cursor:"pointer", color:"#251737", transition:"color 0.2s"}} onMouseEnter={e=>e.currentTarget.style.color="#B8922A"} onMouseLeave={e=>e.currentTarget.style.color="#251737"} onClick={()=>setPage("main")}>Home</span>
         <span style={{margin:"0 12px", color:"#ddd"}}>|</span>
         <span style={{cursor:"pointer", color:"#251737", transition:"color 0.2s"}} onMouseEnter={e=>e.currentTarget.style.color="#B8922A"} onMouseLeave={e=>e.currentTarget.style.color="#251737"} onClick={()=>setPage("collections")}>Collections</span>
         <span style={{margin:"0 12px", color:"#ddd"}}>|</span>
@@ -7275,7 +7275,7 @@ function CheckoutPage({ cartItems, setPage, clearCart }){
           <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginBottom:18}}>Order Received</p>
           <h1 className="disp" style={{fontSize:"clamp(36px,5vw,64px)",fontWeight:300,marginBottom:16}}>Thank you, {form.firstName}</h1>
           <p style={{fontSize:14,color:"#666",lineHeight:1.8,fontFamily:"'Montserrat',sans-serif",maxWidth:520,margin:"0 auto 30px"}}>Your Khadlaj order request has been submitted. A confirmation will be sent to {form.email}.</p>
-          <button className="btn-gold" onClick={()=>setPage("home")}>Back to Home</button>
+          <button className="btn-gold" onClick={()=>setPage("main")}>Back to Home</button>
         </div>
       </div>
     );
@@ -7510,7 +7510,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
               </div>
             </div>
             {/* Logo */}
-            <div onClick={()=>setPage("home")} style={{cursor:"pointer",textAlign:"center",userSelect:"none",display:"flex",alignItems:"center",justifyContent:"center"}}>
+            <div onClick={()=>setPage("main")} style={{cursor:"pointer",textAlign:"center",userSelect:"none",display:"flex",alignItems:"center",justifyContent:"center"}}>
               <img
                 src="/assets/images/purple-logo.png?v=2"
                 alt="Khadlaj Perfumes"
@@ -8025,7 +8025,7 @@ function ScratchCard({ code, onReveal }) {
 export default function App(){
   const [activeCountry, setActiveCountry] = React.useState(COUNTRIES[0]);
   const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
-  const [page, setPage] = useState("home");
+  const [page, setPage] = useState("main");
   const [collectionCategory, setCollectionCategory] = useState("Khadlaj");
   const [cartItems, setCartItems] = useState([]);
   const [viewProduct, setViewProduct] = useState(null);
@@ -8136,6 +8136,7 @@ export default function App(){
 
   const renderPage = () => {
     switch(page){
+      case "main":        return <HomePage setPage={setPage} addToCart={addToCart} setViewProduct={setViewProduct}/>;
       case "home":        return <HomePage setPage={setPage} addToCart={addToCart} setViewProduct={setViewProduct}/>;
       case "collections": return <CollectionsPage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage} collectionCategory={collectionCategory}/>;
       case "lafede":      return <LaFedePage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage}/>;
@@ -8159,7 +8160,7 @@ export default function App(){
       <Footer setPage={setPage}/>
 
       {/* ── Floating Shop button ── */}
-      {page==="home" && (
+      {(page==="main" || page==="home") && (
         <button
           className="pulse"
           onClick={()=>setPage("collections")}
