@@ -5118,20 +5118,27 @@ function TikTokCard({ t }) {
         transition: "all .4s cubic-bezier(.25,.8,.25,1)",
       }}
     >
-      {/* Playable TikTok Iframe */}
-      <iframe
-        src={`https://www.tiktok.com/embed/v2/${t.id}`}
-        scrolling="no" 
+      {/* Fallback to link instead of iframe to avoid TikTok 503 errors */}
+      <a
+        href={`https://www.tiktok.com/video/${t.id}`}
+        target="_blank"
+        rel="noopener noreferrer"
         style={{
           position: "absolute", inset: 0, width: "100%", height: "100%", 
-          border: "none", zIndex: 1, pointerEvents: hov ? "auto" : "none",
-          transform: hov ? "scale(1.02)" : "scale(1)",
-          transition: "transform .6s ease"
+          zIndex: 1, display: "block", overflow: "hidden"
         }}
-        allow="encrypted-media"
-        allowFullScreen
-        title={t.title}
-      />
+      >
+        <div style={{
+          position: "absolute", inset: "-10%", width: "120%", height: "120%",
+          backgroundImage: `url(${t.img})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          opacity: 0.3,
+          filter: "blur(8px)",
+          transform: hov ? "scale(1.05)" : "scale(1)",
+          transition: "transform .6s ease"
+        }} />
+      </a>
 
       {/* Gradient Overlay (Disabled pointer events so user can click video controls) */}
       <div style={{
