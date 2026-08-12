@@ -5141,27 +5141,33 @@ function TikTokCard({ t }) {
         transition: "all .4s cubic-bezier(.25,.8,.25,1)",
       }}
     >
-      {/* Fallback to link instead of iframe to avoid TikTok 503 errors */}
-      <a
-        href={`https://www.tiktok.com/video/${t.id}`}
-        target="_blank"
-        rel="noopener noreferrer"
+      {/* Blurred product image — shows while iframe loads */}
+      <div style={{
+        position: "absolute", inset: "-10%", width: "120%", height: "120%",
+        backgroundImage: `url(${t.img})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        opacity: 0.25,
+        filter: "blur(10px)",
+        zIndex: 0
+      }} />
+
+      {/* TikTok Player v1 — autoplay, muted, loop */}
+      <iframe
+        src={`https://www.tiktok.com/player/v1/${t.id}?music_info=0&description=0&loop=1&autoplay=1&muted=1&controls=0&rel=0&native_context_menu=0&closed_caption=0`}
+        scrolling="no"
+        allow="autoplay; encrypted-media; fullscreen"
+        allowFullScreen
+        title={t.title}
         style={{
-          position: "absolute", inset: 0, width: "100%", height: "100%", 
-          zIndex: 1, display: "block", overflow: "hidden"
+          position: "absolute", inset: 0, width: "100%", height: "100%",
+          border: "none", zIndex: 1,
+          pointerEvents: hov ? "auto" : "none",
+          transform: hov ? "scale(1.02)" : "scale(1)",
+          transition: "transform .6s ease",
+          background: "transparent",
         }}
-      >
-        <div style={{
-          position: "absolute", inset: "-10%", width: "120%", height: "120%",
-          backgroundImage: `url(${t.img})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          opacity: 0.3,
-          filter: "blur(8px)",
-          transform: hov ? "scale(1.05)" : "scale(1)",
-          transition: "transform .6s ease"
-        }} />
-      </a>
+      />
 
       {/* Gradient Overlay (Disabled pointer events so user can click video controls) */}
       <div style={{
