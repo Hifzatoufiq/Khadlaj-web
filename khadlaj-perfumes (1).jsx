@@ -4956,7 +4956,7 @@ function ProductCard({ p, onView, onCart }){
     "KARUS GOLD ABSOLU": 1.05,
     "ISLAND": 1.05,
     "SAWAAR VANILLE BLANC": 1.05,
-    "PANACHE ANGEL DUST": 1.15,
+    "PANACHE ANGEL DUST": 0.86,
     "SARAYA": 1.08,
     "QARAR": 1.08,
     "IHTHIRAAM": 1.08,
