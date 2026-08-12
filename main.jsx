@@ -14,8 +14,13 @@ window.hidePreloader = () => {
   const preloader = document.getElementById('preloader');
   if (preloader && !preloader.classList.contains('loaded')) {
     preloader.classList.add('loaded');
-    setTimeout(() => preloader.remove(), 1000);
+    setTimeout(() => preloader.remove(), 400);
   }
 };
-// Hide preloader quickly so website opens instantly
-setTimeout(window.hidePreloader, 300);
+// Hide preloader immediately so website opens instantly
+if (document.readyState === 'complete') {
+  window.hidePreloader();
+} else {
+  window.addEventListener('load', window.hidePreloader);
+  setTimeout(window.hidePreloader, 100);
+}

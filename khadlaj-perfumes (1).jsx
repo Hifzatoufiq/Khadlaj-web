@@ -5152,9 +5152,10 @@ function TikTokCard({ t }) {
         zIndex: 0
       }} />
 
-      {/* TikTok Player v1 — autoplay, muted, loop */}
+      {/* TikTok Player v1 — autoplay, muted, loop (lazy loaded for speed) */}
       <iframe
         src={`https://www.tiktok.com/player/v1/${t.id}?music_info=0&description=0&loop=1&autoplay=1&muted=1&controls=0&rel=0&native_context_menu=0&closed_caption=0`}
+        loading="lazy"
         scrolling="no"
         allow="autoplay; encrypted-media; fullscreen"
         allowFullScreen
