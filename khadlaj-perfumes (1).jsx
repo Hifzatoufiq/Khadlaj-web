@@ -7490,26 +7490,26 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
         {/* ── Announcement bar with social icons ── */}
         <div style={{
           background:"#251737", color:"#fff",
-          padding:"10px 5%",
+          padding:"9px 5%",
           display:"flex", alignItems:"center", justifyContent:"space-between",
-          position:"relative",
+          position:"relative", gap:8,
         }}>
-          {/* Left spacer (mirrors icon group width for centering) */}
-          <div style={{width:160, flexShrink:0}} />
+          {/* Left spacer — desktop only */}
+          <div className="hide-mob" style={{width:160, flexShrink:0}} />
 
           {/* Center: discount text */}
           <p style={{
-            fontSize:"11px", letterSpacing:"3.5px",
+            fontSize:"10px", letterSpacing:"2.5px",
             fontFamily:"'Montserrat',sans-serif",
             textTransform:"uppercase", fontWeight:600,
             textAlign:"center", flex:1,
-            color:"#fff",
+            color:"#fff", whiteSpace:"nowrap",
           }}>
             USE &quot;KHADLAJ25&quot; FOR FLAT 25% DISCOUNT
           </p>
 
-          {/* Right: Social icons */}
-          <div style={{display:"flex", alignItems:"center", gap:8, width:160, justifyContent:"flex-end", flexShrink:0}}>
+          {/* Right: Social icons — desktop only */}
+          <div className="hide-mob" style={{display:"flex", alignItems:"center", gap:8, width:160, justifyContent:"flex-end", flexShrink:0}}>
             {[
               { label:"Facebook",   href:SOCIAL_LINKS.facebook,    svg:<svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg> },
               { label:"X / Twitter",href:"https://x.com/khadlajperfumes", svg:<svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.259 5.63L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> },
