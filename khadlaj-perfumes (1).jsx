@@ -8117,6 +8117,41 @@ export default function App(){
   const [popupState, setPopupState] = useState("scratch"); // "email", "scratch", "revealed"
   const [popupDone, setPopupDone] = useState(false);
 
+  const isFirstRender = useRef(true);
+
+  // Handle popstate (browser back/forward button clicks)
+  useEffect(() => {
+    const handlePopState = (event) => {
+      if (event.state) {
+        setPage(event.state.page || "main");
+        setCollectionCategory(event.state.collectionCategory || "Khadlaj");
+        setViewProduct(event.state.viewProduct || null);
+      }
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
+  // Sync state changes with HTML5 History API
+  useEffect(() => {
+    if (isFirstRender.current) {
+      window.history.replaceState({ page, collectionCategory, viewProduct }, "");
+      isFirstRender.current = false;
+      return;
+    }
+
+    const currentState = window.history.state;
+    const isDifferent = !currentState || 
+      currentState.page !== page || 
+      currentState.collectionCategory !== collectionCategory || 
+      (currentState.viewProduct?.id !== viewProduct?.id);
+
+    if (isDifferent) {
+      window.history.pushState({ page, collectionCategory, viewProduct }, "");
+    }
+  }, [page, collectionCategory, viewProduct]);
+
   const [tiltStyle, setTiltStyle] = useState({});
   const handleTilt = (e) => {
     if(window.innerWidth <= 600) return; // Disable tilt on mobile
