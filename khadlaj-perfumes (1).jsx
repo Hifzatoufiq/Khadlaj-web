@@ -7628,21 +7628,27 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
             </div>
           </div>
           <div className="hide-mob" style={{display:"flex",justifyContent:"center",gap:40,paddingBottom:16,fontSize:"12px",letterSpacing:"1.5px",textTransform:"uppercase",color:"#251737",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>
-            {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gift Sets","gifts"],["Our legacy","story"]].map(([label,pg])=>{
+            {[["Home","main"],["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","collections"],["La Fede","lafede"],["Gift Sets","gifts"],["Our legacy","story"]].map(([label,pg])=>{
               let isActive = false;
               if (page === pg) {
                 if (pg === "collections") {
                   if (label === "Best Sellers") isActive = (collectionCategory === "Best Sellers");
                   else if (label === "Perfume Spray") isActive = (collectionCategory === "EAU DE PARFUM");
                   else if (label === "Perfume Oil") isActive = (collectionCategory === "Perfume Oils");
+                  else if (label === "Home & Ambience") isActive = (collectionCategory === "New");
                 } else {
                   isActive = true;
                 }
               }
               return (
                 <span key={label} onClick={() => {
-                  if(label === "Best Sellers" || label === "Perfume Spray" || label === "Perfume Oil" || label === "Master Perfumery") {
-                    setCollectionCategory(label === "Perfume Spray" ? "EAU DE PARFUM" : label === "Perfume Oil" ? "Perfume Oils" : label);
+                  if(label === "Best Sellers" || label === "Perfume Spray" || label === "Perfume Oil" || label === "Master Perfumery" || label === "Home & Ambience") {
+                    setCollectionCategory(
+                      label === "Perfume Spray" ? "EAU DE PARFUM" : 
+                      label === "Perfume Oil" ? "Perfume Oils" : 
+                      label === "Home & Ambience" ? "New" : 
+                      label
+                    );
                   } else if (pg === "collections") {
                     setCollectionCategory("Khadlaj");
                   }
@@ -7666,13 +7672,14 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
             zIndex:200,
             boxShadow:"0 8px 32px rgba(0,0,0,.12)",
           }}>
-            {[["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","home"],["La Fede","lafede"],["Gift Sets","gifts"],["Our legacy","story"],["Sign Up","signup"]].map(([label,pg])=>{
+            {[["Home","main"],["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","collections"],["La Fede","lafede"],["Gift Sets","gifts"],["Our legacy","story"],["Sign Up","signup"]].map(([label,pg])=>{
               let isActive = false;
               if (page === pg) {
                 if (pg === "collections") {
                   if (label === "Best Sellers") isActive = (collectionCategory === "Best Sellers");
                   else if (label === "Perfume Spray") isActive = (collectionCategory === "EAU DE PARFUM");
                   else if (label === "Perfume Oil") isActive = (collectionCategory === "Perfume Oils");
+                  else if (label === "Home & Ambience") isActive = (collectionCategory === "New");
                 } else {
                   isActive = true;
                 }
@@ -7682,8 +7689,13 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                 key={label}
                 className="mob-nav-link"
                 onClick={()=>{
-                  if(label === "Best Sellers" || label === "Perfume Spray" || label === "Perfume Oil" || label === "Master Perfumery") {
-                    setCollectionCategory(label === "Perfume Spray" ? "EAU DE PARFUM" : label === "Perfume Oil" ? "Perfume Oils" : label);
+                  if(label === "Best Sellers" || label === "Perfume Spray" || label === "Perfume Oil" || label === "Master Perfumery" || label === "Home & Ambience") {
+                    setCollectionCategory(
+                      label === "Perfume Spray" ? "EAU DE PARFUM" : 
+                      label === "Perfume Oil" ? "Perfume Oils" : 
+                      label === "Home & Ambience" ? "New" : 
+                      label
+                    );
                   } else if (pg === "collections") {
                     setCollectionCategory("Khadlaj");
                   }
