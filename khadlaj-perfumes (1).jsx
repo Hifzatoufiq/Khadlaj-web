@@ -77,6 +77,25 @@ const STATS = [
 
 const PRODUCTS = [
   {
+    "id": 9200000000010,
+    "name": "ISLAND SUN",
+    "col": "Extrait De Parfum",
+    "price": 165,
+    "size": "100 ML",
+    "badge": "New",
+    "gender": "Unisex",
+    "notes": ["Mango", "Coconut", "Lime"],
+    "img": "/assets/images/products/island-sun-cutout.png",
+    "desc": [
+      "Island Sun is a vibrant, sun-drenched escape in a bottle, designed to capture the essence of a tropical paradise where the golden sun warms the skin and a gentle breeze carries the scent of exotic fruits.",
+      "The fragrance opens with a succulent burst of juicy mango, creamy coconut, and zesty lime and lemon, instantly transporting you to an island oasis. The heart reveals a sophisticated blend of pink pepper, jasmine, and orange blossom, adding a subtle floral elegance and a touch of modern spicy sparkle.",
+      "As the scent dries down, a smooth, warm base of musk, rich tonka bean, and precious woods leaves a lasting, sensual trail that lingers beautifully.",
+      "<strong>Fragrance Family:</strong> Tropical Fruity Woody",
+      "<strong>Olfactory Profile:</strong> Vibrant • Tropical • Warm • Sensual",
+      "Island Sun captures the ultimate warmth of a tropical getaway, offering an uplifting and sophisticated scent experience for both men and women."
+    ]
+  },
+  {
     "id": 8199234977991,
     "name": "ISLAND",
     "col": "Extrait De Parfum",
