@@ -85,7 +85,7 @@ const PRODUCTS = [
     "badge": "New",
     "gender": "Unisex",
     "notes": ["Mango", "Coconut", "Lime"],
-    "img": "/assets/images/products/island-sun-cutout.png",
+    "img": "/assets/images/products/island-sun.png",
     "desc": [
       "Island Sun is a vibrant, sun-drenched escape in a bottle, designed to capture the essence of a tropical paradise where the golden sun warms the skin and a gentle breeze carries the scent of exotic fruits.",
       "The fragrance opens with a succulent burst of juicy mango, creamy coconut, and zesty lime and lemon, instantly transporting you to an island oasis. The heart reveals a sophisticated blend of pink pepper, jasmine, and orange blossom, adding a subtle floral elegance and a touch of modern spicy sparkle.",
