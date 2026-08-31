@@ -5374,7 +5374,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
   return (
     <>
       {/* ── HERO VIDEO ── */}
-      <section className="hero-section" style={{position:"relative",width:"100%",height:"70vh",minHeight:"450px",overflow:"hidden",background:"#0a0a0a"}}>
+      <section className="hero-section" style={{position:"relative",width:"100%",aspectRatio:"16/9",overflow:"hidden",background:"#0a0a0a"}}>
         <video
           className="hero-video"
           src={window.__VIDEO_URL__ || "./assets/videos/website-update-web-version.mp4"}
