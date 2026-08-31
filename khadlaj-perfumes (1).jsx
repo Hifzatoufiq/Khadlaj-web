@@ -5377,7 +5377,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       <section className="hero-section" style={{position:"relative",width:"100%",height:"70vh",minHeight:"450px",overflow:"hidden",background:"#0a0a0a"}}>
         <video
           className="hero-video"
-          src={window.__VIDEO_URL__ || "./assets/videos/duty-free.mp4"}
+          src={window.__VIDEO_URL__ || "./assets/videos/website-update-web-version.mp4"}
           autoPlay muted loop playsInline preload="auto"
           onCanPlay={() => window.hidePreloader && window.hidePreloader()}
           onLoadedData={() => window.hidePreloader && window.hidePreloader()}
