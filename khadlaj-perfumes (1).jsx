@@ -5328,6 +5328,239 @@ function TrustBanner() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   NEW LAUNCHES BANNER SLIDER
+═══════════════════════════════════════════════════════════════ */
+function NewLaunchesBannerSlider({ setPage, setViewProduct }) {
+  const [current, setCurrent] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  const banners = [
+    {
+      id: "island-sun",
+      img: "/assets/images/banners/banner-island-sun.png",
+      title: "ISLAND SUN",
+      subtitle: "Extrait De Parfum",
+      badge: "NEW LAUNCH",
+      productName: "ISLAND SUN",
+      productId: 9200000000010
+    },
+    {
+      id: "muse",
+      img: "/assets/images/banners/banner-muse.jpg",
+      title: "MUSE",
+      subtitle: "Eau De Parfum",
+      badge: "NEW LAUNCH",
+      productName: "ISLAND SUN"
+    }
+  ];
+
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      setCurrent(prev => (prev + 1) % banners.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [isPaused, banners.length]);
+
+  const handleBannerClick = (banner) => {
+    const prod = PRODUCTS.find(p => p.name === banner.productName || p.id === banner.productId);
+    if (prod && setViewProduct) {
+      setViewProduct(prod);
+      setPage("product");
+    } else if (setPage) {
+      setPage("collections");
+    }
+  };
+
+  const prevSlide = (e) => {
+    e.stopPropagation();
+    setCurrent(prev => (prev === 0 ? banners.length - 1 : prev - 1));
+  };
+
+  const nextSlide = (e) => {
+    e.stopPropagation();
+    setCurrent(prev => (prev + 1) % banners.length);
+  };
+
+  return (
+    <section 
+      style={{
+        padding: "36px 5% 12px", 
+        background: "linear-gradient(180deg, #FAF8F4 0%, #fff 100%)",
+        position: "relative"
+      }}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={() => setIsPaused(true)}
+      onTouchEnd={() => setIsPaused(false)}
+    >
+      <div className="max-container">
+        <div style={{
+          position: "relative",
+          width: "100%",
+          aspectRatio: "3/1",
+          minHeight: "160px",
+          maxHeight: "480px",
+          borderRadius: "14px",
+          overflow: "hidden",
+          boxShadow: "0 14px 38px rgba(37,23,55,0.09)",
+          background: "#0d0d0d",
+          cursor: "pointer"
+        }}>
+          {banners.map((b, idx) => (
+            <div
+              key={b.id}
+              onClick={() => handleBannerClick(b)}
+              style={{
+                position: "absolute",
+                inset: 0,
+                opacity: current === idx ? 1 : 0,
+                transform: current === idx ? "scale(1)" : "scale(1.03)",
+                transition: "opacity 0.8s ease, transform 0.8s ease",
+                pointerEvents: current === idx ? "auto" : "none",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center"
+              }}
+            >
+              <img
+                src={b.img}
+                alt={b.title}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  display: "block"
+                }}
+              />
+            </div>
+          ))}
+
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevSlide}
+            aria-label="Previous Slide"
+            style={{
+              position: "absolute",
+              left: "18px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              zIndex: 10,
+              width: "42px",
+              height: "42px",
+              borderRadius: "50%",
+              background: "rgba(255, 255, 255, 0.82)",
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
+              border: "1px solid rgba(255,255,255,0.5)",
+              boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
+              color: "#251737",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              transition: "all 0.3s ease"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#251737";
+              e.currentTarget.style.color = "#fff";
+              e.currentTarget.style.transform = "translateY(-50%) scale(1.1)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "rgba(255, 255, 255, 0.82)";
+              e.currentTarget.style.color = "#251737";
+              e.currentTarget.style.transform = "translateY(-50%) scale(1)";
+            }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M15 18l-6-6 6-6" />
+            </svg>
+          </button>
+
+          <button
+            onClick={nextSlide}
+            aria-label="Next Slide"
+            style={{
+              position: "absolute",
+              right: "18px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              zIndex: 10,
+              width: "42px",
+              height: "42px",
+              borderRadius: "50%",
+              background: "rgba(255, 255, 255, 0.82)",
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
+              border: "1px solid rgba(255,255,255,0.5)",
+              boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
+              color: "#251737",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              transition: "all 0.3s ease"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#251737";
+              e.currentTarget.style.color = "#fff";
+              e.currentTarget.style.transform = "translateY(-50%) scale(1.1)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "rgba(255, 255, 255, 0.82)";
+              e.currentTarget.style.color = "#251737";
+              e.currentTarget.style.transform = "translateY(-50%) scale(1)";
+            }}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </button>
+
+          {/* Indicators / Dots */}
+          <div style={{
+            position: "absolute",
+            bottom: "14px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 10,
+            display: "flex",
+            gap: "8px",
+            alignItems: "center",
+            background: "rgba(0, 0, 0, 0.35)",
+            backdropFilter: "blur(6px)",
+            WebkitBackdropFilter: "blur(6px)",
+            padding: "6px 12px",
+            borderRadius: "20px"
+          }}>
+            {banners.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setCurrent(idx);
+                }}
+                aria-label={`Go to slide ${idx + 1}`}
+                style={{
+                  width: current === idx ? "26px" : "8px",
+                  height: "8px",
+                  borderRadius: "4px",
+                  background: current === idx ? "#B8922A" : "rgba(255, 255, 255, 0.65)",
+                  border: "none",
+                  cursor: "pointer",
+                  transition: "all 0.3s ease",
+                  padding: 0
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
    PAGE: HOME
 ═══════════════════════════════════════════════════════════════ */
 function HomePage({ setPage, addToCart, setViewProduct }){
@@ -5451,6 +5684,9 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           </div>
         </div>
       </section>
+
+      {/* ── NEW LAUNCHES BANNER SLIDER ── */}
+      <NewLaunchesBannerSlider setPage={setPage} setViewProduct={setViewProduct} />
 
       {/* ── NEW LAUNCH ── */}
       <section style={{padding:"84px 5% 96px", background:"linear-gradient(180deg, #fff 0%, #fcfaf7 100%)"}}>
