@@ -5346,7 +5346,7 @@ function NewLaunchesBannerSlider({ setPage, setViewProduct }) {
     },
     {
       id: "muse",
-      img: "/assets/images/banners/banner-muse.jpg",
+      img: "/assets/images/banners/banner-muse.png",
       title: "MUSE",
       subtitle: "Eau De Parfum",
       badge: "NEW LAUNCH",
@@ -5398,9 +5398,9 @@ function NewLaunchesBannerSlider({ setPage, setViewProduct }) {
         <div style={{
           position: "relative",
           width: "100%",
-          aspectRatio: "3/1",
+          aspectRatio: "2.4/1",
           minHeight: "160px",
-          maxHeight: "480px",
+          maxHeight: "520px",
           borderRadius: "14px",
           overflow: "hidden",
           boxShadow: "0 14px 38px rgba(37,23,55,0.09)",
