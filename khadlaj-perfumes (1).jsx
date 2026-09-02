@@ -5400,10 +5400,11 @@ function NewLaunchesBannerSlider({ setPage, setViewProduct }) {
       <div style={{
         position: "relative",
         width: "100%",
-        aspectRatio: "1024/341",
+        aspectRatio: "2560/853",
         overflow: "hidden",
         background: "#0d0d0d",
-        cursor: "pointer"
+        cursor: "pointer",
+        transform: "translateZ(0)"
       }}>
         {banners.map((b, idx) => (
           <div
@@ -5417,7 +5418,8 @@ function NewLaunchesBannerSlider({ setPage, setViewProduct }) {
               pointerEvents: current === idx ? "auto" : "none",
               display: "flex",
               alignItems: "center",
-              justifyContent: "center"
+              justifyContent: "center",
+              transform: "translateZ(0)"
             }}
           >
             <img
@@ -5427,7 +5429,10 @@ function NewLaunchesBannerSlider({ setPage, setViewProduct }) {
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
-                display: "block"
+                display: "block",
+                imageRendering: "-webkit-optimize-contrast",
+                WebkitBackfaceVisibility: "hidden",
+                transform: "translateZ(0)"
               }}
             />
           </div>
