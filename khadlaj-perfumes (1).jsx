@@ -5385,54 +5385,53 @@ function NewLaunchesBannerSlider({ setPage, setViewProduct }) {
   return (
     <section 
       style={{
-        padding: "36px 5% 12px", 
-        background: "linear-gradient(180deg, #FAF8F4 0%, #fff 100%)",
-        position: "relative"
+        padding: 0, 
+        margin: 0,
+        width: "100%",
+        background: "#0d0d0d",
+        position: "relative",
+        overflow: "hidden"
       }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onTouchStart={() => setIsPaused(true)}
       onTouchEnd={() => setIsPaused(false)}
     >
-      <div className="max-container">
-        <div style={{
-          position: "relative",
-          width: "100%",
-          aspectRatio: "1024/341",
-          borderRadius: "14px",
-          overflow: "hidden",
-          boxShadow: "0 14px 38px rgba(37,23,55,0.09)",
-          background: "#0d0d0d",
-          cursor: "pointer"
-        }}>
-          {banners.map((b, idx) => (
-            <div
-              key={b.id}
-              onClick={() => handleBannerClick(b)}
+      <div style={{
+        position: "relative",
+        width: "100%",
+        aspectRatio: "1024/341",
+        overflow: "hidden",
+        background: "#0d0d0d",
+        cursor: "pointer"
+      }}>
+        {banners.map((b, idx) => (
+          <div
+            key={b.id}
+            onClick={() => handleBannerClick(b)}
+            style={{
+              position: "absolute",
+              inset: 0,
+              opacity: current === idx ? 1 : 0,
+              transition: "opacity 0.7s ease",
+              pointerEvents: current === idx ? "auto" : "none",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center"
+            }}
+          >
+            <img
+              src={b.img}
+              alt={b.title}
               style={{
-                position: "absolute",
-                inset: 0,
-                opacity: current === idx ? 1 : 0,
-                transition: "opacity 0.7s ease",
-                pointerEvents: current === idx ? "auto" : "none",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "flex-start"
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                display: "block"
               }}
-            >
-              <img
-                src={b.img}
-                alt={b.title}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "contain",
-                  objectPosition: "left center",
-                  display: "block"
-                }}
-              />
-            </div>
-          ))}
+            />
+          </div>
+        ))}
 
           {/* Navigation Arrows */}
           <button
@@ -5553,7 +5552,6 @@ function NewLaunchesBannerSlider({ setPage, setViewProduct }) {
             ))}
           </div>
         </div>
-      </div>
     </section>
   );
 }
