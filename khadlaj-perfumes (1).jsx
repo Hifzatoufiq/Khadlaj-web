@@ -5364,6 +5364,36 @@ function NewLaunchesBannerSlider({ setPage, setViewProduct }) {
       img: "/assets/images/showcase/karus-gold-card.png",
       productName: "KARUS GOLD ABSOLU",
       productId: 9186643247403
+    },
+    {
+      id: "nuha-bon-bon",
+      title: "NUHA BON BON",
+      img: "/assets/images/showcase/nuha-bon-bon-card.png",
+      productName: "NUHA BON BON"
+    },
+    {
+      id: "nafais-magrib",
+      title: "NAFAIS MAGRIB",
+      img: "/assets/images/showcase/nafais-magrib-card.png",
+      productName: "NAFAIS MAGRIB"
+    },
+    {
+      id: "titan",
+      title: "TITAN",
+      img: "/assets/images/showcase/titan-card.png",
+      productName: "TITAN"
+    },
+    {
+      id: "shiyaaka-shadow",
+      title: "SHIYAAKA SHADOW",
+      img: "/assets/images/showcase/shiyaaka-shadow-card.png",
+      productName: "SHIYAAKA SHADOW"
+    },
+    {
+      id: "zayaan-gold",
+      title: "ZAYAAN GOLD",
+      img: "/assets/images/showcase/zayaan-gold-card.png",
+      productName: "ZAYAAN GOLD"
     }
   ];
 
