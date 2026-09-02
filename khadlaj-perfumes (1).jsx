@@ -5329,42 +5329,63 @@ function TrustBanner() {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   NEW LAUNCHES BANNER SLIDER
+   NEW LAUNCHES SHOWCASE CARDS (3-COLUMN LUXURY SLIDER)
 ═══════════════════════════════════════════════════════════════ */
 function NewLaunchesBannerSlider({ setPage, setViewProduct }) {
-  const [current, setCurrent] = useState(0);
+  const [startIndex, setStartIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [hoveredIdx, setHoveredIdx] = useState(null);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== "undefined" ? window.innerWidth : 1200);
 
-  const banners = [
+  const cards = [
     {
       id: "island-sun",
-      img: "/assets/images/banners/banner-island-sun.png",
       title: "ISLAND SUN",
-      subtitle: "Extrait De Parfum",
-      badge: "NEW LAUNCH",
+      img: "/assets/images/showcase/island-sun-card.jpg",
       productName: "ISLAND SUN",
       productId: 9200000000010
     },
     {
       id: "muse",
-      img: "/assets/images/banners/banner-muse.png",
       title: "MUSE",
-      subtitle: "Eau De Parfum",
-      badge: "NEW LAUNCH",
+      img: "/assets/images/showcase/muse-card.png",
       productName: "ISLAND SUN"
+    },
+    {
+      id: "onyx-gold",
+      title: "ONYX GOLD",
+      img: "/assets/images/showcase/onyx-gold-card.png",
+      productName: "ONYX GOLD",
+      productId: 9186641215787
+    },
+    {
+      id: "karus-gold",
+      title: "KARUS GOLD ABSOLU",
+      img: "/assets/images/showcase/karus-gold-card.png",
+      productName: "KARUS GOLD ABSOLU",
+      productId: 9186643247403
     }
   ];
 
   useEffect(() => {
-    if (isPaused) return;
-    const timer = setInterval(() => {
-      setCurrent(prev => (prev + 1) % banners.length);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [isPaused, banners.length]);
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-  const handleBannerClick = (banner) => {
-    const prod = PRODUCTS.find(p => p.name === banner.productName || p.id === banner.productId);
+  const visibleCards = windowWidth >= 1024 ? 3 : windowWidth >= 640 ? 2 : 1;
+  const maxIndex = Math.max(0, cards.length - visibleCards);
+
+  useEffect(() => {
+    if (isPaused || maxIndex === 0) return;
+    const timer = setInterval(() => {
+      setStartIndex(prev => (prev >= maxIndex ? 0 : prev + 1));
+    }, 5500);
+    return () => clearInterval(timer);
+  }, [isPaused, maxIndex]);
+
+  const handleCardClick = (card) => {
+    const prod = PRODUCTS.find(p => p.name === card.productName || p.id === card.productId);
     if (prod && setViewProduct) {
       setViewProduct(prod);
       setPage("product");
@@ -5375,12 +5396,12 @@ function NewLaunchesBannerSlider({ setPage, setViewProduct }) {
 
   const prevSlide = (e) => {
     e.stopPropagation();
-    setCurrent(prev => (prev === 0 ? banners.length - 1 : prev - 1));
+    setStartIndex(prev => (prev === 0 ? maxIndex : prev - 1));
   };
 
   const nextSlide = (e) => {
     e.stopPropagation();
-    setCurrent(prev => (prev + 1) % banners.length);
+    setStartIndex(prev => (prev >= maxIndex ? 0 : prev + 1));
   };
 
   return (
@@ -5398,166 +5419,196 @@ function NewLaunchesBannerSlider({ setPage, setViewProduct }) {
       onTouchStart={() => setIsPaused(true)}
       onTouchEnd={() => setIsPaused(false)}
     >
+      {/* Cards Slider Track Container */}
       <div style={{
         position: "relative",
         width: "100%",
-        aspectRatio: "2560/853",
         overflow: "hidden",
-        background: "#0d0d0d",
-        cursor: "pointer",
-        transform: "translateZ(0)"
+        background: "#0a0a0a"
       }}>
-        {banners.map((b, idx) => (
-          <div
-            key={b.id}
-            onClick={() => handleBannerClick(b)}
-            style={{
-              position: "absolute",
-              inset: 0,
-              opacity: current === idx ? 1 : 0,
-              transition: "opacity 0.7s ease",
-              pointerEvents: current === idx ? "auto" : "none",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              transform: "translateZ(0)"
-            }}
-          >
-            <img
-              src={b.img}
-              alt={b.title}
+        <div style={{
+          display: "flex",
+          width: `${(cards.length / visibleCards) * 100}%`,
+          transform: `translateX(-${startIndex * (100 / cards.length)}%)`,
+          transition: "transform 0.7s cubic-bezier(0.25, 1, 0.5, 1)",
+          willChange: "transform"
+        }}>
+          {cards.map((c, idx) => (
+            <div
+              key={c.id}
+              onClick={() => handleCardClick(c)}
+              onMouseEnter={() => setHoveredIdx(idx)}
+              onMouseLeave={() => setHoveredIdx(null)}
               style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                display: "block",
-                imageRendering: "-webkit-optimize-contrast",
-                WebkitBackfaceVisibility: "hidden",
-                transform: "translateZ(0)"
+                flex: `0 0 ${100 / cards.length}%`,
+                position: "relative",
+                height: windowWidth >= 1024 ? "520px" : windowWidth >= 640 ? "460px" : "420px",
+                overflow: "hidden",
+                cursor: "pointer",
+                borderRight: idx < cards.length - 1 ? "1px solid rgba(255,255,255,0.08)" : "none"
               }}
-            />
-          </div>
-        ))}
-
-          {/* Navigation Arrows */}
-          <button
-            onClick={prevSlide}
-            aria-label="Previous Slide"
-            style={{
-              position: "absolute",
-              left: "18px",
-              top: "50%",
-              transform: "translateY(-50%)",
-              zIndex: 10,
-              width: "42px",
-              height: "42px",
-              borderRadius: "50%",
-              background: "rgba(255, 255, 255, 0.82)",
-              backdropFilter: "blur(8px)",
-              WebkitBackdropFilter: "blur(8px)",
-              border: "1px solid rgba(255,255,255,0.5)",
-              boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
-              color: "#251737",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              cursor: "pointer",
-              transition: "all 0.3s ease"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#251737";
-              e.currentTarget.style.color = "#fff";
-              e.currentTarget.style.transform = "translateY(-50%) scale(1.1)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "rgba(255, 255, 255, 0.82)";
-              e.currentTarget.style.color = "#251737";
-              e.currentTarget.style.transform = "translateY(-50%) scale(1)";
-            }}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M15 18l-6-6 6-6" />
-            </svg>
-          </button>
-
-          <button
-            onClick={nextSlide}
-            aria-label="Next Slide"
-            style={{
-              position: "absolute",
-              right: "18px",
-              top: "50%",
-              transform: "translateY(-50%)",
-              zIndex: 10,
-              width: "42px",
-              height: "42px",
-              borderRadius: "50%",
-              background: "rgba(255, 255, 255, 0.82)",
-              backdropFilter: "blur(8px)",
-              WebkitBackdropFilter: "blur(8px)",
-              border: "1px solid rgba(255,255,255,0.5)",
-              boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
-              color: "#251737",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              cursor: "pointer",
-              transition: "all 0.3s ease"
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#251737";
-              e.currentTarget.style.color = "#fff";
-              e.currentTarget.style.transform = "translateY(-50%) scale(1.1)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "rgba(255, 255, 255, 0.82)";
-              e.currentTarget.style.color = "#251737";
-              e.currentTarget.style.transform = "translateY(-50%) scale(1)";
-            }}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M9 18l6-6-6-6" />
-            </svg>
-          </button>
-
-          {/* Indicators / Dots */}
-          <div style={{
-            position: "absolute",
-            bottom: "14px",
-            left: "50%",
-            transform: "translateX(-50%)",
-            zIndex: 10,
-            display: "flex",
-            gap: "8px",
-            alignItems: "center",
-            background: "rgba(0, 0, 0, 0.35)",
-            backdropFilter: "blur(6px)",
-            WebkitBackdropFilter: "blur(6px)",
-            padding: "6px 12px",
-            borderRadius: "20px"
-          }}>
-            {banners.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setCurrent(idx);
-                }}
-                aria-label={`Go to slide ${idx + 1}`}
+            >
+              {/* Background Image */}
+              <img
+                src={c.img}
+                alt={c.title}
                 style={{
-                  width: current === idx ? "26px" : "8px",
-                  height: "8px",
-                  borderRadius: "4px",
-                  background: current === idx ? "#B8922A" : "rgba(255, 255, 255, 0.65)",
-                  border: "none",
-                  cursor: "pointer",
-                  transition: "all 0.3s ease",
-                  padding: 0
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  display: "block",
+                  transform: hoveredIdx === idx ? "scale(1.06)" : "scale(1)",
+                  transition: "transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)"
                 }}
               />
-            ))}
-          </div>
+
+              {/* Bottom Gradient Overlay */}
+              <div style={{
+                position: "absolute",
+                inset: 0,
+                background: "linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.45) 28%, rgba(0,0,0,0.08) 55%, transparent 100%)",
+                pointerEvents: "none"
+              }} />
+
+              {/* Content / Typography & Button */}
+              <div style={{
+                position: "absolute",
+                bottom: "36px",
+                left: 0,
+                right: 0,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "center",
+                textAlign: "center",
+                padding: "0 20px",
+                zIndex: 2
+              }}>
+                <h3 style={{
+                  fontFamily: "'Cinzel', 'Montserrat', serif",
+                  fontSize: windowWidth >= 1024 ? "21px" : "18px",
+                  fontWeight: 600,
+                  color: "#ffffff",
+                  letterSpacing: "3px",
+                  textTransform: "uppercase",
+                  marginBottom: "14px",
+                  textShadow: "0 2px 10px rgba(0,0,0,0.7)"
+                }}>
+                  {c.title}
+                </h3>
+
+                <button
+                  style={{
+                    background: hoveredIdx === idx ? "#ffffff" : "transparent",
+                    color: hoveredIdx === idx ? "#000000" : "#ffffff",
+                    border: "1px solid rgba(255,255,255,0.9)",
+                    padding: "9px 28px",
+                    fontSize: "11.5px",
+                    fontWeight: 600,
+                    letterSpacing: "2.5px",
+                    textTransform: "uppercase",
+                    fontFamily: "'Montserrat', sans-serif",
+                    cursor: "pointer",
+                    transition: "all 0.3s ease",
+                    boxShadow: "0 4px 15px rgba(0,0,0,0.3)"
+                  }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleCardClick(c);
+                  }}
+                >
+                  SHOP NOW
+                </button>
+              </div>
+            </div>
+          ))}
         </div>
+
+        {/* Navigation Arrows */}
+        {maxIndex > 0 && (
+          <>
+            <button
+              onClick={prevSlide}
+              aria-label="Previous Slide"
+              style={{
+                position: "absolute",
+                left: "20px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                zIndex: 10,
+                width: "44px",
+                height: "44px",
+                borderRadius: "50%",
+                background: "rgba(255, 255, 255, 0.85)",
+                backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)",
+                border: "1px solid rgba(255,255,255,0.6)",
+                boxShadow: "0 6px 20px rgba(0,0,0,0.3)",
+                color: "#251737",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                transition: "all 0.3s ease"
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "#251737";
+                e.currentTarget.style.color = "#fff";
+                e.currentTarget.style.transform = "translateY(-50%) scale(1.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.85)";
+                e.currentTarget.style.color = "#251737";
+                e.currentTarget.style.transform = "translateY(-50%) scale(1)";
+              }}
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+
+            <button
+              onClick={nextSlide}
+              aria-label="Next Slide"
+              style={{
+                position: "absolute",
+                right: "20px",
+                top: "50%",
+                transform: "translateY(-50%)",
+                zIndex: 10,
+                width: "44px",
+                height: "44px",
+                borderRadius: "50%",
+                background: "rgba(255, 255, 255, 0.85)",
+                backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)",
+                border: "1px solid rgba(255,255,255,0.6)",
+                boxShadow: "0 6px 20px rgba(0,0,0,0.3)",
+                color: "#251737",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                cursor: "pointer",
+                transition: "all 0.3s ease"
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "#251737";
+                e.currentTarget.style.color = "#fff";
+                e.currentTarget.style.transform = "translateY(-50%) scale(1.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.85)";
+                e.currentTarget.style.color = "#251737";
+                e.currentTarget.style.transform = "translateY(-50%) scale(1)";
+              }}
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </button>
+          </>
+        )}
+      </div>
     </section>
   );
 }
