@@ -28,6 +28,7 @@ const C = {
 ═══════════════════════════════════════════════════════════════ */
 const COUNTRIES = [
   { name:"UAE",      flagUrl:"/assets/images/flags/ae.png", currency:"AED", rate:1 },
+  { name:"KSA",      flagUrl:"/assets/images/flags/sa.png", currency:"SAR", rate:1.02 },
   { name:"Kuwait",   flagUrl:"/assets/images/flags/kw.png", currency:"KWD", rate:0.08 },
   { name:"India",    flagUrl:"/assets/images/flags/in.png", currency:"INR", rate:22.5 },
   { name:"Egypt",    flagUrl:"/assets/images/flags/eg.png", currency:"EGP", rate:13.2 },
