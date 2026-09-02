@@ -5398,7 +5398,7 @@ function NewLaunchesBannerSlider({ setPage, setViewProduct }) {
         <div style={{
           position: "relative",
           width: "100%",
-          aspectRatio: "3/1",
+          aspectRatio: "1920/880",
           borderRadius: "14px",
           overflow: "hidden",
           boxShadow: "0 14px 38px rgba(37,23,55,0.09)",
