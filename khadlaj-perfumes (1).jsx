@@ -5575,7 +5575,7 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
     {
       id: "island-sun",
       title: "ISLAND SUN",
-      img: "/assets/images/showcase/island-sun-card.jpg",
+      img: "/assets/images/showcase/island-sun-card.png",
       productName: "ISLAND SUN",
       productId: 9200000000010
     },
@@ -5671,10 +5671,10 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
   return (
     <section 
       style={{
-        padding: 0, 
+        padding: "44px 3% 28px", 
         margin: 0,
         width: "100%",
-        background: "#0d0d0d",
+        background: "linear-gradient(180deg, #FAF8F4 0%, #ffffff 100%)",
         position: "relative",
         overflow: "hidden"
       }}
@@ -5687,8 +5687,7 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
       <div style={{
         position: "relative",
         width: "100%",
-        overflow: "hidden",
-        background: "#0a0a0a"
+        overflow: "hidden"
       }}>
         <div style={{
           display: "flex",
@@ -5700,89 +5699,101 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
           {cards.map((c, idx) => (
             <div
               key={c.id}
-              onClick={() => handleCardClick(c)}
-              onMouseEnter={() => setHoveredIdx(idx)}
-              onMouseLeave={() => setHoveredIdx(null)}
               style={{
                 flex: `0 0 ${100 / cards.length}%`,
-                position: "relative",
-                height: windowWidth >= 1024 ? "520px" : windowWidth >= 640 ? "460px" : "420px",
-                overflow: "hidden",
-                cursor: "pointer",
-                borderRight: idx < cards.length - 1 ? "1px solid rgba(255,255,255,0.08)" : "none"
+                padding: "0 10px",
+                boxSizing: "border-box"
               }}
             >
-              {/* Background Image */}
-              <img
-                src={c.img}
-                alt={c.title}
+              <div
+                onClick={() => handleCardClick(c)}
+                onMouseEnter={() => setHoveredIdx(idx)}
+                onMouseLeave={() => setHoveredIdx(null)}
                 style={{
+                  position: "relative",
                   width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  display: "block",
-                  transform: hoveredIdx === idx ? "scale(1.06)" : "scale(1)",
-                  transition: "transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)"
+                  aspectRatio: "1/1",
+                  borderRadius: "14px",
+                  overflow: "hidden",
+                  boxShadow: hoveredIdx === idx ? "0 16px 36px rgba(0,0,0,0.22)" : "0 8px 24px rgba(0,0,0,0.1)",
+                  background: "#111",
+                  cursor: "pointer",
+                  transition: "box-shadow 0.4s ease, transform 0.4s ease",
+                  transform: hoveredIdx === idx ? "translateY(-4px)" : "translateY(0)"
                 }}
-              />
-
-              {/* Bottom Gradient Overlay */}
-              <div style={{
-                position: "absolute",
-                inset: 0,
-                background: "linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.45) 28%, rgba(0,0,0,0.08) 55%, transparent 100%)",
-                pointerEvents: "none"
-              }} />
-
-              {/* Content / Typography & Button */}
-              <div style={{
-                position: "absolute",
-                bottom: "36px",
-                left: 0,
-                right: 0,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                textAlign: "center",
-                padding: "0 20px",
-                zIndex: 2
-              }}>
-                <h3 style={{
-                  fontFamily: "'Cinzel', 'Montserrat', serif",
-                  fontSize: windowWidth >= 1024 ? "21px" : "18px",
-                  fontWeight: 600,
-                  color: "#ffffff",
-                  letterSpacing: "3px",
-                  textTransform: "uppercase",
-                  marginBottom: "14px",
-                  textShadow: "0 2px 10px rgba(0,0,0,0.7)"
-                }}>
-                  {c.title}
-                </h3>
-
-                <button
+              >
+                {/* Background Image */}
+                <img
+                  src={c.img}
+                  alt={c.title}
                   style={{
-                    background: hoveredIdx === idx ? "#ffffff" : "transparent",
-                    color: hoveredIdx === idx ? "#000000" : "#ffffff",
-                    border: "1px solid rgba(255,255,255,0.9)",
-                    padding: "9px 28px",
-                    fontSize: "11.5px",
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    display: "block",
+                    transition: "filter 0.4s ease",
+                    filter: hoveredIdx === idx ? "brightness(1.05)" : "brightness(1)"
+                  }}
+                />
+
+                {/* Bottom Gradient Overlay */}
+                <div style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: "linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.45) 28%, rgba(0,0,0,0.08) 55%, transparent 100%)",
+                  pointerEvents: "none"
+                }} />
+
+                {/* Content / Typography & Button */}
+                <div style={{
+                  position: "absolute",
+                  bottom: "32px",
+                  left: 0,
+                  right: 0,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textAlign: "center",
+                  padding: "0 18px",
+                  zIndex: 2
+                }}>
+                  <h3 style={{
+                    fontFamily: "'Cinzel', 'Montserrat', serif",
+                    fontSize: windowWidth >= 1024 ? "20px" : "17px",
                     fontWeight: 600,
-                    letterSpacing: "2.5px",
+                    color: "#ffffff",
+                    letterSpacing: "3px",
                     textTransform: "uppercase",
-                    fontFamily: "'Montserrat', sans-serif",
-                    cursor: "pointer",
-                    transition: "all 0.3s ease",
-                    boxShadow: "0 4px 15px rgba(0,0,0,0.3)"
-                  }}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleCardClick(c);
-                  }}
-                >
-                  SHOP NOW
-                </button>
+                    marginBottom: "12px",
+                    textShadow: "0 2px 10px rgba(0,0,0,0.7)"
+                  }}>
+                    {c.title}
+                  </h3>
+
+                  <button
+                    style={{
+                      background: hoveredIdx === idx ? "#ffffff" : "transparent",
+                      color: hoveredIdx === idx ? "#000000" : "#ffffff",
+                      border: "1px solid rgba(255,255,255,0.9)",
+                      padding: "8px 26px",
+                      fontSize: "11px",
+                      fontWeight: 600,
+                      letterSpacing: "2.5px",
+                      textTransform: "uppercase",
+                      fontFamily: "'Montserrat', sans-serif",
+                      cursor: "pointer",
+                      transition: "all 0.3s ease",
+                      boxShadow: "0 4px 15px rgba(0,0,0,0.3)"
+                    }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleCardClick(c);
+                    }}
+                  >
+                    SHOP NOW
+                  </button>
+                </div>
               </div>
             </div>
           ))}
