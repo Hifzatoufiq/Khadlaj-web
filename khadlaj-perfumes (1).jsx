@@ -27,8 +27,8 @@ const C = {
    DATA
 ═══════════════════════════════════════════════════════════════ */
 const COUNTRIES = [
+  { name:"KSA",      flagUrl:"/assets/images/flags/sa.png", currency:"SAR", rate:1 },
   { name:"UAE",      flagUrl:"/assets/images/flags/ae.png", currency:"AED", rate:1 },
-  { name:"KSA",      flagUrl:"/assets/images/flags/sa.png", currency:"SAR", rate:1.02 },
   { name:"Kuwait",   flagUrl:"/assets/images/flags/kw.png", currency:"KWD", rate:0.08 },
   { name:"India",    flagUrl:"/assets/images/flags/in.png", currency:"INR", rate:22.5 },
   { name:"Egypt",    flagUrl:"/assets/images/flags/eg.png", currency:"EGP", rate:13.2 },
@@ -6749,8 +6749,8 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             },
             {
               icon:<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(184,146,42,0.03)" /><rect x="6" y="8" width="8" height="6" rx="1" fill="rgba(184,146,42,0.1)" /><path d="M14 9h3l2 2v3h-5V9z" /><circle cx="8.5" cy="16.5" r="1.5" fill="#B8922A" /><circle cx="15.5" cy="16.5" r="1.5" fill="#B8922A" /></svg>,
-              title:"Free UAE Delivery",
-              desc:"Complimentary shipping on orders above AED 150"
+              title:"Complimentary Delivery",
+              desc:"Free shipping on all orders above SAR 150"
             },
             {
               icon:<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(184,146,42,0.03)" /><rect x="6" y="8" width="12" height="8" rx="1" fill="rgba(184,146,42,0.1)" /><path d="M6 11h12M12 8v8" /><path d="M12 8c-.8-1-2.2-1.5-2.2-.5s1.2 1 2.2.5c.8-1 2.2-1.5 2.2-.5s-1.2 1-2.2.5z" /></svg>,
@@ -7555,7 +7555,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
              {/* ACCORDIONS */}
              <div style={{borderTop:"1px solid #eee"}}>
                <Accordion title="Shipping & Returns" defaultOpen>
-                 <p style={{fontSize:13, lineHeight:1.6, color:"#444", fontWeight:300}}>Orders are processed within 1-2 business days. Free shipping on all orders over AED 200 within the UAE. International shipping rates apply and will be calculated at checkout.</p>
+                  <p style={{fontSize:13, lineHeight:1.6, color:"#444", fontWeight:300}}>Orders are processed within 1-2 business days. Free shipping on all orders over SAR 200. International shipping rates apply and will be calculated at checkout.</p>
                </Accordion>
              </div>
 
@@ -8589,7 +8589,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
             textAlign:"center", flex:1,
             color:"#fff", whiteSpace:"nowrap",
           }}>
-            FREE SHIPPING WITHIN THE UAE ABOVE AED150
+            FREE SHIPPING ON ORDERS ABOVE SAR 150
           </p>
 
           {/* Right: Social icons — desktop only */}
