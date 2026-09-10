@@ -5696,7 +5696,7 @@ function NewLaunchesHeroBannerSlider({ setPage, setViewProduct }) {
       <div style={{
         position: "relative",
         width: "100%",
-        aspectRatio: "2560/852",
+        aspectRatio: "2048/768",
         overflow: "hidden",
         background: "#0d0d0d",
         cursor: "pointer",
