@@ -4712,37 +4712,61 @@ const GLOBAL_CSS = `
     justify-content: center;
     position: relative;
     margin: 0 auto;
-    transition: height 0.35s ease, width 0.35s ease;
+    width: clamp(240px, 30vw, 320px);
+    height: 86px;
+    transition: height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    transform: translateZ(0);
+    backface-visibility: hidden;
   }
   .nav-logo-box.logo-top {
-    height: 96px;
-    width: 150px;
+    height: 86px;
   }
   .nav-logo-box.logo-scrolled {
-    height: 70px;
-    width: 320px;
+    height: 64px;
   }
 
   .nav-logo-vertical {
     position: absolute;
     top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: clamp(115px, 15vw, 145px);
+    transform: translate(-50%, -50%) scale(1);
+    width: clamp(110px, 15vw, 140px);
     height: auto;
-    max-height: 88px;
+    max-height: 80px;
     object-fit: contain;
     filter: brightness(0) invert(1);
-    transition: opacity 0.35s ease, transform 0.3s ease;
+    transition: opacity 0.45s cubic-bezier(0.25, 1, 0.5, 1), transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: opacity, transform;
+    pointer-events: none;
+  }
+  .nav-logo-box.logo-scrolled .nav-logo-vertical {
+    transform: translate(-50%, -50%) scale(0.92);
+    opacity: 0 !important;
+  }
+  .nav-logo-box.logo-top .nav-logo-vertical {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1 !important;
+    pointer-events: auto;
   }
   .nav-logo-horizontal {
     position: absolute;
     top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: clamp(220px, 28vw, 315px);
+    transform: translate(-50%, -50%) scale(0.94);
+    width: clamp(210px, 28vw, 290px);
     height: auto;
-    max-height: 70px;
+    max-height: 62px;
     object-fit: contain;
-    transition: opacity 0.35s ease, transform 0.3s ease;
+    transition: opacity 0.45s cubic-bezier(0.25, 1, 0.5, 1), transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: opacity, transform;
+    pointer-events: none;
+  }
+  .nav-logo-box.logo-scrolled .nav-logo-horizontal {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1 !important;
+    pointer-events: auto;
+  }
+  .nav-logo-box.logo-top .nav-logo-horizontal {
+    transform: translate(-50%, -50%) scale(0.94);
+    opacity: 0 !important;
   }
 
   .nav-right-icons {
@@ -4762,13 +4786,15 @@ const GLOBAL_CSS = `
     .nav-header-grid.nav-scrolled {
       padding: 8px 0 6px !important;
     }
+    .nav-logo-box {
+      width: clamp(160px, 45vw, 210px) !important;
+      height: 70px !important;
+    }
     .nav-logo-box.logo-top {
-      height: 76px !important;
-      width: 120px !important;
+      height: 70px !important;
     }
     .nav-logo-box.logo-scrolled {
-      height: 54px !important;
-      width: clamp(150px, 45vw, 205px) !important;
+      height: 52px !important;
     }
     .nav-logo-vertical {
       width: clamp(95px, 25vw, 120px) !important;
@@ -4802,13 +4828,15 @@ const GLOBAL_CSS = `
     .nav-header-grid.nav-scrolled {
       padding: 6px 0 !important;
     }
+    .nav-logo-box {
+      width: clamp(140px, 44vw, 185px) !important;
+      height: 60px !important;
+    }
     .nav-logo-box.logo-top {
-      height: 68px !important;
-      width: 105px !important;
+      height: 60px !important;
     }
     .nav-logo-box.logo-scrolled {
-      height: 48px !important;
-      width: clamp(130px, 42vw, 175px) !important;
+      height: 46px !important;
     }
     .nav-logo-vertical {
       width: clamp(88px, 23vw, 105px) !important;
@@ -8291,8 +8319,16 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const y = window.scrollY || 0;
+          setIsScrolled(prev => prev ? y > 60 : y > 90);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
