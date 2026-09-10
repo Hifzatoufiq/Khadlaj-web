@@ -4554,7 +4554,7 @@ const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/",
   tiktok: "https://www.tiktok.com/@khadlaj.uk",
 };
-const CATEGORIES = ["Best Sellers","New","For Him","For Her","Unisex","Perfume Oils","EAU DE PARFUM","Master Perfumery"];
+const CATEGORIES = ["Best Sellers","New","Deals","For Him","For Her","Unisex","Perfume Oils","EAU DE PARFUM","Master Perfumery"];
 
 /* ═══════════════════════════════════════════════════════════════
    GLOBAL CSS
@@ -4646,6 +4646,240 @@ const GLOBAL_CSS = `
     -webkit-text-fill-color:transparent;
     background-clip:text;
     animation:shimmer 3s linear infinite;
+  }
+
+  /* Hero Luxury Styles */
+  .hero-video-wrap {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 560px;
+    max-height: 960px;
+    overflow: hidden;
+    background: #080808;
+  }
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    display: block;
+    opacity: 1;
+  }
+  @media(max-width: 900px) {
+    .hero-video-wrap {
+      height: clamp(400px, 66vh, 580px) !important;
+      min-height: 400px !important;
+      max-height: 580px !important;
+    }
+    .hero-video {
+      object-fit: cover !important;
+      object-position: center center !important;
+    }
+  }
+  @media(max-width: 600px) {
+    .hero-video-wrap {
+      height: clamp(340px, 60vh, 480px) !important;
+      min-height: 340px !important;
+      max-height: 480px !important;
+    }
+  }
+
+  /* Responsive Navbar Elements */
+  .nav-header-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    min-height: auto;
+    gap: 24px;
+    transition: padding 0.35s ease;
+  }
+  .nav-header-grid.nav-top {
+    padding: 24px 0 16px;
+  }
+  .nav-header-grid.nav-scrolled {
+    padding: 12px 0 8px;
+  }
+
+  .nav-logo-box {
+    cursor: pointer;
+    text-align: center;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0 auto;
+    transition: height 0.35s ease, width 0.35s ease;
+  }
+  .nav-logo-box.logo-top {
+    height: 96px;
+    width: 150px;
+  }
+  .nav-logo-box.logo-scrolled {
+    height: 70px;
+    width: 320px;
+  }
+
+  .nav-logo-vertical {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(115px, 15vw, 145px);
+    height: auto;
+    max-height: 88px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    transition: opacity 0.35s ease, transform 0.3s ease;
+  }
+  .nav-logo-horizontal {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: clamp(220px, 28vw, 315px);
+    height: auto;
+    max-height: 70px;
+    object-fit: contain;
+    transition: opacity 0.35s ease, transform 0.3s ease;
+  }
+
+  .nav-right-icons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 24px;
+  }
+
+  @media(max-width: 900px) {
+    .nav-header-grid {
+      gap: 12px !important;
+    }
+    .nav-header-grid.nav-top {
+      padding: 14px 0 10px !important;
+    }
+    .nav-header-grid.nav-scrolled {
+      padding: 8px 0 6px !important;
+    }
+    .nav-logo-box.logo-top {
+      height: 76px !important;
+      width: 120px !important;
+    }
+    .nav-logo-box.logo-scrolled {
+      height: 54px !important;
+      width: clamp(150px, 45vw, 205px) !important;
+    }
+    .nav-logo-vertical {
+      width: clamp(95px, 25vw, 120px) !important;
+      max-height: 68px !important;
+    }
+    .nav-logo-horizontal {
+      width: clamp(140px, 44vw, 195px) !important;
+      max-height: 48px !important;
+    }
+    .nav-right-icons {
+      gap: 16px !important;
+    }
+    .mob-burger {
+      display: flex !important;
+    }
+    .hide-mob-divider {
+      display: none !important;
+    }
+    .nav-left-utility {
+      padding-left: 0 !important;
+    }
+  }
+
+  @media(max-width: 600px) {
+    .nav-header-grid {
+      gap: 8px !important;
+    }
+    .nav-header-grid.nav-top {
+      padding: 10px 0 8px !important;
+    }
+    .nav-header-grid.nav-scrolled {
+      padding: 6px 0 !important;
+    }
+    .nav-logo-box.logo-top {
+      height: 68px !important;
+      width: 105px !important;
+    }
+    .nav-logo-box.logo-scrolled {
+      height: 48px !important;
+      width: clamp(130px, 42vw, 175px) !important;
+    }
+    .nav-logo-vertical {
+      width: clamp(88px, 23vw, 105px) !important;
+      max-height: 60px !important;
+    }
+    .nav-logo-horizontal {
+      width: clamp(125px, 40vw, 165px) !important;
+      max-height: 42px !important;
+    }
+    .nav-right-icons {
+      gap: 12px !important;
+    }
+  }
+
+  /* Transparent Navbar Over Video */
+  .nav-transparent .nav-link {
+    color: #ffffff !important;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  }
+  .nav-transparent .nav-link:hover {
+    color: #B8922A !important;
+  }
+  .nav-transparent .nav-link.active {
+    color: #ffffff !important;
+  }
+  .nav-transparent .nav-link.active::after {
+    color: #B8922A !important;
+    opacity: 1 !important;
+  }
+  .hero-cta-btn-primary {
+    background: #B8922A;
+    color: #fff;
+    border: 1px solid #B8922A;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 14px 34px;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    box-shadow: 0 8px 24px rgba(184, 146, 42, 0.35);
+  }
+  .hero-cta-btn-primary:hover {
+    background: #fff;
+    color: #251737;
+    border-color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.25);
+  }
+  .hero-cta-btn-secondary {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 14px 34px;
+    cursor: pointer;
+    transition: all 0.35s ease;
+  }
+  .hero-cta-btn-secondary:hover {
+    background: #fff;
+    color: #251737;
+    border-color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.25);
   }
 
   /* Navbar Link Hover Effect */
@@ -4895,7 +5129,7 @@ const GLOBAL_CSS = `
     .hero-split{grid-template-columns:1fr!important;}
     .hero-img-wrap{height:320px!important;min-height:unset!important;}
     .grid-2{grid-template-columns:1fr!important;}
-    .hero-section { padding: 28px 5% 24px !important; }
+    .hero-section { padding: 0 !important; }
     .hero-layout { grid-template-columns:1fr !important; gap: 28px !important; }
     .hero-copy { padding: 0 !important; }
     .hero-visual { min-height: 420px !important; order:-1; }
@@ -4915,7 +5149,7 @@ const GLOBAL_CSS = `
     .grid-2{grid-template-columns:1fr!important;}
     .new-scroll > div{flex:0 0 78vw!important;}
     .reel-card{flex:0 0 88vw!important;}
-    .hero-section { padding: 24px 5% 20px !important; }
+    .hero-section { padding: 0 !important; }
     .hero-layout { gap: 22px !important; }
     .hero-visual { min-height: 330px !important; }
     .hero-headline { font-size: 30px !important; line-height: 1.15 !important; margin-bottom: 10px !important; }
@@ -5895,7 +6129,20 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
 ═══════════════════════════════════════════════════════════════ */
 function HomePage({ setPage, addToCart, setViewProduct }){
   const [activeCat, setActiveCat] = useState("Best Sellers");
+  const [isMuted, setIsMuted] = useState(true);
+  const heroVideoRef = useRef(null);
   const [hov, setHov] = useState(null);
+
+  const toggleSound = () => {
+    if (heroVideoRef.current) {
+      const next = !isMuted;
+      heroVideoRef.current.muted = next;
+      setIsMuted(next);
+      if (!next) {
+        heroVideoRef.current.play().catch(() => {});
+      }
+    }
+  };
   const [quizStep, setQuizStep] = useState(1);
   const [quizMood, setQuizMood] = useState("");
   const [quizOccasion, setQuizOccasion] = useState("");
@@ -5936,18 +6183,60 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
   return (
     <>
-      {/* ── HERO VIDEO ── */}
-      <section className="hero-section" style={{position:"relative",width:"100%",aspectRatio:"16/9",overflow:"hidden",background:"#0a0a0a"}}>
+      {/* ── LUXURY CINEMATIC HERO VIDEO ── */}
+      <section className="hero-video-wrap hero-section">
         <video
+          ref={heroVideoRef}
           className="hero-video"
           src={window.__VIDEO_URL__ || "./assets/videos/website-update-web-version.mp4"}
-          autoPlay muted loop playsInline preload="auto"
+          autoPlay
+          muted={isMuted}
+          loop
+          playsInline
+          preload="auto"
           onCanPlay={() => window.hidePreloader && window.hidePreloader()}
           onLoadedData={() => window.hidePreloader && window.hidePreloader()}
-          style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",display:"block",opacity:.8}}
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition: "center center",
+            display: "block",
+            opacity: 1,
+          }}
         />
-        <div style={{position:"absolute",inset:0,background:"linear-gradient(to bottom,rgba(8,8,8,.04) 0%,rgba(8,8,8,.18) 35%,rgba(8,8,8,.52) 100%)",pointerEvents:"none"}} />
-        <div style={{position:"absolute",inset:0,background:"linear-gradient(90deg,rgba(0,0,0,.28) 0%,rgba(0,0,0,.05) 50%,rgba(0,0,0,.22) 100%)",pointerEvents:"none"}} />
+
+        {/* Subtle top shade for seamless navbar transition */}
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: "120px",
+            background: "linear-gradient(to bottom, rgba(37,23,55,0.38) 0%, rgba(0,0,0,0) 100%)",
+            pointerEvents: "none",
+            zIndex: 2,
+          }}
+        />
+
+        {/* Subtle bottom fade to blend smoothly into the scent ribbon */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: "70px",
+            background: "linear-gradient(to top, rgba(37,23,55,0.45) 0%, rgba(0,0,0,0) 100%)",
+            pointerEvents: "none",
+            zIndex: 2,
+          }}
+        />
+
+
       </section>
 
       {/* ── SCENT RIBBON ── */}
@@ -5963,10 +6252,8 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       </div>
 
       {/* ── 25TH ANNIVERSARY COLLECTION ── */}
-      {/* ── 25TH ANNIVERSARY COLLECTION ── */}
       <section className="khadlaj25-section">
         <div className="k25-header">
-          <span style={{fontSize: 11, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontWeight: 600, display: "block", marginBottom: 16}}>The Masterpiece</span>
           <h2 style={{fontFamily: "'Playfair Display', serif", fontSize: 46, color: "#251737", margin: 0, fontWeight: 500}}>Shiyaaka Collection</h2>
           <p style={{fontFamily: "'Montserrat', sans-serif", fontSize: 15, color: "#555", maxWidth: 640, margin: "20px auto 0", lineHeight: 1.6}}>
             Experience the essence of modern sophistication. A definitive collection curated for elegance and timeless charm.
@@ -6454,6 +6741,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
     if(activeCat==="Khadlaj") return p.col !== "Lafede";
     if(activeCat==="Best Sellers") return isKhadlajProduct && p.badge==="Best Seller";
     if(activeCat==="New") return isKhadlajProduct && p.badge==="New";
+    if(activeCat==="Deals") return isKhadlajProduct && ((p.notes||[]).some(n => n.toLowerCase().includes("deal")) || p.badge==="Limited" || p.price <= 75);
     if(activeCat==="For Him") return isKhadlajProduct && p.gender==="Him";
     if(activeCat==="For Her") return isKhadlajProduct && p.gender==="Her";
     if(activeCat==="Unisex") return isKhadlajProduct && p.gender==="Unisex";
@@ -6569,6 +6857,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
                   if(c==="Khadlaj") return isKhadlajProduct;
                   if(c==="Best Sellers") return isKhadlajProduct && p.badge==="Best Seller";
                   if(c==="New") return isKhadlajProduct && p.badge==="New";
+                  if(c==="Deals") return isKhadlajProduct && ((p.notes||[]).some(n => n.toLowerCase().includes("deal")) || p.badge==="Limited" || p.price <= 75);
                   if(c==="For Him") return isKhadlajProduct && p.gender==="Him";
                   if(c==="For Her") return isKhadlajProduct && p.gender==="Her";
                   if(c==="Unisex") return isKhadlajProduct && p.gender==="Unisex";
@@ -7999,6 +8288,19 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 40);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [page]);
+
+  const isHome = page === "main" || page === "home";
+  const isTransparent = isHome && !isScrolled;
 
   const handleSearch = (q) => {
     setSearchQuery(q);
@@ -8074,14 +8376,26 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
         </div>
       )}
 
-      {/* ── Sticky Header Wrapper ── */}
-      <div style={{position:"sticky",top:0,zIndex:100}}>
-        {/* ── Announcement bar with social icons ── */}
+      {/* ── Sticky / Fixed Header Wrapper ── */}
+      <div style={{
+        position: isHome ? "fixed" : "sticky",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 100,
+        transition: "all 0.35s ease",
+      }}>
+        {/* ── Announcement bar with social icons (Always stuck at top) ── */}
         <div style={{
-          background:"#251737", color:"#fff",
-          padding:"9px 5%",
-          display:"flex", alignItems:"center", justifyContent:"space-between",
-          position:"relative", gap:8,
+          background: "#251737",
+          color: "#fff",
+          padding: "7px 5%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          position: "relative",
+          gap: 8,
+          zIndex: 101,
         }}>
           {/* Left spacer — desktop only */}
           <div className="hide-mob" style={{width:160, flexShrink:0}} />
@@ -8122,25 +8436,47 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
         </div>
 
         {/* ── Main nav ── */}
-        <nav style={{background:"rgba(255,255,255,0.85)",backdropFilter:"blur(16px)",WebkitBackdropFilter:"blur(16px)",boxShadow:"0 4px 30px rgba(0,0,0,0.03)",borderBottom:"1px solid rgba(232,228,220,0.5)",transition:"all 0.3s"}}>
+        <nav style={{
+          background: isTransparent 
+            ? "linear-gradient(to bottom, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.3) 65%, rgba(0,0,0,0) 100%)" 
+            : "rgba(255,255,255,0.94)",
+          backdropFilter: isTransparent ? "none" : "blur(16px)",
+          WebkitBackdropFilter: isTransparent ? "none" : "blur(16px)",
+          boxShadow: isTransparent ? "none" : "0 4px 24px rgba(0,0,0,0.05)",
+          borderBottom: isTransparent ? "none" : "1px solid rgba(232,228,220,0.5)",
+          transition: "background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease",
+        }}>
         <div style={{padding:"0 5%"}}>
-          <div style={{display:"grid",gridTemplateColumns:"1fr auto 1fr",alignItems:"center",minHeight:"auto",padding:"16px 0",gap:24}}>
+          <div className={`nav-header-grid ${isTransparent ? 'nav-top' : 'nav-scrolled'}`}>
             {/* Left utility */}
-            <div style={{display:"flex",gap:12,alignItems:"center",paddingLeft:"20px"}}>
+            <div className="nav-left-utility" style={{display:"flex",gap:12,alignItems:"center",paddingLeft:"20px"}}>
               <span className="mob-search-left" style={{cursor:"pointer",display:"flex",alignItems:"center"}} onClick={()=>setSearchOpen(true)}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "#111"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               </span>
               <div className="hide-mob country-dropdown">
                 <CountryContext.Consumer>
                   {({ activeCountry, setActiveCountry }) => (
                     <>
-                      <div style={{display:"flex",alignItems:"center",gap:10,padding:"10px 18px",border:"1px solid #E8E4DC",borderRadius:4,background:"#FAF9F6",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontSize:14,fontWeight:600,color:"#251737"}}>
+                      <div style={{
+                        display:"flex",alignItems:"center",gap:10,
+                        padding: isTransparent ? "8px 16px" : "6px 14px",
+                        border: isTransparent ? "1px solid rgba(255,255,255,0.3)" : "1px solid #E8E4DC",
+                        borderRadius:4,
+                        background: isTransparent ? "rgba(255,255,255,0.12)" : "#FAF9F6",
+                        backdropFilter: isTransparent ? "blur(8px)" : "none",
+                        cursor:"pointer",
+                        fontFamily:"'Montserrat',sans-serif",
+                        fontSize:13,
+                        fontWeight:600,
+                        color: isTransparent ? "#fff" : "#251737",
+                        transition: "all 0.35s ease",
+                      }}>
                         {activeCountry.flagUrl === "global"
-                          ? <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                          : <img decoding="async" src={activeCountry.flagUrl} alt={activeCountry.name} style={{width:24,height:17,objectFit:"cover",borderRadius:2,display:"block"}} />
+                          ? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                          : <img decoding="async" src={activeCountry.flagUrl} alt={activeCountry.name} style={{width:22,height:15,objectFit:"cover",borderRadius:2,display:"block"}} />
                         }
                         {activeCountry.name}
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginLeft:"6px"}}><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "currentColor"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginLeft:"6px"}}><polyline points="6 9 12 15 18 9"></polyline></svg>
                       </div>
                       <div className="country-dropdown-menu">
                         {COUNTRIES.map(c => {
@@ -8180,28 +8516,57 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                 </CountryContext.Consumer>
               </div>
             </div>
-            {/* Logo */}
-            <div onClick={()=>setPage("main")} style={{cursor:"pointer",textAlign:"center",userSelect:"none",display:"flex",alignItems:"center",justifyContent:"center"}}>
+
+            {/* Logo: Stacked vertical logo at top (white), horizontal compact logo when scrolled */}
+            <div onClick={()=>setPage("main")} className={`nav-logo-box ${isTransparent ? 'logo-top' : 'logo-scrolled'}`}>
+              {/* Stacked Vertical Logo (Top / Transparent mode) - Restored large size */}
               <img
                 src="/assets/images/purple-logo.png?v=2"
                 alt="Khadlaj Perfumes"
-                style={{width:"clamp(85px, 12vw, 120px)",height:"auto",objectFit:"contain",display:"block",transition:"transform 0.3s ease"}}
-                onMouseEnter={e=>e.currentTarget.style.transform="scale(1.02)"}
-                onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}
+                className="nav-logo-vertical"
+                style={{
+                  opacity: isTransparent ? 1 : 0,
+                  pointerEvents: isTransparent ? "auto" : "none",
+                }}
+              />
+
+              {/* Horizontal Logo (Scrolled mode) - Extra large & prominent */}
+              <img
+                src="/assets/images/khadlaj-horizontal-logo.png?v=3"
+                alt="Khadlaj Perfumes"
+                className="nav-logo-horizontal"
+                style={{
+                  opacity: isTransparent ? 0 : 1,
+                  pointerEvents: isTransparent ? "none" : "auto",
+                }}
               />
             </div>
+
             {/* Right icons */}
-            <div style={{display:"flex",alignItems:"center",justifyContent:"flex-end",gap:24}}>
-              <span className="hide-mob" style={{fontSize:"11px",letterSpacing:"2px",color:"#251737",textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:600,transition:"color .2s"}} onMouseEnter={e=>e.target.style.color="#B8922A"} onMouseLeave={e=>e.target.style.color="#251737"} onClick={()=>setPage("signup")}>Sign Up</span>
+            <div className="nav-right-icons">
+              <span className="hide-mob" style={{
+                fontSize:"11px",
+                letterSpacing:"2px",
+                color: isTransparent ? "#fff" : "#251737",
+                textTransform:"uppercase",
+                cursor:"pointer",
+                fontFamily:"'Montserrat',sans-serif",
+                fontWeight:600,
+                transition:"color .2s",
+                textShadow: isTransparent ? "0 2px 10px rgba(0,0,0,0.5)" : "none"
+              }} onMouseEnter={e=>e.target.style.color="#B8922A"} onMouseLeave={e=>e.target.style.color=isTransparent ? "#fff" : "#251737"} onClick={()=>setPage("signup")}>Sign Up</span>
+              
               <span className="hide-mob" style={{cursor:"pointer",display:"flex",alignItems:"center",transition:"transform .2s"}} onMouseEnter={e=>e.currentTarget.style.transform="scale(1.1)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"} onClick={()=>setSearchOpen(true)}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "#111"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{filter: isTransparent ? "drop-shadow(0 2px 6px rgba(0,0,0,0.5))" : "none"}}><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               </span>
+              
               <div onClick={()=>setPage("cart")} style={{position:"relative",cursor:"pointer",transition:"transform .2s ease"}} onMouseEnter={e=>e.currentTarget.style.transform="scale(1.1)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "#111"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{filter: isTransparent ? "drop-shadow(0 2px 6px rgba(0,0,0,0.5))" : "none"}}><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
                 {cartCount>0 && (
                   <span style={{position:"absolute",top:-5,right:-7,background:"#B8922A",color:"#fff",borderRadius:"50%",width:14,height:14,fontSize:8,display:"flex",alignItems:"center",justifyContent:"center",fontWeight:600,fontFamily:"'Montserrat',sans-serif"}}>{cartCount}</span>
                 )}
               </div>
+
               {/* Hamburger — mobile only */}
               <button
                 onClick={()=>setMobileMenuOpen(o=>!o)}
@@ -8209,40 +8574,87 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                 className="mob-burger"
                 aria-label="Menu"
               >
-                <span style={{display:"block",width:20,height:1.5,background:"#251737",transition:"all .25s"}}/>
-                <span style={{display:"block",width:20,height:1.5,background:"#251737",transition:"all .25s"}}/>
-                <span style={{display:"block",width:14,height:1.5,background:"#251737",transition:"all .25s"}}/>
+                <span style={{display:"block",width:20,height:1.5,background:isTransparent ? "#fff" : "#251737",transition:"all .25s"}}/>
+                <span style={{display:"block",width:20,height:1.5,background:isTransparent ? "#fff" : "#251737",transition:"all .25s"}}/>
+                <span style={{display:"block",width:14,height:1.5,background:isTransparent ? "#fff" : "#251737",transition:"all .25s"}}/>
               </button>
             </div>
           </div>
-          <div className="hide-mob" style={{display:"flex",justifyContent:"center",gap:40,paddingBottom:16,fontSize:"12px",letterSpacing:"1.5px",textTransform:"uppercase",color:"#251737",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>
-            {[["Home","main"],["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","collections"],["La Fede","lafede"],["Gift Sets","gifts"],["Our legacy","story"]].map(([label,pg])=>{
+
+          {/* Thin divider line (cleanly spaced so it never touches the logo) */}
+          <div className="hide-mob-divider" style={{
+            width: "100%",
+            height: 1,
+            background: isTransparent ? "rgba(255,255,255,0.22)" : "rgba(232,228,220,0.6)",
+            marginTop: isTransparent ? 6 : 2,
+            marginBottom: isTransparent ? 14 : 8,
+            transition: "all 0.35s ease"
+          }} />
+
+          {/* Desktop Nav Links */}
+          <div className={`hide-mob ${isTransparent ? 'nav-transparent' : ''}`} style={{
+            display:"flex",
+            justifyContent:"center",
+            gap: "clamp(16px, 2.2vw, 32px)",
+            paddingBottom: isTransparent ? 16 : 10,
+            fontSize:"12px",
+            letterSpacing:"1.5px",
+            textTransform:"uppercase",
+            color: isTransparent ? "#fff" : "#251737",
+            fontFamily:"'Montserrat',sans-serif",
+            fontWeight:600,
+            transition:"color 0.35s ease, padding-bottom 0.35s ease"
+          }}>
+            {[
+              { label: "Home", pg: "main" },
+              { label: "Best Sellers", pg: "collections", cat: "Best Sellers" },
+              { label: "Perfume Spray", pg: "collections", cat: "EAU DE PARFUM" },
+              { label: "Perfume Oil", pg: "collections", cat: "Perfume Oils" },
+              { label: "Home & Ambience", pg: "collections", cat: "New" },
+              { label: "Gift Sets", pg: "gifts" },
+              { label: "Deals", pg: "collections", cat: "Deals", badge: "NEW" },
+              { label: "La Fede", pg: "lafede" },
+              { label: "Our legacy", pg: "story" }
+            ].map(({ label, pg, cat, badge })=>{
               let isActive = false;
               if (page === pg) {
                 if (pg === "collections") {
-                  if (label === "Best Sellers") isActive = (collectionCategory === "Best Sellers");
-                  else if (label === "Perfume Spray") isActive = (collectionCategory === "EAU DE PARFUM");
-                  else if (label === "Perfume Oil") isActive = (collectionCategory === "Perfume Oils");
-                  else if (label === "Home & Ambience") isActive = (collectionCategory === "New");
+                  isActive = (collectionCategory === cat);
                 } else {
                   isActive = true;
                 }
               }
               return (
                 <span key={label} onClick={() => {
-                  if(label === "Best Sellers" || label === "Perfume Spray" || label === "Perfume Oil" || label === "Master Perfumery" || label === "Home & Ambience") {
-                    setCollectionCategory(
-                      label === "Perfume Spray" ? "EAU DE PARFUM" : 
-                      label === "Perfume Oil" ? "Perfume Oils" : 
-                      label === "Home & Ambience" ? "New" : 
-                      label
-                    );
+                  if(cat) {
+                    setCollectionCategory(cat);
                   } else if (pg === "collections") {
                     setCollectionCategory("Khadlaj");
                   }
                   setPage(pg);
                   window.scrollTo(0,0);
-                }} className={`nav-link ${isActive ? 'active' : ''}`}>
+                }} className={`nav-link ${isActive ? 'active' : ''}`} style={{position:"relative"}}>
+                  {badge && (
+                    <span style={{
+                      position: "absolute",
+                      top: -11,
+                      left: "50%",
+                      transform: "translateX(-50%)",
+                      background: isTransparent ? "rgba(255,255,255,0.92)" : "#B8922A",
+                      color: isTransparent ? "#251737" : "#fff",
+                      fontSize: "7.5px",
+                      padding: "1px 5px",
+                      borderRadius: "2px",
+                      fontWeight: 700,
+                      letterSpacing: "0.8px",
+                      lineHeight: "1.1",
+                      boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
+                      pointerEvents: "none",
+                      transition: "all 0.35s ease"
+                    }}>
+                      {badge}
+                    </span>
+                  )}
                   {label}
                 </span>
               );
@@ -8260,14 +8672,22 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
             zIndex:200,
             boxShadow:"0 8px 32px rgba(0,0,0,.12)",
           }}>
-            {[["Home","main"],["Best Sellers","collections"],["Perfume Spray","collections"],["Perfume Oil","collections"],["Home & Ambience","collections"],["La Fede","lafede"],["Gift Sets","gifts"],["Our legacy","story"],["Sign Up","signup"]].map(([label,pg])=>{
+            {[
+              { label: "Home", pg: "main" },
+              { label: "Best Sellers", pg: "collections", cat: "Best Sellers" },
+              { label: "Perfume Spray", pg: "collections", cat: "EAU DE PARFUM" },
+              { label: "Perfume Oil", pg: "collections", cat: "Perfume Oils" },
+              { label: "Home & Ambience", pg: "collections", cat: "New" },
+              { label: "Gift Sets", pg: "gifts" },
+              { label: "Deals", pg: "collections", cat: "Deals", badge: "NEW" },
+              { label: "La Fede", pg: "lafede" },
+              { label: "Our legacy", pg: "story" },
+              { label: "Sign Up", pg: "signup" }
+            ].map(({ label, pg, cat, badge })=>{
               let isActive = false;
               if (page === pg) {
                 if (pg === "collections") {
-                  if (label === "Best Sellers") isActive = (collectionCategory === "Best Sellers");
-                  else if (label === "Perfume Spray") isActive = (collectionCategory === "EAU DE PARFUM");
-                  else if (label === "Perfume Oil") isActive = (collectionCategory === "Perfume Oils");
-                  else if (label === "Home & Ambience") isActive = (collectionCategory === "New");
+                  isActive = (collectionCategory === cat);
                 } else {
                   isActive = true;
                 }
@@ -8277,13 +8697,8 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                 key={label}
                 className="mob-nav-link"
                 onClick={()=>{
-                  if(label === "Best Sellers" || label === "Perfume Spray" || label === "Perfume Oil" || label === "Master Perfumery" || label === "Home & Ambience") {
-                    setCollectionCategory(
-                      label === "Perfume Spray" ? "EAU DE PARFUM" : 
-                      label === "Perfume Oil" ? "Perfume Oils" : 
-                      label === "Home & Ambience" ? "New" : 
-                      label
-                    );
+                  if(cat) {
+                    setCollectionCategory(cat);
                   } else if (pg === "collections") {
                     setCollectionCategory("Khadlaj");
                   }
@@ -8303,7 +8718,22 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                   display:"flex",alignItems:"center",justifyContent:"space-between",
                 }}
               >
-                {label}
+                <span style={{display:"flex",alignItems:"center",gap:8}}>
+                  {label}
+                  {badge && (
+                    <span style={{
+                      background: "#B8922A",
+                      color: "#fff",
+                      fontSize: "8px",
+                      padding: "2px 6px",
+                      borderRadius: "3px",
+                      fontWeight: 700,
+                      letterSpacing: "0.8px"
+                    }}>
+                      {badge}
+                    </span>
+                  )}
+                </span>
                 <span style={{color:isActive ? "#B8922A" : "rgba(37,23,55,0.4)",fontSize:12}}>→</span>
               </div>
             )})}
