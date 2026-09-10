@@ -79,43 +79,55 @@ const STATS = [
 const PRODUCTS = [
   {
     "id": 9200000000010,
-    "name": "ISLAND SUN",
+    "name": "EIESELEAENEDE ESEUENE",
     "col": "Extrait De Parfum",
     "price": 165,
     "size": "100 ML",
     "badge": "New",
     "gender": "Unisex",
-    "notes": ["Mango", "Coconut", "Lime"],
+    "notes": [
+      "Mango",
+      "Coconut",
+      "Lime"
+    ],
     "img": "/assets/images/products/island-sun-standard-transparent.png",
     "desc": [
       "Island Sun is a vibrant, sun-drenched escape in a bottle, designed to capture the essence of a tropical paradise where the golden sun warms the skin and a gentle breeze carries the scent of exotic fruits.",
       "The fragrance opens with a succulent burst of juicy mango, creamy coconut, and zesty lime and lemon, instantly transporting you to an island oasis. The heart reveals a sophisticated blend of pink pepper, jasmine, and orange blossom, adding a subtle floral elegance and a touch of modern spicy sparkle.",
       "As the scent dries down, a smooth, warm base of musk, rich tonka bean, and precious woods leaves a lasting, sensual trail that lingers beautifully.",
       "<strong>Fragrance Family:</strong> Tropical Fruity Woody",
-      "<strong>Olfactory Profile:</strong> Vibrant • Tropical • Warm • Sensual",
+      "<strong>Olfactory Profile:</strong> Vibrant \u00e2\u20ac\u00a2 Tropical \u00e2\u20ac\u00a2 Warm \u00e2\u20ac\u00a2 Sensual",
       "Island Sun captures the ultimate warmth of a tropical getaway, offering an uplifting and sophisticated scent experience for both men and women."
     ]
   },
   {
     "id": 8199234977991,
-    "name": "ISLAND",
+    "name": "EIESELEAENEDE",
     "col": "Extrait De Parfum",
-    "price": 150,
+    "price": 125.0,
     "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
-    "notes": ["Citrus", "Marine", "Amber"],
+    "notes": [
+      "Citrus",
+      "Marine",
+      "Amber"
+    ],
     "img": "/assets/images/products/island-standard-transparent.png"
   },
   {
     "id": 8459140759751,
-    "name": "ISLAND DREAMS",
+    "name": "EIESELEAENEDE EDEREEEAEMESE",
     "col": "Extrait De Parfum",
     "price": 125,
     "size": "100 ML",
     "badge": "New",
     "gender": "Unisex",
-    "notes": ["Bergamot", "Grapefruit", "Ambroxan"],
+    "notes": [
+      "Bergamot",
+      "Grapefruit",
+      "Ambroxan"
+    ],
     "img": "/assets/images/products/island-dreams-standard-transparent.png",
     "detailImages": [
       "/assets/images/products/island-dreams-standard-transparent.png",
@@ -129,49 +141,60 @@ const PRODUCTS = [
       "It opens with the sparkling brightness of bergamot and the spicy warmth of ginger, instantly awakening your senses like a refreshing island breeze. The vibrant grapefruit accord at its heart adds a juicy, sun-kissed energy that feels both invigorating and uplifting.",
       "As the scent settles, the elegant depth of ambroxan intertwines with the smooth sensuality of musk, creating a warm and addictive embrace that lingers like the memory of a perfect getaway. Each spray is a reminder of white sandy beaches, gentle waves, and the carefree spirit of island life.",
       "<strong>Fragrance Family:</strong> Fresh Citrus Woody",
-      "<strong>Olfactory Profile:</strong> Sparkling • Marine • Warm • Sensual",
-      "Khadlaj Island Dreams isn't just a fragrance — it's a ticket to your own private paradise, bottled for you to carry anywhere."
+      "<strong>Olfactory Profile:</strong> Sparkling \u00e2\u20ac\u00a2 Marine \u00e2\u20ac\u00a2 Warm \u00e2\u20ac\u00a2 Sensual",
+      "Khadlaj Island Dreams isn't just a fragrance \u00e2\u20ac\u201d it's a ticket to your own private paradise, bottled for you to carry anywhere."
     ]
   },
-
   {
     "id": 8561163075783,
-    "name": "SAWAAR VANILLE BLANC",
+    "name": "ESEAEWEAEAERE EVEAENEIELELEEE EBELEAENECE",
     "col": "Extrait De Parfum",
-    "price": 200,
-    "size": "100ml EDP",
+    "price": 130.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Her",
-    "notes": ["Oud", "Musk", "Amber"],
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
     "img": "/assets/images/products/sawaar-cutout.png"
   },
   {
     "id": 8409302073543,
-    "name": "SHIYAAKA SHADOW",
+    "name": "ESEHEIEYEAEAEKEAE ESEHEAEDEOEWE",
     "col": "Eau De Parfum",
-    "price": 126,
-    "size": "100ml EDP",
+    "price": 100.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Him",
-    "notes": ["Oud", "Musk", "Amber"],
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
     "img": "/assets/images/products/shiyaaka-shadow-cutout.png"
   },
   {
     "id": 9100000000003,
-    "name": "SHIYAAKA SNOW",
+    "name": "ESEHEIEYEAEAEKEAE ESENEOEWE",
     "col": "Eau De Parfum",
-    "price": 150,
+    "price": 100.0,
     "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
-    "notes": ["Fresh Citrus", "Sky Breeze", "Cedarwood"],
+    "notes": [
+      "Fresh Citrus",
+      "Sky Breeze",
+      "Cedarwood"
+    ],
     "img": "/assets/images/products/shiyaaka-snow-cutout.png"
   },
   {
     "id": 8354691940551,
-    "name": "ISLAND VANILLA DUNES",
+    "name": "EIESELEAENEDE EVEAENEIELELEAE EDEUENEEESE",
     "col": "Extrait De Parfum",
-    "price": 150,
+    "price": 125.0,
     "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
@@ -184,13 +207,17 @@ const PRODUCTS = [
   },
   {
     "id": 9200000000003,
-    "name": "SHIYAAKA SKY",
+    "name": "ESEHEIEYEAEAEKEAE ESEKEYE",
     "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100 ml",
+    "price": 120.0,
+    "size": "100 ML",
     "badge": "New",
     "gender": "Unisex",
-    "notes": ["Fresh Citrus", "Sky Breeze", "Cedarwood"],
+    "notes": [
+      "Fresh Citrus",
+      "Sky Breeze",
+      "Cedarwood"
+    ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SPECIAL_EDITION_SHIYAAKA_SKY.png?v=1783938999",
     "detailImages": [
       "https://khadlaj-perfumes.com/cdn/shop/files/SPECIAL_EDITION_SHIYAAKA_SKY.png?v=1783938999",
@@ -204,27 +231,31 @@ const PRODUCTS = [
       "The fragrance opens with a vibrant burst of bergamot, mandarin, and verbena, creating a crisp and uplifting introduction that feels as refreshing as a clear summer sky. At its heart, a luminous blend of neroli, geranium, orange blossom, and green notes unfolds, bringing a clean floral character balanced by natural freshness and airy vitality.",
       "As the scent settles, ambroxan, vetiver, musk, and sandalwood create a smooth and sophisticated foundation. The result is a lasting trail that is clean, woody, and subtly sensual, leaving an unforgettable impression of understated luxury.",
       "<strong>Fragrance Family:</strong> Fresh Aromatic Woody",
-      "<strong>Olfactory Profile:</strong> Bright • Airy • Elegant • Modern",
-      "Shiyaaka Sky captures the feeling of limitless horizons and endless possibilities—a fragrance that embodies freshness elevated to a new level of sophistication."
+      "<strong>Olfactory Profile:</strong> Bright \u00e2\u20ac\u00a2 Airy \u00e2\u20ac\u00a2 Elegant \u00e2\u20ac\u00a2 Modern",
+      "Shiyaaka Sky captures the feeling of limitless horizons and endless possibilities\u00e2\u20ac\u201da fragrance that embodies freshness elevated to a new level of sophistication."
     ]
   },
   {
     "id": 9100000000001,
-    "name": "KARUS GOLD ABSOLU",
+    "name": "EKEAEREUESE EGEOELEDE EAEBESEOELEUE",
     "col": "Eau De Parfum",
     "price": 150,
     "size": "100 ML",
     "badge": "New",
     "gender": "Unisex",
-    "notes": ["Gold Oud", "Royal Amber", "Velvet Musk"],
+    "notes": [
+      "Gold Oud",
+      "Royal Amber",
+      "Velvet Musk"
+    ],
     "img": "/assets/images/products/karus-gold-absolu.png?v=2"
   },
   {
     "id": 7554205647047,
-    "name": "SHIYAAKA BLUE",
+    "name": "ESEHEIEYEAEAEKEAE EBELEUEEE",
     "col": "Eau De Parfum",
-    "price": 65,
-    "size": "100 ml",
+    "price": 55.0,
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -236,10 +267,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205614279,
-    "name": "SHIYAAKA MEN",
+    "name": "ESEHEIEYEAEAEKEAE EMEEENE",
     "col": "Eau De Parfum",
     "price": 65,
-    "size": "100 ml",
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -251,10 +282,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205581511,
-    "name": "SHIYAAKA WHITE",
+    "name": "ESEHEIEYEAEAEKEAE EWEHEIETEEE",
     "col": "Eau De Parfum",
-    "price": 65,
-    "size": "100 ml",
+    "price": 55.0,
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -266,10 +297,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205548743,
-    "name": "SHIYAAKA GOLD",
+    "name": "ESEHEIEYEAEAEKEAE EGEOELEDE",
     "col": "Eau De Parfum",
-    "price": 65,
-    "size": "100 ml",
+    "price": 55.0,
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -279,89 +310,115 @@ const PRODUCTS = [
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.Gold.1.jpg?v=2"
   },
-
   {
     "id": 9100000000002,
-    "name": "SARAYA",
+    "name": "ESEAEREAEYEAE",
     "col": "Extrait De Parfum",
-    "price": 105,
+    "price": 95.0,
     "size": "60 ML",
     "badge": "",
     "gender": "Unisex",
-    "notes": ["Precious Oud", "Saffron", "Rose"],
+    "notes": [
+      "Precious Oud",
+      "Saffron",
+      "Rose"
+    ],
     "img": "/assets/images/products/saraya-cutout.png"
   },
-  
   {
     "id": 9100000000004,
-    "name": "ZAYAAN SILVER",
+    "name": "EZEAEYEAEAENE ESEIELEVEEERE",
     "col": "Eau De Parfum",
-    "price": 150,
+    "price": 130.0,
     "size": "100 ML",
     "badge": "New",
     "gender": "Him",
-    "notes": ["Bergamot", "Silver Vetiver", "Ambroxan"],
+    "notes": [
+      "Bergamot",
+      "Silver Vetiver",
+      "Ambroxan"
+    ],
     "img": "/assets/images/products/zayaan-silver_transparent.png"
   },
   {
     "id": 9100000000005,
-    "name": "QARAR",
+    "name": "EQEAEREAERE",
     "col": "Extrait De Parfum",
-    "price": 130,
+    "price": 95.0,
     "size": "60 ML",
     "badge": "New",
     "gender": "Unisex",
-    "notes": ["Oud", "Musk", "Amber"],
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
     "img": "/assets/images/products/qarar-cutout.png"
   },
   {
     "id": 9100000000006,
-    "name": "IHTHIRAAM",
+    "name": "EIEHETEHEIEREAEAEME",
     "col": "Extrait De Parfum",
-    "price": 130,
+    "price": 95.0,
     "size": "60 ML",
     "badge": "New",
     "gender": "Unisex",
-    "notes": ["Precious Wood", "Saffron", "Amber"],
+    "notes": [
+      "Precious Wood",
+      "Saffron",
+      "Amber"
+    ],
     "img": "/assets/images/products/ihthiraam-cutout.png"
   },
   {
     "id": 9100000000007,
-    "name": "ICON",
+    "name": "EIECEOENE",
     "col": "Eau De Parfum",
-    "price": 130,
+    "price": 100.0,
     "size": "100 ML",
     "badge": "New",
     "gender": "Him",
-    "notes": ["Bergamot", "Cardamom", "Cedar"],
+    "notes": [
+      "Bergamot",
+      "Cardamom",
+      "Cedar"
+    ],
     "img": "/assets/images/products/icon-cutout.png"
   },
   {
     "id": 9100000000008,
-    "name": "PANACHE ANGEL DUST",
+    "name": "EPEAENEAECEHEEE EAENEGEEELE EDEUESETE",
     "col": "Extrait De Parfum",
-    "price": 200,
-    "size": "100 ML",
+    "price": 125.0,
+    "size": "Gift Set",
     "badge": "New",
     "gender": "Her",
-    "notes": ["Creamy Vanilla", "White Floral", "Musk"],
+    "notes": [
+      "Creamy Vanilla",
+      "White Floral",
+      "Musk"
+    ],
     "img": "/assets/images/products/panache-cutout.png"
   },
-
   {
     "id": 8526052262087,
-    "name": "OUD JUMEIRAH",
+    "name": "EOEUEDE EJEUEMEEEIEREAEHE",
     "col": "Master Perfumery",
-    "price": 200.0,
-    "size": "60ml EDP",
+    "price": 150.0,
+    "size": "60 ML",
     "badge": "",
     "gender": "Unisex",
-    "notes": ["Oud", "Woody", "Amber"],
+    "notes": [
+      "Oud",
+      "Woody",
+      "Amber"
+    ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Jumeirah-3.jpg?v=1783940923"
-  },{
+  },
+  {
     "id": "8711666925767",
-    "name": "CREAM VELVET GIFT SET",
-    "price": 160.0,
+    "name": "ECEREEEAEME EVEEELEVEEETE EGEIEFETE ESEEETE",
+    "price": 160,
     "size": "Gift Set",
     "badge": "",
     "col": "Gift Sets",
@@ -369,29 +426,41 @@ const PRODUCTS = [
     "topNotes": [],
     "midNotes": [],
     "baseNotes": [],
-    "notes": ["Oud", "Musk", "Amber"],
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
     "img": "/assets/images/gifsets/cream_velvet_nobox.png",
-    "detailImages": ["/assets/images/gifsets/cream_velvet_nobox.png"]
+    "detailImages": [
+      "/assets/images/gifsets/cream_velvet_nobox.png"
+    ]
   },
   {
     "id": "8674591408327",
-    "name": "THE GOURMAND COLLECTION BY KHADLAJ DISCOVERY SET FOR WOMEN",
-    "price": 125.0,
-    "size": "Gift Set",
+    "name": "ETEHEEE EGEOEUEREMEAENEDE ECEOELELEEECETEIEOENE EBEYE EKEHEAEDELEAEJE EDEIESECEOEVEEEREYE ESEEETE EFEOERE EWEOEMEEENE",
+    "price": 115.0,
+    "size": "100 ML",
     "badge": "Sold Out",
     "col": "Gift Sets",
     "gender": "Unisex",
     "topNotes": [],
     "midNotes": [],
     "baseNotes": [],
-    "notes": ["Oud", "Musk", "Amber"],
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
     "img": "/assets/images/gifsets/gourmand_nobox.png",
-    "detailImages": ["/assets/images/gifsets/gourmand_nobox.png"]
+    "detailImages": [
+      "/assets/images/gifsets/gourmand_nobox.png"
+    ]
   },
   {
     "id": "8586765697223",
-    "name": "CLOUD CANDY GIFT SET",
-    "price": 169.0,
+    "name": "ECELEOEUEDE ECEAENEDEYE EGEIEFETE ESEEETE",
+    "price": 169,
     "size": "Gift Set",
     "badge": "",
     "col": "Gift Sets",
@@ -399,14 +468,20 @@ const PRODUCTS = [
     "topNotes": [],
     "midNotes": [],
     "baseNotes": [],
-    "notes": ["Oud", "Musk", "Amber"],
+    "notes": [
+      "Oud",
+      "Musk",
+      "Amber"
+    ],
     "img": "/assets/images/gifsets/cloud_candy_nobox.png",
-    "detailImages": ["/assets/images/gifsets/cloud_candy_nobox.png"]
+    "detailImages": [
+      "/assets/images/gifsets/cloud_candy_nobox.png"
+    ]
   },
   {
     "id": "8586762813639",
-    "name": "ISLAND GIFT SET FOR HIM & HER",
-    "price": 179.0,
+    "name": "EIESELEAENEDE EGEIEFETE ESEEETE EFEOERE EHEIEME E&E EHEEERE",
+    "price": 179,
     "size": "Gift Set",
     "badge": "",
     "col": "Gift Sets",
@@ -414,16 +489,22 @@ const PRODUCTS = [
     "topNotes": [],
     "midNotes": [],
     "baseNotes": [],
-    "notes": ["Island Sun", "Island Classic", "Gift Set"],
+    "notes": [
+      "Island Sun",
+      "Island Classic",
+      "Gift Set"
+    ],
     "img": "/assets/images/products/island-gift-standard-transparent.png",
-    "detailImages": ["/assets/images/products/island-gift-standard-transparent.png"]
+    "detailImages": [
+      "/assets/images/products/island-gift-standard-transparent.png"
+    ]
   },
   {
     "id": 8783764291783,
-    "name": "OUD MUATTAR MUBAKHAR",
+    "name": "EOEUEDE EMEUEAETETEAERE EMEUEBEAEKEHEAERE",
     "col": "Bakhoor",
-    "price": 65,
-    "size": "100ml EDP",
+    "price": 150.0,
+    "size": "60 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -435,10 +516,10 @@ const PRODUCTS = [
   },
   {
     "id": 8730021134535,
-    "name": "LA FEDE AURA VANILLA MILK",
+    "name": "ELEAE EFEEEDEEE EAEUEREAE EVEAENEIELELEAE EMEIELEKE",
     "col": "Lafede",
     "price": 55,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -450,10 +531,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554136703175,
-    "name": "DEHNAL OUDH COMBODI",
+    "name": "EDEEEHENEAELE EOEUEDEHE ECEOEMEBEOEDEIE",
     "col": "Dehn Al Oudh",
     "price": 65,
-    "size": "3ml",
+    "size": "3 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -463,13 +544,12 @@ const PRODUCTS = [
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/DEHNAL_OUDH_COMBODI_3ML_-_Khadlaj_Perfumes-1964319.jpg"
   },
-
   {
     "id": 8637240934599,
-    "name": "LA FEDE INTOXICATE MYSTIQUE",
+    "name": "ELEAE EFEEEDEEE EIENETEOEXEIECEAETEEE EMEYESETEIEQEUEEE",
     "col": "Lafede",
-    "price": 150,
-    "size": "100ml EDP",
+    "price": 130.0,
+    "size": "Gift Set",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -481,10 +561,10 @@ const PRODUCTS = [
   },
   {
     "id": 8633008914631,
-    "name": "OUD MUATTAR OUD AL RAWDA",
+    "name": "EOEUEDE EMEUEAETETEAERE EOEUEDE EAELE EREAEWEDEAE",
     "col": "Bakhoor",
     "price": 35,
-    "size": "100ml EDP",
+    "size": "40 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -496,10 +576,10 @@ const PRODUCTS = [
   },
   {
     "id": 8604851437767,
-    "name": "ONYX SILVER",
+    "name": "EOENEYEXE ESEIELEVEEERE",
     "col": "Eau De Parfum",
-    "price": 125,
-    "size": "100ml EDP",
+    "price": 100.0,
+    "size": "100 ML",
     "badge": "New",
     "gender": "Unisex",
     "notes": [
@@ -511,10 +591,10 @@ const PRODUCTS = [
   },
   {
     "id": 8597262368967,
-    "name": "NUHA BON BON",
+    "name": "ENEUEHEAE EBEOENE EBEOENE",
     "col": "Eau De Parfum",
-    "price": 85,
-    "size": "100ml EDP",
+    "price": 65.0,
+    "size": "85 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -526,10 +606,10 @@ const PRODUCTS = [
   },
   {
     "id": 8561538171079,
-    "name": "STRAWBERRY SHAKE",
+    "name": "ESETEREAEWEBEEEREREYE ESEHEAEKEEE",
     "col": "Eau De Parfum",
-    "price": 130,
-    "size": "100ml EDP",
+    "price": 100.0,
+    "size": "Gift Set",
     "badge": "",
     "gender": "Her",
     "notes": [
@@ -539,13 +619,12 @@ const PRODUCTS = [
     ],
     "img": "/assets/images/products/strawberry-shake.png"
   },
-
   {
     "id": 8540408479943,
-    "name": "ONYX GOLD",
+    "name": "EOENEYEXE EGEOELEDE",
     "col": "Eau De Parfum",
-    "price": 125,
-    "size": "100ml EDP",
+    "price": 100.0,
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -557,10 +636,10 @@ const PRODUCTS = [
   },
   {
     "id": 8526040367303,
-    "name": "OUD BARAKAT",
+    "name": "EOEUEDE EBEAEREAEKEAETE",
     "col": "Master Perfumery",
-    "price": 200,
-    "size": "100ml EDP",
+    "price": 150.0,
+    "size": "60 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -572,10 +651,10 @@ const PRODUCTS = [
   },
   {
     "id": 8525988200647,
-    "name": "GALAZAID",
+    "name": "EGEAELEAEZEAEIEDE",
     "col": "Master Perfumery",
-    "price": 200,
-    "size": "100ml EDP",
+    "price": 150.0,
+    "size": "60 ML",
     "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
@@ -587,10 +666,10 @@ const PRODUCTS = [
   },
   {
     "id": 8516215439559,
-    "name": "RIA",
+    "name": "EREIEAE",
     "col": "Eau De Parfum",
-    "price": 125,
-    "size": "100ml EDP",
+    "price": 100.0,
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -602,10 +681,10 @@ const PRODUCTS = [
   },
   {
     "id": 8496480944327,
-    "name": "MANSION",
+    "name": "EMEAENESEIEOENE",
     "col": "Eau De Parfum",
-    "price": 110,
-    "size": "100ml EDP",
+    "price": 85.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -617,10 +696,10 @@ const PRODUCTS = [
   },
   {
     "id": 8488117600455,
-    "name": "PEACH VELVET",
+    "name": "EPEEEAECEHE EVEEELEVEEETE",
     "col": "Extrait De Parfum",
-    "price": 130,
-    "size": "100ml EDP",
+    "price": 85.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Her",
     "notes": [
@@ -632,10 +711,10 @@ const PRODUCTS = [
   },
   {
     "id": 8484193861831,
-    "name": "TITAN",
+    "name": "ETEIETEAENE",
     "col": "Eau De Parfum",
-    "price": 110,
-    "size": "100ml EDP",
+    "price": 95.0,
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -647,10 +726,10 @@ const PRODUCTS = [
   },
   {
     "id": 8473765675207,
-    "name": "BISCOTTI MELON MISK",
+    "name": "EBEIESECEOETETEIE EMEEELEOENE EMEIESEKE",
     "col": "Extrait De Parfum",
     "price": 110,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -662,10 +741,10 @@ const PRODUCTS = [
   },
   {
     "id": 8457608462535,
-    "name": "LA FEDE CELEBRITY CRUSH",
+    "name": "ELEAE EFEEEDEEE ECEEELEEEBEREIETEYE ECEREUESEHE",
     "col": "Lafede",
-    "price": 130,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -677,10 +756,10 @@ const PRODUCTS = [
   },
   {
     "id": 8457604071623,
-    "name": "LA FEDE CELEBRITY FAME",
+    "name": "ELEAE EFEEEDEEE ECEEELEEEBEREIETEYE EFEAEMEEE",
     "col": "Lafede",
-    "price": 130,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -692,10 +771,10 @@ const PRODUCTS = [
   },
   {
     "id": 8443601223879,
-    "name": "ZAYAAN GOLD",
+    "name": "EZEAEYEAEAENE EGEOELEDE",
     "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
+    "price": 130.0,
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -707,10 +786,10 @@ const PRODUCTS = [
   },
   {
     "id": 8416731889863,
-    "name": "LA FEDE EDGE INTENSE",
+    "name": "ELEAE EFEEEDEEE EEEDEGEEE EIENETEEENESEEE",
     "col": "Lafede",
     "price": 90,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -722,10 +801,10 @@ const PRODUCTS = [
   },
   {
     "id": 8416723861703,
-    "name": "LA FEDE EDGE ORIGINAL",
+    "name": "ELEAE EFEEEDEEE EEEDEGEEE EOEREIEGEIENEAELE",
     "col": "Lafede",
     "price": 90,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -735,13 +814,12 @@ const PRODUCTS = [
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Edge_Original-2.jpg?v=1776231633"
   },
-
-{
+  {
     "id": 8398776959175,
-    "name": "BISCOTTI DATE TOFFEE",
+    "name": "EBEIESECEOETETEIE EDEAETEEE ETEOEFEFEEEEE",
     "col": "Extrait De Parfum",
     "price": 110,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -753,10 +831,10 @@ const PRODUCTS = [
   },
   {
     "id": 8398776860871,
-    "name": "BISCOTTI CARAMEL POP",
+    "name": "EBEIESECEOETETEIE ECEAEREAEMEEELE EPEOEPE",
     "col": "Extrait De Parfum",
     "price": 110,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -768,10 +846,10 @@ const PRODUCTS = [
   },
   {
     "id": 8386685599943,
-    "name": "OUD POUR LEATHER",
+    "name": "EOEUEDE EPEOEUERE ELEEEAETEHEEERE",
     "col": "Eau De Parfum",
-    "price": 130,
-    "size": "100ml EDP",
+    "price": 100.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -783,10 +861,10 @@ const PRODUCTS = [
   },
   {
     "id": 8385197375687,
-    "name": "OUD PURE MAGICAL THAI",
+    "name": "EOEUEDE EPEUEREEE EMEAEGEIECEAELE ETEHEAEIE",
     "col": "Perfume Oils",
     "price": 325,
-    "size": "3ML",
+    "size": "3 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -798,10 +876,10 @@ const PRODUCTS = [
   },
   {
     "id": 8385137639623,
-    "name": "DEHNAL OUD QAISAR SEUFI",
+    "name": "EDEEEHENEAELE EOEUEDE EQEAEIESEAERE ESEEEUEFEIE",
     "col": "Dehn Al Oudh",
     "price": 325,
-    "size": "3ML",
+    "size": "3 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -813,10 +891,10 @@ const PRODUCTS = [
   },
   {
     "id": 8385113981127,
-    "name": "DEHNAL OUD SHEIKH QADIM",
+    "name": "EDEEEHENEAELE EOEUEDE ESEHEEEIEKEHE EQEAEDEIEME",
     "col": "Dehn Al Oudh",
     "price": 325,
-    "size": "3ML",
+    "size": "3 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -828,10 +906,10 @@ const PRODUCTS = [
   },
   {
     "id": 8361494839495,
-    "name": "CLOUD CANDY",
+    "name": "ECELEOEUEDE ECEAENEDEYE",
     "col": "Extrait De Parfum",
-    "price": 130,
-    "size": "100ml EDP",
+    "price": 100.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Her",
     "notes": [
@@ -843,10 +921,10 @@ const PRODUCTS = [
   },
   {
     "id": 8342080946375,
-    "name": "OUD MUATTAR QISSA",
+    "name": "EOEUEDE EMEUEAETETEAERE EQEIESESEAE",
     "col": "Bakhoor",
     "price": 35,
-    "size": "100ml EDP",
+    "size": "40 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -856,13 +934,12 @@ const PRODUCTS = [
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Qissa-03.jpg?v=1745839937"
   },
-  
   {
     "id": 8342076129479,
-    "name": "OUD MUATTAR RUKAIYA",
+    "name": "EOEUEDE EMEUEAETETEAERE EREUEKEAEIEYEAE",
     "col": "Bakhoor",
     "price": 35,
-    "size": "100ml EDP",
+    "size": "80 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -874,10 +951,10 @@ const PRODUCTS = [
   },
   {
     "id": 8342075244743,
-    "name": "OUD MUATTAR AL BAHAAR",
+    "name": "EOEUEDE EMEUEAETETEAERE EAELE EBEAEHEAEAERE",
     "col": "Bakhoor",
     "price": 27,
-    "size": "100ml EDP",
+    "size": "80 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -889,10 +966,10 @@ const PRODUCTS = [
   },
   {
     "id": 7734819553479,
-    "name": "MAISON L' IMAGINAIRE",
+    "name": "EMEAEIESEOENE ELE'E EIEMEAEGEIENEAEIEREEE",
     "col": "Eau De Parfum",
-    "price": 158,
-    "size": "100ml EDP",
+    "price": 120.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -904,10 +981,10 @@ const PRODUCTS = [
   },
   {
     "id": 8332571082951,
-    "name": "LA FEDE CELESTE JOICE",
+    "name": "ELEAE EFEEEDEEE ECEEELEEESETEEE EJEOEIECEEE",
     "col": "Lafede",
-    "price": 75,
-    "size": "100ml EDP",
+    "price": 50.0,
+    "size": "Gift Set",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -919,10 +996,10 @@ const PRODUCTS = [
   },
   {
     "id": 8332579340487,
-    "name": "LA FEDE CELESTE FLUER",
+    "name": "ELEAE EFEEEDEEE ECEEELEEESETEEE EFELEUEEERE",
     "col": "Lafede",
-    "price": 75,
-    "size": "100ml EDP",
+    "price": 50.0,
+    "size": "Gift Set",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -934,10 +1011,10 @@ const PRODUCTS = [
   },
   {
     "id": 8332573081799,
-    "name": "LA FEDE CELESTE AQUA",
+    "name": "ELEAE EFEEEDEEE ECEEELEEESETEEE EAEQEUEAE",
     "col": "Lafede",
-    "price": 75,
-    "size": "100ml EDP",
+    "price": 50.0,
+    "size": "Gift Set",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -949,10 +1026,10 @@ const PRODUCTS = [
   },
   {
     "id": 8332570689735,
-    "name": "LA FEDE CELESTE TOFFEE",
+    "name": "ELEAE EFEEEDEEE ECEEELEEESETEEE ETEOEFEFEEEEE",
     "col": "Lafede",
-    "price": 75,
-    "size": "100ml EDP",
+    "price": 50.0,
+    "size": "Gift Set",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -964,10 +1041,10 @@ const PRODUCTS = [
   },
   {
     "id": 8331128668359,
-    "name": "LA FEDE SYMBOL OF LOVE",
+    "name": "ELEAE EFEEEDEEE ESEYEMEBEOELE EOEFE ELEOEVEEE",
     "col": "Lafede",
-    "price": 110,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -979,10 +1056,10 @@ const PRODUCTS = [
   },
   {
     "id": 8331129028807,
-    "name": "LA FEDE SYMBOL OF POWER",
+    "name": "ELEAE EFEEEDEEE ESEYEMEBEOELE EOEFE EPEOEWEEERE",
     "col": "Lafede",
-    "price": 110,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -994,10 +1071,10 @@ const PRODUCTS = [
   },
   {
     "id": 8323950018759,
-    "name": "LA FEDE CHOCO BROWN",
+    "name": "ELEAE EFEEEDEEE ECEHEOECEOE EBEREOEWENE",
     "col": "Lafede",
-    "price": 100,
-    "size": "100ml EDP",
+    "price": 50.0,
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -1009,10 +1086,10 @@ const PRODUCTS = [
   },
   {
     "id": 8323929342151,
-    "name": "LA FEDE WHITE FOREST STRAWBERRY",
+    "name": "ELEAE EFEEEDEEE EWEHEIETEEE EFEOEREEESETE ESETEREAEWEBEEEREREYE",
     "col": "Lafede",
     "price": 75,
-    "size": "100ml EDP",
+    "size": "Gift Set",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -1024,10 +1101,10 @@ const PRODUCTS = [
   },
   {
     "id": 8316886679751,
-    "name": "PRIVATE BLEND TOBAC EXTRA",
+    "name": "EPEREIEVEAETEEE EBELEEENEDE ETEOEBEAECE EEEXETEREAE",
     "col": "Extrait De Parfum",
-    "price": 130,
-    "size": "100ml EDP",
+    "price": 110.0,
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -1039,10 +1116,10 @@ const PRODUCTS = [
   },
   {
     "id": 8263133561031,
-    "name": "MOCHA LATTE",
+    "name": "EMEOECEHEAE ELEAETETEEE",
     "col": "Extrait De Parfum",
-    "price": 100,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "100 ML",
     "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
@@ -1054,10 +1131,10 @@ const PRODUCTS = [
   },
   {
     "id": 8306104369351,
-    "name": "NUHA CHERRY BLUSH",
+    "name": "ENEUEHEAE ECEHEEEREREYE EBELEUESEHE",
     "col": "Eau De Parfum",
-    "price": 85,
-    "size": "100ml EDP",
+    "price": 65.0,
+    "size": "85 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1069,10 +1146,10 @@ const PRODUCTS = [
   },
   {
     "id": 8306103517383,
-    "name": "NUHA VANILLA PEARL",
+    "name": "ENEUEHEAE EVEAENEIELELEAE EPEEEAERELE",
     "col": "Eau De Parfum",
-    "price": 85,
-    "size": "100ml EDP",
+    "price": 65.0,
+    "size": "85 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1084,10 +1161,10 @@ const PRODUCTS = [
   },
   {
     "id": 8300976472263,
-    "name": "DESERT ROSE",
+    "name": "EDEEESEEERETE EREOESEEE",
     "col": "Extrait De Parfum",
-    "price": 130,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -1099,10 +1176,10 @@ const PRODUCTS = [
   },
   {
     "id": 8300976341191,
-    "name": "BLEU GLACE",
+    "name": "EBELEEEUE EGELEAECEEE",
     "col": "Extrait De Parfum",
-    "price": 130,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1114,10 +1191,10 @@ const PRODUCTS = [
   },
   {
     "id": 8300764332231,
-    "name": "OPUS REBORN",
+    "name": "EOEPEUESE EREEEBEOERENE",
     "col": "Eau De Parfum",
-    "price": 90,
-    "size": "100ml EDP",
+    "price": 50.0,
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -1129,10 +1206,10 @@ const PRODUCTS = [
   },
   {
     "id": 8298206986439,
-    "name": "AZURE VELVET",
+    "name": "EAEZEUEREEE EVEEELEVEEETE",
     "col": "Extrait De Parfum",
-    "price": 130,
-    "size": "100ml EDP",
+    "price": 110.0,
+    "size": "100 ML",
     "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
@@ -1144,10 +1221,10 @@ const PRODUCTS = [
   },
   {
     "id": 8297538945223,
-    "name": "JOHAYNA PURPLE",
+    "name": "EJEOEHEAEYENEAE EPEUEREPELEEE",
     "col": "Perfume Oils",
     "price": 45,
-    "size": "100ml EDP",
+    "size": "20 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1157,10 +1234,10 @@ const PRODUCTS = [
   },
   {
     "id": 8297527967943,
-    "name": "ANABIA RED",
+    "name": "EAENEAEBEIEAE EREEEDE",
     "col": "Perfume Oils",
     "price": 32,
-    "size": "100ml EDP",
+    "size": "20 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1170,10 +1247,10 @@ const PRODUCTS = [
   },
   {
     "id": 8297521414343,
-    "name": "AMBER PURE",
+    "name": "EAEMEBEEERE EPEUEREEE",
     "col": "Perfume Oils",
     "price": 45,
-    "size": "100ml EDP",
+    "size": "20 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1185,10 +1262,10 @@ const PRODUCTS = [
   },
   {
     "id": 8289952399559,
-    "name": "ARABIAN TREASURE",
+    "name": "EAEREAEBEIEAENE ETEREEEAESEUEREEE",
     "col": "Perfume Oils",
     "price": 45,
-    "size": "100ml EDP",
+    "size": "20 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1200,10 +1277,10 @@ const PRODUCTS = [
   },
   {
     "id": 8285560078535,
-    "name": "LA FEDE AURA PISTA DESSERT",
+    "name": "ELEAE EFEEEDEEE EAEUEREAE EPEIESETEAE EDEEESESEEERETE",
     "col": "Lafede",
-    "price": 70,
-    "size": "100ml EDP",
+    "price": 55.0,
+    "size": "Gift Set",
     "badge": "",
     "gender": "Her",
     "notes": [
@@ -1215,10 +1292,10 @@ const PRODUCTS = [
   },
   {
     "id": 8285559816391,
-    "name": "LA FEDE AURA MANGA SPLASH",
+    "name": "ELEAE EFEEEDEEE EAEUEREAE EMEAENEGEAE ESEPELEAESEHE",
     "col": "Lafede",
-    "price": 70,
-    "size": "100ml EDP",
+    "price": 55.0,
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -1230,10 +1307,10 @@ const PRODUCTS = [
   },
   {
     "id": 8283965522119,
-    "name": "CREAM VELVET",
+    "name": "ECEREEEAEME EVEEELEVEEETE",
     "col": "Extrait De Parfum",
-    "price": 130,
-    "size": "100ml EDP",
+    "price": 100.0,
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -1245,10 +1322,10 @@ const PRODUCTS = [
   },
   {
     "id": 8276542390471,
-    "name": "RASAYEL VID",
+    "name": "EREAESEAEYEEELE EVEIEDE",
     "col": "Eau De Parfum",
-    "price": 90,
-    "size": "100ml EDP",
+    "price": 50.0,
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -1260,10 +1337,10 @@ const PRODUCTS = [
   },
   {
     "id": 8276541243591,
-    "name": "RASAYEL SHAGAF",
+    "name": "EREAESEAEYEEELE ESEHEAEGEAEFE",
     "col": "Eau De Parfum",
-    "price": 90,
-    "size": "100ml EDP",
+    "price": 50.0,
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -1275,10 +1352,10 @@ const PRODUCTS = [
   },
   {
     "id": 8275957448903,
-    "name": "SAQR AL BADIYA",
+    "name": "ESEAEQERE EAELE EBEAEDEIEYEAE",
     "col": "Extrait De Parfum",
-    "price": 140,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -1290,10 +1367,10 @@ const PRODUCTS = [
   },
   {
     "id": 8263132709063,
-    "name": "CAFFE LATTE",
+    "name": "ECEAEFEFEEE ELEAETETEEE",
     "col": "Extrait De Parfum",
-    "price": 100,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "100 ML",
     "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
@@ -1305,10 +1382,10 @@ const PRODUCTS = [
   },
   {
     "id": 8259368353991,
-    "name": "ANABIA BLUE",
+    "name": "EAENEAEBEIEAE EBELEUEEE",
     "col": "Perfume Oils",
     "price": 32,
-    "size": "100ml EDP",
+    "size": "20 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1318,10 +1395,10 @@ const PRODUCTS = [
   },
   {
     "id": 8237332136135,
-    "name": "MUSK POUR AMBER",
+    "name": "EMEUESEKE EPEOEUERE EAEMEBEEERE",
     "col": "Eau De Parfum",
-    "price": 130,
-    "size": "100ml EDP",
+    "price": 110.0,
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -1333,10 +1410,10 @@ const PRODUCTS = [
   },
   {
     "id": 8210140102855,
-    "name": "OUD & MUSK",
+    "name": "EOEUEDE E&E EMEUESEKE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "100ml EDP",
+    "size": "20 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1346,10 +1423,10 @@ const PRODUCTS = [
   },
   {
     "id": 8225224294599,
-    "name": "FURSAN BROWN",
+    "name": "EFEUERESEAENE EBEREOEWENE",
     "col": "Eau De Parfum",
     "price": 95,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1361,10 +1438,10 @@ const PRODUCTS = [
   },
   {
     "id": 8221158047943,
-    "name": "FURSAN WHITE",
+    "name": "EFEUERESEAENE EWEHEIETEEE",
     "col": "Eau De Parfum",
-    "price": 90,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -1376,10 +1453,10 @@ const PRODUCTS = [
   },
   {
     "id": 8220687958215,
-    "name": "MUSK COUTURE",
+    "name": "EMEUESEKE ECEOEUETEUEREEE",
     "col": "Eau De Parfum",
-    "price": 118,
-    "size": "100ml EDP",
+    "price": 50.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1391,10 +1468,10 @@ const PRODUCTS = [
   },
   {
     "id": 8210117427399,
-    "name": "SARA",
+    "name": "ESEAEREAE",
     "col": "Extrait De Parfum",
-    "price": 90,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -1406,10 +1483,10 @@ const PRODUCTS = [
   },
   {
     "id": 8207565914311,
-    "name": "GHADEER GOLD",
+    "name": "EGEHEAEDEEEEERE EGEOELEDE",
     "col": "Eau De Parfum",
-    "price": 85,
-    "size": "100ml EDP",
+    "price": 80.0,
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -1421,10 +1498,10 @@ const PRODUCTS = [
   },
   {
     "id": 8207561621703,
-    "name": "GHADEER SILVER",
+    "name": "EGEHEAEDEEEEERE ESEIELEVEEERE",
     "col": "Eau De Parfum",
-    "price": 85,
-    "size": "100ml EDP",
+    "price": 80.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1436,10 +1513,10 @@ const PRODUCTS = [
   },
   {
     "id": 8207557296327,
-    "name": "MUSK AL SABAH",
+    "name": "EMEUESEKE EAELE ESEAEBEAEHE",
     "col": "Eau De Parfum",
-    "price": 85,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1451,10 +1528,10 @@ const PRODUCTS = [
   },
   {
     "id": 8206430208199,
-    "name": "OUD AL SABAH",
+    "name": "EOEUEDE EAELE ESEAEBEAEHE",
     "col": "Eau De Parfum",
     "price": 85,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1466,10 +1543,10 @@ const PRODUCTS = [
   },
   {
     "id": 8203303518407,
-    "name": "PURE MUSK",
+    "name": "EPEUEREEE EMEUESEKE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1479,10 +1556,10 @@ const PRODUCTS = [
   },
   {
     "id": 8203204690119,
-    "name": "JOHAYNA GREEN",
+    "name": "EJEOEHEAEYENEAE EGEREEEEENE",
     "col": "Perfume Oils",
     "price": 35,
-    "size": "100ml EDP",
+    "size": "20 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1490,13 +1567,12 @@ const PRODUCTS = [
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/3_19.jpg?v=1724745977"
   },
-
   {
     "id": 8143006892231,
-    "name": "PURE MUSK PURE BLEND",
+    "name": "EPEUEREEE EMEUESEKE EPEUEREEE EBELEEENEDE",
     "col": "Master Perfumery",
-    "price": 200,
-    "size": "100ml EDP",
+    "price": 150.0,
+    "size": "60 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1508,10 +1584,10 @@ const PRODUCTS = [
   },
   {
     "id": 8138178920647,
-    "name": "KAYAAN SILVER",
+    "name": "EKEAEYEAEAENE ESEIELEVEEERE",
     "col": "Perfume Oils",
-    "price": 100,
-    "size": "100ml EDP",
+    "price": 80.0,
+    "size": "20 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1521,10 +1597,10 @@ const PRODUCTS = [
   },
   {
     "id": 8137730195655,
-    "name": "LA FEDE MAGNUM EXTREME BLUE",
+    "name": "ELEAE EFEEEDEEE EMEAEGENEUEME EEEXETEREEEMEEE EBELEUEEE",
     "col": "Lafede",
     "price": 125,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -1536,10 +1612,10 @@ const PRODUCTS = [
   },
   {
     "id": 8137648177351,
-    "name": "LA FEDE MAGNUM WILD GREEN",
+    "name": "ELEAE EFEEEDEEE EMEAEGENEUEME EWEIELEDE EGEREEEEENE",
     "col": "Lafede",
     "price": 95,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -1551,10 +1627,10 @@ const PRODUCTS = [
   },
   {
     "id": 8137641164999,
-    "name": "LA FEDE OPERA ROSE L'OR",
+    "name": "ELEAE EFEEEDEEE EOEPEEEREAE EREOESEEE ELE'EOERE",
     "col": "Lafede",
-    "price": 125,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -1566,10 +1642,10 @@ const PRODUCTS = [
   },
   {
     "id": 8137639690439,
-    "name": "LA FEDE OPERA NOIR L'OR",
+    "name": "ELEAE EFEEEDEEE EOEPEEEREAE ENEOEIERE ELE'EOERE",
     "col": "Lafede",
-    "price": 125,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1581,10 +1657,10 @@ const PRODUCTS = [
   },
   {
     "id": 8137137815751,
-    "name": "LA FEDE LAVISH BLUSH",
+    "name": "ELEAE EFEEEDEEE ELEAEVEIESEHE EBELEUESEHE",
     "col": "Lafede",
     "price": 50,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -1596,10 +1672,10 @@ const PRODUCTS = [
   },
   {
     "id": 8137115205831,
-    "name": "LA FEDE LAVISH ROUGE",
+    "name": "ELEAE EFEEEDEEE ELEAEVEIESEHE EREOEUEGEEE",
     "col": "Lafede",
     "price": 50,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -1611,10 +1687,10 @@ const PRODUCTS = [
   },
   {
     "id": 8137080733895,
-    "name": "LA FEDE LAVISH LUNA",
+    "name": "ELEAE EFEEEDEEE ELEAEVEIESEHE ELEUENEAE",
     "col": "Lafede",
     "price": 38,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1626,10 +1702,10 @@ const PRODUCTS = [
   },
   {
     "id": 8092526411975,
-    "name": "FRASH HAREEM AL SULTAN AIR FRESHENER",
+    "name": "EFEREAESEHE EHEAEREEEEEME EAELE ESEUELETEAENE EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
-    "price": 35,
-    "size": "100ml EDP",
+    "price": 38.0,
+    "size": "320 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1639,10 +1715,10 @@ const PRODUCTS = [
   },
   {
     "id": 8092502786247,
-    "name": "OUD MUATTAR MAAMUL HANEEN",
+    "name": "EOEUEDE EMEUEAETETEAERE EMEAEAEMEUELE EHEAENEEEEENE",
     "col": "Bakhoor",
     "price": 21,
-    "size": "100ml EDP",
+    "size": "48 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1654,10 +1730,10 @@ const PRODUCTS = [
   },
   {
     "id": 8092416835783,
-    "name": "OUD MUATTAR MAAMUL WARDI",
+    "name": "EOEUEDE EMEUEAETETEAERE EMEAEAEMEUELE EWEAEREDEIE",
     "col": "Bakhoor",
     "price": 21,
-    "size": "100ml EDP",
+    "size": "48 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1669,10 +1745,10 @@ const PRODUCTS = [
   },
   {
     "id": 8092413296839,
-    "name": "OUD MUATTAR MAAMUL DAHABI",
+    "name": "EOEUEDE EMEUEAETETEAERE EMEAEAEMEUELE EDEAEHEAEBEIE",
     "col": "Bakhoor",
     "price": 21,
-    "size": "100ml EDP",
+    "size": "48 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1684,10 +1760,10 @@ const PRODUCTS = [
   },
   {
     "id": 8069288493255,
-    "name": "LA FEDE CRYSTALLIA PRIMASO",
+    "name": "ELEAE EFEEEDEEE ECEREYESETEAELELEIEAE EPEREIEMEAESEOE",
     "col": "Lafede",
-    "price": 130,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "Gift Set",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1699,10 +1775,10 @@ const PRODUCTS = [
   },
   {
     "id": 8069037031623,
-    "name": "LA FEDE CRYSTALLIA IMPERIO",
+    "name": "ELEAE EFEEEDEEE ECEREYESETEAELELEIEAE EIEMEPEEEREIEOE",
     "col": "Lafede",
-    "price": 130,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "Gift Set",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1714,10 +1790,10 @@ const PRODUCTS = [
   },
   {
     "id": 8068803788999,
-    "name": "FRASH AFTER ECSTACY AIR FRESHENER",
+    "name": "EFEREAESEHE EAEFETEEERE EEECESETEAECEYE EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
     "price": 35,
-    "size": "100ml EDP",
+    "size": "Gift Set",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1727,10 +1803,10 @@ const PRODUCTS = [
   },
   {
     "id": 8036476453063,
-    "name": "FRASH QISSA AIR FRESHENER",
+    "name": "EFEREAESEHE EQEIESESEAE EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
     "price": 35,
-    "size": "100ml EDP",
+    "size": "320 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1740,10 +1816,10 @@ const PRODUCTS = [
   },
   {
     "id": 8034253078727,
-    "name": "KAYAAN GOLD",
+    "name": "EKEAEYEAEAENE EGEOELEDE",
     "col": "Perfume Oils",
-    "price": 100,
-    "size": "100ml EDP",
+    "price": 80.0,
+    "size": "20 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1755,10 +1831,10 @@ const PRODUCTS = [
   },
   {
     "id": 7932349415623,
-    "name": "LE PRESTIGE BOLD",
+    "name": "ELEEE EPEREEESETEIEGEEE EBEOELEDE",
     "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
+    "price": 100.0,
+    "size": "Gift Set",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1770,10 +1846,10 @@ const PRODUCTS = [
   },
   {
     "id": 7880529510599,
-    "name": "LE PRESTIGE EMPRESS",
+    "name": "ELEEE EPEREEESETEIEGEEE EEEMEPEREEESESE",
     "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
+    "price": 100.0,
+    "size": "Gift Set",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1785,10 +1861,10 @@ const PRODUCTS = [
   },
   {
     "id": 7871133450439,
-    "name": "L\u00c9 PRESTIGE KING",
+    "name": "ELE\u00c3E\u2030E EPEREEESETEIEGEEE EKEIENEGE",
     "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
+    "price": 100.0,
+    "size": "Gift Set",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1800,10 +1876,10 @@ const PRODUCTS = [
   },
   {
     "id": 7887419048135,
-    "name": "L\u00c9 PRESTIGE ROYAL",
+    "name": "ELE\u00c3E\u2030E EPEREEESETEIEGEEE EREOEYEAELE",
     "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
+    "price": 100.0,
+    "size": "Gift Set",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1815,10 +1891,10 @@ const PRODUCTS = [
   },
   {
     "id": 7923502710983,
-    "name": "FRASH AL MAJALIS AIR FRESHENER",
+    "name": "EFEREAESEHE EAELE EMEAEJEAELEIESE EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
     "price": 35,
-    "size": "100ml EDP",
+    "size": "320 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1828,10 +1904,10 @@ const PRODUCTS = [
   },
   {
     "id": 7923498844359,
-    "name": "FRASH SHAMOOKH AIR FRESHENER",
+    "name": "EFEREAESEHE ESEHEAEMEOEOEKEHE EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
     "price": 35,
-    "size": "100ml EDP",
+    "size": "320 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1841,10 +1917,10 @@ const PRODUCTS = [
   },
   {
     "id": 7887478096071,
-    "name": "MALIKA GREEN",
+    "name": "EMEAELEIEKEAE EGEREEEEENE",
     "col": "Perfume Oils",
-    "price": 100,
-    "size": "100ml EDP",
+    "price": 80.0,
+    "size": "20 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1854,10 +1930,10 @@ const PRODUCTS = [
   },
   {
     "id": 7880505491655,
-    "name": "25 LOYALTY",
+    "name": "E2E5E ELEOEYEAELETEYE",
     "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1869,10 +1945,10 @@ const PRODUCTS = [
   },
   {
     "id": 7880500805831,
-    "name": "25 TRUST",
+    "name": "E2E5E ETEREUESETE",
     "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "Gift Set",
     "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
@@ -1884,10 +1960,10 @@ const PRODUCTS = [
   },
   {
     "id": 7887475310791,
-    "name": "MALIKA RED",
+    "name": "EMEAELEIEKEAE EREEEDE",
     "col": "Perfume Oils",
-    "price": 100,
-    "size": "100ml EDP",
+    "price": 80.0,
+    "size": "20 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -1897,10 +1973,10 @@ const PRODUCTS = [
   },
   {
     "id": 7887470559431,
-    "name": "PINK MUSK",
+    "name": "EPEIENEKE EMEUESEKE",
     "col": "Perfume Oils",
-    "price": 100,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "20 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -1910,10 +1986,10 @@ const PRODUCTS = [
   },
   {
     "id": 7887473180871,
-    "name": "PURPLE MUSK",
+    "name": "EPEUEREPELEEE EMEUESEKE",
     "col": "Perfume Oils",
     "price": 100,
-    "size": "100ml EDP",
+    "size": "20 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -1923,10 +1999,10 @@ const PRODUCTS = [
   },
   {
     "id": 7887397486791,
-    "name": "LA FEDE MAGNUM GOLD EDITION",
+    "name": "ELEAE EFEEEDEEE EMEAEGENEUEME EGEOELEDE EEEDEIETEIEOENE",
     "col": "Lafede",
     "price": 125,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1938,10 +2014,10 @@ const PRODUCTS = [
   },
   {
     "id": 7880493433031,
-    "name": "25 EXPERIENCE",
+    "name": "E2E5E EEEXEPEEEREIEEENECEEE",
     "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -1953,10 +2029,10 @@ const PRODUCTS = [
   },
   {
     "id": 7880390279367,
-    "name": "25 HERITAGE",
+    "name": "E2E5E EHEEEREIETEAEGEEE",
     "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1968,10 +2044,10 @@ const PRODUCTS = [
   },
   {
     "id": 7880382480583,
-    "name": "25 INTEGRITY",
+    "name": "E2E5E EIENETEEEGEREIETEYE",
     "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1983,10 +2059,10 @@ const PRODUCTS = [
   },
   {
     "id": 7871045894343,
-    "name": "LA FEDE MAGNUM SILVER EDITION",
+    "name": "ELEAE EFEEEDEEE EMEAEGENEUEME ESEIELEVEEERE EEEDEIETEIEOENE",
     "col": "Lafede",
     "price": 125,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -1998,10 +2074,10 @@ const PRODUCTS = [
   },
   {
     "id": 7880367505607,
-    "name": "VALOR ENIGMA",
+    "name": "EVEAELEOERE EEENEIEGEMEAE",
     "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -2013,10 +2089,10 @@ const PRODUCTS = [
   },
   {
     "id": 7880365375687,
-    "name": "VALOR MYSTIQUE",
+    "name": "EVEAELEOERE EMEYESETEIEQEUEEE",
     "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "Gift Set",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -2028,10 +2104,10 @@ const PRODUCTS = [
   },
   {
     "id": 7880362098887,
-    "name": "VALOR HONOR",
+    "name": "EVEAELEOERE EHEOENEOERE",
     "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -2043,10 +2119,10 @@ const PRODUCTS = [
   },
   {
     "id": 7880359706823,
-    "name": "VALOR CHIVALRY",
+    "name": "EVEAELEOERE ECEHEIEVEAELEREYE",
     "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
+    "price": 75.0,
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -2058,10 +2134,10 @@ const PRODUCTS = [
   },
   {
     "id": 7874350219463,
-    "name": "EMPIRE REGENT",
+    "name": "EEEMEPEIEREEE EREEEGEEENETE",
     "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
+    "price": 100.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2073,10 +2149,10 @@ const PRODUCTS = [
   },
   {
     "id": 7872604143815,
-    "name": "EMPIRE CROWN",
+    "name": "EEEMEPEIEREEE ECEREOEWENE",
     "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
+    "price": 100.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2088,10 +2164,10 @@ const PRODUCTS = [
   },
   {
     "id": 7872603291847,
-    "name": "EMPIRE EMPRESS",
+    "name": "EEEMEPEIEREEE EEEMEPEREEESESE",
     "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
+    "price": 100.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2103,10 +2179,10 @@ const PRODUCTS = [
   },
   {
     "id": 7872601030855,
-    "name": "EMPIRE VICTOR",
+    "name": "EEEMEPEIEREEE EVEIECETEOERE",
     "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
+    "price": 120.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2118,10 +2194,10 @@ const PRODUCTS = [
   },
   {
     "id": 7858357534919,
-    "name": "KARUS AMBER GOLD",
+    "name": "EKEAEREUESE EAEMEBEEERE EGEOELEDE",
     "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
+    "price": 130.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2133,10 +2209,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554157838535,
-    "name": "KARUS GOLD ABSOLU",
+    "name": "EKEAEREUESE EGEOELEDE EAEBESEOELEUE",
     "col": "Eau De Parfum",
     "price": 150,
-    "size": "100 ml",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2148,10 +2224,10 @@ const PRODUCTS = [
   },
   {
     "id": 7858340659399,
-    "name": "KARUS SECRET MUSK",
+    "name": "EKEAEREUESE ESEEECEREEETE EMEUESEKE",
     "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
+    "price": 130.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2163,10 +2239,10 @@ const PRODUCTS = [
   },
   {
     "id": 7858332958919,
-    "name": "KARUS BLU SPICE",
+    "name": "EKEAEREUESE EBELEUE ESEPEIECEEE",
     "col": "Eau De Parfum",
-    "price": 150,
-    "size": "100ml EDP",
+    "price": 130.0,
+    "size": "100 ML",
     "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
@@ -2178,10 +2254,10 @@ const PRODUCTS = [
   },
   {
     "id": 7852696993991,
-    "name": "BAKHOOR QUTOOF 55 GM",
+    "name": "EBEAEKEHEOEOERE EQEUETEOEOEFE E5E5E EGEME",
     "col": "Bakhoor",
     "price": 35,
-    "size": "100ml EDP",
+    "size": "55 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2193,10 +2269,10 @@ const PRODUCTS = [
   },
   {
     "id": 7838835802311,
-    "name": "HAREEM AL SULTAN",
+    "name": "EHEAEREEEEEME EAELE ESEUELETEAENE",
     "col": "Eau De Parfum",
-    "price": 200,
-    "size": "100ml EDP",
+    "price": 150.0,
+    "size": "75 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2208,10 +2284,10 @@ const PRODUCTS = [
   },
   {
     "id": 7792441295047,
-    "name": "RIMAAL GREEN",
+    "name": "EREIEMEAEAELE EGEREEEEENE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "100ml EDP",
+    "size": "15 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2221,10 +2297,10 @@ const PRODUCTS = [
   },
   {
     "id": 7792438214855,
-    "name": "RIMAAL BROWN",
+    "name": "EREIEMEAEAELE EBEREOEWENE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "100ml EDP",
+    "size": "15 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2234,10 +2310,10 @@ const PRODUCTS = [
   },
   {
     "id": 7792432414919,
-    "name": "WOW OUD",
+    "name": "EWEOEWE EOEUEDE",
     "col": "Eau De Parfum",
-    "price": 75,
-    "size": "100ml EDP",
+    "price": 85.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2249,10 +2325,10 @@ const PRODUCTS = [
   },
   {
     "id": 7792427696327,
-    "name": "GAITH",
+    "name": "EGEAEIETEHE",
     "col": "Eau De Parfum",
     "price": 85,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2264,10 +2340,10 @@ const PRODUCTS = [
   },
   {
     "id": 7792426582215,
-    "name": "NUHA",
+    "name": "ENEUEHEAE",
     "col": "Eau De Parfum",
-    "price": 85,
-    "size": "100ml EDP",
+    "price": 65.0,
+    "size": "85 ML",
     "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
@@ -2279,10 +2355,10 @@ const PRODUCTS = [
   },
   {
     "id": 7752183611591,
-    "name": "THE PROPOSAL SPECIAL OCCASION",
+    "name": "ETEHEEE EPEREOEPEOESEAELE ESEPEEECEIEAELE EOECECEAESEIEOENE",
     "col": "Eau De Parfum",
-    "price": 200,
-    "size": "100ml EDP",
+    "price": 150.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2294,10 +2370,10 @@ const PRODUCTS = [
   },
   {
     "id": 7752172765383,
-    "name": "THE PROPOSAL DATE NIGHT",
+    "name": "ETEHEEE EPEREOEPEOESEAELE EDEAETEEE ENEIEGEHETE",
     "col": "Eau De Parfum",
-    "price": 200,
-    "size": "100ml EDP",
+    "price": 150.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2309,10 +2385,10 @@ const PRODUCTS = [
   },
   {
     "id": 7734805659847,
-    "name": "MAISON EPOQUE ARTISTIQUE",
+    "name": "EMEAEIESEOENE EEEPEOEQEUEEE EAERETEIESETEIEQEUEEE",
     "col": "Eau De Parfum",
-    "price": 158,
-    "size": "100ml EDP",
+    "price": 120.0,
+    "size": "Gift Set",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2324,10 +2400,10 @@ const PRODUCTS = [
   },
   {
     "id": 7734795632839,
-    "name": "MAISON L' OR NOIR",
+    "name": "EMEAEIESEOENE ELE'E EOERE ENEOEIERE",
     "col": "Eau De Parfum",
-    "price": 158,
-    "size": "100ml EDP",
+    "price": 120.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2339,10 +2415,10 @@ const PRODUCTS = [
   },
   {
     "id": 7734460022983,
-    "name": "MAISON FLOR OUD",
+    "name": "EMEAEIESEOENE EFELEOERE EOEUEDE",
     "col": "Eau De Parfum",
-    "price": 158,
-    "size": "100ml EDP",
+    "price": 120.0,
+    "size": "100 ML",
     "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
@@ -2354,10 +2430,10 @@ const PRODUCTS = [
   },
   {
     "id": 7734459498695,
-    "name": "MAISON CREATION DE REVE",
+    "name": "EMEAEIESEOENE ECEREEEAETEIEOENE EDEEE EREEEVEEE",
     "col": "Eau De Parfum",
-    "price": 158,
-    "size": "100ml EDP",
+    "price": 120.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2369,10 +2445,10 @@ const PRODUCTS = [
   },
   {
     "id": 7726385529031,
-    "name": "INFINI ABSOLUTE",
+    "name": "EIENEFEIENEIE EAEBESEOELEUETEEE",
     "col": "Eau De Parfum",
-    "price": 137,
-    "size": "100ml EDP",
+    "price": 130.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2384,10 +2460,10 @@ const PRODUCTS = [
   },
   {
     "id": 7582155407559,
-    "name": "HAREEM AL SULTAN SILVER",
+    "name": "EHEAEREEEEEME EAELE ESEUELETEAENE ESEIELEVEEERE",
     "col": "Perfume Oils",
-    "price": 75,
-    "size": "100ml EDP",
+    "price": 65.0,
+    "size": "35 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2399,10 +2475,10 @@ const PRODUCTS = [
   },
   {
     "id": 7582151672007,
-    "name": "HAREEM AL SULTAN GOLD",
+    "name": "EHEAEREEEEEME EAELE ESEUELETEAENE EGEOELEDE",
     "col": "Perfume Oils",
-    "price": 75,
-    "size": "100ml EDP",
+    "price": 65.0,
+    "size": "35 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2414,10 +2490,10 @@ const PRODUCTS = [
   },
   {
     "id": 7721533669575,
-    "name": "MUKHALATH MA'A WARD TAIBA",
+    "name": "EMEUEKEHEAELEAETEHE EMEAE'EAE EWEAEREDE ETEAEIEBEAE",
     "col": "Perfume Oils",
     "price": 280,
-    "size": "100ml EDP",
+    "size": "12 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2427,10 +2503,10 @@ const PRODUCTS = [
   },
   {
     "id": 7716614078663,
-    "name": "MAGNATE NOBLE",
+    "name": "EMEAEGENEAETEEE ENEOEBELEEE",
     "col": "Eau De Parfum",
     "price": 60,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -2442,10 +2518,10 @@ const PRODUCTS = [
   },
   {
     "id": 7716611293383,
-    "name": "MAGNATE PREMIER",
+    "name": "EMEAEGENEAETEEE EPEREEEMEIEEERE",
     "col": "Eau De Parfum",
     "price": 60,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2457,10 +2533,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205352135,
-    "name": "ROSE COUTURE",
+    "name": "EREOESEEE ECEOEUETEUEREEE",
     "col": "Eau De Parfum",
-    "price": 118,
-    "size": "100 ml",
+    "price": 50.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Her",
     "notes": [
@@ -2472,10 +2548,10 @@ const PRODUCTS = [
   },
   {
     "id": 7677458972871,
-    "name": "OUD MUATTAR OUD AL MAQAAM",
+    "name": "EOEUEDE EMEUEAETETEAERE EOEUEDE EAELE EMEAEQEAEAEME",
     "col": "Bakhoor",
     "price": 35,
-    "size": "100ml EDP",
+    "size": "40 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2487,10 +2563,10 @@ const PRODUCTS = [
   },
   {
     "id": 7677438492871,
-    "name": "OUD MUATTAR OUD AL SAADA",
+    "name": "EOEUEDE EMEUEAETETEAERE EOEUEDE EAELE ESEAEAEDEAE",
     "col": "Bakhoor",
     "price": 35,
-    "size": "100ml EDP",
+    "size": "40 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2502,10 +2578,10 @@ const PRODUCTS = [
   },
   {
     "id": 7676794765511,
-    "name": "LA FEDE BELLE REVE SEGRATO VIOLA",
+    "name": "ELEAE EFEEEDEEE EBEEELELEEE EREEEVEEE ESEEEGEREAETEOE EVEIEOELEAE",
     "col": "Lafede",
     "price": 45,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2517,10 +2593,10 @@ const PRODUCTS = [
   },
   {
     "id": 7676794339527,
-    "name": "LA FEDE BELLA REVE DOLCE FLORE",
+    "name": "ELEAE EFEEEDEEE EBEEELELEAE EREEEVEEE EDEOELECEEE EFELEOEREEE",
     "col": "Lafede",
     "price": 45,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2532,10 +2608,10 @@ const PRODUCTS = [
   },
   {
     "id": 7651533717703,
-    "name": "MYSTICAL INDIAN OUD PURE",
+    "name": "EMEYESETEIECEAELE EIENEDEIEAENE EOEUEDE EPEUEREEE",
     "col": "Eau De Parfum",
     "price": 200,
-    "size": "100ml EDP",
+    "size": "Gift Set",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2547,10 +2623,10 @@ const PRODUCTS = [
   },
   {
     "id": 7651506225351,
-    "name": "HANEEN ROSE GOLD",
+    "name": "EHEAENEEEEENE EREOESEEE EGEOELEDE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "100ml EDP",
+    "size": "20 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2562,10 +2638,10 @@ const PRODUCTS = [
   },
   {
     "id": 7651482337479,
-    "name": "HANEEN GOLD",
+    "name": "EHEAENEEEEENE EGEOELEDE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "100ml EDP",
+    "size": "20 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2577,10 +2653,10 @@ const PRODUCTS = [
   },
   {
     "id": 7640196841671,
-    "name": "LA FEDE INTOXICATE",
+    "name": "ELEAE EFEEEDEEE EIENETEOEXEIECEAETEEE",
     "col": "Lafede",
-    "price": 145,
-    "size": "100ml EDP",
+    "price": 130.0,
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -2592,10 +2668,10 @@ const PRODUCTS = [
   },
   {
     "id": 7640152965319,
-    "name": "BUKHOOR AL BAHAAR GOLD",
+    "name": "EBEUEKEHEOEOERE EAELE EBEAEHEAEAERE EGEOELEDE",
     "col": "Bakhoor",
-    "price": 35,
-    "size": "100ml EDP",
+    "price": 30.0,
+    "size": "55 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2607,10 +2683,10 @@ const PRODUCTS = [
   },
   {
     "id": 7639215079623,
-    "name": "Mesmerizing Perfume Oil Set of 3 for Him & Her",
+    "name": "EMEeEsEmEeErEiEzEiEnEgE EPEeErEfEuEmEeE EOEiElE ESEeEtE EoEfE E3E EfEoErE EHEiEmE E&E EHEeErE",
     "col": "Perfume Oils",
     "price": 69,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2620,10 +2696,10 @@ const PRODUCTS = [
   },
   {
     "id": 7638902571207,
-    "name": "Amazing Perfume Oil Set of 4 for Him",
+    "name": "EAEmEaEzEiEnEgE EPEeErEfEuEmEeE EOEiElE ESEeEtE EoEfE E4E EfEoErE EHEiEmE",
     "col": "Perfume Oils",
     "price": 89,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2633,10 +2709,10 @@ const PRODUCTS = [
   },
   {
     "id": 7638901752007,
-    "name": "Enchant all with our Perfume Oil Set of 4 for Her",
+    "name": "EEEnEcEhEaEnEtE EaElElE EwEiEtEhE EoEuErE EPEeErEfEuEmEeE EOEiElE ESEeEtE EoEfE E4E EfEoErE EHEeErE",
     "col": "Perfume Oils",
     "price": 92,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2646,10 +2722,10 @@ const PRODUCTS = [
   },
   {
     "id": 7638899622087,
-    "name": "Exquisite Perfume Oil Set for Him and Her",
+    "name": "EEExEqEuEiEsEiEtEeE EPEeErEfEuEmEeE EOEiElE ESEeEtE EfEoErE EHEiEmE EaEnEdE EHEeErE",
     "col": "Perfume Oils",
     "price": 69,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2659,10 +2735,10 @@ const PRODUCTS = [
   },
   {
     "id": 7638896869575,
-    "name": "Finest Perfume Oil Set for Him",
+    "name": "EFEiEnEeEsEtE EPEeErEfEuEmEeE EOEiElE ESEeEtE EfEoErE EHEiEmE",
     "col": "Perfume Oils",
     "price": 69,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2672,10 +2748,10 @@ const PRODUCTS = [
   },
   {
     "id": 7638896181447,
-    "name": "Luxurious Perfume Oil Set of 3 for Him",
+    "name": "ELEuExEuErEiEoEuEsE EPEeErEfEuEmEeE EOEiElE ESEeEtE EoEfE E3E EfEoErE EHEiEmE",
     "col": "Perfume Oils",
     "price": 61,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2685,10 +2761,10 @@ const PRODUCTS = [
   },
   {
     "id": 7627660591303,
-    "name": "OUD MUATTAR GHANAATI",
+    "name": "EOEUEDE EMEUEAETETEAERE EGEHEAENEAEAETEIE",
     "col": "Bakhoor",
-    "price": 65,
-    "size": "100ml EDP",
+    "price": 60.0,
+    "size": "100 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2700,10 +2776,10 @@ const PRODUCTS = [
   },
   {
     "id": 7627659509959,
-    "name": "OUD MUATTAR KHAWAATER",
+    "name": "EOEUEDE EMEUEAETETEAERE EKEHEAEWEAEAETEEERE",
     "col": "Bakhoor",
     "price": 35,
-    "size": "100ml EDP",
+    "size": "35 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2715,10 +2791,10 @@ const PRODUCTS = [
   },
   {
     "id": 7602862031047,
-    "name": "STELLAR OUD",
+    "name": "ESETEEELELEAERE EOEUEDE",
     "col": "Eau De Parfum",
     "price": 80,
-    "size": "100ml EDP",
+    "size": "Gift Set",
     "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
@@ -2730,10 +2806,10 @@ const PRODUCTS = [
   },
   {
     "id": 7602860949703,
-    "name": "STELLAR MUSK",
+    "name": "ESETEEELELEAERE EMEUESEKE",
     "col": "Eau De Parfum",
     "price": 80,
-    "size": "100ml EDP",
+    "size": "Gift Set",
     "badge": "Best Seller",
     "gender": "Her",
     "notes": [
@@ -2745,10 +2821,10 @@ const PRODUCTS = [
   },
   {
     "id": 7598654980295,
-    "name": "CASHMERE SUNSHINE MUSK",
+    "name": "ECEAESEHEMEEEREEE ESEUENESEHEIENEEE EMEUESEKE",
     "col": "Eau De Parfum",
-    "price": 140,
-    "size": "100ml EDP",
+    "price": 95.0,
+    "size": "100 ML",
     "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
@@ -2760,10 +2836,10 @@ const PRODUCTS = [
   },
   {
     "id": 7598653505735,
-    "name": "CASHMERE WARM OUD",
+    "name": "ECEAESEHEMEEEREEE EWEAEREME EOEUEDE",
     "col": "Eau De Parfum",
-    "price": 140,
-    "size": "100ml EDP",
+    "price": 95.0,
+    "size": "100 ML",
     "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
@@ -2775,10 +2851,10 @@ const PRODUCTS = [
   },
   {
     "id": 7598644396231,
-    "name": "LA FEDE AURA KISS OF ROSE",
+    "name": "ELEAE EFEEEDEEE EAEUEREAE EKEIESESE EOEFE EREOESEEE",
     "col": "Lafede",
-    "price": 70,
-    "size": "100ml EDP",
+    "price": 55.0,
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -2790,10 +2866,10 @@ const PRODUCTS = [
   },
   {
     "id": 7598637777095,
-    "name": "LA FEDE AURA CRISP FLOWER",
+    "name": "ELEAE EFEEEDEEE EAEUEREAE ECEREIESEPE EFELEOEWEEERE",
     "col": "Lafede",
-    "price": 70,
-    "size": "100ml EDP",
+    "price": 55.0,
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -2805,10 +2881,10 @@ const PRODUCTS = [
   },
   {
     "id": 7582427381959,
-    "name": "MIBRAAK",
+    "name": "EMEIEBEREAEAEKE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "100ml EDP",
+    "size": "18 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2820,10 +2896,10 @@ const PRODUCTS = [
   },
   {
     "id": 7582424268999,
-    "name": "IBHAAR",
+    "name": "EIEBEHEAEAERE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "100ml EDP",
+    "size": "18 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2835,10 +2911,10 @@ const PRODUCTS = [
   },
   {
     "id": 7582421254343,
-    "name": "ASTOORA",
+    "name": "EAESETEOEOEREAE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "100ml EDP",
+    "size": "Gift Set",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2850,10 +2926,10 @@ const PRODUCTS = [
   },
   {
     "id": 7582413947079,
-    "name": "FATIMA",
+    "name": "EFEAETEIEMEAE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "100ml EDP",
+    "size": "15 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2865,10 +2941,10 @@ const PRODUCTS = [
   },
   {
     "id": 7582409949383,
-    "name": "ANAB",
+    "name": "EAENEAEBE",
     "col": "Perfume Oils",
-    "price": 50,
-    "size": "100ml EDP",
+    "price": 32.0,
+    "size": "20 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2880,10 +2956,10 @@ const PRODUCTS = [
   },
   {
     "id": 7582406574279,
-    "name": "AZAARI",
+    "name": "EAEZEAEAEREIE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "100ml EDP",
+    "size": "17 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2895,10 +2971,10 @@ const PRODUCTS = [
   },
   {
     "id": 7582193680583,
-    "name": "GHAZLAAN",
+    "name": "EGEHEAEZELEAEAENE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "100ml EDP",
+    "size": "20 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2910,10 +2986,10 @@ const PRODUCTS = [
   },
   {
     "id": 7582193057991,
-    "name": "RANIYA",
+    "name": "EREAENEIEYEAE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "100ml EDP",
+    "size": "18 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2925,10 +3001,10 @@ const PRODUCTS = [
   },
   {
     "id": 7582192304327,
-    "name": "AALIYA",
+    "name": "EAEAELEIEYEAE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "100ml EDP",
+    "size": "27 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2940,10 +3016,10 @@ const PRODUCTS = [
   },
   {
     "id": 7582186242247,
-    "name": "ROOHI WA ROOHAK SILVER",
+    "name": "EREOEOEHEIE EWEAE EREOEOEHEAEKE ESEIELEVEEERE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "100ml EDP",
+    "size": "20 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2955,10 +3031,10 @@ const PRODUCTS = [
   },
   {
     "id": 7582185095367,
-    "name": "ROOHI WA ROOHAK GOLD",
+    "name": "EREOEOEHEIE EWEAE EREOEOEHEAEKE EGEOELEDE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "100ml EDP",
+    "size": "20 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2970,10 +3046,10 @@ const PRODUCTS = [
   },
   {
     "id": 7582182899911,
-    "name": "ALF WARDAAT",
+    "name": "EAELEFE EWEAEREDEAEAETE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "100ml EDP",
+    "size": "30 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -2985,10 +3061,10 @@ const PRODUCTS = [
   },
   {
     "id": 7582179262663,
-    "name": "AL FURSAN",
+    "name": "EAELE EFEUERESEAENE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "100ml EDP",
+    "size": "18 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3000,10 +3076,10 @@ const PRODUCTS = [
   },
   {
     "id": 7582167105735,
-    "name": "AL RIYAN",
+    "name": "EAELE EREIEYEAENE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "100ml EDP",
+    "size": "17 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3015,10 +3091,10 @@ const PRODUCTS = [
   },
   {
     "id": 7582158979271,
-    "name": "JAMEEL",
+    "name": "EJEAEMEEEEELE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "100ml EDP",
+    "size": "25 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3030,10 +3106,10 @@ const PRODUCTS = [
   },
   {
     "id": 7582143119559,
-    "name": "ZAINAB",
+    "name": "EZEAEIENEAEBE",
     "col": "Perfume Oils",
     "price": 45,
-    "size": "100ml EDP",
+    "size": "18 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3045,10 +3121,10 @@ const PRODUCTS = [
   },
   {
     "id": 7582139089095,
-    "name": "ROOH AL OUD",
+    "name": "EREOEOEHE EAELE EOEUEDE",
     "col": "Dehn Al Oudh",
     "price": 525,
-    "size": "100ml EDP",
+    "size": "12 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3060,10 +3136,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554129625287,
-    "name": "FRASH DALOUAA AIR FRESHENER",
+    "name": "EFEREAESEHE EDEAELEOEUEAEAE EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
     "price": 35,
-    "size": "320 ml",
+    "size": "320 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3073,10 +3149,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554137391303,
-    "name": "FRASH ZAHOOR AL KHALEEJ AIR FRESHENER",
+    "name": "EFEREAESEHE EZEAEHEOEOERE EAELE EKEHEAELEEEEEJE EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
     "price": 38,
-    "size": "320 ml",
+    "size": "320 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3086,10 +3162,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554137456839,
-    "name": "FRASH ROMANCIA AIR FRESHENER",
+    "name": "EFEREAESEHE EREOEMEAENECEIEAE EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
     "price": 38,
-    "size": "320 ml",
+    "size": "320 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3099,10 +3175,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554137555143,
-    "name": "FRASH MAKHMALI AIR FRESHENER",
+    "name": "EFEREAESEHE EMEAEKEHEMEAELEIE EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
     "price": 38,
-    "size": "320 ml",
+    "size": "320 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3112,10 +3188,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554137522375,
-    "name": "FRASH MUSKY AIR FRESHENER",
+    "name": "EFEREAESEHE EMEUESEKEYE EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
     "price": 38,
-    "size": "320 ml",
+    "size": "320 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3125,10 +3201,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554137489607,
-    "name": "FRASH NASEEM AL WARD AIR FRESHENER",
+    "name": "EFEREAESEHE ENEAESEEEEEME EAELE EWEAEREDE EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
     "price": 38,
-    "size": "320 ml",
+    "size": "320 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3138,10 +3214,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554137915591,
-    "name": "BARWAAZ SOLID GREY",
+    "name": "EBEAEREWEAEAEZE ESEOELEIEDE EGEREEEYE",
     "col": "Eau De Parfum",
     "price": 35,
-    "size": "100 ml",
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -3153,10 +3229,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554137653447,
-    "name": "FRASH LA YUQAWAM AIR FRESHENER",
+    "name": "EFEREAESEHE ELEAE EYEUEQEAEWEAEME EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
     "price": 38,
-    "size": "320 ml",
+    "size": "320 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3166,10 +3242,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554138505415,
-    "name": "OUD MUATTAR GHALIYA",
+    "name": "EOEUEDE EMEUEAETETEAERE EGEHEAELEIEYEAE",
     "col": "Bakhoor",
     "price": 35,
-    "size": "35 g",
+    "size": "35 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3181,10 +3257,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554138439879,
-    "name": "OUD MUATTAR MUNAWWARA",
+    "name": "EOEUEDE EMEUEAETETEAERE EMEUENEAEWEWEAEREAE",
     "col": "Bakhoor",
     "price": 35,
-    "size": "35 g",
+    "size": "35 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3196,10 +3272,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554137981127,
-    "name": "BARWAAZ SADDLE BROWN",
+    "name": "EBEAEREWEAEAEZE ESEAEDEDELEEE EBEREOEWENE",
     "col": "Eau De Parfum",
     "price": 35,
-    "size": "100 ml",
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -3211,10 +3287,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554143355079,
-    "name": "SHAMOOKH SILVER",
+    "name": "ESEHEAEMEOEOEKEHE ESEIELEVEEERE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "20 ml",
+    "size": "20 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3226,10 +3302,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554143092935,
-    "name": "FRASH MUKHALLAT SHUYOOKHI AIR FRESHENER",
+    "name": "EFEREAESEHE EMEUEKEHEAELELEAETE ESEHEUEYEOEOEKEHEIE EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
     "price": 37,
-    "size": "320 ml",
+    "size": "320 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3239,10 +3315,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554138865863,
-    "name": "BAKHOOR HANEEN 100 GMS",
+    "name": "EBEAEKEHEOEOERE EHEAENEEEEENE E1E0E0E EGEMESE",
     "col": "Bakhoor",
     "price": 53,
-    "size": "100 g",
+    "size": "100 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3254,10 +3330,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554138767559,
-    "name": "BAKHOOR MAHA 100 GMS",
+    "name": "EBEAEKEHEOEOERE EMEAEHEAE E1E0E0E EGEMESE",
     "col": "Bakhoor",
     "price": 53,
-    "size": "100 g",
+    "size": "100 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3269,10 +3345,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554143748295,
-    "name": "MUSK WA OUD",
+    "name": "EMEUESEKE EWEAE EOEUEDE",
     "col": "Eau De Parfum",
     "price": 50,
-    "size": "100 ml",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3284,10 +3360,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554143715527,
-    "name": "MUSK WA WARD",
+    "name": "EMEUESEKE EWEAE EWEAEREDE",
     "col": "Eau De Parfum",
     "price": 50,
-    "size": "100 ml",
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -3299,10 +3375,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554143518919,
-    "name": "UNO INTIMO",
+    "name": "EUENEOE EIENETEIEMEOE",
     "col": "Eau De Parfum",
     "price": 45,
-    "size": "100 ml",
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -3314,10 +3390,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554144043207,
-    "name": "OUD MUATTAR RIMAAL 40GM",
+    "name": "EOEUEDE EMEUEAETETEAERE EREIEMEAEAELE E4E0EGEME",
     "col": "Bakhoor",
     "price": 37,
-    "size": "40 g",
+    "size": "40 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3329,10 +3405,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554144010439,
-    "name": "OUD MUATTAR SAMOU AL OUD 40GM",
+    "name": "EOEUEDE EMEUEAETETEAERE ESEAEMEOEUE EAELE EOEUEDE E4E0EGEME",
     "col": "Bakhoor",
-    "price": 37,
-    "size": "40 g",
+    "price": 35.0,
+    "size": "40 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3344,10 +3420,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554143813831,
-    "name": "MUSK RASAAS",
+    "name": "EMEUESEKE EREAESEAEAESE",
     "col": "Eau De Parfum",
     "price": 50,
-    "size": "100 ml",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3359,10 +3435,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554204664007,
-    "name": "FRASH MAHASIN KHAWATER AIR FRESHENER",
+    "name": "EFEREAESEHE EMEAEHEAESEIENE EKEHEAEWEAETEEERE EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
     "price": 37,
-    "size": "320 ml",
+    "size": "320 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3372,10 +3448,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554204631239,
-    "name": "FRASH MAHASIN OUD AL AHBAB AIR FRESHENER",
+    "name": "EFEREAESEHE EMEAEHEAESEIENE EOEUEDE EAELE EAEHEBEAEBE EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
     "price": 37,
-    "size": "320 ml",
+    "size": "320 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3385,10 +3461,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554204532935,
-    "name": "FRASH MAHASIN SILVER AIR FRESHENER",
+    "name": "EFEREAESEHE EMEAEHEAESEIENE ESEIELEVEEERE EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
     "price": 37,
-    "size": "320 ml",
+    "size": "320 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3398,10 +3474,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554204500167,
-    "name": "FRASH ZAHRET AL LAILAK AIR FRESHENER",
+    "name": "EFEREAESEHE EZEAEHEREEETE EAELE ELEAEIELEAEKE EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
     "price": 37,
-    "size": "320 ml",
+    "size": "320 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3411,10 +3487,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554204860615,
-    "name": "FRASH MAHASIN ABAYA AIR FRESHENER",
+    "name": "EFEREAESEHE EMEAEHEAESEIENE EAEBEAEYEAE EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
     "price": 37,
-    "size": "320 ml",
+    "size": "320 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3424,10 +3500,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554204827847,
-    "name": "FRASH MAHASIN AL RIYAN AIR FRESHENER",
+    "name": "EFEREAESEHE EMEAEHEAESEIENE EAELE EREIEYEAENE EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
     "price": 37,
-    "size": "320 ml",
+    "size": "320 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3437,10 +3513,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554204729543,
-    "name": "FRASH MAHASIN GOLD AIR FRESHENER",
+    "name": "EFEREAESEHE EMEAEHEAESEIENE EGEOELEDE EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
     "price": 37,
-    "size": "320 ml",
+    "size": "320 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3450,10 +3526,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554204991687,
-    "name": "FRASH AL ABYAD AIR FRESHENER",
+    "name": "EFEREAESEHE EAELE EAEBEYEAEDE EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
     "price": 37,
-    "size": "320 ml",
+    "size": "320 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3463,10 +3539,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554204958919,
-    "name": "FRASH BINT AKABIR AIR FRESHENER",
+    "name": "EFEREAESEHE EBEIENETE EAEKEAEBEIERE EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
     "price": 37,
-    "size": "320 ml",
+    "size": "320 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3476,10 +3552,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554204926151,
-    "name": "FRASH FARFASHA AIR FRESHENER",
+    "name": "EFEREAESEHE EFEAEREFEAESEHEAE EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
     "price": 37,
-    "size": "320 ml",
+    "size": "320 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3489,10 +3565,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554204893383,
-    "name": "FRASH KASAR AL SAADA AIR FRESHENER",
+    "name": "EFEREAESEHE EKEAESEAERE EAELE ESEAEAEDEAE EAEIERE EFEREEESEHEEENEEERE",
     "col": "Eau De Parfum",
     "price": 37,
-    "size": "320 ml",
+    "size": "320 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3502,10 +3578,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205122759,
-    "name": "SHAMOOKH GOLD",
+    "name": "ESEHEAEMEOEOEKEHE EGEOELEDE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "20 ml",
+    "size": "20 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3517,10 +3593,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205089991,
-    "name": "MAZOON GOLD",
+    "name": "EMEAEZEOEOENE EGEOELEDE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "18 ml",
+    "size": "18 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3532,10 +3608,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205057223,
-    "name": "MAZOON ROSE GOLD",
+    "name": "EMEAEZEOEOENE EREOESEEE EGEOELEDE",
     "col": "Perfume Oils",
     "price": 50,
-    "size": "18 ml",
+    "size": "18 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3547,10 +3623,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205319367,
-    "name": "UNO DURABLE",
+    "name": "EUENEOE EDEUEREAEBELEEE",
     "col": "Eau De Parfum",
     "price": 55,
-    "size": "100 ml",
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -3562,10 +3638,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205253831,
-    "name": "UNO LUSSO",
+    "name": "EUENEOE ELEUESESEOE",
     "col": "Eau De Parfum",
     "price": 42,
-    "size": "100 ml",
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -3577,10 +3653,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205221063,
-    "name": "UNO SENSUALE",
+    "name": "EUENEOE ESEEENESEUEAELEEE",
     "col": "Eau De Parfum",
     "price": 55,
-    "size": "100 ml",
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -3592,10 +3668,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205155527,
-    "name": "SHAHI OUD",
+    "name": "ESEHEAEHEIE EOEUEDE",
     "col": "Eau De Parfum",
     "price": 35,
-    "size": "100 ml",
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -3607,10 +3683,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205515975,
-    "name": "MUSK SAHRA",
+    "name": "EMEUESEKE ESEAEHEREAE",
     "col": "Eau De Parfum",
     "price": 50,
-    "size": "100 ml",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3622,10 +3698,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205384903,
-    "name": "ROSE AND ROMANCE",
+    "name": "EREOESEEE EAENEDE EREOEMEAENECEEE",
     "col": "Eau De Parfum",
     "price": 50,
-    "size": "100 ml",
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -3635,16 +3711,12 @@ const PRODUCTS = [
     ],
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ROSE_AND_ROMANCE_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965893.jpg?v=1784382622"
   },
-  
-  
-  
-  
   {
     "id": 7554206204103,
-    "name": "BAKHOOR TAIBA",
+    "name": "EBEAEKEHEOEOERE ETEAEIEBEAE",
     "col": "Bakhoor",
     "price": 32,
-    "size": "58 g",
+    "size": "58 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3656,10 +3728,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554206105799,
-    "name": "OUD MUATTAR AL AZRAQ 40GM",
+    "name": "EOEUEDE EMEUEAETETEAERE EAELE EAEZEREAEQE E4E0EGEME",
     "col": "Bakhoor",
     "price": 35,
-    "size": "40 g",
+    "size": "40 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3671,10 +3743,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554206040263,
-    "name": "OUD MUATTAR BADAR",
+    "name": "EOEUEDE EMEUEAETETEAERE EBEAEDEAERE",
     "col": "Bakhoor",
     "price": 21,
-    "size": "30 g",
+    "size": "30 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3686,10 +3758,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554206007495,
-    "name": "OUD MUATTAR MAJNOON",
+    "name": "EOEUEDE EMEUEAETETEAERE EMEAEJENEOEOENE",
     "col": "Bakhoor",
     "price": 27,
-    "size": "50 g",
+    "size": "50 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3701,10 +3773,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554206367943,
-    "name": "BAKHOOR BAIT AL ATHEEQ",
+    "name": "EBEAEKEHEOEOERE EBEAEIETE EAELE EAETEHEEEEEQE",
     "col": "Bakhoor",
     "price": 21,
-    "size": "65 g",
+    "size": "65 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3716,10 +3788,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554206302407,
-    "name": "BAKHOOR BAIT AL ISRA",
+    "name": "EBEAEKEHEOEOERE EBEAEIETE EAELE EIESEREAE",
     "col": "Bakhoor",
     "price": 21,
-    "size": "65 g",
+    "size": "65 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3731,10 +3803,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554206236871,
-    "name": "BAKHOOR MARAH",
+    "name": "EBEAEKEHEOEOERE EMEAEREAEHE",
     "col": "Bakhoor",
     "price": 21,
-    "size": "55 g",
+    "size": "55 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3746,10 +3818,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554206499015,
-    "name": "BAKHOOR TAHIYA",
+    "name": "EBEAEKEHEOEOERE ETEAEHEIEYEAE",
     "col": "Bakhoor",
     "price": 21,
-    "size": "60 g",
+    "size": "60 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3761,10 +3833,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554206466247,
-    "name": "BAKHOOR ASDAAF",
+    "name": "EBEAEKEHEOEOERE EAESEDEAEAEFE",
     "col": "Bakhoor",
     "price": 21,
-    "size": "70 g",
+    "size": "70 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3776,10 +3848,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554206400711,
-    "name": "BAKHOOR ATEEB",
+    "name": "EBEAEKEHEOEOERE EAETEEEEEBE",
     "col": "Bakhoor",
     "price": 21,
-    "size": "70 g",
+    "size": "70 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3791,10 +3863,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554206630087,
-    "name": "BAKHOOR MUDHELA",
+    "name": "EBEAEKEHEOEOERE EMEUEDEHEEELEAE",
     "col": "Bakhoor",
     "price": 21,
-    "size": "60 g",
+    "size": "60 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3806,10 +3878,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554206597319,
-    "name": "BAKHOOR NOUF 100 GMS",
+    "name": "EBEAEKEHEOEOERE ENEOEUEFE E1E0E0E EGEMESE",
     "col": "Bakhoor",
     "price": 53,
-    "size": "100 g",
+    "size": "100 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3821,10 +3893,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554206564551,
-    "name": "BAKHOOR RUKAIYA 55GM",
+    "name": "EBEAEKEHEOEOERE EREUEKEAEIEYEAE E5E5EGEME",
     "col": "Bakhoor",
-    "price": 27,
-    "size": "55 g",
+    "price": 25.0,
+    "size": "55 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3836,10 +3908,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554206531783,
-    "name": "BAKHOOR SOUGAH",
+    "name": "EBEAEKEHEOEOERE ESEOEUEGEAEHE",
     "col": "Bakhoor",
-    "price": 32,
-    "size": "55 g",
+    "price": 30.0,
+    "size": "55 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3851,10 +3923,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554206793927,
-    "name": "BAKHOOR HOOR AL AIN 72GM",
+    "name": "EBEAEKEHEOEOERE EHEOEOERE EAELE EAEIENE E7E2EGEME",
     "col": "Bakhoor",
     "price": 27,
-    "size": "72 g",
+    "size": "72 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3866,10 +3938,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554206695623,
-    "name": "BAKHOOR INSHERAH 55GM",
+    "name": "EBEAEKEHEOEOERE EIENESEHEEEREAEHE E5E5EGEME",
     "col": "Bakhoor",
     "price": 35,
-    "size": "55 g",
+    "size": "55 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3881,10 +3953,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554206662855,
-    "name": "BAKHOOR KHULOOD",
+    "name": "EBEAEKEHEOEOERE EKEHEUELEOEOEDE",
     "col": "Bakhoor",
     "price": 27,
-    "size": "72 g",
+    "size": "72 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3896,10 +3968,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554206892231,
-    "name": "BAKHOOR BAIT AL AHLAM",
+    "name": "EBEAEKEHEOEOERE EBEAEIETE EAELE EAEHELEAEME",
     "col": "Bakhoor",
     "price": 21,
-    "size": "45 g",
+    "size": "45 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3911,10 +3983,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554120188103,
-    "name": "BAKHOOR AMAAR 100 GMS",
+    "name": "EBEAEKEHEOEOERE EAEMEAEAERE E1E0E0E EGEMESE",
     "col": "Bakhoor",
     "price": 53,
-    "size": "100 g",
+    "size": "100 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3926,10 +3998,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554206957767,
-    "name": "BAKHOOR AL BAHAAR",
+    "name": "EBEAEKEHEOEOERE EAELE EBEAEHEAEAERE",
     "col": "Bakhoor",
-    "price": 35,
-    "size": "55 g",
+    "price": 30.0,
+    "size": "55 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3941,10 +4013,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554206859463,
-    "name": "BAKHOOR GANAA 120GM",
+    "name": "EBEAEKEHEOEOERE EGEAENEAEAE E1E2E0EGEME",
     "col": "Bakhoor",
     "price": 90,
-    "size": "120 g",
+    "size": "120 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3956,10 +4028,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554206826695,
-    "name": "BAKHOOR HAKIM 100gm",
+    "name": "EBEAEKEHEOEOERE EHEAEKEIEME E1E0E0EgEmE",
     "col": "Bakhoor",
     "price": 74,
-    "size": "100 g",
+    "size": "100 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3971,10 +4043,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554206269639,
-    "name": "BAKHOOR BU KHALIFA",
+    "name": "EBEAEKEHEOEOERE EBEUE EKEHEAELEIEFEAE",
     "col": "Bakhoor",
     "price": 90,
-    "size": "120 g",
+    "size": "120 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -3986,10 +4058,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554206171335,
-    "name": "BAKHOOR KASHMEERI 120GM",
+    "name": "EBEAEKEHEOEOERE EKEAESEHEMEEEEEREIE E1E2E0EGEME",
     "col": "Bakhoor",
-    "price": 90,
-    "size": "120 g",
+    "price": 75.0,
+    "size": "120 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -4001,10 +4073,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554206138567,
-    "name": "OUD MUATTAR AFZAL 24GM",
+    "name": "EOEUEDE EMEUEAETETEAERE EAEFEZEAELE E2E4EGEME",
     "col": "Bakhoor",
     "price": 63,
-    "size": "24 g",
+    "size": "24 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -4016,10 +4088,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205909191,
-    "name": "MUSK POUR NARCIS",
+    "name": "EMEUESEKE EPEOEUERE ENEAERECEIESE",
     "col": "Eau De Parfum",
-    "price": 130,
-    "size": "100 ml",
+    "price": 110.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Her",
     "notes": [
@@ -4031,10 +4103,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205876423,
-    "name": "OUD POUR BLUEBERRY",
+    "name": "EOEUEDE EPEOEUERE EBELEUEEEBEEEREREYE",
     "col": "Eau De Parfum",
-    "price": 130,
-    "size": "100 ml",
+    "price": 100.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -4046,10 +4118,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205843655,
-    "name": "OUD POUR KLASSIK",
+    "name": "EOEUEDE EPEOEUERE EKELEAESESEIEKE",
     "col": "Eau De Parfum",
-    "price": 130,
-    "size": "100 ml",
+    "price": 100.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -4061,10 +4133,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205810887,
-    "name": "OUD POUR NOBLE",
+    "name": "EOEUEDE EPEOEUERE ENEOEBELEEE",
     "col": "Eau De Parfum",
-    "price": 130,
-    "size": "100 ml",
+    "price": 100.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -4076,10 +4148,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205778119,
-    "name": "OUD POUR ROUGE",
+    "name": "EOEUEDE EPEOEUERE EREOEUEGEEE",
     "col": "Eau De Parfum",
-    "price": 130,
-    "size": "100 ml",
+    "price": 100.0,
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -4091,10 +4163,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205745351,
-    "name": "OUD POUR SHAIKH",
+    "name": "EOEUEDE EPEOEUERE ESEHEAEIEKEHE",
     "col": "Eau De Parfum",
-    "price": 130,
-    "size": "100 ml",
+    "price": 100.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Him",
     "notes": [
@@ -4106,10 +4178,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205712583,
-    "name": "LA FEDE FIRST LADY",
+    "name": "ELEAE EFEEEDEEE EFEIERESETE ELEAEDEYE",
     "col": "Lafede",
     "price": 210,
-    "size": "75 ml",
+    "size": "Gift Set",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -4121,10 +4193,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205679815,
-    "name": "LA FEDE MISS PREMIERE",
+    "name": "ELEAE EFEEEDEEE EMEIESESE EPEREEEMEIEEEREEE",
     "col": "Lafede",
     "price": 210,
-    "size": "75 ml",
+    "size": "75 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -4136,10 +4208,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205483207,
-    "name": "PURE MUSK",
+    "name": "EPEUEREEE EMEUESEKE",
     "col": "Eau De Parfum",
     "price": 50,
-    "size": "100 ml",
+    "size": "100 ML",
     "badge": "Best Seller",
     "gender": "Unisex",
     "notes": [
@@ -4151,10 +4223,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205450439,
-    "name": "OMBRE NOTES",
+    "name": "EOEMEBEREEE ENEOETEEESE",
     "col": "Eau De Parfum",
-    "price": 118,
-    "size": "100 ml",
+    "price": 50.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -4166,10 +4238,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554205188295,
-    "name": "INFINI",
+    "name": "EIENEFEIENEIE",
     "col": "Eau De Parfum",
     "price": 53,
-    "size": "100 ml",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -4181,10 +4253,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554143617223,
-    "name": "SENSUOS NIGHT",
+    "name": "ESEEENESEUEOESE ENEIEGEHETE",
     "col": "Eau De Parfum",
-    "price": 118,
-    "size": "100 ml",
+    "price": 50.0,
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -4196,10 +4268,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554138603719,
-    "name": "OUD MUATTAR KHALAB 100GM",
+    "name": "EOEUEDE EMEUEAETETEAERE EKEHEAELEAEBE E1E0E0EGEME",
     "col": "Bakhoor",
     "price": 60,
-    "size": "100 g",
+    "size": "100 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -4211,10 +4283,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554138341575,
-    "name": "OUD MUATTAR QAISER 100GM",
+    "name": "EOEUEDE EMEUEAETETEAERE EQEAEIESEEERE E1E0E0EGEME",
     "col": "Bakhoor",
     "price": 60,
-    "size": "100 g",
+    "size": "100 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -4226,10 +4298,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554138079431,
-    "name": "OUD NOIR",
+    "name": "EOEUEDE ENEOEIERE",
     "col": "Eau De Parfum",
-    "price": 118,
-    "size": "100 ml",
+    "price": 50.0,
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -4241,10 +4313,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554130182343,
-    "name": "CODE MARRON OUD",
+    "name": "ECEOEDEEE EMEAEREREOENE EOEUEDE",
     "col": "Eau De Parfum",
     "price": 210,
-    "size": "100 ml",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -4256,10 +4328,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554130116807,
-    "name": "CODE ROUGE AMOUR",
+    "name": "ECEOEDEEE EREOEUEGEEE EAEMEOEUERE",
     "col": "Eau De Parfum",
     "price": 210,
-    "size": "100 ml",
+    "size": "100 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -4271,10 +4343,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554130051271,
-    "name": "CODE VERDE SUBLIME",
+    "name": "ECEOEDEEE EVEEEREDEEE ESEUEBELEIEMEEE",
     "col": "Eau De Parfum",
     "price": 210,
-    "size": "100 ml",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -4286,10 +4358,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554130018503,
-    "name": "CODE VIOLA NECTAR",
+    "name": "ECEOEDEEE EVEIEOELEAE ENEEECETEAERE",
     "col": "Eau De Parfum",
     "price": 210,
-    "size": "100 ml",
+    "size": "100 ML",
     "badge": "For Her",
     "gender": "Her",
     "notes": [
@@ -4301,10 +4373,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554129952967,
-    "name": "LA FEDE KINGSMAN",
+    "name": "ELEAE EFEEEDEEE EKEIENEGESEMEAENE",
     "col": "Lafede",
     "price": 210,
-    "size": "75 ml",
+    "size": "75 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -4316,10 +4388,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554129887431,
-    "name": "LA FEDE STATESMAN",
+    "name": "ELEAE EFEEEDEEE ESETEAETEEESEMEAENE",
     "col": "Lafede",
     "price": 210,
-    "size": "75 ml",
+    "size": "Gift Set",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -4331,10 +4403,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554120155335,
-    "name": "BAKHOOR BELAD ZAYED 120GM",
+    "name": "EBEAEKEHEOEOERE EBEEELEAEDE EZEAEYEEEDE E1E2E0EGEME",
     "col": "Bakhoor",
     "price": 90,
-    "size": "120 g",
+    "size": "120 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -4346,10 +4418,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554120089799,
-    "name": "BAKHOOR DHIYAFA 120GM",
+    "name": "EBEAEKEHEOEOERE EDEHEIEYEAEFEAE E1E2E0EGEME",
     "col": "Bakhoor",
     "price": 90,
-    "size": "120 g",
+    "size": "120 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -4361,10 +4433,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554120057031,
-    "name": "BAKHOOR DUKHOON MAKNOON",
+    "name": "EBEAEKEHEOEOERE EDEUEKEHEOEOENE EMEAEKENEOEOENE",
     "col": "Bakhoor",
     "price": 74,
-    "size": "100 g",
+    "size": "100 G",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -4376,10 +4448,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554119958727,
-    "name": "WILD INDONESIAN OUD PURE",
+    "name": "EWEIELEDE EIENEDEOENEEESEIEAENE EOEUEDE EPEUEREEE",
     "col": "Eau De Parfum",
-    "price": 200,
-    "size": "100ml EDP",
+    "price": 150.0,
+    "size": "60 ML",
     "badge": "For Him",
     "gender": "Him",
     "notes": [
@@ -4391,10 +4463,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554119925959,
-    "name": "DEHNAL OUD AQDAM",
+    "name": "EDEEEHENEAELE EOEUEDE EAEQEDEAEME",
     "col": "Dehn Al Oudh",
     "price": 95,
-    "size": "3 ml",
+    "size": "3 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -4406,10 +4478,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554119893191,
-    "name": "DEHNAL OUD AZEEM",
+    "name": "EDEEEHENEAELE EOEUEDE EAEZEEEEEME",
     "col": "Dehn Al Oudh",
     "price": 95,
-    "size": "3 ml",
+    "size": "3 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -4421,10 +4493,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554119860423,
-    "name": "DEHNAL OUD TURAAS",
+    "name": "EDEEEHENEAELE EOEUEDE ETEUEREAEAESE",
     "col": "Dehn Al Oudh",
     "price": 95,
-    "size": "3 ml",
+    "size": "3 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -4436,10 +4508,10 @@ const PRODUCTS = [
   },
   {
     "id": 7554119794887,
-    "name": "DEHNAL OUDH ASAL",
+    "name": "EDEEEHENEAELE EOEUEDEHE EAESEAELE",
     "col": "Dehn Al Oudh",
     "price": 189,
-    "size": "3 ml",
+    "size": "3 ML",
     "badge": "",
     "gender": "Unisex",
     "notes": [
@@ -4450,7 +4522,6 @@ const PRODUCTS = [
     "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/DEHNAL_OUDH_ASAL_3_ML_-_Khadlaj_Perfumes-1964308.jpg?v=1722409153"
   }
 ];
-
 
 
 
@@ -5255,23 +5326,7 @@ function ProductCard({ p, onView, onCart }){
   const collectionLabel = p.col === "Lafede" ? "La Fede" : p.col;
   const noteColors = ["#C8A96E","#9C7B50","#B8866A","#7A9E8A","#8B7EAA","#B06A6A","#6A8BAA","#A09060"];
   
-  const imageScale = {
-    "Biscotti Date Toffee": 0.82,
-    "Biscotti Melon Musk": 0.88,
-    "Bleu Glacé": 0.62,
-    "Saraya": 0.78,
-    "SHIYAAKA SNOW": 1.35,
-    "SHIYAAKA SHADOW": 1.05,
-    "KARUS GOLD ABSOLU": 1.05,
-    "ISLAND": 0.88,
-    "SAWAAR VANILLE BLANC": 1.05,
-    "PANACHE ANGEL DUST": 0.86,
-    "SARAYA": 1.08,
-    "QARAR": 1.08,
-    "IHTHIRAAM": 1.08,
-    "ZAYAAN SILVER": 0.88,
-    "ICON": 1.05
-  }[p.name] || 0.88;
+  const imageScale = 0.88; // Uniform standard size for all product pictures
 
   const imageShiftY = {
     "Biscotti Date Toffee": 0.02,
