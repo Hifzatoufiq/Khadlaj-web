@@ -101,10 +101,10 @@ const PRODUCTS = [
     "name": "ISLAND",
     "col": "Extrait De Parfum",
     "price": 150,
-    "size": "100ml EDP",
+    "size": "100 ML",
     "badge": "",
     "gender": "Unisex",
-    "notes": ["Oud", "Musk", "Amber"],
+    "notes": ["Citrus", "Marine", "Amber"],
     "img": "/assets/images/products/island-standard-transparent.png"
   },
   {
@@ -145,12 +145,12 @@ const PRODUCTS = [
     "name": "ISLAND VANILLA DUNES",
     "col": "Extrait De Parfum",
     "price": 150,
-    "size": "100ml EDP",
-    "badge": "For Him",
-    "gender": "Him",
+    "size": "100 ML",
+    "badge": "",
+    "gender": "Unisex",
     "notes": [
-      "Oud",
-      "Musk",
+      "Vanilla",
+      "Warm Sand",
       "Amber"
     ],
     "img": "/assets/images/products/island-vanilla-standard-transparent.png"
@@ -387,7 +387,7 @@ const PRODUCTS = [
     "topNotes": [],
     "midNotes": [],
     "baseNotes": [],
-    "notes": ["Oud", "Musk", "Amber"],
+    "notes": ["Island Sun", "Island Classic", "Gift Set"],
     "img": "/assets/images/products/island-gift-standard-transparent.png",
     "detailImages": ["/assets/images/products/island-gift-standard-transparent.png"]
   },
@@ -5236,7 +5236,7 @@ function ProductCard({ p, onView, onCart }){
     "SHIYAAKA SNOW": 1.35,
     "SHIYAAKA SHADOW": 1.05,
     "KARUS GOLD ABSOLU": 1.05,
-    "ISLAND": 1.05,
+    "ISLAND": 0.88,
     "SAWAAR VANILLE BLANC": 1.05,
     "PANACHE ANGEL DUST": 0.86,
     "SARAYA": 1.08,
@@ -6763,7 +6763,6 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 ═══════════════════════════════════════════════════════════════ */
 function IslandCollectionPage({ addToCart, setViewProduct, setPage }) {
   const { activeCountry } = React.useContext(CountryContext);
-  const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
   
   // All Island Collection Products
   const islandProducts = PRODUCTS.filter(p => 
@@ -6772,7 +6771,7 @@ function IslandCollectionPage({ addToCart, setViewProduct, setPage }) {
   );
 
   return (
-    <div style={{background:"#FAF8F4", minHeight:"100vh"}}>
+    <div style={{background:"#ffffff", minHeight:"100vh"}}>
       {/* Hero Banner with Golden Sunset Image */}
       <div style={{
         position:"relative",
@@ -6844,134 +6843,27 @@ function IslandCollectionPage({ addToCart, setViewProduct, setPage }) {
         </span>
       </div>
 
-      {/* Product Grid - Standardized Sizes with Transparent Backgrounds */}
-      <div style={{padding:"32px 5% 100px", maxWidth:1440, margin:"0 auto"}}>
-        <div style={{
-          display:"grid",
-          gridTemplateColumns:"repeat(auto-fill, minmax(260px, 1fr))",
-          gap:32,
-          alignItems:"stretch"
-        }}>
+      {/* Product Grid - Standard Transparent ProductCard */}
+      <div style={{padding:"40px 5% 100px", maxWidth:1440, margin:"0 auto"}}>
+        <div 
+          className="grid-4"
+          style={{
+            display:"grid",
+            gridTemplateColumns:"repeat(4, minmax(0, 1fr))",
+            gap:24,
+            alignItems:"stretch"
+          }}
+        >
           {islandProducts.map(p => (
-            <div 
-              key={p.id}
-              onClick={() => {
-                if (setViewProduct) setViewProduct(p);
+            <ProductCard 
+              key={p.id} 
+              p={p} 
+              onView={(prod) => {
+                if (setViewProduct) setViewProduct(prod);
                 setPage("product");
-              }}
-              style={{
-                background:"#ffffff",
-                border:"1px solid rgba(0,0,0,0.06)",
-                borderRadius:6,
-                padding:"24px 20px 28px",
-                display:"flex",
-                flexDirection:"column",
-                alignItems:"center",
-                textAlign:"center",
-                cursor:"pointer",
-                position:"relative",
-                transition:"all 0.35s cubic-bezier(0.25, 1, 0.5, 1)",
-                boxShadow:"0 6px 20px rgba(0,0,0,0.03)"
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.transform = "translateY(-6px)";
-                e.currentTarget.style.boxShadow = "0 18px 40px rgba(0,0,0,0.08)";
-                e.currentTarget.style.borderColor = "rgba(184,146,42,0.4)";
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.03)";
-                e.currentTarget.style.borderColor = "rgba(0,0,0,0.06)";
-              }}
-            >
-              {p.badge && (
-                <span style={{
-                  position:"absolute",
-                  top:12,
-                  left:12,
-                  background:"#B8922A",
-                  color:"#fff",
-                  fontSize:9,
-                  fontWeight:700,
-                  letterSpacing:1.5,
-                  padding:"4px 9px",
-                  borderRadius:2,
-                  textTransform:"uppercase"
-                }}>
-                  {p.badge}
-                </span>
-              )}
-
-              {/* Perfectly Sized Transparent Bottle Stage */}
-              <div style={{
-                width:"100%",
-                height:260,
-                display:"flex",
-                alignItems:"center",
-                justifyContent:"center",
-                background:"transparent",
-                marginBottom:20,
-                position:"relative"
-              }}>
-                <img 
-                  src={p.img}
-                  alt={p.name}
-                  loading="lazy"
-                  decoding="async"
-                  style={{
-                    width:"auto",
-                    height:"92%",
-                    maxHeight:240,
-                    maxWidth:"100%",
-                    objectFit:"contain",
-                    background:"transparent",
-                    filter:"drop-shadow(0 14px 22px rgba(0,0,0,0.12))",
-                    transition:"transform 0.4s ease"
-                  }}
-                  onMouseEnter={e => e.currentTarget.style.transform = "scale(1.06)"}
-                  onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
-                />
-              </div>
-
-              {/* Details */}
-              <div style={{width:"100%", marginTop:"auto"}}>
-                <span style={{fontSize:9.5, letterSpacing:3, color:"#B8922A", textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", fontWeight:600, display:"block", marginBottom:6}}>
-                  {p.col || "Extrait De Parfum"}
-                </span>
-                <h3 style={{fontFamily:"'Cinzel',serif", fontSize:17, fontWeight:600, color:"#251737", letterSpacing:1.5, margin:"0 0 8px", textTransform:"uppercase", lineHeight:1.25}}>
-                  {p.name}
-                </h3>
-                <p style={{fontSize:15, fontWeight:600, color:"#251737", fontFamily:"'Montserrat',sans-serif", margin:"0 0 16px"}}>
-                  {formatPrice(p.price)}
-                </p>
-
-                <button 
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    if (addToCart) addToCart(p, 1);
-                  }}
-                  style={{
-                    width:"100%",
-                    background:"#251737",
-                    color:"#fff",
-                    border:"none",
-                    padding:"11px 0",
-                    fontSize:10,
-                    letterSpacing:2.5,
-                    textTransform:"uppercase",
-                    fontWeight:600,
-                    fontFamily:"'Montserrat',sans-serif",
-                    cursor:"pointer",
-                    transition:"all 0.25s ease",
-                    borderRadius:2
-                  }}
-                  onMouseEnter={e => e.currentTarget.style.background = "#B8922A"}
-                  onMouseLeave={e => e.currentTarget.style.background = "#251737"}
-                >
-                  Add To Cart
-                </button>
-              </div>
-            </div>
+              }} 
+              onCart={addToCart}
+            />
           ))}
         </div>
       </div>
