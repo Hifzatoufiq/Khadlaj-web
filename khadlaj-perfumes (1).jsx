@@ -5655,6 +5655,10 @@ function NewLaunchesHeroBannerSlider({ setPage, setViewProduct }) {
   }, [isPaused, banners.length]);
 
   const handleBannerClick = (banner) => {
+    if (banner.id === "island-sun" && setPage) {
+      setPage("island");
+      return;
+    }
     const prod = PRODUCTS.find(p => p.name === banner.productName || p.id === banner.productId);
     if (prod && setViewProduct) {
       setViewProduct(prod);
@@ -6813,7 +6817,7 @@ function IslandCollectionPage({ addToCart, setViewProduct, setPage }) {
           style={{
             width:"100%",
             height:"auto",
-            aspectRatio:"2560/852",
+            aspectRatio:"1024/384",
             display:"block",
             objectFit:"contain"
           }}
