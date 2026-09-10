@@ -6279,6 +6279,12 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         </div>
       </div>
 
+      {/* ── FRESH ULTRA-HD BANNER SLIDER ── */}
+      <NewLaunchesHeroBannerSlider setPage={setPage} setViewProduct={setViewProduct} />
+
+      {/* ── 9 LUXURY SHOWCASE CARDS CAROUSEL ── */}
+      <NewLaunchesShowcaseCards setPage={setPage} setViewProduct={setViewProduct} />
+
       {/* ── 25TH ANNIVERSARY COLLECTION ── */}
       <section className="khadlaj25-section">
         <div className="k25-header">
@@ -6330,11 +6336,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         </div>
       </section>
 
-      {/* ── FRESH ULTRA-HD BANNER SLIDER ── */}
-      <NewLaunchesHeroBannerSlider setPage={setPage} setViewProduct={setViewProduct} />
 
-      {/* ── 9 LUXURY SHOWCASE CARDS CAROUSEL ── */}
-      <NewLaunchesShowcaseCards setPage={setPage} setViewProduct={setViewProduct} />
 
       {/* ── NEW LAUNCH ── */}
       <section style={{padding:"84px 5% 96px", background:"linear-gradient(180deg, #fff 0%, #fcfaf7 100%)"}}>
