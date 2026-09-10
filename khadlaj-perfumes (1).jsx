@@ -86,7 +86,7 @@ const PRODUCTS = [
     "badge": "New",
     "gender": "Unisex",
     "notes": ["Mango", "Coconut", "Lime"],
-    "img": "/assets/images/products/island-sun.png",
+    "img": "/assets/images/products/island-sun-standard-transparent.png",
     "desc": [
       "Island Sun is a vibrant, sun-drenched escape in a bottle, designed to capture the essence of a tropical paradise where the golden sun warms the skin and a gentle breeze carries the scent of exotic fruits.",
       "The fragrance opens with a succulent burst of juicy mango, creamy coconut, and zesty lime and lemon, instantly transporting you to an island oasis. The heart reveals a sophisticated blend of pink pepper, jasmine, and orange blossom, adding a subtle floral elegance and a touch of modern spicy sparkle.",
@@ -105,7 +105,7 @@ const PRODUCTS = [
     "badge": "",
     "gender": "Unisex",
     "notes": ["Oud", "Musk", "Amber"],
-    "img": "/assets/images/products/island-packshot-tight_transparent.png"
+    "img": "/assets/images/products/island-standard-transparent.png"
   },
   {
     "id": 8561163075783,
@@ -153,7 +153,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island_Vanilla-3.jpg?v=1783945707"
+    "img": "/assets/images/products/island-vanilla-standard-transparent.png"
   },
   {
     "id": 9200000000003,
@@ -388,8 +388,8 @@ const PRODUCTS = [
     "midNotes": [],
     "baseNotes": [],
     "notes": ["Oud", "Musk", "Amber"],
-    "img": "/assets/images/gifsets/island_nobox.png",
-    "detailImages": ["/assets/images/gifsets/island_nobox.png"]
+    "img": "/assets/images/products/island-gift-standard-transparent.png",
+    "detailImages": ["/assets/images/products/island-gift-standard-transparent.png"]
   },
   {
     "id": 8783764291783,
@@ -6759,6 +6759,228 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   PAGE: ISLAND COLLECTION (Dedicated)
+═══════════════════════════════════════════════════════════════ */
+function IslandCollectionPage({ addToCart, setViewProduct, setPage }) {
+  const { activeCountry } = React.useContext(CountryContext);
+  const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
+  
+  // All Island Collection Products
+  const islandProducts = PRODUCTS.filter(p => 
+    p.name.toLowerCase().includes("island") || 
+    (p.col && p.col.toLowerCase().includes("island"))
+  );
+
+  return (
+    <div style={{background:"#FAF8F4", minHeight:"100vh"}}>
+      {/* Hero Banner with Golden Sunset Image */}
+      <div style={{
+        position:"relative",
+        height:"clamp(340px, 46vw, 560px)",
+        width:"100%",
+        overflow:"hidden",
+        background:"#0a0a0a"
+      }}>
+        <img 
+          src="/assets/images/banners/banner-island-sun.png"
+          alt="Island Collection"
+          style={{
+            width:"100%",
+            height:"100%",
+            objectFit:"cover",
+            objectPosition:"center center",
+            display:"block"
+          }}
+        />
+        <div style={{
+          position:"absolute",
+          inset:0,
+          background:"linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.5) 100%)",
+          display:"flex",
+          flexDirection:"column",
+          alignItems:"center",
+          justifyContent:"flex-end",
+          padding:"0 5% 48px",
+          textAlign:"center"
+        }}>
+          <span style={{fontSize:11, letterSpacing:6, color:"#E5C578", textTransform:"uppercase", fontWeight:700, fontFamily:"'Montserrat',sans-serif", marginBottom:12, display:"block"}}>
+            Khadlaj Signature
+          </span>
+          <h1 style={{fontFamily:"'Cinzel',serif", fontSize:"clamp(34px,6vw,72px)", fontWeight:600, color:"#fff", lineHeight:1, letterSpacing:4, margin:"0 0 16px", textTransform:"uppercase"}}>
+            Island Collection
+          </h1>
+          <p style={{color:"rgba(255,255,255,0.85)", fontSize:13, letterSpacing:2, fontFamily:"'Montserrat',sans-serif", textTransform:"uppercase", margin:0}}>
+            {islandProducts.length} Exclusive Creations
+          </p>
+        </div>
+      </div>
+
+      {/* Breadcrumb / Back button */}
+      <div style={{padding:"24px 5% 0", maxWidth:1440, margin:"0 auto", display:"flex", alignItems:"center", justifyContent:"space-between"}}>
+        <button 
+          onClick={() => setPage("main")}
+          style={{
+            background:"transparent",
+            border:"none",
+            color:"#251737",
+            fontSize:11,
+            letterSpacing:2,
+            textTransform:"uppercase",
+            fontFamily:"'Montserrat',sans-serif",
+            fontWeight:600,
+            cursor:"pointer",
+            display:"flex",
+            alignItems:"center",
+            gap:8,
+            padding:"8px 0"
+          }}
+          onMouseEnter={e => e.currentTarget.style.color = "#B8922A"}
+          onMouseLeave={e => e.currentTarget.style.color = "#251737"}
+        >
+          ← Back to Home
+        </button>
+        <span style={{fontSize:11, color:"#888", letterSpacing:1.5, fontFamily:"'Montserrat',sans-serif", textTransform:"uppercase"}}>
+          Showing all {islandProducts.length} products
+        </span>
+      </div>
+
+      {/* Product Grid - Standardized Sizes with Transparent Backgrounds */}
+      <div style={{padding:"32px 5% 100px", maxWidth:1440, margin:"0 auto"}}>
+        <div style={{
+          display:"grid",
+          gridTemplateColumns:"repeat(auto-fill, minmax(260px, 1fr))",
+          gap:32,
+          alignItems:"stretch"
+        }}>
+          {islandProducts.map(p => (
+            <div 
+              key={p.id}
+              onClick={() => {
+                if (setViewProduct) setViewProduct(p);
+                setPage("product");
+              }}
+              style={{
+                background:"#ffffff",
+                border:"1px solid rgba(0,0,0,0.06)",
+                borderRadius:6,
+                padding:"24px 20px 28px",
+                display:"flex",
+                flexDirection:"column",
+                alignItems:"center",
+                textAlign:"center",
+                cursor:"pointer",
+                position:"relative",
+                transition:"all 0.35s cubic-bezier(0.25, 1, 0.5, 1)",
+                boxShadow:"0 6px 20px rgba(0,0,0,0.03)"
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = "translateY(-6px)";
+                e.currentTarget.style.boxShadow = "0 18px 40px rgba(0,0,0,0.08)";
+                e.currentTarget.style.borderColor = "rgba(184,146,42,0.4)";
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "0 6px 20px rgba(0,0,0,0.03)";
+                e.currentTarget.style.borderColor = "rgba(0,0,0,0.06)";
+              }}
+            >
+              {p.badge && (
+                <span style={{
+                  position:"absolute",
+                  top:12,
+                  left:12,
+                  background:"#B8922A",
+                  color:"#fff",
+                  fontSize:9,
+                  fontWeight:700,
+                  letterSpacing:1.5,
+                  padding:"4px 9px",
+                  borderRadius:2,
+                  textTransform:"uppercase"
+                }}>
+                  {p.badge}
+                </span>
+              )}
+
+              {/* Perfectly Sized Transparent Bottle Stage */}
+              <div style={{
+                width:"100%",
+                height:260,
+                display:"flex",
+                alignItems:"center",
+                justifyContent:"center",
+                background:"transparent",
+                marginBottom:20,
+                position:"relative"
+              }}>
+                <img 
+                  src={p.img}
+                  alt={p.name}
+                  loading="lazy"
+                  decoding="async"
+                  style={{
+                    width:"auto",
+                    height:"92%",
+                    maxHeight:240,
+                    maxWidth:"100%",
+                    objectFit:"contain",
+                    background:"transparent",
+                    filter:"drop-shadow(0 14px 22px rgba(0,0,0,0.12))",
+                    transition:"transform 0.4s ease"
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.transform = "scale(1.06)"}
+                  onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
+                />
+              </div>
+
+              {/* Details */}
+              <div style={{width:"100%", marginTop:"auto"}}>
+                <span style={{fontSize:9.5, letterSpacing:3, color:"#B8922A", textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", fontWeight:600, display:"block", marginBottom:6}}>
+                  {p.col || "Extrait De Parfum"}
+                </span>
+                <h3 style={{fontFamily:"'Cinzel',serif", fontSize:17, fontWeight:600, color:"#251737", letterSpacing:1.5, margin:"0 0 8px", textTransform:"uppercase", lineHeight:1.25}}>
+                  {p.name}
+                </h3>
+                <p style={{fontSize:15, fontWeight:600, color:"#251737", fontFamily:"'Montserrat',sans-serif", margin:"0 0 16px"}}>
+                  {formatPrice(p.price)}
+                </p>
+
+                <button 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    if (addToCart) addToCart(p, 1);
+                  }}
+                  style={{
+                    width:"100%",
+                    background:"#251737",
+                    color:"#fff",
+                    border:"none",
+                    padding:"11px 0",
+                    fontSize:10,
+                    letterSpacing:2.5,
+                    textTransform:"uppercase",
+                    fontWeight:600,
+                    fontFamily:"'Montserrat',sans-serif",
+                    cursor:"pointer",
+                    transition:"all 0.25s ease",
+                    borderRadius:2
+                  }}
+                  onMouseEnter={e => e.currentTarget.style.background = "#B8922A"}
+                  onMouseLeave={e => e.currentTarget.style.background = "#251737"}
+                >
+                  Add To Cart
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <TrustBanner />
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
    PAGE: COLLECTIONS
 ═══════════════════════════════════════════════════════════════ */
 function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategory }){
@@ -9339,6 +9561,7 @@ export default function App(){
       case "story":       return <StoryPage/>;
       case "signup":      return <SignupPage/>;
       case "contact":     return <ContactPage/>;
+      case "island":      return <IslandCollectionPage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage}/>;
       default:            return <HomePage setPage={setPage} addToCart={addToCart} setViewProduct={setViewProduct}/>;
     }
   };
