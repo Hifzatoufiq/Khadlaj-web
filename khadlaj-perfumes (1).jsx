@@ -108,6 +108,33 @@ const PRODUCTS = [
     "img": "/assets/images/products/island-standard-transparent.png"
   },
   {
+    "id": 8459140759751,
+    "name": "ISLAND DREAMS",
+    "col": "Extrait De Parfum",
+    "price": 125,
+    "size": "100 ML",
+    "badge": "New",
+    "gender": "Unisex",
+    "notes": ["Bergamot", "Grapefruit", "Ambroxan"],
+    "img": "/assets/images/products/island-dreams-standard-transparent.png",
+    "detailImages": [
+      "/assets/images/products/island-dreams-standard-transparent.png",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island_Dreams-3.jpg?v=1783940088",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/IslandDreams-1.jpg?v=1754913255",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island_Dreams-2.jpg?v=1754913375",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island_Dreams-4.jpg?v=1754913436"
+    ],
+    "desc": [
+      "Island Dreams is a fragrance that whisks you away to a world where turquoise waters meet endless skies.",
+      "It opens with the sparkling brightness of bergamot and the spicy warmth of ginger, instantly awakening your senses like a refreshing island breeze. The vibrant grapefruit accord at its heart adds a juicy, sun-kissed energy that feels both invigorating and uplifting.",
+      "As the scent settles, the elegant depth of ambroxan intertwines with the smooth sensuality of musk, creating a warm and addictive embrace that lingers like the memory of a perfect getaway. Each spray is a reminder of white sandy beaches, gentle waves, and the carefree spirit of island life.",
+      "<strong>Fragrance Family:</strong> Fresh Citrus Woody",
+      "<strong>Olfactory Profile:</strong> Sparkling • Marine • Warm • Sensual",
+      "Khadlaj Island Dreams isn't just a fragrance — it's a ticket to your own private paradise, bottled for you to carry anywhere."
+    ]
+  },
+
+  {
     "id": 8561163075783,
     "name": "SAWAAR VANILLE BLANC",
     "col": "Extrait De Parfum",
@@ -6772,23 +6799,23 @@ function IslandCollectionPage({ addToCart, setViewProduct, setPage }) {
 
   return (
     <div style={{background:"#ffffff", minHeight:"100vh"}}>
-      {/* Hero Banner with Golden Sunset Image - Compact, Clear, No Dark Overlay */}
+      {/* Hero Banner with Golden Sunset Image - Full Aspect Ratio Without Cropping */}
       <div style={{
         position:"relative",
-        height:"clamp(160px, 20vw, 280px)",
         width:"100%",
         overflow:"hidden",
-        background:"#FAF8F4"
+        background:"#FAF8F4",
+        lineHeight:0
       }}>
         <img 
           src="/assets/images/banners/banner-island-sun.png"
           alt="Island Collection"
           style={{
             width:"100%",
-            height:"100%",
-            objectFit:"cover",
-            objectPosition:"center 45%",
-            display:"block"
+            height:"auto",
+            aspectRatio:"2560/852",
+            display:"block",
+            objectFit:"contain"
           }}
         />
       </div>
@@ -6841,7 +6868,7 @@ function IslandCollectionPage({ addToCart, setViewProduct, setPage }) {
           className="grid-4"
           style={{
             display:"grid",
-            gridTemplateColumns:"repeat(4, minmax(0, 1fr))",
+            gridTemplateColumns:"repeat(auto-fill, minmax(240px, 1fr))",
             gap:24,
             alignItems:"stretch"
           }}
