@@ -6378,7 +6378,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
         <div className="discovery-grid">
           {[
-            {name: "Island", type: "Premium Blend", img: "/assets/images/products/island-gold.jpg"},
+            {name: "Island", type: "Premium Blend", img: "/assets/images/products/island-sun-card-gold.jpg"},
             {name: "Shiyaaka Sky", type: "Special Edition", img: "/assets/images/products/shiyaaka_custom_5_cropped.png"},
             {name: "Fursan", type: "Royal Elegance", img: "/assets/images/products/fursan.png"},
             {name: "L'imaginaire", type: "Artisan Creation", img: "/assets/images/products/limaginaire.jpg"},
@@ -6387,7 +6387,13 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             {name: "Mocha Latte", type: "Gourmand Essence", img: "/assets/images/products/mocha-latte.png"},
             {name: "Hareem Al Sultan", type: "Masterpiece", img: "/assets/images/products/hareem-al-sultan.png"}
           ].map((item, i) => (
-            <div key={item.name} className="discovery-card">
+            <div key={item.name} className="discovery-card" onClick={() => {
+              if (item.name === "Island") {
+                setPage("island");
+              } else {
+                setPage("collections");
+              }
+            }}>
               <img decoding="async" src={getOptimizedImage(item.img,500)} alt={item.name} loading="lazy" />
               <div className="discovery-card-overlay">
                 <p className="discovery-type">{item.type}</p>
