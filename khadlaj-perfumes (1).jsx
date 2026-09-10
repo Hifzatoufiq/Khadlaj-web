@@ -6772,13 +6772,13 @@ function IslandCollectionPage({ addToCart, setViewProduct, setPage }) {
 
   return (
     <div style={{background:"#ffffff", minHeight:"100vh"}}>
-      {/* Hero Banner with Golden Sunset Image */}
+      {/* Hero Banner with Golden Sunset Image - Compact, Clear, No Dark Overlay */}
       <div style={{
         position:"relative",
-        height:"clamp(340px, 46vw, 560px)",
+        height:"clamp(160px, 20vw, 280px)",
         width:"100%",
         overflow:"hidden",
-        background:"#0a0a0a"
+        background:"#FAF8F4"
       }}>
         <img 
           src="/assets/images/banners/banner-island-sun.png"
@@ -6787,35 +6787,14 @@ function IslandCollectionPage({ addToCart, setViewProduct, setPage }) {
             width:"100%",
             height:"100%",
             objectFit:"cover",
-            objectPosition:"center center",
+            objectPosition:"center 45%",
             display:"block"
           }}
         />
-        <div style={{
-          position:"absolute",
-          inset:0,
-          background:"linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.5) 100%)",
-          display:"flex",
-          flexDirection:"column",
-          alignItems:"center",
-          justifyContent:"flex-end",
-          padding:"0 5% 48px",
-          textAlign:"center"
-        }}>
-          <span style={{fontSize:11, letterSpacing:6, color:"#E5C578", textTransform:"uppercase", fontWeight:700, fontFamily:"'Montserrat',sans-serif", marginBottom:12, display:"block"}}>
-            Khadlaj Signature
-          </span>
-          <h1 style={{fontFamily:"'Cinzel',serif", fontSize:"clamp(34px,6vw,72px)", fontWeight:600, color:"#fff", lineHeight:1, letterSpacing:4, margin:"0 0 16px", textTransform:"uppercase"}}>
-            Island Collection
-          </h1>
-          <p style={{color:"rgba(255,255,255,0.85)", fontSize:13, letterSpacing:2, fontFamily:"'Montserrat',sans-serif", textTransform:"uppercase", margin:0}}>
-            {islandProducts.length} Exclusive Creations
-          </p>
-        </div>
       </div>
 
       {/* Breadcrumb / Back button */}
-      <div style={{padding:"24px 5% 0", maxWidth:1440, margin:"0 auto", display:"flex", alignItems:"center", justifyContent:"space-between"}}>
+      <div style={{padding:"20px 5% 0", maxWidth:1440, margin:"0 auto", display:"flex", alignItems:"center", justifyContent:"space-between"}}>
         <button 
           onClick={() => setPage("main")}
           style={{
@@ -6841,6 +6820,19 @@ function IslandCollectionPage({ addToCart, setViewProduct, setPage }) {
         <span style={{fontSize:11, color:"#888", letterSpacing:1.5, fontFamily:"'Montserrat',sans-serif", textTransform:"uppercase"}}>
           Showing all {islandProducts.length} products
         </span>
+      </div>
+
+      {/* Collection Title & Details (Moved Below Banner, Above Products) */}
+      <div style={{textAlign:"center", padding:"28px 5% 12px", maxWidth:1440, margin:"0 auto"}}>
+        <span style={{fontSize:11, letterSpacing:6, color:"#B8922A", textTransform:"uppercase", fontWeight:700, fontFamily:"'Montserrat',sans-serif", marginBottom:8, display:"block"}}>
+          Khadlaj Signature
+        </span>
+        <h1 style={{fontFamily:"'Cinzel',serif", fontSize:"clamp(28px, 4vw, 44px)", fontWeight:600, color:"#251737", lineHeight:1.15, letterSpacing:3, margin:"0 0 10px", textTransform:"uppercase"}}>
+          Island Collection
+        </h1>
+        <p style={{color:"#777", fontSize:12, letterSpacing:2, fontFamily:"'Montserrat',sans-serif", textTransform:"uppercase", margin:0}}>
+          {islandProducts.length} Exclusive Creations
+        </p>
       </div>
 
       {/* Product Grid - Standard Transparent ProductCard */}
