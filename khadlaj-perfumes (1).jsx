@@ -7884,6 +7884,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
    PAGE: PRODUCT DETAIL
 ═══════════════════════════════════════════════════════════════ */
 function LaFedePage({ addToCart, setViewProduct, setPage }){
+  const { lang, isRTL, t } = React.useContext(LanguageContext);
   const laFedeProducts = PRODUCTS.filter(p=>p.col==="Lafede");
   const [laFedeFilter, setLaFedeFilter] = useState("featured");
   const visibleLaFedeProducts = applyProductFilter(laFedeProducts, laFedeFilter);
@@ -8417,6 +8418,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
    PAGE: GIFT SETS
 ═══════════════════════════════════════════════════════════════ */
 function GiftsPage({ addToCart, setViewProduct, setPage }){
+  const { lang, isRTL, t } = React.useContext(LanguageContext);
   // Pull gift set products directly from PRODUCTS array (size === "Gift Set")
   const giftProducts = PRODUCTS.filter(p => p.size === "Gift Set");
   const [giftFilter, setGiftFilter] = useState("featured");
