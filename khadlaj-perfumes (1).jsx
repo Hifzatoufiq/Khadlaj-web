@@ -5601,8 +5601,7 @@ function SectionHeader({ eyebrow, title, sub, light=false }){
   );
 }
 
-function TikTokCard({ t: cardData }) {
-  const t_item = cardData;
+function TikTokCard({ t: item }) {
   const [hov, setHov] = useState(false);
   const { activeCountry } = React.useContext(CountryContext);
   const { lang } = React.useContext(LanguageContext);
@@ -5630,7 +5629,7 @@ function TikTokCard({ t: cardData }) {
       {/* Blurred product image — shows while iframe loads */}
       <div style={{
         position: "absolute", inset: "-10%", width: "120%", height: "120%",
-        backgroundImage: `url(${t_item.img})`,
+        backgroundImage: `url(${item.img})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         opacity: 0.25,
@@ -5640,12 +5639,12 @@ function TikTokCard({ t: cardData }) {
 
       {/* TikTok Player v1 — autoplay, muted, loop (lazy loaded for speed) */}
       <iframe
-        src={`https://www.tiktok.com/player/v1/${t.id}?music_info=0&description=0&loop=1&autoplay=1&muted=1&controls=0&rel=0&native_context_menu=0&closed_caption=0`}
+        src={`https://www.tiktok.com/player/v1/${item.id}?music_info=0&description=0&loop=1&autoplay=1&muted=1&controls=0&rel=0&native_context_menu=0&closed_caption=0`}
         loading="lazy"
         scrolling="no"
         allow="autoplay; encrypted-media; fullscreen"
         allowFullScreen
-        title={t_item.title}
+        title={item.title}
         style={{
           position: "absolute", inset: 0, width: "100%", height: "100%",
           border: "none", zIndex: 1,
@@ -5695,11 +5694,11 @@ function TikTokCard({ t: cardData }) {
           color:"rgba(255,255,255,0.8)",
           letterSpacing: 0.2,
           margin: 0,
-        }}>{t.caption}</p>
+        }}>{item.caption}</p>
 
         {/* Watch button */}
         <a
-          href={`https://www.tiktok.com/video/${t.id}`}
+          href={`https://www.tiktok.com/video/${item.id}`}
           target="_blank"
           rel="noopener noreferrer"
           style={{
