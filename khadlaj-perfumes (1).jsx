@@ -6381,13 +6381,13 @@ function NewLaunchesHeroBannerSlider({ setPage, setViewProduct }) {
 
   const banners = [
     {
-      id: "island-sun",
-      img: "/assets/images/banners/banner-island-sun.png",
-      title: "ISLAND SUN",
-      subtitle: "Extrait De Parfum",
-      badge: "NEW LAUNCH",
-      productName: "ISLAND SUN",
-      productId: 9200000000010
+      id: "shiyaakiya-deals",
+      img: "/assets/images/banners/shiyaakiya-deals-50-off-banner.png",
+      title: "SHIYAAKIYA DEALS",
+      subtitle: "Deals Up To 50% Off",
+      badge: "LIMITED DEALS",
+      productName: "ISLAND DREAMS",
+      productId: 8199234977991
     },
     {
       id: "muse",
@@ -6408,8 +6408,8 @@ function NewLaunchesHeroBannerSlider({ setPage, setViewProduct }) {
   }, [isPaused, banners.length]);
 
   const handleBannerClick = (banner) => {
-    if (banner.id === "island-sun" && setPage) {
-      setPage("island");
+    if ((banner.id === "shiyaakiya-deals" || banner.id === "island-sun") && setPage) {
+      setPage("collections");
       return;
     }
     const prod = PRODUCTS.find(p => p.name === banner.productName || p.id === banner.productId);
