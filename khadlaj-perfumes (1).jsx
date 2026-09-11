@@ -5293,12 +5293,24 @@ const GLOBAL_CSS = `
   }
 
   /* Hero Luxury Styles */
-  .hero-video-wrap {
+  .hero-first-scroll-wrap {
     position: relative;
     width: 100%;
     height: 100vh;
+    height: 100dvh;
     min-height: 560px;
-    max-height: 960px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #080808;
+  }
+  .hero-first-scroll-wrap .hero-video-wrap {
+    position: relative;
+    width: 100%;
+    flex: 1;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
     overflow: hidden;
     background: #080808;
   }
@@ -5312,22 +5324,36 @@ const GLOBAL_CSS = `
     display: block;
     opacity: 1;
   }
+  .hero-scent-ribbon {
+    flex-shrink: 0;
+    overflow: hidden;
+    background: #251737;
+    padding: 18px 0;
+    border-top: 1px solid rgba(193,164,106,0.15);
+    border-bottom: 1px solid rgba(193,164,106,0.15);
+  }
   @media(max-width: 900px) {
-    .hero-video-wrap {
-      height: clamp(400px, 66vh, 580px) !important;
-      min-height: 400px !important;
-      max-height: 580px !important;
+    .hero-first-scroll-wrap {
+      height: 100vh !important;
+      height: 100dvh !important;
+      min-height: 460px !important;
     }
     .hero-video {
       object-fit: cover !important;
       object-position: center center !important;
     }
+    .hero-scent-ribbon {
+      padding: 14px 0;
+    }
   }
   @media(max-width: 600px) {
-    .hero-video-wrap {
-      height: clamp(340px, 60vh, 480px) !important;
-      min-height: 340px !important;
-      max-height: 480px !important;
+    .hero-first-scroll-wrap {
+      height: 100vh !important;
+      height: 100dvh !important;
+      min-height: 400px !important;
+    }
+    .hero-scent-ribbon {
+      padding: 12px 0;
     }
   }
 
@@ -7007,71 +7033,71 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
   return (
     <>
-      {/* ── LUXURY CINEMATIC HERO VIDEO ── */}
-      <section className="hero-video-wrap hero-section">
-        <video
-          ref={heroVideoRef}
-          className="hero-video"
-          src={window.__VIDEO_URL__ || "./assets/videos/website-update-web-version.mp4"}
-          autoPlay
-          muted={isMuted}
-          loop
-          playsInline
-          preload="auto"
-          onCanPlay={() => window.hidePreloader && window.hidePreloader()}
-          onLoadedData={() => window.hidePreloader && window.hidePreloader()}
-          style={{
-            position: "absolute",
-            inset: 0,
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition: "center center",
-            display: "block",
-            opacity: 1,
-          }}
-        />
+      {/* ── FIRST SCROLL: LUXURY CINEMATIC HERO VIDEO WITH BOTTOM LINE ── */}
+      <div className="hero-first-scroll-wrap">
+        <section className="hero-video-wrap hero-section">
+          <video
+            ref={heroVideoRef}
+            className="hero-video"
+            src={window.__VIDEO_URL__ || "./assets/videos/website-update-web-version.mp4"}
+            autoPlay
+            muted={isMuted}
+            loop
+            playsInline
+            preload="auto"
+            onCanPlay={() => window.hidePreloader && window.hidePreloader()}
+            onLoadedData={() => window.hidePreloader && window.hidePreloader()}
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center center",
+              display: "block",
+              opacity: 1,
+            }}
+          />
 
-        {/* Subtle top shade for seamless navbar transition */}
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            right: 0,
-            height: "120px",
-            background: "linear-gradient(to bottom, rgba(37,23,55,0.38) 0%, rgba(0,0,0,0) 100%)",
-            pointerEvents: "none",
-            zIndex: 2,
-          }}
-        />
+          {/* Subtle top shade for seamless navbar transition */}
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              right: 0,
+              height: "120px",
+              background: "linear-gradient(to bottom, rgba(37,23,55,0.38) 0%, rgba(0,0,0,0) 100%)",
+              pointerEvents: "none",
+              zIndex: 2,
+            }}
+          />
 
-        {/* Subtle bottom fade to blend smoothly into the scent ribbon */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            height: "70px",
-            background: "linear-gradient(to top, rgba(37,23,55,0.45) 0%, rgba(0,0,0,0) 100%)",
-            pointerEvents: "none",
-            zIndex: 2,
-          }}
-        />
+          {/* Subtle bottom fade to blend smoothly into the scent ribbon */}
+          <div
+            style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              right: 0,
+              height: "70px",
+              background: "linear-gradient(to top, rgba(37,23,55,0.45) 0%, rgba(0,0,0,0) 100%)",
+              pointerEvents: "none",
+              zIndex: 2,
+            }}
+          />
+        </section>
 
-
-      </section>
-
-      {/* ── SCENT RIBBON ── */}
-      <div style={{overflow:"hidden",background:"#251737",padding:"24px 0", borderTop:"1px solid rgba(193,164,106,0.15)", borderBottom:"1px solid rgba(193,164,106,0.15)"}}>
-        <div className="ribbon-inner" style={{display:"flex", alignItems:"center"}}>
-          {[...SCENT_RIBBON,...SCENT_RIBBON,...SCENT_RIBBON].map((n,i)=>(
-            <div key={i} style={{display:"flex", alignItems:"center"}}>
-              <span style={{fontSize:12,fontWeight:400,letterSpacing:8,color:"#E8E4DC",textTransform:"uppercase",whiteSpace:"nowrap",fontFamily:"'Montserrat',sans-serif"}}>{n}</span>
-              <span style={{margin:"0 64px",color:"#C1A46A",fontSize:10}}>✦</span>
-            </div>
-          ))}
+        {/* ── SCENT RIBBON (BOTTOM LINE) ── */}
+        <div className="hero-scent-ribbon">
+          <div className="ribbon-inner" style={{display:"flex", alignItems:"center"}}>
+            {[...SCENT_RIBBON,...SCENT_RIBBON,...SCENT_RIBBON].map((n,i)=>(
+              <div key={i} style={{display:"flex", alignItems:"center"}}>
+                <span style={{fontSize:12,fontWeight:400,letterSpacing:8,color:"#E8E4DC",textTransform:"uppercase",whiteSpace:"nowrap",fontFamily:"'Montserrat',sans-serif"}}>{n}</span>
+                <span style={{margin:"0 64px",color:"#C1A46A",fontSize:10}}>✦</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
