@@ -27,15 +27,15 @@ const C = {
    DATA
 ═══════════════════════════════════════════════════════════════ */
 const COUNTRIES = [
-  { name:"KSA",      flagUrl:"/assets/images/flags/sa.png", currency:"SAR", currencyAr:"ر.س", rate:1.021 },
-  { name:"UAE",      flagUrl:"/assets/images/flags/ae.png", currency:"AED", currencyAr:"د.إ", rate:1 },
-  { name:"Kuwait",   flagUrl:"/assets/images/flags/kw.png", currency:"KWD", currencyAr:"د.ك", rate:0.08 },
-  { name:"India",    flagUrl:"/assets/images/flags/in.png", currency:"INR", currencyAr:"ر.ه", rate:22.5 },
-  { name:"Egypt",    flagUrl:"/assets/images/flags/eg.png", currency:"EGP", currencyAr:"ج.م", rate:13.2 },
-  { name:"Malaysia", flagUrl:"/assets/images/flags/my.png", currency:"MYR", currencyAr:"ر.م", rate:1.25 },
-  { name:"UK",       flagUrl:"/assets/images/flags/gb.png", currency:"GBP", currencyAr:"£", rate:0.21 },
-  { name:"USA",      flagUrl:"/assets/images/flags/us.png", currency:"USD", currencyAr:"$", rate:0.27 },
-  { name:"Global",   flagUrl:"global", currency:"USD", currencyAr:"$", rate:0.27 },
+  { name:"KSA",      nameAr:"السعودية", flagUrl:"/assets/images/flags/sa.png", currency:"SAR", currencyAr:"ر.س", rate:1.021 },
+  { name:"UAE",      nameAr:"الإمارات", flagUrl:"/assets/images/flags/ae.png", currency:"AED", currencyAr:"د.إ", rate:1 },
+  { name:"Kuwait",   nameAr:"الكويت",   flagUrl:"/assets/images/flags/kw.png", currency:"KWD", currencyAr:"د.ك", rate:0.08 },
+  { name:"India",    nameAr:"الهند",    flagUrl:"/assets/images/flags/in.png", currency:"INR", currencyAr:"ر.ه", rate:22.5 },
+  { name:"Egypt",    nameAr:"مصر",      flagUrl:"/assets/images/flags/eg.png", currency:"EGP", currencyAr:"ج.م", rate:13.2 },
+  { name:"Malaysia", nameAr:"ماليزيا",  flagUrl:"/assets/images/flags/my.png", currency:"MYR", currencyAr:"ر.م", rate:1.25 },
+  { name:"UK",       nameAr:"المملكة المتحدة", flagUrl:"/assets/images/flags/gb.png", currency:"GBP", currencyAr:"£", rate:0.21 },
+  { name:"USA",      nameAr:"أمريكا",   flagUrl:"/assets/images/flags/us.png", currency:"USD", currencyAr:"$", rate:0.27 },
+  { name:"Global",   nameAr:"دولي",     flagUrl:"global", currency:"USD", currencyAr:"$", rate:0.27 },
 ];
 const CountryContext = React.createContext();
 
@@ -4665,10 +4665,38 @@ const PRODUCTS = [
 
 
 const REVIEWS = [
-  { name: "Verified Buyer", country: "Online", stars: 5, text: "The perfumes are really good I went to Original testor stores, stores like afnan & Rasasi but this perfume brand blew my mind. The perfumes were really good and strong in the initial smelling. Good discounts & good perfumes.", url: "" },
-  { name: "Verified Buyer", country: "Online", stars: 5, text: "Hareem al sultan the viral perfume oil is from khadlaj perfumes, they do have a great collection of exotic perfumes and oils. Most products comes in a very good package.", url: "" },
-  { name: "Verified Buyer", country: "Online", stars: 5, text: "Nice perfume amezing long lasting fragrance, value of money,And very kind and supportive staff, Very nice experience with khadlaj", url: "" },
-  { name: "Verified Buyer", country: "Online", stars: 5, text: "Amazing fragrances depends on mood , type , flavour and long lasting. Have purchased their all time famous klassik is much more to give to your mood while interacting with other people And done lot of repeated purchases", url: "" }
+  { 
+    name: "Verified Buyer", nameAr: "مشتري موثق", 
+    country: "Online", countryAr: "متجر خدلج الإلكتروني", 
+    stars: 5, 
+    text: "The perfumes are really good I went to Original testor stores, stores like afnan & Rasasi but this perfume brand blew my mind. The perfumes were really good and strong in the initial smelling. Good discounts & good perfumes.",
+    textAr: "عطور ممتازة جداً وتفوق التوقعات، جربت عدة دور عطور معروفة ولكن خدلج تميز بثبات عالي وفوحان مذهل من أول رشة. تجربة رائعة وخصومات ممتازة.",
+    url: "" 
+  },
+  { 
+    name: "Verified Buyer", nameAr: "مشتري موثق", 
+    country: "Online", countryAr: "متجر خدلج الإلكتروني", 
+    stars: 5, 
+    text: "Hareem al sultan the viral perfume oil is from khadlaj perfumes, they do have a great collection of exotic perfumes and oils. Most products comes in a very good package.",
+    textAr: "عطر حريم السلطان الأكثر شهرة من خدلج تحفة حقيقية! تشكيلة واسعة ومبهرة من الزيوت العطرية الفاخرة وتغليف أنيق جداً.",
+    url: "" 
+  },
+  { 
+    name: "Verified Buyer", nameAr: "مشتري موثق", 
+    country: "Online", countryAr: "متجر خدلج الإلكتروني", 
+    stars: 5, 
+    text: "Nice perfume amezing long lasting fragrance, value of money,And very kind and supportive staff, Very nice experience with khadlaj",
+    textAr: "عطور رائعة وفائقة الثبات تدوم طويلاً وتستحق كل ريال. فريق الدعم راقي ومتعاون جداً، تجربة تسوق راقية بكل المقاييس مع خدلج.",
+    url: "" 
+  },
+  { 
+    name: "Verified Buyer", nameAr: "مشتري موثق", 
+    country: "Online", countryAr: "متجر خدلج الإلكتروني", 
+    stars: 5, 
+    text: "Amazing fragrances depends on mood , type , flavour and long lasting. Have purchased their all time famous klassik is much more to give to your mood while interacting with other people And done lot of repeated purchases",
+    textAr: "تنوع استثنائي في العطور والزيوت بأسعار مناسبة وقيمة لا تُضاهى. الجودة والفخامة لا مثيل لهما.",
+    url: "" 
+  },
 ];
 
 const COLLECTIONS_DATA = [
@@ -5656,12 +5684,12 @@ function ProductCard({ p, onView, onCart }){
     >
       {p.badge && (
         <span style={{
-          position:"absolute", top:12, left:12, zIndex:3,
+          position:"absolute", top:12, left: isRTL ? "auto" : 12, right: isRTL ? 12 : "auto", zIndex:3,
           background: p.badge==="Limited" ? "#5C0000" : p.badge==="New" ? "#B8922A" : "#251737",
           color:"#fff", fontSize:9.5, letterSpacing:2.5,
           padding:"5px 11px", fontWeight:600, textTransform:"uppercase",
           fontFamily:"'Montserrat',sans-serif",
-        }}>{p.badge}</span>
+        }}>{isRTL ? (p.badge==="Limited" ? "إصدار محدود" : p.badge==="New" ? "جديد" : p.badge==="Best Seller" ? "الأكثر مبيعاً" : p.badge) : p.badge}</span>
       )}
       <div className="product-image-stage" style={{
         position:"relative",
@@ -5737,7 +5765,7 @@ function ProductCard({ p, onView, onCart }){
       </div>
       <div className="product-card-info" style={{padding:"16px 10px 18px", flex:1, display:"flex", flexDirection:"column", alignItems:"center", textAlign:"center"}}>
         <p style={{fontSize:9.5, letterSpacing:3, color:"#B8922A", textTransform:"uppercase", marginBottom:7, fontFamily:"'Montserrat',sans-serif", fontWeight:600}}>{collectionLabel}</p>
-        <h3 className="product-card-title" style={{fontSize:15.5, fontWeight:600, color:"#251737", lineHeight:1.25, marginBottom:5, textTransform:"uppercase", letterSpacing:1.1}}>{p.name}</h3>
+        <h3 className="product-card-title" style={{fontSize:15.5, fontWeight:600, color:"#251737", lineHeight:1.25, marginBottom:5, textTransform:"uppercase", letterSpacing:1.1}}>{isRTL && p.nameAr ? p.nameAr : p.name}</h3>
         <p className="product-card-size" style={{fontSize:12.5, color:"#888", marginBottom:12, fontFamily:"'Montserrat',sans-serif", letterSpacing:.4, fontWeight:400}}>{p.size}</p>
         {notes.length > 0 && (
           <div className="product-notes" style={{display:"flex", flexWrap:"nowrap", gap:4, marginBottom:12, justifyContent:"center", alignItems:"center", width:"100%"}}>
@@ -6678,27 +6706,27 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           <div id="k25-scroll-container" className="k25-slider-container">
             <div className="k25-slider-track">
               {[
-                { name: "SHIYAAKA SKY", subtitle: "Fresh & Uplifting", desc: "A refreshing blend of fresh citrus and sky breeze notes, anchored by a warm cedarwood foundation.", img: "/assets/images/products/shiyaaka_custom_5_cropped.png" },
-                { name: "SHIYAAKA SHADOW", subtitle: "Mysterious & Bold", desc: "A captivating fragrance that symbolizes modern masculinity, bottled for the discerning individual.", img: "/assets/images/products/shiyaaka_custom_3.jpg" },
-                { name: "SHIYAAKA SNOW", subtitle: "Crisp & Pure", desc: "An aromatic tribute to the frosty freshness, woven into the very fabric of our heritage.", img: "/assets/images/products/shiyaaka_custom_4.png" },
-                { name: "SHIYAAKA GOLD", subtitle: "Timeless Elegance", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "/assets/images/products/shiyaaka_custom_2.jpg" },
-                { name: "SHIYAAKA BLUE", subtitle: "Fresh & Aquatic", desc: "Built on the essence of pure freshness, leaving a trail of sophisticated confidence wherever you go.", img: "/assets/images/products/shiyaaka_custom_1.jpg" },
-                { name: "SHIYAAKA MEN", subtitle: "Bold & Classic", desc: "A signature masculine scent blending rich spices with deep woody undertones.", img: "/assets/images/products/shiya_men_v3.png" },
-                { name: "SHIYAAKA SKY", subtitle: "Fresh & Uplifting", desc: "A refreshing blend of fresh citrus and sky breeze notes, anchored by a warm cedarwood foundation.", img: "/assets/images/products/shiyaaka_custom_5_cropped.png" },
-                { name: "SHIYAAKA SHADOW", subtitle: "Mysterious & Bold", desc: "A captivating fragrance that symbolizes modern masculinity, bottled for the discerning individual.", img: "/assets/images/products/shiyaaka_custom_3.jpg" },
-                { name: "SHIYAAKA SNOW", subtitle: "Crisp & Pure", desc: "An aromatic tribute to the frosty freshness, woven into the very fabric of our heritage.", img: "/assets/images/products/shiyaaka_custom_4.png" },
-                { name: "SHIYAAKA GOLD", subtitle: "Timeless Elegance", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", img: "/assets/images/products/shiyaaka_custom_2.jpg" },
-                { name: "SHIYAAKA BLUE", subtitle: "Fresh & Aquatic", desc: "Built on the essence of pure freshness, leaving a trail of sophisticated confidence wherever you go.", img: "/assets/images/products/shiyaaka_custom_1.jpg" },
-                { name: "SHIYAAKA MEN", subtitle: "Bold & Classic", desc: "A signature masculine scent blending rich spices with deep woody undertones.", img: "/assets/images/products/shiya_men_v3.png" }
+                { name: "SHIYAAKA SKY", nameAr: "شياكة سكاي", subtitle: "Fresh & Uplifting", subtitleAr: "منعش ومفعم بالحيوية", desc: "A refreshing blend of fresh citrus and sky breeze notes, anchored by a warm cedarwood foundation.", descAr: "مزيج منعش من الحمضيات الفوارة ونسيم السماء، يرتكز على قاعدة دافئة من خشب الأرز.", img: "/assets/images/products/shiyaaka_custom_5_cropped.png" },
+                { name: "SHIYAAKA SHADOW", nameAr: "شياكة شادو", subtitle: "Mysterious & Bold", subtitleAr: "غامض وجريء", desc: "A captivating fragrance that symbolizes modern masculinity, bottled for the discerning individual.", descAr: "عطر آسر يجسد الرجولة العصرية والجاذبية العميقة، صُمم للشخصيات المميزة.", img: "/assets/images/products/shiyaaka_custom_3.jpg" },
+                { name: "SHIYAAKA SNOW", nameAr: "شياكة سنو", subtitle: "Crisp & Pure", subtitleAr: "نقي ومنعش كالثلج", desc: "An aromatic tribute to the frosty freshness, woven into the very fabric of our heritage.", descAr: "تحية عطرية للانتعاش النقي والبرودة الساحرة، منسوجة في صلب تراثنا الأصيل.", img: "/assets/images/products/shiyaaka_custom_4.png" },
+                { name: "SHIYAAKA GOLD", nameAr: "شياكة جولد", subtitle: "Timeless Elegance", subtitleAr: "أناقة كلاسيكية خالدة", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", descAr: "مزيج مهيب يعكس القوة والشهامة والأناقة الخالدة التي تدوم عبر العصور.", img: "/assets/images/products/shiyaaka_custom_2.jpg" },
+                { name: "SHIYAAKA BLUE", nameAr: "شياكة بلو", subtitle: "Fresh & Aquatic", subtitleAr: "أكواتيك بحري منعش", desc: "Built on the essence of pure freshness, leaving a trail of sophisticated confidence wherever you go.", descAr: "صُمم على خلاصة الانتعاش النقي، ليترك بصمة من الثقة الراقية أينما ذهبت.", img: "/assets/images/products/shiyaaka_custom_1.jpg" },
+                { name: "SHIYAAKA MEN", nameAr: "شياكة رجالي", subtitle: "Bold & Classic", subtitleAr: "كلاسيكي وجريء", desc: "A signature masculine scent blending rich spices with deep woody undertones.", descAr: "عطر رجالي مميز يمزج بين التوابل الغنية والنفحات الخشبية العميقة.", img: "/assets/images/products/shiya_men_v3.png" },
+                { name: "SHIYAAKA SKY", nameAr: "شياكة سكاي", subtitle: "Fresh & Uplifting", subtitleAr: "منعش ومفعم بالحيوية", desc: "A refreshing blend of fresh citrus and sky breeze notes, anchored by a warm cedarwood foundation.", descAr: "مزيج منعش من الحمضيات الفوارة ونسيم السماء، يرتكز على قاعدة دافئة من خشب الأرز.", img: "/assets/images/products/shiyaaka_custom_5_cropped.png" },
+                { name: "SHIYAAKA SHADOW", nameAr: "شياكة شادو", subtitle: "Mysterious & Bold", subtitleAr: "غامض وجريء", desc: "A captivating fragrance that symbolizes modern masculinity, bottled for the discerning individual.", descAr: "عطر آسر يجسد الرجولة العصرية والجاذبية العميقة، صُمم للشخصيات المميزة.", img: "/assets/images/products/shiyaaka_custom_3.jpg" },
+                { name: "SHIYAAKA SNOW", nameAr: "شياكة سنو", subtitle: "Crisp & Pure", subtitleAr: "نقي ومنعش كالثلج", desc: "An aromatic tribute to the frosty freshness, woven into the very fabric of our heritage.", descAr: "تحية عطرية للانتعاش النقي والبرودة الساحرة، منسوجة في صلب تراثنا الأصيل.", img: "/assets/images/products/shiyaaka_custom_4.png" },
+                { name: "SHIYAAKA GOLD", nameAr: "شياكة جولد", subtitle: "Timeless Elegance", subtitleAr: "أناقة كلاسيكية خالدة", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", descAr: "مزيج مهيب يعكس القوة والشهامة والأناقة الخالدة التي تدوم عبر العصور.", img: "/assets/images/products/shiyaaka_custom_2.jpg" },
+                { name: "SHIYAAKA BLUE", nameAr: "شياكة بلو", subtitle: "Fresh & Aquatic", subtitleAr: "أكواتيك بحري منعش", desc: "Built on the essence of pure freshness, leaving a trail of sophisticated confidence wherever you go.", descAr: "صُمم على خلاصة الانتعاش النقي، ليترك بصمة من الثقة الراقية أينما ذهبت.", img: "/assets/images/products/shiyaaka_custom_1.jpg" },
+                { name: "SHIYAAKA MEN", nameAr: "شياكة رجالي", subtitle: "Bold & Classic", subtitleAr: "كلاسيكي وجريء", desc: "A signature masculine scent blending rich spices with deep woody undertones.", descAr: "عطر رجالي مميز يمزج بين التوابل الغنية والنفحات الخشبية العميقة.", img: "/assets/images/products/shiya_men_v3.png" }
               ].map((item, idx) => (
                 <div className="k25-card" key={idx}>
                   <div className="k25-card-img-wrapper">
                     <img loading="lazy" decoding="async" src={getOptimizedImage(item.img,500)} alt={item.name} />
                   </div>
                   <div className="k25-card-content">
-                    <h3 className="k25-card-title">{item.name}</h3>
-                    <p className="k25-card-subtitle">{item.subtitle}</p>
-                    <p className="k25-card-desc">{item.desc}</p>
+                    <h3 className="k25-card-title">{isRTL && item.nameAr ? item.nameAr : item.name}</h3>
+                    <p className="k25-card-subtitle">{isRTL && item.subtitleAr ? item.subtitleAr : item.subtitle}</p>
+                    <p className="k25-card-desc">{isRTL && item.descAr ? item.descAr : item.desc}</p>
                     <button className="k25-card-btn">{t("discover", "Discover")}</button>
                   </div>
                 </div>
@@ -6756,14 +6784,14 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
         <div className="discovery-grid">
           {[
-            {name: "Island", type: "Premium Blend", img: "/assets/images/products/island-sun-card-gold.jpg"},
-            {name: "Shiyaaka Sky", type: "Special Edition", img: "/assets/images/products/shiyaaka_custom_5_cropped.png"},
-            {name: "Fursan", type: "Royal Elegance", img: "/assets/images/products/fursan.png"},
-            {name: "L'imaginaire", type: "Artisan Creation", img: "/assets/images/products/limaginaire.jpg"},
-            {name: "Nuha Cherry Blush", type: "Eau De Parfum", img: "/assets/images/products/nuha-cherry.jpg"},
-            {name: "Cream Velvet", type: "Signature Collection", img: "/assets/images/products/cream-velvet-bottle.png"},
-            {name: "Mocha Latte", type: "Gourmand Essence", img: "/assets/images/products/mocha-latte.png"},
-            {name: "Hareem Al Sultan", type: "Masterpiece", img: "/assets/images/products/hareem-al-sultan.png"}
+            {name: "Island", nameAr: "آيلاند", type: "Premium Blend", typeAr: "مزيج فاخر", img: "/assets/images/products/island-sun-card-gold.jpg"},
+            {name: "Shiyaaka Sky", nameAr: "شياكة سكاي", type: "Special Edition", typeAr: "إصدار خاص", img: "/assets/images/products/shiyaaka_custom_5_cropped.png"},
+            {name: "Fursan", nameAr: "فرسان", type: "Royal Elegance", typeAr: "أناقة ملكية", img: "/assets/images/products/fursan.png"},
+            {name: "L'imaginaire", nameAr: "ليماجينير", type: "Artisan Creation", typeAr: "إبداع حرفي فاخر", img: "/assets/images/products/limaginaire.jpg"},
+            {name: "Nuha Cherry Blush", nameAr: "نهى تشيري بلش", type: "Eau De Parfum", typeAr: "أو دي بارفان", img: "/assets/images/products/nuha-cherry.jpg"},
+            {name: "Cream Velvet", nameAr: "كريم فيلفيت", type: "Signature Collection", typeAr: "المجموعة المميزة", img: "/assets/images/products/cream-velvet-bottle.png"},
+            {name: "Mocha Latte", nameAr: "موكا لاتيه", type: "Gourmand Essence", typeAr: "نفحات جورماند", img: "/assets/images/products/mocha-latte.png"},
+            {name: "Hareem Al Sultan", nameAr: "حريم السلطان", type: "Masterpiece", typeAr: "تحفة عطرية", img: "/assets/images/products/hareem-al-sultan.png"}
           ].map((item, i) => (
             <div key={item.name} className="discovery-card" onClick={() => {
               if (item.name === "Island") {
@@ -6774,9 +6802,9 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             }}>
               <img decoding="async" src={getOptimizedImage(item.img,500)} alt={item.name} loading="lazy" />
               <div className="discovery-card-overlay">
-                <p className="discovery-type">{item.type}</p>
-                <h3 className="discovery-name">{item.name}</h3>
-                <span className="discovery-btn">Shop Now</span>
+                <p className="discovery-type">{isRTL && item.typeAr ? item.typeAr : item.type}</p>
+                <h3 className="discovery-name">{isRTL && item.nameAr ? item.nameAr : item.name}</h3>
+                <span className="discovery-btn">{t("shopNow", "Shop Now")}</span>
               </div>
             </div>
           ))}
@@ -6786,27 +6814,33 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       <section style={{display:"flex", flexWrap:"wrap", background:"#251737"}}>
         {/* Left Content Area */}
         <div style={{flex:"1 1 50%", padding:"8vw 6%", minWidth:300, display:"flex", flexDirection:"column", justifyContent:"center"}}>
-          <span style={{display:"block", color:"#C8A97E", letterSpacing:4, fontSize:12, textTransform:"uppercase", marginBottom:16, fontWeight:600}}>The New Standard</span>
-          <h2 className="disp" style={{fontSize:"clamp(36px, 5vw, 56px)", fontWeight:400, color:"#fff", lineHeight:1.1, marginBottom:32, letterSpacing:"-0.5px"}}>
-            Discover Shiyaaka Sky
+          <span style={{display:"block", color:"#C8A97E", letterSpacing: isRTL ? 0 : 4, fontSize:12, textTransform:"uppercase", marginBottom:16, fontWeight:600}}>
+            {isRTL ? "المعيار الجديد للفخامة" : "The New Standard"}
+          </span>
+          <h2 className="disp" style={{fontSize:"clamp(36px, 5vw, 56px)", fontWeight:400, color:"#fff", lineHeight:1.1, marginBottom:32, letterSpacing: isRTL ? 0 : "-0.5px"}}>
+            {isRTL ? "اكتشف عطر شياكة سكاي" : "Discover Shiyaaka Sky"}
           </h2>
-          <p style={{fontSize:16, color:"rgba(255,255,255,0.85)", lineHeight:1.9, fontFamily:"'Montserrat',sans-serif", marginBottom:48, maxWidth:650, fontWeight:300}}>
-            Immerse yourself in the ultimate expression of freshness. Shiyaaka Sky brings together zesty citrus, the airy touch of a sky breeze, and the grounding warmth of cedarwood for a truly liberating olfactory experience.
+          <p style={{fontSize:16, color:"rgba(255,255,255,0.85)", lineHeight:1.9, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", marginBottom:48, maxWidth:650, fontWeight:300}}>
+            {isRTL 
+              ? "انغمس في أقصى درجات الانتعاش والحيوية. يجمع شياكة سكاي بين انتعاش الحمضيات الفوارة، ونفحات النسيم العليل، مع دفء خشب الأرز لتجربة عطرية لا تُنسى ومتحررة من كل قيد."
+              : "Immerse yourself in the ultimate expression of freshness. Shiyaaka Sky brings together zesty citrus, the airy touch of a sky breeze, and the grounding warmth of cedarwood for a truly liberating olfactory experience."}
           </p>
           
           <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(240px, 1fr))", gap:24, marginBottom:56, maxWidth:700}}>
             {[
-              "Invigorating Fresh Citrus",
-              "Breathable Sky Breeze",
-              "Warm Cedarwood Base",
-              "Everyday Elegance",
-              "Long-Lasting Sillage"
+              { en: "Invigorating Fresh Citrus", ar: "حمضيات منعشة مفعمة بالحيوية" },
+              { en: "Breathable Sky Breeze", ar: "نسيم نقي منعش كأفق السماء" },
+              { en: "Warm Cedarwood Base", ar: "قاعدة دافئة من خشب الأرز الأصيل" },
+              { en: "Everyday Elegance", ar: "أناقة عصرية راقية لكل يوم" },
+              { en: "Long-Lasting Sillage", ar: "فوحان وثبات مميز يدوم طويلاً" }
             ].map((point, i) => (
                 <div key={i} style={{display:"flex", alignItems:"flex-start", gap:16}}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C8A97E" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginTop:2, flexShrink:0}}>
                     <polyline points="20 6 9 17 4 12"></polyline>
                   </svg>
-                  <span style={{color:"#fff", fontFamily:"'Montserrat',sans-serif", fontSize:15, fontWeight:400, lineHeight:1.4}}>{point}</span>
+                  <span style={{color:"#fff", fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", fontSize:15, fontWeight:400, lineHeight:1.4}}>
+                    {isRTL ? point.ar : point.en}
+                  </span>
                 </div>
             ))}
           </div>
@@ -6815,10 +6849,10 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             <button onClick={()=>{
                 const skyProduct = PRODUCTS.find(p=>p.name==="SHIYAAKA SKY" || p.id===9200000000003);
                 if(skyProduct) { setViewProduct(skyProduct); setPage("product"); }
-              }} style={{padding:"18px 48px", borderRadius:0, fontSize:13, letterSpacing:2, background:"transparent", border:"1px solid #C8A97E", color:"#C8A97E", textTransform:"uppercase", transition:"all 0.3s ease", cursor:"pointer"}}
+              }} style={{padding:"18px 48px", borderRadius:0, fontSize:13, letterSpacing: isRTL ? 0 : 2, background:"transparent", border:"1px solid #C8A97E", color:"#C8A97E", textTransform:"uppercase", transition:"all 0.3s ease", cursor:"pointer", fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}
               onMouseEnter={(e)=>{e.target.style.background="#C8A97E"; e.target.style.color="#fff";}}
               onMouseLeave={(e)=>{e.target.style.background="transparent"; e.target.style.color="#C8A97E";}}>
-              Shop Now
+              {t("shopNow", "Shop Now")}
             </button>
           </div>
         </div>
@@ -6873,22 +6907,28 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         <div style={{marginTop: 60, position: "relative"}}>
           <div className="gift-slider-track">
             {[
-              { name: "Cloud Candy", desc: "A soft peach-pink gift set", price: 169, img: "/assets/images/gifsets/cloudcandy_gift_transparent.png" },
-              { name: "Island", desc: "The signature Island scent", price: 179, img: "/assets/images/gifsets/island_gift_transparent.png" },
-              { name: "Cream Velvet", desc: "Buttery caramel and vanilla", price: 160, img: "/assets/images/gifsets/creamvelvet_gift_user.png" },
-              { name: "Cloud Candy", desc: "A soft peach-pink gift set", price: 169, img: "/assets/images/gifsets/cloudcandy_gift_transparent.png" },
-              { name: "Island", desc: "The signature Island scent", price: 179, img: "/assets/images/gifsets/island_gift_transparent.png" },
-              { name: "Cream Velvet", desc: "Buttery caramel and vanilla", price: 160, img: "/assets/images/gifsets/creamvelvet_gift_user.png" }
+              { name: "Cloud Candy", nameAr: "كلاود كاندي", desc: "A soft peach-pink gift set", descAr: "مجموعة هدايا بالخوخ الوردي الناعم", price: 169, img: "/assets/images/gifsets/cloudcandy_gift_transparent.png" },
+              { name: "Island", nameAr: "آيلاند", desc: "The signature Island scent", descAr: "المجموعة الأيقونية لعطر آيلاند", price: 179, img: "/assets/images/gifsets/island_gift_transparent.png" },
+              { name: "Cream Velvet", nameAr: "كريم فيلفيت", desc: "Buttery caramel and vanilla", descAr: "كراميل غني وفانيليا مخملية", price: 160, img: "/assets/images/gifsets/creamvelvet_gift_user.png" },
+              { name: "Cloud Candy", nameAr: "كلاود كاندي", desc: "A soft peach-pink gift set", descAr: "مجموعة هدايا بالخوخ الوردي الناعم", price: 169, img: "/assets/images/gifsets/cloudcandy_gift_transparent.png" },
+              { name: "Island", nameAr: "آيلاند", desc: "The signature Island scent", descAr: "المجموعة الأيقونية لعطر آيلاند", price: 179, img: "/assets/images/gifsets/island_gift_transparent.png" },
+              { name: "Cream Velvet", nameAr: "كريم فيلفيت", desc: "Buttery caramel and vanilla", descAr: "كراميل غني وفانيليا مخملية", price: 160, img: "/assets/images/gifsets/creamvelvet_gift_user.png" }
             ].map((gift, idx) => (
               <div className="gift-slide-card" key={idx} onClick={() => setPage("gifts")}>
                 <div className="gift-slide-img">
                   <img loading="lazy" decoding="async" src={getOptimizedImage(gift.img,500)} alt={gift.name} />
                 </div>
                 <div className="gift-slide-content">
-                  <p className="gift-slide-eyebrow">Handpicked</p>
+                  <p className="gift-slide-eyebrow">{isRTL ? "مختارات حصرية" : "Handpicked"}</p>
                   <h2 className="gift-slide-title">
-                    {gift.name.replace(' Gift Set', '').split(' ').map((word, i) => <span key={i}>{word}<br/></span>)}
-                    Sets
+                    {isRTL ? (
+                      <span>مجموعة<br/>{gift.nameAr}</span>
+                    ) : (
+                      <>
+                        {gift.name.replace(' Gift Set', '').split(' ').map((word, i) => <span key={i}>{word}<br/></span>)}
+                        Sets
+                      </>
+                    )}
                   </h2>
                   <button className="gift-slide-btn">{t("shopNow", "Shop Now")}</button>
                 </div>
@@ -6903,13 +6943,18 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           
           {/* Left info column */}
           <div>
-            <h2 className="disp" style={{fontSize:"clamp(30px,3.8vw,52px)",fontWeight:400,color:"#fff",lineHeight:1.05,letterSpacing:-1,marginBottom:24}}>
-              KHADLAJ <em className="luxury-gold-text" style={{fontStyle:"normal"}}>SCENT FINDER</em>
+            <h2 className="disp" style={{fontSize:"clamp(30px,3.8vw,52px)",fontWeight:400,color:"#fff",lineHeight:1.05,letterSpacing: isRTL ? 0 : -1,marginBottom:24}}>
+              {isRTL ? (
+                <>مستكشف العطور <em className="luxury-gold-text" style={{fontStyle:"normal"}}>من خدلج</em></>
+              ) : (
+                <>KHADLAJ <em className="luxury-gold-text" style={{fontStyle:"normal"}}>SCENT FINDER</em></>
+              )}
             </h2>
-            <p style={{color:"rgba(255,255,255,0.7)",lineHeight:1.8,fontSize:14,maxWidth:440,fontFamily:"'Montserrat',sans-serif",marginBottom:32}}>
-              Fragrance is a deeply personal language. Answer a few questions and our custom olfactive profiler will match you with a signature scent from our master perfume lines.
+            <p style={{color:"rgba(255,255,255,0.7)",lineHeight:1.8,fontSize:14,maxWidth:440,fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif",marginBottom:32}}>
+              {isRTL 
+                ? "العطر لغة شخصية تعبر عن هويتك وروحك. أجب عن سؤالين بسيطين، وسيقوم مستكشفنا العطري الذكي بمطابقتك مع عطرك الأيقوني من أندر إبداعات دار خدلج."
+                : "Fragrance is a deeply personal language. Answer a few questions and our custom olfactive profiler will match you with a signature scent from our master perfume lines."}
             </p>
-
           </div>
 
           {/* Right quiz container */}
@@ -6917,13 +6962,17 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             
             {quizStep === 1 && (
               <div style={{animation:"fadeUp .4s ease both"}}>
-                <p style={{fontSize:10, letterSpacing:2, color:"#B8922A", textTransform:"uppercase", fontWeight:600, marginBottom:8, fontFamily:"'Montserrat',sans-serif"}}>Step 1 of 2</p>
-                <h3 className="disp" style={{fontSize:20, fontWeight:400, color:"#fff", marginBottom:24}}>Choose Your Olfactive Vibe</h3>
+                <p style={{fontSize:10, letterSpacing: isRTL ? 0 : 2, color:"#B8922A", textTransform:"uppercase", fontWeight:600, marginBottom:8, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}>
+                  {isRTL ? "الخطوة 1 من 2" : "Step 1 of 2"}
+                </p>
+                <h3 className="disp" style={{fontSize:20, fontWeight:400, color:"#fff", marginBottom:24}}>
+                  {isRTL ? "اختر طابعك العطري المفضل" : "Choose Your Olfactive Vibe"}
+                </h3>
                 <div style={{display:"flex", flexDirection:"column", gap:12}}>
                   {[
-                    { v: "Rich & Exotic", desc: "Bold Oud, precious Amber, and warm spices." },
-                    { v: "Fresh & Energizing", desc: "Vibrant Citrus, crisp Marine, and delicate florals." },
-                    { v: "Clean & Sophisticated", desc: "Sensual Musk, creamy Sandalwood, and soft iris." }
+                    { v: "Rich & Exotic", vAr: "فاخر وغني بالنفحات الشرقية", desc: "Bold Oud, precious Amber, and warm spices.", descAr: "عود أصيل، عنبر فاخر، وتوابل دافئة ساحرة." },
+                    { v: "Fresh & Energizing", vAr: "منعش ومفعم بالحيوية", desc: "Vibrant Citrus, crisp Marine, and delicate florals.", descAr: "حمضيات مشرقة، نسيم بحري منعش، وزهور ناعمة." },
+                    { v: "Clean & Sophisticated", vAr: "راقي ونقي ومخملي", desc: "Sensual Musk, creamy Sandalwood, and soft iris.", descAr: "مسك جذاب، خشب صندل مخملي، وسوسن ناعم." }
                   ].map(item => (
                     <button key={item.v}
                       onClick={() => { setQuizMood(item.v); setQuizStep(2); }}
@@ -6931,8 +6980,12 @@ function HomePage({ setPage, addToCart, setViewProduct }){
                       onMouseEnter={e => { e.currentTarget.style.background = "rgba(184,146,42,0.1)"; e.currentTarget.style.borderColor = "#B8922A"; }}
                       onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; }}
                     >
-                      <p style={{fontSize:12, fontWeight:600, fontFamily:"'Montserrat',sans-serif", margin:0}}>{item.v}</p>
-                      <p style={{fontSize:9, color:"rgba(255,255,255,0.5)", margin:"4px 0 0", fontFamily:"'Montserrat',sans-serif"}}>{item.desc}</p>
+                      <p style={{fontSize:13, fontWeight:600, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", margin:0}}>
+                        {isRTL ? item.vAr : item.v}
+                      </p>
+                      <p style={{fontSize:10, color:"rgba(255,255,255,0.5)", margin:"4px 0 0", fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}>
+                        {isRTL ? item.descAr : item.desc}
+                      </p>
                     </button>
                   ))}
                 </div>
@@ -6941,13 +6994,17 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
             {quizStep === 2 && (
               <div style={{animation:"fadeUp .4s ease both"}}>
-                <p style={{fontSize:10, letterSpacing:2, color:"#B8922A", textTransform:"uppercase", fontWeight:600, marginBottom:8, fontFamily:"'Montserrat',sans-serif"}}>Step 2 of 2</p>
-                <h3 className="disp" style={{fontSize:20, fontWeight:400, color:"#fff", marginBottom:24}}>When will you wear this?</h3>
+                <p style={{fontSize:10, letterSpacing: isRTL ? 0 : 2, color:"#B8922A", textTransform:"uppercase", fontWeight:600, marginBottom:8, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}>
+                  {isRTL ? "الخطوة 2 من 2" : "Step 2 of 2"}
+                </p>
+                <h3 className="disp" style={{fontSize:20, fontWeight:400, color:"#fff", marginBottom:24}}>
+                  {isRTL ? "ما هي مناسبة ارتداء هذا العطر؟" : "When will you wear this?"}
+                </h3>
                 <div style={{display:"flex", flexDirection:"column", gap:12}}>
                   {[
-                    { k: "Royal Evenings", label: "Royal Evenings", desc: "Special events, formal dinners, and night statements." },
-                    { k: "Daily Wear & Office", label: "Daily Wear & Office", desc: "Sophisticated signature scent for day-to-day use." },
-                    { k: "Romantic Date Nights", label: "Romantic Date Nights", desc: "Warm, intimate, and captivating close encounters." }
+                    { k: "Royal Evenings", label: "Royal Evenings", labelAr: "أمسيات ملكية ومناسبات خاصة", desc: "Special events, formal dinners, and night statements.", descAr: "مناسبات كبرى، سهرات راقية، وإطلالة مسائية لافتة." },
+                    { k: "Daily Wear & Office", label: "Daily Wear & Office", labelAr: "استخدام يومي وأجواء العمل", desc: "Sophisticated signature scent for day-to-day use.", descAr: "عطر يومي أنيق ومميز يمنحك الثقة طوال النهار." },
+                    { k: "Romantic Date Nights", label: "Romantic Date Nights", labelAr: "سهرات خاصة ورومانسية", desc: "Warm, intimate, and captivating close encounters.", descAr: "نفحات دافئة وجذابة لأمسيات قريبة ومليئة بالمشاعر." }
                   ].map(item => (
                     <button key={item.k}
                       onClick={() => {
@@ -6960,48 +7017,56 @@ function HomePage({ setPage, addToCart, setViewProduct }){
                       onMouseEnter={e => { e.currentTarget.style.background = "rgba(184,146,42,0.1)"; e.currentTarget.style.borderColor = "#B8922A"; }}
                       onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; }}
                     >
-                      <p style={{fontSize:12, fontWeight:600, fontFamily:"'Montserrat',sans-serif", margin:0}}>{item.label}</p>
-                      <p style={{fontSize:9, color:"rgba(255,255,255,0.5)", margin:"4px 0 0", fontFamily:"'Montserrat',sans-serif"}}>{item.desc}</p>
+                      <p style={{fontSize:13, fontWeight:600, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", margin:0}}>
+                        {isRTL ? item.labelAr : item.label}
+                      </p>
+                      <p style={{fontSize:10, color:"rgba(255,255,255,0.5)", margin:"4px 0 0", fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}>
+                        {isRTL ? item.descAr : item.desc}
+                      </p>
                     </button>
                   ))}
                 </div>
-                <button onClick={() => setQuizStep(1)} style={{background:"none", border:"none", color:"rgba(255,255,255,0.5)", fontSize:9, textTransform:"uppercase", letterSpacing:1.5, marginTop:20, cursor:"pointer", display:"flex", alignItems:"center", gap:6, fontFamily:"'Montserrat',sans-serif", padding:0}}>
-                  &larr; Back
+                <button onClick={() => setQuizStep(1)} style={{background:"none", border:"none", color:"rgba(255,255,255,0.5)", fontSize:10, textTransform:"uppercase", letterSpacing: isRTL ? 0 : 1.5, marginTop:20, cursor:"pointer", display:"flex", alignItems:"center", gap:6, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", padding:0}}>
+                  {isRTL ? "العودة →" : "← Back"}
                 </button>
               </div>
             )}
 
             {quizStep === 3 && quizResult && (
               <div style={{animation:"fadeUp .4s ease both", textAlign:"center"}}>
-                <p style={{fontSize:10, letterSpacing:2, color:"#B8922A", textTransform:"uppercase", fontWeight:600, marginBottom:8, fontFamily:"'Montserrat',sans-serif"}}>Your Scent Match</p>
-                <h3 className="disp" style={{fontSize:20, fontWeight:400, color:"#fff", marginBottom:20}}>The Perfect Fit</h3>
+                <p style={{fontSize:10, letterSpacing: isRTL ? 0 : 2, color:"#B8922A", textTransform:"uppercase", fontWeight:600, marginBottom:8, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}>
+                  {isRTL ? "عطرك الأيقوني المختار" : "Your Scent Match"}
+                </p>
+                <h3 className="disp" style={{fontSize:20, fontWeight:400, color:"#fff", marginBottom:20}}>
+                  {isRTL ? "الاختيار المثالي لذوقك" : "The Perfect Fit"}
+                </h3>
                 
                 {/* Result Box */}
-                <div style={{display:"flex", alignItems:"center", gap:20, background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.08)", padding:20, borderRadius:8, marginBottom:24, textAlign:"left"}}>
+                <div style={{display:"flex", alignItems:"center", gap:20, background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.08)", padding:20, borderRadius:8, marginBottom:24, textAlign: isRTL ? "right" : "left"}}>
                   <div style={{width:80, height:80, background:"#fff", borderRadius:6, padding:8, display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0}}>
                     <img loading="lazy" decoding="async" src={getOptimizedImage(quizResult.img,600)} alt={quizResult.name} style={{width:"100%", height:"100%", objectFit:"contain"}}/>
                   </div>
                   <div>
-                    <p style={{fontSize:8, color:"#B8922A", letterSpacing:2, textTransform:"uppercase", margin:0, fontWeight:600, fontFamily:"'Montserrat',sans-serif"}}>{quizResult.col}</p>
+                    <p style={{fontSize:9, color:"#B8922A", letterSpacing: isRTL ? 0 : 2, textTransform:"uppercase", margin:0, fontWeight:600, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}>{quizResult.col}</p>
                     <h4 style={{fontSize:15, fontWeight:600, color:"#fff", textTransform:"uppercase", margin:"4px 0 6px"}}>{quizResult.name}</h4>
-                    <p style={{fontSize:11, color:"rgba(255,255,255,0.6)", margin:0, fontFamily:"'Montserrat',sans-serif"}}>{quizResult.size}</p>
+                    <p style={{fontSize:11, color:"rgba(255,255,255,0.6)", margin:0, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}>{quizResult.size}</p>
                   </div>
                 </div>
 
                 <div style={{display:"flex", gap:12}}>
                   <button onClick={() => { setViewProduct(quizResult); setPage("product"); }}
-                    style={{flex:1, background:"#B8922A", border:"1px solid #B8922A", color:"#fff", padding:"14px", fontSize:10, letterSpacing:2, textTransform:"uppercase", cursor:"pointer", fontWeight:600, borderRadius:4, transition:"all .25s ease"}}
+                    style={{flex:1, background:"#B8922A", border:"1px solid #B8922A", color:"#fff", padding:"14px", fontSize:11, letterSpacing: isRTL ? 0 : 2, textTransform:"uppercase", cursor:"pointer", fontWeight:600, borderRadius:4, transition:"all .25s ease", fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}
                     onMouseEnter={e => { e.currentTarget.style.background = "#fff"; e.currentTarget.style.color = "#000"; e.currentTarget.style.borderColor = "#fff"; }}
                     onMouseLeave={e => { e.currentTarget.style.background = "#B8922A"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#B8922A"; }}
                   >
-                    Discover Perfume
+                    {isRTL ? "عرض تفاصيل العطر" : "View Fragrance"}
                   </button>
                   <button onClick={() => setQuizStep(1)}
-                    style={{background:"transparent", border:"1px solid rgba(255,255,255,0.2)", color:"#fff", padding:"14px 20px", fontSize:10, letterSpacing:2, textTransform:"uppercase", cursor:"pointer", borderRadius:4, transition:"all .25s ease"}}
-                    onMouseEnter={e => { e.currentTarget.style.borderColor = "#fff"; }}
-                    onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; }}
+                    style={{background:"transparent", border:"1px solid rgba(255,255,255,0.2)", color:"#fff", padding:"14px 20px", fontSize:11, letterSpacing: isRTL ? 0 : 1.5, textTransform:"uppercase", cursor:"pointer", borderRadius:4, transition:"all .25s ease", fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}
+                    onMouseEnter={e => e.currentTarget.style.borderColor = "#fff"}
+                    onMouseLeave={e => e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"}
                   >
-                    Reset
+                    {isRTL ? "إعادة الاختبار" : "Reset"}
                   </button>
                 </div>
               </div>
@@ -7011,8 +7076,6 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
         </div>
       </section>
-
-
 
 {/* ── TIKTOK REELS ── */}
       <section style={{padding:"80px 5% 40px",background:"#fff"}}>
@@ -7054,7 +7117,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             onMouseEnter={e=>{e.currentTarget.style.background="#B8922A";e.currentTarget.style.borderColor="#B8922A";e.currentTarget.style.color="#fff";}}
             onMouseLeave={e=>{e.currentTarget.style.background="transparent";e.currentTarget.style.borderColor="#251737";e.currentTarget.style.color="#251737";}}
           >
-            ▶ Follow on TikTok
+            {isRTL ? "▶ تابعنا على تيك توك" : "▶ Follow on TikTok"}
           </a>
         </div>
       </section>
@@ -7068,10 +7131,10 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             <a href={r.url || "#"} target="_blank" rel="noopener noreferrer" key={i} style={{textDecoration:"none", color:"inherit"}}>
               <div style={{background:"#251737",padding:"32px 24px",display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center",transition:"background 0.3s ease", height:"100%"}} onMouseEnter={e=>e.currentTarget.style.background="rgba(255,255,255,0.03)"} onMouseLeave={e=>e.currentTarget.style.background="#251737"}>
                 <StarRating n={r.stars} color="#B8922A"/>
-                <p style={{fontSize:14,color:"rgba(255,255,255,0.85)",lineHeight:1.6,margin:"16px 0",fontStyle:"italic",fontWeight:300,fontFamily:"'Montserrat',sans-serif"}}>"{r.text}"</p>
+                <p style={{fontSize:14,color:"rgba(255,255,255,0.85)",lineHeight:1.6,margin:"16px 0",fontStyle:"italic",fontWeight:300,fontFamily:"'Montserrat',sans-serif"}}>"{isRTL && r.textAr ? r.textAr : r.text}"</p>
                 <div style={{marginTop:"auto"}}>
-                  <p style={{fontSize:9,fontWeight:600,color:"#fff",letterSpacing:2,fontFamily:"'Montserrat',sans-serif",textTransform:"uppercase"}}>{r.name}</p>
-                  <p style={{fontWeight:600,fontSize:8,letterSpacing:4,color:"#B8922A",marginTop:6,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif"}}>{r.country}</p>
+                  <p style={{fontSize:9,fontWeight:600,color:"#fff",letterSpacing:2,fontFamily:"'Montserrat',sans-serif",textTransform:"uppercase"}}>{isRTL && r.nameAr ? r.nameAr : r.name}</p>
+                  <p style={{fontWeight:600,fontSize:8,letterSpacing:4,color:"#B8922A",marginTop:6,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif"}}>{isRTL && r.countryAr ? r.countryAr : r.country}</p>
                 </div>
               </div>
             </a>
@@ -7086,26 +7149,26 @@ function HomePage({ setPage, addToCart, setViewProduct }){
           {[
             {
               icon:<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(184,146,42,0.03)" /><path d="M12 22V12" /><path d="M12 12c2-2.5 4-3 5-5-2 .5-4.5 2-5 5z" fill="rgba(184,146,42,0.1)" /><path d="M12 12c-2-2.5-4-3-5-5 2 .5 4.5 2 5 5z" fill="rgba(184,146,42,0.1)" /><path d="M12 15c1.5-1.5 3-1.8 3.8-3-.8.3-2.2 1-3.8 3z" /><path d="M12 15c-1.5-1.5-3-1.8-3.8-3 .8.3 2.2 1 3.8 3z" /></svg>,
-              title:"Natural Ingredients",
-              desc:"Taif roses, Cambodian oud, French iris — ethically sourced"
+              title: isRTL ? "مكونات طبيعية ونادرة" : "Natural Ingredients",
+              desc: isRTL ? "ورد الطائف، عود كمبودي، زنبق فرنسي — من مصادر أصيلة ونقية" : "Taif roses, Cambodian oud, French iris — ethically sourced"
             },
             {
               icon:<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(184,146,42,0.03)" /><polygon points="12 6 13.5 9.5 17 9.5 14 11.5 15.5 15 12 13 8.5 15 10 11.5 7 9.5 10.5 9.5 12 6" fill="rgba(184,146,42,0.15)" /></svg>,
-              title:"Award-Winning",
-              desc:"Recognised fragrance house since 1997 across 90+ countries"
+              title: isRTL ? "دار عطور حائزة على جوائز" : "Award-Winning",
+              desc: isRTL ? "دار عطور عريقة ومعتمدة منذ عام 1997 في أكثر من 90 دولة حول العالم" : "Recognised fragrance house since 1997 across 90+ countries"
             },
             {
               icon:<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(184,146,42,0.03)" /><rect x="6" y="8" width="8" height="6" rx="1" fill="rgba(184,146,42,0.1)" /><path d="M14 9h3l2 2v3h-5V9z" /><circle cx="8.5" cy="16.5" r="1.5" fill="#B8922A" /><circle cx="15.5" cy="16.5" r="1.5" fill="#B8922A" /></svg>,
-              title:"Complimentary Delivery",
-              desc:"Free shipping on all orders above SAR 150"
+              title: isRTL ? "توصيل مجاني وسريع" : "Complimentary Delivery",
+              desc: isRTL ? "شحن مجاني لكافة الطلبات الأكثر من 150 ر.س" : "Free shipping on all orders above SAR 150"
             },
             {
               icon:<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(184,146,42,0.03)" /><rect x="6" y="8" width="12" height="8" rx="1" fill="rgba(184,146,42,0.1)" /><path d="M6 11h12M12 8v8" /><path d="M12 8c-.8-1-2.2-1.5-2.2-.5s1.2 1 2.2.5c.8-1 2.2-1.5 2.2-.5s-1.2 1-2.2.5z" /></svg>,
-              title:"Luxury Packaging",
-              desc:"Every order arrives gift-ready in premium Khadlaj packaging"
+              title: isRTL ? "تغليف فاخر للإهداء" : "Luxury Packaging",
+              desc: isRTL ? "كل طلبية تصلك بتغليف خدلج الفاخر والمثالي للإهداء" : "Every order arrives gift-ready in premium Khadlaj packaging"
             },
           ].map((item,i)=>(
-            <div key={item.title} style={{
+            <div key={i} style={{
               padding:"40px 28px",
               background:"#FCFBFA",
               border:"1px solid #F0ECE6",
@@ -7311,14 +7374,14 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
             fontSize:"clamp(42px,6vw,88px)",fontWeight:400,
             color:"#fff",lineHeight:.95,letterSpacing:-2,marginBottom:20,
           }}>
-            FRAGRANCE COLLECTIONS
+            {isRTL ? "مجموعات العطور الفاخرة" : "FRAGRANCE COLLECTIONS"}
           </h1>
           <p style={{
             color:"rgba(255,255,255,.6)",fontSize:14,
             fontFamily:"'Montserrat',sans-serif",letterSpacing:.5,
             marginBottom:32,
           }}>
-            {PRODUCTS.length} unique creations — from everyday luxury to rare extrait
+            {isRTL ? `${PRODUCTS.length} ابتكاراً فريداً — من الفخامة اليومية إلى أرقى الخلاصات النادرة` : `${PRODUCTS.length} unique creations — from everyday luxury to rare extrait`}
           </p>
         </div>
       </div>
@@ -7334,7 +7397,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
         {/* Sort + Price */}
         <div style={{display:"flex",gap:12,alignItems:"center",flexShrink:0}}>
           <div style={{display:"flex",alignItems:"center",gap:8}}>
-            <span style={{fontSize:8.5,color:"#888",letterSpacing:0.8,fontFamily:"'Montserrat',sans-serif",whiteSpace:"nowrap"}}>Max {formatPrice(priceMax)}</span>
+            <span style={{fontSize:8.5,color:"#888",letterSpacing:0.8,fontFamily:"'Montserrat',sans-serif",whiteSpace:"nowrap"}}>{isRTL ? "الحد الأقصى " : "Max "}{formatPrice(priceMax)}</span>
             <input type="range" min={50} max={800} value={priceMax} onChange={e=>setPriceMax(+e.target.value)}
               style={{width:90,accentColor:"#251737"}}/>
           </div>
@@ -7346,9 +7409,9 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
               letterSpacing:0.8,fontFamily:"'Montserrat',sans-serif",
               outline:"none",
             }}>
-            <option value="default">Featured</option>
-            <option value="price-asc">Price ↑</option>
-            <option value="price-desc">Price ↓</option>
+            <option value="default">{isRTL ? "المميزة" : "Featured"}</option>
+            <option value="price-asc">{isRTL ? "السعر: من الأقل للأعلى" : "Price ↑"}</option>
+            <option value="price-desc">{isRTL ? "السعر: من الأعلى للأقل" : "Price ↓"}</option>
           </select>
         </div>
       </div>
@@ -7360,8 +7423,8 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
             <div style={{position:"sticky",top:100,border:"1px solid #E8E4DC",background:"linear-gradient(180deg,#fff 0%,#FFFCF7 100%)",padding:18,boxShadow:"0 18px 42px rgba(0,0,0,.045)"}}>
             <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:12,marginBottom:18}}>
               <div>
-                <p style={{fontSize:9,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginBottom:6}}>Shop By</p>
-                <p className="disp" style={{fontSize:22,lineHeight:1,color:"#251737",fontWeight:300}}>Collections</p>
+                <p style={{fontSize:9,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginBottom:6}}>{isRTL ? "تسوق حسب" : "Shop By"}</p>
+                <p className="disp" style={{fontSize:22,lineHeight:1,color:"#251737",fontWeight:300}}>{isRTL ? "المجموعات" : "Collections"}</p>
               </div>
               <span style={{width:34,height:34,border:"1px solid #E5D6B5",borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",color:"#B8922A",fontSize:15}}>+</span>
             </div>
@@ -7371,7 +7434,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
               >
                 <span style={{display:"flex",alignItems:"center",gap:8}}>
                   <span style={{width:6,height:6,borderRadius:"50%",background:activeCat===c?"#B8922A":"#D7C59E",display:"inline-block",flexShrink:0}}/>
-                  {c}
+                  {isRTL ? ({"Khadlaj":"كل خدلج","Best Sellers":"الأكثر مبيعاً","New":"وصل حديثاً","Deals":"العروض","For Him":"للرجال","For Her":"للنساء","Unisex":"للجنسين","Perfume Oils":"زيوت عطرية","EAU DE PARFUM":"ماء عطر","Master Perfumery":"روائع العطور"}[c] || c) : c}
                 </span>
                 <span style={{fontSize:9,letterSpacing:0,color:activeCat===c?"rgba(255,255,255,.65)":"#B8922A"}}>{PRODUCTS.filter(p=>{
                   if(p.size === "Gift Set") return false;
@@ -7434,10 +7497,10 @@ function LaFedePage({ addToCart, setViewProduct, setPage }){
   const [laFedeFilter, setLaFedeFilter] = useState("featured");
   const visibleLaFedeProducts = applyProductFilter(laFedeProducts, laFedeFilter);
   const filterOptions = [
-    {value:"featured",label:"Featured"},
-    {value:"new",label:"New"},
-    {value:"top",label:"Top Selling"},
-    {value:"value",label:"Value Picks"},
+    {value:"featured",label: isRTL ? "المميزة" : "Featured"},
+    {value:"new",label: isRTL ? "الجديدة" : "New"},
+    {value:"top",label: isRTL ? "الأكثر مبيعاً" : "Top Selling"},
+    {value:"value",label: isRTL ? "مختارات القيمة" : "Value Picks"},
   ];
   return (
     <div style={{background:"#fff"}}>
@@ -7445,12 +7508,14 @@ function LaFedePage({ addToCart, setViewProduct, setPage }){
         <div style={{position:"absolute",inset:0,background:"radial-gradient(circle at 74% 45%, rgba(184,146,42,.18), transparent 34%), linear-gradient(135deg,#060606 0%,#101010 54%,#050505 100%)"}}/>
         <div style={{position:"absolute",top:"-25%",bottom:"-25%",left:"44%",width:120,background:"linear-gradient(90deg,transparent,rgba(255,255,255,.16),transparent)",animation:"lafedeSweep 5.8s ease-in-out infinite",pointerEvents:"none"}}/>
         <div style={{position:"relative",zIndex:2}}>
-          <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Dedicated Collection</p>
+          <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>
+            {isRTL ? "تشكيلة حصرية" : "Dedicated Collection"}
+          </p>
           <h1 className="disp" style={{fontSize:"clamp(40px,5.5vw,74px)",fontWeight:300,color:"#fff",lineHeight:.95,marginBottom:16}}>La Fede</h1>
           <p style={{color:"rgba(255,255,255,.68)",fontSize:13,maxWidth:480,lineHeight:1.8,fontFamily:"'Montserrat',sans-serif",marginBottom:24}}>
-            A separate space for expressive La Fede fragrances, kept apart from the main Khadlaj collection for clearer browsing.
+            {isRTL ? "مساحة خاصة لعطور لافيدي التعبيرية، لتمكينك من استكشاف تشكيلة فريدة بكل سهولة." : "A separate space for expressive La Fede fragrances, kept apart from the main Khadlaj collection for clearer browsing."}
           </p>
-          <button className="btn-gold" onClick={()=>setPage("collections")}>Back to Khadlaj</button>
+          <button className="btn-gold" onClick={()=>setPage("collections")}>{isRTL ? "العودة إلى خدلج" : "Back to Khadlaj"}</button>
         </div>
         <div style={{position:"relative",zIndex:2,minHeight:280,display:"flex",alignItems:"center",justifyContent:"center"}}>
           <div style={{position:"absolute",width:"70%",height:"72%",borderRadius:"50%",background:"radial-gradient(circle,rgba(184,146,42,.22),rgba(184,146,42,0) 68%)",animation:"lafedeGlow 4.5s ease-in-out infinite"}}/>
@@ -7795,7 +7860,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                  onMouseEnter={e=>{e.currentTarget.style.backgroundPosition="right center"; e.currentTarget.style.transform="translateY(-2px)"; e.currentTarget.style.boxShadow="0 8px 25px rgba(184,146,42,0.5)";}} 
                  onMouseLeave={e=>{e.currentTarget.style.backgroundPosition="left center"; e.currentTarget.style.transform="none"; e.currentTarget.style.boxShadow="0 4px 15px rgba(184,146,42,0.3)";}}
                >
-                 Buy Now
+                 {isRTL ? "شراء فوري" : "Buy Now"}
                </button>
 
                {/* Wishlist Button */}
@@ -7808,7 +7873,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                  }}
                  onMouseEnter={e=>{e.currentTarget.style.borderColor="#111"; e.currentTarget.style.transform="translateY(-2px)"; e.currentTarget.style.boxShadow="0 4px 12px rgba(0,0,0,0.08)";}}
                  onMouseLeave={e=>{e.currentTarget.style.borderColor="#eaeaea"; e.currentTarget.style.transform="none"; e.currentTarget.style.boxShadow="0 2px 8px rgba(0,0,0,0.02)";}}
-                 title="Add to Wishlist"
+                 title={isRTL ? "أضف إلى قائمة الأمنيات" : "Add to Wishlist"}
                >
                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                </button>
@@ -7836,7 +7901,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                onMouseEnter={e=>e.currentTarget.style.background="#FAFAFA"}
                onMouseLeave={e=>e.currentTarget.style.background="#fff"}
              >
-               More Payment Options
+               {isRTL ? "خيارات دفع أخرى" : "More Payment Options"}
              </button>
 
              {/* REWARDS GAMIFICATION BOX */}
@@ -7846,13 +7911,13 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
                  </div>
                  <div>
-                   <p style={{fontSize:12, fontWeight:600, color:"#111", fontFamily:"'Montserrat',sans-serif", margin:0}}>Free Gift</p>
-                   <p style={{fontSize:10, color:"#888", fontFamily:"'Montserrat',sans-serif", margin:0, marginTop:2}}>0 of 1 is ready to claim</p>
+                   <p style={{fontSize:12, fontWeight:600, color:"#111", fontFamily:"'Montserrat',sans-serif", margin:0}}>{isRTL ? "هدية مجانية" : "Free Gift"}</p>
+                   <p style={{fontSize:10, color:"#888", fontFamily:"'Montserrat',sans-serif", margin:0, marginTop:2}}>{isRTL ? "0 من 1 جاهزة للاستلام" : "0 of 1 is ready to claim"}</p>
                  </div>
                </div>
                <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:12}}>
                  <p style={{fontSize:12, color:"#111", fontFamily:"'Montserrat',sans-serif", fontWeight:500, margin:0, maxWidth:"60%"}}>Spend at least {formatPrice(250)} to get rewards</p>
-                 <span style={{background:"#2E7D32", color:"#fff", padding:"4px 10px", borderRadius:12, fontSize:10, fontWeight:600, fontFamily:"'Montserrat',sans-serif"}}>Special Reward</span>
+                 <span style={{background:"#2E7D32", color:"#fff", padding:"4px 10px", borderRadius:12, fontSize:10, fontWeight:600, fontFamily:"'Montserrat',sans-serif"}}>{isRTL ? "مكافأة خاصة" : "Special Reward"}</span>
                </div>
                <p style={{fontSize:11, color:"#555", fontFamily:"'Montserrat',sans-serif", marginBottom:8}}>Buy {formatPrice(Math.max(0, 250 - product.price))} more to unlock this reward</p>
                <div style={{width:"100%", height:6, background:"#eee", borderRadius:3, overflow:"hidden"}}>
@@ -7862,7 +7927,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
 
              {/* FREQUENTLY BOUGHT TOGETHER (Minimalist) */}
              <div style={{marginBottom:48, paddingTop:24, borderTop:"1px solid #eee"}}>
-               <h3 style={{fontSize:11, fontWeight:500, color:"#555", textTransform:"uppercase", letterSpacing:1.5, marginBottom:24, fontFamily:"'Montserrat',sans-serif"}}>Frequently Bought Together</h3>
+               <h3 style={{fontSize:11, fontWeight:500, color:"#555", textTransform:"uppercase", letterSpacing:1.5, marginBottom:24, fontFamily:"'Montserrat',sans-serif"}}>{isRTL ? "غالباً ما يُشترى معاً" : "Frequently Bought Together"}</h3>
                <div style={{display:"flex", alignItems:"center", gap:16, marginBottom:24}}>
                   <div style={{width:56, height:56, background:"#FAFAFA", display:"flex", alignItems:"center", justifyContent:"center"}}>
                     <img loading="lazy" decoding="async" src={getOptimizedImage(product.img,700)} style={{maxHeight:"90%", maxWidth:"90%", objectFit:"contain", mixBlendMode:"multiply"}} alt="Product 1" />
@@ -7882,7 +7947,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                  onMouseEnter={e=>{e.currentTarget.style.border="1px solid #111";}}
                  onMouseLeave={e=>{e.currentTarget.style.border="1px solid #ddd";}}
                >
-                 Add Bundle to Bag
+                 {isRTL ? "أضف المجموعة إلى الحقيبة" : "Add Bundle to Bag"}
                </button>
              </div>
 
@@ -7890,22 +7955,22 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
              <div style={{display:"flex", justifyContent:"space-between", marginBottom:48, paddingTop:24, borderTop:"1px solid #eee"}}>
                <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:8, fontSize:9, color:"#777", fontFamily:"'Montserrat',sans-serif", textTransform:"uppercase", letterSpacing:1.5}}>
                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1" strokeLinecap="square" strokeLinejoin="miter"><circle cx="12" cy="12" r="10"></circle><polyline points="16 12 12 8 8 12"></polyline><line x1="12" y1="16" x2="12" y2="8"></line></svg>
-                 Fast Ship
+                 {isRTL ? "شحن سريع" : "Fast Ship"}
                </div>
                <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:8, fontSize:9, color:"#777", fontFamily:"'Montserrat',sans-serif", textTransform:"uppercase", letterSpacing:1.5}}>
                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1" strokeLinecap="square" strokeLinejoin="miter"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                 Authentic
+                 {isRTL ? "أصلي 100%" : "Authentic"}
                </div>
                <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:8, fontSize:9, color:"#777", fontFamily:"'Montserrat',sans-serif", textTransform:"uppercase", letterSpacing:1.5}}>
                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="1" strokeLinecap="square" strokeLinejoin="miter"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                 Secure
+                 {isRTL ? "دفع آمن" : "Secure"}
                </div>
              </div>
 
              {/* ACCORDIONS */}
              <div style={{borderTop:"1px solid #eee"}}>
-               <Accordion title="Shipping & Returns" defaultOpen>
-                  <p style={{fontSize:13, lineHeight:1.6, color:"#444", fontWeight:300}}>Orders are processed within 1-2 business days. Free shipping on all orders over SAR 200. International shipping rates apply and will be calculated at checkout.</p>
+               <Accordion title={isRTL ? "الشحن والاسترجاع" : "Shipping & Returns"} defaultOpen>
+                  <p style={{fontSize:13, lineHeight:1.6, color:"#444", fontWeight:300}}>{isRTL ? "يتم تجهيز الطلبات خلال 1-2 يوم عمل. شحن مجاني لكافة الطلبات فوق 200 ر.س. تطبق رسوم الشحن الدولي وتُحسب عند إتمام الدفع." : "Orders are processed within 1-2 business days. Free shipping on all orders over SAR 200. International shipping rates apply and will be calculated at checkout."}</p>
                </Accordion>
              </div>
 
@@ -7927,7 +7992,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
             <img decoding="async" src={getOptimizedImage(PRODUCTS[1].img,700)} style={{maxHeight:"90%", maxWidth:"90%", objectFit:"contain", mixBlendMode:"multiply"}} alt={PRODUCTS[1].name} />
           </div>
           <div style={{flex:1, minWidth:250}}>
-            <p style={{fontSize:10, textTransform:"uppercase", letterSpacing:3, color:"#B8922A", marginBottom:12, fontFamily:"'Montserrat',sans-serif", fontWeight:500}}>Complete The Collection</p>
+            <p style={{fontSize:10, textTransform:"uppercase", letterSpacing:3, color:"#B8922A", marginBottom:12, fontFamily:"'Montserrat',sans-serif", fontWeight:500}}>{isRTL ? "أكمل مجموعتك الفاخرة" : "Complete The Collection"}</p>
             <h3 style={{fontSize:32, fontWeight:400, marginBottom:16, fontFamily:"'Cinzel', serif"}}>{PRODUCTS[1].name}</h3>
             <p style={{fontSize:14, color:"rgba(255,255,255,0.7)", marginBottom:32, fontFamily:"'Montserrat',sans-serif", lineHeight:1.6, maxWidth:500, fontWeight:300}}>Elevate your signature scent with this exquisite complementary product, designed to layer perfectly and enhance longevity.</p>
             <button 
@@ -7945,7 +8010,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
       {/* ── Related Products ── */}
       {related.length>0 && (
         <div style={{padding:"0 5% 104px"}}>
-          <SectionHeader eyebrow="◈ · Handpicked For You" title="You May Also Like" light/>
+          <SectionHeader eyebrow={isRTL ? "◈ · مختار بعناية لأجلك" : "◈ · Handpicked For You"} title={isRTL ? "قد يعجبك أيضاً" : "You May Also Like"} light/>
           <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:32,}} className="grid-3">
             {related.map(p=>(
               <ProductCard key={p.id} p={p} onView={(prod)=>{if(setViewProduct){setViewProduct(prod);setPage("product");}}} onCart={addToCart}/>
@@ -7966,10 +8031,10 @@ function GiftsPage({ addToCart, setViewProduct, setPage }){
   const [giftFilter, setGiftFilter] = useState("featured");
   const visibleGiftProducts = applyProductFilter(giftProducts, giftFilter);
   const giftFilterOptions = [
-    {value:"featured",label:"Featured"},
-    {value:"new",label:"New"},
-    {value:"top",label:"Top Selling"},
-    {value:"value",label:"Value Sets"},
+    {value:"featured",label: isRTL ? "المميزة" : "Featured"},
+    {value:"new",label: isRTL ? "الجديدة" : "New"},
+    {value:"top",label: isRTL ? "الأكثر مبيعاً" : "Top Selling"},
+    {value:"value",label: isRTL ? "مجموعات القيمة" : "Value Sets"},
   ];
 
   return (
@@ -7989,13 +8054,17 @@ function GiftsPage({ addToCart, setViewProduct, setPage }){
         <div className="max-container">
           <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",flexWrap:"wrap",gap:16,marginBottom:52}}>
             <div>
-              <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Curated Collections</p>
+              <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>
+                {isRTL ? "مجموعات حصرية ومختارة" : "Curated Collections"}
+              </p>
               <h2 className="disp" style={{fontSize:"clamp(28px,3.5vw,50px)",fontWeight:300,color:"#251737",letterSpacing:-1,lineHeight:1.05}}>
-                Gift Sets &amp; <em style={{fontStyle:"italic",color:"#B8922A"}}>Bundles</em>
+                {isRTL ? <>مجموعات الهدايا و<em style={{fontStyle:"italic",color:"#B8922A"}}>الباقات</em></> : <>Gift Sets &amp; <em style={{fontStyle:"italic",color:"#B8922A"}}>Bundles</em></>}
               </h2>
             </div>
-            <div style={{display:"flex",flexDirection:"column",alignItems:"flex-end",gap:12}}>
-              <p style={{fontSize:12,color:"#888",fontFamily:"'Montserrat',sans-serif"}}>{visibleGiftProducts.length} of {giftProducts.length} gift sets</p>
+            <div style={{display:"flex",flexDirection:"column",alignItems: isRTL ? "flex-start" : "flex-end",gap:12}}>
+              <p style={{fontSize:12,color:"#888",fontFamily:"'Montserrat',sans-serif"}}>
+                {isRTL ? `${visibleGiftProducts.length} من أصل ${giftProducts.length} طقم هدايا` : `${visibleGiftProducts.length} of ${giftProducts.length} gift sets`}
+              </p>
               <ProductFilterBar active={giftFilter} setActive={setGiftFilter} options={giftFilterOptions}/>
             </div>
           </div>
@@ -9456,8 +9525,12 @@ function Footer({ setPage }){
             alt="Khadlaj Perfumes"
             style={{height:126,width:"auto",objectFit:"contain",display:"block",marginBottom:24}}
           />
-          <p style={{fontSize:"8px",letterSpacing:3.5,color:"#B8922A",fontFamily:"'Montserrat',sans-serif",marginBottom:16,textTransform:"uppercase",fontWeight:600}}>Perfumes · UAE · Est. 1997</p>
-          <p style={{fontSize:13,color:"#555",lineHeight:1.85,maxWidth:260,marginBottom:32,fontFamily:"'Montserrat',sans-serif"}}>Family-owned UAE perfume house. Authentic Arabian &amp; French fragrance artistry since 1997.</p>
+          <p style={{fontSize:"8px",letterSpacing:3.5,color:"#B8922A",fontFamily:"'Montserrat',sans-serif",marginBottom:16,textTransform:"uppercase",fontWeight:600}}>
+            {isRTL ? "عطور فاخرة · الإمارات · تأسست عام 1997" : "Perfumes · UAE · Est. 1997"}
+          </p>
+          <p style={{fontSize:13,color:"#555",lineHeight:1.85,maxWidth:260,marginBottom:32,fontFamily:"'Montserrat',sans-serif"}}>
+            {isRTL ? "دار عطور إماراتية عريقة تبتكر أرقى التوليفات الشرقية والفرنسية منذ عام 1997." : "Family-owned UAE perfume house. Authentic Arabian & French fragrance artistry since 1997."}
+          </p>
           
           <CountryContext.Consumer>
             {({ activeCountry, setActiveCountry }) => (
@@ -9485,7 +9558,7 @@ function Footer({ setPage }){
                     ) : (
                       <img decoding="async" src={c.flagUrl} alt="" style={{width:16,height:11,objectFit:"cover",borderRadius:1}} />
                     )}
-                    <span style={{fontSize:9,color:"#222",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>{c.name}</span>
+                    <span style={{fontSize:9,color:"#222",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>{isRTL ? (c.nameAr || c.name) : c.name}</span>
                   </div>
                 ))}
               </div>
@@ -9493,27 +9566,54 @@ function Footer({ setPage }){
           </CountryContext.Consumer>
         </div>
         <div>
-          <p style={{fontSize:"8.5px",letterSpacing:2.5,color:"#251737",textTransform:"uppercase",marginBottom:24,fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>Collections</p>
-          {[["Perfume Oils","collections"],["La Fede","lafede"],["Master Perfumery","collections"],["Gift Sets","gifts"],["New Arrivals","collections"],["Best Sellers","collections"]].map(([l,pg])=>(
+          <p style={{fontSize:"8.5px",letterSpacing:2.5,color:"#251737",textTransform:"uppercase",marginBottom:24,fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>
+            {isRTL ? "المجموعات" : "Collections"}
+          </p>
+          {[
+            [isRTL ? "زيوت عطرية" : "Perfume Oils", "collections"],
+            [isRTL ? "لافيدي" : "La Fede", "lafede"],
+            [isRTL ? "روائع العطور" : "Master Perfumery", "collections"],
+            [isRTL ? "مجموعات الهدايا" : "Gift Sets", "gifts"],
+            [isRTL ? "وصل حديثاً" : "New Arrivals", "collections"],
+            [isRTL ? "الأكثر مبيعاً" : "Best Sellers", "collections"]
+          ].map(([l,pg])=>(
             <p key={l} onClick={()=>setPage(pg)} style={{fontSize:12,color:"#555",marginBottom:14,cursor:"pointer",fontFamily:"'Montserrat',sans-serif",letterSpacing:.5,transition:"all .25s ease"}}
               onMouseEnter={e=>e.target.style.color="#B8922A"} onMouseLeave={e=>e.target.style.color="#555"}>{l}</p>
           ))}
         </div>
         <div>
-          <p style={{fontSize:"8.5px",letterSpacing:2.5,color:"#251737",textTransform:"uppercase",marginBottom:24,fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>Company</p>
-          {[["Our Story","story"],["Contact Us","contact"],["Find a Store","contact"],["Careers","contact"],["Press","contact"]].map(([l,pg])=>(
+          <p style={{fontSize:"8.5px",letterSpacing:2.5,color:"#251737",textTransform:"uppercase",marginBottom:24,fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>
+            {isRTL ? "عن الشركة" : "Company"}
+          </p>
+          {[
+            [isRTL ? "قصتنا وإرثنا" : "Our Story", "story"],
+            [isRTL ? "اتصل بنا" : "Contact Us", "contact"],
+            [isRTL ? "فروعنا ومتاجرنا" : "Find a Store", "contact"],
+            [isRTL ? "الوظائف" : "Careers", "contact"],
+            [isRTL ? "الصحافة والإعلام" : "Press", "contact"]
+          ].map(([l,pg])=>(
             <p key={l} onClick={()=>setPage(pg)} style={{fontSize:12,color:"#555",marginBottom:14,cursor:"pointer",fontFamily:"'Montserrat',sans-serif",letterSpacing:.5,transition:"all .25s ease"}}
               onMouseEnter={e=>e.target.style.color="#B8922A"} onMouseLeave={e=>e.target.style.color="#555"}>{l}</p>
           ))}
         </div>
         <div>
-          <p style={{fontSize:"8.5px",letterSpacing:2.5,color:"#251737",textTransform:"uppercase",marginBottom:24,fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>Support</p>
-          {["Shipping & Returns","FAQ","Track My Order","Fragrance Guide","Gift Wrapping"].map(l=>(
+          <p style={{fontSize:"8.5px",letterSpacing:2.5,color:"#251737",textTransform:"uppercase",marginBottom:24,fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>
+            {isRTL ? "الدعم والمساعدة" : "Support"}
+          </p>
+          {[
+            isRTL ? "الشحن والاسترجاع" : "Shipping & Returns",
+            isRTL ? "الأسئلة الشائعة" : "FAQ",
+            isRTL ? "تتبع طلبيتك" : "Track My Order",
+            isRTL ? "دليل اختيار العطور" : "Fragrance Guide",
+            isRTL ? "خدمات تغليف الهدايا" : "Gift Wrapping"
+          ].map(l=>(
             <p key={l} style={{fontSize:12,color:"#555",marginBottom:14,cursor:"pointer",fontFamily:"'Montserrat',sans-serif",letterSpacing:.5,transition:"all .25s ease"}}
               onMouseEnter={e=>e.target.style.color="#B8922A"} onMouseLeave={e=>e.target.style.color="#555"}>{l}</p>
           ))}
           <div style={{marginTop:32,paddingTop:24,borderTop:"1px solid #e5e5e5"}}>
-            <p style={{fontSize:"8px",letterSpacing:2.5,color:"#251737",textTransform:"uppercase",marginBottom:14,fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>Ships With</p>
+            <p style={{fontSize:"8px",letterSpacing:2.5,color:"#251737",textTransform:"uppercase",marginBottom:14,fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>
+              {isRTL ? "شركاء الشحن" : "Ships With"}
+            </p>
             <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
               {["DHL","Aramex","EMX"].map(s=>(
                 <span key={s} style={{border:"1px solid #e5e5e5",padding:"4px 12px",fontSize:9,color:"#444",fontFamily:"'Montserrat',sans-serif",letterSpacing:1,background:"#fff",borderRadius:1}}>{s}</span>
@@ -9524,9 +9624,15 @@ function Footer({ setPage }){
       </div>
       <div style={{background:"#fff",borderTop:"1px solid #E8E4DC",padding:"30px 5%",display:"flex",justifyContent:"space-between",alignItems:"center",flexWrap:"wrap",gap:20,fontSize:9,color:"#888",letterSpacing:1.5,fontFamily:"'Montserrat',sans-serif",textTransform:"uppercase"}}>
         <div>
-          <p style={{marginBottom:10,color:"#251737",fontWeight:600}}>© 2025 Khadlaj Perfumes LLC. All rights reserved. UAE.</p>
+          <p style={{marginBottom:10,color:"#251737",fontWeight:600}}>
+            {isRTL ? "© 2025 عطور خدلج ذ.م.م. جميع الحقوق محفوظة. الإمارات." : "© 2025 Khadlaj Perfumes LLC. All rights reserved. UAE."}
+          </p>
           <div style={{display:"flex",gap:24}}>
-            {["Privacy Policy","Terms of Use","Cookie Settings"].map(l=>(
+            {[
+              isRTL ? "سياسة الخصوصية" : "Privacy Policy",
+              isRTL ? "شروط الاستخدام" : "Terms of Use",
+              isRTL ? "إعدادات ملفات تعريف الارتباط" : "Cookie Settings"
+            ].map(l=>(
               <span key={l} style={{cursor:"pointer",transition:"color .2s"}} onMouseEnter={e=>e.target.style.color="#B8922A"} onMouseLeave={e=>e.target.style.color="#888"}>{l}</span>
             ))}
           </div>
