@@ -5210,9 +5210,9 @@ const GLOBAL_CSS = `
   .khadlaj25-section { background: #FAF8F4; padding: 120px 0; overflow: hidden; }
   .k25-header { text-align: center; padding: 0 5%; margin-bottom: 80px; }
   
-  .k25-slider-container { width: 100%; overflow-x: auto; position: relative; padding: 20px 0; scroll-behavior: smooth; -ms-overflow-style: none; scrollbar-width: none; scroll-snap-type: x mandatory; }
+  .k25-slider-container { width: 100%; overflow-x: auto; position: relative; padding: 20px 0; scroll-behavior: smooth; -ms-overflow-style: none; scrollbar-width: none; scroll-snap-type: x mandatory; direction: ltr; }
   .k25-slider-container::-webkit-scrollbar { display: none; }
-  .k25-slider-track { display: flex; width: max-content; }
+  .k25-slider-track { display: flex; width: max-content; direction: ltr; }
   
   
   .k25-card { 
@@ -5356,8 +5356,8 @@ const GLOBAL_CSS = `
   }
 
   /* Gift Slider */
-  .gift-slider-section { padding: 80px 0 100px; background: #fff; overflow: hidden; position: relative; }
-  .gift-slider-track { display: flex; width: max-content; animation: slideGifts 35s linear infinite; }
+  .gift-slider-section { padding: 80px 0 100px; background: #fff; overflow: hidden; position: relative; direction: ltr; }
+  .gift-slider-track { display: flex; width: max-content; animation: slideGifts 35s linear infinite; direction: ltr; }
   .gift-slider-track:hover { animation-play-state: paused; }
   @keyframes slideGifts { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
   
@@ -6235,6 +6235,7 @@ function NewLaunchesHeroBannerSlider({ setPage, setViewProduct }) {
    NEW LAUNCHES SHOWCASE CARDS (3-COLUMN LUXURY SLIDER)
 ═══════════════════════════════════════════════════════════════ */
 function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
+  const { isRTL, t } = React.useContext(LanguageContext);
   const [startIndex, setStartIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [hoveredIdx, setHoveredIdx] = useState(null);
@@ -6244,6 +6245,7 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
     {
       id: "island-sun",
       title: "ISLAND SUN",
+      titleAr: "آيلاند صن",
       img: "/assets/images/showcase/island-sun-card.png",
       productName: "ISLAND SUN",
       productId: 9200000000010
@@ -6251,12 +6253,14 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
     {
       id: "muse",
       title: "MUSE",
+      titleAr: "ميوز",
       img: "/assets/images/showcase/muse-card.png",
       productName: "ISLAND SUN"
     },
     {
       id: "onyx-gold",
       title: "ONYX GOLD",
+      titleAr: "أونيكس جولد",
       img: "/assets/images/showcase/onyx-gold-card.png",
       productName: "ONYX GOLD",
       productId: 9186641215787
@@ -6264,6 +6268,7 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
     {
       id: "karus-gold",
       title: "KARUS GOLD ABSOLU",
+      titleAr: "كاروس جولد أبسولو",
       img: "/assets/images/showcase/karus-gold-card.png",
       productName: "KARUS GOLD ABSOLU",
       productId: 9186643247403
@@ -6271,30 +6276,35 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
     {
       id: "nuha-bon-bon",
       title: "NUHA BON BON",
+      titleAr: "نهى بون بون",
       img: "/assets/images/showcase/nuha-bon-bon-card.png",
       productName: "NUHA BON BON"
     },
     {
       id: "nafais-magrib",
       title: "NAFAIS MAGRIB",
+      titleAr: "نفائس المغرب",
       img: "/assets/images/showcase/nafais-magrib-card.png",
       productName: "NAFAIS MAGRIB"
     },
     {
       id: "titan",
       title: "TITAN",
+      titleAr: "تيتان",
       img: "/assets/images/showcase/titan-card.png",
       productName: "TITAN"
     },
     {
       id: "shiyaaka-shadow",
       title: "SHIYAAKA SHADOW",
+      titleAr: "شياكة شادو",
       img: "/assets/images/showcase/shiyaaka-shadow-card.png",
       productName: "SHIYAAKA SHADOW"
     },
     {
       id: "zayaan-gold",
       title: "ZAYAAN GOLD",
+      titleAr: "زيان جولد",
       img: "/assets/images/showcase/zayaan-gold-card.png",
       productName: "ZAYAAN GOLD"
     }
@@ -6356,14 +6366,16 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
       <div style={{
         position: "relative",
         width: "100%",
-        overflow: "hidden"
+        overflow: "hidden",
+        direction: "ltr"
       }}>
         <div style={{
           display: "flex",
           width: `${(cards.length / visibleCards) * 100}%`,
           transform: `translateX(-${startIndex * (100 / cards.length)}%)`,
           transition: "transform 0.7s cubic-bezier(0.25, 1, 0.5, 1)",
-          willChange: "transform"
+          willChange: "transform",
+          direction: "ltr"
         }}>
           {cards.map((c, idx) => (
             <div
@@ -6428,16 +6440,16 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
                   zIndex: 2
                 }}>
                   <h3 style={{
-                    fontFamily: "'Cinzel', 'Montserrat', serif",
+                    fontFamily: isRTL ? "'Cairo', serif" : "'Cinzel', 'Montserrat', serif",
                     fontSize: windowWidth >= 1024 ? "20px" : "17px",
                     fontWeight: 600,
                     color: "#ffffff",
-                    letterSpacing: "3px",
+                    letterSpacing: isRTL ? "0.5px" : "3px",
                     textTransform: "uppercase",
                     marginBottom: "12px",
                     textShadow: "0 2px 10px rgba(0,0,0,0.7)"
                   }}>
-                    {c.title}
+                    {isRTL && c.titleAr ? c.titleAr : c.title}
                   </h3>
 
                   <button
@@ -6448,9 +6460,9 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
                       padding: "8px 26px",
                       fontSize: "11px",
                       fontWeight: 600,
-                      letterSpacing: "2.5px",
+                      letterSpacing: isRTL ? "1px" : "2.5px",
                       textTransform: "uppercase",
-                      fontFamily: "'Montserrat', sans-serif",
+                      fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif",
                       cursor: "pointer",
                       transition: "all 0.3s ease",
                       boxShadow: "0 4px 15px rgba(0,0,0,0.3)"
@@ -6460,7 +6472,7 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
                       handleCardClick(c);
                     }}
                   >
-                    SHOP NOW
+                    {isRTL ? "تسوق الآن" : "SHOP NOW"}
                   </button>
                 </div>
               </div>
