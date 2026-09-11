@@ -27,18 +27,164 @@ const C = {
    DATA
 ═══════════════════════════════════════════════════════════════ */
 const COUNTRIES = [
-  { name:"KSA",      flagUrl:"/assets/images/flags/sa.png", currency:"SAR", rate:1 },
-  { name:"UAE",      flagUrl:"/assets/images/flags/ae.png", currency:"AED", rate:1 },
-  { name:"Kuwait",   flagUrl:"/assets/images/flags/kw.png", currency:"KWD", rate:0.08 },
-  { name:"India",    flagUrl:"/assets/images/flags/in.png", currency:"INR", rate:22.5 },
-  { name:"Egypt",    flagUrl:"/assets/images/flags/eg.png", currency:"EGP", rate:13.2 },
-  { name:"Malaysia", flagUrl:"/assets/images/flags/my.png", currency:"MYR", rate:1.25 },
-  { name:"UK",       flagUrl:"/assets/images/flags/gb.png", currency:"GBP", rate:0.21 },
-  { name:"USA",      flagUrl:"/assets/images/flags/us.png", currency:"USD", rate:0.27 },
-  { name:"Global",   flagUrl:"global", currency:"USD", rate:0.27 },
+  { name:"KSA",      flagUrl:"/assets/images/flags/sa.png", currency:"SAR", currencyAr:"ر.س", rate:1.021 },
+  { name:"UAE",      flagUrl:"/assets/images/flags/ae.png", currency:"AED", currencyAr:"د.إ", rate:1 },
+  { name:"Kuwait",   flagUrl:"/assets/images/flags/kw.png", currency:"KWD", currencyAr:"د.ك", rate:0.08 },
+  { name:"India",    flagUrl:"/assets/images/flags/in.png", currency:"INR", currencyAr:"ر.ه", rate:22.5 },
+  { name:"Egypt",    flagUrl:"/assets/images/flags/eg.png", currency:"EGP", currencyAr:"ج.م", rate:13.2 },
+  { name:"Malaysia", flagUrl:"/assets/images/flags/my.png", currency:"MYR", currencyAr:"ر.م", rate:1.25 },
+  { name:"UK",       flagUrl:"/assets/images/flags/gb.png", currency:"GBP", currencyAr:"£", rate:0.21 },
+  { name:"USA",      flagUrl:"/assets/images/flags/us.png", currency:"USD", currencyAr:"$", rate:0.27 },
+  { name:"Global",   flagUrl:"global", currency:"USD", currencyAr:"$", rate:0.27 },
 ];
 const CountryContext = React.createContext();
 
+/* ═══════════════════════════════════════════════════════════════
+   INTERNATIONALIZATION & BILINGUAL SUPPORT (EN & AR)
+ ═══════════════════════════════════════════════════════════════ */
+const TRANSLATIONS = {
+  en: {
+    home: "Home",
+    bestSellers: "Best Sellers",
+    perfumeSpray: "Perfume Spray",
+    perfumeOil: "Perfume Oil",
+    homeAmbience: "Home & Ambience",
+    giftSets: "Gift Sets",
+    deals: "Deals",
+    laFede: "La Fede",
+    ourLegacy: "Our Legacy",
+    island: "Island",
+    collections: "Collections",
+    cart: "Cart",
+    search: "Search",
+    searchPlaceholder: "Search fragrances, collections, notes...",
+    popularSearches: "Popular Searches",
+    noResults: 'No results for "{q}"',
+    tryKeywords: 'Try "oud", "musk", "gift"...',
+    resultsCount: '{count} results for "{q}"',
+    signUp: "Sign Up",
+    addToCart: "Add to Bag",
+    addedToCart: "Added to Bag",
+    shopNow: "Shop Now",
+    viewDetails: "View Details",
+    backToHome: "Back to Home",
+    backToProducts: "Back to Products",
+    backToCart: "Back to Cart",
+    checkout: "Checkout",
+    newLaunches: "New Launches",
+    newLaunchesSub: "A balanced spotlight on the latest fragrances, curated to feel clean and contemporary.",
+    freshLaunches: "{count} fresh launches",
+    islandCollection: "Island Collection",
+    exclusiveCreations: "{count} Exclusive Creations",
+    showingAll: "Showing all {count} products",
+    freeShippingNotice: "FREE SHIPPING ON ORDERS ABOVE SAR 150",
+    awardWinning: "Award-Winning",
+    awardWinningSub: "Recognised fragrance house since 1997 across 90+ countries",
+    complimentaryDelivery: "Complimentary Delivery",
+    complimentaryDeliverySub: "Free shipping on all orders above SAR 150",
+    luxuryPackaging: "Luxury Packaging",
+    luxuryPackagingSub: "Every order arrives gift-ready in premium Khadlaj packaging",
+    authenticFragrance: "100% Authentic Fragrance",
+    authenticFragranceSub: "Directly crafted from the finest heritage ingredients",
+    signatureCollection: "Khadlaj Signature",
+    curatedGiftTitle: "CURATED GIFT COLLECTION",
+    customerReviews: "Customer Reviews",
+    new: "New",
+    bestSeller: "Best Seller",
+    limited: "Limited",
+    forHim: "For Him",
+    forHer: "For Her",
+    unisex: "Unisex",
+    extraitDeParfum: "Extrait De Parfum",
+    eauDeParfum: "Eau De Parfum",
+    bakhoor: "Bakhoor",
+    dehnAlOudh: "Dehn Al Oudh",
+    bagEmpty: "Your bag is empty",
+    subtotal: "Subtotal",
+    viewCart: "View Cart",
+    size: "Size",
+    quantity: "Quantity"
+  },
+  ar: {
+    home: "الرئيسية",
+    bestSellers: "الأكثر مبيعاً",
+    perfumeSpray: "عطور رذاذ",
+    perfumeOil: "زيوت عطرية",
+    homeAmbience: "معطرات المنزل والجو",
+    giftSets: "مجموعات الهدايا",
+    deals: "العروض",
+    laFede: "لافيدي",
+    ourLegacy: "إرثنا العريق",
+    island: "آيلاند",
+    collections: "المجموعات",
+    cart: "سلة التسوق",
+    search: "بحث",
+    searchPlaceholder: "ابحث عن العطور، المجموعات، النوتات...",
+    popularSearches: "عمليات البحث الشائعة",
+    noResults: 'لا توجد نتائج لـ "{q}"',
+    tryKeywords: 'جرب "عود"، "مسك"، "هدايا"...',
+    resultsCount: '{count} نتيجة بحث عن "{q}"',
+    signUp: "تسجيل جديد",
+    addToCart: "أضف إلى السلة",
+    addedToCart: "تمت الإضافة للسلة",
+    shopNow: "تسوق الآن",
+    viewDetails: "عرض التفاصيل",
+    backToHome: "العودة للرئيسية",
+    backToProducts: "العودة للمنتجات",
+    backToCart: "العودة للسلة",
+    checkout: "إتمام الشراء",
+    newLaunches: "أحدث الإصدارات",
+    newLaunchesSub: "تشكيلة مختارة متوازنة من أحدث العطور الفاخرة بطابع عصري أنيق.",
+    freshLaunches: "{count} إصدار جديد ومميز",
+    islandCollection: "مجموعة آيلاند",
+    exclusiveCreations: "{count} إبداعات حصرية",
+    showingAll: "عرض جميع المنتجات ({count})",
+    freeShippingNotice: "شحن مجاني لكافة الطلبات فوق 150 ر.س",
+    awardWinning: "دار عطور حائزة على جوائز",
+    awardWinningSub: "دار عطور عريقة ومعتمدة منذ عام 1997 في أكثر من 90 دولة",
+    complimentaryDelivery: "توصيل مجاني وسريع",
+    complimentaryDeliverySub: "شحن مجاني لكافة الطلبات بقيمة 150 ر.س فأكثر",
+    luxuryPackaging: "تغليف فاخر للهدايا",
+    luxuryPackagingSub: "كل طلبية تصلك بتغليف خدلج الفاخر والمثالي للإهداء",
+    authenticFragrance: "عطور أصلية 100%",
+    authenticFragranceSub: "مصنوعة من أرقى الزيوت والمكونات العطرية النادرة",
+    signatureCollection: "بصمة خدلج الخاصة",
+    curatedGiftTitle: "مجموعة الهدايا المختارة بعناية",
+    customerReviews: "تقييمات وآراء العملاء",
+    new: "جديد",
+    bestSeller: "الأكثر مبيعاً",
+    limited: "إصدار حصري",
+    forHim: "للرجال",
+    forHer: "للنساء",
+    unisex: "للجنسين",
+    extraitDeParfum: "إكستري دي بارفان",
+    eauDeParfum: "أو دي بارفان",
+    bakhoor: "بخور ومعمول",
+    dehnAlOudh: "دهن عود",
+    bagEmpty: "سلة التسوق فارغة حالياً",
+    subtotal: "المجموع الفرعي",
+    viewCart: "معاينة السلة",
+    size: "الحجم",
+    quantity: "الكمية"
+  }
+};
+
+const LanguageContext = React.createContext({
+  lang: "en",
+  setLang: () => {},
+  isRTL: false,
+  t: (k, fallback) => fallback || k
+});
+
+function formatCurrency(price, activeCountry, lang = "en") {
+  if (!activeCountry) return `${price}`;
+  const val = (price * (activeCountry.rate || 1)).toFixed(2);
+  if (lang === "ar") {
+    const sym = activeCountry.currencyAr || activeCountry.currency;
+    return `${val} ${sym}`;
+  }
+  return `${activeCountry.currency} ${val}`;
+}
 // ── Cloudinary CDN config ──────────────────────────────────────────────────
 // Sign up free at cloudinary.com and paste your cloud name below.
 const CLOUDINARY_CLOUD = ""; // e.g. "khadlaj-perfumes"
@@ -4587,7 +4733,7 @@ const CATEGORIES = ["Best Sellers","New","Deals","For Him","For Her","Unisex","P
    GLOBAL CSS
 ═══════════════════════════════════════════════════════════════ */
 const GLOBAL_CSS = `
-  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700&family=Cairo:wght@400;600;700&display=swap');
   @import url('https://fonts.cdnfonts.com/css/trajan-pro');
   *{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
@@ -5238,6 +5384,34 @@ const GLOBAL_CSS = `
     .hero-stat-item { border-right: none !important; flex: 1 1 40% !important; margin-right: 0 !important; padding-right: 0 !important; }
     .gift-hero-copy{max-width:100%!important;text-align:center!important;align-items:center!important;padding:0 6%!important;}
   }
+
+  /* ── Arabic RTL & Typography ── */
+  [dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+    font-family: 'Tajawal', 'Cairo', sans-serif !important;
+  }
+  [dir="rtl"] .product-card,
+  [dir="rtl"] .product-card-info,
+  [dir="rtl"] .product-notes,
+  [dir="rtl"] .announcement-text {
+    text-align: center;
+  }
+  [dir="rtl"] .nav-left-utility {
+    padding-left: 0 !important;
+    padding-right: 20px !important;
+  }
+  [dir="rtl"] input, [dir="rtl"] textarea {
+    text-align: right;
+  }
+  [dir="rtl"] .disp {
+    font-family: 'Cairo', 'Cinzel', serif !important;
+  }
+  [dir="rtl"] .country-dropdown-menu {
+    left: auto !important;
+    right: 0 !important;
+  }
+
 `;
 
 /* ═══════════════════════════════════════════════════════════════
@@ -5250,7 +5424,8 @@ function StarRating({ n=5, color=C.brass }){
 function ProductCard({ p, onView, onCart }){
   const [hov, setHov] = useState(false);
   const { activeCountry } = React.useContext(CountryContext);
-  const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
+  const { lang, isRTL, t } = React.useContext(LanguageContext);
+  const formatPrice = (price) => formatCurrency(price, activeCountry, lang);
   const notes = p.notes || [];
   const collectionLabel = p.col === "Lafede" ? "La Fede" : p.col;
   const noteColors = ["#C8A96E","#9C7B50","#B8866A","#7A9E8A","#8B7EAA","#B06A6A","#6A8BAA","#A09060"];
@@ -5387,7 +5562,7 @@ function ProductCard({ p, onView, onCart }){
           onMouseEnter={(e)=>e.target.style.background="#B8922A"}
           onMouseLeave={(e)=>e.target.style.background="#251737"}
           >
-            Add to Bag
+            {t("addToCart", "Add to Bag")}
           </button>
         </div>
       </div>
@@ -5426,10 +5601,12 @@ function SectionHeader({ eyebrow, title, sub, light=false }){
   );
 }
 
-function TikTokCard({ t }) {
+function TikTokCard({ t: cardData }) {
+  const t_item = cardData;
   const [hov, setHov] = useState(false);
   const { activeCountry } = React.useContext(CountryContext);
-  const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
+  const { lang } = React.useContext(LanguageContext);
+  const formatPrice = (price) => formatCurrency(price, activeCountry, lang);
   return (
     <div
       onMouseEnter={() => setHov(true)}
@@ -5453,7 +5630,7 @@ function TikTokCard({ t }) {
       {/* Blurred product image — shows while iframe loads */}
       <div style={{
         position: "absolute", inset: "-10%", width: "120%", height: "120%",
-        backgroundImage: `url(${t.img})`,
+        backgroundImage: `url(${t_item.img})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         opacity: 0.25,
@@ -5468,7 +5645,7 @@ function TikTokCard({ t }) {
         scrolling="no"
         allow="autoplay; encrypted-media; fullscreen"
         allowFullScreen
-        title={t.title}
+        title={t_item.title}
         style={{
           position: "absolute", inset: 0, width: "100%", height: "100%",
           border: "none", zIndex: 1,
@@ -6794,6 +6971,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 ═══════════════════════════════════════════════════════════════ */
 function IslandCollectionPage({ addToCart, setViewProduct, setPage }) {
   const { activeCountry } = React.useContext(CountryContext);
+  const { lang, isRTL, t } = React.useContext(LanguageContext);
   
   // All Island Collection Products
   const islandProducts = PRODUCTS.filter(p => 
@@ -6900,7 +7078,8 @@ function IslandCollectionPage({ addToCart, setViewProduct, setPage }) {
 ═══════════════════════════════════════════════════════════════ */
 function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategory }){
   const { activeCountry } = React.useContext(CountryContext);
-  const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
+  const { lang, isRTL, t } = React.useContext(LanguageContext);
+  const formatPrice = (price) => formatCurrency(price, activeCountry, lang);
   const [activeCat, setActiveCat] = useState(collectionCategory || "Khadlaj");
   React.useEffect(() => {
     if(collectionCategory) setActiveCat(collectionCategory);
@@ -7196,7 +7375,8 @@ function applyProductFilter(products, filter) {
 
 function ProductPage({ product, addToCart, setPage, setViewProduct }){
   const { activeCountry } = React.useContext(CountryContext);
-  const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
+  const { lang, isRTL, t } = React.useContext(LanguageContext);
+  const formatPrice = (price) => formatCurrency(price, activeCountry, lang);
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
   const [storyExpanded, setStoryExpanded] = useState(false);
@@ -7397,9 +7577,9 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
              {/* PRICE & STOCK */}
              <div style={{display:"flex", alignItems:"baseline", justifyContent:"space-between", marginBottom:8}}>
                <p style={{fontSize:22, fontWeight:300, color:"#111", fontFamily:"'Montserrat',sans-serif", margin:0}}>{formatPrice(product.price)}</p>
-               <span style={{fontSize:12, color:"#2E7D32", fontFamily:"'Montserrat',sans-serif", fontWeight:500}}>In Stock</span>
+               <span style={{fontSize:12, color:"#2E7D32", fontFamily:"'Montserrat',sans-serif", fontWeight:500}}>{isRTL ? "متوفر في المخزون" : "In Stock"}</span>
              </div>
-             <p style={{fontSize:11, color:"#888", fontFamily:"'Montserrat',sans-serif", marginBottom:24}}>Tax included. Shipping calculated at checkout.</p>
+             <p style={{fontSize:11, color:"#888", fontFamily:"'Montserrat',sans-serif", marginBottom:24}}>{isRTL ? "شامل الضريبة. يتم احتساب الشحن عند إتمام الطلب." : "Tax included. Shipping calculated at checkout."}</p>
 
              {/* SHORT DESCRIPTION EXCERPT */}
              <div style={{fontSize:15, lineHeight:1.8, color:"#444", fontWeight:300, fontFamily:"'Montserrat',sans-serif", marginBottom:32}}>
@@ -7418,7 +7598,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                   <button onClick={()=>setQty(q=>q+1)} style={{flex:1, height:"100%", border:"none", background:"transparent", fontSize:18, cursor:"pointer", color:"#888", transition:"color 0.2s"}} onMouseEnter={e=>e.currentTarget.style.color="#111"} onMouseLeave={e=>e.currentTarget.style.color="#888"}>+</button>
                </div>
                
-               {/* Sleek Add to Bag */}
+               {/* Sleek {t("addToCart", "Add to Bag")} */}
                <button 
                  onClick={handleAdd} 
                  style={{
@@ -7430,7 +7610,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                  onMouseEnter={e=>{e.currentTarget.style.background="#333"; e.currentTarget.style.transform="translateY(-2px)"; e.currentTarget.style.boxShadow="0 6px 20px rgba(0,0,0,0.2)";}} 
                  onMouseLeave={e=>{e.currentTarget.style.background="#111"; e.currentTarget.style.transform="none"; e.currentTarget.style.boxShadow="0 4px 14px rgba(0,0,0,0.15)";}}
                >
-                 {added ? "Added to Bag" : "Add to Bag"}
+                 {added ? "Added to Bag" : t("addToCart", "Add to Bag")}
                </button>
 
                {/* Premium Buy Now Button */}
@@ -8229,7 +8409,8 @@ function SignupPage(){
 
 function CartPage({ cartItems, updateCartQty, removeFromCart, setPage, setViewProduct }){
   const { activeCountry } = React.useContext(CountryContext);
-  const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
+  const { lang, isRTL, t } = React.useContext(LanguageContext);
+  const formatPrice = (price) => formatCurrency(price, activeCountry, lang);
   const subtotal = cartItems.reduce((sum, item)=>sum + item.price * item.qty, 0);
   const shipping = subtotal >= 200 || subtotal === 0 ? 0 : 20;
   const total = subtotal + shipping;
@@ -8239,10 +8420,10 @@ function CartPage({ cartItems, updateCartQty, removeFromCart, setPage, setViewPr
       <section style={{padding:"70px 5% 96px",maxWidth:1280,margin:"0 auto"}}>
         <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",gap:20,flexWrap:"wrap",marginBottom:44}}>
           <div>
-            <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Shopping Bag</p>
-            <h1 className="disp" style={{fontSize:"clamp(38px,5vw,68px)",fontWeight:300,lineHeight:1,color:"#251737"}}>Your Cart</h1>
+            <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>{t("cart", "Shopping Bag")}</p>
+            <h1 className="disp" style={{fontSize:"clamp(38px,5vw,68px)",fontWeight:300,lineHeight:1,color:"#251737"}}>{isRTL ? "سلة التسوق" : "Your Cart"}</h1>
           </div>
-          <button className="btn-ghost" onClick={()=>setPage("collections")}>Continue Shopping</button>
+          <button className="btn-ghost" onClick={()=>setPage("collections")}>{isRTL ? "متابعة التسوق" : "Continue Shopping"}</button>
         </div>
 
         {cartItems.length === 0 ? (
@@ -8278,16 +8459,16 @@ function CartPage({ cartItems, updateCartQty, removeFromCart, setPage, setViewPr
             </div>
 
             <aside style={{border:"1px solid #E8E4DC",padding:26,position:"sticky",top:130,background:"#FCFBFA"}}>
-              <p style={{fontSize:9,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginBottom:18}}>Order Summary</p>
-              <div style={{display:"flex",justifyContent:"space-between",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:12}}><span>Subtotal</span><strong>{formatPrice(subtotal)}</strong></div>
-              <div style={{display:"flex",justifyContent:"space-between",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:16}}><span>Shipping</span><strong>{shipping === 0 ? "Free" : formatPrice(shipping)}</strong></div>
+              <p style={{fontSize:9,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginBottom:18}}>{isRTL ? "ملخص الطلب" : "Order Summary"}</p>
+              <div style={{display:"flex",justifyContent:"space-between",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:12}}><span>{t("subtotal", "Subtotal")}</span><strong>{formatPrice(subtotal)}</strong></div>
+              <div style={{display:"flex",justifyContent:"space-between",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:16}}><span>{isRTL ? "الشحن والتوصيل" : "Shipping"}</span><strong>{shipping === 0 ? "Free" : formatPrice(shipping)}</strong></div>
               {subtotal > 0 && subtotal < 200 && <p style={{fontSize:11,color:"#777",lineHeight:1.7,marginBottom:16,fontFamily:"'Montserrat',sans-serif"}}>Add {formatPrice(200 - subtotal)} more for free UAE shipping.</p>}
               <div style={{height:1,background:"#E8E4DC",margin:"18px 0"}}/>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:24}}>
-                <span style={{fontSize:13,letterSpacing:2,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>Total</span>
+                <span style={{fontSize:13,letterSpacing:2,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>{isRTL ? "المجموع الكلي" : "Total"}</span>
                 <strong style={{fontSize:22,fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(total)}</strong>
               </div>
-              <button className="btn-gold" style={{width:"100%"}} onClick={()=>setPage("checkout")}>Checkout</button>
+              <button className="btn-gold" style={{width:"100%"}} onClick={()=>setPage("checkout")}>{t("checkout", "Checkout")}</button>
               <p style={{fontSize:10,color:"#888",lineHeight:1.7,textAlign:"center",marginTop:14,fontFamily:"'Montserrat',sans-serif"}}>Secure checkout. Payment and delivery details are validated before order placement.</p>
             </aside>
           </div>
@@ -8299,7 +8480,8 @@ function CartPage({ cartItems, updateCartQty, removeFromCart, setPage, setViewPr
 
 function CheckoutPage({ cartItems, setPage, clearCart }){
   const { activeCountry } = React.useContext(CountryContext);
-  const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
+  const { lang, isRTL, t } = React.useContext(LanguageContext);
+  const formatPrice = (price) => formatCurrency(price, activeCountry, lang);
   const subtotal = cartItems.reduce((sum, item)=>sum + item.price * item.qty, 0);
   const shipping = subtotal >= 200 || subtotal === 0 ? 0 : 20;
   const total = subtotal + shipping;
@@ -8440,10 +8622,10 @@ function CheckoutPage({ cartItems, setPage, clearCart }){
               ))}
             </div>
             <div style={{height:1,background:"#E8E4DC",margin:"18px 0"}}/>
-            <div style={{display:"flex",justifyContent:"space-between",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:12}}><span>Subtotal</span><strong>{formatPrice(subtotal)}</strong></div>
-            <div style={{display:"flex",justifyContent:"space-between",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:16}}><span>Shipping</span><strong>{shipping === 0 ? "Free" : formatPrice(shipping)}</strong></div>
+            <div style={{display:"flex",justifyContent:"space-between",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:12}}><span>{t("subtotal", "Subtotal")}</span><strong>{formatPrice(subtotal)}</strong></div>
+            <div style={{display:"flex",justifyContent:"space-between",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:16}}><span>{isRTL ? "الشحن والتوصيل" : "Shipping"}</span><strong>{shipping === 0 ? "Free" : formatPrice(shipping)}</strong></div>
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",margin:"20px 0 24px",paddingTop:18,borderTop:"1px solid #E8E4DC"}}>
-              <span style={{fontSize:13,letterSpacing:2,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>Total</span>
+              <span style={{fontSize:13,letterSpacing:2,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>{isRTL ? "المجموع الكلي" : "Total"}</span>
               <strong style={{fontSize:22,fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(total)}</strong>
             </div>
             <button className="btn-gold" style={{width:"100%"}} onClick={submitOrder}>Place Order</button>
@@ -8456,7 +8638,8 @@ function CheckoutPage({ cartItems, setPage, clearCart }){
 }
 
 function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCategory, activeCountry }){
-  const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
+  const { lang, setLang, isRTL, t } = React.useContext(LanguageContext);
+  const formatPrice = (price) => formatCurrency(price, activeCountry, lang);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -8589,7 +8772,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
             textAlign:"center", flex:1,
             color:"#fff", whiteSpace:"nowrap",
           }}>
-            FREE SHIPPING ON ORDERS ABOVE SAR 150
+            {t("freeShippingNotice", "FREE SHIPPING ON ORDERS ABOVE SAR 150")}
           </p>
 
           {/* Right: Social icons — desktop only */}
@@ -8634,6 +8817,50 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
               <span className="mob-search-left" style={{cursor:"pointer",display:"flex",alignItems:"center"}} onClick={()=>setSearchOpen(true)}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "#111"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               </span>
+              {/* Language Switcher */}
+              <div style={{
+                display: "flex",
+                alignItems: "center",
+                border: isTransparent ? "1px solid rgba(255,255,255,0.3)" : "1px solid #E8E4DC",
+                borderRadius: 4,
+                background: isTransparent ? "rgba(255,255,255,0.12)" : "#FAF9F6",
+                backdropFilter: isTransparent ? "blur(8px)" : "none",
+                overflow: "hidden"
+              }}>
+                <button
+                  onClick={() => setLang("en")}
+                  style={{
+                    background: lang === "en" ? "#B8922A" : "transparent",
+                    color: lang === "en" ? "#fff" : (isTransparent ? "rgba(255,255,255,0.8)" : "#251737"),
+                    border: "none",
+                    padding: isTransparent ? "7px 11px" : "5px 9px",
+                    fontSize: 11.5,
+                    fontWeight: 700,
+                    cursor: "pointer",
+                    fontFamily: "'Montserrat', sans-serif",
+                    transition: "all 0.2s"
+                  }}
+                >
+                  EN
+                </button>
+                <button
+                  onClick={() => setLang("ar")}
+                  style={{
+                    background: lang === "ar" ? "#B8922A" : "transparent",
+                    color: lang === "ar" ? "#fff" : (isTransparent ? "rgba(255,255,255,0.8)" : "#251737"),
+                    border: "none",
+                    padding: isTransparent ? "7px 11px" : "5px 9px",
+                    fontSize: 12,
+                    fontWeight: 700,
+                    cursor: "pointer",
+                    fontFamily: "'Tajawal', sans-serif",
+                    transition: "all 0.2s"
+                  }}
+                >
+                  العربية
+                </button>
+              </div>
+
               <div className="hide-mob country-dropdown">
                 <CountryContext.Consumer>
                   {({ activeCountry, setActiveCountry }) => (
@@ -8735,7 +8962,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                 fontWeight:600,
                 transition:"color .2s",
                 textShadow: isTransparent ? "0 2px 10px rgba(0,0,0,0.5)" : "none"
-              }} onMouseEnter={e=>e.target.style.color="#B8922A"} onMouseLeave={e=>e.target.style.color=isTransparent ? "#fff" : "#251737"} onClick={()=>setPage("signup")}>Sign Up</span>
+              }} onMouseEnter={e=>e.target.style.color="#B8922A"} onMouseLeave={e=>e.target.style.color=isTransparent ? "#fff" : "#251737"} onClick={()=>setPage("signup")}>{t("signUp", "Sign Up")}</span>
               
               <span className="hide-mob" style={{cursor:"pointer",display:"flex",alignItems:"center",transition:"transform .2s"}} onMouseEnter={e=>e.currentTarget.style.transform="scale(1.1)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"} onClick={()=>setSearchOpen(true)}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "#111"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{filter: isTransparent ? "drop-shadow(0 2px 6px rgba(0,0,0,0.5))" : "none"}}><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -8787,15 +9014,15 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
             transition:"color 0.35s ease, padding-bottom 0.35s ease"
           }}>
             {[
-              { label: "Home", pg: "main" },
-              { label: "Best Sellers", pg: "collections", cat: "Best Sellers" },
-              { label: "Perfume Spray", pg: "collections", cat: "EAU DE PARFUM" },
-              { label: "Perfume Oil", pg: "collections", cat: "Perfume Oils" },
-              { label: "Home & Ambience", pg: "collections", cat: "New" },
-              { label: "Gift Sets", pg: "gifts" },
-              { label: "Deals", pg: "collections", cat: "Deals", badge: "NEW" },
-              { label: "La Fede", pg: "lafede" },
-              { label: "Our legacy", pg: "story" }
+              { label: t("home", "Home"), pg: "main" },
+              { label: t("bestSellers", "Best Sellers"), pg: "collections", cat: "Best Sellers" },
+              { label: t("perfumeSpray", "Perfume Spray"), pg: "collections", cat: "EAU DE PARFUM" },
+              { label: t("perfumeOil", "Perfume Oil"), pg: "collections", cat: "Perfume Oils" },
+              { label: t("homeAmbience", "Home & Ambience"), pg: "collections", cat: "New" },
+              { label: t("giftSets", "Gift Sets"), pg: "gifts" },
+              { label: t("deals", "Deals"), pg: "collections", cat: "Deals", badge: isRTL ? "جديد" : "NEW" },
+              { label: t("laFede", "La Fede"), pg: "lafede" },
+              { label: t("ourLegacy", "Our Legacy"), pg: "story" }
             ].map(({ label, pg, cat, badge })=>{
               let isActive = false;
               if (page === pg) {
@@ -8853,17 +9080,64 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
             zIndex:200,
             boxShadow:"0 8px 32px rgba(0,0,0,.12)",
           }}>
+            {/* Mobile Language Switcher */}
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 8,
+              padding: "12px 6%",
+              borderBottom: "1px solid #F0EBE3",
+              background: "#FAF9F6"
+            }}>
+              <span style={{fontSize: 10, letterSpacing: 2, textTransform: "uppercase", color: "#888", fontFamily: "'Montserrat', sans-serif", fontWeight: 600}}>
+                {isRTL ? "اللغة:" : "Language:"}
+              </span>
+              <button
+                onClick={() => setLang("en")}
+                style={{
+                  background: lang === "en" ? "#B8922A" : "#fff",
+                  color: lang === "en" ? "#fff" : "#251737",
+                  border: "1px solid #E0E0E0",
+                  borderRadius: 4,
+                  padding: "5px 12px",
+                  fontSize: 11,
+                  fontWeight: 700,
+                  cursor: "pointer",
+                  fontFamily: "'Montserrat', sans-serif"
+                }}
+              >
+                English
+              </button>
+              <button
+                onClick={() => setLang("ar")}
+                style={{
+                  background: lang === "ar" ? "#B8922A" : "#fff",
+                  color: lang === "ar" ? "#fff" : "#251737",
+                  border: "1px solid #E0E0E0",
+                  borderRadius: 4,
+                  padding: "5px 14px",
+                  fontSize: 12,
+                  fontWeight: 700,
+                  cursor: "pointer",
+                  fontFamily: "'Tajawal', sans-serif"
+                }}
+              >
+                العربية
+              </button>
+            </div>
+
             {[
-              { label: "Home", pg: "main" },
-              { label: "Best Sellers", pg: "collections", cat: "Best Sellers" },
-              { label: "Perfume Spray", pg: "collections", cat: "EAU DE PARFUM" },
-              { label: "Perfume Oil", pg: "collections", cat: "Perfume Oils" },
-              { label: "Home & Ambience", pg: "collections", cat: "New" },
-              { label: "Gift Sets", pg: "gifts" },
-              { label: "Deals", pg: "collections", cat: "Deals", badge: "NEW" },
-              { label: "La Fede", pg: "lafede" },
-              { label: "Our legacy", pg: "story" },
-              { label: "Sign Up", pg: "signup" }
+              { label: t("home", "Home"), pg: "main" },
+              { label: t("bestSellers", "Best Sellers"), pg: "collections", cat: "Best Sellers" },
+              { label: t("perfumeSpray", "Perfume Spray"), pg: "collections", cat: "EAU DE PARFUM" },
+              { label: t("perfumeOil", "Perfume Oil"), pg: "collections", cat: "Perfume Oils" },
+              { label: t("homeAmbience", "Home & Ambience"), pg: "collections", cat: "New" },
+              { label: t("giftSets", "Gift Sets"), pg: "gifts" },
+              { label: t("deals", "Deals"), pg: "collections", cat: "Deals", badge: isRTL ? "جديد" : "NEW" },
+              { label: t("laFede", "La Fede"), pg: "lafede" },
+              { label: t("ourLegacy", "Our Legacy"), pg: "story" },
+              { label: t("signUp", "Sign Up"), pg: "signup" }
             ].map(({ label, pg, cat, badge })=>{
               let isActive = false;
               if (page === pg) {
@@ -9318,7 +9592,38 @@ function ScratchCard({ code, onReveal }) {
 ═══════════════════════════════════════════════════════════════ */
 export default function App(){
   const [activeCountry, setActiveCountry] = React.useState(COUNTRIES[0]);
-  const formatPrice = (price) => `${activeCountry.currency} ${(price * activeCountry.rate).toFixed(2)}`;
+  const [lang, setLangState] = React.useState(() => {
+    if (typeof window !== "undefined") {
+      try {
+        return localStorage.getItem("khadlaj_lang") || "en";
+      } catch(e) { return "en"; }
+    }
+    return "en";
+  });
+  const isRTL = lang === "ar";
+  const setLang = (l) => {
+    setLangState(l);
+    if (typeof window !== "undefined") {
+      try {
+        localStorage.setItem("khadlaj_lang", l);
+        document.documentElement.dir = l === "ar" ? "rtl" : "ltr";
+        document.documentElement.lang = l;
+      } catch(e) {}
+    }
+  };
+  React.useEffect(() => {
+    if (typeof window !== "undefined") {
+      document.documentElement.dir = isRTL ? "rtl" : "ltr";
+      document.documentElement.lang = lang;
+    }
+  }, [lang, isRTL]);
+
+  const t = (k, fallback) => {
+    if (TRANSLATIONS[lang] && TRANSLATIONS[lang][k]) return TRANSLATIONS[lang][k];
+    if (TRANSLATIONS.en && TRANSLATIONS.en[k]) return TRANSLATIONS.en[k];
+    return fallback || k;
+  };
+  const formatPrice = (price) => formatCurrency(price, activeCountry, lang);
   const [page, setPage] = useState("main");
   const [collectionCategory, setCollectionCategory] = useState("Khadlaj");
   const [cartItems, setCartItems] = useState([]);
@@ -9482,8 +9787,9 @@ export default function App(){
   };
 
   return (
+    <LanguageContext.Provider value={{ lang, setLang, isRTL, t }}>
     <CountryContext.Provider value={{ activeCountry, setActiveCountry }}>
-    <div style={{fontFamily:"'Montserrat',sans-serif",background:"#fff",color:"#251737",minHeight:"100vh"}}>
+    <div dir={isRTL ? "rtl" : "ltr"} className={isRTL ? "rtl-lang" : "ltr-lang"} style={{fontFamily: isRTL ? "'Tajawal', 'Cairo', sans-serif" : "'Montserrat',sans-serif",background:"#fff",color:"#251737",minHeight:"100vh"}}>
       <style>{GLOBAL_CSS + `\n@keyframes spin { 100% { transform: rotate(360deg); } }`}</style>
       <Navbar page={page} setPage={setPage} cartCount={cartCount} setCollectionCategory={setCollectionCategory} collectionCategory={collectionCategory} activeCountry={activeCountry}/>
       <main>{renderPage()}</main>
@@ -9725,6 +10031,7 @@ export default function App(){
       )}
     </div>
     </CountryContext.Provider>
+    </LanguageContext.Provider>
   );
 }
 
