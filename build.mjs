@@ -1,9 +1,10 @@
 import * as esbuild from 'esbuild';
+import fs from 'fs';
 
 await esbuild.build({
   entryPoints: ['main.jsx'],
   bundle: true,
-  outfile: 'bundle-v208.js',
+  outfile: 'bundle-v209.js',
   format: 'iife',
   loader: { '.jsx': 'jsx', '.js': 'js' },
   jsxFactory: 'React.createElement',
@@ -12,4 +13,6 @@ await esbuild.build({
   minify: true,
 });
 
-console.log('Build OK');
+fs.copyFileSync('bundle-v209.js', 'bundle-v208.js');
+console.log('Build OK - Generated bundle-v209.js and synced bundle-v208.js');
+

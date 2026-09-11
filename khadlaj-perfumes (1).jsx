@@ -103,7 +103,39 @@ const TRANSLATIONS = {
     subtotal: "Subtotal",
     viewCart: "View Cart",
     size: "Size",
-    quantity: "Quantity"
+    quantity: "Quantity",
+    shiyaakaTitle: "Shiyaaka Collection",
+    shiyaakaSubtitle: "Experience the essence of modern sophistication. A definitive collection curated for elegance and timeless charm.",
+    discover: "Discover",
+    exploreCollection: "Explore Collection",
+    allCreations: "All Creations",
+    signatureScents: "Signature Scents",
+    curatedGifts: "Curated Gifts",
+    fastShip: "Fast Express Shipping",
+    easyReturns: "Easy Hassle-Free Returns",
+    connoisseursTitle: "Loved Across the World",
+    connoisseursSubtitle: "Real stories from fragrance lovers around the world.",
+    securePayments: "SECURE PAYMENTS",
+    securePaymentsSub: "100% encrypted transactions",
+    crueltyFree: "CRUELTY FREE",
+    crueltyFreeSub: "Ethically crafted fragrances",
+    freeSamples: "FREE SAMPLES",
+    freeSamplesSub: "With every single order",
+    globalShipping: "GLOBAL SHIPPING",
+    globalShippingSub: "Delivered worldwide",
+    footerAbout: "About Khadlaj",
+    footerAboutText: "Family-owned UAE perfume house. Authentic Arabian & French fragrance artistry since 1997.",
+    quickLinks: "Quick Links",
+    customerCare: "Customer Care",
+    privacyPolicy: "Privacy Policy",
+    termsOfService: "Terms of Service",
+    contactUs: "Contact Us",
+    newsletterTitle: "Join the Khadlaj Circle",
+    newsletterSubtitle: "Receive private previews, exclusive offers and perfumery stories.",
+    subscribe: "Subscribe",
+    allRightsReserved: "© 2026 Khadlaj Perfumes. All Rights Reserved.",
+    buyNow: "Buy Now",
+    inStock: "In Stock"
   },
   ar: {
     home: "الرئيسية",
@@ -165,7 +197,39 @@ const TRANSLATIONS = {
     subtotal: "المجموع الفرعي",
     viewCart: "معاينة السلة",
     size: "الحجم",
-    quantity: "الكمية"
+    quantity: "الكمية",
+    shiyaakaTitle: "مجموعة شياكة الفاخرة",
+    shiyaakaSubtitle: "عش تجربة الفخامة العصرية. تشكيلة راقية صُممت لتمنحك الأناقة والجاذبية الخالدة.",
+    discover: "اكتشف الآن",
+    exploreCollection: "استكشف المجموعة",
+    allCreations: "جميع الابتكارات العطرية",
+    signatureScents: "عطورنا الأيقونية",
+    curatedGifts: "هدايا فاخرة مختارة",
+    fastShip: "شحن سريع وموثوق",
+    easyReturns: "استبدال واسترجاع سهل",
+    connoisseursTitle: "محل ثقة ومحبة عشاق العطور حول العالم",
+    connoisseursSubtitle: "تجارب حقيقية وآراء زبائننا في أكثر من 90 دولة.",
+    securePayments: "دفع آمن ومضمون 100%",
+    securePaymentsSub: "عمليات دفع مشفرة وآمنة تماماً",
+    crueltyFree: "صديق للبيئة",
+    crueltyFreeSub: "عطور مُعدة بأعلى المعايير الأخلاقية",
+    freeSamples: "عينات مجانية",
+    freeSamplesSub: "مع كل طلبية دون استثناء",
+    globalShipping: "شحن لكافة دول العالم",
+    globalShippingSub: "توصيل سريع وموثوق إلى باب منزلك",
+    footerAbout: "عن دار خدلج للعطور",
+    footerAboutText: "دار عطور إماراتية عريقة تملكها العائلة منذ عام 1997، تجمع بين سحر الشرق وأناقة العطور الفرنسية.",
+    quickLinks: "روابط سريعة",
+    customerCare: "خدمة العملاء",
+    privacyPolicy: "سياسة الخصوصية",
+    termsOfService: "الشروط والأحكام",
+    contactUs: "اتصل بنا",
+    newsletterTitle: "انضم إلى عائلة خدلج",
+    newsletterSubtitle: "احصل على عروض حصرية، إصدارات خاصة، وأسرار صناعة العطور الفاخرة.",
+    subscribe: "اشترك الآن",
+    allRightsReserved: "© 2026 عطور خدلج. جميع الحقوق محفوظة.",
+    buyNow: "شراء فوري",
+    inStock: "متوفر في المخزون"
   }
 };
 
@@ -5731,25 +5795,26 @@ function TikTokCard({ t: item }) {
    TRUST BANNER
 ═══════════════════════════════════════════════════════════════ */
 function TrustBanner() {
+  const { isRTL, t } = React.useContext(LanguageContext);
   const items = [
     {
-      title: "SECURE PAYMENTS",
-      desc: "100% encrypted transactions",
+      title: t("securePayments", "SECURE PAYMENTS"),
+      desc: t("securePaymentsSub", "100% encrypted transactions"),
       icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="2" /><line x1="2" y1="10" x2="22" y2="10" /></svg>
     },
     {
-      title: "CRUELTY FREE",
-      desc: "Ethically crafted fragrances",
+      title: t("crueltyFree", "CRUELTY FREE"),
+      desc: t("crueltyFreeSub", "Ethically crafted fragrances"),
       icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M13 16a3 3 0 0 1 2.24 5"/><path d="M18 12h.01"/><path d="M18 21h-8a4 4 0 0 1-4-4 7 7 0 0 1 7-7h.2L9.6 6.4a1 1 0 1 1 2.8-2.8L15.8 7h.2c3.3 0 6 2.7 6 6v1a2 2 0 0 1-2 2h-1a3 3 0 0 0-3 3"/><path d="M20 8.54V4a2 2 0 1 0-4 0v3"/><path d="M7.612 12.524a3 3 0 1 0-1.6 4.3"/><path d="M4 15.5v.01"/></svg>
     },
     {
-      title: "FREE SAMPLES",
-      desc: "With every single order",
+      title: t("freeSamples", "FREE SAMPLES"),
+      desc: t("freeSamplesSub", "With every single order"),
       icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M10 2v7.31"/><path d="M14 9.3V1.99"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/></svg>
     },
     {
-      title: "GLOBAL SHIPPING",
-      desc: "Delivered worldwide",
+      title: t("globalShipping", "GLOBAL SHIPPING"),
+      desc: t("globalShippingSub", "Delivered worldwide"),
       icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
     }
   ];
@@ -6363,6 +6428,7 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
    PAGE: HOME
 ═══════════════════════════════════════════════════════════════ */
 function HomePage({ setPage, addToCart, setViewProduct }){
+  const { lang, isRTL, t } = React.useContext(LanguageContext);
   const [activeCat, setActiveCat] = useState("Best Sellers");
   const [isMuted, setIsMuted] = useState(true);
   const heroVideoRef = useRef(null);
@@ -6489,9 +6555,9 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       {/* ── 25TH ANNIVERSARY COLLECTION ── */}
       <section className="khadlaj25-section">
         <div className="k25-header">
-          <h2 style={{fontFamily: "'Playfair Display', serif", fontSize: 46, color: "#251737", margin: 0, fontWeight: 500}}>Shiyaaka Collection</h2>
+          <h2 style={{fontFamily: isRTL ? "'Cairo', serif" : "'Playfair Display', serif", fontSize: 46, color: "#251737", margin: 0, fontWeight: 500}}>{t("shiyaakaTitle", "Shiyaaka Collection")}</h2>
           <p style={{fontFamily: "'Montserrat', sans-serif", fontSize: 15, color: "#555", maxWidth: 640, margin: "20px auto 0", lineHeight: 1.6}}>
-            Experience the essence of modern sophistication. A definitive collection curated for elegance and timeless charm.
+            {t("shiyaakaSubtitle", "Experience the essence of modern sophistication. A definitive collection curated for elegance and timeless charm.")}
           </p>
         </div>
 
@@ -6528,7 +6594,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
                     <h3 className="k25-card-title">{item.name}</h3>
                     <p className="k25-card-subtitle">{item.subtitle}</p>
                     <p className="k25-card-desc">{item.desc}</p>
-                    <button className="k25-card-btn">Discover</button>
+                    <button className="k25-card-btn">{t("discover", "Discover")}</button>
                   </div>
                 </div>
               ))}
@@ -6549,7 +6615,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       <section style={{padding:"84px 5% 96px", background:"linear-gradient(180deg, #fff 0%, #fcfaf7 100%)"}}>
         <div className="max-container">
           <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:14,marginBottom:28,textAlign:"center"}}>
-            <SectionHeader title="New Launches" sub="A balanced spotlight on the latest fragrances, curated to feel clean and contemporary." />
+            <SectionHeader title={t("newLaunches", "New Launches")} sub={t("newLaunchesSub", "A balanced spotlight on the latest fragrances, curated to feel clean and contemporary.")} />
           </div>
 
           <div style={{display:"grid",gridTemplateColumns:"repeat(4,minmax(0,1fr))",gap:24,alignItems:"stretch"}} className="grid-4">
@@ -6697,7 +6763,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       
       {/* ── ANIMATED GIFT SLIDER ── */}
       <section className="gift-slider-section">
-        <SectionHeader title="CURATED GIFT COLLECTION" />
+        <SectionHeader title={t("curatedGiftTitle", "CURATED GIFT COLLECTION")} />
         
         <div style={{marginTop: 60, position: "relative"}}>
           <div className="gift-slider-track">
@@ -6719,7 +6785,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
                     {gift.name.replace(' Gift Set', '').split(' ').map((word, i) => <span key={i}>{word}<br/></span>)}
                     Sets
                   </h2>
-                  <button className="gift-slide-btn">Shop Now</button>
+                  <button className="gift-slide-btn">{t("shopNow", "Shop Now")}</button>
                 </div>
               </div>
             ))}
@@ -6891,7 +6957,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
       {/* ── TESTIMONIALS ── */}
       <section style={{background:"#251737",padding:"64px 5%"}}>
-        <SectionHeader eyebrow="Reviews" title="Loved Across the World" light={true} />
+        <SectionHeader eyebrow={isRTL ? "آراء العملاء" : "Reviews"} title={t("connoisseursTitle", "Loved Across the World")} sub={t("connoisseursSubtitle", "Real stories from fragrance lovers around the world.")} light={true} />
         <div className="grid-4" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:1,background:"rgba(255,255,255,.15)"}}>
           {REVIEWS.map((r,i)=>(
             <a href={r.url || "#"} target="_blank" rel="noopener noreferrer" key={i} style={{textDecoration:"none", color:"inherit"}}>
@@ -8816,45 +8882,54 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
               <span className="mob-search-left" style={{cursor:"pointer",display:"flex",alignItems:"center"}} onClick={()=>setSearchOpen(true)}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "#111"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               </span>
-              {/* Language Switcher */}
+              {/* Prominent Language Switcher: English | العربية */}
               <div style={{
                 display: "flex",
                 alignItems: "center",
-                border: isTransparent ? "1px solid rgba(255,255,255,0.3)" : "1px solid #E8E4DC",
-                borderRadius: 4,
-                background: isTransparent ? "rgba(255,255,255,0.12)" : "#FAF9F6",
-                backdropFilter: isTransparent ? "blur(8px)" : "none",
-                overflow: "hidden"
+                border: isTransparent ? "1.5px solid rgba(255,255,255,0.5)" : "1.5px solid #B8922A",
+                borderRadius: 22,
+                background: isTransparent ? "rgba(0,0,0,0.35)" : "#FAF9F6",
+                backdropFilter: "blur(12px)",
+                padding: "2px",
+                gap: 2,
+                boxShadow: isTransparent ? "0 4px 14px rgba(0,0,0,0.25)" : "0 2px 8px rgba(184,146,42,0.15)"
               }}>
                 <button
                   onClick={() => setLang("en")}
                   style={{
                     background: lang === "en" ? "#B8922A" : "transparent",
-                    color: lang === "en" ? "#fff" : (isTransparent ? "rgba(255,255,255,0.8)" : "#251737"),
+                    color: lang === "en" ? "#fff" : (isTransparent ? "#fff" : "#251737"),
                     border: "none",
-                    padding: isTransparent ? "7px 11px" : "5px 9px",
+                    borderRadius: 18,
+                    padding: isTransparent ? "6px 14px" : "5px 12px",
                     fontSize: 11.5,
                     fontWeight: 700,
                     cursor: "pointer",
                     fontFamily: "'Montserrat', sans-serif",
-                    transition: "all 0.2s"
+                    letterSpacing: 0.5,
+                    transition: "all 0.25s ease",
+                    boxShadow: lang === "en" ? "0 2px 8px rgba(184,146,42,0.5)" : "none"
                   }}
+                  title="Switch to English"
                 >
-                  EN
+                  English
                 </button>
                 <button
                   onClick={() => setLang("ar")}
                   style={{
                     background: lang === "ar" ? "#B8922A" : "transparent",
-                    color: lang === "ar" ? "#fff" : (isTransparent ? "rgba(255,255,255,0.8)" : "#251737"),
+                    color: lang === "ar" ? "#fff" : (isTransparent ? "#fff" : "#251737"),
                     border: "none",
-                    padding: isTransparent ? "7px 11px" : "5px 9px",
-                    fontSize: 12,
+                    borderRadius: 18,
+                    padding: isTransparent ? "6px 16px" : "5px 14px",
+                    fontSize: 12.5,
                     fontWeight: 700,
                     cursor: "pointer",
-                    fontFamily: "'Tajawal', sans-serif",
-                    transition: "all 0.2s"
+                    fontFamily: "'Tajawal', 'Cairo', sans-serif",
+                    transition: "all 0.25s ease",
+                    boxShadow: lang === "ar" ? "0 2px 8px rgba(184,146,42,0.5)" : "none"
                   }}
+                  title="التحويل للغة العربية"
                 >
                   العربية
                 </button>
@@ -9247,14 +9322,15 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
    FOOTER
 ═══════════════════════════════════════════════════════════════ */
 function Footer({ setPage }){
+  const { lang, isRTL, t } = React.useContext(LanguageContext);
   return (
     <footer style={{background:"#fff",borderTop:"1px solid #E8E4DC"}}>
       {/* Newsletter */}
       <div style={{background:"#251737",padding:"80px 5%",textAlign:"center",borderBottom:"1px solid rgba(255,255,255,0.05)",borderTop:"1px solid rgba(193,164,106,0.15)"}}>
         <div style={{maxWidth:560,margin:"0 auto"}}>
           <p style={{fontSize:9,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'DM Sans',sans-serif",marginBottom:14,fontWeight:600}}>Newsletter</p>
-          <h2 className="disp" style={{fontSize:"clamp(26px,3.5vw,42px)",fontWeight:300,marginBottom:14,color:"#fff",letterSpacing:"-0.5px"}}>Join the Khadlaj Circle</h2>
-          <p style={{color:"rgba(255,255,255,0.65)",fontSize:13,marginBottom:36,fontFamily:"'DM Sans',sans-serif",lineHeight:1.7}}>Get exclusive access to new launches and special offers</p>
+          <h2 className="disp" style={{fontSize:"clamp(26px,3.5vw,42px)",fontWeight:300,marginBottom:14,color:"#fff",letterSpacing:"-0.5px"}}>{t("newsletterTitle", "Join the Khadlaj Circle")}</h2>
+          <p style={{color:"rgba(255,255,255,0.65)",fontSize:13,marginBottom:36,fontFamily:"'DM Sans',sans-serif",lineHeight:1.7}}>{t("newsletterSubtitle", "Get exclusive access to new launches and special offers")}</p>
           <div style={{display:"flex",gap:0,maxWidth:440,margin:"0 auto"}}>
             <input type="email" placeholder="Enter your email"
               style={{flex:1,background:"rgba(255,255,255,0.05)",border:"1px solid rgba(255,255,255,0.15)",borderRight:"none",color:"#fff",padding:"16px 22px",fontSize:13,outline:"none",fontFamily:"'DM Sans',sans-serif"}}
@@ -9262,7 +9338,7 @@ function Footer({ setPage }){
             <button style={{background:"#B8922A",border:"1px solid #B8922A",color:"#fff",padding:"16px 36px",fontSize:10,letterSpacing:2.5,textTransform:"uppercase",cursor:"pointer",fontFamily:"'DM Sans',sans-serif",fontWeight:600,transition:"all .3s"}}
               onMouseEnter={e=>{e.currentTarget.style.background="#fff";e.currentTarget.style.color="#251737";e.currentTarget.style.borderColor="#fff"}}
               onMouseLeave={e=>{e.currentTarget.style.background="#B8922A";e.currentTarget.style.color="#fff";e.currentTarget.style.borderColor="#B8922A"}}
-            >Subscribe</button>
+            >{t("subscribe", "Subscribe")}</button>
           </div>
         </div>
       </div>
