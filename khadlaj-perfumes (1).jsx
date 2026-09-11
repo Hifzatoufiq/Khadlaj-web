@@ -6479,7 +6479,6 @@ function NewLaunchesHeroBannerSlider({ setPage, setViewProduct }) {
                 height: "100%",
                 objectFit: "cover",
                 display: "block",
-                imageRendering: "-webkit-optimize-contrast",
                 WebkitBackfaceVisibility: "hidden",
                 transform: "translateZ(0)"
               }}

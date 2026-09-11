@@ -4,7 +4,7 @@ import fs from 'fs';
 await esbuild.build({
   entryPoints: ['main.jsx'],
   bundle: true,
-  outfile: 'bundle-v215.js',
+  outfile: 'bundle-v216.js',
   format: 'iife',
   loader: { '.jsx': 'jsx', '.js': 'js' },
   jsxFactory: 'React.createElement',
@@ -13,8 +13,8 @@ await esbuild.build({
   minify: true,
 });
 
-fs.copyFileSync('bundle-v215.js', 'bundle-v209.js');
-fs.copyFileSync('bundle-v215.js', 'bundle-v208.js');
-console.log('Build OK - Generated bundle-v215.js and synced previous bundles');
+fs.copyFileSync('bundle-v216.js', 'bundle-v209.js');
+fs.copyFileSync('bundle-v216.js', 'bundle-v208.js');
+console.log('Build OK - Generated bundle-v216.js and synced previous bundles');
 
 
