@@ -5449,31 +5449,136 @@ const GLOBAL_CSS = `
     .gift-hero-copy{max-width:100%!important;text-align:center!important;align-items:center!important;padding:0 6%!important;}
   }
 
-  /* ── Arabic RTL & Typography ── */
+  /* ── Comprehensive Language-Wise RTL & LTR Alignment ── */
+  [dir="ltr"] {
+    direction: ltr;
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
   [dir="rtl"] {
     direction: rtl;
     text-align: right;
     font-family: 'Tajawal', 'Cairo', sans-serif !important;
   }
+
+  /* In Arabic, connected cursive letters MUST NOT have letter-spacing */
+  [dir="rtl"], 
+  [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6,
+  [dir="rtl"] p, [dir="rtl"] span, [dir="rtl"] a, [dir="rtl"] button, [dir="rtl"] label, [dir="rtl"] input {
+    letter-spacing: 0 !important;
+  }
+
+  /* Arabic Headings Typography */
+  [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] .disp {
+    font-family: 'Cairo', 'Tajawal', sans-serif !important;
+  }
+
+  /* Centered elements MUST remain centered in both English and Arabic */
+  [dir="rtl"] .k25-header,
+  [dir="rtl"] .SectionHeader,
+  [dir="rtl"] .nav-logo-box,
   [dir="rtl"] .product-card,
   [dir="rtl"] .product-card-info,
   [dir="rtl"] .product-notes,
-  [dir="rtl"] .announcement-text {
-    text-align: center;
+  [dir="rtl"] .announcement-bar,
+  [dir="rtl"] .gold-line,
+  [dir="rtl"] .hero-text-center,
+  [dir="rtl"] .trust-item {
+    text-align: center !important;
   }
+
+  /* Navbar Alignments in RTL */
   [dir="rtl"] .nav-left-utility {
     padding-left: 0 !important;
     padding-right: 20px !important;
   }
-  [dir="rtl"] input, [dir="rtl"] textarea {
-    text-align: right;
-  }
-  [dir="rtl"] .disp {
-    font-family: 'Cairo', 'Cinzel', serif !important;
+  [dir="rtl"] .nav-right-icons {
+    padding-right: 0 !important;
+    padding-left: 20px !important;
   }
   [dir="rtl"] .country-dropdown-menu {
     left: auto !important;
     right: 0 !important;
+    text-align: right !important;
+  }
+  [dir="rtl"] .country-dropdown-menu button {
+    text-align: right !important;
+    justify-content: flex-start !important;
+  }
+
+  /* Forms, Inputs, and Search */
+  [dir="rtl"] input, 
+  [dir="rtl"] textarea, 
+  [dir="rtl"] select {
+    text-align: right !important;
+    direction: rtl !important;
+  }
+  [dir="rtl"] input[type="email"],
+  [dir="rtl"] input[type="tel"],
+  [dir="rtl"] .ltr-val {
+    direction: ltr !important;
+    text-align: right !important;
+    unicode-bidi: embed;
+  }
+
+  /* Product Page Alignment in RTL */
+  [dir="rtl"] .product-layout-details {
+    text-align: right !important;
+  }
+  [dir="rtl"] .product-layout-story {
+    padding-right: 0 !important;
+    padding-left: 40px !important;
+    text-align: right !important;
+  }
+  @media(max-width: 900px) {
+    [dir="rtl"] .product-layout-story {
+      padding-left: 0 !important;
+    }
+  }
+
+  /* Collections Page Alignment in RTL */
+  [dir="rtl"] .collections-sidebar {
+    text-align: right !important;
+  }
+  [dir="rtl"] .collections-sidebar button {
+    text-align: right !important;
+  }
+
+  /* Cart & Checkout Alignment in RTL */
+  [dir="rtl"] .cart-line {
+    text-align: right !important;
+  }
+  [dir="rtl"] .cart-line-actions {
+    align-items: flex-start !important;
+  }
+
+  /* Footer Alignment in RTL */
+  [dir="rtl"] footer {
+    text-align: right !important;
+  }
+  [dir="rtl"] footer p,
+  [dir="rtl"] footer div {
+    text-align: right;
+  }
+  [dir="rtl"] footer .disp {
+    text-align: center !important;
+  }
+  [dir="rtl"] .footer-newsletter-wrap {
+    text-align: center !important;
+  }
+  [dir="rtl"] .footer-newsletter-wrap p,
+  [dir="rtl"] .footer-newsletter-wrap h2 {
+    text-align: center !important;
+  }
+  [dir="rtl"] .footer-newsletter-input {
+    border-left: none !important;
+    border-right: 1px solid rgba(255,255,255,0.15) !important;
+  }
+
+  /* Mobile menu in RTL */
+  [dir="rtl"] .mob-nav-link {
+    text-align: right !important;
   }
 
 `;
@@ -6727,12 +6832,12 @@ function HomePage({ setPage, addToCart, setViewProduct }){
       {/* ── FEATURED PRODUCTS ── */}
       <section style={{padding:"0 5% 104px",background:"#fff"}}>
         <div style={{paddingTop:96,marginBottom:52,display:"flex",alignItems:"flex-end",justifyContent:"space-between",flexWrap:"wrap",gap:16}}>
-          <div style={{textAlign:"left"}}>
+          <div style={{textAlign: isRTL ? "right" : "left"}}>
             <h2 className="disp" style={{fontSize:"clamp(32px,4vw,54px)",fontWeight:300,color:"#251737",lineHeight:1.15,letterSpacing:"-0.5px"}}>
-              Where every scent has a story
+              {isRTL ? "حيث لكل عطر حكاية تأسر القلوب" : "Where every scent has a story"}
             </h2>
           </div>
-          <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>setPage("collections")}>View All</button>
+          <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>setPage("collections")}>{isRTL ? "عرض الكل" : "View All"}</button>
         </div>
 
         {/* Category pills */}
@@ -6822,7 +6927,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
                   ].map(item => (
                     <button key={item.v}
                       onClick={() => { setQuizMood(item.v); setQuizStep(2); }}
-                      style={{background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.08)", color:"#fff", padding:"14px 20px", borderRadius:8, textAlign:"left", cursor:"pointer", transition:"all 0.25s ease"}}
+                      style={{background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.08)", color:"#fff", padding:"14px 20px", borderRadius:8, textAlign: isRTL ? "right" : "left", cursor:"pointer", transition:"all 0.25s ease"}}
                       onMouseEnter={e => { e.currentTarget.style.background = "rgba(184,146,42,0.1)"; e.currentTarget.style.borderColor = "#B8922A"; }}
                       onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; }}
                     >
@@ -6851,7 +6956,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
                         setQuizResult(finalProduct);
                         setQuizStep(3);
                       }}
-                      style={{background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.08)", color:"#fff", padding:"14px 20px", borderRadius:8, textAlign:"left", cursor:"pointer", transition:"all 0.25s ease"}}
+                      style={{background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.08)", color:"#fff", padding:"14px 20px", borderRadius:8, textAlign: isRTL ? "right" : "left", cursor:"pointer", transition:"all 0.25s ease"}}
                       onMouseEnter={e => { e.currentTarget.style.background = "rgba(184,146,42,0.1)"; e.currentTarget.style.borderColor = "#B8922A"; }}
                       onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; }}
                     >
@@ -7262,7 +7367,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
             </div>
             {CATEGORIES.map(c=>(
               <button key={c} onClick={()=>setActiveCat(c)}
-                style={{width:"100%",display:"flex",alignItems:"center",justifyContent:"space-between",gap:10,textAlign:"left",background:activeCat===c?"#251737":"rgba(255,255,255,.72)",color:activeCat===c?"#fff":"#444",border:"1px solid",borderColor:activeCat===c?"#251737":"#EEE",padding:"12px 12px",marginBottom:8,fontSize:10,letterSpacing:1.35,cursor:"pointer",fontWeight:activeCat===c?600:600,transition:"all .18s",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",boxShadow:activeCat===c?"0 10px 24px rgba(60,17,82,.22)":"none"}}
+                style={{width:"100%",display:"flex",alignItems:"center",justifyContent:"space-between",gap:10,textAlign: isRTL ? "right" : "left",background:activeCat===c?"#251737":"rgba(255,255,255,.72)",color:activeCat===c?"#fff":"#444",border:"1px solid",borderColor:activeCat===c?"#251737":"#EEE",padding:"12px 12px",marginBottom:8,fontSize:10,letterSpacing:1.35,cursor:"pointer",fontWeight:activeCat===c?600:600,transition:"all .18s",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",boxShadow:activeCat===c?"0 10px 24px rgba(60,17,82,.22)":"none"}}
               >
                 <span style={{display:"flex",alignItems:"center",gap:8}}>
                   <span style={{width:6,height:6,borderRadius:"50%",background:activeCat===c?"#B8922A":"#D7C59E",display:"inline-block",flexShrink:0}}/>
@@ -7766,7 +7871,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                   <div style={{width:56, height:56, background:"#FAFAFA", display:"flex", alignItems:"center", justifyContent:"center"}}>
                     <img decoding="async" src={getOptimizedImage(PRODUCTS[4].img,700)} style={{maxHeight:"90%", maxWidth:"90%", objectFit:"contain", mixBlendMode:"multiply"}} alt="Product 2" />
                   </div>
-                  <div style={{marginLeft:"auto", textAlign:"right"}}>
+                  <div style={{marginLeft: isRTL ? 0 : "auto", marginRight: isRTL ? "auto" : 0, textAlign: isRTL ? "left" : "right"}}>
                     <div style={{fontSize:10, color:"#999", textDecoration:"line-through", fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(product.price + PRODUCTS[4].price + 20)}</div>
                     <div style={{fontSize:14, fontWeight:500, color:"#111", fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(product.price + PRODUCTS[4].price)}</div>
                   </div>
@@ -8977,7 +9082,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                                 fontFamily:"'Montserrat',sans-serif",
                                 fontSize:11,fontWeight: isActive ? 600 : 500,
                                 color: isActive ? "#251737" : "#555",
-                                textAlign: "left",
+                                textAlign: isRTL ? "right" : "left",
                                 width: "100%",
                                 transition:"all .2s",
                               }}
