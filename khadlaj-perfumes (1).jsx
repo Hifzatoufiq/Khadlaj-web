@@ -4819,6 +4819,385 @@ const SOCIAL_LINKS = {
   linkedin: "https://www.linkedin.com/",
   tiktok: "https://www.tiktok.com/@khadlaj.uk",
 };
+
+/* ═══════════════════════════════════════════════════════════════
+   BILINGUAL TRANSLATION MAPS (PRODUCTS, CATEGORIES, NOTES)
+═══════════════════════════════════════════════════════════════ */
+const CATEGORY_NAMES_AR = {
+  "Best Sellers": "الأكثر مبيعاً",
+  "New": "وصل حديثاً",
+  "Deals": "العروض",
+  "For Him": "للرجال",
+  "For Her": "للنساء",
+  "Unisex": "للجنسين",
+  "Perfume Oils": "زيوت عطرية",
+  "EAU DE PARFUM": "ماء عطر",
+  "Master Perfumery": "روائع العطور",
+  "Khadlaj": "كل خدلج"
+};
+
+const COLLECTION_LABELS_AR = {
+  "Extrait De Parfum": "إكستري دي بارفان",
+  "EXTRAIT DE PARFUM": "إكستري دي بارفان",
+  "Eau De Parfum": "ماء عطر",
+  "EAU DE PARFUM": "ماء عطر",
+  "Master Perfumery": "روائع العطور",
+  "Perfume Oils": "زيوت عطرية",
+  "La Fede": "لافيدي",
+  "Lafede": "لافيدي",
+  "Gift Sets": "مجموعات الهدايا"
+};
+
+const NOTE_NAMES_AR = {
+  "Amber": "عنبر", "AMBER": "عنبر",
+  "Musk": "مسك", "MUSK": "مسك",
+  "Oud": "عود", "OUD": "عود",
+  "Woody": "خشبي", "WOODY": "خشبي",
+  "Floral": "زهري", "FLORAL": "زهري",
+  "Vanilla": "فانيليا", "VANILLA": "فانيليا",
+  "Rose": "ورد", "ROSE": "ورد",
+  "Citrus": "حمضيات", "CITRUS": "حمضيات",
+  "Spicy": "توابل", "SPICY": "توابل",
+  "Sweet": "حلو", "SWEET": "حلو",
+  "Fruity": "فواكه", "FRUITY": "فواكه",
+  "Leather": "جلدي", "LEATHER": "جلدي",
+  "Fresh": "منعش", "FRESH": "منعش",
+  "Caramel": "كراميل", "Coconut": "جوز الهند",
+  "Mango": "مانجو", "Lime": "ليمون",
+  "Coffee": "قهوة", "Tonka": "تونكا",
+  "Lavender": "لافندر", "Cardamom": "هيل",
+  "Patchouli": "باتشولي", "Sandalwood": "صندل",
+  "Cedarwood": "خشب الأرز", "Incense": "بخور",
+  "Saffron": "زعفران", "Bergamot": "برغموت",
+  "Jasmine": "ياسمين", "Apple": "تفاح",
+  "Peach": "خوخ", "Mint": "نعناع"
+};
+
+const PRODUCT_NAMES_AR = {
+  "CAFFE LATTE": "كافيه لاتيه",
+  "AZURE VELVET": "أزور فيلفيت",
+  "MOCHA LATTE": "موكا لاتيه",
+  "GALAZAID": "جلازيد",
+  "ISLAND SUN": "آيلاند صن",
+  "ISLAND": "آيلاند",
+  "ISLAND DREAMS": "آيلاند دريمز",
+  "ISLAND VANILLA DUNES": "آيلاند فانيلا ديونز",
+  "SAWAAR VANILLE BLANC": "سوار فانيليا بلانك",
+  "SHIYAAKA SHADOW": "شياكة شادو",
+  "SHIYAAKA SNOW": "شياكة سنو",
+  "SHIYAAKA SKY": "شياكة سكاي",
+  "SHIYAAKA BLUE": "شياكة بلو",
+  "SHIYAAKA MEN": "شياكة رجالي",
+  "SHIYAAKA WHITE": "شياكة وايت",
+  "SHIYAAKA GOLD": "شياكة جولد",
+  "KARUS GOLD ABSOLU": "كاروس جولد أبسولو",
+  "KARUS AMBER GOLD": "كاروس عنبر جولد",
+  "KARUS SECRET MUSK": "كاروس سيكريت مسك",
+  "KARUS BLU SPICE": "كاروس بلو سبايس",
+  "SARAYA": "سرايا",
+  "ZAYAAN SILVER": "زيان سيلفر",
+  "ZAYAAN GOLD": "زيان جولد",
+  "QARAR": "قرار",
+  "IHTHIRAAM": "احترام",
+  "ICON": "آيكون",
+  "PANACHE ANGEL DUST": "باناش آنجل دست",
+  "OUD JUMEIRAH": "عود جميرا",
+  "CREAM VELVET": "كريم فيلفيت",
+  "CREAM VELVET GIFT SET": "طقم هدايا كريم فيلفيت",
+  "CLOUD CANDY": "كلاود كاندي",
+  "CLOUD CANDY GIFT SET": "طقم هدايا كلاود كاندي",
+  "ISLAND GIFT SET FOR HIM & HER": "طقم هدايا آيلاند للرجال والنساء",
+  "THE GOURMAND COLLECTION BY KHADLAJ DISCOVERY SET FOR WOMEN": "مجموعة استكشاف ذي جورماند للنساء من خدلج",
+  "OUD MUATTAR MUBAKHAR": "عود معطر مبخر",
+  "LA FEDE AURA VANILLA MILK": "لافيدي أورا فانيلا ميلك",
+  "DEHNAL OUDH COMBODI": "دهن عود كمبودي",
+  "LA FEDE INTOXICATE MYSTIQUE": "لافيدي إنتوكسيكيت ميستيك",
+  "LA FEDE INTOXICATE": "لافيدي إنتوكسيكيت",
+  "OUD MUATTAR OUD AL RAWDA": "عود معطر عود الروضة",
+  "ONYX SILVER": "أونيكس سيلفر",
+  "ONYX GOLD": "أونيكس جولد",
+  "NUHA BON BON": "نهى بون بون",
+  "NUHA CHERRY BLUSH": "نهى تشيري بلاش",
+  "NUHA VANILLA PEARL": "نهى فانيليا بيرل",
+  "NUHA": "نهى",
+  "STRAWBERRY SHAKE": "ستروبيري شيك",
+  "OUD BARAKAT": "عود بركات",
+  "RIA": "ريا",
+  "MANSION": "مانشن",
+  "PEACH VELVET": "بيتش فيلفيت",
+  "TITAN": "تيتان",
+  "BISCOTTI MELON MISK": "بسكوتي ميلون مسك",
+  "BISCOTTI DATE TOFFEE": "بسكوتي ديت توفي",
+  "BISCOTTI CARAMEL POP": "بسكوتي كراميل بوب",
+  "LA FEDE CELEBRITY CRUSH": "لافيدي سيليبريتي كراش",
+  "LA FEDE CELEBRITY FAME": "لافيدي سيليبريتي فيم",
+  "LA FEDE EDGE INTENSE": "لافيدي إيدج إنتنس",
+  "LA FEDE EDGE ORIGINAL": "لافيدي إيدج أوريجينال",
+  "OUD POUR LEATHER": "عود بور ليذر",
+  "OUD PURE MAGICAL THAI": "عود بيور ماجيكال ثاي",
+  "DEHNAL OUD QAISAR SEUFI": "دهن عود قيصر سيوفي",
+  "DEHNAL OUD SHEIKH QADIM": "دهن عود شيخ قديم",
+  "DEHNAL OUD AQDAM": "دهن عود أقدم",
+  "DEHNAL OUD AZEEM": "دهن عود عظيم",
+  "DEHNAL OUD TURAAS": "دهن عود تراث",
+  "DEHNAL OUDH ASAL": "دهن عود عسل",
+  "OUD MUATTAR QISSA": "عود معطر قصة",
+  "OUD MUATTAR RUKAIYA": "عود معطر رقية",
+  "OUD MUATTAR AL BAHAAR": "عود معطر البحار",
+  "MAISON L' IMAGINAIRE": "ميزون ليماجينير",
+  "MAISON EPOQUE ARTISTIQUE": "ميزون إيبوك آرتيستيك",
+  "MAISON L' OR NOIR": "ميزون لور نوار",
+  "MAISON FLOR OUD": "ميزون فلور عود",
+  "MAISON CREATION DE REVE": "ميزون كرياسيون دي ريف",
+  "LA FEDE CELESTE JOICE": "لافيدي سيليست جويس",
+  "LA FEDE CELESTE FLUER": "لافيدي سيليست فلور",
+  "LA FEDE CELESTE AQUA": "لافيدي سيليست أكوا",
+  "LA FEDE CELESTE TOFFEE": "لافيدي سيليست توفي",
+  "LA FEDE SYMBOL OF LOVE": "لافيدي سيمبول أوف لاف",
+  "LA FEDE SYMBOL OF POWER": "لافيدي سيمبول أوف باور",
+  "LA FEDE CHOCO BROWN": "لافيدي شوكو براون",
+  "LA FEDE WHITE FOREST STRAWBERRY": "لافيدي وايت فورست ستروبيري",
+  "PRIVATE BLEND TOBAC EXTRA": "برايفت بلند توباكو إكسترا",
+  "DESERT ROSE": "ورد الصحراء",
+  "BLEU GLACE": "بلو جلاسيه",
+  "OPUS REBORN": "أوبس ريبورن",
+  "JOHAYNA PURPLE": "جهينة بنفسجي",
+  "JOHAYNA GREEN": "جهينة أخضر",
+  "ANABIA RED": "عنابية أحمر",
+  "ANABIA BLUE": "عنابية أزرق",
+  "AMBER PURE": "عنبر بيور",
+  "ARABIAN TREASURE": "الكنز العربي",
+  "LA FEDE AURA PISTA DESSERT": "لافيدي أورا بيستا ديزرت",
+  "LA FEDE AURA MANGA SPLASH": "لافيدي أورا مانجا سبلاش",
+  "LA FEDE AURA KISS OF ROSE": "لافيدي أورا كيس أوف روز",
+  "LA FEDE AURA CRISP FLOWER": "لافيدي أورا كريسب فلاور",
+  "RASAYEL VID": "رسائل فيد",
+  "RASAYEL SHAGAF": "رسائل شغف",
+  "SAQR AL BADIYA": "صقر البادية",
+  "MUSK POUR AMBER": "مسك بور عنبر",
+  "OUD & MUSK": "عود ومسك",
+  "FURSAN BROWN": "فرسان بني",
+  "FURSAN WHITE": "فرسان أبيض",
+  "MUSK COUTURE": "مسك كوتور",
+  "ROSE COUTURE": "روز كوتور",
+  "SARA": "سارة",
+  "GHADEER GOLD": "غدير جولد",
+  "GHADEER SILVER": "غدير سيلفر",
+  "MUSK AL SABAH": "مسك الصباح",
+  "OUD AL SABAH": "عود الصباح",
+  "PURE MUSK": "مسك نقي",
+  "PURE MUSK PURE BLEND": "مسك نقي مزيج خالص",
+  "KAYAAN SILVER": "كيان سيلفر",
+  "KAYAAN GOLD": "كيان جولد",
+  "LA FEDE MAGNUM EXTREME BLUE": "لافيدي ماجنوم إكستريم بلو",
+  "LA FEDE MAGNUM WILD GREEN": "لافيدي ماجنوم وايلد جرين",
+  "LA FEDE MAGNUM GOLD EDITION": "لافيدي ماجنوم جولد إديشن",
+  "LA FEDE MAGNUM SILVER EDITION": "لافيدي ماجنوم سيلفر إديشن",
+  "LA FEDE OPERA ROSE L'OR": "لافيدي أوبرا روز لور",
+  "LA FEDE OPERA NOIR L'OR": "لافيدي أوبرا نوار لور",
+  "LA FEDE LAVISH BLUSH": "لافيدي لافيش بلاش",
+  "LA FEDE LAVISH ROUGE": "لافيدي لافيش روج",
+  "LA FEDE LAVISH LUNA": "لافيدي لافيش لونا",
+  "FRASH HAREEM AL SULTAN AIR FRESHENER": "معطر جو حريم السلطان",
+  "OUD MUATTAR MAAMUL HANEEN": "عود معطر معمول حنين",
+  "OUD MUATTAR MAAMUL WARDI": "عود معطر معمول وردي",
+  "OUD MUATTAR MAAMUL DAHABI": "عود معطر معمول ذهبي",
+  "LA FEDE CRYSTALLIA PRIMASO": "لافيدي كريستاليا بريماسو",
+  "LA FEDE CRYSTALLIA IMPERIO": "لافيدي كريستاليا إمبيريو",
+  "FRASH AFTER ECSTACY AIR FRESHENER": "معطر جو أفتر إكستاسي",
+  "FRASH QISSA AIR FRESHENER": "معطر جو قصة",
+  "LE PRESTIGE BOLD": "لو بريستيج بولد",
+  "LE PRESTIGE EMPRESS": "لو بريستيج إمبريس",
+  "LÉ PRESTIGE KING": "لو بريستيج كينج",
+  "LÉ PRESTIGE ROYAL": "لو بريستيج رويال",
+  "FRASH AL MAJALIS AIR FRESHENER": "معطر جو المجالس",
+  "FRASH SHAMOOKH AIR FRESHENER": "معطر جو شموخ",
+  "MALIKA GREEN": "مليكة أخضر",
+  "MALIKA RED": "مليكة أحمر",
+  "25 LOYALTY": "25 لويالتي",
+  "25 TRUST": "25 ترست",
+  "PINK MUSK": "مسك وردي",
+  "PURPLE MUSK": "مسك بنفسجي",
+  "25 EXPERIENCE": "25 إكسبيرينس",
+  "25 HERITAGE": "25 هيريتيدج",
+  "25 INTEGRITY": "25 إنتيجريتي",
+  "VALOR ENIGMA": "فالور إنيجما",
+  "VALOR MYSTIQUE": "فالور ميستيك",
+  "VALOR HONOR": "فالور أونور",
+  "VALOR CHIVALRY": "فالور شيفالري",
+  "EMPIRE REGENT": "إمباير ريجنت",
+  "EMPIRE CROWN": "إمباير كراون",
+  "EMPIRE EMPRESS": "إمباير إمبريس",
+  "EMPIRE VICTOR": "إمباير فيكتور",
+  "BAKHOOR QUTOOF 55 GM": "بخور قطوف 55 جم",
+  "HAREEM AL SULTAN": "حريم السلطان",
+  "HAREEM AL SULTAN SILVER": "حريم السلطان سيلفر",
+  "HAREEM AL SULTAN GOLD": "حريم السلطان جولد",
+  "RIMAAL GREEN": "رمال أخضر",
+  "RIMAAL BROWN": "رمال بني",
+  "WOW OUD": "واو عود",
+  "GAITH": "غيث",
+  "THE PROPOSAL SPECIAL OCCASION": "ذا بروبوزال مناسبات خاصة",
+  "THE PROPOSAL DATE NIGHT": "ذا بروبوزال ديت نايت",
+  "INFINI ABSOLUTE": "إنفيني أبسولوت",
+  "INFINI": "إنفيني",
+  "MUKHALATH MA'A WARD TAIBA": "مخلط مع ورد طيبة",
+  "MAGNATE NOBLE": "ماجنيت نوبل",
+  "MAGNATE PREMIER": "ماجنيت بريميير",
+  "OUD MUATTAR OUD AL MAQAAM": "عود معطر عود المقام",
+  "OUD MUATTAR OUD AL SAADA": "عود معطر عود السعادة",
+  "LA FEDE BELLE REVE SEGRATO VIOLA": "لافيدي بيل ريف سيغراتو فيولا",
+  "LA FEDE BELLA REVE DOLCE FLORE": "لافيدي بيلا ريف دولتشي فلور",
+  "MYSTICAL INDIAN OUD PURE": "عود هندي نقي ساحر",
+  "HANEEN ROSE GOLD": "حنين روز جولد",
+  "HANEEN GOLD": "حنين جولد",
+  "BUKHOOR AL BAHAAR GOLD": "بخور البحار جولد",
+  "Mesmerizing Perfume Oil Set of 3 for Him & Her": "مجموعة زيوت عطرية ساحرة 3 قطع",
+  "Amazing Perfume Oil Set of 4 for Him": "مجموعة زيوت عطرية مميزة 4 قطع للرجال",
+  "Enchant all with our Perfume Oil Set of 4 for Her": "مجموعة زيوت عطرية جذابة 4 قطع للنساء",
+  "Exquisite Perfume Oil Set for Him and Her": "مجموعة زيوت عطرية فاخرة للرجال والنساء",
+  "Finest Perfume Oil Set for Him": "أرقى مجموعة زيوت عطرية للرجال",
+  "Luxurious Perfume Oil Set of 3 for Him": "مجموعة زيوت عطرية ملكية 3 قطع للرجال",
+  "OUD MUATTAR GHANAATI": "عود معطر غناتي",
+  "OUD MUATTAR KHAWAATER": "عود معطر خواطر",
+  "STELLAR OUD": "ستيلر عود",
+  "STELLAR MUSK": "ستيلر مسك",
+  "CASHMERE SUNSHINE MUSK": "كشمير صنشاين مسك",
+  "CASHMERE WARM OUD": "كشمير وورم عود",
+  "MIBRAAK": "مبرك",
+  "IBHAAR": "إبهار",
+  "ASTOORA": "أسطورة",
+  "FATIMA": "فاطمة",
+  "ANAB": "عناب",
+  "AZAARI": "عذاري",
+  "GHAZLAAN": "غزلان",
+  "RANIYA": "رانيا",
+  "AALIYA": "عالية",
+  "ROOHI WA ROOHAK SILVER": "روحي وروحك سيلفر",
+  "ROOHI WA ROOHAK GOLD": "روحي وروحك جولد",
+  "ALF WARDAAT": "ألف وردات",
+  "AL FURSAN": "الفرسان",
+  "AL RIYAN": "الريان",
+  "JAMEEL": "جميل",
+  "ZAINAB": "زينب",
+  "ROOH AL OUD": "روح العود",
+  "FRASH DALOUAA AIR FRESHENER": "معطر جو دلوعة",
+  "FRASH ZAHOOR AL KHALEEJ AIR FRESHENER": "معطر جو زهور الخليج",
+  "FRASH ROMANCIA AIR FRESHENER": "معطر جو رومانسية",
+  "FRASH MAKHMALI AIR FRESHENER": "معطر جو مخملي",
+  "FRASH MUSKY AIR FRESHENER": "معطر جو مسكي",
+  "FRASH NASEEM AL WARD AIR FRESHENER": "معطر جو نسيم الورد",
+  "BARWAAZ SOLID GREY": "برواز رمادي",
+  "BARWAAZ SADDLE BROWN": "برواز بني",
+  "FRASH LA YUQAWAM AIR FRESHENER": "معطر جو لا يقاوم",
+  "OUD MUATTAR GHALIYA": "عود معطر غالية",
+  "OUD MUATTAR MUNAWWARA": "عود معطر منورة",
+  "SHAMOOKH SILVER": "شموخ سيلفر",
+  "SHAMOOKH GOLD": "شموخ جولد",
+  "FRASH MUKHALLAT SHUYOOKHI AIR FRESHENER": "معطر جو مخلط شيوخي",
+  "BAKHOOR HANEEN 100 GMS": "بخور حنين 100 جم",
+  "BAKHOOR MAHA 100 GMS": "بخور مها 100 جم",
+  "MUSK WA OUD": "مسك وعود",
+  "MUSK WA WARD": "مسك وورد",
+  "UNO INTIMO": "أونو إنتيمو",
+  "UNO DURABLE": "أونو دورابل",
+  "UNO LUSSO": "أونو لوسو",
+  "UNO SENSUALE": "أونو سينسوال",
+  "OUD MUATTAR RIMAAL 40GM": "عود معطر رمال 40 جم",
+  "OUD MUATTAR SAMOU AL OUD 40GM": "عود معطر سمو العود 40 جم",
+  "MUSK RASAAS": "مسك رصاص",
+  "FRASH MAHASIN KHAWATER AIR FRESHENER": "معطر جو محاسن خواطر",
+  "FRASH MAHASIN OUD AL AHBAB AIR FRESHENER": "معطر جو محاسن عود الأحباب",
+  "FRASH MAHASIN SILVER AIR FRESHENER": "معطر جو محاسن سيلفر",
+  "FRASH ZAHRET AL LAILAK AIR FRESHENER": "معطر جو زهرة الليلك",
+  "FRASH MAHASIN ABAYA AIR FRESHENER": "معطر جو محاسن عباية",
+  "FRASH MAHASIN AL RIYAN AIR FRESHENER": "معطر جو محاسن الريان",
+  "FRASH MAHASIN GOLD AIR FRESHENER": "معطر جو محاسن جولد",
+  "FRASH AL ABYAD AIR FRESHENER": "معطر جو الأبيض",
+  "FRASH BINT AKABIR AIR FRESHENER": "معطر جو بنت أكابر",
+  "FRASH FARFASHA AIR FRESHENER": "معطر جو فرفشة",
+  "FRASH KASAR AL SAADA AIR FRESHENER": "معطر جو قصر السعادة",
+  "MAZOON GOLD": "مزن جولد",
+  "MAZOON ROSE GOLD": "مزن روز جولد",
+  "SHAHI OUD": "شاهي عود",
+  "MUSK SAHRA": "مسك صحراء",
+  "ROSE AND ROMANCE": "روز آند رومانس",
+  "BAKHOOR TAIBA": "بخور طيبة",
+  "OUD MUATTAR AL AZRAQ 40GM": "عود معطر الأزرق 40 جم",
+  "OUD MUATTAR BADAR": "عود معطر بدر",
+  "OUD MUATTAR MAJNOON": "عود معطر مجنون",
+  "BAKHOOR BAIT AL ATHEEQ": "بخور بيت العتيق",
+  "BAKHOOR BAIT AL ISRA": "بخور بيت الإسراء",
+  "BAKHOOR MARAH": "بخور مرح",
+  "BAKHOOR TAHIYA": "بخور تحية",
+  "BAKHOOR ASDAAF": "بخور أصداف",
+  "BAKHOOR ATEEB": "بخور أطيب",
+  "BAKHOOR MUDHELA": "بخور مذهلة",
+  "BAKHOOR NOUF 100 GMS": "بخور نوف 100 جم",
+  "BAKHOOR RUKAIYA 55GM": "بخور رقية 55 جم",
+  "BAKHOOR SOUGAH": "بخور سوغة",
+  "BAKHOOR HOOR AL AIN 72GM": "بخور حور العين 72 جم",
+  "BAKHOOR INSHERAH 55GM": "بخور انشراح 55 جم",
+  "BAKHOOR KHULOOD": "بخور خلود",
+  "BAKHOOR BAIT AL AHLAM": "بخور بيت الأحلام",
+  "BAKHOOR AMAAR 100 GMS": "بخور عمار 100 جم",
+  "BAKHOOR AL BAHAAR": "بخور البحار",
+  "BAKHOOR GANAA 120GM": "بخور غنى 120 جم",
+  "BAKHOOR HAKIM 100gm": "بخور حكيم 100 جم",
+  "BAKHOOR BU KHALIFA": "بخور بو خليفة",
+  "BAKHOOR KASHMEERI 120GM": "بخور كشميري 120 جم",
+  "OUD MUATTAR AFZAL 24GM": "عود معطر أفضل 24 جم",
+  "MUSK POUR NARCIS": "مسك بور نرجس",
+  "OUD POUR BLUEBERRY": "عود بور بلوبيري",
+  "OUD POUR KLASSIK": "عود بور كلاسيك",
+  "OUD POUR NOBLE": "عود بور نوبل",
+  "OUD POUR ROUGE": "عود بور روج",
+  "OUD POUR SHAIKH": "عود بور شيخ",
+  "LA FEDE FIRST LADY": "لافيدي فيرست ليدي",
+  "LA FEDE MISS PREMIERE": "لافيدي ميس بريميير",
+  "OMBRE NOTES": "أومبري نوتس",
+  "SENSUOS NIGHT": "سينشوال نايت",
+  "OUD MUATTAR KHALAB 100GM": "عود معطر خلاب 100 جم",
+  "OUD MUATTAR QAISER 100GM": "عود معطر قيصر 100 جم",
+  "OUD NOIR": "عود نوار",
+  "CODE MARRON OUD": "كود مارون عود",
+  "CODE ROUGE AMOUR": "كود روج أمور",
+  "CODE VERDE SUBLIME": "كود فيردي سوبليم",
+  "CODE VIOLA NECTAR": "كود فيولا نكتار",
+  "LA FEDE KINGSMAN": "لافيدي كينجزمان",
+  "LA FEDE STATESMAN": "لافيدي ستيتسمان",
+  "BAKHOOR BELAD ZAYED 120GM": "بخور بلاد زايد 120 جم",
+  "BAKHOOR DHIYAFA 120GM": "بخور ضيافة 120 جم",
+  "BAKHOOR DUKHOON MAKNOON": "دخون مكنون",
+  "WILD INDONESIAN OUD PURE": "عود إندونيسي بري نقي"
+};
+
+function getProductName(p, isRTL) {
+  if (!p) return "";
+  if (!isRTL) return p.name;
+  if (p.nameAr) return p.nameAr;
+  const upper = p.name.toUpperCase().trim();
+  if (PRODUCT_NAMES_AR[upper]) return PRODUCT_NAMES_AR[upper];
+  if (PRODUCT_NAMES_AR[p.name]) return PRODUCT_NAMES_AR[p.name];
+  return p.name;
+}
+
+function formatProductSize(size, isRTL) {
+  if (!size) return "";
+  if (!isRTL) return size;
+  return size
+    .replace(/100\s*ml\s*edp/gi, "100 مل ماء عطر")
+    .replace(/100\s*ml/gi, "100 مل")
+    .replace(/50\s*ml/gi, "50 مل")
+    .replace(/25\s*ml/gi, "25 مل")
+    .replace(/30\s*ml/gi, "30 مل")
+    .replace(/20\s*ml/gi, "20 مل")
+    .replace(/18\s*ml/gi, "18 مل")
+    .replace(/17\s*ml/gi, "17 مل")
+    .replace(/Gift Set/gi, "مجموعة هدايا")
+    .replace(/EDP/gi, "ماء عطر");
+}
+
 const CATEGORIES = ["Best Sellers","New","Deals","For Him","For Her","Unisex","Perfume Oils","EAU DE PARFUM","Master Perfumery"];
 
 /* ═══════════════════════════════════════════════════════════════
@@ -5689,7 +6068,7 @@ function ProductCard({ p, onView, onCart }){
           color:"#fff", fontSize:9.5, letterSpacing:2.5,
           padding:"5px 11px", fontWeight:600, textTransform:"uppercase",
           fontFamily:"'Montserrat',sans-serif",
-        }}>{isRTL ? (p.badge==="Limited" ? "إصدار محدود" : p.badge==="New" ? "جديد" : p.badge==="Best Seller" ? "الأكثر مبيعاً" : p.badge) : p.badge}</span>
+        }}>{isRTL ? (p.badge==="Limited" ? "إصدار محدود" : p.badge==="New" ? "جديد" : p.badge==="Best Seller" ? "الأكثر مبيعاً" : p.badge==="For Him" ? "للرجال" : p.badge==="For Her" ? "للنساء" : p.badge) : p.badge}</span>
       )}
       <div className="product-image-stage" style={{
         position:"relative",
@@ -5764,15 +6143,15 @@ function ProductCard({ p, onView, onCart }){
         </div>
       </div>
       <div className="product-card-info" style={{padding:"16px 10px 18px", flex:1, display:"flex", flexDirection:"column", alignItems:"center", textAlign:"center"}}>
-        <p style={{fontSize:9.5, letterSpacing:3, color:"#B8922A", textTransform:"uppercase", marginBottom:7, fontFamily:"'Montserrat',sans-serif", fontWeight:600}}>{collectionLabel}</p>
-        <h3 className="product-card-title" style={{fontSize:15.5, fontWeight:600, color:"#251737", lineHeight:1.25, marginBottom:5, textTransform:"uppercase", letterSpacing:1.1}}>{isRTL && p.nameAr ? p.nameAr : p.name}</h3>
-        <p className="product-card-size" style={{fontSize:12.5, color:"#888", marginBottom:12, fontFamily:"'Montserrat',sans-serif", letterSpacing:.4, fontWeight:400}}>{p.size}</p>
+        <p style={{fontSize:9.5, letterSpacing: isRTL ? 1 : 3, color:"#B8922A", textTransform:"uppercase", marginBottom:7, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", fontWeight:600}}>{isRTL ? (COLLECTION_LABELS_AR[collectionLabel] || collectionLabel) : collectionLabel}</p>
+        <h3 className="product-card-title" style={{fontSize:15.5, fontWeight:600, color:"#251737", lineHeight:1.25, marginBottom:5, textTransform:"uppercase", letterSpacing: isRTL ? 0.5 : 1.1, fontFamily: isRTL ? "'Cairo', serif" : "inherit"}}>{getProductName(p, isRTL)}</h3>
+        <p className="product-card-size" style={{fontSize:12.5, color:"#888", marginBottom:12, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", letterSpacing:.4, fontWeight:400}}>{formatProductSize(p.size, isRTL)}</p>
         {notes.length > 0 && (
           <div className="product-notes" style={{display:"flex", flexWrap:"nowrap", gap:4, marginBottom:12, justifyContent:"center", alignItems:"center", width:"100%"}}>
             {notes.map((n, i) => (
-              <span className="product-note" key={n} style={{display:"inline-flex", alignItems:"center", gap:3, padding:"3px 6px", background:"#f5f5f5", fontSize:8, letterSpacing:.7, color:"#666", textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", fontWeight:600, whiteSpace:"nowrap", borderRadius:2}}>
+              <span className="product-note" key={n} style={{display:"inline-flex", alignItems:"center", gap:3, padding:"3px 6px", background:"#f5f5f5", fontSize:8, letterSpacing: isRTL ? 0.3 : .7, color:"#666", textTransform:"uppercase", fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", fontWeight:600, whiteSpace:"nowrap", borderRadius:2}}>
                 <span className="product-note-dot" style={{width:4, height:4, borderRadius:"50%", background: "#C8A96E", flexShrink:0, display:"inline-block"}}/>
-                {n}
+                {isRTL ? (NOTE_NAMES_AR[n] || n) : n}
               </span>
             ))}
           </div>
@@ -6894,11 +7273,11 @@ function HomePage({ setPage, addToCart, setViewProduct }){
                 background:"transparent",color:activeCat===c?"#000":"#777",
                 border:"none",
                 borderBottom: activeCat===c ? "1px solid #000" : "1px solid transparent",
-                padding:"8px 14px 10px",fontSize:10.5,letterSpacing:2,cursor:"pointer",whiteSpace:"nowrap",
+                padding:"8px 14px 10px",fontSize:10.5,letterSpacing: isRTL ? 0.5 : 2,cursor:"pointer",whiteSpace:"nowrap",
                 fontWeight:activeCat===c?800:700,transition:"all .2s",textTransform:"uppercase",
-                fontFamily:"'Montserrat',sans-serif",
+                fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif",
               }}>
-              {c}
+              {isRTL ? (CATEGORY_NAMES_AR[c] || c) : c}
             </button>
           ))}
         </div>
@@ -7676,7 +8055,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
         <span style={{margin:"0 12px", color:"#ddd"}}>|</span>
         <span style={{cursor:"pointer", color:"#251737", transition:"color 0.2s"}} onMouseEnter={e=>e.currentTarget.style.color="#B8922A"} onMouseLeave={e=>e.currentTarget.style.color="#251737"} onClick={()=>setPage("collections")}>Collections</span>
         <span style={{margin:"0 12px", color:"#ddd"}}>|</span>
-        <span>{product.name}</span>
+        <span>{getProductName(product, isRTL)}</span>
       </div>
 
       {/* ── Main Product Section ── */}
@@ -7751,7 +8130,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
 
           {/* ── Rich Product Story Section (Under Image) ── */}
           <div className="product-layout-story">
-              <h2 style={{fontSize:28, fontFamily:"'Cinzel', serif", fontWeight:400, color:"#111", marginBottom:24, letterSpacing:1}}>The Story of {product.name}</h2>
+              <h2 style={{fontSize:28, fontFamily: isRTL ? "'Cairo', serif" : "'Cinzel', serif", fontWeight:400, color:"#111", marginBottom:24, letterSpacing: isRTL ? 0.5 : 1}}>{isRTL ? `قصة عطر ${getProductName(product, isRTL)}` : `The Story of ${product.name}`}</h2>
               {Array.isArray(product.desc) ? (
                 product.desc.map((para, i) => (
                   <p key={i} style={{marginBottom:24, fontSize:15, lineHeight:1.8, color:"#444", fontWeight:300, fontFamily:"'Montserrat',sans-serif", display: (!storyExpanded && i > 0) ? 'none' : 'block'}} dangerouslySetInnerHTML={{__html: para}} />
@@ -7811,8 +8190,8 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
              <p style={{fontWeight:600,fontSize:10, letterSpacing:3, color:"#888", textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", marginBottom:12}}>Khadlaj Perfumes</p>
              
              {/* TITLE */}
-             <h1 className="disp" style={{fontSize:"clamp(32px, 4vw, 48px)", fontWeight:400, color:"#111", lineHeight:1.1, letterSpacing:"-0.5px", textTransform:"uppercase", marginBottom:16, fontFamily:"'Cinzel', serif"}}>
-               {product.name}
+             <h1 className="disp" style={{fontSize:"clamp(32px, 4vw, 48px)", fontWeight:400, color:"#111", lineHeight:1.1, letterSpacing: isRTL ? "0px" : "-0.5px", textTransform:"uppercase", marginBottom:16, fontFamily: isRTL ? "'Cairo', serif" : "'Cinzel', serif"}}>
+               {getProductName(product, isRTL)}
              </h1>
 
              {/* REVIEWS */}
@@ -8005,7 +8384,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
           </div>
           <div style={{flex:1, minWidth:250}}>
             <p style={{fontSize:10, textTransform:"uppercase", letterSpacing:3, color:"#B8922A", marginBottom:12, fontFamily:"'Montserrat',sans-serif", fontWeight:500}}>{isRTL ? "أكمل مجموعتك الفاخرة" : "Complete The Collection"}</p>
-            <h3 style={{fontSize:32, fontWeight:400, marginBottom:16, fontFamily:"'Cinzel', serif"}}>{PRODUCTS[1].name}</h3>
+            <h3 style={{fontSize:32, fontWeight:400, marginBottom:16, fontFamily: isRTL ? "'Cairo', serif" : "'Cinzel', serif"}}>{getProductName(PRODUCTS[1], isRTL)}</h3>
             <p style={{fontSize:14, color:"rgba(255,255,255,0.7)", marginBottom:32, fontFamily:"'Montserrat',sans-serif", lineHeight:1.6, maxWidth:500, fontWeight:300}}>Elevate your signature scent with this exquisite complementary product, designed to layer perfectly and enhance longevity.</p>
             <button 
               onClick={()=>{addToCart(PRODUCTS[1],1); setAdded(true); setTimeout(()=>setAdded(false),2200);}}
@@ -8693,7 +9072,7 @@ function CartPage({ cartItems, updateCartQty, removeFromCart, setPage, setViewPr
                   </div>
                   <div>
                     <p style={{fontSize:9,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginBottom:6}}>{item.col === "Lafede" ? "La Fede" : item.col}</p>
-                    <h3 style={{fontSize:16,letterSpacing:1,textTransform:"uppercase",fontWeight:600,marginBottom:6}}>{item.name}</h3>
+                    <h3 style={{fontSize:16,letterSpacing: isRTL ? 0.5 : 1,textTransform:"uppercase",fontWeight:600,marginBottom:6,fontFamily: isRTL ? "'Cairo', serif" : "inherit"}}>{getProductName(item, isRTL)}</h3>
                     <p style={{fontSize:12,color:"#888",fontFamily:"'Montserrat',sans-serif",marginBottom:14}}>{item.size}</p>
                     <button onClick={()=>removeFromCart(item.id)} style={{background:"none",border:"none",borderBottom:"1px solid #999",fontSize:9,letterSpacing:2,textTransform:"uppercase",color:"#777",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",paddingBottom:2}}>Remove</button>
                   </div>
