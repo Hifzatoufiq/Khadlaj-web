@@ -243,6 +243,9 @@ const LanguageContext = React.createContext({
 function formatCurrency(price, activeCountry, lang = "en") {
   if (!activeCountry) return `${price}`;
   const val = (price * (activeCountry.rate || 1)).toFixed(2);
+  if (activeCountry.name === "KSA" || activeCountry.currency === "SAR" || activeCountry.currencyAr === "ر.س") {
+    return `${val} ر.س`;
+  }
   if (lang === "ar") {
     const sym = activeCountry.currencyAr || activeCountry.currency;
     return `${val} ${sym}`;
@@ -6183,11 +6186,11 @@ function ProductCard({ p, onView, onCart }){
           </div>
         )}
         <div style={{marginTop:"auto", width:"100%", display:"flex", flexDirection:"column", alignItems:"center", gap:6, paddingTop:12, borderTop:"1px solid #F0F0F0"}}>
-          <div style={{display:"flex", alignItems:"center", gap:4, justifyContent:"center"}}>
+          <div style={{display:"flex", alignItems:"center", gap:4, justifyContent:"center", flexDirection: isRTL ? "row-reverse" : "row"}}>
             <span style={{color:"#C8A96E", fontSize:12, letterSpacing:1}}>{"★".repeat(5)}</span>
             <span style={{fontSize:10, color:"#aaa", fontFamily:"'Montserrat',sans-serif", fontWeight:600}}>(905)</span>
           </div>
-          <p style={{fontSize:17, fontWeight:600, color:"#251737", fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(p.price)}</p>
+          <p style={{fontSize:17, fontWeight:600, color:"#251737", fontFamily:"'Montserrat', 'Cairo', 'Tajawal', sans-serif"}}>{formatPrice(p.price)}</p>
         </div>
       </div>
     </div>
