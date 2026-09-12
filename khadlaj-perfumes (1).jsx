@@ -5254,8 +5254,21 @@ const GLOBAL_CSS = `
   @keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
   .fu{animation:fadeUp .65s ease both;}
 
-  @keyframes ribbonScroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
-  .ribbon-inner{display:flex;animation:ribbonScroll 80s linear infinite;width:max-content;}
+  @keyframes ribbonScroll{
+    0%{transform:translate3d(0, 0, 0);}
+    100%{transform:translate3d(-50%, 0, 0);}
+  }
+  .ribbon-inner{
+    display:flex !important;
+    align-items:center;
+    width:max-content !important;
+    direction:ltr !important;
+    animation:ribbonScroll 50s linear infinite;
+    will-change:transform;
+  }
+  .hero-scent-ribbon:hover .ribbon-inner{
+    animation-play-state:paused;
+  }
 
   .reel-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 14px;-webkit-overflow-scrolling:touch;}
   .reel-track::-webkit-scrollbar{height:3px;}
@@ -5334,6 +5347,9 @@ const GLOBAL_CSS = `
     padding: 18px 0;
     border-top: 1px solid rgba(193,164,106,0.15);
     border-bottom: 1px solid rgba(193,164,106,0.15);
+    direction: ltr !important;
+    text-align: left !important;
+    user-select: none;
   }
   @media(max-width: 900px) {
     .hero-first-scroll-wrap {
@@ -5922,6 +5938,13 @@ const GLOBAL_CSS = `
   [dir="rtl"] .hero-text-center,
   [dir="rtl"] .trust-item {
     text-align: center !important;
+  }
+
+  /* Scent ribbon marquee MUST remain LTR in both English and Arabic to prevent blank gaps */
+  [dir="rtl"] .hero-scent-ribbon,
+  [dir="rtl"] .hero-scent-ribbon .ribbon-inner {
+    direction: ltr !important;
+    text-align: left !important;
   }
 
   /* Navbar Alignments in RTL */
@@ -7098,12 +7121,12 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
         </section>
 
         {/* ── SCENT RIBBON (BOTTOM LINE) ── */}
-        <div className="hero-scent-ribbon">
-          <div className="ribbon-inner" style={{display:"flex", alignItems:"center"}}>
-            {[...SCENT_RIBBON,...SCENT_RIBBON,...SCENT_RIBBON].map((n,i)=>(
+        <div className="hero-scent-ribbon" dir="ltr" style={{direction:"ltr"}}>
+          <div className="ribbon-inner" dir="ltr" style={{display:"flex", alignItems:"center", direction:"ltr", width:"max-content"}}>
+            {[...SCENT_RIBBON,...SCENT_RIBBON,...SCENT_RIBBON,...SCENT_RIBBON].map((n,i)=>(
               <div 
                 key={i} 
-                style={{display:"flex", alignItems:"center", cursor:"pointer"}}
+                style={{display:"flex", alignItems:"center", flexShrink:0, cursor:"pointer"}}
                 onClick={() => {
                   if (setSelectedCollection) setSelectedCollection(n.toLowerCase());
                   setPage("collection-view");
@@ -7115,7 +7138,7 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
                   onMouseEnter={e => e.currentTarget.style.color = "#C1A46A"}
                   onMouseLeave={e => e.currentTarget.style.color = "#E8E4DC"}
                 >{n}</span>
-                <span style={{margin:"0 64px",color:"#C1A46A",fontSize:10}}>✦</span>
+                <span style={{margin:"0 64px",color:"#C1A46A",fontSize:10,flexShrink:0}}>✦</span>
               </div>
             ))}
           </div>
