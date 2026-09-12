@@ -5911,7 +5911,9 @@ const GLOBAL_CSS = `
   [dir="rtl"] {
     direction: rtl;
     text-align: right;
-    font-family: 'Tajawal', 'Cairo', sans-serif !important;
+    font-family: 'Cairo', 'Tajawal', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-size: 15.5px;
+    line-height: 1.75;
   }
 
   /* In Arabic, connected cursive letters MUST NOT have letter-spacing */
@@ -5921,9 +5923,126 @@ const GLOBAL_CSS = `
     letter-spacing: 0 !important;
   }
 
-  /* Arabic Headings Typography */
+  /* Arabic Headings Typography — enlarged and prominent */
   [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, [dir="rtl"] h4, [dir="rtl"] .disp {
+    font-family: 'Cairo', sans-serif !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+  }
+
+  /* Arabic Nav links & Announcement */
+  [dir="rtl"] .nav-link {
+    font-size: 14.5px !important;
+    font-family: 'Cairo', sans-serif !important;
+    font-weight: 600 !important;
+  }
+  [dir="rtl"] .mob-nav-link {
+    font-size: 16.5px !important;
+    font-family: 'Cairo', sans-serif !important;
+    font-weight: 600 !important;
+  }
+  [dir="rtl"] .announcement-text,
+  [dir="rtl"] .announcement-bar p {
+    font-size: 13.5px !important;
+    font-family: 'Cairo', sans-serif !important;
+    font-weight: 600 !important;
+  }
+
+  /* Arabic Product Cards Typography */
+  [dir="rtl"] .product-card-title {
+    font-size: 18px !important;
+    font-family: 'Cairo', sans-serif !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+  }
+  [dir="rtl"] .product-card-size {
+    font-size: 13.5px !important;
+    font-family: 'Tajawal', sans-serif !important;
+  }
+  [dir="rtl"] .product-note {
+    font-size: 11px !important;
+    padding: 3px 8px !important;
+    font-family: 'Tajawal', sans-serif !important;
+    font-weight: 600 !important;
+  }
+  [dir="rtl"] .product-card button {
+    font-size: 13px !important;
+    font-family: 'Cairo', sans-serif !important;
+    font-weight: 700 !important;
+  }
+
+  /* Arabic Shiyaaka / 25th section */
+  [dir="rtl"] .k25-header h2 {
+    font-size: clamp(36px, 4.8vw, 54px) !important;
+    font-family: 'Cairo', sans-serif !important;
+  }
+  [dir="rtl"] .k25-header p {
+    font-size: 17px !important;
+    line-height: 1.8 !important;
+    font-family: 'Tajawal', sans-serif !important;
+  }
+  [dir="rtl"] .k25-card-title {
+    font-size: 32px !important;
+    font-family: 'Cairo', sans-serif !important;
+    font-weight: 700 !important;
+  }
+  [dir="rtl"] .k25-card-subtitle {
+    font-size: 13.5px !important;
+    font-family: 'Cairo', sans-serif !important;
+    letter-spacing: 0 !important;
+  }
+  [dir="rtl"] .k25-card-desc {
+    font-size: 14.5px !important;
+    line-height: 1.85 !important;
+    font-family: 'Tajawal', sans-serif !important;
+  }
+  [dir="rtl"] .k25-card-btn {
+    font-size: 13.5px !important;
+    font-family: 'Cairo', sans-serif !important;
+    letter-spacing: 0 !important;
+    font-weight: 700 !important;
+  }
+
+  /* Arabic Trust Banner */
+  [dir="rtl"] .trust-banner h4,
+  [dir="rtl"] .trust-item h4 {
+    font-size: 14px !important;
+    font-family: 'Cairo', sans-serif !important;
+    font-weight: 700 !important;
+  }
+  [dir="rtl"] .trust-banner p,
+  [dir="rtl"] .trust-item p {
+    font-size: 14.5px !important;
+    font-family: 'Tajawal', sans-serif !important;
+  }
+
+  /* Arabic Collections Sidebar */
+  [dir="rtl"] .collections-sidebar button {
+    font-size: 13.5px !important;
     font-family: 'Cairo', 'Tajawal', sans-serif !important;
+    font-weight: 600 !important;
+    padding: 13px 14px !important;
+  }
+
+  /* Arabic Product Details Page */
+  [dir="rtl"] .product-layout-details h1.disp {
+    font-size: clamp(34px, 4.5vw, 54px) !important;
+    font-family: 'Cairo', sans-serif !important;
+    line-height: 1.3 !important;
+  }
+  [dir="rtl"] .product-layout-details button {
+    font-size: 14px !important;
+    font-family: 'Cairo', sans-serif !important;
+    font-weight: 700 !important;
+  }
+  [dir="rtl"] .product-layout-story h2 {
+    font-size: 30px !important;
+    font-family: 'Cairo', sans-serif !important;
+  }
+  [dir="rtl"] .product-layout-story p {
+    font-size: 16.5px !important;
+    line-height: 1.9 !important;
+    font-family: 'Tajawal', sans-serif !important;
   }
 
   /* Centered elements MUST remain centered in both English and Arabic */
@@ -6117,9 +6236,9 @@ function ProductCard({ p, onView, onCart }){
         <span style={{
           position:"absolute", top:12, left: isRTL ? "auto" : 12, right: isRTL ? 12 : "auto", zIndex:3,
           background: p.badge==="Limited" ? "#5C0000" : p.badge==="New" ? "#B8922A" : "#251737",
-          color:"#fff", fontSize:9.5, letterSpacing:2.5,
-          padding:"5px 11px", fontWeight:600, textTransform:"uppercase",
-          fontFamily:"'Montserrat',sans-serif",
+          color:"#fff", fontSize: isRTL ? 11.5 : 9.5, letterSpacing: isRTL ? 0 : 2.5,
+          padding:"5px 11px", fontWeight:700, textTransform:"uppercase",
+          fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",
         }}>{isRTL ? (p.badge==="Limited" ? "إصدار محدود" : p.badge==="New" ? "جديد" : p.badge==="Best Seller" ? "الأكثر مبيعاً" : p.badge==="For Him" ? "للرجال" : p.badge==="For Her" ? "للنساء" : p.badge) : p.badge}</span>
       )}
       <div className="product-image-stage" style={{
@@ -6183,9 +6302,9 @@ function ProductCard({ p, onView, onCart }){
             }}
             style={{
             width:"100%", background:"#251737", color:"#fff", border:"none", 
-            padding:"12px", fontSize:11, letterSpacing:2, fontWeight:600, 
+            padding:"12px", fontSize: isRTL ? 13 : 11, letterSpacing: isRTL ? 0 : 2, fontWeight:700, 
             cursor:"pointer", textTransform:"uppercase",
-            fontFamily:"'Montserrat',sans-serif", transition:"background .3s"
+            fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif", transition:"background .3s"
           }}
           onMouseEnter={(e)=>e.target.style.background="#B8922A"}
           onMouseLeave={(e)=>e.target.style.background="#251737"}
@@ -6195,13 +6314,13 @@ function ProductCard({ p, onView, onCart }){
         </div>
       </div>
       <div className="product-card-info" style={{padding:"16px 10px 18px", flex:1, display:"flex", flexDirection:"column", alignItems:"center", textAlign:"center"}}>
-        <p style={{fontSize:9.5, letterSpacing: isRTL ? 1 : 3, color:"#B8922A", textTransform:"uppercase", marginBottom:7, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", fontWeight:600}}>{isRTL ? (COLLECTION_LABELS_AR[collectionLabel] || collectionLabel) : collectionLabel}</p>
-        <h3 className="product-card-title" style={{fontSize:15.5, fontWeight:600, color:"#251737", lineHeight:1.25, marginBottom:5, textTransform:"uppercase", letterSpacing: isRTL ? 0.5 : 1.1, fontFamily: isRTL ? "'Cairo', serif" : "inherit"}}>{getProductName(p, isRTL)}</h3>
-        <p className="product-card-size" style={{fontSize:12.5, color:"#888", marginBottom:12, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", letterSpacing:.4, fontWeight:400}}>{formatProductSize(p.size, isRTL)}</p>
+        <p style={{fontSize: isRTL ? 12 : 9.5, letterSpacing: isRTL ? 0 : 3, color:"#B8922A", textTransform:"uppercase", marginBottom:7, fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif", fontWeight:600}}>{isRTL ? (COLLECTION_LABELS_AR[collectionLabel] || collectionLabel) : collectionLabel}</p>
+        <h3 className="product-card-title" style={{fontSize: isRTL ? 18 : 15.5, fontWeight:700, color:"#251737", lineHeight:1.35, marginBottom:5, textTransform:"uppercase", letterSpacing: isRTL ? 0 : 1.1, fontFamily: isRTL ? "'Cairo', serif" : "inherit"}}>{getProductName(p, isRTL)}</h3>
+        <p className="product-card-size" style={{fontSize: isRTL ? 13.5 : 12.5, color:"#888", marginBottom:12, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", letterSpacing: isRTL ? 0 : .4, fontWeight:500}}>{formatProductSize(p.size, isRTL)}</p>
         {notes.length > 0 && (
           <div className="product-notes" style={{display:"flex", flexWrap:"nowrap", gap:4, marginBottom:12, justifyContent:"center", alignItems:"center", width:"100%"}}>
             {notes.map((n, i) => (
-              <span className="product-note" key={n} style={{display:"inline-flex", alignItems:"center", gap:3, padding:"3px 6px", background:"#f5f5f5", fontSize:8, letterSpacing: isRTL ? 0.3 : .7, color:"#666", textTransform:"uppercase", fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", fontWeight:600, whiteSpace:"nowrap", borderRadius:2}}>
+              <span className="product-note" key={n} style={{display:"inline-flex", alignItems:"center", gap:3, padding:"3px 7px", background:"#f5f5f5", fontSize: isRTL ? 11 : 8, letterSpacing: isRTL ? 0 : .7, color:"#666", textTransform:"uppercase", fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", fontWeight:600, whiteSpace:"nowrap", borderRadius:2}}>
                 <span className="product-note-dot" style={{width:4, height:4, borderRadius:"50%", background: "#C8A96E", flexShrink:0, display:"inline-block"}}/>
                 {isRTL ? (NOTE_NAMES_AR[n] || n) : n}
               </span>
@@ -6213,7 +6332,7 @@ function ProductCard({ p, onView, onCart }){
             <span style={{color:"#C8A96E", fontSize:12, letterSpacing:1}}>{"★".repeat(5)}</span>
             <span style={{fontSize:10, color:"#aaa", fontFamily:"'Montserrat',sans-serif", fontWeight:600}}>(905)</span>
           </div>
-          <p style={{fontSize:17, fontWeight:600, color:"#251737", fontFamily:"'Montserrat', 'Cairo', 'Tajawal', sans-serif"}}>{formatPrice(p.price)}</p>
+          <p style={{fontSize: isRTL ? 18.5 : 17, fontWeight:700, color:"#251737", fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"}}>{formatPrice(p.price)}</p>
         </div>
       </div>
     </div>
@@ -6396,7 +6515,7 @@ function TrustBanner() {
         gap: 30, alignItems: "center"
       }}>
         {items.map((it, i) => (
-          <div key={i} style={{
+          <div key={i} className="trust-item" style={{
             display: "flex", flexDirection: "column", alignItems: "center", 
             textAlign: "center", padding: "10px"
           }}>
@@ -6408,11 +6527,11 @@ function TrustBanner() {
               {it.icon}
             </div>
             <h4 style={{
-              fontFamily: "'Montserrat', sans-serif", fontSize: 11, fontWeight: 700, 
-              letterSpacing: 2, color: "#251737", textTransform: "uppercase", marginBottom: 6
+              fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif", fontSize: isRTL ? 14 : 11, fontWeight: 700, 
+              letterSpacing: isRTL ? 0 : 2, color: "#251737", textTransform: "uppercase", marginBottom: 6
             }}>{it.title}</h4>
             <p style={{
-              fontFamily: "'Playfair Display', serif", fontSize: 13, fontStyle: "italic", 
+              fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Playfair Display', serif", fontSize: isRTL ? 15 : 13, fontStyle: isRTL ? "normal" : "italic", 
               color: "#888"
             }}>{it.desc}</p>
           </div>
@@ -6877,10 +6996,10 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
                 }}>
                   <h3 style={{
                     fontFamily: isRTL ? "'Cairo', serif" : "'Cinzel', 'Montserrat', serif",
-                    fontSize: windowWidth >= 1024 ? "20px" : "17px",
-                    fontWeight: 600,
+                    fontSize: isRTL ? (windowWidth >= 1024 ? "23px" : "19px") : (windowWidth >= 1024 ? "20px" : "17px"),
+                    fontWeight: 700,
                     color: "#ffffff",
-                    letterSpacing: isRTL ? "0.5px" : "3px",
+                    letterSpacing: isRTL ? "0" : "3px",
                     textTransform: "uppercase",
                     marginBottom: "12px",
                     textShadow: "0 2px 10px rgba(0,0,0,0.7)"
@@ -6894,11 +7013,11 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
                       color: hoveredIdx === idx ? "#000000" : "#ffffff",
                       border: "1px solid rgba(255,255,255,0.9)",
                       padding: "8px 26px",
-                      fontSize: "11px",
-                      fontWeight: 600,
-                      letterSpacing: isRTL ? "1px" : "2.5px",
+                      fontSize: isRTL ? "13.5px" : "11px",
+                      fontWeight: 700,
+                      letterSpacing: isRTL ? "0" : "2.5px",
                       textTransform: "uppercase",
-                      fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif",
+                      fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
                       cursor: "pointer",
                       transition: "all 0.3s ease",
                       boxShadow: "0 4px 15px rgba(0,0,0,0.3)"
@@ -8168,20 +8287,20 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
             <div style={{position:"sticky",top:100,border:"1px solid #E8E4DC",background:"linear-gradient(180deg,#fff 0%,#FFFCF7 100%)",padding:18,boxShadow:"0 18px 42px rgba(0,0,0,.045)"}}>
             <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:12,marginBottom:18}}>
               <div>
-                <p style={{fontSize:9,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginBottom:6}}>{isRTL ? "تسوق حسب" : "Shop By"}</p>
-                <p className="disp" style={{fontSize:22,lineHeight:1,color:"#251737",fontWeight:300}}>{isRTL ? "المجموعات" : "Collections"}</p>
+                <p style={{fontSize: isRTL ? 11 : 9,letterSpacing: isRTL ? 0 : 3,color:"#B8922A",textTransform:"uppercase",fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",fontWeight:600,marginBottom:6}}>{isRTL ? "تسوق حسب" : "Shop By"}</p>
+                <p className="disp" style={{fontSize: isRTL ? 24 : 22,lineHeight:1,color:"#251737",fontWeight: isRTL ? 600 : 300,fontFamily: isRTL ? "'Cairo', sans-serif" : "inherit"}}>{isRTL ? "المجموعات" : "Collections"}</p>
               </div>
               <span style={{width:34,height:34,border:"1px solid #E5D6B5",borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",color:"#B8922A",fontSize:15}}>+</span>
             </div>
             {CATEGORIES.map(c=>(
               <button key={c} onClick={()=>setActiveCat(c)}
-                style={{width:"100%",display:"flex",alignItems:"center",justifyContent:"space-between",gap:10,textAlign: isRTL ? "right" : "left",background:activeCat===c?"#251737":"rgba(255,255,255,.72)",color:activeCat===c?"#fff":"#444",border:"1px solid",borderColor:activeCat===c?"#251737":"#EEE",padding:"12px 12px",marginBottom:8,fontSize:10,letterSpacing:1.35,cursor:"pointer",fontWeight:activeCat===c?600:600,transition:"all .18s",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",boxShadow:activeCat===c?"0 10px 24px rgba(60,17,82,.22)":"none"}}
+                style={{width:"100%",display:"flex",alignItems:"center",justifyContent:"space-between",gap:10,textAlign: isRTL ? "right" : "left",background:activeCat===c?"#251737":"rgba(255,255,255,.72)",color:activeCat===c?"#fff":"#444",border:"1px solid",borderColor:activeCat===c?"#251737":"#EEE",padding:"12px 12px",marginBottom:8,fontSize: isRTL ? 13.5 : 10,letterSpacing: isRTL ? 0 : 1.35,cursor:"pointer",fontWeight:activeCat===c?700:600,transition:"all .18s",textTransform:"uppercase",fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",boxShadow:activeCat===c?"0 10px 24px rgba(60,17,82,.22)":"none"}}
               >
                 <span style={{display:"flex",alignItems:"center",gap:8}}>
                   <span style={{width:6,height:6,borderRadius:"50%",background:activeCat===c?"#B8922A":"#D7C59E",display:"inline-block",flexShrink:0}}/>
                   {isRTL ? ({"Khadlaj":"كل خدلج","Best Sellers":"الأكثر مبيعاً","New":"وصل حديثاً","Deals":"العروض","For Him":"للرجال","For Her":"للنساء","Unisex":"للجنسين","Perfume Oils":"زيوت عطرية","EAU DE PARFUM":"ماء عطر","Master Perfumery":"روائع العطور"}[c] || c) : c}
                 </span>
-                <span style={{fontSize:9,letterSpacing:0,color:activeCat===c?"rgba(255,255,255,.65)":"#B8922A"}}>{PRODUCTS.filter(p=>{
+                <span style={{fontSize: isRTL ? 11 : 9,letterSpacing:0,color:activeCat===c?"rgba(255,255,255,.65)":"#B8922A"}}>{PRODUCTS.filter(p=>{
                   if(p.size === "Gift Set") return false;
                   const isKhadlajProduct = p.col !== "Lafede";
                   if(c==="Khadlaj") return isKhadlajProduct;
@@ -8485,14 +8604,14 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
 
           {/* ── Rich Product Story Section (Under Image) ── */}
           <div className="product-layout-story">
-              <h2 style={{fontSize:28, fontFamily: isRTL ? "'Cairo', serif" : "'Cinzel', serif", fontWeight:400, color:"#111", marginBottom:24, letterSpacing: isRTL ? 0.5 : 1}}>{isRTL ? `قصة عطر ${getProductName(product, isRTL)}` : `The Story of ${product.name}`}</h2>
+              <h2 style={{fontSize: isRTL ? 30 : 28, fontFamily: isRTL ? "'Cairo', serif" : "'Cinzel', serif", fontWeight: isRTL ? 600 : 400, color:"#111", marginBottom:24, letterSpacing: isRTL ? 0 : 1}}>{isRTL ? `قصة عطر ${getProductName(product, isRTL)}` : `The Story of ${product.name}`}</h2>
               {Array.isArray(product.desc) ? (
                 product.desc.map((para, i) => (
-                  <p key={i} style={{marginBottom:24, fontSize:15, lineHeight:1.8, color:"#444", fontWeight:300, fontFamily:"'Montserrat',sans-serif", display: (!storyExpanded && i > 0) ? 'none' : 'block'}} dangerouslySetInnerHTML={{__html: para}} />
+                  <p key={i} style={{marginBottom:24, fontSize: isRTL ? 16.5 : 15, lineHeight: isRTL ? 1.9 : 1.8, color:"#444", fontWeight:300, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", display: (!storyExpanded && i > 0) ? 'none' : 'block'}} dangerouslySetInnerHTML={{__html: para}} />
                 ))
               ) : (
                 <>
-                  <p style={{marginBottom:24, fontSize:15, lineHeight:1.8, color:"#444", fontWeight:300, fontFamily:"'Montserrat',sans-serif", WebkitLineClamp: storyExpanded ? 'unset' : 4, WebkitBoxOrient: 'vertical', display: '-webkit-box', overflow: 'hidden'}}>
+                  <p style={{marginBottom:24, fontSize: isRTL ? 16.5 : 15, lineHeight: isRTL ? 1.9 : 1.8, color:"#444", fontWeight:300, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", WebkitLineClamp: storyExpanded ? 'unset' : 4, WebkitBoxOrient: 'vertical', display: '-webkit-box', overflow: 'hidden'}}>
                     {product.desc || `Experience the timeless elegance of ${product.name}. Crafted with precision and the finest ingredients, this fragrance is a true testament to the art of Arabian perfumery.`}
                   </p>
                 </>
@@ -8501,38 +8620,38 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
               <button 
                 onClick={() => setStoryExpanded(!storyExpanded)}
                 style={{
-                  background: 'none', border: 'none', color: '#111', fontSize: 13, fontWeight: 600, 
-                  textTransform: 'uppercase', letterSpacing: 1, padding: 0, borderBottom: '1px solid #111', 
-                  cursor: 'pointer', marginBottom: 24, transition: 'opacity 0.2s'
+                  background: 'none', border: 'none', color: '#111', fontSize: isRTL ? 14 : 13, fontWeight: 600, 
+                  textTransform: 'uppercase', letterSpacing: isRTL ? 0 : 1, padding: 0, borderBottom: '1px solid #111', 
+                  cursor: 'pointer', marginBottom: 24, transition: 'opacity 0.2s', fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif"
                 }}
                 onMouseEnter={e=>e.currentTarget.style.opacity=0.7}
                 onMouseLeave={e=>e.currentTarget.style.opacity=1}
               >
-                {storyExpanded ? 'Read Less' : 'Read More'}
+                {storyExpanded ? (isRTL ? 'قراءة أقل' : 'Read Less') : (isRTL ? 'قراءة المزيد' : 'Read More')}
               </button>
 
               {/* Fragrance Profile Visual Grid */}
-              <h3 style={{fontSize:18, fontFamily:"'Montserrat',sans-serif", fontWeight:500, color:"#111", marginTop:48, marginBottom:24, textTransform:"uppercase", letterSpacing:2}}>Olfactory Profile</h3>
+              <h3 style={{fontSize: isRTL ? 19 : 18, fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif", fontWeight:600, color:"#111", marginTop:48, marginBottom:24, textTransform:"uppercase", letterSpacing: isRTL ? 0 : 2}}>{isRTL ? "الهرم العطري" : "Olfactory Profile"}</h3>
               
               <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(140px, 1fr))", gap:16}}>
                 {/* Top Notes */}
                 <div style={{background:"#FAFAFA", padding:24, borderRadius:8, textAlign:"center", border:"1px solid #eee"}}>
-                  <div style={{fontSize:10, textTransform:"uppercase", letterSpacing:2, color:"#B8922A", marginBottom:8, fontWeight:600}}>Top Notes</div>
-                  <div style={{fontSize:14, color:"#111", fontFamily:"'Montserrat',sans-serif", fontWeight:400}}>
+                  <div style={{fontSize: isRTL ? 12 : 10, textTransform:"uppercase", letterSpacing: isRTL ? 0 : 2, color:"#B8922A", marginBottom:8, fontWeight:700, fontFamily: isRTL ? "'Cairo', sans-serif" : "inherit"}}>{isRTL ? "قمة العطر" : "Top Notes"}</div>
+                  <div style={{fontSize: isRTL ? 15 : 14, color:"#111", fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", fontWeight:400}}>
                     {product.notes && product.notes.length >= 1 ? product.notes[0] : "Bergamot, Citrus"}
                   </div>
                 </div>
                 {/* Heart Notes */}
                 <div style={{background:"#FAFAFA", padding:24, borderRadius:8, textAlign:"center", border:"1px solid #eee"}}>
-                  <div style={{fontSize:10, textTransform:"uppercase", letterSpacing:2, color:"#B8922A", marginBottom:8, fontWeight:600}}>Heart Notes</div>
-                  <div style={{fontSize:14, color:"#111", fontFamily:"'Montserrat',sans-serif", fontWeight:400}}>
+                  <div style={{fontSize: isRTL ? 12 : 10, textTransform:"uppercase", letterSpacing: isRTL ? 0 : 2, color:"#B8922A", marginBottom:8, fontWeight:700, fontFamily: isRTL ? "'Cairo', sans-serif" : "inherit"}}>{isRTL ? "قلب العطر" : "Heart Notes"}</div>
+                  <div style={{fontSize: isRTL ? 15 : 14, color:"#111", fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", fontWeight:400}}>
                     {product.notes && product.notes.length >= 2 ? product.notes[1] : "Floral, Jasmine"}
                   </div>
                 </div>
                 {/* Base Notes */}
                 <div style={{background:"#FAFAFA", padding:24, borderRadius:8, textAlign:"center", border:"1px solid #eee"}}>
-                  <div style={{fontSize:10, textTransform:"uppercase", letterSpacing:2, color:"#B8922A", marginBottom:8, fontWeight:600}}>Base Notes</div>
-                  <div style={{fontSize:14, color:"#111", fontFamily:"'Montserrat',sans-serif", fontWeight:400}}>
+                  <div style={{fontSize: isRTL ? 12 : 10, textTransform:"uppercase", letterSpacing: isRTL ? 0 : 2, color:"#B8922A", marginBottom:8, fontWeight:700, fontFamily: isRTL ? "'Cairo', sans-serif" : "inherit"}}>{isRTL ? "قاعدة العطر" : "Base Notes"}</div>
+                  <div style={{fontSize: isRTL ? 15 : 14, color:"#111", fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", fontWeight:400}}>
                     {product.notes && product.notes.length >= 3 ? product.notes[2] : "Musk, Amber, Wood"}
                   </div>
                 </div>
@@ -8542,32 +8661,32 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
           {/* ── Right: Minimalist Product Details (Sticky) ── */}
           <div className="product-layout-details">
              {/* EYEBROW */}
-             <p style={{fontWeight:600,fontSize:10, letterSpacing:3, color:"#888", textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", marginBottom:12}}>Khadlaj Perfumes</p>
+             <p style={{fontWeight:600,fontSize: isRTL ? 12 : 10, letterSpacing: isRTL ? 0 : 3, color:"#888", textTransform:"uppercase", fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif", marginBottom:12}}>Khadlaj Perfumes</p>
              
              {/* TITLE */}
-             <h1 className="disp" style={{fontSize:"clamp(32px, 4vw, 48px)", fontWeight:400, color:"#111", lineHeight:1.1, letterSpacing: isRTL ? "0px" : "-0.5px", textTransform:"uppercase", marginBottom:16, fontFamily: isRTL ? "'Cairo', serif" : "'Cinzel', serif"}}>
+             <h1 className="disp" style={{fontSize: isRTL ? "clamp(34px, 4.5vw, 52px)" : "clamp(32px, 4vw, 48px)", fontWeight: isRTL ? 600 : 400, color:"#111", lineHeight:1.2, letterSpacing: isRTL ? "0px" : "-0.5px", textTransform:"uppercase", marginBottom:16, fontFamily: isRTL ? "'Cairo', serif" : "'Cinzel', serif"}}>
                {getProductName(product, isRTL)}
              </h1>
 
              {/* REVIEWS */}
              <div style={{display:"flex", alignItems:"center", gap:8, marginBottom:24}}>
                <StarRating n={5} color="#111" />
-               <span style={{fontSize:12, color:"#555", fontFamily:"'Montserrat',sans-serif", borderBottom:"1px solid #ddd", cursor:"pointer", paddingBottom:2}}>4.9 rating (55 reviews)</span>
+               <span style={{fontSize: isRTL ? 13 : 12, color:"#555", fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", borderBottom:"1px solid #ddd", cursor:"pointer", paddingBottom:2}}>4.9 rating (55 reviews)</span>
              </div>
 
              {/* PRICE & STOCK */}
              <div style={{display:"flex", alignItems:"baseline", justifyContent:"space-between", marginBottom:8}}>
                <p style={{fontSize:22, fontWeight:300, color:"#111", fontFamily:"'Montserrat',sans-serif", margin:0}}>{formatPrice(product.price)}</p>
-               <span style={{fontSize:12, color:"#2E7D32", fontFamily:"'Montserrat',sans-serif", fontWeight:500}}>{isRTL ? "متوفر في المخزون" : "In Stock"}</span>
+               <span style={{fontSize: isRTL ? 14 : 12, color:"#2E7D32", fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif", fontWeight:600}}>{isRTL ? "متوفر في المخزون" : "In Stock"}</span>
              </div>
-             <p style={{fontSize:11, color:"#888", fontFamily:"'Montserrat',sans-serif", marginBottom:24}}>{isRTL ? "شامل الضريبة. يتم احتساب الشحن عند إتمام الطلب." : "Tax included. Shipping calculated at checkout."}</p>
+             <p style={{fontSize: isRTL ? 13 : 11, color:"#888", fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", marginBottom:24}}>{isRTL ? "شامل الضريبة. يتم احتساب الشحن عند إتمام الطلب." : "Tax included. Shipping calculated at checkout."}</p>
 
              {/* SHORT DESCRIPTION EXCERPT */}
-             <div style={{fontSize:15, lineHeight:1.8, color:"#444", fontWeight:300, fontFamily:"'Montserrat',sans-serif", marginBottom:32}}>
+             <div style={{fontSize: isRTL ? 16.5 : 15, lineHeight:1.8, color:"#444", fontWeight:300, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", marginBottom:32}}>
                {Array.isArray(product.desc) 
                   ? <span dangerouslySetInnerHTML={{__html: product.desc[0]}} /> 
                   : (product.desc ? product.desc.substring(0, 150) + "..." : "Experience the timeless elegance of " + product.name + ".")}
-               <span onClick={()=>window.scrollTo({top: document.body.scrollHeight/2, behavior:'smooth'})} style={{color:"#111", borderBottom:"1px solid #111", cursor:"pointer", marginLeft:8, fontWeight:400}}>Read more</span>
+               <span onClick={()=>window.scrollTo({top: document.body.scrollHeight/2, behavior:'smooth'})} style={{color:"#111", borderBottom:"1px solid #111", cursor:"pointer", marginLeft:8, fontWeight:400}}>{isRTL ? "قراءة المزيد" : "Read more"}</span>
              </div>
 
              {/* ACTIONS (Qty + Add to Cart + Wishlist) */}
@@ -8584,14 +8703,14 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                  onClick={handleAdd} 
                  style={{
                    flex:1, minWidth:200, height:48, background:"#111", color:"#fff", border:"none", borderRadius:4,
-                   fontSize:12, fontWeight:600, letterSpacing:1.5, textTransform:"uppercase", 
-                   fontFamily:"'Montserrat',sans-serif", cursor:"pointer", transition:"all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                   fontSize: isRTL ? 14 : 12, fontWeight:700, letterSpacing: isRTL ? 0 : 1.5, textTransform:"uppercase", 
+                   fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif", cursor:"pointer", transition:"all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                    boxShadow: "0 4px 14px rgba(0,0,0,0.15)"
                  }} 
                  onMouseEnter={e=>{e.currentTarget.style.background="#333"; e.currentTarget.style.transform="translateY(-2px)"; e.currentTarget.style.boxShadow="0 6px 20px rgba(0,0,0,0.2)";}} 
                  onMouseLeave={e=>{e.currentTarget.style.background="#111"; e.currentTarget.style.transform="none"; e.currentTarget.style.boxShadow="0 4px 14px rgba(0,0,0,0.15)";}}
                >
-                 {added ? "Added to Bag" : t("addToCart", "Add to Bag")}
+                 {added ? (isRTL ? "تمت الإضافة إلى الحقيبة" : "Added to Bag") : t("addToCart", "Add to Bag")}
                </button>
 
                {/* Premium Buy Now Button */}
@@ -8599,8 +8718,8 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                  onClick={() => { handleAdd(); setPage("cart"); }} 
                  style={{
                    flex:1, minWidth:200, height:48, background:"linear-gradient(135deg, #B8922A 0%, #E6C875 50%, #B8922A 100%)", color:"#fff", border:"none", borderRadius:4,
-                   fontSize:12, fontWeight:700, letterSpacing:1.5, textTransform:"uppercase", backgroundSize:"200% auto",
-                   fontFamily:"'Montserrat',sans-serif", cursor:"pointer", transition:"all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+                   fontSize: isRTL ? 14 : 12, fontWeight:700, letterSpacing: isRTL ? 0 : 1.5, textTransform:"uppercase", backgroundSize:"200% auto",
+                   fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif", cursor:"pointer", transition:"all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
                    boxShadow: "0 4px 15px rgba(184,146,42,0.3)"
                  }} 
                  onMouseEnter={e=>{e.currentTarget.style.backgroundPosition="right center"; e.currentTarget.style.transform="translateY(-2px)"; e.currentTarget.style.boxShadow="0 8px 25px rgba(184,146,42,0.5)";}} 
@@ -9751,9 +9870,9 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
           <div className="hide-mob" style={{width:160, flexShrink:0}} />
 
           {/* Center: shipping text */}
-          <p style={{
-            fontSize:"10px", letterSpacing:"2.5px",
-            fontFamily:"'Montserrat',sans-serif",
+          <p className="announcement-text" style={{
+            fontSize: isRTL ? "13.5px" : "10px", letterSpacing: isRTL ? "0" : "2.5px",
+            fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",
             textTransform:"uppercase", fontWeight:600,
             textAlign:"center", flex:1,
             color:"#fff", whiteSpace:"nowrap",
@@ -9843,10 +9962,10 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                     border: "none",
                     borderRadius: 18,
                     padding: isTransparent ? "6px 16px" : "5px 14px",
-                    fontSize: 12.5,
+                    fontSize: 13.5,
                     fontWeight: 700,
                     cursor: "pointer",
-                    fontFamily: "'Tajawal', 'Cairo', sans-serif",
+                    fontFamily: "'Cairo', sans-serif",
                     transition: "all 0.25s ease",
                     boxShadow: lang === "ar" ? "0 2px 8px rgba(184,146,42,0.5)" : "none"
                   }}
@@ -9868,8 +9987,8 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                         background: isTransparent ? "rgba(255,255,255,0.12)" : "#FAF9F6",
                         backdropFilter: isTransparent ? "blur(8px)" : "none",
                         cursor:"pointer",
-                        fontFamily:"'Montserrat',sans-serif",
-                        fontSize:13,
+                        fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",
+                        fontSize: isRTL ? 14 : 13,
                         fontWeight:600,
                         color: isTransparent ? "#fff" : "#251737",
                         transition: "all 0.35s ease",
@@ -9895,8 +10014,9 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                                 borderRadius:3,
                                 background: isActive ? "#F4F1EA" : "transparent",
                                 cursor:"pointer",
-                                fontFamily:"'Montserrat',sans-serif",
-                                fontSize:11,fontWeight: isActive ? 600 : 500,
+                                fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",
+                                fontSize: isRTL ? 13 : 11,
+                                fontWeight: isActive ? 700 : 500,
                                 color: isActive ? "#251737" : "#555",
                                 textAlign: isRTL ? "right" : "left",
                                 width: "100%",
@@ -10000,11 +10120,11 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
             justifyContent:"center",
             gap: "clamp(16px, 2.2vw, 32px)",
             paddingBottom: isTransparent ? 16 : 10,
-            fontSize:"12px",
-            letterSpacing:"1.5px",
+            fontSize: isRTL ? "14.5px" : "12px",
+            letterSpacing: isRTL ? "0" : "1.5px",
             textTransform:"uppercase",
             color: isTransparent ? "#fff" : "#251737",
-            fontFamily:"'Montserrat',sans-serif",
+            fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",
             fontWeight:600,
             transition:"color 0.35s ease, padding-bottom 0.35s ease"
           }}>
@@ -10158,12 +10278,12 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                 }}
                 style={{
                   padding:"14px 6%",
-                  fontSize:11,letterSpacing:2.5,
+                  fontSize: isRTL ? 15.5 : 11,letterSpacing: isRTL ? 0 : 2.5,
                   textTransform:"uppercase",
                   color: isActive ? "#B8922A" : "#251737",
-                  fontWeight: isActive ? 700 : 500,
+                  fontWeight: isActive ? 700 : (isRTL ? 600 : 500),
                   cursor:"pointer",
-                  fontFamily:"'Montserrat',sans-serif",
+                  fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",
                   borderBottom:"1px solid #F0EBE3",
                   display:"flex",alignItems:"center",justifyContent:"space-between",
                 }}
