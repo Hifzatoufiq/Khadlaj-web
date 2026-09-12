@@ -7663,7 +7663,7 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة شياكة",
     subtitle: "25th Anniversary Edition",
     subtitleAr: "إصدار اليوبيل الفضي",
-    banner: "/assets/images/banners/khadlaj25.png",
+    banner: "/assets/images/banners/banner-island-sun.png",
     filter: (p) => p.name.toLowerCase().includes("shiyaaka") || p.name.toLowerCase().includes("shiya")
   },
   fursan: {
@@ -7672,7 +7672,7 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة فرسان",
     subtitle: "Royal Heritage & Nobility",
     subtitleAr: "أصالة وأناقة ملكية",
-    banner: "/assets/images/banners/banner-muse.png",
+    banner: "/assets/images/banners/banner-island-sun.png",
     filter: (p) => p.name.toLowerCase().includes("fursan")
   },
   limaginaire: {
@@ -7681,7 +7681,7 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة ليماجينير وروائع العطور",
     subtitle: "Haute Parfumerie Artisan Creation",
     subtitleAr: "إبداع حرفي فاخر في صناعة العطور",
-    banner: "/assets/images/banners/banner-muse.png",
+    banner: "/assets/images/banners/banner-island-sun.png",
     filter: (p) => p.name.toLowerCase().includes("imaginaire") || (p.col && p.col.toLowerCase() === "master perfumery") || p.id === 7734819553479
   },
   nuha: {
@@ -7690,7 +7690,7 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة نهى",
     subtitle: "Sweet Sophistication & Charm",
     subtitleAr: "سحر النعومة والأنوثة الفاتنة",
-    banner: "/assets/images/banners/spring-banner.png",
+    banner: "/assets/images/banners/banner-island-sun.png",
     filter: (p) => p.name.toLowerCase().includes("nuha")
   },
   velvet: {
@@ -7699,7 +7699,7 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة فيلفيت",
     subtitle: "Sensual Luxury & Indulgence",
     subtitleAr: "فخامة مخملية مفعمة بالجاذبية",
-    banner: "/assets/images/banners/my-paradise-banner.png",
+    banner: "/assets/images/banners/banner-island-sun.png",
     filter: (p) => p.name.toLowerCase().includes("velvet")
   },
   mocha: {
@@ -7708,7 +7708,7 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة موكا والجورماند الفاخرة",
     subtitle: "Warm, Delicious & Irresistible Notes",
     subtitleAr: "نفحات دافئة وشهية لا تُقاوم",
-    banner: "/assets/images/banners/spring-banner.png",
+    banner: "/assets/images/banners/banner-island-sun.png",
     filter: (p) => p.name.toLowerCase().includes("mocha") || p.name.toLowerCase().includes("latte") || p.name.toLowerCase().includes("biscotti") || p.name.toLowerCase().includes("gourmand")
   },
   hareem: {
@@ -7717,7 +7717,7 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة حريم السلطان",
     subtitle: "The Legendary Iconic Masterpiece",
     subtitleAr: "التحفة العطرية الأيقونية الأسطورية",
-    banner: "/assets/images/banners/khadlaj-muse-banner.png",
+    banner: "/assets/images/banners/banner-island-sun.png",
     filter: (p) => p.name.toLowerCase().includes("hareem") || p.name.toLowerCase().includes("sultan")
   },
   empire: {
@@ -7735,7 +7735,7 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة أيكون وبرستيج",
     subtitle: "Pure Prestige & Modern Elegance",
     subtitleAr: "فخامة معاصرة وبريق استثنائي",
-    banner: "/assets/images/banners/banner-muse-new.png",
+    banner: "/assets/images/banners/banner-island-sun.png",
     filter: (p) => p.name.toLowerCase().includes("icon") || p.name.toLowerCase().includes("onyx")
   },
   karus: {
@@ -7744,7 +7744,7 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة كاروس",
     subtitle: "Golden Opulence & Amber Mystique",
     subtitleAr: "فخامة ذهبية وسحر العنبر الأصيل",
-    banner: "/assets/images/banners/banner-muse.png",
+    banner: "/assets/images/banners/banner-island-sun.png",
     filter: (p) => p.name.toLowerCase().includes("karus")
   },
   biscotti: {
@@ -7753,7 +7753,7 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة بيسكوتي",
     subtitle: "Sweet Temptation & Delight",
     subtitleAr: "عذوبة آسرة ونفحات ساحرة",
-    banner: "/assets/images/banners/spring-banner.png",
+    banner: "/assets/images/banners/banner-island-sun.png",
     filter: (p) => p.name.toLowerCase().includes("biscotti")
   },
   valor: {
@@ -7762,7 +7762,7 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة فالور",
     subtitle: "Nobility, Chivalry & Strength",
     subtitleAr: "رمز النبل والشجاعة والفروسية",
-    banner: "/assets/images/banners/banner-muse.png",
+    banner: "/assets/images/banners/banner-island-sun.png",
     filter: (p) => p.name.toLowerCase().includes("valor")
   },
   deals: {
@@ -7771,7 +7771,7 @@ const COLLECTION_CONFIGS = {
     titleAr: "العروض الخاصة والخصومات",
     subtitle: "Limited Time Luxury Exclusives",
     subtitleAr: "عروض حصرية لفترة محدودة",
-    banner: "/assets/images/banners/deals-50-banner.png",
+    banner: "/assets/images/banners/banner-island-sun.png",
     filter: (p) => (p.notes || []).some(n => n.toLowerCase().includes("deal")) || p.badge === "Limited" || p.price <= 75
   },
   bestsellers: {
@@ -7780,7 +7780,7 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة الأكثر مبيعاً",
     subtitle: "Khadlaj Most Cherished Fragrances",
     subtitleAr: "العطور الأكثر شهرة وطلباً في خدلج",
-    banner: "/assets/images/banners/banner-muse.png",
+    banner: "/assets/images/banners/banner-island-sun.png",
     filter: (p) => p.badge === "Best Seller"
   }
 };
@@ -8087,46 +8087,25 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
   return (
     <div style={{background:"#fff"}}>
 
-      {/* ── Hero Banner ── */}
-      <div style={{position:"relative",height:"clamp(300px,38vw,500px)",overflow:"hidden",background:"#251737"}}>
-        {/* Background collage of product images */}
-        <div style={{position:"absolute",inset:0,display:"grid",gridTemplateColumns:"repeat(5,1fr)",gap:2,opacity:.5}}>
-          {[
-            "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/saraya_3.png?v=1781332291",
-            "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Ihthiraam-3.jpg?v=1775636549",
-            "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/IntoxicateMystique.3.png?v=1772518819",
-            "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ONYX-03.jpg?v=1762324228",
-            "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/shiyaaka-snow.png?v=1781615422",
-          ].map((src,i)=>(
-            <div key={i} style={{overflow:"hidden",height:"100%",background:"#fff",display:"flex",alignItems:"center",justifyContent:"center"}}>
-              <img decoding="async" src={getOptimizedImage(src,800)} alt="" style={{width:"86%",height:"86%",objectFit:"contain",objectPosition:"center"}}/>
-            </div>
-          ))}
-        </div>
-        {/* Gradient overlay */}
-        <div style={{position:"absolute",inset:0,background:"linear-gradient(to right,rgba(0,0,0,.85) 0%,rgba(0,0,0,.65) 50%,rgba(0,0,0,.80) 100%)"}}/>
-
-        {/* Text content */}
-        <div style={{
-          position:"absolute",inset:0,
-          display:"flex",flexDirection:"column",
-          alignItems:"center",justifyContent:"center",
-          padding:"0 5%",textAlign:"center",
-        }}>
-          <h1 className="disp" style={{
-            fontSize:"clamp(42px,6vw,88px)",fontWeight:400,
-            color:"#fff",lineHeight:.95,letterSpacing:-2,marginBottom:20,
-          }}>
-            {isRTL ? "مجموعات العطور الفاخرة" : "FRAGRANCE COLLECTIONS"}
-          </h1>
-          <p style={{
-            color:"rgba(255,255,255,.6)",fontSize:14,
-            fontFamily:"'Montserrat',sans-serif",letterSpacing:.5,
-            marginBottom:32,
-          }}>
-            {isRTL ? `${PRODUCTS.length} ابتكاراً فريداً — من الفخامة اليومية إلى أرقى الخلاصات النادرة` : `${PRODUCTS.length} unique creations — from everyday luxury to rare extrait`}
-          </p>
-        </div>
+      {/* ── Hero Banner with Golden Sunset Image - Full Aspect Ratio Without Cropping ── */}
+      <div style={{
+        position:"relative",
+        width:"100%",
+        overflow:"hidden",
+        background:"#FAF8F4",
+        lineHeight:0
+      }}>
+        <img 
+          src="/assets/images/banners/banner-island-sun.png"
+          alt="Fragrance Collections"
+          style={{
+            width:"100%",
+            height:"auto",
+            aspectRatio:"1024/384",
+            display:"block",
+            objectFit:"contain"
+          }}
+        />
       </div>
 
       {/* ── Filters bar ── */}
