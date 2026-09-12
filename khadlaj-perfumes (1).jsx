@@ -6404,7 +6404,7 @@ function TrustBanner() {
 /* ═══════════════════════════════════════════════════════════════
    NEW LAUNCHES FULL-WIDTH BANNER SLIDER (FRESH ULTRA-HD)
 ═══════════════════════════════════════════════════════════════ */
-function NewLaunchesHeroBannerSlider({ setPage, setViewProduct }) {
+function NewLaunchesHeroBannerSlider({ setPage, setViewProduct, setSelectedCollection }) {
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -6437,8 +6437,14 @@ function NewLaunchesHeroBannerSlider({ setPage, setViewProduct }) {
   }, [isPaused, banners.length]);
 
   const handleBannerClick = (banner) => {
-    if ((banner.id === "shiyaakiya-deals" || banner.id === "island-sun") && setPage) {
-      setPage("collections");
+    if (banner.id === "shiyaakiya-deals" && setPage) {
+      if (setSelectedCollection) setSelectedCollection("shiyaaka");
+      setPage("collection-view");
+      return;
+    }
+    if (banner.id === "island-sun" && setPage) {
+      if (setSelectedCollection) setSelectedCollection("island");
+      setPage("collection-view");
       return;
     }
     const prod = PRODUCTS.find(p => p.name === banner.productName || p.id === banner.productId);
@@ -6979,7 +6985,7 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
 /* ═══════════════════════════════════════════════════════════════
    PAGE: HOME
 ═══════════════════════════════════════════════════════════════ */
-function HomePage({ setPage, addToCart, setViewProduct }){
+function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection }){
   const { lang, isRTL, t } = React.useContext(LanguageContext);
   const [activeCat, setActiveCat] = useState("Best Sellers");
   const [isMuted, setIsMuted] = useState(true);
@@ -7095,8 +7101,20 @@ function HomePage({ setPage, addToCart, setViewProduct }){
         <div className="hero-scent-ribbon">
           <div className="ribbon-inner" style={{display:"flex", alignItems:"center"}}>
             {[...SCENT_RIBBON,...SCENT_RIBBON,...SCENT_RIBBON].map((n,i)=>(
-              <div key={i} style={{display:"flex", alignItems:"center"}}>
-                <span style={{fontSize:12,fontWeight:400,letterSpacing:8,color:"#E8E4DC",textTransform:"uppercase",whiteSpace:"nowrap",fontFamily:"'Montserrat',sans-serif"}}>{n}</span>
+              <div 
+                key={i} 
+                style={{display:"flex", alignItems:"center", cursor:"pointer"}}
+                onClick={() => {
+                  if (setSelectedCollection) setSelectedCollection(n.toLowerCase());
+                  setPage("collection-view");
+                }}
+                title={`Explore ${n} Collection`}
+              >
+                <span 
+                  style={{fontSize:12,fontWeight:400,letterSpacing:8,color:"#E8E4DC",textTransform:"uppercase",whiteSpace:"nowrap",fontFamily:"'Montserrat',sans-serif",transition:"color 0.25s ease"}}
+                  onMouseEnter={e => e.currentTarget.style.color = "#C1A46A"}
+                  onMouseLeave={e => e.currentTarget.style.color = "#E8E4DC"}
+                >{n}</span>
                 <span style={{margin:"0 64px",color:"#C1A46A",fontSize:10}}>✦</span>
               </div>
             ))}
@@ -7146,7 +7164,10 @@ function HomePage({ setPage, addToCart, setViewProduct }){
                     <h3 className="k25-card-title">{isRTL && item.nameAr ? item.nameAr : item.name}</h3>
                     <p className="k25-card-subtitle">{isRTL && item.subtitleAr ? item.subtitleAr : item.subtitle}</p>
                     <p className="k25-card-desc">{isRTL && item.descAr ? item.descAr : item.desc}</p>
-                    <button className="k25-card-btn">{t("discover", "Discover")}</button>
+                    <button className="k25-card-btn" onClick={() => {
+                      if (setSelectedCollection) setSelectedCollection("shiyaaka");
+                      setPage("collection-view");
+                    }}>{t("discover", "Discover")}</button>
                   </div>
                 </div>
               ))}
@@ -7158,7 +7179,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
 
       {/* ── FRESH ULTRA-HD BANNER SLIDER ── */}
-      <NewLaunchesHeroBannerSlider setPage={setPage} setViewProduct={setViewProduct} />
+      <NewLaunchesHeroBannerSlider setPage={setPage} setViewProduct={setViewProduct} setSelectedCollection={setSelectedCollection} />
 
       {/* ── 9 LUXURY SHOWCASE CARDS CAROUSEL ── */}
       <NewLaunchesShowcaseCards setPage={setPage} setViewProduct={setViewProduct} />
@@ -7203,21 +7224,18 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 
         <div className="discovery-grid">
           {[
-            {name: "Island", nameAr: "آيلاند", type: "Premium Blend", typeAr: "مزيج فاخر", img: "/assets/images/products/island-sun-card-gold.jpg"},
-            {name: "Shiyaaka Sky", nameAr: "شياكة سكاي", type: "Special Edition", typeAr: "إصدار خاص", img: "/assets/images/products/shiyaaka_custom_5_cropped.png"},
-            {name: "Fursan", nameAr: "فرسان", type: "Royal Elegance", typeAr: "أناقة ملكية", img: "/assets/images/products/fursan.png"},
-            {name: "L'imaginaire", nameAr: "ليماجينير", type: "Artisan Creation", typeAr: "إبداع حرفي فاخر", img: "/assets/images/products/limaginaire.jpg"},
-            {name: "Nuha Cherry Blush", nameAr: "نهى تشيري بلش", type: "Eau De Parfum", typeAr: "أو دي بارفان", img: "/assets/images/products/nuha-cherry.jpg"},
-            {name: "Cream Velvet", nameAr: "كريم فيلفيت", type: "Signature Collection", typeAr: "المجموعة المميزة", img: "/assets/images/products/cream-velvet-bottle.png"},
-            {name: "Mocha Latte", nameAr: "موكا لاتيه", type: "Gourmand Essence", typeAr: "نفحات جورماند", img: "/assets/images/products/mocha-latte.png"},
-            {name: "Hareem Al Sultan", nameAr: "حريم السلطان", type: "Masterpiece", typeAr: "تحفة عطرية", img: "/assets/images/products/hareem-al-sultan.png"}
+            {name: "Island", colKey: "island", nameAr: "آيلاند", type: "Premium Blend", typeAr: "مزيج فاخر", img: "/assets/images/products/island-sun-card-gold.jpg"},
+            {name: "Shiyaaka Sky", colKey: "shiyaaka", nameAr: "شياكة سكاي", type: "Special Edition", typeAr: "إصدار خاص", img: "/assets/images/products/shiyaaka_custom_5_cropped.png"},
+            {name: "Fursan", colKey: "fursan", nameAr: "فرسان", type: "Royal Elegance", typeAr: "أناقة ملكية", img: "/assets/images/products/fursan.png"},
+            {name: "L'imaginaire", colKey: "limaginaire", nameAr: "ليماجينير", type: "Artisan Creation", typeAr: "إبداع حرفي فاخر", img: "/assets/images/products/limaginaire.jpg"},
+            {name: "Nuha Cherry Blush", colKey: "nuha", nameAr: "نهى تشيري بلش", type: "Eau De Parfum", typeAr: "أو دي بارفان", img: "/assets/images/products/nuha-cherry.jpg"},
+            {name: "Cream Velvet", colKey: "velvet", nameAr: "كريم فيلفيت", type: "Signature Collection", typeAr: "المجموعة المميزة", img: "/assets/images/products/cream-velvet-bottle.png"},
+            {name: "Mocha Latte", colKey: "mocha", nameAr: "موكا لاتيه", type: "Gourmand Essence", typeAr: "نفحات جورماند", img: "/assets/images/products/mocha-latte.png"},
+            {name: "Hareem Al Sultan", colKey: "hareem", nameAr: "حريم السلطان", type: "Masterpiece", typeAr: "تحفة عطرية", img: "/assets/images/products/hareem-al-sultan.png"}
           ].map((item, i) => (
             <div key={item.name} className="discovery-card" onClick={() => {
-              if (item.name === "Island") {
-                setPage("island");
-              } else {
-                setPage("collections");
-              }
+              if (setSelectedCollection) setSelectedCollection(item.colKey);
+              setPage("collection-view");
             }}>
               <img decoding="async" src={getOptimizedImage(item.img,500)} alt={item.name} loading="lazy" />
               <div className="discovery-card-overlay">
@@ -7264,7 +7282,7 @@ function HomePage({ setPage, addToCart, setViewProduct }){
             ))}
           </div>
           
-          <div>
+          <div style={{display:"flex", gap:16, flexWrap:"wrap", alignItems:"center"}}>
             <button onClick={()=>{
                 const skyProduct = PRODUCTS.find(p=>p.name==="SHIYAAKA SKY" || p.id===9200000000003);
                 if(skyProduct) { setViewProduct(skyProduct); setPage("product"); }
@@ -7272,6 +7290,14 @@ function HomePage({ setPage, addToCart, setViewProduct }){
               onMouseEnter={(e)=>{e.target.style.background="#C8A97E"; e.target.style.color="#fff";}}
               onMouseLeave={(e)=>{e.target.style.background="transparent"; e.target.style.color="#C8A97E";}}>
               {t("shopNow", "Shop Now")}
+            </button>
+            <button onClick={()=>{
+                if(setSelectedCollection) setSelectedCollection("shiyaaka");
+                setPage("collection-view");
+              }} style={{padding:"18px 36px", borderRadius:0, fontSize:13, letterSpacing: isRTL ? 0 : 2, background:"rgba(200,169,126,0.12)", border:"1px solid rgba(200,169,126,0.5)", color:"#fff", textTransform:"uppercase", transition:"all 0.3s ease", cursor:"pointer", fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}
+              onMouseEnter={(e)=>{e.target.style.background="#C8A97E"; e.target.style.color="#fff";}}
+              onMouseLeave={(e)=>{e.target.style.background="rgba(200,169,126,0.12)"; e.target.style.color="#fff";}}>
+              {isRTL ? "استكشف مجموعة شياكة" : "Explore Shiyaaka Collection"}
             </button>
           </div>
         </div>
@@ -7619,21 +7645,229 @@ function HomePage({ setPage, addToCart, setViewProduct }){
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   PAGE: ISLAND COLLECTION (Dedicated)
+   CONFIG & PAGE: DEDICATED LUXURY COLLECTION PAGES (Dynamic)
 ═══════════════════════════════════════════════════════════════ */
-function IslandCollectionPage({ addToCart, setViewProduct, setPage }) {
+const COLLECTION_CONFIGS = {
+  island: {
+    id: "island",
+    title: "Island Collection",
+    titleAr: "مجموعة آيلاند",
+    subtitle: "Khadlaj Signature",
+    subtitleAr: "توقيع خدلج الفاخر",
+    banner: "/assets/images/banners/banner-island-sun.png",
+    filter: (p) => p.name.toLowerCase().includes("island") || (p.col && p.col.toLowerCase().includes("island"))
+  },
+  shiyaaka: {
+    id: "shiyaaka",
+    title: "Shiyaaka Collection",
+    titleAr: "مجموعة شياكة",
+    subtitle: "25th Anniversary Edition",
+    subtitleAr: "إصدار اليوبيل الفضي",
+    banner: "/assets/images/banners/khadlaj25.png",
+    filter: (p) => p.name.toLowerCase().includes("shiyaaka") || p.name.toLowerCase().includes("shiya")
+  },
+  fursan: {
+    id: "fursan",
+    title: "Fursan Collection",
+    titleAr: "مجموعة فرسان",
+    subtitle: "Royal Heritage & Nobility",
+    subtitleAr: "أصالة وأناقة ملكية",
+    banner: "/assets/images/banners/banner-muse.png",
+    filter: (p) => p.name.toLowerCase().includes("fursan")
+  },
+  limaginaire: {
+    id: "limaginaire",
+    title: "L'Imaginaire & Master Perfumery",
+    titleAr: "مجموعة ليماجينير وروائع العطور",
+    subtitle: "Haute Parfumerie Artisan Creation",
+    subtitleAr: "إبداع حرفي فاخر في صناعة العطور",
+    banner: "/assets/images/banners/banner-muse.png",
+    filter: (p) => p.name.toLowerCase().includes("imaginaire") || (p.col && p.col.toLowerCase() === "master perfumery") || p.id === 7734819553479
+  },
+  nuha: {
+    id: "nuha",
+    title: "Nuha Collection",
+    titleAr: "مجموعة نهى",
+    subtitle: "Sweet Sophistication & Charm",
+    subtitleAr: "سحر النعومة والأنوثة الفاتنة",
+    banner: "/assets/images/banners/spring-banner.png",
+    filter: (p) => p.name.toLowerCase().includes("nuha")
+  },
+  velvet: {
+    id: "velvet",
+    title: "Velvet Collection",
+    titleAr: "مجموعة فيلفيت",
+    subtitle: "Sensual Luxury & Indulgence",
+    subtitleAr: "فخامة مخملية مفعمة بالجاذبية",
+    banner: "/assets/images/banners/my-paradise-banner.png",
+    filter: (p) => p.name.toLowerCase().includes("velvet")
+  },
+  mocha: {
+    id: "mocha",
+    title: "Mocha & Gourmand Collection",
+    titleAr: "مجموعة موكا والجورماند الفاخرة",
+    subtitle: "Warm, Delicious & Irresistible Notes",
+    subtitleAr: "نفحات دافئة وشهية لا تُقاوم",
+    banner: "/assets/images/banners/spring-banner.png",
+    filter: (p) => p.name.toLowerCase().includes("mocha") || p.name.toLowerCase().includes("latte") || p.name.toLowerCase().includes("biscotti") || p.name.toLowerCase().includes("gourmand")
+  },
+  hareem: {
+    id: "hareem",
+    title: "Hareem Al Sultan Collection",
+    titleAr: "مجموعة حريم السلطان",
+    subtitle: "The Legendary Iconic Masterpiece",
+    subtitleAr: "التحفة العطرية الأيقونية الأسطورية",
+    banner: "/assets/images/banners/khadlaj-muse-banner.png",
+    filter: (p) => p.name.toLowerCase().includes("hareem") || p.name.toLowerCase().includes("sultan")
+  },
+  empire: {
+    id: "empire",
+    title: "Empire Collection",
+    titleAr: "مجموعة إمباير",
+    subtitle: "Imperial Grandeur & Authority",
+    subtitleAr: "عظمة إمبراطورية وهيبة ملكية",
+    banner: "/assets/images/banners/banner-island-sun.png",
+    filter: (p) => p.name.toLowerCase().includes("empire")
+  },
+  icon: {
+    id: "icon",
+    title: "Icon & Prestige Collection",
+    titleAr: "مجموعة أيكون وبرستيج",
+    subtitle: "Pure Prestige & Modern Elegance",
+    subtitleAr: "فخامة معاصرة وبريق استثنائي",
+    banner: "/assets/images/banners/banner-muse-new.png",
+    filter: (p) => p.name.toLowerCase().includes("icon") || p.name.toLowerCase().includes("onyx")
+  },
+  karus: {
+    id: "karus",
+    title: "Karus Collection",
+    titleAr: "مجموعة كاروس",
+    subtitle: "Golden Opulence & Amber Mystique",
+    subtitleAr: "فخامة ذهبية وسحر العنبر الأصيل",
+    banner: "/assets/images/banners/banner-muse.png",
+    filter: (p) => p.name.toLowerCase().includes("karus")
+  },
+  biscotti: {
+    id: "biscotti",
+    title: "Biscotti Collection",
+    titleAr: "مجموعة بيسكوتي",
+    subtitle: "Sweet Temptation & Delight",
+    subtitleAr: "عذوبة آسرة ونفحات ساحرة",
+    banner: "/assets/images/banners/spring-banner.png",
+    filter: (p) => p.name.toLowerCase().includes("biscotti")
+  },
+  valor: {
+    id: "valor",
+    title: "Valor Collection",
+    titleAr: "مجموعة فالور",
+    subtitle: "Nobility, Chivalry & Strength",
+    subtitleAr: "رمز النبل والشجاعة والفروسية",
+    banner: "/assets/images/banners/banner-muse.png",
+    filter: (p) => p.name.toLowerCase().includes("valor")
+  },
+  deals: {
+    id: "deals",
+    title: "Special Deals & Offers",
+    titleAr: "العروض الخاصة والخصومات",
+    subtitle: "Limited Time Luxury Exclusives",
+    subtitleAr: "عروض حصرية لفترة محدودة",
+    banner: "/assets/images/banners/deals-50-banner.png",
+    filter: (p) => (p.notes || []).some(n => n.toLowerCase().includes("deal")) || p.badge === "Limited" || p.price <= 75
+  },
+  bestsellers: {
+    id: "bestsellers",
+    title: "Best Sellers Collection",
+    titleAr: "مجموعة الأكثر مبيعاً",
+    subtitle: "Khadlaj Most Cherished Fragrances",
+    subtitleAr: "العطور الأكثر شهرة وطلباً في خدلج",
+    banner: "/assets/images/banners/banner-muse.png",
+    filter: (p) => p.badge === "Best Seller"
+  }
+};
+
+const FEATURED_COLLECTIONS = [
+  { key: "island", name: "Island", nameAr: "آيلاند" },
+  { key: "shiyaaka", name: "Shiyaaka", nameAr: "شياكة" },
+  { key: "fursan", name: "Fursan", nameAr: "فرسان" },
+  { key: "limaginaire", name: "L'Imaginaire", nameAr: "ليماجينير" },
+  { key: "nuha", name: "Nuha", nameAr: "نهى" },
+  { key: "velvet", name: "Velvet", nameAr: "فيلفيت" },
+  { key: "mocha", name: "Mocha Latte", nameAr: "موكا لاتيه" },
+  { key: "hareem", name: "Hareem Al Sultan", nameAr: "حريم السلطان" },
+  { key: "empire", name: "Empire", nameAr: "إمباير" },
+  { key: "icon", name: "Icon", nameAr: "أيكون" },
+  { key: "karus", name: "Karus", nameAr: "كاروس" },
+  { key: "biscotti", name: "Biscotti", nameAr: "بيسكوتي" },
+  { key: "valor", name: "Valor", nameAr: "فالور" },
+  { key: "deals", name: "Deals", nameAr: "العروض" }
+];
+
+function DedicatedCollectionPage({ collectionKey = "island", addToCart, setViewProduct, setPage, setSelectedCollection }) {
   const { activeCountry } = React.useContext(CountryContext);
   const { lang, isRTL, t } = React.useContext(LanguageContext);
-  
-  // All Island Collection Products
-  const islandProducts = PRODUCTS.filter(p => 
-    p.name.toLowerCase().includes("island") || 
-    (p.col && p.col.toLowerCase().includes("island"))
-  );
+  const [activeKey, setActiveKey] = useState(collectionKey || "island");
+
+  useEffect(() => {
+    if (collectionKey) setActiveKey(collectionKey);
+  }, [collectionKey]);
+
+  // Resolve config with fuzzy matching for resilience
+  const rawKey = (activeKey || "island").toLowerCase().trim().replace(/[^a-z0-9]/g, "");
+  let resolvedKey = "island";
+  if (COLLECTION_CONFIGS[activeKey]) {
+    resolvedKey = activeKey;
+  } else if (COLLECTION_CONFIGS[rawKey]) {
+    resolvedKey = rawKey;
+  } else if (rawKey.includes("shiya")) {
+    resolvedKey = "shiyaaka";
+  } else if (rawKey.includes("fursan")) {
+    resolvedKey = "fursan";
+  } else if (rawKey.includes("imag")) {
+    resolvedKey = "limaginaire";
+  } else if (rawKey.includes("nuha")) {
+    resolvedKey = "nuha";
+  } else if (rawKey.includes("velvet")) {
+    resolvedKey = "velvet";
+  } else if (rawKey.includes("mocha") || rawKey.includes("latte") || rawKey.includes("gourmand")) {
+    resolvedKey = "mocha";
+  } else if (rawKey.includes("hareem") || rawKey.includes("sultan")) {
+    resolvedKey = "hareem";
+  } else if (rawKey.includes("empire")) {
+    resolvedKey = "empire";
+  } else if (rawKey.includes("icon") || rawKey.includes("onyx")) {
+    resolvedKey = "icon";
+  } else if (rawKey.includes("karus")) {
+    resolvedKey = "karus";
+  } else if (rawKey.includes("biscotti")) {
+    resolvedKey = "biscotti";
+  } else if (rawKey.includes("valor")) {
+    resolvedKey = "valor";
+  } else if (rawKey.includes("deal")) {
+    resolvedKey = "deals";
+  } else if (rawKey.includes("bestseller")) {
+    resolvedKey = "bestsellers";
+  }
+
+  const config = COLLECTION_CONFIGS[resolvedKey] || COLLECTION_CONFIGS.island;
+
+  // Filter products for this collection
+  let collectionProducts = PRODUCTS.filter(config.filter);
+  if (collectionProducts.length === 0) {
+    collectionProducts = PRODUCTS.filter(p => 
+      p.name.toLowerCase().includes(rawKey) || 
+      (p.col && p.col.toLowerCase().includes(rawKey))
+    );
+  }
+
+  const handleSelectCollection = (k) => {
+    setActiveKey(k);
+    if (setSelectedCollection) setSelectedCollection(k);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div style={{background:"#ffffff", minHeight:"100vh"}}>
-      {/* Hero Banner with Golden Sunset Image - Full Aspect Ratio Without Cropping */}
+      {/* Hero Banner with Full Aspect Ratio Without Cropping */}
       <div style={{
         position:"relative",
         width:"100%",
@@ -7642,8 +7876,8 @@ function IslandCollectionPage({ addToCart, setViewProduct, setPage }) {
         lineHeight:0
       }}>
         <img 
-          src="/assets/images/banners/banner-island-sun.png"
-          alt="Island Collection"
+          src={config.banner}
+          alt={isRTL && config.titleAr ? config.titleAr : config.title}
           style={{
             width:"100%",
             height:"auto",
@@ -7654,10 +7888,13 @@ function IslandCollectionPage({ addToCart, setViewProduct, setPage }) {
         />
       </div>
 
-      {/* Breadcrumb / Back button */}
-      <div style={{padding:"20px 5% 0", maxWidth:1440, margin:"0 auto", display:"flex", alignItems:"center", justifyContent:"space-between"}}>
+      {/* Breadcrumb / Back button & Product Count */}
+      <div style={{padding:"20px 5% 0", maxWidth:1440, margin:"0 auto", display:"flex", alignItems:"center", justifyContent:"space-between", flexWrap:"wrap", gap:12}}>
         <button 
-          onClick={() => setPage("main")}
+          onClick={() => {
+            setPage("main");
+            window.scrollTo({top: 0, behavior: "smooth"});
+          }}
           style={{
             background:"transparent",
             border:"none",
@@ -7665,7 +7902,7 @@ function IslandCollectionPage({ addToCart, setViewProduct, setPage }) {
             fontSize:11,
             letterSpacing:2,
             textTransform:"uppercase",
-            fontFamily:"'Montserrat',sans-serif",
+            fontFamily: isRTL ? "'Tajawal', 'Cairo', sans-serif" : "'Montserrat',sans-serif",
             fontWeight:600,
             cursor:"pointer",
             display:"flex",
@@ -7676,53 +7913,140 @@ function IslandCollectionPage({ addToCart, setViewProduct, setPage }) {
           onMouseEnter={e => e.currentTarget.style.color = "#B8922A"}
           onMouseLeave={e => e.currentTarget.style.color = "#251737"}
         >
-          ← Back to Home
+          {isRTL ? "← العودة للرئيسية" : "← Back to Home"}
         </button>
-        <span style={{fontSize:11, color:"#888", letterSpacing:1.5, fontFamily:"'Montserrat',sans-serif", textTransform:"uppercase"}}>
-          Showing all {islandProducts.length} products
+        <span style={{fontSize:11, color:"#888", letterSpacing:1.5, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", textTransform:"uppercase"}}>
+          {isRTL ? `عرض جميع ${collectionProducts.length} من المنتجات` : `Showing all ${collectionProducts.length} products`}
         </span>
       </div>
 
-      {/* Collection Title & Details (Moved Below Banner, Above Products) */}
-      <div style={{textAlign:"center", padding:"28px 5% 12px", maxWidth:1440, margin:"0 auto"}}>
-        <span style={{fontSize:11, letterSpacing:6, color:"#B8922A", textTransform:"uppercase", fontWeight:700, fontFamily:"'Montserrat',sans-serif", marginBottom:8, display:"block"}}>
-          Khadlaj Signature
+      {/* Quick Collection Switcher Pills */}
+      <div style={{
+        padding:"16px 5% 4px",
+        maxWidth:1440,
+        margin:"0 auto",
+        display:"flex",
+        alignItems:"center",
+        gap:8,
+        overflowX:"auto",
+        WebkitOverflowScrolling:"touch",
+        scrollbarWidth:"none"
+      }}>
+        <span style={{fontSize:10, letterSpacing:2, color:"#999", textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", fontWeight:600, flexShrink:0, marginRight:6}}>
+          {isRTL ? "المجموعات:" : "COLLECTIONS:"}
+        </span>
+        {FEATURED_COLLECTIONS.map(item => {
+          const isSelected = resolvedKey === item.key;
+          return (
+            <button
+              key={item.key}
+              onClick={() => handleSelectCollection(item.key)}
+              style={{
+                flexShrink:0,
+                background: isSelected ? "#251737" : "#FAF8F4",
+                color: isSelected ? "#fff" : "#444",
+                border: isSelected ? "1px solid #B8922A" : "1px solid #E8E4DC",
+                borderRadius:20,
+                padding:"6px 14px",
+                fontSize:11,
+                fontFamily: isRTL ? "'Tajawal', 'Cairo', sans-serif" : "'Montserrat',sans-serif",
+                fontWeight: isSelected ? 700 : 500,
+                letterSpacing:0.5,
+                cursor:"pointer",
+                transition:"all 0.25s ease",
+                boxShadow: isSelected ? "0 4px 12px rgba(37,23,55,0.25)" : "none"
+              }}
+              onMouseEnter={e => {
+                if (!isSelected) {
+                  e.currentTarget.style.background = "#fff";
+                  e.currentTarget.style.color = "#B8922A";
+                  e.currentTarget.style.borderColor = "#B8922A";
+                }
+              }}
+              onMouseLeave={e => {
+                if (!isSelected) {
+                  e.currentTarget.style.background = "#FAF8F4";
+                  e.currentTarget.style.color = "#444";
+                  e.currentTarget.style.borderColor = "#E8E4DC";
+                }
+              }}
+            >
+              {isRTL && item.nameAr ? item.nameAr : item.name}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Collection Title & Details */}
+      <div style={{textAlign:"center", padding:"24px 5% 12px", maxWidth:1440, margin:"0 auto"}}>
+        <span style={{fontSize:11, letterSpacing:6, color:"#B8922A", textTransform:"uppercase", fontWeight:700, fontFamily: isRTL ? "'Tajawal', 'Cairo', sans-serif" : "'Montserrat',sans-serif", marginBottom:8, display:"block"}}>
+          {isRTL && config.subtitleAr ? config.subtitleAr : config.subtitle}
         </span>
         <h1 style={{fontFamily:"'Cinzel',serif", fontSize:"clamp(28px, 4vw, 44px)", fontWeight:600, color:"#251737", lineHeight:1.15, letterSpacing:3, margin:"0 0 10px", textTransform:"uppercase"}}>
-          Island Collection
+          {isRTL && config.titleAr ? config.titleAr : config.title}
         </h1>
-        <p style={{color:"#777", fontSize:12, letterSpacing:2, fontFamily:"'Montserrat',sans-serif", textTransform:"uppercase", margin:0}}>
-          {islandProducts.length} Exclusive Creations
+        <p style={{color:"#777", fontSize:12, letterSpacing:2, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", textTransform:"uppercase", margin:0}}>
+          {isRTL ? `${collectionProducts.length} إبداعات حصرية` : `${collectionProducts.length} Exclusive Creations`}
         </p>
       </div>
 
       {/* Product Grid - Standard Transparent ProductCard */}
-      <div style={{padding:"40px 5% 100px", maxWidth:1440, margin:"0 auto"}}>
-        <div 
-          className="grid-4"
-          style={{
-            display:"grid",
-            gridTemplateColumns:"repeat(auto-fill, minmax(240px, 1fr))",
-            gap:24,
-            alignItems:"stretch"
-          }}
-        >
-          {islandProducts.map(p => (
-            <ProductCard 
-              key={p.id} 
-              p={p} 
-              onView={(prod) => {
-                if (setViewProduct) setViewProduct(prod);
-                setPage("product");
-              }} 
-              onCart={addToCart}
-            />
-          ))}
-        </div>
+      <div style={{padding:"36px 5% 100px", maxWidth:1440, margin:"0 auto"}}>
+        {collectionProducts.length > 0 ? (
+          <div 
+            className="grid-4"
+            style={{
+              display:"grid",
+              gridTemplateColumns:"repeat(auto-fill, minmax(240px, 1fr))",
+              gap:24,
+              alignItems:"stretch"
+            }}
+          >
+            {collectionProducts.map(p => (
+              <ProductCard 
+                key={p.id} 
+                p={p} 
+                onView={(prod) => {
+                  if (setViewProduct) setViewProduct(prod);
+                  setPage("product");
+                }} 
+                onCart={addToCart}
+              />
+            ))}
+          </div>
+        ) : (
+          <div style={{textAlign:"center", padding:"80px 20px"}}>
+            <p className="disp" style={{fontSize:28, fontWeight:300, color:"#251737", marginBottom:12}}>
+              {isRTL ? "لا توجد منتجات حالياً في هذه المجموعة" : "No fragrances currently found in this collection"}
+            </p>
+            <button
+              onClick={() => setPage("collections")}
+              style={{
+                background:"#251737",
+                color:"#fff",
+                border:"none",
+                padding:"12px 28px",
+                fontSize:11,
+                letterSpacing:2,
+                textTransform:"uppercase",
+                fontFamily:"'Montserrat',sans-serif",
+                cursor:"pointer",
+                marginTop:16
+              }}
+            >
+              {isRTL ? "استكشف جميع العطور" : "Explore All Fragrances"}
+            </button>
+          </div>
+        )}
       </div>
       <TrustBanner />
     </div>
   );
+}
+
+// Backward compatibility alias for any existing reference
+function IslandCollectionPage(props) {
+  return <DedicatedCollectionPage collectionKey="island" {...props} />;
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -9297,7 +9621,7 @@ function CheckoutPage({ cartItems, setPage, clearCart }){
   );
 }
 
-function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCategory, activeCountry }){
+function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCategory, activeCountry, setSelectedCollection }){
   const { lang, setLang, isRTL, t } = React.useContext(LanguageContext);
   const formatPrice = (price) => formatCurrency(price, activeCountry, lang);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -9386,7 +9710,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
               <div>
                 <p style={{fontWeight:600,fontSize:9,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:16}}>Popular Searches</p>
                 <div style={{display:"flex",flexWrap:"wrap",gap:8,marginBottom:32}}>
-                  {["Oud","Musk","Gift Set","New Arrivals","For Her","For Him","Amber","Island"].map(s=>(
+                  {["Island","Shiyaaka","Fursan","Nuha","Velvet","Hareem Al Sultan","Empire","Oud","Musk","Gift Set","Deals"].map(s=>(
                     <button key={s} onClick={()=>handleSearch(s)}
                       style={{background:"#F7F5F2",border:"1px solid #E8E4DC",padding:"8px 16px",fontSize:12,color:"#333",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",transition:"all .2s"}}
                       onMouseEnter={e=>{e.currentTarget.style.background="#251737";e.currentTarget.style.color="#fff";}}
@@ -10333,6 +10657,7 @@ export default function App(){
   const formatPrice = (price) => formatCurrency(price, activeCountry, lang);
   const [page, setPage] = useState("main");
   const [collectionCategory, setCollectionCategory] = useState("Khadlaj");
+  const [selectedCollection, setSelectedCollection] = useState("island");
   const [cartItems, setCartItems] = useState([]);
   const [viewProduct, setViewProduct] = useState(null);
   const [showPopup, setShowPopup] = useState(false);
@@ -10348,6 +10673,7 @@ export default function App(){
       if (event.state) {
         setPage(event.state.page || "main");
         setCollectionCategory(event.state.collectionCategory || "Khadlaj");
+        setSelectedCollection(event.state.selectedCollection || "island");
         setViewProduct(event.state.viewProduct || null);
       }
     };
@@ -10359,7 +10685,7 @@ export default function App(){
   // Sync state changes with HTML5 History API
   useEffect(() => {
     if (isFirstRender.current) {
-      window.history.replaceState({ page, collectionCategory, viewProduct }, "");
+      window.history.replaceState({ page, collectionCategory, selectedCollection, viewProduct }, "");
       isFirstRender.current = false;
       return;
     }
@@ -10368,12 +10694,13 @@ export default function App(){
     const isDifferent = !currentState || 
       currentState.page !== page || 
       currentState.collectionCategory !== collectionCategory || 
+      currentState.selectedCollection !== selectedCollection || 
       (currentState.viewProduct?.id !== viewProduct?.id);
 
     if (isDifferent) {
-      window.history.pushState({ page, collectionCategory, viewProduct }, "");
+      window.history.pushState({ page, collectionCategory, selectedCollection, viewProduct }, "");
     }
-  }, [page, collectionCategory, viewProduct]);
+  }, [page, collectionCategory, selectedCollection, viewProduct]);
 
   const [tiltStyle, setTiltStyle] = useState({});
   const handleTilt = (e) => {
@@ -10477,19 +10804,20 @@ export default function App(){
 
   const renderPage = () => {
     switch(page){
-      case "main":        return <HomePage setPage={setPage} addToCart={addToCart} setViewProduct={setViewProduct}/>;
-      case "home":        return <HomePage setPage={setPage} addToCart={addToCart} setViewProduct={setViewProduct}/>;
-      case "collections": return <CollectionsPage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage} collectionCategory={collectionCategory}/>;
-      case "lafede":      return <LaFedePage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage}/>;
-      case "product":     return viewProduct ? <ProductPage product={viewProduct} addToCart={addToCart} setPage={setPage} setViewProduct={setViewProduct}/> : <CollectionsPage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage} collectionCategory={collectionCategory}/>;
-      case "gifts":       return <GiftsPage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage}/>;
-      case "cart":        return <CartPage cartItems={cartItems} updateCartQty={updateCartQty} removeFromCart={removeFromCart} setPage={setPage} setViewProduct={setViewProduct}/>;
-      case "checkout":    return <CheckoutPage cartItems={cartItems} setPage={setPage} clearCart={clearCart}/>;
-      case "story":       return <StoryPage/>;
-      case "signup":      return <SignupPage/>;
-      case "contact":     return <ContactPage/>;
-      case "island":      return <IslandCollectionPage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage}/>;
-      default:            return <HomePage setPage={setPage} addToCart={addToCart} setViewProduct={setViewProduct}/>;
+      case "main":            return <HomePage setPage={setPage} addToCart={addToCart} setViewProduct={setViewProduct} setSelectedCollection={setSelectedCollection}/>;
+      case "home":            return <HomePage setPage={setPage} addToCart={addToCart} setViewProduct={setViewProduct} setSelectedCollection={setSelectedCollection}/>;
+      case "collections":     return <CollectionsPage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage} collectionCategory={collectionCategory}/>;
+      case "lafede":          return <LaFedePage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage}/>;
+      case "product":         return viewProduct ? <ProductPage product={viewProduct} addToCart={addToCart} setPage={setPage} setViewProduct={setViewProduct}/> : <CollectionsPage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage} collectionCategory={collectionCategory}/>;
+      case "gifts":           return <GiftsPage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage}/>;
+      case "cart":            return <CartPage cartItems={cartItems} updateCartQty={updateCartQty} removeFromCart={removeFromCart} setPage={setPage} setViewProduct={setViewProduct}/>;
+      case "checkout":        return <CheckoutPage cartItems={cartItems} setPage={setPage} clearCart={clearCart}/>;
+      case "story":           return <StoryPage/>;
+      case "signup":          return <SignupPage/>;
+      case "contact":         return <ContactPage/>;
+      case "island":          return <DedicatedCollectionPage collectionKey="island" addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage} setSelectedCollection={setSelectedCollection}/>;
+      case "collection-view": return <DedicatedCollectionPage collectionKey={selectedCollection || "island"} addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage} setSelectedCollection={setSelectedCollection}/>;
+      default:                return <HomePage setPage={setPage} addToCart={addToCart} setViewProduct={setViewProduct} setSelectedCollection={setSelectedCollection}/>;
     }
   };
 
@@ -10498,7 +10826,7 @@ export default function App(){
     <CountryContext.Provider value={{ activeCountry, setActiveCountry }}>
     <div dir={isRTL ? "rtl" : "ltr"} className={isRTL ? "rtl-lang" : "ltr-lang"} style={{fontFamily: isRTL ? "'Tajawal', 'Cairo', sans-serif" : "'Montserrat',sans-serif",background:"#fff",color:"#251737",minHeight:"100vh"}}>
       <style>{GLOBAL_CSS + `\n@keyframes spin { 100% { transform: rotate(360deg); } }`}</style>
-      <Navbar page={page} setPage={setPage} cartCount={cartCount} setCollectionCategory={setCollectionCategory} collectionCategory={collectionCategory} activeCountry={activeCountry}/>
+      <Navbar page={page} setPage={setPage} cartCount={cartCount} setCollectionCategory={setCollectionCategory} collectionCategory={collectionCategory} activeCountry={activeCountry} setSelectedCollection={setSelectedCollection}/>
       <main>{renderPage()}</main>
       <Footer setPage={setPage}/>
 
