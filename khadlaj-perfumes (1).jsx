@@ -27,7 +27,7 @@ const C = {
    DATA
 ═══════════════════════════════════════════════════════════════ */
 const COUNTRIES = [
-  { name:"KSA",      nameAr:"السعودية", flagUrl:"/assets/images/flags/sa.png", currency:"SAR", currencyAr:"ر.س", rate:1.021 },
+  { name:"KSA",      nameAr:"السعودية", flagUrl:"/assets/images/flags/sa.png", currency:"SAR", currencyAr:"SAR", rate:1.021 },
   { name:"UAE",      nameAr:"الإمارات", flagUrl:"/assets/images/flags/ae.png", currency:"AED", currencyAr:"د.إ", rate:1 },
   { name:"Kuwait",   nameAr:"الكويت",   flagUrl:"/assets/images/flags/kw.png", currency:"KWD", currencyAr:"د.ك", rate:0.08 },
   { name:"India",    nameAr:"الهند",    flagUrl:"/assets/images/flags/in.png", currency:"INR", currencyAr:"ر.ه", rate:22.5 },
@@ -171,11 +171,11 @@ const TRANSLATIONS = {
     islandCollection: "مجموعة آيلاند",
     exclusiveCreations: "{count} إبداعات حصرية",
     showingAll: "عرض جميع المنتجات ({count})",
-    freeShippingNotice: "شحن مجاني لكافة الطلبات فوق 150 ر.س",
+    freeShippingNotice: "شحن مجاني لكافة الطلبات فوق 150 SAR",
     awardWinning: "دار عطور حائزة على جوائز",
     awardWinningSub: "دار عطور عريقة ومعتمدة منذ عام 1997 في أكثر من 90 دولة",
     complimentaryDelivery: "توصيل مجاني وسريع",
-    complimentaryDeliverySub: "شحن مجاني لكافة الطلبات بقيمة 150 ر.س فأكثر",
+    complimentaryDeliverySub: "شحن مجاني لكافة الطلبات بقيمة 150 SAR فأكثر",
     luxuryPackaging: "تغليف فاخر للهدايا",
     luxuryPackagingSub: "كل طلبية تصلك بتغليف خدلج الفاخر والمثالي للإهداء",
     authenticFragrance: "عطور أصلية 100%",
@@ -241,10 +241,10 @@ const LanguageContext = React.createContext({
 });
 
 function formatCurrency(price, activeCountry, lang = "en") {
-  if (!activeCountry) return `${price}`;
+  if (!activeCountry) return `SAR ${price}`;
   const val = (price * (activeCountry.rate || 1)).toFixed(2);
-  if (activeCountry.name === "KSA" || activeCountry.currency === "SAR" || activeCountry.currencyAr === "ر.س") {
-    return `${val} ر.س`;
+  if (activeCountry.name === "KSA" || activeCountry.currency === "SAR" || activeCountry.currencyAr === "SAR") {
+    return `SAR ${val}`;
   }
   if (lang === "ar") {
     const sym = activeCountry.currencyAr || activeCountry.currency;
@@ -7605,7 +7605,7 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
             {
               icon:<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(184,146,42,0.03)" /><rect x="6" y="8" width="8" height="6" rx="1" fill="rgba(184,146,42,0.1)" /><path d="M14 9h3l2 2v3h-5V9z" /><circle cx="8.5" cy="16.5" r="1.5" fill="#B8922A" /><circle cx="15.5" cy="16.5" r="1.5" fill="#B8922A" /></svg>,
               title: isRTL ? "توصيل مجاني وسريع" : "Complimentary Delivery",
-              desc: isRTL ? "شحن مجاني لكافة الطلبات الأكثر من 150 ر.س" : "Free shipping on all orders above SAR 150"
+              desc: isRTL ? "شحن مجاني لكافة الطلبات الأكثر من 150 SAR" : "Free shipping on all orders above SAR 150"
             },
             {
               icon:<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(184,146,42,0.03)" /><rect x="6" y="8" width="12" height="8" rx="1" fill="rgba(184,146,42,0.1)" /><path d="M6 11h12M12 8v8" /><path d="M12 8c-.8-1-2.2-1.5-2.2-.5s1.2 1 2.2.5c.8-1 2.2-1.5 2.2-.5s-1.2 1-2.2.5z" /></svg>,
@@ -8693,7 +8693,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
              {/* ACCORDIONS */}
              <div style={{borderTop:"1px solid #eee"}}>
                <Accordion title={isRTL ? "الشحن والاسترجاع" : "Shipping & Returns"} defaultOpen>
-                  <p style={{fontSize:13, lineHeight:1.6, color:"#444", fontWeight:300}}>{isRTL ? "يتم تجهيز الطلبات خلال 1-2 يوم عمل. شحن مجاني لكافة الطلبات فوق 200 ر.س. تطبق رسوم الشحن الدولي وتُحسب عند إتمام الدفع." : "Orders are processed within 1-2 business days. Free shipping on all orders over SAR 200. International shipping rates apply and will be calculated at checkout."}</p>
+                  <p style={{fontSize:13, lineHeight:1.6, color:"#444", fontWeight:300}}>{isRTL ? "يتم تجهيز الطلبات خلال 1-2 يوم عمل. شحن مجاني لكافة الطلبات فوق 200 SAR. تطبق رسوم الشحن الدولي وتُحسب عند إتمام الدفع." : "Orders are processed within 1-2 business days. Free shipping on all orders over SAR 200. International shipping rates apply and will be calculated at checkout."}</p>
                </Accordion>
              </div>
 
