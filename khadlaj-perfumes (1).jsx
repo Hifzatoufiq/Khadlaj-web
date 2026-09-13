@@ -5464,61 +5464,45 @@ const GLOBAL_CSS = `
     justify-content: flex-end;
     gap: 24px;
   }
+  .mob-burger {
+    display: none !important;
+  }
+  .mob-search-left {
+    display: none !important;
+  }
+  .mob-lang-btn {
+    display: none !important;
+  }
 
   @media(max-width: 900px) {
     .nav-header-grid {
-      gap: 12px !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: center !important;
+      width: 100% !important;
+      gap: 8px !important;
     }
     .nav-header-grid.nav-top {
-      padding: 14px 0 10px !important;
+      padding: 12px 0 8px !important;
     }
     .nav-header-grid.nav-scrolled {
       padding: 8px 0 6px !important;
     }
-    .nav-logo-box {
-      width: clamp(160px, 45vw, 210px) !important;
-      height: 70px !important;
-    }
-    .nav-logo-box.logo-top {
-      height: 70px !important;
-    }
-    .nav-logo-box.logo-scrolled {
-      height: 52px !important;
-    }
-    .nav-logo-vertical {
-      width: clamp(95px, 25vw, 120px) !important;
-      max-height: 68px !important;
-    }
-    .nav-logo-horizontal {
-      width: clamp(140px, 44vw, 195px) !important;
-      max-height: 48px !important;
-    }
-    .nav-right-icons {
-      gap: 16px !important;
-    }
-    .mob-burger {
-      display: flex !important;
-    }
-    .hide-mob-divider {
-      display: none !important;
-    }
     .nav-left-utility {
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px !important;
+      flex: 1 1 0 !important;
+      justify-content: flex-start !important;
       padding-left: 0 !important;
-    }
-  }
-
-  @media(max-width: 600px) {
-    .nav-header-grid {
-      gap: 8px !important;
-    }
-    .nav-header-grid.nav-top {
-      padding: 10px 0 8px !important;
-    }
-    .nav-header-grid.nav-scrolled {
-      padding: 6px 0 !important;
+      padding-right: 0 !important;
+      min-width: 0 !important;
     }
     .nav-logo-box {
-      width: clamp(140px, 44vw, 185px) !important;
+      flex: 0 0 auto !important;
+      margin: 0 auto !important;
+      text-align: center !important;
+      width: clamp(110px, 32vw, 150px) !important;
       height: 60px !important;
     }
     .nav-logo-box.logo-top {
@@ -5528,15 +5512,126 @@ const GLOBAL_CSS = `
       height: 46px !important;
     }
     .nav-logo-vertical {
-      width: clamp(88px, 23vw, 105px) !important;
-      max-height: 60px !important;
+      width: clamp(80px, 22vw, 105px) !important;
+      max-height: 56px !important;
     }
     .nav-logo-horizontal {
-      width: clamp(125px, 40vw, 165px) !important;
-      max-height: 42px !important;
+      width: clamp(110px, 30vw, 140px) !important;
+      max-height: 40px !important;
     }
     .nav-right-icons {
-      gap: 12px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 14px !important;
+      flex: 1 1 0 !important;
+      justify-content: flex-end !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      min-width: 0 !important;
+    }
+    .mob-burger {
+      display: flex !important;
+    }
+    .mob-search-left {
+      display: flex !important;
+    }
+    .mob-lang-btn {
+      display: inline-flex !important;
+    }
+    .hide-mob-divider {
+      display: none !important;
+    }
+  }
+
+  @media(max-width: 600px) {
+    nav > div {
+      padding: 0 14px !important;
+    }
+    .nav-header-grid {
+      gap: 6px !important;
+    }
+    .nav-header-grid.nav-top {
+      padding: 10px 0 6px !important;
+    }
+    .nav-header-grid.nav-scrolled {
+      padding: 6px 0 !important;
+    }
+    .nav-left-utility {
+      gap: 10px !important;
+    }
+    .nav-logo-box {
+      width: clamp(95px, 28vw, 125px) !important;
+      height: 52px !important;
+    }
+    .nav-logo-box.logo-top {
+      height: 52px !important;
+    }
+    .nav-logo-box.logo-scrolled {
+      height: 40px !important;
+    }
+    .nav-logo-vertical {
+      width: clamp(70px, 20vw, 90px) !important;
+      max-height: 48px !important;
+    }
+    .nav-logo-horizontal {
+      width: clamp(90px, 26vw, 115px) !important;
+      max-height: 34px !important;
+    }
+    .nav-right-icons {
+      gap: 10px !important;
+    }
+    .hero-first-scroll-wrap {
+      height: 100vh !important;
+      height: 100dvh !important;
+      min-height: 400px !important;
+    }
+    .hero-scent-ribbon {
+      padding: 11px 0 !important;
+    }
+    .hero-scent-ribbon span {
+      font-size: 11px !important;
+      letter-spacing: 5px !important;
+    }
+  }
+
+  /* Floating Chatbot Responsive Positioning */
+  @media(max-width: 900px) {
+    .floating-chat-btn {
+      right: 16px !important;
+      width: 42px !important;
+      height: 42px !important;
+    }
+    .floating-chat-home {
+      bottom: 56px !important;
+    }
+    .floating-chat-inner {
+      bottom: 20px !important;
+    }
+    .floating-chat-window {
+      right: 16px !important;
+      bottom: 66px !important;
+    }
+  }
+  @media(max-width: 600px) {
+    .floating-chat-btn {
+      right: 14px !important;
+      width: 38px !important;
+      height: 38px !important;
+    }
+    .floating-chat-home {
+      bottom: 52px !important;
+    }
+    .floating-chat-inner {
+      bottom: 16px !important;
+    }
+    .floating-chat-window {
+      right: 12px !important;
+      left: 12px !important;
+      width: auto !important;
+      max-width: none !important;
+      bottom: 60px !important;
+      height: 65vh !important;
+      max-height: 480px !important;
     }
   }
 
@@ -6074,6 +6169,14 @@ const GLOBAL_CSS = `
   [dir="rtl"] .nav-right-icons {
     padding-right: 0 !important;
     padding-left: 20px !important;
+  }
+  @media(max-width: 900px) {
+    [dir="rtl"] .nav-left-utility {
+      padding: 0 !important;
+    }
+    [dir="rtl"] .nav-right-icons {
+      padding: 0 !important;
+    }
   }
   [dir="rtl"] .country-dropdown-menu {
     left: auto !important;
@@ -9919,11 +10022,31 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
           <div className={`nav-header-grid ${isTransparent ? 'nav-top' : 'nav-scrolled'}`}>
             {/* Left utility */}
             <div className="nav-left-utility" style={{display:"flex",gap:12,alignItems:"center",paddingLeft:"20px"}}>
-              <span className="mob-search-left" style={{cursor:"pointer",display:"flex",alignItems:"center"}} onClick={()=>setSearchOpen(true)}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "#111"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              {/* Hamburger — mobile only, on the left */}
+              <button
+                onClick={()=>setMobileMenuOpen(o=>!o)}
+                className="mob-burger"
+                aria-label={mobileMenuOpen ? "Close Menu" : "Open Menu"}
+                style={{background:"none",border:"none",cursor:"pointer",padding:"4px 2px",flexDirection:"column",gap:mobileMenuOpen ? 0 : 4,justifyContent:"center",alignItems:"center",width:28,height:28}}
+              >
+                {mobileMenuOpen ? (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "#251737"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                ) : (
+                  <>
+                    <span style={{display:"block",width:20,height:1.6,borderRadius:1,background:isTransparent ? "#fff" : "#251737",transition:"all .25s"}}/>
+                    <span style={{display:"block",width:20,height:1.6,borderRadius:1,background:isTransparent ? "#fff" : "#251737",transition:"all .25s"}}/>
+                    <span style={{display:"block",width:14,height:1.6,borderRadius:1,background:isTransparent ? "#fff" : "#251737",transition:"all .25s"}}/>
+                  </>
+                )}
+              </button>
+
+              {/* Mobile search icon */}
+              <span className="mob-search-left" style={{cursor:"pointer",alignItems:"center",padding:"2px"}} onClick={()=>setSearchOpen(true)}>
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "#111"} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" style={{filter: isTransparent ? "drop-shadow(0 2px 6px rgba(0,0,0,0.5))" : "none"}}><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               </span>
-              {/* Prominent Language Switcher: English | العربية */}
-              <div style={{
+
+              {/* Prominent Language Switcher: English | العربية (Desktop Only) */}
+              <div className="hide-mob" style={{
                 display: "flex",
                 alignItems: "center",
                 border: isTransparent ? "1.5px solid rgba(255,255,255,0.5)" : "1.5px solid #B8922A",
@@ -10082,25 +10205,37 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
               <span className="hide-mob" style={{cursor:"pointer",display:"flex",alignItems:"center",transition:"transform .2s"}} onMouseEnter={e=>e.currentTarget.style.transform="scale(1.1)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"} onClick={()=>setSearchOpen(true)}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "#111"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{filter: isTransparent ? "drop-shadow(0 2px 6px rgba(0,0,0,0.5))" : "none"}}><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               </span>
+
+              {/* Mobile compact language toggle */}
+              <button
+                onClick={() => setLang(lang === "en" ? "ar" : "en")}
+                className="mob-lang-btn"
+                style={{
+                  background: isTransparent ? "rgba(0,0,0,0.35)" : "rgba(184,146,42,0.1)",
+                  border: isTransparent ? "1.2px solid rgba(255,255,255,0.45)" : "1.2px solid #B8922A",
+                  borderRadius: 16,
+                  padding: lang === "en" ? "3px 9px" : "2px 8px",
+                  color: isTransparent ? "#fff" : "#251737",
+                  fontSize: lang === "en" ? 11.5 : 10.5,
+                  fontWeight: 700,
+                  cursor: "pointer",
+                  fontFamily: lang === "en" ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
+                  lineHeight: 1.2,
+                  boxShadow: isTransparent ? "0 2px 8px rgba(0,0,0,0.25)" : "none",
+                  transition: "all 0.2s ease",
+                  whiteSpace: "nowrap"
+                }}
+                title={lang === "en" ? "التحويل للغة العربية" : "Switch to English"}
+              >
+                {lang === "en" ? "العربية" : "EN"}
+              </button>
               
-              <div onClick={()=>setPage("cart")} style={{position:"relative",cursor:"pointer",transition:"transform .2s ease"}} onMouseEnter={e=>e.currentTarget.style.transform="scale(1.1)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "#111"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{filter: isTransparent ? "drop-shadow(0 2px 6px rgba(0,0,0,0.5))" : "none"}}><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+              <div onClick={()=>setPage("cart")} style={{position:"relative",cursor:"pointer",display:"flex",alignItems:"center",transition:"transform .2s ease"}} onMouseEnter={e=>e.currentTarget.style.transform="scale(1.1)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}>
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "#111"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{filter: isTransparent ? "drop-shadow(0 2px 6px rgba(0,0,0,0.5))" : "none"}}><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
                 {cartCount>0 && (
-                  <span style={{position:"absolute",top:-5,right:-7,background:"#B8922A",color:"#fff",borderRadius:"50%",width:14,height:14,fontSize:8,display:"flex",alignItems:"center",justifyContent:"center",fontWeight:600,fontFamily:"'Montserrat',sans-serif"}}>{cartCount}</span>
+                  <span style={{position:"absolute",top:-5,right:-7,background:"#B8922A",color:"#fff",borderRadius:"50%",minWidth:14,height:14,padding:"0 3px",fontSize:8,display:"flex",alignItems:"center",justifyContent:"center",fontWeight:600,fontFamily:"'Montserrat',sans-serif"}}>{cartCount}</span>
                 )}
               </div>
-
-              {/* Hamburger — mobile only */}
-              <button
-                onClick={()=>setMobileMenuOpen(o=>!o)}
-                style={{display:"none",background:"none",border:"none",cursor:"pointer",padding:"4px",flexDirection:"column",gap:5,justifyContent:"center",alignItems:"center"}}
-                className="mob-burger"
-                aria-label="Menu"
-              >
-                <span style={{display:"block",width:20,height:1.5,background:isTransparent ? "#fff" : "#251737",transition:"all .25s"}}/>
-                <span style={{display:"block",width:20,height:1.5,background:isTransparent ? "#fff" : "#251737",transition:"all .25s"}}/>
-                <span style={{display:"block",width:14,height:1.5,background:isTransparent ? "#fff" : "#251737",transition:"all .25s"}}/>
-              </button>
             </div>
           </div>
 
@@ -10354,7 +10489,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
         )}
       </nav>
       </div>
-      <style>{`.mob-burger{display:none!important;}@media(max-width:900px){.mob-burger{display:flex!important;}.mob-search-left{display:inline-block!important;}}@media(min-width:901px){.mob-search-left{display:none!important;}} @keyframes spin { 100% { transform: rotate(360deg); } }`}</style>
+      <style>{`@keyframes spin { 100% { transform: rotate(360deg); } }`}</style>
     </>
   );
 }
@@ -10952,10 +11087,10 @@ export default function App(){
       <main>{renderPage()}</main>
       <Footer setPage={setPage}/>
 
-      {/* ── Floating Shop button ── */}
+      {/* ── Floating Shop button (Desktop only, hidden on mobile to avoid ribbon obstruction) ── */}
       {(page==="main" || page==="home") && (
         <button
-          className="pulse"
+          className="pulse hide-mob"
           onClick={()=>setPage("collections")}
           style={{
             position:"fixed",bottom:24,right:24,zIndex:200,
@@ -10971,9 +11106,10 @@ export default function App(){
         >🛍</button>
       )}
 
-      {/* ── Chatbot Floating Button (Placed on right side) ── */}
+      {/* ── Chatbot Floating Button (Placed cleanly on right side, responsive on mobile) ── */}
       <button
         onClick={()=>setChatOpen(!chatOpen)}
+        className={`floating-chat-btn ${(page==="main" || page==="home") ? 'floating-chat-home' : 'floating-chat-inner'}`}
         style={{
           position:"fixed",
           bottom: (page==="main" || page==="home") ? 80 : 24,
@@ -10993,9 +11129,9 @@ export default function App(){
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
       </button>
 
-      {/* ── Chatbot Window Panel (Placed on right side) ── */}
+      {/* ── Chatbot Window Panel (Responsive on mobile) ── */}
       {chatOpen && (
-        <div style={{
+        <div className="floating-chat-window" style={{
           position:"fixed",
           bottom: (page==="main" || page==="home") ? 136 : 80,
           right: 24,
