@@ -5635,6 +5635,114 @@ const GLOBAL_CSS = `
     }
   }
 
+  /* Full-Width Showcase Banner Slider Responsive */
+  .banner-slider-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 2048 / 768;
+    overflow: hidden;
+    background: #0d0d0d;
+    cursor: pointer;
+    transform: translateZ(0);
+  }
+  .banner-arrow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    color: #251737;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .banner-arrow-prev {
+    left: 20px;
+  }
+  .banner-arrow-next {
+    right: 20px;
+  }
+  .banner-indicators {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    padding: 6px 12px;
+    border-radius: 20px;
+  }
+
+  @media(max-width: 900px) {
+    .banner-slider-container {
+      aspect-ratio: 2.15 / 1 !important;
+    }
+    .banner-arrow-btn {
+      width: 36px !important;
+      height: 36px !important;
+    }
+    .banner-arrow-prev {
+      left: 10px !important;
+    }
+    .banner-arrow-next {
+      right: 10px !important;
+    }
+    .banner-arrow-btn svg {
+      width: 18px !important;
+      height: 18px !important;
+    }
+  }
+
+  @media(max-width: 600px) {
+    .banner-slider-container {
+      aspect-ratio: 1.95 / 1 !important;
+      min-height: 190px !important;
+    }
+    .banner-arrow-btn {
+      width: 28px !important;
+      height: 28px !important;
+      background: rgba(255, 255, 255, 0.75) !important;
+      backdrop-filter: blur(4px) !important;
+      -webkit-backdrop-filter: blur(4px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.45) !important;
+    }
+    .banner-arrow-prev {
+      left: 6px !important;
+    }
+    .banner-arrow-next {
+      right: 6px !important;
+    }
+    .banner-arrow-btn svg {
+      width: 13px !important;
+      height: 13px !important;
+      stroke-width: 2.4 !important;
+    }
+    .banner-indicators {
+      bottom: 8px !important;
+      padding: 3px 8px !important;
+      gap: 5px !important;
+    }
+    .collection-banner-img {
+      aspect-ratio: 1.95 / 1 !important;
+      object-fit: cover !important;
+      object-position: center center !important;
+    }
+  }
+
   /* Transparent Navbar Over Video */
   .nav-transparent .nav-link {
     color: #ffffff !important;
@@ -6652,6 +6760,30 @@ function TrustBanner() {
 function NewLaunchesHeroBannerSlider({ setPage, setViewProduct, setSelectedCollection }) {
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const handleTouchStart = (e) => {
+    setIsPaused(true);
+    if (e.touches && e.touches[0]) {
+      touchStartX.current = e.touches[0].clientX;
+    }
+  };
+
+  const handleTouchEnd = (e) => {
+    setIsPaused(false);
+    if (e.changedTouches && e.changedTouches[0]) {
+      touchEndX.current = e.changedTouches[0].clientX;
+      const diff = touchStartX.current - touchEndX.current;
+      if (Math.abs(diff) > 35) {
+        if (diff > 0) {
+          setCurrent(prev => (prev + 1) % banners.length);
+        } else {
+          setCurrent(prev => (prev === 0 ? banners.length - 1 : prev - 1));
+        }
+      }
+    }
+  };
 
   const banners = [
     {
@@ -6723,18 +6855,20 @@ function NewLaunchesHeroBannerSlider({ setPage, setViewProduct, setSelectedColle
       }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      onTouchStart={() => setIsPaused(true)}
-      onTouchEnd={() => setIsPaused(false)}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
-      <div style={{
-        position: "relative",
-        width: "100%",
-        aspectRatio: "2048/768",
-        overflow: "hidden",
-        background: "#0d0d0d",
-        cursor: "pointer",
-        transform: "translateZ(0)"
-      }}>
+      <div 
+        className="banner-slider-container"
+        style={{
+          position: "relative",
+          width: "100%",
+          overflow: "hidden",
+          background: "#0d0d0d",
+          cursor: "pointer",
+          transform: "translateZ(0)"
+        }}
+      >
         {banners.map((b, idx) => (
           <div
             key={b.id}
@@ -6754,10 +6888,12 @@ function NewLaunchesHeroBannerSlider({ setPage, setViewProduct, setSelectedColle
             <img
               src={b.img}
               alt={b.title}
+              className="banner-slide-img"
               style={{
                 width: "100%",
                 height: "100%",
                 objectFit: "cover",
+                objectPosition: "center center",
                 display: "block",
                 WebkitBackfaceVisibility: "hidden",
                 transform: "translateZ(0)"
@@ -6770,6 +6906,7 @@ function NewLaunchesHeroBannerSlider({ setPage, setViewProduct, setSelectedColle
         <button
           onClick={prevSlide}
           aria-label="Previous Slide"
+          className="banner-arrow-btn banner-arrow-prev"
           style={{
             position: "absolute",
             left: "20px",
@@ -6810,6 +6947,7 @@ function NewLaunchesHeroBannerSlider({ setPage, setViewProduct, setSelectedColle
         <button
           onClick={nextSlide}
           aria-label="Next Slide"
+          className="banner-arrow-btn banner-arrow-next"
           style={{
             position: "absolute",
             right: "20px",
@@ -6848,21 +6986,24 @@ function NewLaunchesHeroBannerSlider({ setPage, setViewProduct, setSelectedColle
         </button>
 
         {/* Indicators / Dots */}
-        <div style={{
-          position: "absolute",
-          bottom: "16px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          zIndex: 10,
-          display: "flex",
-          gap: "8px",
-          alignItems: "center",
-          background: "rgba(0, 0, 0, 0.35)",
-          backdropFilter: "blur(6px)",
-          WebkitBackdropFilter: "blur(6px)",
-          padding: "6px 12px",
-          borderRadius: "20px"
-        }}>
+        <div 
+          className="banner-indicators"
+          style={{
+            position: "absolute",
+            bottom: "16px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 10,
+            display: "flex",
+            gap: "8px",
+            alignItems: "center",
+            background: "rgba(0, 0, 0, 0.35)",
+            backdropFilter: "blur(6px)",
+            WebkitBackdropFilter: "blur(6px)",
+            padding: "6px 12px",
+            borderRadius: "20px"
+          }}
+        >
           {banners.map((_, idx) => (
             <button
               key={idx}
@@ -8123,6 +8264,7 @@ function DedicatedCollectionPage({ collectionKey = "island", addToCart, setViewP
         <img 
           src={config.banner}
           alt={isRTL && config.titleAr ? config.titleAr : config.title}
+          className="collection-banner-img"
           style={{
             width:"100%",
             height:"auto",
@@ -8343,6 +8485,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
         <img 
           src="/assets/images/banners/banner-island-sun.png"
           alt="Fragrance Collections"
+          className="collection-banner-img"
           style={{
             width:"100%",
             height:"auto",
