@@ -5351,28 +5351,109 @@ const GLOBAL_CSS = `
     text-align: left !important;
     user-select: none;
   }
+  .nav-sticky-wrapper.nav-home-fixed {
+    position: fixed;
+  }
+  .nav-sticky-wrapper.nav-inner-sticky {
+    position: sticky;
+  }
+
   @media(max-width: 900px) {
+    .nav-sticky-wrapper.nav-home-fixed {
+      position: sticky !important;
+      top: 0 !important;
+    }
+    .nav-home-fixed nav {
+      background: rgba(255, 255, 255, 0.97) !important;
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.08) !important;
+      border-bottom: 1px solid rgba(232, 228, 220, 0.6) !important;
+    }
+    .nav-home-fixed .nav-logo-box {
+      height: 44px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+    .nav-home-fixed .nav-logo-box.logo-top .nav-logo-horizontal,
+    .nav-home-fixed .nav-logo-box.logo-scrolled .nav-logo-horizontal,
+    .nav-home-fixed .nav-logo-horizontal {
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      display: block !important;
+      width: clamp(100px, 30vw, 125px) !important;
+      max-height: 38px !important;
+    }
+    .nav-home-fixed .nav-logo-box.logo-top .nav-logo-vertical,
+    .nav-home-fixed .nav-logo-box.logo-scrolled .nav-logo-vertical,
+    .nav-home-fixed .nav-logo-vertical {
+      opacity: 0 !important;
+      pointer-events: none !important;
+      display: none !important;
+    }
+    .nav-home-fixed .mob-burger svg line {
+      stroke: #251737 !important;
+    }
+    .nav-home-fixed .mob-burger span {
+      background: #251737 !important;
+    }
+    .nav-home-fixed .mob-search-left svg,
+    .nav-home-fixed .nav-right-icons svg {
+      stroke: #251737 !important;
+      filter: none !important;
+    }
+    .nav-home-fixed .mob-lang-btn {
+      background: rgba(184, 146, 42, 0.1) !important;
+      border: 1.2px solid #B8922A !important;
+      color: #251737 !important;
+      box-shadow: none !important;
+    }
+
     .hero-first-scroll-wrap {
-      height: 100vh !important;
-      height: 100dvh !important;
-      min-height: 460px !important;
+      height: auto !important;
+      min-height: auto !important;
+      max-height: none !important;
+      background: #080808 !important;
+    }
+    .hero-first-scroll-wrap .hero-video-wrap {
+      position: relative !important;
+      width: 100% !important;
+      aspect-ratio: 16 / 9 !important;
+      height: auto !important;
+      min-height: auto !important;
+      max-height: none !important;
+      flex: none !important;
+      overflow: hidden !important;
+      background: #080808 !important;
     }
     .hero-video {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
       object-fit: cover !important;
       object-position: center center !important;
     }
     .hero-scent-ribbon {
-      padding: 14px 0;
+      padding: 13px 0 !important;
     }
   }
   @media(max-width: 600px) {
     .hero-first-scroll-wrap {
-      height: 100vh !important;
-      height: 100dvh !important;
-      min-height: 400px !important;
+      height: auto !important;
+      min-height: auto !important;
+      max-height: none !important;
+    }
+    .hero-first-scroll-wrap .hero-video-wrap {
+      position: relative !important;
+      width: 100% !important;
+      aspect-ratio: 16 / 9 !important;
+      height: auto !important;
+      min-height: auto !important;
+      max-height: none !important;
+      flex: none !important;
     }
     .hero-scent-ribbon {
-      padding: 12px 0;
+      padding: 11px 0 !important;
     }
   }
 
@@ -5581,9 +5662,15 @@ const GLOBAL_CSS = `
       gap: 10px !important;
     }
     .hero-first-scroll-wrap {
-      height: 100vh !important;
-      height: 100dvh !important;
-      min-height: 400px !important;
+      height: auto !important;
+      min-height: auto !important;
+      max-height: none !important;
+    }
+    .hero-first-scroll-wrap .hero-video-wrap {
+      aspect-ratio: 16 / 9 !important;
+      height: auto !important;
+      min-height: auto !important;
+      flex: none !important;
     }
     .hero-scent-ribbon {
       padding: 11px 0 !important;
@@ -5689,57 +5776,82 @@ const GLOBAL_CSS = `
 
   @media(max-width: 900px) {
     .banner-slider-container {
-      aspect-ratio: 2.15 / 1 !important;
+      aspect-ratio: 2048 / 768 !important;
+      min-height: 0 !important;
+      height: auto !important;
+      width: 100% !important;
+    }
+    .banner-slide-img {
+      object-fit: contain !important;
+      width: 100% !important;
+      height: 100% !important;
     }
     .banner-arrow-btn {
-      width: 36px !important;
-      height: 36px !important;
+      width: 32px !important;
+      height: 32px !important;
+      background: rgba(37, 23, 55, 0.45) !important;
+      backdrop-filter: blur(4px) !important;
+      -webkit-backdrop-filter: blur(4px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
+      color: #fff !important;
     }
     .banner-arrow-prev {
-      left: 10px !important;
+      left: 8px !important;
     }
     .banner-arrow-next {
-      right: 10px !important;
+      right: 8px !important;
     }
     .banner-arrow-btn svg {
-      width: 18px !important;
-      height: 18px !important;
+      width: 15px !important;
+      height: 15px !important;
+      stroke: #fff !important;
     }
   }
 
   @media(max-width: 600px) {
     .banner-slider-container {
-      aspect-ratio: 1.95 / 1 !important;
-      min-height: 190px !important;
+      aspect-ratio: 2048 / 768 !important;
+      min-height: 0 !important;
+      height: auto !important;
+      width: 100% !important;
+    }
+    .banner-slide-img {
+      object-fit: contain !important;
+      width: 100% !important;
+      height: 100% !important;
     }
     .banner-arrow-btn {
-      width: 28px !important;
-      height: 28px !important;
-      background: rgba(255, 255, 255, 0.75) !important;
+      width: 26px !important;
+      height: 26px !important;
+      background: rgba(37, 23, 55, 0.45) !important;
       backdrop-filter: blur(4px) !important;
       -webkit-backdrop-filter: blur(4px) !important;
-      border: 1px solid rgba(255, 255, 255, 0.45) !important;
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
+      color: #fff !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
     }
     .banner-arrow-prev {
-      left: 6px !important;
+      left: 5px !important;
     }
     .banner-arrow-next {
-      right: 6px !important;
+      right: 5px !important;
     }
     .banner-arrow-btn svg {
-      width: 13px !important;
-      height: 13px !important;
+      width: 12px !important;
+      height: 12px !important;
+      stroke: #fff !important;
       stroke-width: 2.4 !important;
     }
     .banner-indicators {
-      bottom: 8px !important;
-      padding: 3px 8px !important;
-      gap: 5px !important;
+      bottom: 4px !important;
+      padding: 2px 7px !important;
+      gap: 4px !important;
     }
     .collection-banner-img {
-      aspect-ratio: 1.95 / 1 !important;
-      object-fit: cover !important;
-      object-position: center center !important;
+      aspect-ratio: 2048 / 768 !important;
+      object-fit: contain !important;
+      width: 100% !important;
+      height: auto !important;
     }
   }
 
@@ -7378,6 +7490,17 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
   const heroVideoRef = useRef(null);
   const [hov, setHov] = useState(null);
 
+  useEffect(() => {
+    if (heroVideoRef.current) {
+      heroVideoRef.current.defaultMuted = true;
+      heroVideoRef.current.muted = true;
+      const playPromise = heroVideoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(() => {});
+      }
+    }
+  }, []);
+
   const toggleSound = () => {
     if (heroVideoRef.current) {
       const next = !isMuted;
@@ -7439,6 +7562,7 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
             muted={isMuted}
             loop
             playsInline
+            webkit-playsinline="true"
             preload="auto"
             onCanPlay={() => window.hidePreloader && window.hidePreloader()}
             onLoadedData={() => window.hidePreloader && window.hidePreloader()}
@@ -10092,14 +10216,16 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
       )}
 
       {/* ── Sticky / Fixed Header Wrapper ── */}
-      <div style={{
-        position: isHome ? "fixed" : "sticky",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 100,
-        transition: "all 0.35s ease",
-      }}>
+      <div 
+        className={`nav-sticky-wrapper ${isHome ? 'nav-home-fixed' : 'nav-inner-sticky'}`}
+        style={{
+          top: 0,
+          left: 0,
+          right: 0,
+          zIndex: 100,
+          transition: "all 0.35s ease",
+        }}
+      >
         {/* ── Announcement bar with social icons (Always stuck at top) ── */}
         <div style={{
           background: "#251737",
