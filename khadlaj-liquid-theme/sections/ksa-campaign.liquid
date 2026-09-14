@@ -31,7 +31,7 @@
           </h1>
 
           <div class="ksa-hero-desc">
-            {{ section.settings.campaign_desc | default: "In proud celebration of Saudi National Day, Khadlaj Perfumes honors the heritage and elegance of the Kingdom. Participate in our official Saudi National Day Giveaway to enter the grand prize draw for 1 of 500 Handcrafted Luxury Fragrance Gift Sets, plus receive an instant 20% National Day Celebration voucher." }}
+            {{ section.settings.campaign_desc | default: "In proud celebration of Saudi National Day, Khadlaj Perfumes honors the heritage and elegance of the Kingdom. Participate in our official Saudi National Day Giveaway to enter the grand prize draw for 1 of 500 Handcrafted Luxury Fragrance Gift Sets, with complimentary door-to-door delivery across Saudi Arabia." }}
           </div>
 
           <!-- Live Countdown Timer -->
@@ -68,7 +68,7 @@
               </div>
             </div>
             <div class="ksa-pass-perks">
-              <div class="ksa-perk"><span>💎</span><span>Instant 20% Privilege Discount</span></div>
+              <div class="ksa-perk"><span>💎</span><span>500 Luxury Gift Sets to Win</span></div>
               <div class="ksa-perk"><span>📦</span><span>Free Express KSA Delivery</span></div>
               <div class="ksa-perk"><span>✨</span><span>Priority Perfume Drops Access</span></div>
               <div class="ksa-perk"><span>👑</span><span>National Day Special Sample</span></div>
@@ -189,14 +189,14 @@
               <div class="ksa-success-icon">✓</div>
               <h3 class="ksa-success-heading">MABROOK, <span id="ksa-confirmed-name">VALUED PARTICIPANT</span>!</h3>
               <p class="ksa-success-desc">
-                Your entry into the <strong>KSA Luxury Discovery Set Giveaway</strong> has been confirmed. Your exclusive 20% discount code is ready:
+                Your official entry into the <strong>Saudi National Day Perfume Giveaway</strong> has been confirmed!
               </p>
               
               <div class="ksa-code-box">
-                <span class="ksa-code-sub">YOUR 20% PRIVILEGE DISCOUNT CODE</span>
-                <div class="ksa-code-val" id="ksa-code-val-{{ section.id }}">{{ section.settings.discount_code | default: "KSA-NAT20" }}</div>
-                <button type="button" class="ksa-copy-btn" onclick="ksaCopyCode('{{ section.id }}')">
-                  <span id="ksa-copy-txt-{{ section.id }}">📋 Copy Code</span>
+                <span class="ksa-code-sub">OFFICIAL GIVEAWAY ENTRY TICKET</span>
+                <div class="ksa-code-val" id="ksa-code-val-{{ section.id }}">KND-2026-ENTRY-8829</div>
+                <button type="button" class="ksa-copy-btn" onclick="ksaCopyTicket('{{ section.id }}')">
+                  <span id="ksa-copy-txt-{{ section.id }}">📋 Copy Ticket Number</span>
                 </button>
               </div>
 
@@ -903,7 +903,7 @@
       "type": "textarea",
       "id": "campaign_desc",
       "label": "Campaign Story Description",
-      "default": "In proud celebration of Saudi National Day, Khadlaj Perfumes honors the heritage and elegance of the Kingdom. Participate in our official Saudi National Day Giveaway to enter the grand prize draw for 1 of 500 Handcrafted Luxury Fragrance Gift Sets, plus receive an instant 20% National Day Celebration voucher."
+      "default": "In proud celebration of Saudi National Day, Khadlaj Perfumes honors the heritage and elegance of the Kingdom. Participate in our official Saudi National Day Giveaway to enter the grand prize draw for 1 of 500 Handcrafted Luxury Fragrance Gift Sets, with complimentary door-to-door delivery across Saudi Arabia."
     },
     {
       "type": "image_picker",
@@ -913,8 +913,8 @@
     {
       "type": "text",
       "id": "discount_code",
-      "label": "National Day Discount Code",
-      "default": "KSA-NAT20"
+      "label": "Campaign Tracking Code (Optional)",
+      "default": ""
     },
     {
       "type": "url",

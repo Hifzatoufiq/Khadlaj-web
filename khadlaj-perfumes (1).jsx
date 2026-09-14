@@ -11541,8 +11541,8 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
     }, 800);
   };
 
-  const handleCopyCode = () => {
-    navigator.clipboard.writeText("KSA-NAT20").then(() => {
+  const handleCopyTicket = () => {
+    navigator.clipboard.writeText(passCode).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
     });
@@ -11562,8 +11562,8 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
       a: "All citizens and residents living within the Kingdom of Saudi Arabia (Riyadh, Jeddah, Dammam, Mecca, Medina, Khobar, and all provinces) are eligible to participate for free."
     },
     {
-      q: "How do I claim my 20% National Day discount code?",
-      a: "Your unique 20% privilege code (KSA-NAT20) is unlocked immediately upon submission. You can apply it directly during checkout on our online store."
+      q: "When will the 500 Giveaway winners be announced?",
+      a: "Winners will be selected via random prize draw on Saudi National Day and contacted directly via WhatsApp and phone for complimentary delivery across the Kingdom."
     },
     {
       q: "What are the shipping durations to Saudi Arabia?",
@@ -11615,7 +11615,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
             </h1>
 
             <p style={{fontSize:16,color:"#555555",lineHeight:1.8}}>
-              In proud celebration of <strong>Saudi National Day</strong>, <strong style={{color:"#251737"}}>Khadlaj Perfumes</strong> honors the heritage and elegance of the Kingdom. Participate in our official <strong>Saudi National Day Giveaway</strong> to enter the grand prize draw for 1 of 500 Handcrafted Luxury Fragrance Gift Sets, plus receive an instant <strong style={{color:"#896103"}}>20% National Day Celebration voucher</strong>.
+              In proud celebration of <strong>Saudi National Day</strong>, <strong style={{color:"#251737"}}>Khadlaj Perfumes</strong> honors the heritage and elegance of the Kingdom. Participate in our official <strong>Saudi National Day Giveaway</strong> to enter the grand prize draw for 1 of 500 Handcrafted Luxury Fragrance Gift Sets, with complimentary door-to-door delivery across Saudi Arabia.
             </p>
 
             {/* Countdown Box */}
@@ -11654,7 +11654,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
                 </div>
               </div>
               <div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:10,paddingTop:14,borderTop:"1px solid #EADDC9",fontSize:12,color:"#444444"}}>
-                <div style={{display:"flex",alignItems:"center",gap:6}}><span style={{color:"#896103"}}>💎</span><span>Instant 20% National Day Code</span></div>
+                <div style={{display:"flex",alignItems:"center",gap:6}}><span style={{color:"#896103"}}>💎</span><span>500 Luxury Gift Sets to Win</span></div>
                 <div style={{display:"flex",alignItems:"center",gap:6}}><span style={{color:"#896103"}}>📦</span><span>Free Express KSA Courier</span></div>
                 <div style={{display:"flex",alignItems:"center",gap:6}}><span style={{color:"#896103"}}>✨</span><span>Official Giveaway Draw Entry</span></div>
                 <div style={{display:"flex",alignItems:"center",gap:6}}><span style={{color:"#896103"}}>👑</span><span>National Day Special Sample</span></div>
@@ -11830,23 +11830,23 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
                 </p>
 
                 <div style={{margin:"20px 0",padding:18,background:"#FAF8F5",border:"1px dashed #B8922A",borderRadius:8}}>
-                  <span style={{fontSize:11,color:"#888888",letterSpacing:"0.1em",textTransform:"uppercase",fontWeight:600}}>
-                    YOUR SPECIAL NATIONAL DAY 20% CELEBRATION CODE
+                  <span style={{fontSize:11,color:"#888888",letterSpacing:"0.12em",textTransform:"uppercase",fontWeight:700}}>
+                    OFFICIAL GIVEAWAY RAFFLE TICKET
                   </span>
-                  <div style={{fontFamily:"'Cinzel',serif",fontSize:26,color:"#896103",fontWeight:700,margin:"6px 0"}}>
-                    KSA-NAT20
+                  <div style={{fontFamily:"monospace",fontSize:24,color:"#896103",fontWeight:800,letterSpacing:"0.05em",margin:"8px 0"}}>
+                    {passCode}
                   </div>
                   <button 
                     type="button" 
-                    onClick={handleCopyCode}
+                    onClick={handleCopyTicket}
                     style={{background:"#FFFFFF",color:"#896103",border:"1px solid #D4AF37",padding:"6px 16px",borderRadius:20,fontSize:12,cursor:"pointer",fontWeight:600,boxShadow:"0 2px 8px rgba(0,0,0,0.05)"}}
                   >
-                    {copied ? "✓ Code Copied!" : "📋 Copy Code"}
+                    {copied ? "✓ Ticket Copied!" : "📋 Copy Ticket Number"}
                   </button>
                 </div>
 
                 <p style={{fontSize:12,color:"#777777",marginBottom:20}}>
-                  We have dispatched your registration confirmation to <strong style={{color:"#251737"}}>{form.phone}</strong>.
+                  Your ticket is entered into the raffle for 500 Luxury Fragrance Gift Sets. Confirmation details sent to <strong style={{color:"#251737"}}>{form.phone || form.email}</strong>.
                 </p>
 
                 <button
