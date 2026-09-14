@@ -310,6 +310,25 @@ const PRODUCTS = [
     ]
   },
   {
+    "id": 8869598462151,
+    "name": "MUSE",
+    "col": "Eau de Parfum",
+    "price": 165,
+    "size": "100 ML",
+    "badge": "New",
+    "gender": "For Her",
+    "notes": ["Orange Blossom", "Orris", "Vanilla"],
+    "img": "/assets/images/products/khadlaj-muse.jpg",
+    "desc": [
+      "Discover the refined elegance of MUSE by Khadlaj Perfumes, a sophisticated Eau de Parfum that blends luminous florals, creamy accords, and warm gourmand notes into an irresistibly smooth composition. Elegant, comforting, and captivating, MUSE is crafted for those who appreciate a fragrance with graceful depth and lasting charm.",
+      "The fragrance opens with the radiant freshness of bergamot and delicate orange blossom, beautifully complemented by the soft, nutty richness of almond. At the heart, elegant orris and jasmine unfold into a luxurious floral bouquet, enriched by a smooth cream accord.",
+      "The composition settles into a warm and sensual base of creamy vanilla and tonka bean, wrapped in glowing amber and clean white musk.",
+      "<strong>Top Notes:</strong> Orange Blossom, Bergamot, Almond",
+      "<strong>Heart Notes:</strong> Orris, Jasmine, Cream Accord",
+      "<strong>Base Notes:</strong> Vanilla, Tonka Bean, Amber, White Musk"
+    ]
+  },
+  {
     "id": 8199234977991,
     "name": "ISLAND",
     "col": "Extrait De Parfum",
@@ -5795,7 +5814,7 @@ const GLOBAL_CSS = `
   .banner-slider-container {
     position: relative;
     width: 100%;
-    aspect-ratio: 2048 / 768;
+    aspect-ratio: 2172 / 724;
     overflow: hidden;
     background: #0d0d0d;
     cursor: pointer;
@@ -5845,13 +5864,13 @@ const GLOBAL_CSS = `
 
   @media(max-width: 900px) {
     .banner-slider-container {
-      aspect-ratio: 2048 / 768 !important;
+      aspect-ratio: 2172 / 724 !important;
       min-height: 0 !important;
       height: auto !important;
       width: 100% !important;
     }
     .banner-slide-img {
-      object-fit: contain !important;
+      object-fit: cover !important;
       width: 100% !important;
       height: 100% !important;
     }
@@ -5877,21 +5896,21 @@ const GLOBAL_CSS = `
     }
   }
 
-  @media(max-width: 600px) {
+  @media(max-width: 767px) {
     .banner-slider-container {
-      aspect-ratio: 2048 / 768 !important;
+      aspect-ratio: 1 / 1 !important;
       min-height: 0 !important;
       height: auto !important;
       width: 100% !important;
     }
     .banner-slide-img {
-      object-fit: contain !important;
+      object-fit: cover !important;
       width: 100% !important;
       height: 100% !important;
     }
     .banner-arrow-btn {
-      width: 26px !important;
-      height: 26px !important;
+      width: 28px !important;
+      height: 28px !important;
       background: rgba(37, 23, 55, 0.45) !important;
       backdrop-filter: blur(4px) !important;
       -webkit-backdrop-filter: blur(4px) !important;
@@ -6973,21 +6992,33 @@ function NewLaunchesHeroBannerSlider({ setPage, setViewProduct, setSelectedColle
 
   const banners = [
     {
-      id: "shiyaakiya-deals",
-      img: "/assets/images/banners/shiyaakiya-deals-50-off-banner.png",
-      title: "SHIYAAKIYA DEALS",
-      subtitle: "Deals Up To 50% Off",
-      badge: "LIMITED DEALS",
-      productName: "ISLAND DREAMS",
-      productId: 8199234977991
+      id: "muse",
+      img: "/assets/images/banners/muse_desktop.png",
+      imgMobile: "/assets/images/banners/muse_mobile.png",
+      title: "KHADLAJ MUSE",
+      subtitle: "100 ML EAU DE PARFUM",
+      badge: "NEW LAUNCH",
+      productName: "MUSE",
+      productId: 8869598462151
     },
     {
-      id: "muse",
-      img: "/assets/images/banners/banner-muse.png",
-      title: "MUSE",
-      subtitle: "Eau De Parfum",
+      id: "island-sun",
+      img: "/assets/images/banners/island_sun_desktop.png",
+      imgMobile: "/assets/images/banners/island_sun_mobile.png",
+      title: "ISLAND SUN",
+      subtitle: "100 ML EXTRAIT DE PARFUM",
       badge: "NEW LAUNCH",
-      productName: "ISLAND SUN"
+      productName: "ISLAND SUN",
+      productId: 9200000000010
+    },
+    {
+      id: "deals",
+      img: "/assets/images/banners/deals_desktop.png",
+      imgMobile: "/assets/images/banners/deals_mobile.png",
+      title: "SPECIAL DEALS",
+      subtitle: "UP TO 50% OFF",
+      badge: "LIMITED OFFERS",
+      collectionKey: "deals"
     }
   ];
 
@@ -7000,20 +7031,15 @@ function NewLaunchesHeroBannerSlider({ setPage, setViewProduct, setSelectedColle
   }, [isPaused, banners.length]);
 
   const handleBannerClick = (banner) => {
-    if (banner.id === "shiyaakiya-deals" && setPage) {
-      if (setSelectedCollection) setSelectedCollection("shiyaaka");
-      setPage("collection-view");
-      return;
-    }
-    if (banner.id === "island-sun" && setPage) {
-      if (setSelectedCollection) setSelectedCollection("island");
-      setPage("collection-view");
+    if (banner.id === "deals" || banner.collectionKey === "deals") {
+      if (setSelectedCollection) setSelectedCollection("deals");
+      if (setPage) setPage("collections");
       return;
     }
     const prod = PRODUCTS.find(p => p.name === banner.productName || p.id === banner.productId);
     if (prod && setViewProduct) {
       setViewProduct(prod);
-      setPage("product");
+      if (setPage) setPage("product");
     } else if (setPage) {
       setPage("collections");
     }
@@ -7071,20 +7097,23 @@ function NewLaunchesHeroBannerSlider({ setPage, setViewProduct, setSelectedColle
               transform: "translateZ(0)"
             }}
           >
-            <img
-              src={b.img}
-              alt={b.title}
-              className="banner-slide-img"
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-                objectPosition: "center center",
-                display: "block",
-                WebkitBackfaceVisibility: "hidden",
-                transform: "translateZ(0)"
-              }}
-            />
+            <picture style={{width:"100%", height:"100%", display:"block"}}>
+              {b.imgMobile && <source media="(max-width: 767px)" srcSet={b.imgMobile} />}
+              <img
+                src={b.img}
+                alt={b.title}
+                className="banner-slide-img"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "center center",
+                  display: "block",
+                  WebkitBackfaceVisibility: "hidden",
+                  transform: "translateZ(0)"
+                }}
+              />
+            </picture>
           </div>
         ))}
 
