@@ -7703,41 +7703,8 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
       </div>
 
       {/* ── 25TH ANNIVERSARY COLLECTION ── */}
-      
-      {/* 🇸🇦 KSA VIP Campaign Callout Strip */}
-      <div 
-        onClick={() => setPage("ksa-campaign")}
-        style={{
-          background: "linear-gradient(90deg, #160620 0%, #3C1152 50%, #160620 100%)",
-          borderTop: "1px solid rgba(212,175,55,0.35)",
-          borderBottom: "1px solid rgba(212,175,55,0.35)",
-          padding: "16px 20px",
-          textAlign: "center",
-          cursor: "pointer",
-          position: "relative",
-          zIndex: 10,
-          boxShadow: "0 6px 24px rgba(0,0,0,0.5)",
-          transition: "all .3s ease"
-        }}
-      >
-        <div style={{maxWidth: 1200, margin: "0 auto", display: "flex", alignItems: "center", justifyContent: "center", gap: 16, flexWrap: "wrap"}}>
-          <div style={{display: "flex", alignItems: "center", gap: 10}}>
-            <span style={{fontSize: "1.3rem"}}>🇸🇦</span>
-            <span style={{background: "linear-gradient(135deg, #F9E7B9 0%, #D4AF37 100%)", color: "#1A0923", fontWeight: 800, fontSize: "0.75rem", padding: "4px 12px", borderRadius: 20, letterSpacing: "0.08em", textTransform: "uppercase"}}>
-              KSA Exclusive Launch
-            </span>
-            <span style={{color: "#FFF", fontSize: "0.92rem", fontWeight: 500, letterSpacing: "0.03em"}}>
-              Claim Your VIP Privilege Pass & Enter the Luxury Discovery Set Giveaway
-            </span>
-          </div>
-          <span style={{display: "inline-flex", alignItems: "center", gap: 6, padding: "8px 22px", background: "linear-gradient(135deg, #F9E7B9 0%, #D4AF37 50%, #9E7422 100%)", color: "#12041D", fontWeight: 700, fontSize: "0.78rem", letterSpacing: "0.1em", textTransform: "uppercase", borderRadius: 30, boxShadow: "0 4px 15px rgba(212,175,55,0.3)"}}>
-            RSVP & Claim Pass →
-          </span>
-        </div>
-      </div>
 
-
-      <section className="khadlaj25-section">
+<section className="khadlaj25-section">
         <div className="k25-header">
           <h2 style={{fontFamily: isRTL ? "'Cairo', serif" : "'Playfair Display', serif", fontSize: 46, color: "#251737", margin: 0, fontWeight: 500}}>{t("shiyaakaTitle", "Shiyaaka Collection")}</h2>
           <p style={{fontFamily: "'Montserrat', sans-serif", fontSize: 15, color: "#555", maxWidth: 640, margin: "20px auto 0", lineHeight: 1.6}}>
