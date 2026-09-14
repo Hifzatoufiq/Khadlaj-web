@@ -7,7 +7,7 @@
   <!-- Top Announcement Bar -->
   {% if section.settings.show_announcement %}
     <div class="ksa-announcement-bar">
-      <span class="ksa-badge">{{ section.settings.badge_text | default: "🇸🇦 SAUDI NATIONAL DAY GIVEAWAY 2026" }}</span>
+      <span class="ksa-badge">{{ section.settings.badge_text | default: "ONLY FOR KSA PARTICIPANTS" }}</span>
       <span>{{ section.settings.announcement_text | default: "PARTICIPATE IN THE GRAND SAUDI NATIONAL DAY GIVEAWAY • 500 SETS TO BE WON" }}</span>
     </div>
   {% endif %}
@@ -101,7 +101,7 @@
 
                 <!-- Saudi City Dropdown -->
                 <div class="ksa-group">
-                  <label class="ksa-lbl" for="ksa-city">City of Residence <span class="ksa-req">*</span></label>
+                  <label class="ksa-lbl" for="ksa-city">City of Residence (KSA Only) <span class="ksa-req">*</span></label>
                   <div class="ksa-input-box">
                     <span class="ksa-icon">📍</span>
                     <select id="ksa-city" name="contact[city]" class="ksa-input ksa-select" required>
@@ -117,8 +117,17 @@
                       <option value="Taif">Taif (الطائف)</option>
                       <option value="Abha">Abha (أبها)</option>
                       <option value="Al-Ahsa">Al-Ahsa (الأحساء)</option>
-                      <option value="Other">Other Saudi City</option>
+                      <option value="Other">Other KSA City</option>
                     </select>
+                  </div>
+                </div>
+
+                <!-- Delivery Address in KSA -->
+                <div class="ksa-group">
+                  <label class="ksa-lbl" for="ksa-address">Delivery Address in KSA (National Address / Street & District) <span class="ksa-req">*</span></label>
+                  <div class="ksa-input-box">
+                    <span class="ksa-icon">🏠</span>
+                    <input type="text" id="ksa-address" name="contact[address]" class="ksa-input" placeholder="e.g. Al Olaya Dist, King Fahd Rd, Bldg 4292 (National Address)" required>
                   </div>
                 </div>
 
@@ -173,6 +182,14 @@
                 <button type="button" class="ksa-copy-btn" onclick="ksaCopyTicket('{{ section.id }}')">
                   <span id="ksa-copy-txt-{{ section.id }}">📋 Copy Ticket Number</span>
                 </button>
+              </div>
+
+              <!-- Instagram Stories Announcement Banner -->
+              <div style="background:linear-gradient(135deg, #405DE6 0%, #E1306C 60%, #FCAF45 100%);color:#FFF;padding:16px 20px;border-radius:12px;margin:20px 0;text-align:center;">
+                <div style="font-size:20px;margin-bottom:4px;">📸 ✨</div>
+                <h4 style="font-size:14px;font-weight:800;letter-spacing:0.05em;margin-bottom:4px;color:#FFF;">WINNERS ANNOUNCED ON INSTAGRAM STORIES</h4>
+                <p style="font-size:12.5px;line-height:1.5;opacity:0.95;margin:0 0 12px;">All 500 winners will be announced live on <strong>Khadlaj Instagram Stories (@khadlajperfumes)</strong> on <strong>September 23rd</strong>!</p>
+                <a href="https://instagram.com/khadlajperfumes" target="_blank" style="display:inline-block;background:#FFFFFF;color:#E1306C;font-weight:800;font-size:12px;padding:8px 20px;border-radius:20px;text-decoration:none;">Follow @khadlajperfumes on Instagram →</a>
               </div>
 
               <a href="{{ section.settings.shop_now_url | default: '/collections/all' }}" class="ksa-submit-btn" style="text-decoration:none; display:inline-flex;">

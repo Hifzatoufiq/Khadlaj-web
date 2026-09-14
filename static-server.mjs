@@ -3,6 +3,7 @@ import { readFile } from "node:fs/promises";
 import { extname, join, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
 import { handleChatRequest } from "./chatbot-api.mjs";
+import { handleGiveawayRequest } from "./giveaway-api.mjs";
 
 const root = fileURLToPath(new URL(".", import.meta.url));
 const port = Number(process.env.PORT || 3002);
@@ -25,6 +26,11 @@ const types = {
 createServer(async (req, res) => {
   if (req.url?.startsWith("/api/chat")) {
     await handleChatRequest(req, res);
+    return;
+  }
+
+  if (req.url?.startsWith("/api/giveaway")) {
+    await handleGiveawayRequest(req, res);
     return;
   }
 

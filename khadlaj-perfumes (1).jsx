@@ -11499,6 +11499,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
     countryCode: "+966",
     phone: "",
     city: "Riyadh",
+    address: "",
     scentFamily: "Oud & Amber",
     optIn: true
   });
@@ -11506,18 +11507,31 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
   const [submitted, setSubmitted] = useState(false);
   const [copied, setCopied] = useState(false);
 
+  // Admin Draw States
+  const [showAdminModal, setShowAdminModal] = useState(false);
+  const [adminAuthed, setAdminAuthed] = useState(false);
+  const [adminPasscode, setAdminPasscode] = useState("");
+  const [adminEntries, setAdminEntries] = useState([]);
+  const [adminWinners, setAdminWinners] = useState([]);
+  const [adminLoading, setAdminLoading] = useState(false);
+  const [drawWinner, setDrawWinner] = useState(null);
+  const [drawingAnim, setDrawingAnim] = useState(false);
+  const [animTicket, setAnimTicket] = useState("KND-ENTRY-????");
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     setPassCode("KND-ENTRY-" + Math.floor(1000 + Math.random() * 9000));
 
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 4);
-    targetDate.setHours(targetDate.getHours() + 18);
+    // Campaign ends September 23, 2026 at 23:59:59 (KSA AST Time GMT+3)
+    const targetDate = new Date("2026-09-23T23:59:59+03:00").getTime();
 
     const timer = setInterval(() => {
       const now = new Date().getTime();
       const diff = targetDate - now;
-      if (diff <= 0) return;
+      if (diff <= 0) {
+        setDays("00"); setHours("00"); setMinutes("00"); setSeconds("00");
+        return;
+      }
       const d = Math.floor(diff / (1000 * 60 * 60 * 24));
       const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
@@ -11530,15 +11544,92 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
     return () => clearInterval(timer);
   }, []);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+    const fullPhone = `${form.countryCode} ${form.phone}`.trim();
+    try {
+      const res = await fetch("/api/giveaway/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          phone: fullPhone,
+          email: form.email,
+          city: form.city,
+          address: form.address,
+          scentPreference: form.scentFamily
+        })
+      });
+      const data = await res.json();
+      if (data && data.ticket) {
+        setPassCode(data.ticket);
+      }
+    } catch (err) {
+      console.warn("Giveaway offline fallback", err);
+    } finally {
       setLoading(false);
       setSubmitted(true);
       const formWrap = document.getElementById("ksa-participate-card");
       if (formWrap) formWrap.scrollIntoView({ behavior: "smooth", block: "center" });
-    }, 800);
+    }
+  };
+
+  const fetchAdminData = async () => {
+    setAdminLoading(true);
+    try {
+      const res = await fetch(`/api/giveaway/entries?passcode=${encodeURIComponent(adminPasscode)}`);
+      const data = await res.json();
+      if (data.success) {
+        setAdminAuthed(true);
+        setAdminEntries(data.entries || []);
+        setAdminWinners(data.winners || []);
+      } else {
+        alert(data.message || "Invalid Admin Passcode");
+      }
+    } catch (err) {
+      alert("Error connecting to Giveaway API");
+    } finally {
+      setAdminLoading(false);
+    }
+  };
+
+  const triggerRandomDraw = async () => {
+    if (adminEntries.length === 0) {
+      alert("No registered entries to draw from!");
+      return;
+    }
+    setDrawingAnim(true);
+    setDrawWinner(null);
+    
+    // Animate roulette for 2.5 seconds
+    const interval = setInterval(() => {
+      const randomEntry = adminEntries[Math.floor(Math.random() * adminEntries.length)];
+      if (randomEntry) setAnimTicket(randomEntry.ticketNumber);
+    }, 80);
+
+    try {
+      const res = await fetch("/api/giveaway/draw", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ passcode: adminPasscode })
+      });
+      const data = await res.json();
+      setTimeout(() => {
+        clearInterval(interval);
+        setDrawingAnim(false);
+        if (data.success && data.winner) {
+          setDrawWinner(data.winner);
+          setAdminWinners(data.allWinners || [data.winner, ...adminWinners]);
+        } else {
+          alert(data.message || "Draw could not be completed");
+        }
+      }, 2400);
+    } catch (err) {
+      clearInterval(interval);
+      setDrawingAnim(false);
+      alert("Draw request failed: " + err.message);
+    }
   };
 
   const handleCopyTicket = () => {
@@ -11558,12 +11649,12 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
 
   const faqs = [
     {
-      q: "Who can participate in the Saudi National Day Giveaway?",
-      a: "All citizens and residents living within the Kingdom of Saudi Arabia (Riyadh, Jeddah, Dammam, Mecca, Medina, Khobar, and all provinces) are eligible to participate for free."
+      q: "Who is eligible to participate in the giveaway?",
+      a: "This giveaway is strictly and exclusively open to residents living within the Kingdom of Saudi Arabia (ONLY FOR KSA PARTICIPANTS). Entries outside KSA or with non-Saudi delivery addresses will not be eligible for the draw."
     },
     {
-      q: "When will the 500 Giveaway winners be announced?",
-      a: "Winners will be selected via random prize draw on Saudi National Day and contacted directly via WhatsApp and phone for complimentary delivery across the Kingdom."
+      q: "When and where will the 500 Giveaway winners be announced?",
+      a: "Winners will be selected via our verified random draw system and officially announced on Khadlaj Instagram Stories (@khadlajperfumes) on September 23rd, 2026. Winners will also be contacted directly via WhatsApp/Phone for complimentary express door-to-door delivery."
     },
     {
       q: "What are the shipping durations to Saudi Arabia?",
@@ -11579,19 +11670,17 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
     <div style={{background:"#FFFFFF",color:"#251737",minHeight:"100vh",overflowX:"hidden",paddingTop:10}}>
       
       {/* Announcement Strip - 2026 Market Trend Luxury Bar */}
-      <div style={{background:"linear-gradient(90deg, #1A0724 0%, #350F48 50%, #1A0724 100%)",borderBottom:"1px solid rgba(184,146,42,0.4)",padding:"12px 20px",textAlign:"center",fontSize:12.5,letterSpacing:"0.12em",textTransform:"uppercase",display:"flex",justifyContent:"center",alignItems:"center",gap:14,flexWrap:"wrap",color:"#FFF",boxShadow:"0 4px 20px rgba(0,0,0,0.15)"}}>
-        <span style={{display:"inline-flex",alignItems:"center",gap:8,background:"linear-gradient(135deg,#F9E7B9 0%,#D4AF37 100%)",color:"#1A0923",padding:"4px 14px",borderRadius:20,fontSize:11,fontWeight:800,letterSpacing:"0.08em",boxShadow:"0 2px 10px rgba(184,146,42,0.3)"}}>
-          <svg width="18" height="12" viewBox="0 0 600 400" style={{borderRadius:2,display:"inline-block",verticalAlign:"middle",boxShadow:"0 1px 3px rgba(0,0,0,0.3)"}}>
-            <rect width="600" height="400" fill="#165d31"/>
-            <text x="300" y="210" fontFamily="'Cairo', sans-serif" fontWeight="700" fontSize="70" fill="#ffffff" textAnchor="middle">لا إله إلا الله محمد رسول الله</text>
-            <path d="M160 270 h280 M180 260 l-25 10 25 10" stroke="#ffffff" strokeWidth="12" strokeLinecap="round" fill="none"/>
-          </svg>
-          <span>SAUDI NATIONAL DAY GIVEAWAY 2026</span>
+      <div style={{background:"linear-gradient(90deg, #1A0724 0%, #350F48 50%, #1A0724 100%)",borderBottom:"1px solid rgba(184,146,42,0.4)",padding:"12px 20px",textAlign:"center",fontSize:12.5,letterSpacing:"0.1em",textTransform:"uppercase",display:"flex",justifyContent:"center",alignItems:"center",gap:14,flexWrap:"wrap",color:"#FFF",boxShadow:"0 4px 20px rgba(0,0,0,0.15)"}}>
+        <span style={{display:"inline-flex",alignItems:"center",gap:8,background:"#DC2626",color:"#FFF",padding:"4px 14px",borderRadius:20,fontSize:11,fontWeight:800,letterSpacing:"0.08em",boxShadow:"0 2px 10px rgba(220,38,38,0.4)"}}>
+          <span style={{width:6,height:6,background:"#FFF",borderRadius:"50%",animation:"pulse 1.5s infinite"}}></span>
+          <span>ONLY FOR KSA PARTICIPANTS</span>
         </span>
-        <span style={{fontWeight:600,color:"#FDFBF7",letterSpacing:"0.08em"}}>PARTICIPATE IN THE GRAND SAUDI NATIONAL DAY GIVEAWAY • 500 LUXURY SETS TO BE WON</span>
-        <span style={{display:"inline-flex",alignItems:"center",gap:6,background:"rgba(255,255,255,0.08)",border:"1px solid rgba(212,175,55,0.4)",padding:"3px 10px",borderRadius:20,fontSize:11,color:"#F4E4A6",fontWeight:700}}>
+        <span style={{fontWeight:700,color:"#FDFBF7",letterSpacing:"0.08em"}}>
+          🇸🇦 SAUDI NATIONAL DAY GIVEAWAY • 14TH – 23RD SEPTEMBER 2026 • 500 LUXURY SETS TO BE WON
+        </span>
+        <span style={{display:"inline-flex",alignItems:"center",gap:6,background:"rgba(255,255,255,0.1)",border:"1px solid rgba(212,175,55,0.4)",padding:"3px 12px",borderRadius:20,fontSize:11,color:"#F4E4A6",fontWeight:700}}>
           <span style={{width:6,height:6,background:"#22C55E",borderRadius:"50%",boxShadow:"0 0 8px #22C55E"}}></span>
-          NATIONAL DAY CELEBRATION
+          ENTRIES CLOSE SEPT 23 AT 11:59 PM
         </span>
       </div>
 
@@ -11602,9 +11691,9 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
           {/* Left Column: Narrative & National Day Giveaway Entry Ticket */}
           <div style={{display:"flex",flexDirection:"column",gap:26}}>
             
-            <div style={{display:"inline-flex",alignItems:"center",gap:10,padding:"6px 16px",background:"rgba(60,17,82,0.06)",border:"1px solid rgba(184,146,42,0.4)",borderRadius:30,alignSelf:"flex-start",fontSize:12,fontWeight:700,letterSpacing:"0.12em",textTransform:"uppercase",color:"#3C1152"}}>
-              <span style={{width:8,height:8,background:"#16A34A",borderRadius:"50%",boxShadow:"0 0 10px #16A34A"}}></span>
-              <span>🇸🇦 SAUDI NATIONAL DAY • GRAND GIVEAWAY</span>
+            <div style={{display:"inline-flex",alignItems:"center",gap:10,padding:"6px 16px",background:"#FEF2F2",border:"1px solid #F87171",borderRadius:30,alignSelf:"flex-start",fontSize:12,fontWeight:800,letterSpacing:"0.1em",textTransform:"uppercase",color:"#991B1B"}}>
+              <span style={{width:8,height:8,background:"#DC2626",borderRadius:"50%",boxShadow:"0 0 8px #DC2626"}}></span>
+              <span>🇸🇦 ONLY FOR KSA PARTICIPANTS • حصرياً للمقيمين داخل المملكة</span>
             </div>
 
             <h1 style={{fontFamily:"'Cinzel',serif",fontSize:"clamp(2.2rem, 5vw, 3.2rem)",lineHeight:1.15,fontWeight:600,letterSpacing:"0.02em",color:"#251737"}}>
@@ -11615,7 +11704,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
             </h1>
 
             <p style={{fontSize:16,color:"#555555",lineHeight:1.8}}>
-              In proud celebration of <strong>Saudi National Day</strong>, <strong style={{color:"#251737"}}>Khadlaj Perfumes</strong> honors the heritage and elegance of the Kingdom. Participate in our official <strong>Saudi National Day Giveaway</strong> to enter the grand prize draw for 1 of 500 Handcrafted Luxury Fragrance Gift Sets, with complimentary door-to-door delivery across Saudi Arabia.
+              In proud celebration of <strong>Saudi National Day 2026</strong>, <strong style={{color:"#251737"}}>Khadlaj Perfumes</strong> invites all residents of the Kingdom to participate in our grand giveaway. <strong>Campaign is active strictly from 14th to 23rd September</strong>. Register below for your official raffle entry to win 1 of <strong>500 Handcrafted Luxury Fragrance Gift Sets</strong> with complimentary home delivery across all KSA provinces.
             </p>
 
             {/* Countdown Box */}
@@ -11635,6 +11724,36 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
                     <span style={{fontSize:10,textTransform:"uppercase",color:"#888888",fontWeight:600}}>{b.l}</span>
                   </div>
                 ))}
+              </div>
+            </div>
+
+            {/* Giveaway Grand Prize Showcase Card */}
+            <div style={{background:"linear-gradient(145deg, #FCFBF9 0%, #FFFFFF 60%, #F5F1E9 100%)",border:"1px solid #D4AF37",borderRadius:20,padding:24,boxShadow:"0 18px 45px rgba(37,23,55,0.07)"}}>
+              <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:14}}>
+                <span style={{display:"inline-flex",alignItems:"center",gap:6,fontSize:11,fontWeight:800,color:"#896103",letterSpacing:"0.12em",textTransform:"uppercase"}}>
+                  <span>🎁</span> THE GRAND PRIZE • 500 GIFT SETS
+                </span>
+                <span style={{fontSize:11,color:"#166534",background:"#DCFCE7",border:"1px solid #86EFAC",padding:"2px 10px",borderRadius:12,fontWeight:700}}>
+                  100% FREE ENTRY
+                </span>
+              </div>
+              <div style={{display:"flex",gap:20,alignItems:"center"}}>
+                <div style={{width:105,height:120,background:"radial-gradient(circle, #FFFFFF 40%, #E8DFD1 100%)",borderRadius:12,display:"flex",alignItems:"center",justifyContent:"center",padding:6,flexShrink:0,border:"1px solid #EADDC9",boxShadow:"0 4px 15px rgba(0,0,0,0.06)"}}>
+                  <img src="assets/images/products/island-gift-standard-transparent.png" alt="Khadlaj Luxury Giveaway Gift Set" style={{maxWidth:"100%",maxHeight:"100%",objectFit:"contain"}}/>
+                </div>
+                <div>
+                  <h4 style={{fontFamily:"'Cinzel',serif",fontSize:18,color:"#251737",fontWeight:700,marginBottom:4}}>
+                    Khadlaj Royal Discovery Set
+                  </h4>
+                  <p style={{fontSize:13,color:"#555555",lineHeight:1.5,marginBottom:8}}>
+                    Complete luxury collection featuring 100ml Eau de Parfum, 200ml Perfumed Body Spray, and Pocket Travel Edition.
+                  </p>
+                  <div style={{display:"flex",flexWrap:"wrap",gap:6,fontSize:11,fontWeight:600,color:"#896103"}}>
+                    <span style={{background:"rgba(184,146,42,0.1)",padding:"2px 8px",borderRadius:4}}>✓ 500 Winners</span>
+                    <span style={{background:"rgba(184,146,42,0.1)",padding:"2px 8px",borderRadius:4}}>✓ Free KSA Shipping</span>
+                    <span style={{background:"rgba(184,146,42,0.1)",padding:"2px 8px",borderRadius:4}}>✓ Announced on IG</span>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -11721,7 +11840,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
 
                   {/* Saudi City */}
                   <div style={{display:"flex",flexDirection:"column",gap:6}}>
-                    <label style={{fontSize:12,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.08em",color:"#3C1152"}}>City in Saudi Arabia *</label>
+                    <label style={{fontSize:12,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.08em",color:"#3C1152"}}>City in Saudi Arabia (KSA Only) *</label>
                     <select 
                       value={form.city}
                       onChange={e=>setForm({...form,city:e.target.value})}
@@ -11736,8 +11855,32 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
                       <option value="Dhahran">Dhahran (الظهران)</option>
                       <option value="Tabuk">Tabuk (تبوك)</option>
                       <option value="Taif">Taif (الطائف)</option>
-                      <option value="Other">Other Saudi City</option>
+                      <option value="Abha">Abha (أبها)</option>
+                      <option value="Al-Ahsa">Al-Ahsa (الأحساء)</option>
+                      <option value="Qassim">Al-Qassim (القصيم)</option>
+                      <option value="Hail">Hail (حائل)</option>
+                      <option value="Najran">Najran (نجران)</option>
+                      <option value="Jizan">Jizan (جازان)</option>
+                      <option value="Other">Other KSA City</option>
                     </select>
+                  </div>
+
+                  {/* Complete Delivery Address */}
+                  <div style={{display:"flex",flexDirection:"column",gap:6}}>
+                    <label style={{fontSize:12,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.08em",color:"#3C1152"}}>Delivery Address in KSA (National Address / Street & District) *</label>
+                    <div style={{position:"relative",display:"flex",alignItems:"center"}}>
+                      <span style={{position:"absolute",left:14,color:"#999999",fontSize:15}}>📍</span>
+                      <input 
+                        type="text" 
+                        required 
+                        placeholder="e.g. Al Olaya Dist, King Fahd Rd, Building 4292"
+                        value={form.address}
+                        onChange={e=>setForm({...form,address:e.target.value})}
+                        style={{width:"100%",padding:"12px 16px 12px 42px",background:"#FAFAF8",border:"1px solid #D8CEBE",borderRadius:8,color:"#251737",fontSize:14,outline:"none",transition:"all .2s"}}
+                        onFocus={e=>e.target.style.borderColor="#B8922A"}
+                        onBlur={e=>e.target.style.borderColor="#D8CEBE"}
+                      />
+                    </div>
                   </div>
 
                   {/* Scent Family */}
@@ -11808,24 +11951,45 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
                   Your official entry for the <strong style={{color:"#251737"}}>Saudi National Day Perfume Giveaway</strong> has been confirmed!
                 </p>
 
-                <div style={{margin:"20px 0",padding:18,background:"#FAF8F5",border:"1px dashed #B8922A",borderRadius:8}}>
+                <div style={{margin:"20px 0",padding:20,background:"#FAF8F5",border:"1px dashed #B8922A",borderRadius:12}}>
                   <span style={{fontSize:11,color:"#888888",letterSpacing:"0.12em",textTransform:"uppercase",fontWeight:700}}>
-                    OFFICIAL GIVEAWAY RAFFLE TICKET
+                    YOUR OFFICIAL GIVEAWAY RAFFLE TICKET
                   </span>
-                  <div style={{fontFamily:"monospace",fontSize:24,color:"#896103",fontWeight:800,letterSpacing:"0.05em",margin:"8px 0"}}>
+                  <div style={{fontFamily:"monospace",fontSize:26,color:"#896103",fontWeight:900,letterSpacing:"0.05em",margin:"8px 0"}}>
                     {passCode}
                   </div>
                   <button 
                     type="button" 
                     onClick={handleCopyTicket}
-                    style={{background:"#FFFFFF",color:"#896103",border:"1px solid #D4AF37",padding:"6px 16px",borderRadius:20,fontSize:12,cursor:"pointer",fontWeight:600,boxShadow:"0 2px 8px rgba(0,0,0,0.05)"}}
+                    style={{background:"#FFFFFF",color:"#896103",border:"1px solid #D4AF37",padding:"7px 18px",borderRadius:20,fontSize:12,cursor:"pointer",fontWeight:700,boxShadow:"0 2px 8px rgba(0,0,0,0.05)"}}
                   >
                     {copied ? "✓ Ticket Copied!" : "📋 Copy Ticket Number"}
                   </button>
                 </div>
 
-                <p style={{fontSize:12,color:"#777777",marginBottom:20}}>
-                  Your ticket is entered into the raffle for 500 Luxury Fragrance Gift Sets. Confirmation details sent to <strong style={{color:"#251737"}}>{form.phone || form.email}</strong>.
+                {/* Prominent Instagram Stories Announcement Banner */}
+                <div style={{background:"linear-gradient(135deg, #405DE6 0%, #E1306C 60%, #FCAF45 100%)",color:"#FFF",padding:"16px 20px",borderRadius:12,margin:"20px 0",boxShadow:"0 8px 25px rgba(225,48,108,0.25)",textAlign:"center"}}>
+                  <div style={{fontSize:20,marginBottom:4}}>📸 ✨</div>
+                  <h4 style={{fontSize:14,fontWeight:800,letterSpacing:"0.05em",marginBottom:4,color:"#FFF"}}>
+                    WINNERS ANNOUNCEMENT ON INSTAGRAM STORIES
+                  </h4>
+                  <p style={{fontSize:12.5,lineHeight:1.5,opacity:0.95,margin:"0 0 12px"}}>
+                    All 500 winners will be announced live on <strong>Khadlaj Instagram Stories (@khadlajperfumes)</strong> on <strong>September 23rd</strong>!
+                  </p>
+                  <a 
+                    href="https://instagram.com/khadlajperfumes" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    style={{
+                      display:"inline-block",background:"#FFFFFF",color:"#E1306C",fontWeight:800,fontSize:12,padding:"8px 20px",borderRadius:20,textDecoration:"none",boxShadow:"0 3px 10px rgba(0,0,0,0.15)"
+                    }}
+                  >
+                    Follow @khadlajperfumes on Instagram →
+                  </a>
+                </div>
+
+                <p style={{fontSize:12,color:"#666666",lineHeight:1.5,marginBottom:20}}>
+                  Your delivery address: <strong style={{color:"#251737"}}>{form.address}, {form.city}</strong> has been registered. Complimentary express courier will be arranged upon winner selection.
                 </p>
 
                 <button
@@ -11905,6 +12069,151 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
           ))}
         </div>
       </section>
+
+      {/* Admin Discrete Trigger Bar */}
+      <div style={{textAlign:"center",padding:"16px 24px",background:"#FAF8F5",borderTop:"1px solid #EAE4D9"}}>
+        <button 
+          type="button"
+          onClick={()=>setShowAdminModal(true)}
+          style={{background:"#FFFFFF",border:"1px solid #D8CEBE",borderRadius:20,color:"#666666",fontSize:11.5,fontWeight:600,padding:"6px 16px",cursor:"pointer",boxShadow:"0 2px 6px rgba(0,0,0,0.04)"}}
+        >
+          🔒 Admin Giveaway Portal (Random Draw & Live Entries)
+        </button>
+      </div>
+
+      {/* Admin Random Winner Draw Modal */}
+      {showAdminModal && (
+        <div style={{position:"fixed",inset:0,background:"rgba(18,4,29,0.85)",backdropFilter:"blur(6px)",zIndex:99999,display:"flex",alignItems:"center",justifyContent:"center",padding:20}}>
+          <div style={{background:"#FFFFFF",borderRadius:16,width:"100%",maxWidth:820,maxHeight:"90vh",overflowY:"auto",padding:28,boxShadow:"0 25px 60px rgba(0,0,0,0.3)",position:"relative"}}>
+            <button 
+              onClick={()=>setShowAdminModal(false)}
+              style={{position:"absolute",right:18,top:18,background:"none",border:"none",fontSize:22,cursor:"pointer",color:"#888"}}
+            >
+              ✕
+            </button>
+
+            <h3 style={{fontFamily:"'Cinzel',serif",fontSize:22,color:"#251737",marginBottom:4}}>
+              🎲 Khadlaj KSA Giveaway Admin Portal
+            </h3>
+            <p style={{fontSize:13,color:"#666",marginBottom:20}}>
+              Real-time participant database & Random Winner Selection for Instagram Stories (@khadlajperfumes).
+            </p>
+
+            {!adminAuthed ? (
+              <div style={{maxWidth:360,margin:"40px auto",textAlign:"center"}}>
+                <input 
+                  type="password"
+                  placeholder="Enter Admin Passcode (khadlaj2026)"
+                  value={adminPasscode}
+                  onChange={e=>setAdminPasscode(e.target.value)}
+                  style={{width:"100%",padding:"12px 16px",border:"1px solid #D8CEBE",borderRadius:8,fontSize:14,marginBottom:12,outline:"none"}}
+                />
+                <button 
+                  onClick={fetchAdminData}
+                  disabled={adminLoading}
+                  style={{width:"100%",padding:"12px",background:"#3C1152",color:"#FFF",border:"none",borderRadius:8,fontWeight:700,cursor:"pointer"}}
+                >
+                  {adminLoading ? "Authenticating..." : "Unlock Admin Portal"}
+                </button>
+              </div>
+            ) : (
+              <div>
+                {/* Stats & Actions */}
+                <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(180px, 1fr))",gap:14,marginBottom:22}}>
+                  <div style={{background:"#FAF8F5",border:"1px solid #EADDC9",borderRadius:10,padding:16,textAlign:"center"}}>
+                    <span style={{fontSize:12,color:"#888",textTransform:"uppercase",fontWeight:600}}>Total Registered</span>
+                    <h4 style={{fontSize:28,color:"#3C1152",margin:"4px 0 0"}}>{adminEntries.length}</h4>
+                  </div>
+                  <div style={{background:"#FAF8F5",border:"1px solid #EADDC9",borderRadius:10,padding:16,textAlign:"center"}}>
+                    <span style={{fontSize:12,color:"#888",textTransform:"uppercase",fontWeight:600}}>Winners Drawn</span>
+                    <h4 style={{fontSize:28,color:"#16A34A",margin:"4px 0 0"}}>{adminWinners.length}</h4>
+                  </div>
+                  <div style={{display:"flex",flexDirection:"column",gap:8,justifyContent:"center"}}>
+                    <button 
+                      onClick={triggerRandomDraw}
+                      disabled={drawingAnim || adminEntries.length === 0}
+                      style={{
+                        padding:"14px",background:"linear-gradient(135deg, #16A34A 0%, #15803D 100%)",color:"#FFF",border:"none",borderRadius:8,fontWeight:800,fontSize:13,letterSpacing:"0.05em",cursor:"pointer",boxShadow:"0 4px 15px rgba(22,163,74,0.3)"
+                      }}
+                    >
+                      {drawingAnim ? "🎲 DRAWING RANDOM WINNER..." : "🎲 PICK RANDOM WINNER"}
+                    </button>
+                    <a 
+                      href={`/api/giveaway/export-csv?passcode=${encodeURIComponent(adminPasscode)}`}
+                      style={{textAlign:"center",padding:"8px",background:"#F5EFE6",color:"#3C1152",borderRadius:8,fontSize:12,fontWeight:700,textDecoration:"none",border:"1px solid #D8CEBE"}}
+                    >
+                      📥 Export All Entries (CSV)
+                    </a>
+                  </div>
+                </div>
+
+                {/* Roulette Animation Box */}
+                {drawingAnim && (
+                  <div style={{margin:"20px 0",padding:24,background:"#1A0724",borderRadius:12,textAlign:"center",color:"#FFF",border:"1px solid #D4AF37"}}>
+                    <span style={{fontSize:12,color:"#D4AF37",letterSpacing:"0.15em",textTransform:"uppercase",fontWeight:700}}>
+                      SELECTING WINNER FROM KSA ENTRIES...
+                    </span>
+                    <div style={{fontFamily:"monospace",fontSize:36,color:"#FDE047",fontWeight:900,margin:"12px 0",letterSpacing:"0.1em"}}>
+                      {animTicket}
+                    </div>
+                  </div>
+                )}
+
+                {/* Selected Winner Celebration Card */}
+                {drawWinner && (
+                  <div style={{margin:"20px 0",padding:22,background:"#F0FDF4",border:"2px solid #22C55E",borderRadius:12}}>
+                    <div style={{display:"flex",alignItems:"center",gap:8,marginBottom:10,color:"#15803D",fontWeight:800,fontSize:14}}>
+                      <span>🎉</span> NEW WINNER SELECTED!
+                    </div>
+                    <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(200px, 1fr))",gap:10,fontSize:13}}>
+                      <div><strong>Ticket:</strong> <span style={{fontFamily:"monospace",fontWeight:800,color:"#15803D"}}>{drawWinner.ticketNumber}</span></div>
+                      <div><strong>Name:</strong> {drawWinner.name}</div>
+                      <div><strong>Phone:</strong> {drawWinner.phone}</div>
+                      <div><strong>City:</strong> {drawWinner.city}</div>
+                      <div style={{gridColumn:"1/-1"}}><strong>Delivery Address:</strong> {drawWinner.address}</div>
+                    </div>
+                    <p style={{fontSize:12,color:"#166534",marginTop:10,marginBottom:0}}>
+                      Announcement scheduled for Instagram Stories (@khadlajperfumes)!
+                    </p>
+                  </div>
+                )}
+
+                {/* Entries Table */}
+                <h4 style={{fontSize:14,color:"#251737",fontWeight:700,marginTop:24,marginBottom:10}}>
+                  Participant Entries ({adminEntries.length})
+                </h4>
+                <div style={{maxHeight:260,overflowY:"auto",border:"1px solid #EADDC9",borderRadius:8}}>
+                  <table style={{width:"100%",borderCollapse:"collapse",fontSize:12,textAlign:"left"}}>
+                    <thead style={{background:"#FAF8F5",position:"sticky",top:0}}>
+                      <tr style={{borderBottom:"1px solid #EADDC9",color:"#555"}}>
+                        <th style={{padding:"8px 12px"}}>Ticket</th>
+                        <th style={{padding:"8px 12px"}}>Name</th>
+                        <th style={{padding:"8px 12px"}}>Phone</th>
+                        <th style={{padding:"8px 12px"}}>City</th>
+                        <th style={{padding:"8px 12px"}}>Address</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {adminEntries.map((e, idx) => (
+                        <tr key={idx} style={{borderBottom:"1px solid #F3EDE3"}}>
+                          <td style={{padding:"8px 12px",fontFamily:"monospace",fontWeight:700,color:"#896103"}}>{e.ticketNumber}</td>
+                          <td style={{padding:"8px 12px",fontWeight:600}}>{e.name}</td>
+                          <td style={{padding:"8px 12px"}}>{e.phone}</td>
+                          <td style={{padding:"8px 12px"}}>{e.city}</td>
+                          <td style={{padding:"8px 12px",maxWidth:180,whiteSpace:"nowrap",overflow:"hidden",textOverflow:"ellipsis"}} title={e.address}>{e.address}</td>
+                        </tr>
+                      ))}
+                      {adminEntries.length === 0 && (
+                        <tr><td colSpan={5} style={{padding:20,textAlign:"center",color:"#888"}}>No entries registered yet.</td></tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
 
     </div>
   );

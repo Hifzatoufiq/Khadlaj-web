@@ -1,0 +1,26 @@
+[
+  {
+    "id": "giveaway_1789397165681_uvh8t",
+    "name": "Faisal Al-Otaibi",
+    "phone": "+966 50 123 4567",
+    "email": "faisal@example.com",
+    "city": "Riyadh",
+    "address": "Al Olaya Dist, King Fahd Rd, Bldg 4292",
+    "scentPreference": "Royal Oud & Amber",
+    "ticketNumber": "KND-ENTRY-9706",
+    "country": "KSA",
+    "createdAt": "2026-09-14T14:46:05.681Z"
+  },
+  {
+    "id": "giveaway_1789397194668_t1c6m",
+    "name": "Sara Al-Ghamdi",
+    "phone": "+966 55 987 6543",
+    "email": "sara@example.com",
+    "city": "Jeddah",
+    "address": "Al Rawdah Dist, Prince Sultan St",
+    "scentPreference": "Royal Oud & Amber",
+    "ticketNumber": "KND-ENTRY-1292",
+    "country": "KSA",
+    "createdAt": "2026-09-14T14:46:34.668Z"
+  }
+]
