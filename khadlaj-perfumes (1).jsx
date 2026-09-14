@@ -6573,14 +6573,14 @@ function ProductCard({ p, onView, onCart }){
     "Biscotti Date Toffee": 0.82,
     "Biscotti Melon Musk": 0.88,
     "Bleu Glacé": 0.62,
-    "Saraya": 0.88,
-    "SARAYA": 0.88,
+    "Saraya": 1.16,
+    "SARAYA": 1.16,
     "SHIYAAKA SNOW": 0.92,
     "SHIYAAKA SHADOW": 0.88,
-    "SHIYAAKA GOLD": 0.88,
-    "KARUS GOLD ABSOLU": 0.88,
+    "SHIYAAKA GOLD": 0.85,
+    "KARUS GOLD ABSOLU": 0.85,
     "ISLAND": 0.90,
-    "ISLAND SUN": 0.94,
+    "ISLAND SUN": 1.105,
     "SAWAAR VANILLE BLANC": 0.88,
     "PANACHE ANGEL DUST": 0.86,
     "QARAR": 0.88,
@@ -6593,7 +6593,7 @@ function ProductCard({ p, onView, onCart }){
     "Biscotti Date Toffee": 0.02,
     "Biscotti Melon Musk": 0.05,
     "Bleu Glacé": 0.02,
-    "Saraya": 0.06,
+    "Saraya": 0.008,
     "SHIYAAKA SNOW": -0.10,
     "SHIYAAKA SHADOW": 0,
     "KHADLAJ ISLAND": -0.02,
@@ -6603,7 +6603,10 @@ function ProductCard({ p, onView, onCart }){
     "QARAR": 0,
     "KHADLAJ IHTHIRAAM": 0,
     "PANACHE ANGEL DUST": 0,
-    "SARAYA": 0.08
+    "SARAYA": 0.008,
+    "SHIYAAKA GOLD": 0.015,
+    "KARUS GOLD ABSOLU": 0.015,
+    "ISLAND SUN": -0.048
   }[p.name] || 0;
 
   return (

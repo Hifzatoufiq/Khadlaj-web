@@ -22,5 +22,17 @@
     "ticketNumber": "KND-ENTRY-1292",
     "country": "KSA",
     "createdAt": "2026-09-14T14:46:34.668Z"
+  },
+  {
+    "id": "giveaway_1789397435940_skjj0",
+    "name": "hifza",
+    "phone": "+966 03122411010",
+    "email": "hifzatoufiq@gmail.com",
+    "city": "Taif",
+    "address": "building 55",
+    "scentPreference": "White Musk",
+    "ticketNumber": "KND-ENTRY-5798",
+    "country": "KSA",
+    "createdAt": "2026-09-14T14:50:35.940Z"
   }
 ]
