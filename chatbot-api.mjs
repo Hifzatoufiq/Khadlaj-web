@@ -210,6 +210,57 @@ function normalizeConversation(messages) {
     .slice(-12);
 }
 
+function getKnowledgeBaseReply(query) {
+  const q = (query || "").toLowerCase();
+  const isArabic = /[\u0600-\u06FF]/.test(query);
+
+  if (q.includes("shiyaaka shadow") || q.includes("شياكة شادو")) {
+    return isArabic
+      ? "عطر شياكة شادو (Shiyaaka Shadow) هو إحدى روائع دار خَدْلَج الأكثر تميزاً. يفتتح العطر بنفحات آسرة من التوابل الدافئة، يليه قلب فاخر من خشب العود الملكي والعنبر، مع قاعدة غنية بالمسك الأصيل الذي يمنحك ثباتاً مذهلاً وحضوراً ملكياً."
+      : "Shiyaaka Shadow is one of Khadlaj's crown jewels—an intense, captivating fragrance blending radiant warm spices, opulent royal oud, rich golden amber, and a lingering trail of velvety musk. Perfect for evening occasions and creating an indelible impression.";
+  }
+
+  if (q.includes("island sun") || q.includes("آيلاند صن") || q.includes("ايلاند صن")) {
+    return isArabic
+      ? "عطر آيلاند صن (Island Sun) بتركيز إكستري دي بارفان يأخذك في رحلة استوائية منعشة. يتميز بتناغم مبهج من المانجو الناضجة، حليب جوز الهند، نفحات الليم المنعش، مع زهور الياسمين وحبوب التونكا وخشب الأرز الدافئ."
+      : "Island Sun Extrait De Parfum is a tropical sun-drenched masterpiece from our Island Collection. It features vibrant mango, creamy coconut milk, zesty lime, exotic jasmine blossoms, tonka bean, and precious sunlit woods.";
+  }
+
+  if (q.includes("shiyaaka men") || q.includes("شياكة رجالي") || q.includes("شياكة مين")) {
+    return isArabic
+      ? "عطر شياكة للرجال (Shiyaaka Men) هو عطر كلاسيكي راقٍ يجمع بين الانتعاش الفوجير والتوابل الأنيقة وخشب الأرز، مما يجعله مثالياً للاستخدام اليومي وبيئة العمل."
+      : "Shiyaaka Men is a distinguished masculine signature combining refined citrus and aromatics with cedarwood and spicy amber, embodying executive poise and timeless elegance.";
+  }
+
+  if (q.includes("shiyaaka") || q.includes("شياكة")) {
+    return isArabic
+      ? "مجموعة شياكة (Shiyaaka) الأيقونية من خَدْلَج تضم: شياكة شادو (عود وعنبر)، شياكة بلو (أكواتيك وعنبر)، شياكة مين (فوجير خشبي)، شياكة وايت (زهور ناعمة)، وشياكة سكاي وسنو (انتعاش حمضي وعصري)."
+      : "Our iconic Shiyaaka Collection includes: Shiyaaka Shadow (Bold Oud, Amber & Musk), Shiyaaka Blue (Marine & Amberwood), Shiyaaka Men (Spicy Fougère & Cedar), Shiyaaka White (Powdery White Florals), and Shiyaaka Sky & Snow (Fresh Citrus Breeze).";
+  }
+
+  if (q.includes("delivery") || q.includes("shipping") || q.includes("توصيل") || q.includes("شحن") || q.includes("policy")) {
+    return isArabic
+      ? "سياسة التوصيل لدى خَدْلَج: يتم تجهيز وشحن الطلبات خلال 1-2 يوم عمل. نوفر توصيلاً مجانياً داخل دولة الإمارات لجميع الطلبات التي تتجاوز 200 درهم إماراتي. كما نوفر الشحن السريع لجميع دول الخليج العربي."
+      : "Khadlaj Delivery Policy: Orders are dispatched within 1-2 business days. We offer complimentary FREE express delivery across the UAE on all orders above AED 200. Rapid GCC shipping is also fully supported.";
+  }
+
+  if (q.includes("discount") || q.includes("code") || q.includes("promo") || q.includes("خصم") || q.includes("كود") || q.includes("كوبون")) {
+    return isArabic
+      ? "يسعدنا تقديم كود الخصم الحصري 'KHADLAJ25' الذي يمنحك خصماً فورياً بقيمة 25% على كافة عطور ومجموعات خَدْلَج عند إتمام الطلب!"
+      : "We are pleased to offer you an exclusive privilege: use discount code 'KHADLAJ25' at checkout to receive flat 25% off across our entire fragrance collections!";
+  }
+
+  if (q.includes("best") || q.includes("recommend") || q.includes("أفضل") || q.includes("اقترح") || q.includes("ترشيح")) {
+    return isArabic
+      ? "أبرز العطور الأكثر مبيعاً وننصحك بها بشدة:\n1. عطر شياكة شادو (للباحثين عن الفخامة والعود والغموض)\n2. عطر آيلاند صن (لعشاق الانتعاش الاستوائي الصيفي المبهج)\n3. عطر موفي (لإطلالة زهرية راقية بالفانيليا واللوز)"
+      : "Our top recommended customer favorites:\n1. Shiyaaka Shadow (Rich Royal Oud, Amber & Velvet Musk)\n2. Island Sun (Tropical Mango, Coconut & Exotic Tonka)\n3. Muse (Regal Orange Blossom, Orris & Vanilla Almond)";
+  }
+
+  return isArabic
+    ? "مرحباً بك في دار خَدْلَج للعطور! أنا مستشارك العطري الخاص، يسعدني مساعدتك في استكشاف نوتات عطورنا واختيار العطر الأنسب لك أو الإجابة عن أي استفسار."
+    : "Welcome to Khadlaj Perfumes! As your dedicated luxury concierge, I am delighted to assist you with exploring our bespoke fragrance notes, finding your signature scent, or answering inquiries about our UAE & GCC collections. How may I assist you today?";
+}
+
 export async function handleChatRequest(req, res) {
   if (req.method === "OPTIONS") {
     sendJson(res, 200, { ok: true });
@@ -217,12 +268,6 @@ export async function handleChatRequest(req, res) {
   }
   if (req.method !== "POST") {
     sendJson(res, 405, { error: "Method not allowed." });
-    return;
-  }
-
-  const apiKey = OPENAI_API_KEY;
-  if (!apiKey) {
-    sendJson(res, 500, { error: "OPENAI_API_KEY is not configured." });
     return;
   }
 
@@ -245,6 +290,14 @@ export async function handleChatRequest(req, res) {
     conversation.push({ role: "user", content: message });
   }
 
+  const lastUserMessage = [...conversation].reverse().find(m => m.role === "user")?.content || "";
+
+  const apiKey = OPENAI_API_KEY;
+  if (!apiKey) {
+    sendJson(res, 200, { reply: getKnowledgeBaseReply(lastUserMessage) });
+    return;
+  }
+
   try {
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -264,20 +317,21 @@ export async function handleChatRequest(req, res) {
 
     const data = await response.json().catch(() => null);
     if (!response.ok) {
-      const detail = data?.error?.message || "OpenAI request failed.";
-      sendJson(res, 502, { error: detail });
+      console.warn("OpenAI returned non-OK, using Khadlaj knowledge base:", data?.error?.message);
+      sendJson(res, 200, { reply: getKnowledgeBaseReply(lastUserMessage) });
       return;
     }
 
     const reply = data?.choices?.[0]?.message?.content?.trim();
     if (!reply) {
-      sendJson(res, 502, { error: "No assistant reply returned." });
+      sendJson(res, 200, { reply: getKnowledgeBaseReply(lastUserMessage) });
       return;
     }
 
     sendJson(res, 200, { reply });
   } catch (error) {
-    sendJson(res, 502, { error: error instanceof Error ? error.message : "OpenAI request failed." });
+    console.warn("OpenAI request error, falling back to Khadlaj knowledge base:", error);
+    sendJson(res, 200, { reply: getKnowledgeBaseReply(lastUserMessage) });
   }
 }
 

@@ -5760,8 +5760,8 @@ const GLOBAL_CSS = `
     }
     .floating-chat-btn {
       right: 16px !important;
-      width: 42px !important;
-      height: 42px !important;
+      width: 48px !important;
+      height: 48px !important;
     }
     .floating-chat-home {
       bottom: 56px !important;
@@ -5771,7 +5771,11 @@ const GLOBAL_CSS = `
     }
     .floating-chat-window {
       right: 16px !important;
-      bottom: 66px !important;
+      bottom: 74px !important;
+      width: 360px !important;
+      max-width: calc(100vw - 32px) !important;
+      height: 520px !important;
+      max-height: calc(100vh - 90px) !important;
     }
   }
   @media(max-width: 600px) {
@@ -5787,8 +5791,8 @@ const GLOBAL_CSS = `
     }
     .floating-chat-btn {
       right: 14px !important;
-      width: 38px !important;
-      height: 38px !important;
+      width: 46px !important;
+      height: 46px !important;
     }
     .floating-chat-home {
       bottom: 52px !important;
@@ -5797,13 +5801,13 @@ const GLOBAL_CSS = `
       bottom: 16px !important;
     }
     .floating-chat-window {
-      right: 12px !important;
-      left: 12px !important;
+      right: 10px !important;
+      left: 10px !important;
       width: auto !important;
       max-width: none !important;
-      bottom: 60px !important;
-      height: 65vh !important;
-      max-height: 480px !important;
+      bottom: 66px !important;
+      height: 72vh !important;
+      max-height: 540px !important;
     }
     .auth-form-panel {
       padding: 36px 20px !important;
@@ -6568,6 +6572,168 @@ const GLOBAL_CSS = `
   /* Mobile menu in RTL */
   [dir="rtl"] .mob-nav-link {
     text-align: right !important;
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
+     LUXURY SCENT CONCIERGE CHATBOT STYLES
+  ═══════════════════════════════════════════════════════════════ */
+  @keyframes chatPulseGlow {
+    0% { box-shadow: 0 8px 24px rgba(37, 23, 55, 0.35), 0 0 0 0 rgba(184, 146, 42, 0.45); }
+    70% { box-shadow: 0 8px 24px rgba(37, 23, 55, 0.35), 0 0 0 10px rgba(184, 146, 42, 0); }
+    100% { box-shadow: 0 8px 24px rgba(37, 23, 55, 0.35), 0 0 0 0 rgba(184, 146, 42, 0); }
+  }
+
+  @keyframes chatDotBounce {
+    0%, 80%, 100% { transform: translateY(0); opacity: 0.35; }
+    40% { transform: translateY(-5px); opacity: 1; }
+  }
+
+  .chat-pulse-btn {
+    animation: chatPulseGlow 3.5s infinite;
+  }
+
+  /* Custom thin luxury scrollbar for chat messages */
+  .chat-messages-container {
+    scrollbar-width: thin !important;
+    scrollbar-color: rgba(184, 146, 42, 0.35) transparent !important;
+  }
+  .chat-messages-container::-webkit-scrollbar {
+    width: 4px !important;
+  }
+  .chat-messages-container::-webkit-scrollbar-button,
+  .chat-messages-container::-webkit-scrollbar-button:single-button,
+  .chat-messages-container::-webkit-scrollbar-button:start:decrement,
+  .chat-messages-container::-webkit-scrollbar-button:end:increment {
+    display: none !important;
+    width: 0px !important;
+    height: 0px !important;
+  }
+  .chat-messages-container::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+  .chat-messages-container::-webkit-scrollbar-thumb {
+    background: rgba(184, 146, 42, 0.35) !important;
+    border-radius: 10px !important;
+  }
+  .chat-messages-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(184, 146, 42, 0.75) !important;
+  }
+
+  /* Hide scrollbar completely for horizontal suggestion chips & any .no-scrollbar */
+  .chat-chips-scroll,
+  .no-scrollbar {
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .chat-chips-scroll::-webkit-scrollbar,
+  .no-scrollbar::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+  }
+
+  .chat-suggestion-chip {
+    background: #FFFFFF;
+    border: 1px solid rgba(184, 146, 42, 0.32);
+    border-radius: 18px;
+    padding: 5px 12px;
+    font-size: 11px;
+    font-weight: 500;
+    color: #251737;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  }
+  .chat-suggestion-chip:hover {
+    background: #251737 !important;
+    border-color: #B8922A !important;
+    color: #F3E5C8 !important;
+    transform: translateY(-1.5px);
+    box-shadow: 0 4px 10px rgba(37, 23, 55, 0.18);
+  }
+
+  .chat-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #F8F6F2;
+    border: 1.5px solid #E4DCCB;
+    border-radius: 26px;
+    padding: 4px 5px 4px 14px;
+    transition: all 0.25s ease;
+  }
+  .chat-input-wrapper:focus-within {
+    background: #FFFFFF;
+    border-color: #B8922A;
+    box-shadow: 0 0 0 3px rgba(184, 146, 42, 0.14);
+  }
+
+  .chat-send-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, #B8922A 0%, #96741E 100%);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 8px rgba(184, 146, 42, 0.25);
+    flex-shrink: 0;
+  }
+  .chat-send-btn:hover:not(:disabled) {
+    transform: scale(1.06);
+    box-shadow: 0 4px 12px rgba(184, 146, 42, 0.45);
+    background: linear-gradient(135deg, #C79E30 0%, #A37E22 100%);
+  }
+  .chat-send-btn:active:not(:disabled) {
+    transform: scale(0.96);
+  }
+  .chat-send-btn:disabled {
+    opacity: 0.38;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  .chat-typing-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #B8922A;
+    animation: chatDotBounce 1.4s infinite ease-in-out both;
+  }
+
+  .chat-action-icon-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.72);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .chat-action-icon-btn:hover {
+    color: #FFFFFF;
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  [dir="rtl"] .chat-bubble-assistant {
+    border-radius: 14px 4px 14px 14px !important;
+  }
+  [dir="rtl"] .chat-bubble-user {
+    border-radius: 4px 14px 14px 14px !important;
   }
 
 `;
@@ -12479,9 +12645,10 @@ export default function App(){
   const [inputVal, setInputVal] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleSendMessage = async () => {
-    if (!inputVal.trim() || loading) return;
-    const userMsg = { role: "user", content: inputVal };
+  const sendChatMessage = async (overrideText) => {
+    const text = (typeof overrideText === "string" ? overrideText : inputVal).trim();
+    if (!text || loading) return;
+    const userMsg = { role: "user", content: text };
     const nextMessages = [...messages, userMsg];
     setMessages(nextMessages);
     setInputVal("");
@@ -12509,6 +12676,8 @@ export default function App(){
       setLoading(false);
     }
   };
+
+  const handleSendMessage = () => sendChatMessage();
 
   useEffect(()=>{
     const t = setTimeout(()=>setShowPopup(true), 6000);
@@ -12589,148 +12758,416 @@ export default function App(){
       {/* ── Chatbot Floating Button (Placed cleanly on right side, responsive on mobile) ── */}
       <button
         onClick={()=>setChatOpen(!chatOpen)}
-        className={`floating-chat-btn ${(page==="main" || page==="home") ? 'floating-chat-home' : 'floating-chat-inner'}`}
+        className={`floating-chat-btn chat-pulse-btn ${(page==="main" || page==="home") ? 'floating-chat-home' : 'floating-chat-inner'}`}
         style={{
-          position:"fixed",
+          position: "fixed",
           bottom: (page==="main" || page==="home") ? 80 : 24,
           right: 24,
           zIndex: 200,
-          background: "#251737", color: "#fff",
-          width: 46, height: 46, borderRadius: "50%",
-          border: "none", cursor: "pointer",
-          boxShadow: "0 8px 28px rgba(0,0,0,.25)",
-          display: "flex", alignItems: "center", justifyContent: "center",
-          transition: "background .2s,transform .2s,bottom .2s",
+          background: "linear-gradient(135deg, #251737 0%, #150921 100%)",
+          color: "#fff",
+          width: 50,
+          height: 50,
+          borderRadius: "50%",
+          border: "1.5px solid #D4AF37",
+          cursor: "pointer",
+          boxShadow: "0 10px 28px rgba(37,23,55,0.38)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          transition: "all .25s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
-        onMouseEnter={e=>{e.currentTarget.style.background="#B8922A";e.currentTarget.style.transform="scale(1.06)";}}
-        onMouseLeave={e=>{e.currentTarget.style.background="#251737";e.currentTarget.style.transform="scale(1)";}}
-        title="Chat with Us"
+        onMouseEnter={e=>{e.currentTarget.style.transform="scale(1.08)";}}
+        onMouseLeave={e=>{e.currentTarget.style.transform="scale(1)";}}
+        title={chatOpen ? (isRTL ? "إغلاق المحادثة" : "Close Scent Concierge") : (isRTL ? "مستشار خَدْلَج للعطور" : "Chat with Scent Concierge")}
+        aria-label="Khadlaj Scent Concierge"
       >
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        {chatOpen ? (
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#E8D499" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        ) : (
+          <>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8D499" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              <path d="M8 10h.01M12 10h.01M16 10h.01" strokeWidth="2.5" stroke="#E8D499"/>
+            </svg>
+            <span style={{
+              position: "absolute", top: 2, right: 2,
+              width: 10, height: 10, borderRadius: "50%",
+              background: "#10B981", border: "2px solid #251737"
+            }} />
+          </>
+        )}
       </button>
 
       {/* ── Chatbot Window Panel (Responsive on mobile) ── */}
       {chatOpen && (
         <div className="floating-chat-window" style={{
-          position:"fixed",
-          bottom: (page==="main" || page==="home") ? 136 : 80,
+          position: "fixed",
+          bottom: (page==="main" || page==="home") ? 140 : 84,
           right: 24,
-          width: 320, height: 420,
+          width: 380,
+          height: 520,
+          maxHeight: "calc(100vh - 110px)",
           maxWidth: "calc(100vw - 32px)",
-          zIndex: 200, background: "rgba(255, 255, 255, 0.98)",
-          border: "1px solid rgba(0,0,0,0.1)", borderRadius: 12,
-          boxShadow: "0 16px 40px rgba(0,0,0,0.15)",
-          display: "flex", flexDirection: "column", overflow: "hidden",
-          animation: "fadeUp 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both",
-          fontFamily: "'Montserrat',sans-serif"
+          zIndex: 200,
+          background: "#FFFFFF",
+          border: "1px solid rgba(184, 146, 42, 0.3)",
+          borderRadius: 18,
+          boxShadow: "0 24px 60px rgba(21, 9, 33, 0.28), 0 4px 16px rgba(0,0,0,0.08)",
+          display: "flex",
+          flexDirection: "column",
+          overflow: "hidden",
+          animation: "fadeUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) both",
+          fontFamily: isRTL ? "'Tajawal', 'Cairo', sans-serif" : "'Montserrat', sans-serif"
         }}>
           {/* Header */}
-          <div style={{background:"#251737", padding:"16px 20px", display:"flex", alignItems:"center", justifyContent:"space-between"}}>
-            <div style={{display:"flex", alignItems:"center", gap:10}}>
-              <div style={{width:8, height:8, borderRadius:"50%", background:"#2ec4b6"}}></div>
+          <div style={{
+            background: "linear-gradient(135deg, #251737 0%, #150921 100%)",
+            padding: "14px 18px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            borderBottom: "1px solid rgba(184, 146, 42, 0.35)",
+            boxShadow: "0 4px 14px rgba(0,0,0,0.08)"
+          }}>
+            <div style={{display: "flex", alignItems: "center", gap: 12}}>
+              <div style={{position: "relative", flexShrink: 0}}>
+                <div style={{
+                  width: 38, height: 38, borderRadius: "50%",
+                  background: "linear-gradient(135deg, #3A1F52 0%, #1F0D30 100%)",
+                  border: "1.5px solid #D4AF37",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.2)"
+                }}>
+                  <span style={{
+                    fontFamily: "'Cinzel', 'Trajan Pro', serif",
+                    fontWeight: 700,
+                    fontSize: 16,
+                    color: "#E8D499",
+                    letterSpacing: 0.5
+                  }}>K</span>
+                </div>
+                <span style={{
+                  position: "absolute", bottom: 0, right: 0,
+                  width: 9, height: 9, borderRadius: "50%",
+                  background: "#10B981",
+                  border: "2px solid #251737",
+                  boxShadow: "0 0 6px #10B981"
+                }} />
+              </div>
+
               <div>
-                <p style={{fontSize:11, letterSpacing:2, color:"#B8922A", textTransform:"uppercase", margin:0, fontWeight:600}}>Scent Assistant</p>
-                <p style={{fontSize:9, color:"rgba(255,255,255,0.7)", margin:0}}>Khadlaj Perfumes</p>
+                <div style={{display: "flex", alignItems: "center", gap: 6}}>
+                  <h4 style={{
+                    margin: 0,
+                    fontFamily: "'Cinzel', 'Trajan Pro', serif",
+                    fontSize: 12,
+                    letterSpacing: 1.5,
+                    color: "#EAD5A0",
+                    fontWeight: 700,
+                    textTransform: "uppercase"
+                  }}>
+                    {isRTL ? "مستشار خَدْلَج للعطور" : "Khadlaj Scent Concierge"}
+                  </h4>
+                </div>
+                <p style={{
+                  margin: "2px 0 0 0",
+                  fontSize: 10,
+                  color: "rgba(255,255,255,0.7)",
+                  fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif"
+                }}>
+                  {isRTL ? "مستشارك الخاص • متصل الآن" : "Bespoke AI Advisor • Online"}
+                </p>
               </div>
             </div>
-            <button onClick={()=>setChatOpen(false)} style={{background:"none", border:"none", color:"#fff", fontSize:18, cursor:"pointer", padding:0}}>×</button>
+
+            <div style={{display: "flex", alignItems: "center", gap: 4}}>
+              <button
+                onClick={() => {
+                  setMessages([
+                    { role: "assistant", content: isRTL ? "مرحباً بكم في دار خَدْلَج للعطور. أنا مستشارك العطري الخاص، يسعدني مساعدتك في كل ما يتعلق بعطورنا، نوتات العطور، مجموعاتنا الحصرية، وتفاصيل الشحن." : "Welcome to Khadlaj Perfumes. I am your dedicated luxury concierge. How may I assist you with our fragrances, notes, collections, shipping, or offers today?" }
+                  ]);
+                }}
+                className="chat-action-icon-btn"
+                title={isRTL ? "إعادة بدء المحادثة" : "Restart conversation"}
+                aria-label="Restart conversation"
+              >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="1 4 1 10 7 10"></polyline>
+                  <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+                </svg>
+              </button>
+              <button
+                onClick={() => setChatOpen(false)}
+                className="chat-action-icon-btn"
+                title={isRTL ? "إغلاق" : "Close chat"}
+                aria-label="Close chat"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+            </div>
           </div>
 
           {/* Messages list */}
-          <div ref={chatMessagesRef} style={{flex:1, padding:20, overflowY:"auto", display:"flex", flexDirection:"column", gap:12, background:"#FCFBFA"}} className="chat-messages">
-            {messages.map((msg, i) => (
-              <div key={i} style={{
-                alignSelf: msg.role === "user" ? "flex-end" : "flex-start",
-                maxWidth: "80%",
-                background: msg.role === "user" ? "#000" : "#fff",
-                color: msg.role === "user" ? "#fff" : "#111",
-                padding: "10px 14px",
-                borderRadius: msg.role === "user" ? "12px 12px 0 12px" : "12px 12px 12px 0",
-                boxShadow: "0 2px 8px rgba(0,0,0,0.03)",
-                border: msg.role === "user" ? "none" : "1px solid #E8E4DC",
+          <div
+            ref={chatMessagesRef}
+            className="chat-messages-container"
+            style={{
+              flex: 1,
+              padding: "16px 16px 12px 16px",
+              overflowY: "auto",
+              display: "flex",
+              flexDirection: "column",
+              gap: 14,
+              background: "radial-gradient(ellipse at top, #FFFDF9 0%, #F8F5EE 100%)"
+            }}
+          >
+            <div style={{textAlign: "center", margin: "2px 0 4px 0"}}>
+              <span style={{
+                fontSize: 9,
+                letterSpacing: 1.2,
+                color: "#9F9282",
+                textTransform: "uppercase",
+                background: "rgba(184, 146, 42, 0.08)",
+                padding: "3px 10px",
+                borderRadius: 10,
+                fontWeight: 600,
+                border: "1px solid rgba(184, 146, 42, 0.15)"
               }}>
-                <p style={{fontSize:12, margin:0, lineHeight:1.45, whiteSpace:"pre-line"}}>{msg.content}</p>
+                {isRTL ? "دار خَدْلَج للعطور • دبي" : "Khadlaj Perfumes • Dubai"}
+              </span>
+            </div>
+
+            {messages.map((msg, i) => (
+              <div
+                key={i}
+                style={{
+                  alignSelf: msg.role === "user" ? "flex-end" : "flex-start",
+                  maxWidth: msg.role === "user" ? "82%" : "88%",
+                  display: "flex",
+                  gap: 8,
+                  alignItems: "flex-start"
+                }}
+              >
+                {msg.role !== "user" && (
+                  <div style={{
+                    width: 24, height: 24, borderRadius: "50%",
+                    background: "linear-gradient(135deg, #3A1F52 0%, #200E30 100%)",
+                    border: "1px solid #D4AF37",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    flexShrink: 0, marginTop: 2,
+                    boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
+                  }}>
+                    <span style={{
+                      fontFamily: "'Cinzel', serif",
+                      fontSize: 11,
+                      fontWeight: 700,
+                      color: "#E8D499"
+                    }}>K</span>
+                  </div>
+                )}
+
+                <div
+                  className={msg.role === "user" ? "chat-bubble-user" : "chat-bubble-assistant"}
+                  style={{
+                    background: msg.role === "user"
+                      ? "linear-gradient(135deg, #3A124F 0%, #220831 100%)"
+                      : "#FFFFFF",
+                    color: msg.role === "user" ? "#FFFFFF" : "#221C28",
+                    padding: "10px 14px",
+                    borderRadius: msg.role === "user"
+                      ? (isRTL ? "4px 14px 14px 14px" : "14px 4px 14px 14px")
+                      : (isRTL ? "14px 4px 14px 14px" : "4px 14px 14px 14px"),
+                    boxShadow: msg.role === "user"
+                      ? "0 4px 14px rgba(37, 18, 55, 0.2)"
+                      : "0 2px 10px rgba(0,0,0,0.04)",
+                    border: msg.role === "user"
+                      ? "1px solid rgba(212, 175, 55, 0.35)"
+                      : "1px solid #EAE4D6"
+                  }}
+                >
+                  {msg.role !== "user" && (
+                    <div style={{
+                      fontSize: 9,
+                      letterSpacing: 1,
+                      fontWeight: 700,
+                      color: "#B8922A",
+                      textTransform: "uppercase",
+                      marginBottom: 4,
+                      fontFamily: "'Cinzel', serif"
+                    }}>
+                      {isRTL ? "مستشار خَدْلَج" : "Khadlaj Concierge"}
+                    </div>
+                  )}
+                  <p style={{
+                    fontSize: 12,
+                    lineHeight: 1.55,
+                    margin: 0,
+                    whiteSpace: "pre-line",
+                    fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif",
+                    letterSpacing: 0.1
+                  }}>
+                    {msg.content}
+                  </p>
+                </div>
               </div>
             ))}
+
             {loading && (
-              <div style={{alignSelf:"flex-start", maxWidth:"80%", background:"#fff", padding:"10px 14px", borderRadius:"12px 12px 12px 0", border:"1px solid #E8E4DC", boxShadow:"0 2px 8px rgba(0,0,0,0.03)"}}>
-                <p style={{fontSize:11, color:"#888", margin:0}}>Assistant is writing...</p>
+              <div style={{alignSelf: "flex-start", maxWidth: "88%", display: "flex", gap: 8, alignItems: "flex-start"}}>
+                <div style={{
+                  width: 24, height: 24, borderRadius: "50%",
+                  background: "linear-gradient(135deg, #3A1F52 0%, #200E30 100%)",
+                  border: "1px solid #D4AF37",
+                  display: "flex", alignItems: "center", justifyContent: "center",
+                  flexShrink: 0, marginTop: 2
+                }}>
+                  <span style={{fontFamily: "'Cinzel', serif", fontSize: 11, fontWeight: 700, color: "#E8D499"}}>K</span>
+                </div>
+                <div style={{
+                  background: "#FFFFFF",
+                  padding: "10px 14px",
+                  borderRadius: isRTL ? "14px 4px 14px 14px" : "4px 14px 14px 14px",
+                  border: "1px solid #EAE4D6",
+                  boxShadow: "0 2px 10px rgba(0,0,0,0.04)"
+                }}>
+                  <div style={{display: "flex", alignItems: "center", gap: 6}}>
+                    <span className="chat-typing-dot"></span>
+                    <span className="chat-typing-dot" style={{animationDelay: "0.2s"}}></span>
+                    <span className="chat-typing-dot" style={{animationDelay: "0.4s"}}></span>
+                    <span style={{
+                      fontSize: 10.5,
+                      color: "#8E8474",
+                      marginLeft: 4,
+                      fontStyle: "italic",
+                      fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif"
+                    }}>
+                      {isRTL ? "جاري تحضير الإجابة..." : "Consulting fragrance notes..."}
+                    </span>
+                  </div>
+                </div>
               </div>
             )}
           </div>
 
-          {/* Quick Suggestions */}
-          <div style={{padding:"8px 16px", background:"#F7F5F0", borderTop:"1px solid #E8E4DC", display:"flex", gap:6, overflowX:"auto", whiteSpace:"nowrap"}} className="no-scrollbar">
-            {(isRTL ? [
-              "عطر شياكة شادو",
-              "عطور آيلاند",
-              "سياسة التوصيل",
-              "كود الخصم"
-            ] : [
-              "Shiyaaka Shadow notes",
-              "Island Sun fragrance",
-              "UAE delivery policy",
-              "Discount code"
-            ]).map((sug, idx) => (
-              <button key={idx}
-                onClick={() => {
-                  const userMsg = { role: "user", content: sug };
-                  const nextMessages = [...messages, userMsg];
-                  setMessages(nextMessages);
-                  setLoading(true);
-                  fetch("/api/chat", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ messages: nextMessages })
-                  })
-                  .then(r => r.json())
-                  .then(data => {
-                    setMessages(prev => [...prev, { role: "assistant", content: data.reply || data.error }]);
-                  })
-                  .catch(() => {
-                    setMessages(prev => [...prev, { role: "assistant", content: "Service is momentarily unavailable." }]);
-                  })
-                  .finally(() => setLoading(false));
-                }}
-                style={{
-                  background:"#fff", border:"1px solid #D6CEBE", borderRadius:14,
-                  padding:"4px 10px", fontSize:10, color:"#251737", cursor:"pointer",
-                  fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif",
-                  flexShrink:0, transition:"all 0.2s ease"
-                }}
-                onMouseEnter={e => { e.currentTarget.style.borderColor = "#B8922A"; e.currentTarget.style.color = "#B8922A"; }}
-                onMouseLeave={e => { e.currentTarget.style.borderColor = "#D6CEBE"; e.currentTarget.style.color = "#251737"; }}
-              >
-                {sug}
-              </button>
-            ))}
+          {/* Quick Suggestions Bar */}
+          <div style={{
+            padding: "8px 12px",
+            background: "#F5F2EA",
+            borderTop: "1px solid #E8E0D0",
+            borderBottom: "1px solid #E8E0D0",
+            display: "flex",
+            alignItems: "center",
+            gap: 6
+          }}>
+            <span style={{
+              fontSize: 10,
+              color: "#918472",
+              fontWeight: 600,
+              letterSpacing: 0.5,
+              flexShrink: 0,
+              display: "flex",
+              alignItems: "center"
+            }} title="Quick prompts">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </span>
+            <div
+              className="chat-chips-scroll no-scrollbar"
+              style={{
+                display: "flex",
+                gap: 6,
+                overflowX: "auto",
+                padding: "2px 0"
+              }}
+            >
+              {(isRTL ? [
+                "عطر شياكة شادو",
+                "عطر آيلاند صن",
+                "سياسة التوصيل",
+                "كود الخصم",
+                "أفضل العطور مبيعاً"
+              ] : [
+                "Shiyaaka Shadow notes",
+                "Island Sun fragrance",
+                "UAE delivery policy",
+                "Discount code",
+                "Best selling perfumes"
+              ]).map((sug, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => sendChatMessage(sug)}
+                  className="chat-suggestion-chip"
+                  style={{
+                    fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif"
+                  }}
+                >
+                  {sug}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Footer Input */}
-          <div style={{padding:"12px 16px", borderTop:"1px solid #E8E4DC", background:"#fff", display:"flex", gap:10, alignItems:"center"}}>
-            <input
-              type="text"
-              placeholder={isRTL ? "اسأل عن أي عطر من خدلج..." : "Ask about Khadlaj perfumes..."}
-              value={inputVal}
-              onChange={e=>setInputVal(e.target.value)}
-              onKeyDown={e=>{if(e.key==="Enter") handleSendMessage();}}
-              style={{
-                flex:1, border:"1px solid #E8E4DC", padding:"10px 14px",
-                fontSize:12, outline:"none", borderRadius:6,
-                fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"
-              }}
-            />
-            <button
-              onClick={handleSendMessage}
-              style={{
-                background:"#251737", border:"none", color:"#fff",
-                padding:"10px 14px", borderRadius:6, cursor:"pointer",
-                fontSize:11, fontWeight:600, textTransform:"uppercase",
-                fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"
-              }}
-            >
-              {isRTL ? "إرسال" : "Send"}
-            </button>
+          <div style={{
+            padding: "10px 14px 8px 14px",
+            background: "#FFFFFF"
+          }}>
+            <div className="chat-input-wrapper">
+              <input
+                type="text"
+                placeholder={isRTL ? "اسأل عن أي عطر من خَدْلَج..." : "Ask about Khadlaj perfumes..."}
+                value={inputVal}
+                onChange={e => setInputVal(e.target.value)}
+                onKeyDown={e => {
+                  if (e.key === "Enter" && !e.shiftKey) {
+                    e.preventDefault();
+                    sendChatMessage();
+                  }
+                }}
+                disabled={loading}
+                style={{
+                  flex: 1,
+                  border: "none",
+                  background: "transparent",
+                  outline: "none",
+                  fontSize: 12,
+                  color: "#251737",
+                  fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif",
+                  padding: "7px 4px"
+                }}
+              />
+              <button
+                onClick={() => sendChatMessage()}
+                disabled={loading || !inputVal.trim()}
+                className="chat-send-btn"
+                title={isRTL ? "إرسال" : "Send message"}
+                aria-label="Send message"
+              >
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{transform: isRTL ? "rotate(180deg)" : "none", marginLeft: isRTL ? 0 : 2}}>
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </div>
+
+            <p style={{
+              margin: "6px 0 2px 0",
+              textAlign: "center",
+              fontSize: 9,
+              letterSpacing: 0.4,
+              color: "#ABA191",
+              fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif"
+            }}>
+              {isRTL ? "مستشار خَدْلَج الذكي • عطور أصلية فاخرة ١٠٠٪" : "Khadlaj Royal Scent Concierge • 100% Authentic"}
+            </p>
           </div>
         </div>
       )}
