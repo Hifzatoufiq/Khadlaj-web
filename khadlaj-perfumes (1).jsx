@@ -4821,6 +4821,7 @@ const SOCIAL_LINKS = {
   youtube: "https://www.youtube.com/",
   linkedin: "https://www.linkedin.com/",
   tiktok: "https://www.tiktok.com/@khadlaj.uk",
+  whatsapp: "https://wa.me/971501234567?text=Hello%20Khadlaj%20Perfumes",
 };
 
 /* ═══════════════════════════════════════════════════════════════
@@ -5681,8 +5682,64 @@ const GLOBAL_CSS = `
     }
   }
 
-  /* Floating Chatbot Responsive Positioning */
+  /* Floating WhatsApp Button (Left Side) */
+  .floating-whatsapp-btn {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 200;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #25D366;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4), 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s ease;
+    cursor: pointer;
+  }
+  .floating-whatsapp-btn:hover {
+    transform: scale(1.1) translateY(-2px);
+    box-shadow: 0 12px 30px rgba(37, 211, 102, 0.55), 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+  .floating-whatsapp-btn .whatsapp-ripple {
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 2px solid rgba(37, 211, 102, 0.6);
+    animation: wa-pulse 2.2s infinite ease-out;
+    pointer-events: none;
+  }
+  @keyframes wa-pulse {
+    0% {
+      transform: scale(0.95);
+      opacity: 0.8;
+    }
+    70% {
+      transform: scale(1.3);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1.35);
+      opacity: 0;
+    }
+  }
+
+  /* Floating Chatbot & WhatsApp Responsive Positioning */
   @media(max-width: 900px) {
+    .floating-whatsapp-btn {
+      left: 16px !important;
+      bottom: 20px !important;
+      width: 44px !important;
+      height: 44px !important;
+    }
+    .floating-whatsapp-btn svg {
+      width: 24px !important;
+      height: 24px !important;
+    }
     .floating-chat-btn {
       right: 16px !important;
       width: 42px !important;
@@ -5700,6 +5757,16 @@ const GLOBAL_CSS = `
     }
   }
   @media(max-width: 600px) {
+    .floating-whatsapp-btn {
+      left: 14px !important;
+      bottom: 20px !important;
+      width: 42px !important;
+      height: 42px !important;
+    }
+    .floating-whatsapp-btn svg {
+      width: 23px !important;
+      height: 23px !important;
+    }
     .floating-chat-btn {
       right: 14px !important;
       width: 38px !important;
@@ -11354,6 +11421,21 @@ export default function App(){
       <Navbar page={page} setPage={setPage} cartCount={cartCount} setCollectionCategory={setCollectionCategory} collectionCategory={collectionCategory} activeCountry={activeCountry} setSelectedCollection={setSelectedCollection}/>
       <main>{renderPage()}</main>
       <Footer setPage={setPage}/>
+
+      {/* ── Floating WhatsApp Button (Left Side) ── */}
+      <a
+        href="https://wa.me/971501234567?text=Hello%20Khadlaj%20Perfumes%2C%20I%20would%20like%20to%20inquire%20about%20your%20fragrances"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="floating-whatsapp-btn"
+        aria-label="Chat with us on WhatsApp"
+        title="Chat with us on WhatsApp"
+      >
+        <span className="whatsapp-ripple"></span>
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="#FFFFFF" style={{position:"relative",zIndex:2}}>
+          <path d="M12.031 2C6.496 2 2 6.496 2 12.031c0 1.836.494 3.559 1.353 5.047L2 22l5.064-1.328A9.972 9.972 0 0 0 12.03 22c5.535 0 10.031-4.496 10.031-10.031C22.062 6.496 17.566 2 12.031 2zm0 18.234a8.16 8.16 0 0 1-4.172-1.14l-.3-.18-3.008.79.805-2.93-.195-.312A8.17 8.17 0 0 1 3.828 12.03c0-4.523 3.68-8.203 8.203-8.203 4.524 0 8.203 3.68 8.203 8.203 0 4.524-3.68 8.203-8.203 8.203zm4.5-6.148c-.246-.125-1.46-.72-1.687-.805-.227-.082-.39-.125-.555.125-.164.246-.637.805-.781.97-.145.163-.29.183-.536.06-.246-.125-1.04-.383-1.984-1.226-.735-.656-1.23-1.465-1.375-1.71-.144-.247-.015-.38.109-.504.11-.11.246-.287.369-.43.123-.145.164-.247.246-.41.082-.165.041-.308-.02-.43-.062-.124-.555-1.336-.76-1.833-.2-.483-.404-.418-.555-.426-.144-.008-.308-.008-.472-.008-.164 0-.43.061-.656.308-.226.246-.862.842-.862 2.053s.882 2.38 1.005 2.545c.123.164 1.735 2.65 4.204 3.715.587.254 1.045.405 1.403.52.59.188 1.127.161 1.551.098.473-.07 1.46-.596 1.666-1.173.205-.576.205-1.069.144-1.173-.062-.102-.226-.164-.472-.287z"/>
+        </svg>
+      </a>
 
       {/* ── Floating Shop button (Desktop only, hidden on mobile to avoid ribbon obstruction) ── */}
       {(page==="main" || page==="home") && (
