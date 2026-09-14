@@ -11662,14 +11662,6 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
     });
   };
 
-  // Select 4 distinct, iconic bestsellers for Saudi Arabia
-  const ksaProductNames = ["SHIYAAKA GOLD", "KARUS GOLD ABSOLU", "ISLAND SUN", "SARAYA"];
-  const ksaProducts = ksaProductNames.map(name => PRODUCTS.find(p => p.name === name)).filter(Boolean);
-  if (ksaProducts.length < 4) {
-    const backup = PRODUCTS.filter(p => !ksaProducts.some(kp => kp.id === p.id)).slice(0, 4 - ksaProducts.length);
-    ksaProducts.push(...backup);
-  }
-
   const faqs = [
     {
       q: "Who is eligible to participate in the giveaway?",
@@ -12042,28 +12034,6 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
           <div><div style={{fontSize:26,marginBottom:6}}>🌿</div><h4 style={{fontFamily:"'Cinzel',serif",fontSize:15,color:"#251737",fontWeight:700}}>100% PURE ESSENCES</h4><p style={{fontSize:12,color:"#666666",marginTop:4}}>Pure Cambodian Oud & Taif Rose oils</p></div>
           <div><div style={{fontSize:26,marginBottom:6}}>🇸🇦</div><h4 style={{fontFamily:"'Cinzel',serif",fontSize:15,color:"#251737",fontWeight:700}}>FAST KSA DELIVERY</h4><p style={{fontSize:12,color:"#666666",marginTop:4}}>Express 2-4 day doorstep delivery</p></div>
           <div><div style={{fontSize:26,marginBottom:6}}>🔒</div><h4 style={{fontFamily:"'Cinzel',serif",fontSize:15,color:"#251737",fontWeight:700}}>AUTHENTIC GUARANTEE</h4><p style={{fontSize:12,color:"#666666",marginTop:4}}>Official direct-from-brand guarantee</p></div>
-        </div>
-      </section>
-
-      {/* Featured Products Section with Official Khadlaj ProductCard Design */}
-      <section style={{maxWidth:1280,margin:"0 auto",padding:"70px 24px",background:"#FFFFFF"}}>
-        <div style={{textAlign:"center",marginBottom:40}}>
-          <p style={{fontSize:12,textTransform:"uppercase",letterSpacing:"0.2em",color:"#896103",fontWeight:700,marginBottom:6}}>DISCOVER THE ICONS</p>
-          <h2 style={{fontFamily:"'Cinzel',serif",fontSize:28,color:"#251737"}}>BEST-SELLING IN SAUDI ARABIA</h2>
-        </div>
-
-        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(260px, 1fr))",gap:28,alignItems:"stretch"}} className="grid-4">
-          {ksaProducts.map(p => (
-            <ProductCard 
-              key={p.id} 
-              p={p} 
-              onView={(prod) => {
-                if (setViewProduct) setViewProduct(prod);
-                if (setPage) setPage("product");
-              }} 
-              onCart={addToCart}
-            />
-          ))}
         </div>
       </section>
 
