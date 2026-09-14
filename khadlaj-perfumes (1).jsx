@@ -7798,7 +7798,7 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
       <NewLaunchesShowcaseCards setPage={setPage} setViewProduct={setViewProduct} />
 
       {/* ── NEW LAUNCH ── */}
-      <section style={{padding:"84px 5% 96px", background:"linear-gradient(180deg, #fff 0%, #fcfaf7 100%)"}}>
+      <section style={{padding:"54px 5% 32px", background:"linear-gradient(180deg, #fff 0%, #fcfaf7 100%)"}}>
         <div className="max-container">
           <div style={{display:"flex",flexDirection:"column",alignItems:"center",gap:14,marginBottom:28,textAlign:"center"}}>
             <SectionHeader title={t("newLaunches", "New Launches")} sub={t("newLaunchesSub", "A balanced spotlight on the latest fragrances, curated to feel clean and contemporary.")} />
@@ -7818,14 +7818,10 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
         </div>
       </section>
 
-
-      
-      
-
       {/* ── WHAT SETS US APART ── */}
       {/* ── DISCOVER YOUR NEXT FAVORITE ── */}
-      <section style={{padding:"120px 0", background:"#FAF8F4", overflow:"hidden"}}>
-        <div style={{textAlign:"center", marginBottom:60}}>
+      <section style={{padding:"48px 0 64px", background:"#FAF8F4", overflow:"hidden"}}>
+        <div style={{textAlign:"center", marginBottom:36}}>
           <h2 style={{fontFamily: isRTL ? "'Cairo', serif" : "'Playfair Display', serif", fontSize: 46, color: "#251737", margin: 0, fontWeight: 500}}>
             {isRTL ? "اكتشف عطرك المفضل القادم" : "Discover Your Next Favorite"}
           </h2>
