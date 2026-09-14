@@ -1,5 +1,5 @@
 {% comment %}
-  Khadlaj Perfumes — KSA VIP Campaign Landing Page Section
+  Khadlaj Perfumes — Saudi National Day Giveaway Campaign Section
   Compatible with Shopify Online Store 2.0
 {% endcomment %}
 
@@ -7,8 +7,8 @@
   <!-- Top Announcement Bar -->
   {% if section.settings.show_announcement %}
     <div class="ksa-announcement-bar">
-      <span class="ksa-badge">{{ section.settings.badge_text | default: "🇸🇦 KSA EXCLUSIVE VIP LAUNCH" }}</span>
-      <span>{{ section.settings.announcement_text | default: "LIMITED VIP INVITATIONS & COMPLIMENTARY DISCOVERY SETS • REGISTER BELOW" }}</span>
+      <span class="ksa-badge">{{ section.settings.badge_text | default: "🇸🇦 SAUDI NATIONAL DAY GIVEAWAY 2026" }}</span>
+      <span>{{ section.settings.announcement_text | default: "PARTICIPATE IN THE GRAND SAUDI NATIONAL DAY GIVEAWAY • 500 SETS TO BE WON" }}</span>
     </div>
   {% endif %}
 
@@ -17,27 +17,27 @@
     <div class="ksa-container">
       <div class="ksa-hero-grid">
 
-        <!-- Left Column: Story, Live Countdown & Holographic VIP Pass -->
+        <!-- Left Column: Story, Live Countdown & Giveaway Entry Ticket -->
         <div class="ksa-narrative-col">
           <div class="ksa-pill">
             <span class="ksa-pulse-dot"></span>
-            <span>{{ section.settings.pill_text | default: "KINGDOM OF SAUDI ARABIA • OFFICIAL LAUNCH" }}</span>
+            <span>{{ section.settings.pill_text | default: "🇸🇦 SAUDI NATIONAL DAY • GRAND GIVEAWAY" }}</span>
           </div>
 
           <h1 class="ksa-hero-title">
-            {{ section.settings.heading_prefix | default: "THE ART OF ROYAL" }}
-            <span>{{ section.settings.heading_gold | default: "ARABIAN LUXURY" }}</span>
-            <span class="ksa-arabic-sub">{{ section.settings.heading_arabic | default: "فن العطور الشرقية الأصيلة في المملكة" }}</span>
+            {{ section.settings.heading_prefix | default: "CELEBRATING SAUDI NATIONAL DAY" }}
+            <span>{{ section.settings.heading_gold | default: "GRAND PERFUME GIVEAWAY" }}</span>
+            <span class="ksa-arabic-sub">{{ section.settings.heading_arabic | default: "احتفالاً باليوم الوطني السعودي • شارك في السحب الكبير" }}</span>
           </h1>
 
           <div class="ksa-hero-desc">
-            {{ section.settings.campaign_desc | default: "For over two decades, Khadlaj Perfumes has crafted timeless fragrances uniting ancient Oriental heritage with French haute perfumery. In celebration of our expanded Saudi Arabia distribution, claim your private VIP Invitation Pass to enter our exclusive luxury giveaway and unlock an immediate 20% privilege code." }}
+            {{ section.settings.campaign_desc | default: "In proud celebration of Saudi National Day, Khadlaj Perfumes honors the heritage and elegance of the Kingdom. Participate in our official Saudi National Day Giveaway to enter the grand prize draw for 1 of 500 Handcrafted Luxury Fragrance Gift Sets, plus receive an instant 20% National Day Celebration voucher." }}
           </div>
 
           <!-- Live Countdown Timer -->
           <div class="ksa-countdown-card">
             <div class="ksa-countdown-head">
-              <span class="ksa-cd-title">⏳ {{ section.settings.timer_title | default: "VIP REGISTRATION CLOSING IN" }}</span>
+              <span class="ksa-cd-title">⏳ {{ section.settings.timer_title | default: "NATIONAL DAY GIVEAWAY CLOSING IN" }}</span>
               <span class="ksa-cd-badge">{{ section.settings.slots_remaining | default: "LIMITED PASSES REMAINING" }}</span>
             </div>
             <div class="ksa-timer-grid">
@@ -48,22 +48,22 @@
             </div>
           </div>
 
-          <!-- Digital VIP Pass Card -->
+          <!-- Official National Day Giveaway Entry Ticket -->
           <div class="ksa-vip-pass">
             <div class="ksa-pass-top">
-              <span class="ksa-pass-badge">⭐ OFFICIAL VIP GOLD PRIVILEGE PASS</span>
-              <span class="ksa-pass-number" id="ksa-live-pass">KSA-2026-VIP</span>
+              <span class="ksa-pass-badge">🇸🇦 OFFICIAL NATIONAL DAY GIVEAWAY ENTRY TICKET</span>
+              <span class="ksa-pass-number" id="ksa-live-pass">KND-2026-ENTRY</span>
             </div>
             <div class="ksa-pass-body">
               <div class="ksa-pass-thumb">
                 {% if section.settings.pass_image != blank %}
-                  <img src="{{ section.settings.pass_image | image_url: width: 240 }}" alt="VIP Pass Khadlaj">
+                  <img src="{{ section.settings.pass_image | image_url: width: 240 }}" alt="Saudi National Day Giveaway Discovery Set">
                 {% else %}
-                  <img src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_QAISER_100GM_-_Khadlaj_Perfumes-1965714.jpg?v=1722411690" alt="VIP Pass Khadlaj">
+                  <img src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_QAISER_100GM_-_Khadlaj_Perfumes-1965714.jpg?v=1722411690" alt="Saudi National Day Giveaway Discovery Set">
                 {% endif %}
               </div>
               <div class="ksa-pass-info">
-                <h4>{{ section.settings.pass_title | default: "KSA VIP Fragrance Discovery Box" }}</h4>
+                <h4>{{ section.settings.pass_title | default: "Saudi National Day Luxury Fragrance Set" }}</h4>
                 <p>{{ section.settings.pass_subtitle | default: "Guaranteed entry into the grand raffle for 1 of 500 handcrafted Luxury Discovery Sets containing rare Dehn Al Oud and French Oriental sprays." }}</p>
               </div>
             </div>
@@ -71,7 +71,7 @@
               <div class="ksa-perk"><span>💎</span><span>Instant 20% Privilege Discount</span></div>
               <div class="ksa-perk"><span>📦</span><span>Free Express KSA Delivery</span></div>
               <div class="ksa-perk"><span>✨</span><span>Priority Perfume Drops Access</span></div>
-              <div class="ksa-perk"><span>👑</span><span>VIP Concierge Service</span></div>
+              <div class="ksa-perk"><span>👑</span><span>National Day Special Sample</span></div>
             </div>
           </div>
         </div>
@@ -82,12 +82,12 @@
             
             <div id="ksa-form-view-{{ section.id }}">
               <div class="ksa-form-header">
-                <h3>{{ section.settings.form_title | default: "REGISTER YOUR VIP RSVP" }}</h3>
-                <p>{{ section.settings.form_subtitle | default: "Fill in your details to lock in your Saudi Campaign pass and entry." }}</p>
+                <h3>{{ section.settings.form_title | default: "PARTICIPATE IN THE NATIONAL DAY GIVEAWAY" }}</h3>
+                <p>{{ section.settings.form_subtitle | default: "Enter your details below to submit your official entry into the National Day draw." }}</p>
               </div>
 
               {% form 'contact', id: 'ksaCustomerForm', class: 'ksa-form' %}
-                <input type="hidden" name="contact[tags]" value="KSA-VIP-Campaign,Giveaway-2026">
+                <input type="hidden" name="contact[tags]" value="Saudi-National-Day-Giveaway-2026,Giveaway-2026">
                 <input type="hidden" name="contact[note]" value="Registered via KSA Campaign Landing Page">
 
                 <!-- Name Field -->
@@ -173,12 +173,12 @@
                 <!-- Opt-in Checkbox -->
                 <label class="ksa-checkbox">
                   <input type="checkbox" name="contact[opt_in]" checked required>
-                  <span>Yes, enroll me into the KSA VIP Discovery Set Giveaway and send my exclusive privilege pass via WhatsApp / Email.</span>
+                  <span>Yes, enter my name into the Saudi National Day Grand Giveaway draw and send my confirmation via WhatsApp / Email.</span>
                 </label>
 
                 <!-- Submit Button -->
                 <button type="submit" class="ksa-submit-btn" id="ksa-btn-{{ section.id }}">
-                  <span class="ksa-btn-text">{{ section.settings.btn_label | default: "CLAIM MY VIP PASS & ENTER GIVEAWAY →" }}</span>
+                  <span class="ksa-btn-text">{{ section.settings.btn_label | default: "ENTER GIVEAWAY & PARTICIPATE NOW →" }}</span>
                   <div class="ksa-spinner"></div>
                 </button>
               {% endform %}
@@ -187,14 +187,14 @@
             <!-- Instant Success State -->
             <div class="ksa-success-view" id="ksa-success-view-{{ section.id }}" style="display:none;">
               <div class="ksa-success-icon">✓</div>
-              <h3 class="ksa-success-heading">CONGRATULATIONS, <span id="ksa-confirmed-name">VIP GUEST</span>!</h3>
+              <h3 class="ksa-success-heading">MABROOK, <span id="ksa-confirmed-name">VALUED PARTICIPANT</span>!</h3>
               <p class="ksa-success-desc">
                 Your entry into the <strong>KSA Luxury Discovery Set Giveaway</strong> has been confirmed. Your exclusive 20% discount code is ready:
               </p>
               
               <div class="ksa-code-box">
                 <span class="ksa-code-sub">YOUR 20% PRIVILEGE DISCOUNT CODE</span>
-                <div class="ksa-code-val" id="ksa-code-val-{{ section.id }}">{{ section.settings.discount_code | default: "KSA-VIP20" }}</div>
+                <div class="ksa-code-val" id="ksa-code-val-{{ section.id }}">{{ section.settings.discount_code | default: "KSA-NAT20" }}</div>
                 <button type="button" class="ksa-copy-btn" onclick="ksaCopyCode('{{ section.id }}')">
                   <span id="ksa-copy-txt-{{ section.id }}">📋 Copy Code</span>
                 </button>
@@ -803,7 +803,7 @@
     // Randomize dynamic pass code
     const livePass = document.getElementById('ksa-live-pass');
     if (livePass) {
-      livePass.innerText = 'KSA-VIP-' + Math.floor(1000 + Math.random() * 9000);
+      livePass.innerText = 'KND-2026-ENTRY-' + Math.floor(1000 + Math.random() * 9000);
     }
 
     // Intercept form to show instant luxury confirmation
@@ -867,54 +867,54 @@
       "type": "text",
       "id": "badge_text",
       "label": "Announcement Badge Text",
-      "default": "🇸🇦 KSA EXCLUSIVE VIP LAUNCH"
+      "default": "🇸🇦 SAUDI NATIONAL DAY GIVEAWAY 2026"
     },
     {
       "type": "text",
       "id": "announcement_text",
       "label": "Announcement Message",
-      "default": "LIMITED VIP INVITATIONS & COMPLIMENTARY DISCOVERY SETS • REGISTER BELOW"
+      "default": "PARTICIPATE IN THE GRAND SAUDI NATIONAL DAY GIVEAWAY • 500 SETS TO BE WON"
     },
     {
       "type": "text",
       "id": "pill_text",
       "label": "Hero Pill Badge",
-      "default": "KINGDOM OF SAUDI ARABIA • OFFICIAL LAUNCH"
+      "default": "🇸🇦 SAUDI NATIONAL DAY • GRAND GIVEAWAY"
     },
     {
       "type": "text",
       "id": "heading_prefix",
       "label": "Heading Prefix",
-      "default": "THE ART OF ROYAL"
+      "default": "CELEBRATING SAUDI NATIONAL DAY"
     },
     {
       "type": "text",
       "id": "heading_gold",
       "label": "Heading Highlight (Gold)",
-      "default": "ARABIAN LUXURY"
+      "default": "GRAND PERFUME GIVEAWAY"
     },
     {
       "type": "text",
       "id": "heading_arabic",
       "label": "Arabic Subheading",
-      "default": "فن العطور الشرقية الأصيلة في المملكة"
+      "default": "احتفالاً باليوم الوطني السعودي • شارك في السحب الكبير"
     },
     {
       "type": "textarea",
       "id": "campaign_desc",
       "label": "Campaign Story Description",
-      "default": "For over two decades, Khadlaj Perfumes has crafted timeless fragrances uniting ancient Oriental heritage with French haute perfumery. Claim your private VIP Invitation Pass to enter our exclusive luxury giveaway and unlock an immediate 20% privilege code."
+      "default": "In proud celebration of Saudi National Day, Khadlaj Perfumes honors the heritage and elegance of the Kingdom. Participate in our official Saudi National Day Giveaway to enter the grand prize draw for 1 of 500 Handcrafted Luxury Fragrance Gift Sets, plus receive an instant 20% National Day Celebration voucher."
     },
     {
       "type": "image_picker",
       "id": "pass_image",
-      "label": "VIP Pass Featured Product Image"
+      "label": "Giveaway Featured Product Image"
     },
     {
       "type": "text",
       "id": "discount_code",
-      "label": "VIP Discount Voucher Code",
-      "default": "KSA-VIP20"
+      "label": "National Day Discount Code",
+      "default": "KSA-NAT20"
     },
     {
       "type": "url",

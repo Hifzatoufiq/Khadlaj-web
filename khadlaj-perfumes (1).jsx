@@ -10806,7 +10806,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                 transition:"color .2s",
                 textShadow: isTransparent ? "0 2px 10px rgba(0,0,0,0.5)" : "none"
               }} onMouseEnter={e=>e.target.style.color="#B8922A"} onMouseLeave={e=>e.target.style.color=isTransparent ? "#fff" : "#251737"} onClick={()=>setPage("signup")}>{t("signUp", "Sign Up")}</span>
-              <span className="hide-mob" style={{cursor:"pointer",fontSize:12,fontWeight:700,letterSpacing:"0.06em",color:"#F4E4A6",display:"inline-flex",alignItems:"center",gap:6,background:"linear-gradient(135deg,rgba(60,17,82,0.85),rgba(37,9,51,0.9))",padding:"5px 14px",borderRadius:20,border:"1px solid rgba(212,175,55,0.45)",boxShadow:"0 2px 10px rgba(0,0,0,0.3)"}} onClick={()=>setPage("ksa-campaign")}>🇸🇦 KSA VIP Pass</span>
+              <span className="hide-mob" style={{cursor:"pointer",fontSize:12,fontWeight:700,letterSpacing:"0.06em",color:"#F4E4A6",display:"inline-flex",alignItems:"center",gap:6,background:"linear-gradient(135deg,rgba(60,17,82,0.85),rgba(37,9,51,0.9))",padding:"5px 14px",borderRadius:20,border:"1px solid rgba(212,175,55,0.45)",boxShadow:"0 2px 10px rgba(0,0,0,0.3)"}} onClick={()=>setPage("ksa-campaign")}>🇸🇦 National Day Giveaway</span>
               
               <span className="hide-mob" style={{cursor:"pointer",display:"flex",alignItems:"center",transition:"transform .2s"}} onMouseEnter={e=>e.currentTarget.style.transform="scale(1.1)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"} onClick={()=>setSearchOpen(true)}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "#111"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{filter: isTransparent ? "drop-shadow(0 2px 6px rgba(0,0,0,0.5))" : "none"}}><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -11482,7 +11482,7 @@ function ScratchCard({ code, onReveal }) {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   KSA VIP CAMPAIGN & GIVEAWAY LANDING PAGE COMPONENT (WHITE LUXURY THEME)
+   SAUDI NATIONAL DAY GIVEAWAY CAMPAIGN LANDING PAGE COMPONENT (WHITE LUXURY THEME)
 ═══════════════════════════════════════════════════════════════ */
 function KSACampaignPage({ setPage, addToCart, setViewProduct }){
   const { lang, isRTL, t } = React.useContext(LanguageContext);
@@ -11490,7 +11490,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
   const [hours, setHours] = useState("18");
   const [minutes, setMinutes] = useState("32");
   const [seconds, setSeconds] = useState("45");
-  const [passCode, setPassCode] = useState("KSA-2026-VIP-8829");
+  const [passCode, setPassCode] = useState("KND-2026-ENTRY-8829");
   const [activeFaq, setActiveFaq] = useState(0);
 
   const [form, setForm] = useState({
@@ -11508,7 +11508,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-    setPassCode("KSA-VIP-" + Math.floor(1000 + Math.random() * 9000));
+    setPassCode("KND-ENTRY-" + Math.floor(1000 + Math.random() * 9000));
 
     const targetDate = new Date();
     targetDate.setDate(targetDate.getDate() + 4);
@@ -11536,13 +11536,13 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
-      const formWrap = document.getElementById("ksa-rsvp-card");
+      const formWrap = document.getElementById("ksa-participate-card");
       if (formWrap) formWrap.scrollIntoView({ behavior: "smooth", block: "center" });
     }, 800);
   };
 
   const handleCopyCode = () => {
-    navigator.clipboard.writeText("KSA-VIP20").then(() => {
+    navigator.clipboard.writeText("KSA-NAT20").then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
     });
@@ -11558,12 +11558,12 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
 
   const faqs = [
     {
-      q: "Who is eligible for the KSA VIP Discovery Box Giveaway?",
-      a: "Any resident residing within the Kingdom of Saudi Arabia (Riyadh, Jeddah, Dammam, Mecca, Medina, and all provinces) who registers via this form is automatically entered into the giveaway raffle."
+      q: "Who can participate in the Saudi National Day Giveaway?",
+      a: "All citizens and residents living within the Kingdom of Saudi Arabia (Riyadh, Jeddah, Dammam, Mecca, Medina, Khobar, and all provinces) are eligible to participate for free."
     },
     {
-      q: "How do I redeem my 20% Privilege Voucher?",
-      a: "Your unique 20% privilege code (KSA-VIP20) is unlocked immediately upon submission. You can apply it directly during checkout on our online store."
+      q: "How do I claim my 20% National Day discount code?",
+      a: "Your unique 20% privilege code (KSA-NAT20) is unlocked immediately upon submission. You can apply it directly during checkout on our online store."
     },
     {
       q: "What are the shipping durations to Saudi Arabia?",
@@ -11586,12 +11586,12 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
             <text x="300" y="210" fontFamily="'Cairo', sans-serif" fontWeight="700" fontSize="70" fill="#ffffff" textAnchor="middle">لا إله إلا الله محمد رسول الله</text>
             <path d="M160 270 h280 M180 260 l-25 10 25 10" stroke="#ffffff" strokeWidth="12" strokeLinecap="round" fill="none"/>
           </svg>
-          <span>KSA VIP LAUNCH 2026</span>
+          <span>SAUDI NATIONAL DAY GIVEAWAY 2026</span>
         </span>
-        <span style={{fontWeight:600,color:"#FDFBF7",letterSpacing:"0.08em"}}>EXCLUSIVE VIP INVITATIONS & COMPLIMENTARY DISCOVERY SETS</span>
+        <span style={{fontWeight:600,color:"#FDFBF7",letterSpacing:"0.08em"}}>PARTICIPATE IN THE GRAND SAUDI NATIONAL DAY GIVEAWAY • 500 LUXURY SETS TO BE WON</span>
         <span style={{display:"inline-flex",alignItems:"center",gap:6,background:"rgba(255,255,255,0.08)",border:"1px solid rgba(212,175,55,0.4)",padding:"3px 10px",borderRadius:20,fontSize:11,color:"#F4E4A6",fontWeight:700}}>
           <span style={{width:6,height:6,background:"#22C55E",borderRadius:"50%",boxShadow:"0 0 8px #22C55E"}}></span>
-          OFFICIAL SAUDI LAUNCH
+          NATIONAL DAY CELEBRATION
         </span>
       </div>
 
@@ -11599,33 +11599,33 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
       <section style={{maxWidth:1280,margin:"0 auto",padding:"50px 24px 80px"}}>
         <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(320px, 1fr))",gap:50,alignItems:"start"}}>
           
-          {/* Left Column: Narrative & VIP Pass */}
+          {/* Left Column: Narrative & National Day Giveaway Entry Ticket */}
           <div style={{display:"flex",flexDirection:"column",gap:26}}>
             
             <div style={{display:"inline-flex",alignItems:"center",gap:10,padding:"6px 16px",background:"rgba(60,17,82,0.06)",border:"1px solid rgba(184,146,42,0.4)",borderRadius:30,alignSelf:"flex-start",fontSize:12,fontWeight:700,letterSpacing:"0.12em",textTransform:"uppercase",color:"#3C1152"}}>
               <span style={{width:8,height:8,background:"#16A34A",borderRadius:"50%",boxShadow:"0 0 10px #16A34A"}}></span>
-              <span>KINGDOM OF SAUDI ARABIA • OFFICIAL LAUNCH</span>
+              <span>🇸🇦 SAUDI NATIONAL DAY • GRAND GIVEAWAY</span>
             </div>
 
             <h1 style={{fontFamily:"'Cinzel',serif",fontSize:"clamp(2.2rem, 5vw, 3.2rem)",lineHeight:1.15,fontWeight:600,letterSpacing:"0.02em",color:"#251737"}}>
-              THE ART OF ROYAL <span style={{background:"linear-gradient(135deg,#B8922A 0%,#D4AF37 50%,#8A6518 100%)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>ARABIAN LUXURY</span>
-              <span style={{display:"block",fontFamily:"'Cairo',sans-serif",fontSize:"clamp(1.4rem, 3.5vw, 1.8rem)",fontWeight:700,color:"#896103",WebkitTextFillColor:"initial",marginTop:8}}>
-                فن العطور الشرقية الأصيلة في المملكة
+              CELEBRATING SAUDI NATIONAL DAY <span style={{background:"linear-gradient(135deg,#B8922A 0%,#D4AF37 50%,#8A6518 100%)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>GRAND PERFUME GIVEAWAY</span>
+              <span style={{display:"block",fontFamily:"'Cairo',sans-serif",fontSize:"clamp(1.4rem, 3.5vw, 1.8rem)",fontWeight:700,color:"#165d31",WebkitTextFillColor:"initial",marginTop:8}}>
+                احتفالاً باليوم الوطني السعودي • شارك في السحب الكبير
               </span>
             </h1>
 
             <p style={{fontSize:16,color:"#555555",lineHeight:1.8}}>
-              For over two decades, <strong style={{color:"#251737"}}>Khadlaj Perfumes</strong> has crafted prestigious fragrances uniting ancient Oriental heritage with French haute perfumery. Claim your private <strong style={{color:"#251737"}}>VIP Invitation Pass</strong> to enter our grand Saudi giveaway and unlock an immediate <strong style={{color:"#896103"}}>20% privilege voucher</strong>.
+              In proud celebration of <strong>Saudi National Day</strong>, <strong style={{color:"#251737"}}>Khadlaj Perfumes</strong> honors the heritage and elegance of the Kingdom. Participate in our official <strong>Saudi National Day Giveaway</strong> to enter the grand prize draw for 1 of 500 Handcrafted Luxury Fragrance Gift Sets, plus receive an instant <strong style={{color:"#896103"}}>20% National Day Celebration voucher</strong>.
             </p>
 
             {/* Countdown Box */}
             <div style={{background:"#FFFFFF",border:"1px solid #EADDC9",borderRadius:16,padding:"22px 26px",boxShadow:"0 10px 30px rgba(0,0,0,0.04)"}}>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16,paddingBottom:12,borderBottom:"1px solid #F0EAE1"}}>
                 <span style={{fontSize:13,textTransform:"uppercase",letterSpacing:"0.12em",color:"#3C1152",fontWeight:700}}>
-                  ⏳ VIP RSVP CLOSING IN
+                  ⏳ NATIONAL DAY GIVEAWAY CLOSING IN
                 </span>
                 <span style={{fontSize:11,background:"rgba(220,38,38,0.08)",color:"#DC2626",border:"1px solid rgba(220,38,38,0.25)",padding:"3px 10px",borderRadius:20,fontWeight:700}}>
-                  ONLY 47 PASSES REMAINING
+                  ONLY 47 ENTRIES REMAINING
                 </span>
               </div>
               <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:10}}>
@@ -11638,39 +11638,39 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
               </div>
             </div>
 
-            {/* Holographic VIP Pass Card (Clean Luxury White / Champagne) */}
+            {/* Official National Day Entry Ticket Card */}
             <div style={{background:"linear-gradient(145deg, #FCFBF9 0%, #FFFFFF 60%, #F7F3EE 100%)",border:"1px solid #D4AF37",borderRadius:20,padding:26,boxShadow:"0 20px 50px rgba(184,146,42,0.12)"}}>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
-                <span style={{fontSize:11,letterSpacing:"0.15em",textTransform:"uppercase",color:"#896103",fontWeight:700}}>⭐ OFFICIAL VIP GOLD PRIVILEGE PASS</span>
+                <span style={{fontSize:11,letterSpacing:"0.15em",textTransform:"uppercase",color:"#896103",fontWeight:700}}>🇸🇦 OFFICIAL NATIONAL DAY GIVEAWAY ENTRY TICKET</span>
                 <span style={{fontFamily:"monospace",fontSize:13,color:"#896103",background:"rgba(184,146,42,0.1)",padding:"4px 10px",borderRadius:4,border:"1px dashed #D4AF37",fontWeight:700}}>{passCode}</span>
               </div>
               <div style={{display:"flex",gap:18,alignItems:"center",marginBottom:18}}>
                 <div style={{width:80,height:95,borderRadius:8,overflow:"hidden",border:"1px solid #EADDC9",background:"#FFFFFF",flexShrink:0,boxShadow:"0 4px 15px rgba(0,0,0,0.06)"}}>
-                  <img src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_QAISER_100GM_-_Khadlaj_Perfumes-1965714.jpg?v=1722411690" alt="VIP Pass" style={{width:"100%",height:"100%",objectFit:"cover"}}/>
+                  <img src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_QAISER_100GM_-_Khadlaj_Perfumes-1965714.jpg?v=1722411690" alt="Saudi National Day Luxury Fragrance Box" style={{width:"100%",height:"100%",objectFit:"cover"}}/>
                 </div>
                 <div>
-                  <h4 style={{fontFamily:"'Cinzel',serif",fontSize:18,color:"#251737",marginBottom:4}}>KSA VIP Fragrance Discovery Box</h4>
-                  <p style={{fontSize:13,color:"#666666",lineHeight:1.4}}>Guaranteed entry into the raffle for 1 of 500 handcrafted Discovery Sets with rare Dehn Al Oud & French Sprays.</p>
+                  <h4 style={{fontFamily:"'Cinzel',serif",fontSize:18,color:"#251737",marginBottom:4}}>Saudi National Day Luxury Fragrance Set</h4>
+                  <p style={{fontSize:13,color:"#666666",lineHeight:1.4}}>Official raffle entry to win 1 of 500 exclusive National Day handcrafted Discovery Sets with rare Dehn Al Oud & French Sprays.</p>
                 </div>
               </div>
               <div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:10,paddingTop:14,borderTop:"1px solid #EADDC9",fontSize:12,color:"#444444"}}>
-                <div style={{display:"flex",alignItems:"center",gap:6}}><span style={{color:"#896103"}}>💎</span><span>Instant 20% Off Voucher</span></div>
+                <div style={{display:"flex",alignItems:"center",gap:6}}><span style={{color:"#896103"}}>💎</span><span>Instant 20% National Day Code</span></div>
                 <div style={{display:"flex",alignItems:"center",gap:6}}><span style={{color:"#896103"}}>📦</span><span>Free Express KSA Courier</span></div>
-                <div style={{display:"flex",alignItems:"center",gap:6}}><span style={{color:"#896103"}}>✨</span><span>Priority New Drops Access</span></div>
-                <div style={{display:"flex",alignItems:"center",gap:6}}><span style={{color:"#896103"}}>👑</span><span>VIP Concierge Care</span></div>
+                <div style={{display:"flex",alignItems:"center",gap:6}}><span style={{color:"#896103"}}>✨</span><span>Official Giveaway Draw Entry</span></div>
+                <div style={{display:"flex",alignItems:"center",gap:6}}><span style={{color:"#896103"}}>👑</span><span>National Day Special Sample</span></div>
               </div>
             </div>
 
           </div>
 
           {/* Right Column: Interactive Form Card (Clean Luxury White) */}
-          <div id="ksa-rsvp-card" style={{background:"#FFFFFF",border:"1px solid #E5DACB",borderRadius:20,padding:"36px 30px",boxShadow:"0 25px 60px rgba(37,23,55,0.08)"}}>
+          <div id="ksa-participate-card" style={{background:"#FFFFFF",border:"1px solid #E5DACB",borderRadius:20,padding:"36px 30px",boxShadow:"0 25px 60px rgba(37,23,55,0.08)"}}>
             
             {!submitted ? (
               <div>
                 <div style={{textAlign:"center",marginBottom:24}}>
-                  <h3 style={{fontFamily:"'Cinzel',serif",fontSize:24,color:"#251737",marginBottom:6}}>REGISTER YOUR VIP RSVP</h3>
-                  <p style={{fontSize:13,color:"#666666"}}>Fill in your details to lock in your Saudi Campaign pass and entry.</p>
+                  <h3 style={{fontFamily:"'Cinzel',serif",fontSize:24,color:"#251737",marginBottom:6}}>PARTICIPATE IN THE NATIONAL DAY GIVEAWAY</h3>
+                  <p style={{fontSize:13,color:"#666666"}}>Enter your details below to submit your official entry into the National Day draw.</p>
                 </div>
 
                 <form onSubmit={handleSubmit} style={{display:"flex",flexDirection:"column",gap:16}}>
@@ -11795,7 +11795,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
                       onChange={e=>setForm({...form,optIn:e.target.checked})}
                       style={{accentColor:"#3C1152",marginTop:2}}
                     />
-                    <span>Yes, enroll me into the KSA VIP Discovery Set Giveaway and send my exclusive privilege pass via WhatsApp / Email.</span>
+                    <span>Yes, enter my name into the Saudi National Day Grand Giveaway draw and send my confirmation via WhatsApp / Email.</span>
                   </label>
 
                   {/* Submit Button */}
@@ -11811,7 +11811,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
                       display:"flex",justifyContent:"center",alignItems:"center"
                     }}
                   >
-                    {loading ? "REGISTERING ENTRY..." : "CLAIM MY VIP PASS & ENTER GIVEAWAY →"}
+                    {loading ? "SUBMITTING ENTRY..." : "ENTER GIVEAWAY & PARTICIPATE NOW →"}
                   </button>
 
                 </form>
@@ -11823,18 +11823,18 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
                   ✓
                 </div>
                 <h3 style={{fontFamily:"'Cinzel',serif",fontSize:22,color:"#251737",marginBottom:8}}>
-                  CONGRATULATIONS, {form.name ? form.name.toUpperCase() : "VIP GUEST"}!
+                  MABROOK, {form.name ? form.name.toUpperCase() : "VALUED PARTICIPANT"}!
                 </h3>
                 <p style={{fontSize:14,color:"#555555",lineHeight:1.6}}>
-                  Your VIP RSVP entry has been locked in for the <strong style={{color:"#251737"}}>KSA Luxury Discovery Box Giveaway</strong>.
+                  Your official entry for the <strong style={{color:"#251737"}}>Saudi National Day Perfume Giveaway</strong> has been confirmed!
                 </p>
 
                 <div style={{margin:"20px 0",padding:18,background:"#FAF8F5",border:"1px dashed #B8922A",borderRadius:8}}>
                   <span style={{fontSize:11,color:"#888888",letterSpacing:"0.1em",textTransform:"uppercase",fontWeight:600}}>
-                    YOUR 20% PRIVILEGE DISCOUNT VOUCHER
+                    YOUR SPECIAL NATIONAL DAY 20% CELEBRATION CODE
                   </span>
                   <div style={{fontFamily:"'Cinzel',serif",fontSize:26,color:"#896103",fontWeight:700,margin:"6px 0"}}>
-                    KSA-VIP20
+                    KSA-NAT20
                   </div>
                   <button 
                     type="button" 

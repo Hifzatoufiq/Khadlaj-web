@@ -4,14 +4,14 @@
       "type": "ksa-campaign",
       "settings": {
         "show_announcement": true,
-        "badge_text": "🇸🇦 KSA EXCLUSIVE VIP LAUNCH",
-        "announcement_text": "LIMITED VIP INVITATIONS & COMPLIMENTARY DISCOVERY SETS • REGISTER BELOW",
-        "pill_text": "KINGDOM OF SAUDI ARABIA • OFFICIAL LAUNCH",
-        "heading_prefix": "THE ART OF ROYAL",
-        "heading_gold": "ARABIAN LUXURY",
-        "heading_arabic": "فن العطور الشرقية الأصيلة في المملكة",
+        "badge_text": "🇸🇦 SAUDI NATIONAL DAY GIVEAWAY 2026",
+        "announcement_text": "PARTICIPATE IN THE GRAND SAUDI NATIONAL DAY GIVEAWAY • 500 SETS TO BE WON",
+        "pill_text": "🇸🇦 SAUDI NATIONAL DAY • GRAND GIVEAWAY",
+        "heading_prefix": "CELEBRATING SAUDI NATIONAL DAY",
+        "heading_gold": "GRAND PERFUME GIVEAWAY",
+        "heading_arabic": "احتفالاً باليوم الوطني السعودي • شارك في السحب الكبير",
         "campaign_desc": "For over two decades, Khadlaj Perfumes has crafted timeless fragrances uniting ancient Oriental heritage with French haute perfumery. In celebration of our expanded Saudi Arabia distribution, claim your private VIP Invitation Pass to enter our exclusive luxury giveaway and unlock an immediate 20% privilege code.",
-        "discount_code": "KSA-VIP20",
+        "discount_code": "KSA-NAT20",
         "shop_now_url": "/collections/all"
       }
     }
