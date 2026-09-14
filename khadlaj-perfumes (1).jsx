@@ -11547,9 +11547,12 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
     });
   };
 
-  const ksaProducts = PRODUCTS.filter(p => [204, 201, 205, 9200000000010].includes(p.id)).slice(0, 4);
+  // Select 4 distinct, iconic bestsellers for Saudi Arabia
+  const ksaProductNames = ["SHIYAAKA GOLD", "KARUS GOLD ABSOLU", "ISLAND SUN", "SARAYA"];
+  const ksaProducts = ksaProductNames.map(name => PRODUCTS.find(p => p.name === name)).filter(Boolean);
   if (ksaProducts.length < 4) {
-    ksaProducts.push(...PRODUCTS.slice(0, 4 - ksaProducts.length));
+    const backup = PRODUCTS.filter(p => !ksaProducts.some(kp => kp.id === p.id)).slice(0, 4 - ksaProducts.length);
+    ksaProducts.push(...backup);
   }
 
   const faqs = [
@@ -11875,42 +11878,24 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
         </div>
       </section>
 
-      {/* Featured Products Section */}
+      {/* Featured Products Section with Official Khadlaj ProductCard Design */}
       <section style={{maxWidth:1280,margin:"0 auto",padding:"70px 24px",background:"#FFFFFF"}}>
         <div style={{textAlign:"center",marginBottom:40}}>
           <p style={{fontSize:12,textTransform:"uppercase",letterSpacing:"0.2em",color:"#896103",fontWeight:700,marginBottom:6}}>DISCOVER THE ICONS</p>
           <h2 style={{fontFamily:"'Cinzel',serif",fontSize:28,color:"#251737"}}>BEST-SELLING IN SAUDI ARABIA</h2>
         </div>
 
-        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(240px, 1fr))",gap:24}}>
-          {ksaProducts.map((p, idx) => (
-            <div 
-              key={p.id || idx} 
-              style={{background:"#FFFFFF",border:"1px solid #EAE4D9",borderRadius:16,overflow:"hidden",display:"flex",flexDirection:"column",boxShadow:"0 8px 25px rgba(0,0,0,0.04)",transition:"transform .2s ease"}}
-            >
-              <div style={{width:"100%",height:240,background:"#F9F8F6",position:"relative",display:"flex",alignItems:"center",justifyContent:"center"}}>
-                <span style={{position:"absolute",top:12,left:12,background:"linear-gradient(135deg,#F9E7B9 0%,#D4AF37 100%)",color:"#12041D",fontSize:10,fontWeight:700,padding:"3px 8px",borderRadius:20,textTransform:"uppercase"}}>
-                  KSA Choice
-                </span>
-                <img src={p.img || p.image} alt={p.name} style={{width:"80%",height:"80%",objectFit:"contain"}}/>
-              </div>
-              <div style={{padding:20,display:"flex",flexDirection:"column",flexGrow:1}}>
-                <span style={{fontSize:11,color:"#888888",textTransform:"uppercase",letterSpacing:"0.08em",marginBottom:4}}>{p.col || "Eau De Parfum"}</span>
-                <h3 style={{fontFamily:"'Cinzel',serif",fontSize:17,color:"#251737",marginBottom:8}}>{p.name}</h3>
-                <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:"auto",paddingTop:12,borderTop:"1px solid #F0EAE1"}}>
-                  <span style={{fontSize:16,fontWeight:700,color:"#896103"}}>SAR {p.price || 165}</span>
-                  <button 
-                    onClick={()=>{
-                      if (setViewProduct) setViewProduct(p);
-                      if (setPage) setPage("product");
-                    }}
-                    style={{background:"transparent",border:"1px solid #B8922A",color:"#896103",padding:"5px 12px",borderRadius:20,fontSize:11,cursor:"pointer",fontWeight:600}}
-                  >
-                    View Product →
-                  </button>
-                </div>
-              </div>
-            </div>
+        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(260px, 1fr))",gap:28,alignItems:"stretch"}} className="grid-4">
+          {ksaProducts.map(p => (
+            <ProductCard 
+              key={p.id} 
+              p={p} 
+              onView={(prod) => {
+                if (setViewProduct) setViewProduct(prod);
+                if (setPage) setPage("product");
+              }} 
+              onCart={addToCart}
+            />
           ))}
         </div>
       </section>
