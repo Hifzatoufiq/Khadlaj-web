@@ -11525,6 +11525,22 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
     window.scrollTo({ top: 0, behavior: "smooth" });
     setPassCode("KND-ENTRY-" + Math.floor(1000 + Math.random() * 9000));
 
+    // Discrete Admin Portal access (URL hash #admin or Ctrl+Shift+A)
+    const checkAdminTrigger = () => {
+      if (window.location.hash === "#admin" || window.location.hash === "#giveaway-admin") {
+        setShowAdminModal(true);
+      }
+    };
+    checkAdminTrigger();
+    window.addEventListener("hashchange", checkAdminTrigger);
+    const handleKeyDown = (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === "A" || e.key === "a")) {
+        e.preventDefault();
+        setShowAdminModal(prev => !prev);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+
     // Campaign ends September 23, 2026 at 23:59:59 (KSA AST Time GMT+3)
     const targetDate = new Date("2026-09-23T23:59:59+03:00").getTime();
 
@@ -11544,7 +11560,11 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
       setMinutes(String(m).padStart(2, "0"));
       setSeconds(String(s).padStart(2, "0"));
     }, 1000);
-    return () => clearInterval(timer);
+    return () => {
+      clearInterval(timer);
+      window.removeEventListener("hashchange", checkAdminTrigger);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
   }, []);
 
   const handleSubmit = async (e) => {
@@ -12072,17 +12092,6 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
           ))}
         </div>
       </section>
-
-      {/* Admin Discrete Trigger Bar */}
-      <div style={{textAlign:"center",padding:"16px 24px",background:"#FAF8F5",borderTop:"1px solid #EAE4D9"}}>
-        <button 
-          type="button"
-          onClick={()=>setShowAdminModal(true)}
-          style={{background:"#FFFFFF",border:"1px solid #D8CEBE",borderRadius:20,color:"#666666",fontSize:11.5,fontWeight:600,padding:"6px 16px",cursor:"pointer",boxShadow:"0 2px 6px rgba(0,0,0,0.04)"}}
-        >
-          🔒 Admin Giveaway Portal (Random Draw & Live Entries)
-        </button>
-      </div>
 
       {/* Admin Random Winner Draw Modal */}
       {showAdminModal && (
