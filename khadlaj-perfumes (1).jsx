@@ -7617,22 +7617,45 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
   const [quizStep, setQuizStep] = useState(1);
   const [quizMood, setQuizMood] = useState("");
   const [quizOccasion, setQuizOccasion] = useState("");
+  const [quizCustomNotes, setQuizCustomNotes] = useState("");
   const [quizResult, setQuizResult] = useState(null);
-  const quizProducts = {
-    "Rich & Exotic": {
-      "Royal Evenings": PRODUCTS.find(p => p.id === 204) || PRODUCTS[0],
-      "Daily Wear & Office": PRODUCTS.find(p => p.id === 20) || PRODUCTS[0],
-      "Romantic Date Nights": PRODUCTS.find(p => p.id === 200) || PRODUCTS[0]
-    },
-    "Fresh & Energizing": {
-      "Royal Evenings": PRODUCTS.find(p => p.id === 301) || PRODUCTS[0],
-      "Daily Wear & Office": PRODUCTS.find(p => p.id === 13) || PRODUCTS[0],
-      "Romantic Date Nights": PRODUCTS.find(p => p.id === 15) || PRODUCTS[0]
-    },
-    "Clean & Sophisticated": {
-      "Royal Evenings": PRODUCTS.find(p => p.id === 208) || PRODUCTS[0],
-      "Daily Wear & Office": PRODUCTS.find(p => p.id === 14) || PRODUCTS[0],
-      "Romantic Date Nights": PRODUCTS.find(p => p.id === 303) || PRODUCTS[0]
+  const [quizAiDetails, setQuizAiDetails] = useState(null);
+  const [quizLoading, setQuizLoading] = useState(false);
+
+  const runScentFinderAi = async (mood, occasion, customNote) => {
+    const finalMood = mood || quizMood || "Rich & Exotic";
+    const finalOccasion = occasion || quizOccasion || "Royal Evenings";
+    const finalNote = customNote !== undefined ? customNote : quizCustomNotes;
+    setQuizLoading(true);
+    setQuizStep("analyzing");
+    try {
+      const res = await fetch("/api/scent-finder", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          vibe: finalMood,
+          occasion: finalOccasion,
+          customNotes: finalNote,
+          lang: isRTL ? "ar" : "en"
+        })
+      });
+      const data = await res.json();
+      const matched = PRODUCTS.find(p => p.id === data.productId || p.name.toUpperCase() === (data.productName || "").toUpperCase()) || PRODUCTS[0];
+      setQuizResult(matched);
+      setQuizAiDetails(data);
+      setQuizStep(3);
+    } catch (err) {
+      console.error("Scent Finder error:", err);
+      const fallback = PRODUCTS[0];
+      setQuizResult(fallback);
+      setQuizAiDetails({
+        productName: fallback.name,
+        matchReason: isRTL ? "تم اختيار هذا العطر الأيقوني ليتناغم تماماً مع ذوقك الرفيع ومناسبتك الخاصة." : "Specially matched from our master collection to elevate your presence with timeless elegance.",
+        olfactiveNotes: Array.isArray(fallback.notes) ? fallback.notes.join(" • ") : "Oud • Amber • Musk"
+      });
+      setQuizStep(3);
+    } finally {
+      setQuizLoading(false);
     }
   };
 
@@ -7990,12 +8013,18 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
           </div>
         </div>
       </section>
-      {/* ── SCENT FINDER QUIZ ── */}
+      {/* ── SCENT FINDER QUIZ (AI POWERED) ── */}
       <section style={{background:"#251737", padding:"96px 5%", color:"#fff", borderTop:"1px solid rgba(255,255,255,0.08)", position:"relative", zIndex:1}}>
         <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(320px, 1fr))", gap:64, alignItems:"center"}} className="hero-split">
           
           {/* Left info column */}
           <div>
+            <div style={{display:"inline-flex", alignItems:"center", gap:8, background:"rgba(184,146,42,0.15)", border:"1px solid rgba(184,146,42,0.3)", padding:"6px 14px", borderRadius:20, marginBottom:16}}>
+              <span style={{color:"#B8922A", fontSize:12}}>✦</span>
+              <span style={{fontSize:10, letterSpacing:2, color:"#E5C07B", textTransform:"uppercase", fontWeight:600, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}>
+                {isRTL ? "مدعوم بالذكاء الاصطناعي" : "Powered by OpenAI"}
+              </span>
+            </div>
             <h2 className="disp" style={{fontSize:"clamp(30px,3.8vw,52px)",fontWeight:400,color:"#fff",lineHeight:1.05,letterSpacing: isRTL ? 0 : -1,marginBottom:24}}>
               {isRTL ? (
                 <>مستكشف العطور <em className="luxury-gold-text" style={{fontStyle:"normal"}}>من خدلج</em></>
@@ -8003,21 +8032,31 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
                 <>KHADLAJ <em className="luxury-gold-text" style={{fontStyle:"normal"}}>SCENT FINDER</em></>
               )}
             </h2>
-            <p style={{color:"rgba(255,255,255,0.7)",lineHeight:1.8,fontSize:14,maxWidth:440,fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif",marginBottom:32}}>
+            <p style={{color:"rgba(255,255,255,0.7)",lineHeight:1.8,fontSize:14,maxWidth:460,fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif",marginBottom:32}}>
               {isRTL 
-                ? "العطر لغة شخصية تعبر عن هويتك وروحك. أجب عن سؤالين بسيطين، وسيقوم مستكشفنا العطري الذكي بمطابقتك مع عطرك الأيقوني من أندر إبداعات دار خدلج."
-                : "Fragrance is a deeply personal language. Answer a few questions and our custom olfactive profiler will match you with a signature scent from our master perfume lines."}
+                ? "العطر لغة شخصية تعبر عن هويتك وروحك. اختر طابعك ومناسبتك، وسيقوم خبير العطور الذكي المدعوم بالذكاء الاصطناعي بتحليل ذوقك وتصميم توصية عطرية حصرية من أندر إبداعات دار خدلج."
+                : "Fragrance is a deeply personal language. Select your preferred olfactive vibe and occasion, and our AI Olfactive Sommelier will craft a bespoke signature match from our master perfume lines."}
             </p>
+            <div style={{display:"flex", alignItems:"center", gap:14}}>
+              <span style={{fontSize:22, color:"#B8922A"}}>✦</span>
+              <span style={{fontSize:11, letterSpacing:1.5, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", textTransform:"uppercase", color:"rgba(255,255,255,0.6)"}}>
+                {isRTL ? "احترام الجودة، تقديم الأفضل دائماً" : "Respect the Quality, Provide the Best"}
+              </span>
+            </div>
           </div>
 
           {/* Right quiz container */}
-          <div style={{background:"rgba(255,255,255,0.02)", border:"1px solid rgba(255,255,255,0.08)", borderRadius:12, padding:"40px 32px", minHeight:380, display:"flex", flexDirection:"column", justifyContent:"center", position:"relative"}}>
+          <div style={{background:"rgba(255,255,255,0.02)", border:"1px solid rgba(255,255,255,0.08)", borderRadius:12, padding:"40px 32px", minHeight:420, display:"flex", flexDirection:"column", justifyContent:"center", position:"relative"}}>
             
+            {/* STEP 1: Olfactive Vibe */}
             {quizStep === 1 && (
               <div style={{animation:"fadeUp .4s ease both"}}>
-                <p style={{fontSize:10, letterSpacing: isRTL ? 0 : 2, color:"#B8922A", textTransform:"uppercase", fontWeight:600, marginBottom:8, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}>
-                  {isRTL ? "الخطوة 1 من 2" : "Step 1 of 2"}
-                </p>
+                <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:8}}>
+                  <p style={{fontSize:10, letterSpacing: isRTL ? 0 : 2, color:"#B8922A", textTransform:"uppercase", fontWeight:600, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", margin:0}}>
+                    {isRTL ? "الخطوة 1 من 2" : "Step 1 of 2"}
+                  </p>
+                  <span style={{fontSize:10, color:"rgba(255,255,255,0.4)"}}>AI Sommelier</span>
+                </div>
                 <h3 className="disp" style={{fontSize:20, fontWeight:400, color:"#fff", marginBottom:24}}>
                   {isRTL ? "اختر طابعك العطري المفضل" : "Choose Your Olfactive Vibe"}
                 </h3>
@@ -8025,12 +8064,13 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
                   {[
                     { v: "Rich & Exotic", vAr: "فاخر وغني بالنفحات الشرقية", desc: "Bold Oud, precious Amber, and warm spices.", descAr: "عود أصيل، عنبر فاخر، وتوابل دافئة ساحرة." },
                     { v: "Fresh & Energizing", vAr: "منعش ومفعم بالحيوية", desc: "Vibrant Citrus, crisp Marine, and delicate florals.", descAr: "حمضيات مشرقة، نسيم بحري منعش، وزهور ناعمة." },
-                    { v: "Clean & Sophisticated", vAr: "راقي ونقي ومخملي", desc: "Sensual Musk, creamy Sandalwood, and soft iris.", descAr: "مسك جذاب، خشب صندل مخملي، وسوسن ناعم." }
+                    { v: "Clean & Sophisticated", vAr: "راقي ونقي ومخملي", desc: "Sensual Musk, creamy Sandalwood, and soft iris.", descAr: "مسك جذاب، خشب صندل مخملي، وسوسن ناعم." },
+                    { v: "Sweet & Gourmand", vAr: "حلو ودافئ بنفحات الفانيليا والكراميل", desc: "Creamy Vanilla, Golden Toffee, and delicious fruits.", descAr: "فانيليا ناعمة، كراميل غني، وفواكه لذيذة تأسر الحواس." }
                   ].map(item => (
                     <button key={item.v}
                       onClick={() => { setQuizMood(item.v); setQuizStep(2); }}
                       style={{background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.08)", color:"#fff", padding:"14px 20px", borderRadius:8, textAlign: isRTL ? "right" : "left", cursor:"pointer", transition:"all 0.25s ease"}}
-                      onMouseEnter={e => { e.currentTarget.style.background = "rgba(184,146,42,0.1)"; e.currentTarget.style.borderColor = "#B8922A"; }}
+                      onMouseEnter={e => { e.currentTarget.style.background = "rgba(184,146,42,0.12)"; e.currentTarget.style.borderColor = "#B8922A"; }}
                       onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; }}
                     >
                       <p style={{fontSize:13, fontWeight:600, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", margin:0}}>
@@ -8045,15 +8085,19 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
               </div>
             )}
 
+            {/* STEP 2: Occasion & Note Preference */}
             {quizStep === 2 && (
               <div style={{animation:"fadeUp .4s ease both"}}>
-                <p style={{fontSize:10, letterSpacing: isRTL ? 0 : 2, color:"#B8922A", textTransform:"uppercase", fontWeight:600, marginBottom:8, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}>
-                  {isRTL ? "الخطوة 2 من 2" : "Step 2 of 2"}
-                </p>
-                <h3 className="disp" style={{fontSize:20, fontWeight:400, color:"#fff", marginBottom:24}}>
+                <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:8}}>
+                  <p style={{fontSize:10, letterSpacing: isRTL ? 0 : 2, color:"#B8922A", textTransform:"uppercase", fontWeight:600, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", margin:0}}>
+                    {isRTL ? "الخطوة 2 من 2" : "Step 2 of 2"}
+                  </p>
+                  <span style={{fontSize:10, color:"#B8922A"}}>{quizMood}</span>
+                </div>
+                <h3 className="disp" style={{fontSize:20, fontWeight:400, color:"#fff", marginBottom:20}}>
                   {isRTL ? "ما هي مناسبة ارتداء هذا العطر؟" : "When will you wear this?"}
                 </h3>
-                <div style={{display:"flex", flexDirection:"column", gap:12}}>
+                <div style={{display:"flex", flexDirection:"column", gap:10, marginBottom:16}}>
                   {[
                     { k: "Royal Evenings", label: "Royal Evenings", labelAr: "أمسيات ملكية ومناسبات خاصة", desc: "Special events, formal dinners, and night statements.", descAr: "مناسبات كبرى، سهرات راقية، وإطلالة مسائية لافتة." },
                     { k: "Daily Wear & Office", label: "Daily Wear & Office", labelAr: "استخدام يومي وأجواء العمل", desc: "Sophisticated signature scent for day-to-day use.", descAr: "عطر يومي أنيق ومميز يمنحك الثقة طوال النهار." },
@@ -8061,49 +8105,111 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
                   ].map(item => (
                     <button key={item.k}
                       onClick={() => {
-                        const finalProduct = quizProducts[quizMood][item.label];
                         setQuizOccasion(item.label);
-                        setQuizResult(finalProduct);
-                        setQuizStep(3);
+                        runScentFinderAi(quizMood, item.label, quizCustomNotes);
                       }}
-                      style={{background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.08)", color:"#fff", padding:"14px 20px", borderRadius:8, textAlign: isRTL ? "right" : "left", cursor:"pointer", transition:"all 0.25s ease"}}
-                      onMouseEnter={e => { e.currentTarget.style.background = "rgba(184,146,42,0.1)"; e.currentTarget.style.borderColor = "#B8922A"; }}
+                      style={{background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.08)", color:"#fff", padding:"12px 18px", borderRadius:8, textAlign: isRTL ? "right" : "left", cursor:"pointer", transition:"all 0.25s ease"}}
+                      onMouseEnter={e => { e.currentTarget.style.background = "rgba(184,146,42,0.12)"; e.currentTarget.style.borderColor = "#B8922A"; }}
                       onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; }}
                     >
                       <p style={{fontSize:13, fontWeight:600, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", margin:0}}>
                         {isRTL ? item.labelAr : item.label}
                       </p>
-                      <p style={{fontSize:10, color:"rgba(255,255,255,0.5)", margin:"4px 0 0", fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}>
+                      <p style={{fontSize:10, color:"rgba(255,255,255,0.5)", margin:"3px 0 0", fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}>
                         {isRTL ? item.descAr : item.desc}
                       </p>
                     </button>
                   ))}
                 </div>
-                <button onClick={() => setQuizStep(1)} style={{background:"none", border:"none", color:"rgba(255,255,255,0.5)", fontSize:10, textTransform:"uppercase", letterSpacing: isRTL ? 0 : 1.5, marginTop:20, cursor:"pointer", display:"flex", alignItems:"center", gap:6, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", padding:0}}>
-                  {isRTL ? "العودة →" : "← Back"}
-                </button>
+
+                {/* Optional note input */}
+                <div style={{marginBottom:16}}>
+                  <label style={{display:"block", fontSize:10, color:"rgba(255,255,255,0.6)", marginBottom:6, textTransform:"uppercase", letterSpacing:1}}>
+                    {isRTL ? "نوتة عطرية مفضلة لديك؟ (اختياري)" : "Any specific note you love? (Optional)"}
+                  </label>
+                  <input
+                    type="text"
+                    value={quizCustomNotes}
+                    onChange={e => setQuizCustomNotes(e.target.value)}
+                    placeholder={isRTL ? "مثال: عنبر، فانيليا، عود، لافندر، مسك..." : "e.g. Vanilla, Oud, Rose, Citrus, Sandalwood..."}
+                    style={{
+                      width:"100%", background:"rgba(255,255,255,0.05)", border:"1px solid rgba(255,255,255,0.12)",
+                      borderRadius:6, padding:"10px 14px", color:"#fff", fontSize:12, outline:"none",
+                      boxSizing:"border-box", fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"
+                    }}
+                  />
+                </div>
+
+                <div style={{display:"flex", justifyContent:"space-between", alignItems:"center"}}>
+                  <button onClick={() => setQuizStep(1)} style={{background:"none", border:"none", color:"rgba(255,255,255,0.5)", fontSize:10, textTransform:"uppercase", letterSpacing: isRTL ? 0 : 1.5, cursor:"pointer", display:"flex", alignItems:"center", gap:6, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", padding:0}}>
+                    {isRTL ? "العودة →" : "← Back"}
+                  </button>
+                  <button
+                    onClick={() => runScentFinderAi(quizMood, quizOccasion || "Daily Wear & Office", quizCustomNotes)}
+                    style={{background:"#B8922A", border:"none", color:"#fff", padding:"10px 20px", borderRadius:6, fontSize:11, letterSpacing:1, textTransform:"uppercase", fontWeight:600, cursor:"pointer", display:"flex", alignItems:"center", gap:8}}
+                  >
+                    <span>✦</span>
+                    <span>{isRTL ? "استشارة الذكاء الاصطناعي" : "Consult Scent AI"}</span>
+                  </button>
+                </div>
               </div>
             )}
 
+            {/* STEP ANALYZING: Luxury AI Loading State */}
+            {quizStep === "analyzing" && (
+              <div style={{animation:"fadeUp .3s ease both", textAlign:"center", padding:"30px 20px"}}>
+                <div style={{position:"relative", width:70, height:70, margin:"0 auto 24px", display:"flex", alignItems:"center", justifyContent:"center"}}>
+                  <div style={{position:"absolute", width:"100%", height:"100%", borderRadius:"50%", border:"2px solid rgba(184,146,42,0.2)", borderTopColor:"#B8922A", animation:"spin 1s linear infinite"}}/>
+                  <span style={{fontSize:26, color:"#B8922A", animation:"vipPulse 1.5s ease infinite"}}>✦</span>
+                </div>
+                <p style={{fontSize:11, letterSpacing:2, color:"#B8922A", textTransform:"uppercase", fontWeight:700, marginBottom:8, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}>
+                  {isRTL ? "جاري الاستشارة العطرية الذكية" : "AI Sommelier Analyzing"}
+                </p>
+                <h4 style={{fontSize:17, fontWeight:400, color:"#fff", marginBottom:10, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Cinzel', serif"}}>
+                  {isRTL ? "مطابقة نغماتك العطرية مع إبداعات خدلج..." : "Crafting your bespoke signature match..."}
+                </h4>
+                <p style={{fontSize:11, color:"rgba(255,255,255,0.5)", margin:0, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}>
+                  {isRTL ? "تحليل طابع العطر، المناسبة، وثبات النوتات من خلاصة أكثر من 25 عاماً من الخبرة" : "Evaluating notes, longevity, and sillage from 25+ years of master perfumery"}
+                </p>
+              </div>
+            )}
+
+            {/* STEP 3: AI Scent Result */}
             {quizStep === 3 && quizResult && (
               <div style={{animation:"fadeUp .4s ease both", textAlign:"center"}}>
-                <p style={{fontSize:10, letterSpacing: isRTL ? 0 : 2, color:"#B8922A", textTransform:"uppercase", fontWeight:600, marginBottom:8, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}>
-                  {isRTL ? "عطرك الأيقوني المختار" : "Your Scent Match"}
-                </p>
-                <h3 className="disp" style={{fontSize:20, fontWeight:400, color:"#fff", marginBottom:20}}>
-                  {isRTL ? "الاختيار المثالي لذوقك" : "The Perfect Fit"}
-                </h3>
+                <div style={{display:"inline-flex", alignItems:"center", gap:6, background:"rgba(184,146,42,0.15)", border:"1px solid #B8922A", padding:"4px 12px", borderRadius:20, marginBottom:12}}>
+                  <span style={{color:"#B8922A", fontSize:11}}>✦</span>
+                  <span style={{fontSize:9, letterSpacing: isRTL ? 0 : 2, color:"#E5C07B", textTransform:"uppercase", fontWeight:700, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}>
+                    {isRTL ? "التوصية الحصرية بالذكاء الاصطناعي" : "AI Sommelier Recommendation"}
+                  </span>
+                </div>
                 
-                {/* Result Box */}
-                <div style={{display:"flex", alignItems:"center", gap:20, background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.08)", padding:20, borderRadius:8, marginBottom:24, textAlign: isRTL ? "right" : "left"}}>
-                  <div style={{width:80, height:80, background:"#fff", borderRadius:6, padding:8, display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0}}>
+                {/* Result Product Box */}
+                <div style={{display:"flex", alignItems:"center", gap:18, background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.08)", padding:18, borderRadius:8, marginBottom:18, textAlign: isRTL ? "right" : "left"}}>
+                  <div style={{width:80, height:80, background:"#fff", borderRadius:6, padding:6, display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0}}>
                     <img loading="lazy" decoding="async" src={getOptimizedImage(quizResult.img,600)} alt={quizResult.name} style={{width:"100%", height:"100%", objectFit:"contain"}}/>
                   </div>
-                  <div>
+                  <div style={{flex:1}}>
                     <p style={{fontSize:9, color:"#B8922A", letterSpacing: isRTL ? 0 : 2, textTransform:"uppercase", margin:0, fontWeight:600, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}>{quizResult.col}</p>
-                    <h4 style={{fontSize:15, fontWeight:600, color:"#fff", textTransform:"uppercase", margin:"4px 0 6px"}}>{quizResult.name}</h4>
-                    <p style={{fontSize:11, color:"rgba(255,255,255,0.6)", margin:0, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}>{quizResult.size}</p>
+                    <h4 style={{fontSize:16, fontWeight:600, color:"#fff", textTransform:"uppercase", margin:"4px 0 6px"}}>{quizResult.name}</h4>
+                    <p style={{fontSize:11, color:"rgba(255,255,255,0.6)", margin:0, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}>
+                      {quizAiDetails?.olfactiveNotes || (Array.isArray(quizResult.notes) ? quizResult.notes.join(" • ") : quizResult.size)}
+                    </p>
                   </div>
+                </div>
+
+                {/* AI Sommelier Olfactory Portrait Card */}
+                <div style={{
+                  background:"linear-gradient(135deg, rgba(184,146,42,0.08) 0%, rgba(37,23,55,0.6) 100%)",
+                  border:"1px solid rgba(184,146,42,0.3)",
+                  borderRadius:8, padding:"14px 18px", marginBottom:20, textAlign: isRTL ? "right" : "left"
+                }}>
+                  <p style={{fontSize:9, letterSpacing:1.5, color:"#B8922A", textTransform:"uppercase", fontWeight:700, margin:"0 0 6px", fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}>
+                    {isRTL ? "✦ تحليل خبير العطور الذكي:" : "✦ Sommelier's Olfactory Portrait:"}
+                  </p>
+                  <p style={{fontSize:12, lineHeight:1.6, color:"rgba(255,255,255,0.9)", margin:0, fontStyle:"italic", fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}>
+                    "{quizAiDetails?.matchReason || `A masterpiece harmonizing beautifully with your ${quizMood} vibe.`}"
+                  </p>
                 </div>
 
                 <div style={{display:"flex", gap:12}}>
@@ -8112,14 +8218,14 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
                     onMouseEnter={e => { e.currentTarget.style.background = "#fff"; e.currentTarget.style.color = "#000"; e.currentTarget.style.borderColor = "#fff"; }}
                     onMouseLeave={e => { e.currentTarget.style.background = "#B8922A"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "#B8922A"; }}
                   >
-                    {isRTL ? "عرض تفاصيل العطر" : "View Fragrance"}
+                    {isRTL ? "عرض تفاصيل العطر" : "Discover Perfume"}
                   </button>
                   <button onClick={() => setQuizStep(1)}
                     style={{background:"transparent", border:"1px solid rgba(255,255,255,0.2)", color:"#fff", padding:"14px 20px", fontSize:11, letterSpacing: isRTL ? 0 : 1.5, textTransform:"uppercase", cursor:"pointer", borderRadius:4, transition:"all .25s ease", fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}
                     onMouseEnter={e => e.currentTarget.style.borderColor = "#fff"}
                     onMouseLeave={e => e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"}
                   >
-                    {isRTL ? "إعادة الاختبار" : "Reset"}
+                    {isRTL ? "إعادة الاستشارة" : "Consult Again"}
                   </button>
                 </div>
               </div>
@@ -8129,7 +8235,6 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
 
         </div>
       </section>
-
 {/* ── TIKTOK REELS ── */}
       <section style={{padding:"80px 5% 40px",background:"#fff"}}>
         <div style={{marginBottom:48,textAlign:"center"}}>
@@ -12369,7 +12474,7 @@ export default function App(){
   const [chatOpen, setChatOpen] = useState(false);
   const chatMessagesRef = useRef(null);
   const [messages, setMessages] = useState([
-    { role: "assistant", content: "Welcome to Khadlaj Perfumes. I can help with collections, products, shipping, discounts, or any page on the website." }
+    { role: "assistant", content: isRTL ? "مرحباً بكم في دار خَدْلَج للعطور. أنا مستشارك العطري الخاص، يسعدني مساعدتك في كل ما يتعلق بعطورنا، نوتات العطور، مجموعاتنا الحصرية، وتفاصيل الشحن." : "Welcome to Khadlaj Perfumes. I am your dedicated luxury concierge. How may I assist you with our fragrances, notes, collections, shipping, or offers today?" }
   ]);
   const [inputVal, setInputVal] = useState("");
   const [loading, setLoading] = useState(false);
@@ -12554,18 +12659,65 @@ export default function App(){
             )}
           </div>
 
+          {/* Quick Suggestions */}
+          <div style={{padding:"8px 16px", background:"#F7F5F0", borderTop:"1px solid #E8E4DC", display:"flex", gap:6, overflowX:"auto", whiteSpace:"nowrap"}} className="no-scrollbar">
+            {(isRTL ? [
+              "عطر شياكة شادو",
+              "عطور آيلاند",
+              "سياسة التوصيل",
+              "كود الخصم"
+            ] : [
+              "Shiyaaka Shadow notes",
+              "Island Sun fragrance",
+              "UAE delivery policy",
+              "Discount code"
+            ]).map((sug, idx) => (
+              <button key={idx}
+                onClick={() => {
+                  const userMsg = { role: "user", content: sug };
+                  const nextMessages = [...messages, userMsg];
+                  setMessages(nextMessages);
+                  setLoading(true);
+                  fetch("/api/chat", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ messages: nextMessages })
+                  })
+                  .then(r => r.json())
+                  .then(data => {
+                    setMessages(prev => [...prev, { role: "assistant", content: data.reply || data.error }]);
+                  })
+                  .catch(() => {
+                    setMessages(prev => [...prev, { role: "assistant", content: "Service is momentarily unavailable." }]);
+                  })
+                  .finally(() => setLoading(false));
+                }}
+                style={{
+                  background:"#fff", border:"1px solid #D6CEBE", borderRadius:14,
+                  padding:"4px 10px", fontSize:10, color:"#251737", cursor:"pointer",
+                  fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif",
+                  flexShrink:0, transition:"all 0.2s ease"
+                }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = "#B8922A"; e.currentTarget.style.color = "#B8922A"; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = "#D6CEBE"; e.currentTarget.style.color = "#251737"; }}
+              >
+                {sug}
+              </button>
+            ))}
+          </div>
+
           {/* Footer Input */}
-          <div style={{padding:"14px 16px", borderTop:"1px solid #E8E4DC", background:"#fff", display:"flex", gap:10, alignItems:"center"}}>
+          <div style={{padding:"12px 16px", borderTop:"1px solid #E8E4DC", background:"#fff", display:"flex", gap:10, alignItems:"center"}}>
             <input
               type="text"
-              placeholder="Ask about our perfumes..."
+              placeholder={isRTL ? "اسأل عن أي عطر من خدلج..." : "Ask about Khadlaj perfumes..."}
               value={inputVal}
               onChange={e=>setInputVal(e.target.value)}
               onKeyDown={e=>{if(e.key==="Enter") handleSendMessage();}}
               style={{
                 flex:1, border:"1px solid #E8E4DC", padding:"10px 14px",
                 fontSize:12, outline:"none", borderRadius:6,
-                fontFamily:"'Montserrat',sans-serif"
+                fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"
               }}
             />
             <button
@@ -12573,10 +12725,11 @@ export default function App(){
               style={{
                 background:"#251737", border:"none", color:"#fff",
                 padding:"10px 14px", borderRadius:6, cursor:"pointer",
-                fontSize:11, fontWeight:600, textTransform:"uppercase"
+                fontSize:11, fontWeight:600, textTransform:"uppercase",
+                fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"
               }}
             >
-              Send
+              {isRTL ? "إرسال" : "Send"}
             </button>
           </div>
         </div>

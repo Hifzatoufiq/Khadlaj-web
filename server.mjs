@@ -2,7 +2,7 @@ import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
 import { extname, join, normalize } from "node:path";
 import { fileURLToPath } from "node:url";
-import { handleChatRequest } from "./chatbot-api.mjs";
+import { handleChatRequest, handleScentFinderRequest } from "./chatbot-api.mjs";
 
 const root = fileURLToPath(new URL(".", import.meta.url));
 const port = Number(process.env.PORT || 3000);
@@ -28,8 +28,13 @@ const server = createServer(async (req, res) => {
     return;
   }
 
+  if (req.url?.startsWith("/api/scent-finder")) {
+    await handleScentFinderRequest(req, res);
+    return;
+  }
+
   const urlPath = req.url === "/" ? "/index.html" : req.url.split("?")[0];
-  const safePath = normalize(urlPath).replace(/^([.]{2}[\/\\])+/, "");
+  const safePath = normalize(urlPath).replace(/^([.]{2}[/\\])+/, "");
   const filePath = join(root, safePath);
 
   try {

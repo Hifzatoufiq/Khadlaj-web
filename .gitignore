@@ -5,3 +5,5 @@ bundle-v3.js
 bundle-v4.js
 bundle.js
 scratch/
+.env
+.env.local
