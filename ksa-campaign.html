@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khadlaj Perfumes — KSA VIP Campaign & Luxury Fragrance Giveaway</title>
+  <meta name="description" content="Register your VIP RSVP for the exclusive Khadlaj Perfumes Saudi Arabia campaign. Win luxury perfume discovery sets and unlock your private 20% privilege code.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Khadlaj_logo_1_32x.png?v=1783065091">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Cinzel:wght@400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       CSS RESET & DESIGN TOKENS
+       ========================================================================== */
+    :root {
+      --bg-dark: #FFFFFF;
+      --bg-surface: #FAF8F5;
+      --bg-surface-elevated: #FFFFFF;
+      --brand-purple: #3C1152;
+      --brand-purple-deep: #250933;
+      --brand-purple-light: #5A1F7A;
+      --gold-primary: #B8922A;
+      --gold-light: #896103;
+      --gold-dark: #735105;
+      --gold-gradient: linear-gradient(135deg, #F9E7B9 0%, #D4AF37 50%, #9E7422 100%);
+      --gold-gradient-glow: linear-gradient(135deg, #FFE8B8 0%, #E5C158 50%, #B88B27 100%);
+      --text-white: #251737;
+      --text-soft: #555555;
+      --text-muted: #777777;
+      --border-gold: rgba(184, 146, 42, 0.35);
+      --border-glass: rgba(0, 0, 0, 0.08);
+      --shadow-luxury: 0 20px 60px rgba(37, 23, 55, 0.08);
+      --shadow-gold: 0 10px 30px rgba(184, 146, 42, 0.25);
+      --font-heading: 'Cinzel', serif;
+      --font-body: 'Montserrat', sans-serif;
+      --font-arabic: 'Cairo', sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: #FFFFFF;
+      color: var(--text-white);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button, input, select {
+      font-family: inherit;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ==========================================================================
+       TOP ANNOUNCEMENT BAR
+       ========================================================================== */
+    .announcement-bar {
+      background: linear-gradient(90deg, #1C0827 0%, #3C1152 50%, #1C0827 100%);
+      border-bottom: 1px solid var(--border-gold);
+      padding: 10px 16px;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      font-weight: 500;
+      text-align: center;
+    }
+
+    .announcement-bar .badge {
+      background: var(--gold-gradient);
+      color: #1A0923;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    /* ==========================================================================
+       SITE HEADER
+       ========================================================================== */
+    .site-header {
+      padding: 22px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-glass);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .brand-logo img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .ksa-flag-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-gold);
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: var(--gold-light);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+    }
+
+    .header-btn {
+      padding: 9px 20px;
+      border-radius: 30px;
+      border: 1px solid var(--gold-primary);
+      background: transparent;
+      color: var(--gold-light);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .header-btn:hover {
+      background: var(--gold-gradient);
+      color: #12041D;
+      box-shadow: var(--shadow-gold);
+    }
+
+    /* ==========================================================================
+       HERO / CAMPAIGN MAIN SECTION
+       ========================================================================== */
+    .campaign-hero {
+      padding: 60px 0 90px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 50px;
+      align-items: start;
+    }
+
+    /* Left Column: Story & VIP Pass */
+    .hero-narrative {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .campaign-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      align-self: flex-start;
+      padding: 7px 18px;
+      background: rgba(60, 17, 82, 0.5);
+      border: 1px solid var(--border-gold);
+      border-radius: 40px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+
+    .campaign-pill .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #4ADE80;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #4ADE80;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.4); opacity: 0.6; }
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: 3.2rem;
+      line-height: 1.15;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title span {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+    }
+
+    .hero-title .arabic-sub {
+      display: block;
+      font-family: var(--font-arabic);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      -webkit-text-fill-color: initial;
+      margin-top: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-description {
+      font-size: 1.05rem;
+      color: var(--text-soft);
+      line-height: 1.8;
+      font-weight: 400;
+    }
+
+    /* Live Countdown Box */
+    .countdown-wrapper {
+      background: #FFFFFF;
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .countdown-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-glass);
+    }
+
+    .countdown-header-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold-light);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .countdown-slots-badge {
+      font-size: 0.75rem;
+      background: rgba(220, 38, 38, 0.2);
+      color: #FCA5A5;
+      border: 1px solid rgba(220, 38, 38, 0.4);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    .timer-units {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .timer-card {
+      background: #FAF8F5;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      border-radius: var(--radius-sm);
+      padding: 14px 10px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timer-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gold-gradient);
+    }
+
+    .timer-card .number {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-white);
+      line-height: 1;
+      display: block;
+      margin-bottom: 4px;
+      text-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    }
+
+    .timer-card .label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* DIGITAL VIP PASS CARD */
+    .vip-pass-card {
+      background: linear-gradient(145deg, #FCFBF9 0%, #FFFFFF 60%, #F7F3EE 100%);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-luxury);
+      transition: var(--transition);
+    }
+
+    .vip-pass-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 35px rgba(212, 175, 55, 0.25);
+    }
+
+    /* Shimmer Foil Overlay */
+    .vip-pass-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        45deg,
+        transparent 45%,
+        rgba(212, 175, 55, 0.07) 50%,
+        transparent 55%
+      );
+      animation: foilShimmer 6s infinite;
+      pointer-events: none;
+    }
+
+    @keyframes foilShimmer {
+      0% { transform: translateX(-60%) translateY(-60%) rotate(25deg); }
+      100% { transform: translateX(60%) translateY(60%) rotate(25deg); }
+    }
+
+    .pass-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .pass-type {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      font-weight: 700;
+    }
+
+    .pass-code {
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: var(--gold-primary);
+      background: rgba(212, 175, 55, 0.1);
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px dashed var(--border-gold);
+    }
+
+    .pass-main {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin-bottom: 22px;
+    }
+
+    .pass-bottle-thumb {
+      width: 90px;
+      height: 110px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      border: 1px solid var(--border-gold);
+      background: #FFFFFF;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pass-bottle-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .vip-pass-card:hover .pass-bottle-thumb img {
+      transform: scale(1.08);
+    }
+
+    .pass-details h4 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      color: var(--text-white);
+      margin-bottom: 6px;
+      letter-spacing: 0.04em;
+    }
+
+    .pass-details p {
+      font-size: 0.82rem;
+      color: var(--text-soft);
+      line-height: 1.5;
+    }
+
+    .pass-perks {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border-glass);
+    }
+
+    .perk-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .perk-icon {
+      color: var(--gold-primary);
+      font-size: 1rem;
+    }
+
+    /* Right Column: Interactive Registration Form Card */
+    .hero-form-column {
+      position: sticky;
+      top: 100px;
+    }
+
+    .registration-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-lg);
+      padding: 38px 34px;
+      box-shadow: var(--shadow-luxury);
+      backdrop-filter: blur(24px);
+      position: relative;
+    }
+
+    .registration-card::before {
+      content: '';
+      position: absolute;
+      top: -1px;
+      left: 20%;
+      right: 20%;
+      height: 2px;
+      background: var(--gold-gradient);
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .form-header h3 {
+      font-family: var(--font-heading);
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: var(--text-white);
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .form-header p {
+      font-size: 0.88rem;
+      color: var(--text-soft);
+    }
+
+    /* Form Fields */
+    .campaign-form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .form-label .required {
+      color: var(--gold-primary);
+    }
+
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .input-icon {
+      position: absolute;
+      left: 14px;
+      color: var(--text-muted);
+      font-size: 1rem;
+      pointer-events: none;
+      transition: color 0.3s ease;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 14px 16px 14px 44px;
+      background: #FAFAF8;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: var(--radius-sm);
+      color: var(--text-white);
+      font-size: 0.92rem;
+      transition: var(--transition);
+      outline: none;
+    }
+
+    .form-input:focus {
+      border-color: var(--gold-primary);
+      background: rgba(15, 6, 22, 0.95);
+      box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+    }
+
+    .form-input:focus + .input-icon,
+    .input-wrapper:focus-within .input-icon {
+      color: var(--gold-primary);
+    }
+
+    .form-input::placeholder {
+      color: #999999;
+    }
+
+    /* Phone Input with Country Code */
+    .phone-group {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 8px;
+    }
+
+    .country-select {
+      background: #FAFAF8;
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: var(--radius-sm);
+      color: var(--text-white);
+      font-size: 0.85rem;
+      padding: 0 10px;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .country-select:focus {
+      border-color: var(--gold-primary);
+    }
+
+    .phone-group .form-input {
+      padding-left: 16px;
+    }
+
+    /* City Select */
+    select.form-input {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23D4AF37' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: calc(100% - 15px) center;
+    }
+
+    /* Scent Preference Pills */
+    .scent-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .scent-chip {
+      cursor: pointer;
+    }
+
+    .scent-chip input {
+      display: none;
+    }
+
+    .scent-chip span {
+      display: inline-block;
+      padding: 7px 14px;
+      border-radius: 20px;
+      font-size: 0.76rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-soft);
+      transition: var(--transition);
+      font-weight: 500;
+    }
+
+    .scent-chip input:checked + span {
+      background: var(--brand-purple);
+      border-color: var(--gold-primary);
+      color: var(--gold-light);
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.25);
+    }
+
+    /* Checkbox */
+    .checkbox-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      line-height: 1.4;
+      margin-top: 4px;
+    }
+
+    .checkbox-label input {
+      accent-color: var(--gold-primary);
+      margin-top: 2px;
+    }
+
+    /* Submit CTA Button */
+    .submit-btn {
+      margin-top: 8px;
+      padding: 18px 24px;
+      background: var(--gold-gradient);
+      border: none;
+      border-radius: var(--radius-sm);
+      color: #12041D;
+      font-size: 0.92rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .submit-btn:hover {
+      box-shadow: 0 8px 30px rgba(212, 175, 55, 0.45);
+      transform: translateY(-2px);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .submit-btn .spinner {
+      display: none;
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(18, 4, 29, 0.3);
+      border-top-color: #12041D;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* SUCCESS CONFIRMATION STATE */
+    .success-modal {
+      display: none;
+      text-align: center;
+      padding: 20px 0;
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .success-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 18px;
+      background: rgba(74, 222, 128, 0.15);
+      border: 1px solid rgba(74, 222, 128, 0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: #4ADE80;
+    }
+
+    .voucher-box {
+      margin: 22px 0;
+      padding: 18px;
+      background: #FAF8F5;
+      border: 1px dashed var(--gold-primary);
+      border-radius: var(--radius-sm);
+    }
+
+    .voucher-code {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      color: var(--gold-light);
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      margin-top: 6px;
+    }
+
+    .copy-code-btn {
+      margin-top: 10px;
+      background: rgba(212, 175, 55, 0.15);
+      color: var(--gold-light);
+      border: 1px solid var(--border-gold);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .copy-code-btn:hover {
+      background: var(--gold-primary);
+      color: #12041D;
+    }
+
+    /* ==========================================================================
+       TRUST & HERITAGE BAR
+       ========================================================================== */
+    .trust-strip {
+      padding: 40px 0;
+      border-top: 1px solid var(--border-glass);
+      border-bottom: 1px solid var(--border-glass);
+      background: #FAF8F5;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+      text-align: center;
+    }
+
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .trust-item .icon {
+      font-size: 1.8rem;
+    }
+
+    .trust-item h4 {
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      color: var(--gold-light);
+    }
+
+    .trust-item p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       FEATURED KSA SELECTIONS
+       ========================================================================== */
+    .featured-section {
+      padding: 90px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 50px;
+    }
+
+    .section-subtitle {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold-primary);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      color: var(--text-white);
+      letter-spacing: 0.04em;
+    }
+
+    .fragrance-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 26px;
+    }
+
+    .fragrance-card {
+      background: rgba(19, 9, 27, 0.6);
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .fragrance-card:hover {
+      border-color: var(--border-gold);
+      transform: translateY(-6px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+    }
+
+    .fragrance-img-wrap {
+      width: 100%;
+      height: 270px;
+      background: #F9F8F6;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .fragrance-img-wrap img {
+      width: 85%;
+      height: 85%;
+      object-fit: contain;
+      transition: transform 0.6s ease;
+    }
+
+    .fragrance-card:hover .fragrance-img-wrap img {
+      transform: scale(1.08);
+    }
+
+    .fragrance-card-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: var(--gold-gradient);
+      color: #12041D;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .fragrance-info {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .fragrance-cat {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    .fragrance-name {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      color: var(--text-white);
+      margin-bottom: 8px;
+    }
+
+    .fragrance-notes {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .fragrance-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 12px;
+      border-top: 1px solid var(--border-glass);
+    }
+
+    .fragrance-price {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+
+    .fragrance-btn {
+      font-size: 0.76rem;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .fragrance-btn:hover {
+      color: var(--text-white);
+    }
+
+    /* ==========================================================================
+       CAMPAIGN FAQ ACCORDION
+       ========================================================================== */
+    .faq-section {
+      padding: 60px 0 90px;
+    }
+
+    .faq-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: #FFFFFF;
+      border: 1px solid var(--border-glass);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-item.active {
+      border-color: var(--border-gold);
+    }
+
+    .faq-question {
+      padding: 20px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      color: var(--text-white);
+    }
+
+    .faq-toggle {
+      font-size: 1.2rem;
+      color: var(--gold-primary);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-toggle {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+      padding: 0 24px;
+      color: var(--text-soft);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 500px;
+      padding-bottom: 22px;
+      transition: max-height 0.4s ease-in-out;
+    }
+
+    /* ==========================================================================
+       SITE FOOTER
+       ========================================================================== */
+    .site-footer {
+      border-top: 1px solid var(--border-glass);
+      background: #FAF8F5;
+      padding: 50px 0 30px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      height: 42px;
+      margin-bottom: 20px;
+    }
+
+    .footer-text {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto 24px;
+      line-height: 1.6;
+    }
+
+    .footer-copyright {
+      font-size: 0.75rem;
+      color: #888888;
+      border-top: 1px solid rgba(255,255,255,0.04);
+      padding-top: 24px;
+    }
+
+    /* ==========================================================================
+       RESPONSIVE DESIGN (MOBILE & TABLET)
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-form-column {
+        position: static;
+        max-width: 600px;
+        margin: 0 auto;
+        width: 100%;
+      }
+
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+
+      .fragrance-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .announcement-bar {
+        font-size: 0.72rem;
+        padding: 8px 12px;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .hero-title {
+        font-size: 2.3rem;
+      }
+
+      .hero-title .arabic-sub {
+        font-size: 1.4rem;
+      }
+
+      .registration-card {
+        padding: 26px 20px;
+      }
+
+      .timer-units {
+        gap: 8px;
+      }
+
+      .timer-card .number {
+        font-size: 1.5rem;
+      }
+
+      .pass-main {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .pass-perks {
+        grid-template-columns: 1fr;
+      }
+
+      .fragrance-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <span class="badge" style="display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border-radius:20px;font-weight:800;letter-spacing:0.08em;box-shadow:0 2px 10px rgba(184,146,42,0.3);">
+      <svg width="18" height="12" viewBox="0 0 600 400" style="border-radius:2px;display:inline-block;vertical-align:middle;box-shadow:0 1px 3px rgba(0,0,0,0.3);">
+        <rect width="600" height="400" fill="#165d31"/>
+        <text x="300" y="210" font-family="'Cairo', sans-serif" font-weight="700" font-size="70" fill="#ffffff" text-anchor="middle">لا إله إلا الله محمد رسول الله</text>
+        <path d="M160 270 h280 M180 260 l-25 10 25 10" stroke="#ffffff" stroke-width="12" stroke-linecap="round" fill="none"/>
+      </svg>
+      <span>KSA VIP LAUNCH 2026</span>
+    </span>
+    <span>EXCLUSIVE VIP LAUNCH IN SAUDI ARABIA • COMPLIMENTARY DISCOVERY SETS & PRIVILEGE CODES</span>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+      <a href="https://khadlaj-perfumes.com" class="brand-logo" title="Khadlaj Perfumes Home">
+        <img src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/kp-logo.png?v=1784797589" alt="Khadlaj Perfumes Logo">
+      </a>
+      <div class="header-actions">
+        <div class="ksa-flag-badge">
+          <span>🇸🇦</span>
+          <span>المملكة العربية السعودية</span>
+        </div>
+        <button class="header-btn" onclick="scrollToForm()">RSVP Now</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero / Campaign Section -->
+  <section class="campaign-hero" id="campaign-hero">
+    <div class="container">
+      <div class="hero-grid">
+
+        <!-- Left Column: Campaign Story & Digital VIP Pass -->
+        <div class="hero-narrative">
+          
+          <div class="campaign-pill">
+            <span class="pulse-dot"></span>
+            <span>KINGDOM OF SAUDI ARABIA • OFFICIAL LAUNCH</span>
+          </div>
+
+          <h1 class="hero-title">
+            THE ART OF ROYAL <span>ARABIAN LUXURY</span>
+            <span class="arabic-sub">فن العطور الشرقية الأصيلة في المملكة</span>
+          </h1>
+
+          <p class="hero-description">
+            For over two decades, <strong>Khadlaj Perfumes</strong> has crafted timeless fragrances uniting ancient Oriental heritage with French haute perfumery. In celebration of our expanded Saudi Arabia distribution, we invite perfume connoisseurs across the Kingdom to claim an exclusive <strong>VIP Invitation Pass</strong>.
+          </p>
+
+          <!-- Live Countdown Wrapper -->
+          <div class="countdown-wrapper">
+            <div class="countdown-header">
+              <span class="countdown-header-title">
+                <span>⏳</span> VIP RSVP CLOSING IN
+              </span>
+              <span class="countdown-slots-badge">ONLY 47 PASSES REMAINING</span>
+            </div>
+
+            <div class="timer-units">
+              <div class="timer-card">
+                <span class="number" id="days">04</span>
+                <span class="label">Days</span>
+              </div>
+              <div class="timer-card">
+                <span class="number" id="hours">18</span>
+                <span class="label">Hours</span>
+              </div>
+              <div class="timer-card">
+                <span class="number" id="minutes">32</span>
+                <span class="label">Minutes</span>
+              </div>
+              <div class="timer-card">
+                <span class="number" id="seconds">45</span>
+                <span class="label">Seconds</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Digital VIP Pass Holographic Card -->
+          <div class="vip-pass-card">
+            <div class="pass-top">
+              <span class="pass-type">⭐ OFFICIAL VIP GOLD PRIVILEGE PASS</span>
+              <span class="pass-code" id="live-pass-code">KSA-2026-VIP</span>
+            </div>
+
+            <div class="pass-main">
+              <div class="pass-bottle-thumb">
+                <img src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_QAISER_100GM_-_Khadlaj_Perfumes-1965714.jpg?v=1722411690" alt="Khadlaj Oud Muattar Qaiser">
+              </div>
+              <div class="pass-details">
+                <h4>KSA VIP Fragrance Discovery Box</h4>
+                <p>Guaranteed entry into the grand raffle for 1 of 500 handcrafted Luxury Discovery Sets containing rare Dehn Al Oud and French Oriental sprays.</p>
+              </div>
+            </div>
+
+            <div class="pass-perks">
+              <div class="perk-item">
+                <span class="perk-icon">💎</span>
+                <span>Instant 20% Privilege Discount Voucher</span>
+              </div>
+              <div class="perk-item">
+                <span class="perk-icon">📦</span>
+                <span>Free Express Doorstep Delivery in KSA</span>
+              </div>
+              <div class="perk-item">
+                <span class="perk-icon">✨</span>
+                <span>Priority Access to Master Perfumer Drops</span>
+              </div>
+              <div class="perk-item">
+                <span class="perk-icon">👑</span>
+                <span>Complimentary Fragrance Consultation</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Interactive Registration Form -->
+        <div class="hero-form-column" id="rsvp-form-container">
+          <div class="registration-card">
+            
+            <!-- Standard Form State -->
+            <div id="form-body">
+              <div class="form-header">
+                <h3>REGISTER YOUR VIP RSVP</h3>
+                <p>Fill in your details to lock in your Saudi Campaign pass and entry.</p>
+              </div>
+
+              <form class="campaign-form" id="ksa-campaign-form" onsubmit="handleFormSubmit(event)">
+                
+                <!-- Full Name -->
+                <div class="form-group">
+                  <label class="form-label" for="full-name">Full Name <span class="required">*</span></label>
+                  <div class="input-wrapper">
+                    <span class="input-icon">👤</span>
+                    <input type="text" id="full-name" class="form-input" placeholder="e.g. Faisal Al-Otaibi" required>
+                  </div>
+                </div>
+
+                <!-- Email Address -->
+                <div class="form-group">
+                  <label class="form-label" for="email">Email Address <span class="required">*</span></label>
+                  <div class="input-wrapper">
+                    <span class="input-icon">✉️</span>
+                    <input type="email" id="email" class="form-input" placeholder="e.g. name@example.com" required>
+                  </div>
+                </div>
+
+                <!-- Contact Number -->
+                <div class="form-group">
+                  <label class="form-label" for="phone">Phone / WhatsApp <span class="required">*</span></label>
+                  <div class="phone-group">
+                    <select class="country-select" id="country-code">
+                      <option value="+966" selected>🇸🇦 +966 (KSA)</option>
+                      <option value="+971">🇦🇪 +971 (UAE)</option>
+                      <option value="+965">🇰🇼 +965 (Kuwait)</option>
+                      <option value="+974">🇶🇦 +974 (Qatar)</option>
+                      <option value="+973">🇧🇭 +973 (Bahrain)</option>
+                      <option value="+968">🇴🇲 +968 (Oman)</option>
+                    </select>
+                    <input type="tel" id="phone" class="form-input" placeholder="50 123 4567" required>
+                  </div>
+                </div>
+
+                <!-- Saudi City -->
+                <div class="form-group">
+                  <label class="form-label" for="city">City of Residence <span class="required">*</span></label>
+                  <div class="input-wrapper">
+                    <span class="input-icon">📍</span>
+                    <select id="city" class="form-input" required>
+                      <option value="" disabled selected>Select your city in Saudi Arabia</option>
+                      <option value="Riyadh">Riyadh (الرياض)</option>
+                      <option value="Jeddah">Jeddah (جدة)</option>
+                      <option value="Dammam">Dammam (الدمام)</option>
+                      <option value="Mecca">Mecca (مكة المكرمة)</option>
+                      <option value="Medina">Medina (المدينة المنورة)</option>
+                      <option value="Khobar">Khobar (الخبر)</option>
+                      <option value="Dhahran">Dhahran (الظهران)</option>
+                      <option value="Tabuk">Tabuk (تبوك)</option>
+                      <option value="Taif">Taif (الطائف)</option>
+                      <option value="Abha">Abha (أبها)</option>
+                      <option value="Al-Ahsa">Al-Ahsa (الأحساء)</option>
+                      <option value="Other">Other Saudi City</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Scent Preference -->
+                <div class="form-group">
+                  <label class="form-label">Preferred Fragrance Family</label>
+                  <div class="scent-chips">
+                    <label class="scent-chip">
+                      <input type="radio" name="scent_family" value="Oud & Amber" checked>
+                      <span>🪵 Royal Oud & Amber</span>
+                    </label>
+                    <label class="scent-chip">
+                      <input type="radio" name="scent_family" value="French Oriental">
+                      <span>🌹 French Oriental</span>
+                    </label>
+                    <label class="scent-chip">
+                      <input type="radio" name="scent_family" value="Musk & Clean">
+                      <span>✨ White Musk & Powder</span>
+                    </label>
+                    <label class="scent-chip">
+                      <input type="radio" name="scent_family" value="Gourmand Vanilla">
+                      <span>🍨 Vanilla & Gourmand</span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Opt-in Checkbox -->
+                <label class="checkbox-label">
+                  <input type="checkbox" id="consent" checked required>
+                  <span>Yes, enroll me into the KSA VIP Discovery Set Giveaway and send my exclusive privilege pass via WhatsApp / Email.</span>
+                </label>
+
+                <!-- Submit Button -->
+                <button type="submit" class="submit-btn" id="submit-btn">
+                  <span class="btn-text">CLAIM MY VIP PASS & ENTER GIVEAWAY →</span>
+                  <div class="spinner" id="btn-spinner"></div>
+                </button>
+
+              </form>
+            </div>
+
+            <!-- Success State Modal (Shown upon valid submission) -->
+            <div class="success-modal" id="success-modal">
+              <div class="success-icon">✓</div>
+              <h3 style="font-family: var(--font-heading); font-size: 1.6rem; color: var(--gold-light); margin-bottom: 8px;">
+                CONGRATULATIONS, <span id="confirmed-name">VIP GUEST</span>!
+              </h3>
+              <p style="font-size: 0.88rem; color: var(--text-soft); line-height: 1.6;">
+                Your official entry has been confirmed into the <strong>KSA Luxury Discovery Box Giveaway</strong>. Your digital VIP Pass number is:
+              </p>
+
+              <div class="voucher-box">
+                <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted);">
+                  YOUR PRIVATE PRIVILEGE PASS CODE (20% OFF)
+                </span>
+                <div class="voucher-code" id="voucher-code-display">KSA-VIP20</div>
+                <button class="copy-code-btn" onclick="copyVoucherCode()">
+                  <span id="copy-btn-text">📋 Copy Code to Clipboard</span>
+                </button>
+              </div>
+
+              <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 22px;">
+                Use this code at checkout on <a href="https://khadlaj-perfumes.com" target="_blank" style="color: var(--gold-primary); text-decoration: underline;">khadlaj-perfumes.com</a>. We have also dispatched your confirmation details to your provided contact.
+              </p>
+
+              <a href="https://khadlaj-perfumes.com/collections/all" class="submit-btn" style="text-decoration: none; display: inline-flex;">
+                EXPLORE KHADLAJ COLLECTION
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust & Heritage Strip -->
+  <section class="trust-strip">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="icon">👑</div>
+          <h4>HERITAGE SINCE 1997</h4>
+          <p>Over 25 years of master perfumery craftsmanship</p>
+        </div>
+        <div class="trust-item">
+          <div class="icon">🌿</div>
+          <h4>100% PURE ESSENCES</h4>
+          <p>Rare Cambodian Oud, Taif Rose, and French oils</p>
+        </div>
+        <div class="trust-item">
+          <div class="icon">🇸🇦</div>
+          <h4>FAST KSA SHIPPING</h4>
+          <p>Express doorstep delivery across Riyadh, Jeddah & all cities</p>
+        </div>
+        <div class="trust-item">
+          <div class="icon">🔒</div>
+          <h4>AUTHENTICITY GUARANTEED</h4>
+          <p>Official manufacturer direct-from-distributor guarantee</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Fragrances Section -->
+  <section class="featured-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-subtitle">DISCOVER THE ICONS</p>
+        <h2 class="section-title">BEST-SELLING IN SAUDI ARABIA</h2>
+      </div>
+
+      <div class="fragrance-grid">
+        
+        <!-- Product 1 -->
+        <div class="fragrance-card">
+          <div class="fragrance-img-wrap">
+            <span class="fragrance-card-badge">Top Seller</span>
+            <img src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_QAISER_100GM_-_Khadlaj_Perfumes-1965714.jpg?v=1722411690" alt="Oud Muattar Qaiser">
+          </div>
+          <div class="fragrance-info">
+            <span class="fragrance-cat">Dakhoon & Muattar</span>
+            <h3 class="fragrance-name">Oud Muattar Qaiser</h3>
+            <p class="fragrance-notes">Sensual notes of rich agarwood, warm amber, and golden musk created for welcoming spaces.</p>
+            <div class="fragrance-footer">
+              <span class="fragrance-price">SAR 155</span>
+              <a href="https://khadlaj-perfumes.com/products/oud-muattar-qaiser-100gm" class="fragrance-btn" target="_blank">View Details →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="fragrance-card">
+          <div class="fragrance-img-wrap">
+            <span class="fragrance-card-badge">Iconic Eau De Parfum</span>
+            <img src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/pass.png?v=1784882410" alt="Shiyaaka Gold">
+          </div>
+          <div class="fragrance-info">
+            <span class="fragrance-cat">Eau De Parfum</span>
+            <h3 class="fragrance-name">Shiyaaka Gold Pour Homme</h3>
+            <p class="fragrance-notes">Sparkling bergamot, aromatic lavender, cedarwood, and rich ambergris base.</p>
+            <div class="fragrance-footer">
+              <span class="fragrance-price">SAR 180</span>
+              <a href="https://khadlaj-perfumes.com/collections/all" class="fragrance-btn" target="_blank">View Details →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="fragrance-card">
+          <div class="fragrance-img-wrap">
+            <span class="fragrance-card-badge">Viral Signature</span>
+            <img src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/details.png?v=1784882410" alt="Hareem Al Sultan">
+          </div>
+          <div class="fragrance-info">
+            <span class="fragrance-cat">Luxury Concentrated Oil</span>
+            <h3 class="fragrance-name">Hareem Al Sultan Gold</h3>
+            <p class="fragrance-notes">Enchanting red apple, dark chocolate, Turkish rose, and luxurious amber.</p>
+            <div class="fragrance-footer">
+              <span class="fragrance-price">SAR 165</span>
+              <a href="https://khadlaj-perfumes.com/collections/all" class="fragrance-btn" target="_blank">View Details →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="fragrance-card">
+          <div class="fragrance-img-wrap">
+            <span class="fragrance-card-badge">New Launch</span>
+            <img src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_QAISER_100GM_-_Khadlaj_Perfumes-1965714.jpg?v=1722411690" alt="Cream Velvet">
+          </div>
+          <div class="fragrance-info">
+            <span class="fragrance-cat">Master Perfumer Edition</span>
+            <h3 class="fragrance-name">Cream Velvet</h3>
+            <p class="fragrance-notes">Silky Madagascar vanilla, soft heliotrope, roasted almond, and white musk.</p>
+            <div class="fragrance-footer">
+              <span class="fragrance-price">SAR 210</span>
+              <a href="https://khadlaj-perfumes.com/collections/all" class="fragrance-btn" target="_blank">View Details →</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-subtitle">QUESTIONS & DETAILS</p>
+        <h2 class="section-title">FREQUENTLY ASKED QUESTIONS</h2>
+      </div>
+
+      <div class="faq-wrapper">
+        <div class="faq-item active">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Who is eligible for the KSA VIP Discovery Box Giveaway?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            Any resident living within the Kingdom of Saudi Arabia (Riyadh, Jeddah, Dammam, Mecca, Medina, and all provinces) who completes the RSVP registration form is automatically entered into the giveaway raffle.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>How and when will I receive my 20% Privilege Voucher?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            Your 20% discount code (KSA-VIP20) is unlocked immediately on your screen as soon as you submit the form, and will also be sent via SMS / WhatsApp or email. You can apply it directly during checkout on khadlaj-perfumes.com.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>What are the shipping durations to Saudi Arabia?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            Orders to major Saudi cities (Riyadh, Jeddah, Dammam) are delivered within 2 to 4 business days via express courier with real-time SMS tracking.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Are all Khadlaj perfumes 100% original and IFRA certified?</span>
+            <span class="faq-toggle">+</span>
+          </div>
+          <div class="faq-answer">
+            Yes, all Khadlaj Perfumes formulations adhere to strict International Fragrance Association (IFRA) safety standards, utilizing genuine Grade-A natural perfume concentrates and pure oils.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <img src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/kp-logo.png?v=1784797589" class="footer-logo" alt="Khadlaj Logo">
+      <p class="footer-text">
+        Khadlaj Perfumes — Distinctive Arabian luxury and international elegance since 1997. Crafted in the UAE, celebrated across the Kingdom of Saudi Arabia and worldwide.
+      </p>
+      <div class="footer-copyright">
+        © 2026 Khadlaj Perfumes. All Rights Reserved. Official Saudi Arabia Campaign Landing Page.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       JAVASCRIPT LOGIC
+       ========================================================================== -->
+  <script>
+    // Smooth Scroll to RSVP Form
+    function scrollToForm() {
+      const el = document.getElementById('rsvp-form-container');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }
+
+    // Dynamic Live Countdown Timer
+    function initCountdown() {
+      // Set end date to 5 days from now
+      const targetDate = new Date();
+      targetDate.setDate(targetDate.getDate() + 4);
+      targetDate.setHours(targetDate.getHours() + 18);
+
+      function update() {
+        const now = new Date().getTime();
+        const difference = targetDate - now;
+
+        if (difference <= 0) {
+          document.getElementById('days').innerText = '00';
+          document.getElementById('hours').innerText = '00';
+          document.getElementById('minutes').innerText = '00';
+          document.getElementById('seconds').innerText = '00';
+          return;
+        }
+
+        const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+        document.getElementById('days').innerText = String(d).padStart(2, '0');
+        document.getElementById('hours').innerText = String(h).padStart(2, '0');
+        document.getElementById('minutes').innerText = String(m).padStart(2, '0');
+        document.getElementById('seconds').innerText = String(s).padStart(2, '0');
+      }
+
+      update();
+      setInterval(update, 1000);
+    }
+
+    // Generate dynamic pass code
+    function initDynamicPass() {
+      const randomNum = Math.floor(1000 + Math.random() * 9000);
+      const code = `KSA-VIP-${randomNum}`;
+      const el = document.getElementById('live-pass-code');
+      if (el) el.innerText = code;
+    }
+
+    // Handle Form Submission
+    function handleFormSubmit(event) {
+      event.preventDefault();
+
+      const btn = document.getElementById('submit-btn');
+      const btnText = btn.querySelector('.btn-text');
+      const spinner = document.getElementById('btn-spinner');
+      const nameVal = document.getElementById('full-name').value.trim();
+
+      // Show loading spinner
+      btnText.style.display = 'none';
+      spinner.style.display = 'block';
+      btn.style.opacity = '0.85';
+      btn.disabled = true;
+
+      // Simulate network request / API dispatch (Shopify customer creation / form webhook)
+      setTimeout(() => {
+        document.getElementById('form-body').style.display = 'none';
+        const successModal = document.getElementById('success-modal');
+        successModal.style.display = 'block';
+        
+        if (nameVal) {
+          document.getElementById('confirmed-name').innerText = nameVal.toUpperCase();
+        }
+
+        // Scroll to success message
+        document.getElementById('rsvp-form-container').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 900);
+    }
+
+    // Copy Voucher Code
+    function copyVoucherCode() {
+      const code = document.getElementById('voucher-code-display').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        const btnText = document.getElementById('copy-btn-text');
+        btnText.innerText = '✓ Code Copied!';
+        setTimeout(() => {
+          btnText.innerText = '📋 Copy Code to Clipboard';
+        }, 3000);
+      });
+    }
+
+    // FAQ Accordion Toggle
+    function toggleFaq(header) {
+      const item = header.parentElement;
+      const wasActive = item.classList.contains('active');
+      
+      // Close all other FAQs
+      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+
+      if (!wasActive) {
+        item.classList.add('active');
+      }
+    }
+
+    // Initialize on load
+    document.addEventListener('DOMContentLoaded', () => {
+      initCountdown();
+      initDynamicPass();
+    });
+  </script>
+</body>
+</html>

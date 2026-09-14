@@ -1,0 +1,933 @@
+{% comment %}
+  Khadlaj Perfumes — KSA VIP Campaign Landing Page Section
+  Compatible with Shopify Online Store 2.0
+{% endcomment %}
+
+<div class="ksa-campaign-wrapper" id="ksa-campaign-{{ section.id }}">
+  <!-- Top Announcement Bar -->
+  {% if section.settings.show_announcement %}
+    <div class="ksa-announcement-bar">
+      <span class="ksa-badge">{{ section.settings.badge_text | default: "🇸🇦 KSA EXCLUSIVE VIP LAUNCH" }}</span>
+      <span>{{ section.settings.announcement_text | default: "LIMITED VIP INVITATIONS & COMPLIMENTARY DISCOVERY SETS • REGISTER BELOW" }}</span>
+    </div>
+  {% endif %}
+
+  <!-- Main Campaign Hero -->
+  <section class="ksa-hero-section">
+    <div class="ksa-container">
+      <div class="ksa-hero-grid">
+
+        <!-- Left Column: Story, Live Countdown & Holographic VIP Pass -->
+        <div class="ksa-narrative-col">
+          <div class="ksa-pill">
+            <span class="ksa-pulse-dot"></span>
+            <span>{{ section.settings.pill_text | default: "KINGDOM OF SAUDI ARABIA • OFFICIAL LAUNCH" }}</span>
+          </div>
+
+          <h1 class="ksa-hero-title">
+            {{ section.settings.heading_prefix | default: "THE ART OF ROYAL" }}
+            <span>{{ section.settings.heading_gold | default: "ARABIAN LUXURY" }}</span>
+            <span class="ksa-arabic-sub">{{ section.settings.heading_arabic | default: "فن العطور الشرقية الأصيلة في المملكة" }}</span>
+          </h1>
+
+          <div class="ksa-hero-desc">
+            {{ section.settings.campaign_desc | default: "For over two decades, Khadlaj Perfumes has crafted timeless fragrances uniting ancient Oriental heritage with French haute perfumery. In celebration of our expanded Saudi Arabia distribution, claim your private VIP Invitation Pass to enter our exclusive luxury giveaway and unlock an immediate 20% privilege code." }}
+          </div>
+
+          <!-- Live Countdown Timer -->
+          <div class="ksa-countdown-card">
+            <div class="ksa-countdown-head">
+              <span class="ksa-cd-title">⏳ {{ section.settings.timer_title | default: "VIP REGISTRATION CLOSING IN" }}</span>
+              <span class="ksa-cd-badge">{{ section.settings.slots_remaining | default: "LIMITED PASSES REMAINING" }}</span>
+            </div>
+            <div class="ksa-timer-grid">
+              <div class="ksa-time-box"><span class="ksa-time-num" id="ksa-days-{{ section.id }}">04</span><span class="ksa-time-lbl">Days</span></div>
+              <div class="ksa-time-box"><span class="ksa-time-num" id="ksa-hours-{{ section.id }}">18</span><span class="ksa-time-lbl">Hours</span></div>
+              <div class="ksa-time-box"><span class="ksa-time-num" id="ksa-minutes-{{ section.id }}">32</span><span class="ksa-time-lbl">Minutes</span></div>
+              <div class="ksa-time-box"><span class="ksa-time-num" id="ksa-seconds-{{ section.id }}">45</span><span class="ksa-time-lbl">Seconds</span></div>
+            </div>
+          </div>
+
+          <!-- Digital VIP Pass Card -->
+          <div class="ksa-vip-pass">
+            <div class="ksa-pass-top">
+              <span class="ksa-pass-badge">⭐ OFFICIAL VIP GOLD PRIVILEGE PASS</span>
+              <span class="ksa-pass-number" id="ksa-live-pass">KSA-2026-VIP</span>
+            </div>
+            <div class="ksa-pass-body">
+              <div class="ksa-pass-thumb">
+                {% if section.settings.pass_image != blank %}
+                  <img src="{{ section.settings.pass_image | image_url: width: 240 }}" alt="VIP Pass Khadlaj">
+                {% else %}
+                  <img src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_QAISER_100GM_-_Khadlaj_Perfumes-1965714.jpg?v=1722411690" alt="VIP Pass Khadlaj">
+                {% endif %}
+              </div>
+              <div class="ksa-pass-info">
+                <h4>{{ section.settings.pass_title | default: "KSA VIP Fragrance Discovery Box" }}</h4>
+                <p>{{ section.settings.pass_subtitle | default: "Guaranteed entry into the grand raffle for 1 of 500 handcrafted Luxury Discovery Sets containing rare Dehn Al Oud and French Oriental sprays." }}</p>
+              </div>
+            </div>
+            <div class="ksa-pass-perks">
+              <div class="ksa-perk"><span>💎</span><span>Instant 20% Privilege Discount</span></div>
+              <div class="ksa-perk"><span>📦</span><span>Free Express KSA Delivery</span></div>
+              <div class="ksa-perk"><span>✨</span><span>Priority Perfume Drops Access</span></div>
+              <div class="ksa-perk"><span>👑</span><span>VIP Concierge Service</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Registration Form -->
+        <div class="ksa-form-col" id="ksa-form-wrap-{{ section.id }}">
+          <div class="ksa-card-glass">
+            
+            <div id="ksa-form-view-{{ section.id }}">
+              <div class="ksa-form-header">
+                <h3>{{ section.settings.form_title | default: "REGISTER YOUR VIP RSVP" }}</h3>
+                <p>{{ section.settings.form_subtitle | default: "Fill in your details to lock in your Saudi Campaign pass and entry." }}</p>
+              </div>
+
+              {% form 'contact', id: 'ksaCustomerForm', class: 'ksa-form' %}
+                <input type="hidden" name="contact[tags]" value="KSA-VIP-Campaign,Giveaway-2026">
+                <input type="hidden" name="contact[note]" value="Registered via KSA Campaign Landing Page">
+
+                <!-- Name Field -->
+                <div class="ksa-group">
+                  <label class="ksa-lbl" for="ksa-name">Full Name <span class="ksa-req">*</span></label>
+                  <div class="ksa-input-box">
+                    <span class="ksa-icon">👤</span>
+                    <input type="text" id="ksa-name" name="contact[name]" class="ksa-input" placeholder="e.g. Faisal Al-Otaibi" required>
+                  </div>
+                </div>
+
+                <!-- Email Field -->
+                <div class="ksa-group">
+                  <label class="ksa-lbl" for="ksa-email">Email Address <span class="ksa-req">*</span></label>
+                  <div class="ksa-input-box">
+                    <span class="ksa-icon">✉️</span>
+                    <input type="email" id="ksa-email" name="contact[email]" class="ksa-input" placeholder="e.g. name@example.com" required>
+                  </div>
+                </div>
+
+                <!-- Phone Field with GCC Selector -->
+                <div class="ksa-group">
+                  <label class="ksa-lbl" for="ksa-phone">Phone / WhatsApp <span class="ksa-req">*</span></label>
+                  <div class="ksa-phone-row">
+                    <select class="ksa-select-country" id="ksa-country-code" name="contact[country_code]">
+                      <option value="+966" selected>🇸🇦 +966 (KSA)</option>
+                      <option value="+971">🇦🇪 +971 (UAE)</option>
+                      <option value="+965">🇰🇼 +965 (Kuwait)</option>
+                      <option value="+974">🇶🇦 +974 (Qatar)</option>
+                      <option value="+973">🇧🇭 +973 (Bahrain)</option>
+                      <option value="+968">🇴🇲 +968 (Oman)</option>
+                    </select>
+                    <input type="tel" id="ksa-phone" name="contact[phone]" class="ksa-input" placeholder="50 123 4567" required>
+                  </div>
+                </div>
+
+                <!-- Saudi City Dropdown -->
+                <div class="ksa-group">
+                  <label class="ksa-lbl" for="ksa-city">City of Residence <span class="ksa-req">*</span></label>
+                  <div class="ksa-input-box">
+                    <span class="ksa-icon">📍</span>
+                    <select id="ksa-city" name="contact[city]" class="ksa-input ksa-select" required>
+                      <option value="" disabled selected>Select your city in Saudi Arabia</option>
+                      <option value="Riyadh">Riyadh (الرياض)</option>
+                      <option value="Jeddah">Jeddah (جدة)</option>
+                      <option value="Dammam">Dammam (الدمام)</option>
+                      <option value="Mecca">Mecca (مكة المكرمة)</option>
+                      <option value="Medina">Medina (المدينة المنورة)</option>
+                      <option value="Khobar">Khobar (الخبر)</option>
+                      <option value="Dhahran">Dhahran (الظهران)</option>
+                      <option value="Tabuk">Tabuk (تبوك)</option>
+                      <option value="Taif">Taif (الطائف)</option>
+                      <option value="Abha">Abha (أبها)</option>
+                      <option value="Al-Ahsa">Al-Ahsa (الأحساء)</option>
+                      <option value="Other">Other Saudi City</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Scent Preference -->
+                <div class="ksa-group">
+                  <label class="ksa-lbl">Preferred Fragrance Family</label>
+                  <div class="ksa-scent-pills">
+                    <label class="ksa-pill-label">
+                      <input type="radio" name="contact[scent_preference]" value="Oud & Amber" checked>
+                      <span>🪵 Royal Oud & Amber</span>
+                    </label>
+                    <label class="ksa-pill-label">
+                      <input type="radio" name="contact[scent_preference]" value="French Oriental">
+                      <span>🌹 French Oriental</span>
+                    </label>
+                    <label class="ksa-pill-label">
+                      <input type="radio" name="contact[scent_preference]" value="White Musk">
+                      <span>✨ White Musk</span>
+                    </label>
+                    <label class="ksa-pill-label">
+                      <input type="radio" name="contact[scent_preference]" value="Vanilla Gourmand">
+                      <span>🍨 Vanilla Gourmand</span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Opt-in Checkbox -->
+                <label class="ksa-checkbox">
+                  <input type="checkbox" name="contact[opt_in]" checked required>
+                  <span>Yes, enroll me into the KSA VIP Discovery Set Giveaway and send my exclusive privilege pass via WhatsApp / Email.</span>
+                </label>
+
+                <!-- Submit Button -->
+                <button type="submit" class="ksa-submit-btn" id="ksa-btn-{{ section.id }}">
+                  <span class="ksa-btn-text">{{ section.settings.btn_label | default: "CLAIM MY VIP PASS & ENTER GIVEAWAY →" }}</span>
+                  <div class="ksa-spinner"></div>
+                </button>
+              {% endform %}
+            </div>
+
+            <!-- Instant Success State -->
+            <div class="ksa-success-view" id="ksa-success-view-{{ section.id }}" style="display:none;">
+              <div class="ksa-success-icon">✓</div>
+              <h3 class="ksa-success-heading">CONGRATULATIONS, <span id="ksa-confirmed-name">VIP GUEST</span>!</h3>
+              <p class="ksa-success-desc">
+                Your entry into the <strong>KSA Luxury Discovery Set Giveaway</strong> has been confirmed. Your exclusive 20% discount code is ready:
+              </p>
+              
+              <div class="ksa-code-box">
+                <span class="ksa-code-sub">YOUR 20% PRIVILEGE DISCOUNT CODE</span>
+                <div class="ksa-code-val" id="ksa-code-val-{{ section.id }}">{{ section.settings.discount_code | default: "KSA-VIP20" }}</div>
+                <button type="button" class="ksa-copy-btn" onclick="ksaCopyCode('{{ section.id }}')">
+                  <span id="ksa-copy-txt-{{ section.id }}">📋 Copy Code</span>
+                </button>
+              </div>
+
+              <a href="{{ section.settings.shop_now_url | default: '/collections/all' }}" class="ksa-submit-btn" style="text-decoration:none; display:inline-flex;">
+                SHOP KHADLAJ COLLECTION NOW
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust & Heritage Strip -->
+  <section class="ksa-trust-bar">
+    <div class="ksa-container">
+      <div class="ksa-trust-grid">
+        <div class="ksa-trust-card"><div class="ksa-trust-icon">👑</div><h4>HERITAGE SINCE 1997</h4><p>Over 25 years of master fragrance artistry</p></div>
+        <div class="ksa-trust-card"><div class="ksa-trust-icon">🌿</div><h4>100% PURE ESSENCES</h4><p>IFRA certified, pure Cambodian Oud & Taif Rose</p></div>
+        <div class="ksa-trust-card"><div class="ksa-trust-icon">🇸🇦</div><h4>FAST KSA DELIVERY</h4><p>Express 2-4 day doorstep courier across Saudi Arabia</p></div>
+        <div class="ksa-trust-card"><div class="ksa-trust-icon">🔒</div><h4>AUTHENTICITY GUARANTEED</h4><p>Direct official manufacturer guarantee</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+  #ksa-campaign-{{ section.id }} {
+    --bg-dark: #FFFFFF;
+    --brand-purple: #3C1152;
+    --gold-primary: #D4AF37;
+    --gold-light: #F4E4A6;
+    --gold-gradient: linear-gradient(135deg, #F9E7B9 0%, #D4AF37 50%, #9E7422 100%);
+    --text-white: #251737;
+    --text-soft: #555555;
+    --text-muted: #777777;
+    --border-gold: rgba(184, 146, 42, 0.35);
+    --border-glass: rgba(255, 255, 255, 0.08);
+    --font-heading: 'Cinzel', serif;
+    --font-body: 'Montserrat', sans-serif;
+    --font-arabic: 'Cairo', sans-serif;
+    
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    font-family: var(--font-body);
+    
+    overflow-x: hidden;
+  }
+
+  .ksa-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .ksa-announcement-bar {
+    background: linear-gradient(90deg, #1C0827 0%, #3C1152 50%, #1C0827 100%);
+    border-bottom: 1px solid var(--border-gold);
+    padding: 10px 16px;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .ksa-badge {
+    background: var(--gold-gradient);
+    color: #1A0923;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+  }
+
+  .ksa-hero-section {
+    padding: 60px 0 90px;
+  }
+
+  .ksa-hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 50px;
+    align-items: start;
+  }
+
+  .ksa-narrative-col {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+  }
+
+  .ksa-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    align-self: flex-start;
+    padding: 7px 18px;
+    background: rgba(60, 17, 82, 0.5);
+    border: 1px solid var(--border-gold);
+    border-radius: 40px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+  }
+
+  .ksa-pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: #4ADE80;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #4ADE80;
+  }
+
+  .ksa-hero-title {
+    font-family: var(--font-heading);
+    font-size: 3.2rem;
+    line-height: 1.15;
+    font-weight: 600;
+  }
+
+  .ksa-hero-title span {
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .ksa-arabic-sub {
+    display: block;
+    font-family: var(--font-arabic);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    -webkit-text-fill-color: initial;
+    margin-top: 8px;
+  }
+
+  .ksa-hero-desc {
+    font-size: 1.05rem;
+    color: var(--text-soft);
+    line-height: 1.8;
+  }
+
+  .ksa-countdown-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-gold);
+    border-radius: 16px;
+    padding: 24px 28px;
+    backdrop-filter: blur(16px);
+  }
+
+  .ksa-countdown-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-glass);
+  }
+
+  .ksa-cd-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--gold-light);
+    font-weight: 600;
+  }
+
+  .ksa-cd-badge {
+    font-size: 0.75rem;
+    background: rgba(220, 38, 38, 0.2);
+    color: #FCA5A5;
+    border: 1px solid rgba(220, 38, 38, 0.4);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+  }
+
+  .ksa-timer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+  }
+
+  .ksa-time-box {
+    background: #FAF8F5;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 8px;
+    padding: 14px 10px;
+    text-align: center;
+  }
+
+  .ksa-time-num {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-white);
+    display: block;
+  }
+
+  .ksa-time-lbl {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .ksa-vip-pass {
+    background: linear-gradient(145deg, #FCFBF9 0%, #FFFFFF 60%, #F7F3EE 100%);
+    border: 1px solid var(--border-gold);
+    border-radius: 20px;
+    padding: 26px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  }
+
+  .ksa-pass-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+
+  .ksa-pass-badge {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    font-weight: 700;
+  }
+
+  .ksa-pass-number {
+    font-family: monospace;
+    font-size: 0.85rem;
+    color: var(--gold-primary);
+    background: rgba(212, 175, 55, 0.1);
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px dashed var(--border-gold);
+  }
+
+  .ksa-pass-body {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .ksa-pass-thumb {
+    width: 85px;
+    height: 105px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-gold);
+    background: #FFFFFF;
+    flex-shrink: 0;
+  }
+
+  .ksa-pass-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ksa-pass-info h4 {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--text-white);
+    margin-bottom: 6px;
+  }
+
+  .ksa-pass-info p {
+    font-size: 0.82rem;
+    color: var(--text-soft);
+    line-height: 1.5;
+  }
+
+  .ksa-pass-perks {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border-glass);
+  }
+
+  .ksa-perk {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--text-soft);
+  }
+
+  .ksa-card-glass {
+    background: #FFFFFF;
+    border: 1px solid var(--border-gold);
+    border-radius: 20px;
+    padding: 36px 32px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(24px);
+  }
+
+  .ksa-form-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .ksa-form-header h3 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--text-white);
+    margin-bottom: 6px;
+  }
+
+  .ksa-form-header p {
+    font-size: 0.86rem;
+    color: var(--text-soft);
+  }
+
+  .ksa-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .ksa-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .ksa-lbl {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold-light);
+  }
+
+  .ksa-req {
+    color: var(--gold-primary);
+  }
+
+  .ksa-input-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .ksa-icon {
+    position: absolute;
+    left: 14px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    pointer-events: none;
+  }
+
+  .ksa-input {
+    width: 100%;
+    padding: 13px 16px 13px 42px;
+    background: #FAFAF8;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    color: var(--text-white);
+    font-size: 0.92rem;
+    outline: none;
+  }
+
+  .ksa-input:focus {
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.2);
+  }
+
+  .ksa-phone-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 8px;
+  }
+
+  .ksa-select-country {
+    background: #FAFAF8;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+    color: var(--text-white);
+    font-size: 0.82rem;
+    padding: 0 8px;
+    outline: none;
+  }
+
+  .ksa-phone-row .ksa-input {
+    padding-left: 14px;
+  }
+
+  .ksa-scent-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .ksa-pill-label input {
+    display: none;
+  }
+
+  .ksa-pill-label span {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--text-soft);
+    cursor: pointer;
+  }
+
+  .ksa-pill-label input:checked + span {
+    background: var(--brand-purple);
+    border-color: var(--gold-primary);
+    color: var(--gold-light);
+  }
+
+  .ksa-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    line-height: 1.4;
+  }
+
+  .ksa-checkbox input {
+    accent-color: var(--gold-primary);
+    margin-top: 2px;
+  }
+
+  .ksa-submit-btn {
+    padding: 16px 22px;
+    background: var(--gold-gradient);
+    border: none;
+    border-radius: 8px;
+    color: #12041D;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 6px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .ksa-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+  }
+
+  .ksa-spinner {
+    display: none;
+    width: 16px;
+    height: 16px;
+    border: 2px solid rgba(18, 4, 29, 0.3);
+    border-top-color: #12041D;
+    border-radius: 50%;
+    animation: ksaSpin 0.8s linear infinite;
+  }
+
+  @keyframes ksaSpin { to { transform: rotate(360deg); } }
+
+  .ksa-success-view {
+    text-align: center;
+    padding: 15px 0;
+  }
+
+  .ksa-success-icon {
+    width: 65px;
+    height: 65px;
+    margin: 0 auto 16px;
+    background: rgba(74, 222, 128, 0.15);
+    border: 1px solid rgba(74, 222, 128, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: #4ADE80;
+  }
+
+  .ksa-code-box {
+    margin: 20px 0;
+    padding: 16px;
+    background: #FAF8F5;
+    border: 1px dashed var(--gold-primary);
+    border-radius: 8px;
+  }
+
+  .ksa-code-sub {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .ksa-code-val {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--gold-light);
+    font-weight: 700;
+    margin-top: 4px;
+  }
+
+  .ksa-copy-btn {
+    margin-top: 8px;
+    background: rgba(212, 175, 55, 0.15);
+    color: var(--gold-light);
+    border: 1px solid var(--border-gold);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    cursor: pointer;
+  }
+
+  .ksa-trust-bar {
+    padding: 35px 0;
+    border-top: 1px solid var(--border-glass);
+    border-bottom: 1px solid var(--border-glass);
+    background: #FAF8F5;
+  }
+
+  .ksa-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    text-align: center;
+  }
+
+  .ksa-trust-card h4 {
+    font-family: var(--font-heading);
+    font-size: 0.92rem;
+    color: var(--gold-light);
+    margin-top: 6px;
+  }
+
+  .ksa-trust-card p {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 1024px) {
+    .ksa-hero-grid { grid-template-columns: 1fr; gap: 36px; }
+    .ksa-trust-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  }
+
+  @media (max-width: 768px) {
+    .ksa-hero-title { font-size: 2.2rem; }
+    .ksa-hero-title .ksa-arabic-sub { font-size: 1.3rem; }
+    .ksa-timer-grid { gap: 6px; }
+    .ksa-time-num { font-size: 1.4rem; }
+    .ksa-card-glass { padding: 24px 18px; }
+    .ksa-pass-body { flex-direction: column; text-align: center; }
+    .ksa-pass-perks { grid-template-columns: 1fr; }
+    .ksa-trust-grid { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  (function() {
+    // Dynamic countdown timer
+    const target = new Date();
+    target.setDate(target.getDate() + 4);
+    target.setHours(target.getHours() + 18);
+
+    function tick() {
+      const now = new Date().getTime();
+      const diff = target - now;
+      if (diff <= 0) return;
+
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+      const dEl = document.getElementById('ksa-days-{{ section.id }}');
+      const hEl = document.getElementById('ksa-hours-{{ section.id }}');
+      const mEl = document.getElementById('ksa-minutes-{{ section.id }}');
+      const sEl = document.getElementById('ksa-seconds-{{ section.id }}');
+
+      if (dEl) dEl.innerText = String(d).padStart(2, '0');
+      if (hEl) hEl.innerText = String(h).padStart(2, '0');
+      if (mEl) mEl.innerText = String(m).padStart(2, '0');
+      if (sEl) sEl.innerText = String(s).padStart(2, '0');
+    }
+
+    tick();
+    setInterval(tick, 1000);
+
+    // Randomize dynamic pass code
+    const livePass = document.getElementById('ksa-live-pass');
+    if (livePass) {
+      livePass.innerText = 'KSA-VIP-' + Math.floor(1000 + Math.random() * 9000);
+    }
+
+    // Intercept form to show instant luxury confirmation
+    const form = document.getElementById('ksaCustomerForm');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        // Let it post to shopify contact endpoint or prevent for custom ajax
+        const btn = document.getElementById('ksa-btn-{{ section.id }}');
+        const txt = btn.querySelector('.ksa-btn-text');
+        const spinner = btn.querySelector('.ksa-spinner');
+        const nameVal = document.getElementById('ksa-name').value;
+
+        txt.style.display = 'none';
+        spinner.style.display = 'block';
+        btn.disabled = true;
+
+        // If user wants native Ajax submission to Shopify without page reload:
+        e.preventDefault();
+        const formData = new FormData(form);
+        fetch('/contact', {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        }).catch(() => {}).finally(() => {
+          document.getElementById('ksa-form-view-{{ section.id }}').style.display = 'none';
+          const success = document.getElementById('ksa-success-view-{{ section.id }}');
+          success.style.display = 'block';
+          if (nameVal) {
+            document.getElementById('ksa-confirmed-name').innerText = nameVal.toUpperCase();
+          }
+          document.getElementById('ksa-form-wrap-{{ section.id }}').scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+    }
+  })();
+
+  function ksaCopyCode(sectionId) {
+    const codeEl = document.getElementById('ksa-code-val-' + sectionId);
+    if (!codeEl) return;
+    navigator.clipboard.writeText(codeEl.innerText.trim()).then(() => {
+      const txt = document.getElementById('ksa-copy-txt-' + sectionId);
+      if (txt) {
+        txt.innerText = '✓ Code Copied!';
+        setTimeout(() => { txt.innerText = '📋 Copy Code'; }, 3000);
+      }
+    });
+  }
+</script>
+
+{% schema %}
+{
+  "name": "KSA Campaign Landing",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show Top Announcement Bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Announcement Badge Text",
+      "default": "🇸🇦 KSA EXCLUSIVE VIP LAUNCH"
+    },
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement Message",
+      "default": "LIMITED VIP INVITATIONS & COMPLIMENTARY DISCOVERY SETS • REGISTER BELOW"
+    },
+    {
+      "type": "text",
+      "id": "pill_text",
+      "label": "Hero Pill Badge",
+      "default": "KINGDOM OF SAUDI ARABIA • OFFICIAL LAUNCH"
+    },
+    {
+      "type": "text",
+      "id": "heading_prefix",
+      "label": "Heading Prefix",
+      "default": "THE ART OF ROYAL"
+    },
+    {
+      "type": "text",
+      "id": "heading_gold",
+      "label": "Heading Highlight (Gold)",
+      "default": "ARABIAN LUXURY"
+    },
+    {
+      "type": "text",
+      "id": "heading_arabic",
+      "label": "Arabic Subheading",
+      "default": "فن العطور الشرقية الأصيلة في المملكة"
+    },
+    {
+      "type": "textarea",
+      "id": "campaign_desc",
+      "label": "Campaign Story Description",
+      "default": "For over two decades, Khadlaj Perfumes has crafted timeless fragrances uniting ancient Oriental heritage with French haute perfumery. Claim your private VIP Invitation Pass to enter our exclusive luxury giveaway and unlock an immediate 20% privilege code."
+    },
+    {
+      "type": "image_picker",
+      "id": "pass_image",
+      "label": "VIP Pass Featured Product Image"
+    },
+    {
+      "type": "text",
+      "id": "discount_code",
+      "label": "VIP Discount Voucher Code",
+      "default": "KSA-VIP20"
+    },
+    {
+      "type": "url",
+      "id": "shop_now_url",
+      "label": "Shop Now Button URL",
+      "default": "/collections/all"
+    }
+  ],
+  "presets": [
+    {
+      "name": "KSA Campaign Landing",
+      "category": "Custom Landing Pages"
+    }
+  ]
+}
+{% endschema %}
