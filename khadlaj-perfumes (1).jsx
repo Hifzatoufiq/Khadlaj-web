@@ -11638,28 +11638,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
               </div>
             </div>
 
-            {/* Official National Day Entry Ticket Card */}
-            <div style={{background:"linear-gradient(145deg, #FCFBF9 0%, #FFFFFF 60%, #F7F3EE 100%)",border:"1px solid #D4AF37",borderRadius:20,padding:26,boxShadow:"0 20px 50px rgba(184,146,42,0.12)"}}>
-              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
-                <span style={{fontSize:11,letterSpacing:"0.15em",textTransform:"uppercase",color:"#896103",fontWeight:700}}>🇸🇦 OFFICIAL NATIONAL DAY GIVEAWAY ENTRY TICKET</span>
-                <span style={{fontFamily:"monospace",fontSize:13,color:"#896103",background:"rgba(184,146,42,0.1)",padding:"4px 10px",borderRadius:4,border:"1px dashed #D4AF37",fontWeight:700}}>{passCode}</span>
-              </div>
-              <div style={{display:"flex",gap:18,alignItems:"center",marginBottom:18}}>
-                <div style={{width:80,height:95,borderRadius:8,overflow:"hidden",border:"1px solid #EADDC9",background:"#FFFFFF",flexShrink:0,boxShadow:"0 4px 15px rgba(0,0,0,0.06)"}}>
-                  <img src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_QAISER_100GM_-_Khadlaj_Perfumes-1965714.jpg?v=1722411690" alt="Saudi National Day Luxury Fragrance Box" style={{width:"100%",height:"100%",objectFit:"cover"}}/>
-                </div>
-                <div>
-                  <h4 style={{fontFamily:"'Cinzel',serif",fontSize:18,color:"#251737",marginBottom:4}}>Saudi National Day Luxury Fragrance Set</h4>
-                  <p style={{fontSize:13,color:"#666666",lineHeight:1.4}}>Official raffle entry to win 1 of 500 exclusive National Day handcrafted Discovery Sets with rare Dehn Al Oud & French Sprays.</p>
-                </div>
-              </div>
-              <div style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:10,paddingTop:14,borderTop:"1px solid #EADDC9",fontSize:12,color:"#444444"}}>
-                <div style={{display:"flex",alignItems:"center",gap:6}}><span style={{color:"#896103"}}>💎</span><span>500 Luxury Gift Sets to Win</span></div>
-                <div style={{display:"flex",alignItems:"center",gap:6}}><span style={{color:"#896103"}}>📦</span><span>Free Express KSA Courier</span></div>
-                <div style={{display:"flex",alignItems:"center",gap:6}}><span style={{color:"#896103"}}>✨</span><span>Official Giveaway Draw Entry</span></div>
-                <div style={{display:"flex",alignItems:"center",gap:6}}><span style={{color:"#896103"}}>👑</span><span>National Day Special Sample</span></div>
-              </div>
-            </div>
+
 
           </div>
 

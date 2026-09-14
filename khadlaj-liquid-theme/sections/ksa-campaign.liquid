@@ -48,32 +48,7 @@
             </div>
           </div>
 
-          <!-- Official National Day Giveaway Entry Ticket -->
-          <div class="ksa-vip-pass">
-            <div class="ksa-pass-top">
-              <span class="ksa-pass-badge">🇸🇦 OFFICIAL NATIONAL DAY GIVEAWAY ENTRY TICKET</span>
-              <span class="ksa-pass-number" id="ksa-live-pass">KND-2026-ENTRY</span>
-            </div>
-            <div class="ksa-pass-body">
-              <div class="ksa-pass-thumb">
-                {% if section.settings.pass_image != blank %}
-                  <img src="{{ section.settings.pass_image | image_url: width: 240 }}" alt="Saudi National Day Giveaway Discovery Set">
-                {% else %}
-                  <img src="https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_QAISER_100GM_-_Khadlaj_Perfumes-1965714.jpg?v=1722411690" alt="Saudi National Day Giveaway Discovery Set">
-                {% endif %}
-              </div>
-              <div class="ksa-pass-info">
-                <h4>{{ section.settings.pass_title | default: "Saudi National Day Luxury Fragrance Set" }}</h4>
-                <p>{{ section.settings.pass_subtitle | default: "Guaranteed entry into the grand raffle for 1 of 500 handcrafted Luxury Discovery Sets containing rare Dehn Al Oud and French Oriental sprays." }}</p>
-              </div>
-            </div>
-            <div class="ksa-pass-perks">
-              <div class="ksa-perk"><span>💎</span><span>500 Luxury Gift Sets to Win</span></div>
-              <div class="ksa-perk"><span>📦</span><span>Free Express KSA Delivery</span></div>
-              <div class="ksa-perk"><span>✨</span><span>Priority Perfume Drops Access</span></div>
-              <div class="ksa-perk"><span>👑</span><span>National Day Special Sample</span></div>
-            </div>
-          </div>
+
         </div>
 
         <!-- Right Column: Registration Form -->
