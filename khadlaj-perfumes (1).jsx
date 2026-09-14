@@ -87,7 +87,7 @@ const TRANSLATIONS = {
     authenticFragrance: "100% Authentic Fragrance",
     authenticFragranceSub: "Directly crafted from the finest heritage ingredients",
     signatureCollection: "Khadlaj Signature",
-    curatedGiftTitle: "CURATED GIFT COLLECTION",
+    curatedGiftTitle: "GIFT COLLECTION",
     customerReviews: "Customer Reviews",
     new: "New",
     bestSeller: "Best Seller",
@@ -181,7 +181,7 @@ const TRANSLATIONS = {
     authenticFragrance: "عطور أصلية 100%",
     authenticFragranceSub: "مصنوعة من أرقى الزيوت والمكونات العطرية النادرة",
     signatureCollection: "بصمة خدلج الخاصة",
-    curatedGiftTitle: "مجموعة الهدايا المختارة بعناية",
+    curatedGiftTitle: "مجموعة الهدايا الفاخرة",
     customerReviews: "تقييمات وآراء العملاء",
     new: "جديد",
     bestSeller: "الأكثر مبيعاً",
@@ -7723,12 +7723,11 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
       {/* ── DISCOVER YOUR NEXT FAVORITE ── */}
       <section style={{padding:"120px 0", background:"#FAF8F4", overflow:"hidden"}}>
         <div style={{textAlign:"center", marginBottom:60}}>
-          <span style={{fontSize: 11, letterSpacing: 5, color: "#B8922A", textTransform: "uppercase", fontWeight: 600, display:"block", marginBottom:16}}>Curated Selections</span>
-          <h2 style={{fontFamily: "'Playfair Display', serif", fontSize: 46, color: "#251737", margin: 0, fontWeight: 500}}>
-            Discover Your Next Favorite
+          <h2 style={{fontFamily: isRTL ? "'Cairo', serif" : "'Playfair Display', serif", fontSize: 46, color: "#251737", margin: 0, fontWeight: 500}}>
+            {isRTL ? "اكتشف عطرك المفضل القادم" : "Discover Your Next Favorite"}
           </h2>
-          <p style={{fontFamily: "'Montserrat', sans-serif", fontSize: 15, color: "#555", maxWidth: 600, margin: "20px auto 0", lineHeight: 1.6}}>
-            Explore our most captivating signature fragrances, beautifully crafted to evoke unforgettable emotions.
+          <p style={{fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif", fontSize: 15, color: "#555", maxWidth: 600, margin: "20px auto 0", lineHeight: 1.6}}>
+            {isRTL ? "استكشف أكثر عطورنا المميزة والمصممة لتترك انطباعاً لا يُنسى." : "Explore our most captivating signature fragrances, beautifully crafted to evoke unforgettable emotions."}
           </p>
         </div>
 
@@ -7857,7 +7856,7 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
       
       {/* ── ANIMATED GIFT SLIDER ── */}
       <section className="gift-slider-section">
-        <SectionHeader title={t("curatedGiftTitle", "CURATED GIFT COLLECTION")} />
+        <SectionHeader title={t("curatedGiftTitle", "GIFT COLLECTION")} />
         
         <div style={{marginTop: 60, position: "relative"}}>
           <div className="gift-slider-track">
