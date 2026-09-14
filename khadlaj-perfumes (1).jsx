@@ -490,9 +490,8 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.Gold.1.jpg?v=2"
+    "img": "/assets/images/products/shiyaaka-cutout.png"
   },
-
   {
     "id": 9100000000002,
     "name": "SARAYA",
@@ -6570,22 +6569,24 @@ function ProductCard({ p, onView, onCart }){
   const collectionLabel = p.col === "Lafede" ? "La Fede" : p.col;
   const noteColors = ["#C8A96E","#9C7B50","#B8866A","#7A9E8A","#8B7EAA","#B06A6A","#6A8BAA","#A09060"];
   
-  const imageScale = {
+    const imageScale = {
     "Biscotti Date Toffee": 0.82,
     "Biscotti Melon Musk": 0.88,
     "Bleu Glacé": 0.62,
-    "Saraya": 0.78,
-    "SHIYAAKA SNOW": 1.35,
-    "SHIYAAKA SHADOW": 1.05,
-    "KARUS GOLD ABSOLU": 1.05,
-    "ISLAND": 0.88,
-    "SAWAAR VANILLE BLANC": 1.05,
+    "Saraya": 0.88,
+    "SARAYA": 0.88,
+    "SHIYAAKA SNOW": 0.92,
+    "SHIYAAKA SHADOW": 0.88,
+    "SHIYAAKA GOLD": 0.88,
+    "KARUS GOLD ABSOLU": 0.88,
+    "ISLAND": 0.90,
+    "ISLAND SUN": 0.94,
+    "SAWAAR VANILLE BLANC": 0.88,
     "PANACHE ANGEL DUST": 0.86,
-    "SARAYA": 1.08,
-    "QARAR": 1.08,
-    "IHTHIRAAM": 1.08,
+    "QARAR": 0.88,
+    "IHTHIRAAM": 0.88,
     "ZAYAAN SILVER": 0.88,
-    "ICON": 1.05
+    "ICON": 0.88
   }[p.name] || 0.88;
 
   const imageShiftY = {
