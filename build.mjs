@@ -4,7 +4,7 @@ import fs from 'fs';
 await esbuild.build({
   entryPoints: ['main.jsx'],
   bundle: true,
-  outfile: 'bundle-v229.js',
+  outfile: 'bundle-v230.js',
   format: 'iife',
   loader: { '.jsx': 'jsx', '.js': 'js' },
   jsxFactory: 'React.createElement',
@@ -13,18 +13,19 @@ await esbuild.build({
   minify: true,
 });
 
-fs.copyFileSync('bundle-v229.js', 'bundle-v228.js');
-fs.copyFileSync('bundle-v229.js', 'bundle-v227.js');
-fs.copyFileSync('bundle-v229.js', 'bundle-v226.js');
-fs.copyFileSync('bundle-v229.js', 'bundle-v225.js');
-fs.copyFileSync('bundle-v229.js', 'bundle-v224.js');
-fs.copyFileSync('bundle-v229.js', 'bundle-v223.js');
-fs.copyFileSync('bundle-v229.js', 'bundle-v222.js');
-fs.copyFileSync('bundle-v229.js', 'bundle-v221.js');
-fs.copyFileSync('bundle-v229.js', 'bundle-v220.js');
-fs.copyFileSync('bundle-v229.js', 'bundle-v219.js');
-fs.copyFileSync('bundle-v229.js', 'bundle-v209.js');
-fs.copyFileSync('bundle-v229.js', 'bundle-v208.js');
-console.log('Build OK - Generated bundle-v229.js and synced previous bundles');
+fs.copyFileSync('bundle-v230.js', 'bundle-v229.js');
+fs.copyFileSync('bundle-v230.js', 'bundle-v228.js');
+fs.copyFileSync('bundle-v230.js', 'bundle-v227.js');
+fs.copyFileSync('bundle-v230.js', 'bundle-v226.js');
+fs.copyFileSync('bundle-v230.js', 'bundle-v225.js');
+fs.copyFileSync('bundle-v230.js', 'bundle-v224.js');
+fs.copyFileSync('bundle-v230.js', 'bundle-v223.js');
+fs.copyFileSync('bundle-v230.js', 'bundle-v222.js');
+fs.copyFileSync('bundle-v230.js', 'bundle-v221.js');
+fs.copyFileSync('bundle-v230.js', 'bundle-v220.js');
+fs.copyFileSync('bundle-v230.js', 'bundle-v219.js');
+fs.copyFileSync('bundle-v230.js', 'bundle-v209.js');
+fs.copyFileSync('bundle-v230.js', 'bundle-v208.js');
+console.log('Build OK - Generated bundle-v230.js and synced previous bundles');
 
 

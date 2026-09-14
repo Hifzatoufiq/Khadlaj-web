@@ -156,7 +156,7 @@ const TRANSLATIONS = {
     noResults: 'لا توجد نتائج لـ "{q}"',
     tryKeywords: 'جرب "عود"، "مسك"، "هدايا"...',
     resultsCount: '{count} نتيجة بحث عن "{q}"',
-    signUp: "تسجيل جديد",
+    signUp: "تسجيل الدخول",
     addToCart: "أضف إلى السلة",
     addedToCart: "تمت الإضافة للسلة",
     shopNow: "تسوق الآن",
@@ -5787,6 +5787,9 @@ const GLOBAL_CSS = `
       height: 65vh !important;
       max-height: 480px !important;
     }
+    .auth-form-panel {
+      padding: 36px 20px !important;
+    }
   }
 
   /* Full-Width Showcase Banner Slider Responsive */
@@ -7740,7 +7743,6 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
                   <div className="k25-card-content">
                     <h3 className="k25-card-title">{isRTL && item.nameAr ? item.nameAr : item.name}</h3>
                     <p className="k25-card-subtitle">{isRTL && item.subtitleAr ? item.subtitleAr : item.subtitle}</p>
-                    <p className="k25-card-desc">{isRTL && item.descAr ? item.descAr : item.desc}</p>
                     <button className="k25-card-btn" onClick={() => {
                       if (setSelectedCollection) setSelectedCollection("shiyaaka");
                       setPage("collection-view");
@@ -9829,115 +9831,381 @@ function SignupPageOld(){
   );
 }
 
-function FloatingInput({ label, type, value, onChange }) {
+function FloatingInput({ label, type, value, onChange, isRTL, inputStyle, style }) {
   const [focus, setFocus] = React.useState(false);
-  const active = focus || value.length > 0;
+  const active = focus || (value && value.length > 0);
   return (
-    <div style={{position:"relative", marginBottom:24}}>
-      <label style={{position:"absolute", left:16, top:active ? 8 : 18, fontSize:active ? 9 : 13, color:active ? "#B8922A" : "#999", letterSpacing:active?2:0, textTransform:active?"uppercase":"none", transition:"all 0.25s ease", pointerEvents:"none", fontFamily:"'Montserrat',sans-serif", fontWeight:active?700:400}}>
+    <div style={{position:"relative", marginBottom:22, ...style}}>
+      <label style={{
+        position: "absolute",
+        [isRTL ? "right" : "left"]: 16,
+        top: active ? 8 : 18,
+        fontSize: active ? (isRTL ? 11 : 9) : (isRTL ? 13 : 13),
+        color: active ? "#B8922A" : "#888",
+        letterSpacing: isRTL ? 0 : (active ? 2 : 0),
+        textTransform: isRTL ? "none" : (active ? "uppercase" : "none"),
+        transition: "all 0.22s ease",
+        pointerEvents: "none",
+        fontFamily: isRTL ? "'Cairo', 'Tajawal', sans-serif" : "'Montserrat',sans-serif",
+        fontWeight: active ? 700 : 500,
+        zIndex: 2,
+      }}>
         {label}
       </label>
       <input
-        type={type} value={value} onChange={onChange}
-        onFocus={()=>setFocus(true)} onBlur={()=>setFocus(false)}
-        style={{width:"100%", background:"#FAF8F4", border:"1px solid", borderColor:active ? "#B8922A" : "#E8E0D2", color:"#251737", padding:"24px 16px 8px", fontSize:15, outline:"none", fontFamily:"'Montserrat',sans-serif", transition:"border-color 0.3s ease"}}
+        type={type}
+        value={value}
+        onChange={onChange}
+        onFocus={()=>setFocus(true)}
+        onBlur={()=>setFocus(false)}
+        dir={isRTL ? (type === "email" || type === "password" || type === "tel" ? "ltr" : "rtl") : "ltr"}
+        style={{
+          width: "100%",
+          background: "#FAF8F4",
+          border: "1px solid",
+          borderColor: active ? "#B8922A" : "#E8E0D2",
+          color: "#251737",
+          padding: "24px 16px 8px",
+          textAlign: isRTL ? "right" : "left",
+          fontSize: 15,
+          outline: "none",
+          fontFamily: isRTL ? "'Cairo', 'Tajawal', sans-serif" : "'Montserrat',sans-serif",
+          transition: "border-color 0.25s ease, background-color 0.25s ease",
+          borderRadius: 2,
+          boxSizing: "border-box",
+          ...inputStyle
+        }}
       />
     </div>
   );
 }
 
 function SignupPage(){
+  const { lang, isRTL, t } = React.useContext(LanguageContext);
   const [mode, setMode] = useState("login");
   const [done, setDone] = useState("");
   const [signupForm, setSignupForm] = useState({name:"",email:"",phone:"",password:""});
   const [loginForm, setLoginForm] = useState({email:"",password:""});
   const [forgotEmail, setForgotEmail] = useState("");
+
   const submit = (type) => {
     setDone(type);
     if(type==="signup") setSignupForm({name:"",email:"",phone:"",password:""});
     if(type==="login") setLoginForm({email:"",password:""});
     if(type==="forgot") setForgotEmail("");
   };
-  const title = mode==="forgot" ? "Reset Password" : mode==="login" ? "Welcome Back" : "Create your account";
-  const subtitle = mode==="forgot"
-    ? "Enter your email and we will send password reset instructions."
-    : mode==="login"
-      ? "Login to manage your Khadlaj profile, wishlist, and private offers."
-      : "Join for launch previews, fragrance stories, and private offers.";
+
+  const c = {
+    circleTag: isRTL ? "عالم خدلج الخاص" : "Khadlaj Circle",
+    visualTitle: {
+      login: isRTL ? "تسجيل الدخول" : "Sign In",
+      signup: isRTL ? "إنشاء حساب" : "Sign Up",
+      forgot: isRTL ? "استعادة كلمة المرور" : "Reset Password",
+    },
+    visualSub: {
+      login: isRTL
+        ? "مرحباً بعودتك! سجّل الدخول لإدارة ملفك الشخصي وقائمة رغباتك والاستفادة من العروض الخاصة."
+        : "Welcome back! Login to manage your Khadlaj profile, wishlist, and exclusive offers.",
+      signup: isRTL
+        ? "انضم إلى عالم خدلج الحصري لمعاينة أحدث الابتكارات العطرية، وحكايات العطور، والعروض الخاصة."
+        : "Join Khadlaj Circle for new launch previews, fragrance stories, and private exclusive offers.",
+      forgot: isRTL
+        ? "أدخل بريدك الإلكتروني وسنرسل لك تعليمات استعادة وإعادة تعيين كلمة المرور."
+        : "Enter your email and we will send you password reset instructions.",
+    },
+    formTitle: {
+      login: isRTL ? "أهلاً بك من جديد" : "Welcome Back",
+      signup: isRTL ? "إنشاء حساب جديد" : "Create Your Account",
+      forgot: isRTL ? "استعادة كلمة المرور" : "Reset Password",
+    },
+    formSub: {
+      login: isRTL
+        ? "سجّل الدخول لإدارة ملفك الشخصي وقائمة الرغبات والاستفادة من المزايا الحصرية."
+        : "Login to manage your Khadlaj profile, wishlist, and private offers.",
+      signup: isRTL
+        ? "انضم إلينا للاستمتاع بتجربة تسوق عطرية راقية وتلقي أحدث العروض والابتكارات."
+        : "Join for launch previews, fragrance stories, and private offers.",
+      forgot: isRTL
+        ? "أدخل بريدك الإلكتروني وسنرسل لك رابطاً مباشراً لتعيين كلمة مرور جديدة."
+        : "Enter your email and we will send password reset instructions.",
+    },
+    tabs: {
+      login: isRTL ? "تسجيل الدخول" : "Sign In",
+      signup: isRTL ? "إنشاء حساب" : "Sign Up",
+    },
+    labels: {
+      name: isRTL ? "الاسم الكامل" : "Full Name",
+      email: isRTL ? "البريد الإلكتروني" : "Email Address",
+      phone: isRTL ? "رقم الهاتف" : "Phone Number",
+      password: isRTL ? "كلمة المرور" : "Password",
+    },
+    buttons: {
+      login: isRTL ? "تسجيل الدخول" : "Sign In",
+      signup: isRTL ? "إنشاء الحساب" : "Create Account",
+      forgotLink: isRTL ? "هل نسيت كلمة المرور؟" : "Forgot Password?",
+      sendReset: isRTL ? "إرسال رابط الاستعادة" : "Send Reset Link",
+      backToLogin: isRTL ? "العودة لتسجيل الدخول" : "Back to Sign In",
+      continue: isRTL ? "متابعة التسوق" : "Continue",
+    },
+    footerNote: isRTL
+      ? "يُستخدم حسابك للاستفادة من مزايا خدلج الحصرية وتتبع الطلبيات وحفظ المفضلة."
+      : "Your account is used for Khadlaj updates, wishlists, and private fragrance offers.",
+    doneTitles: {
+      login: isRTL ? "أهلاً بك من جديد" : "Welcome Back",
+      signup: isRTL ? "تم إنشاء الحساب بنجاح" : "Welcome to Khadlaj Circle",
+      forgot: isRTL ? "تفقد بريدك الإلكتروني" : "Check Your Email",
+    },
+    doneMessages: {
+      login: isRTL
+        ? "تم تسجيل دخولك بنجاح. أنت الآن جاهز لمتابعة تجربتك العطرية مع خدلج."
+        : "You are ready to continue your Khadlaj fragrance journey.",
+      signup: isRTL
+        ? "شكراً لانضمامك إلى عالم خدلج الخاص. حسابك جاهز الآن للاستمتاع بتجربة تسوق استثنائية."
+        : "Thank you for joining the Khadlaj Circle. Your account is ready.",
+      forgot: isRTL
+        ? "تم إرسال تعليمات إعادة تعيين كلمة المرور إلى عنوان بريدك الإلكتروني."
+        : "Password reset instructions have been prepared for your email.",
+    },
+  };
 
   return (
     <div style={{background:"linear-gradient(180deg,#fff 0%,#FAF8F4 100%)"}}>
       <section style={{padding:"74px 5% 96px"}}>
         <div style={{maxWidth:1420,margin:"0 auto",display:"grid",gridTemplateColumns:".95fr 1.05fr",alignItems:"stretch",border:"1px solid #E8E0D2",boxShadow:"0 40px 100px rgba(0,0,0,.06)",background:"#fff"}} className="hero-split">
-          <div className="auth-visual-panel" style={{position:"relative",overflow:"hidden",minHeight:680,background:"url('/assets/images/banners/my-paradise-banner.png') center/cover",padding:"58px 52px",display:"flex",flexDirection:"column",justifyContent:"space-between"}}>
-            <div style={{position:"absolute",inset:0,background:"linear-gradient(135deg, rgba(60,17,82,0.85) 0%, rgba(10,10,10,0.95) 100%)"}}/>
-            <div style={{position:"absolute",top:-110,right:-90,width:340,height:340,borderRadius:"50%",background:"radial-gradient(circle,rgba(184,146,42,.28),rgba(184,146,42,0) 68%)",zIndex:1}}/>
+          
+          {/* Visual Side Banner */}
+          <div className="auth-visual-panel" style={{position:"relative",overflow:"hidden",minHeight:680,background:"url('/assets/images/banners/my-paradise-banner.png') center/cover",padding:"58px 52px",display:"flex",flexDirection:"column",justifyContent:"space-between",textAlign:isRTL?"right":"left"}}>
+            <div style={{position:"absolute",inset:0,background:"linear-gradient(135deg, rgba(60,17,82,0.88) 0%, rgba(10,10,10,0.96) 100%)"}}/>
+            <div style={{position:"absolute",top:-110,[isRTL?"left":"right"]:-90,width:340,height:340,borderRadius:"50%",background:"radial-gradient(circle,rgba(184,146,42,.28),rgba(184,146,42,0) 68%)",zIndex:1}}/>
             <div style={{position:"relative",zIndex:2,maxWidth:470,marginTop:"auto",marginBottom:"auto"}}>
-              <p style={{fontWeight:600,fontSize:9,letterSpacing:6,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:18}}>Khadlaj Circle</p>
-              <h1 className="disp" style={{fontSize:"clamp(48px,6vw,84px)",fontWeight:300,lineHeight:.98,color:"#fff",marginBottom:24,letterSpacing:"-1px"}}>{mode==="login" ? "Login" : mode==="forgot" ? "Reset Password" : "Sign Up"}</h1>
-              <p style={{fontSize:15,color:"rgba(255,255,255,.75)",lineHeight:1.9,maxWidth:430,fontFamily:"'Montserrat',sans-serif",fontWeight:300}}>
-                {mode==="login" ? "Welcome back! Login to manage your Khadlaj profile, wishlist, and exclusive offers." : mode==="forgot" ? "Enter your email and we will send you password reset instructions." : "Join Khadlaj Circle for new launch previews, fragrance stories, and private exclusive offers."}
+              <p style={{fontWeight:700,fontSize:isRTL?12:9,letterSpacing:isRTL?0:6,color:"#B8922A",textTransform:isRTL?"none":"uppercase",fontFamily:isRTL?"'Cairo', 'Tajawal', sans-serif":"'Montserrat',sans-serif",marginBottom:16}}>
+                {c.circleTag}
+              </p>
+              <h1 className={isRTL ? "" : "disp"} style={{fontSize:isRTL?"clamp(38px,4.8vw,68px)":"clamp(48px,6vw,84px)",fontWeight:isRTL?700:300,lineHeight:isRTL?1.2:0.98,color:"#fff",marginBottom:24,letterSpacing:isRTL?0:"-1px",fontFamily:isRTL?"'Cairo', 'Tajawal', sans-serif":undefined}}>
+                {c.visualTitle[mode]}
+              </h1>
+              <p style={{fontSize:isRTL?15:15,color:"rgba(255,255,255,.8)",lineHeight:1.9,maxWidth:430,fontFamily:isRTL?"'Cairo', 'Tajawal', sans-serif":"'Montserrat',sans-serif",fontWeight:300}}>
+                {c.visualSub[mode]}
               </p>
             </div>
           </div>
 
-          <div style={{padding:"52px",background:"#fff",display:"flex",flexDirection:"column",justifyContent:"center"}}>
+          {/* Form Panel */}
+          <div className="auth-form-panel" style={{padding:"52px 48px",background:"#fff",display:"flex",flexDirection:"column",justifyContent:"center",textAlign:isRTL?"right":"left"}}>
             {done ? (
               <div style={{textAlign:"center",padding:"52px 0",animation:"fadeIn .5s ease"}}>
-                <div style={{width:64,height:64,borderRadius:"50%",background:"#251737",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 24px",color:"#fff",fontSize:13,letterSpacing:2,fontFamily:"'Montserrat',sans-serif",fontWeight:600,boxShadow:"0 12px 24px rgba(60,17,82,.2)"}}>OK</div>
-                <h2 className="disp" style={{fontSize:42,color:"#251737",fontWeight:300,marginBottom:12}}>{done==="forgot" ? "Check Your Email" : done==="login" ? "Welcome Back" : "You're In"}</h2>
-                <p style={{color:"#777",fontSize:14,lineHeight:1.8,fontFamily:"'Montserrat',sans-serif"}}>
-                  {done==="forgot" ? "Password reset instructions have been prepared for your email." : done==="login" ? "You are ready to continue your Khadlaj experience." : "Thank you for joining the Khadlaj Circle."}
+                <div style={{width:64,height:64,borderRadius:"50%",background:"#251737",display:"flex",alignItems:"center",justifyContent:"center",margin:"0 auto 24px",color:"#D4AF37",fontSize:22,boxShadow:"0 12px 24px rgba(60,17,82,.2)"}}>✓</div>
+                <h2 className={isRTL ? "" : "disp"} style={{fontSize:isRTL?32:42,color:"#251737",fontWeight:isRTL?700:300,marginBottom:12,fontFamily:isRTL?"'Cairo', 'Tajawal', sans-serif":undefined}}>
+                  {c.doneTitles[done]}
+                </h2>
+                <p style={{color:"#666",fontSize:isRTL?15:14,lineHeight:1.8,fontFamily:isRTL?"'Cairo', 'Tajawal', sans-serif":"'Montserrat',sans-serif",maxWidth:480,margin:"0 auto"}}>
+                  {c.doneMessages[done]}
                 </p>
-                <button className="btn-ghost" onClick={()=>setDone("")} style={{marginTop:32,padding:"16px 32px",borderColor:"#251737",color:"#251737"}}>Continue</button>
+                <button className="btn-ghost" onClick={()=>setDone("")} style={{marginTop:32,padding:isRTL?"14px 36px":"16px 32px",borderColor:"#251737",color:"#251737",fontFamily:isRTL?"'Cairo', 'Tajawal', sans-serif":"'Montserrat',sans-serif",fontSize:isRTL?13:11,fontWeight:600,letterSpacing:isRTL?0:2}}>
+                  {c.buttons.continue}
+                </button>
               </div>
             ) : (
               <div style={{position:"relative",zIndex:1,animation:"fadeIn .4s ease"}}>
-                <div style={{display:mode==="forgot"?"none":"flex",gap:32,borderBottom:"1px solid #E8E0D2",marginBottom:42}}>
+                
+                {/* Tabs */}
+                <div style={{display:mode==="forgot"?"none":"flex",gap:32,borderBottom:"1px solid #E8E0D2",marginBottom:38,justifyContent:isRTL?"flex-start":"flex-start"}}>
                   {["login","signup"].map(tab=>(
-                    <button key={tab} onClick={()=>setMode(tab)} style={{border:"none",background:"transparent",color:mode===tab?"#251737":"#999",padding:"0 0 16px",fontSize:11,letterSpacing:2.4,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,cursor:"pointer",position:"relative",transition:"color .3s ease"}}>
-                      {tab==="login" ? "Login" : "Sign Up"}
-                      {mode===tab && <span style={{position:"absolute",bottom:-1,left:0,right:0,height:2,background:"#251737",animation:"slideIn .3s ease"}}/>}
+                    <button key={tab} onClick={()=>setMode(tab)} style={{
+                      border:"none",
+                      background:"transparent",
+                      color:mode===tab?"#251737":"#888",
+                      padding:"0 0 16px",
+                      fontSize:isRTL?14:11,
+                      letterSpacing:isRTL?0:2.4,
+                      textTransform:isRTL?"none":"uppercase",
+                      fontFamily:isRTL?"'Cairo', 'Tajawal', sans-serif":"'Montserrat',sans-serif",
+                      fontWeight:mode===tab?700:500,
+                      cursor:"pointer",
+                      position:"relative",
+                      transition:"color .3s ease"
+                    }}>
+                      {c.tabs[tab]}
+                      {mode===tab && <span style={{position:"absolute",bottom:-1,left:0,right:0,height:2.5,background:"#251737",animation:"slideIn .3s ease"}}/>}
                     </button>
                   ))}
                 </div>
-                
-                
-                <h2 className="disp" style={{fontSize:"clamp(32px,3.7vw,54px)",fontWeight:300,lineHeight:1.05,color:"#251737",marginBottom:14}}>{title}</h2>
-                <p style={{fontSize:14,color:"#777",lineHeight:1.8,fontFamily:"'Montserrat',sans-serif",marginBottom:36,maxWidth:520}}>{subtitle}</p>
 
+                {/* Heading & Subtitle */}
+                <h2 className={isRTL ? "" : "disp"} style={{
+                  fontSize:isRTL?"clamp(28px,3.4vw,44px)":"clamp(32px,3.7vw,54px)",
+                  fontWeight:isRTL?700:300,
+                  lineHeight:isRTL?1.3:1.05,
+                  color:"#251737",
+                  marginBottom:14,
+                  fontFamily:isRTL?"'Cairo', 'Tajawal', sans-serif":undefined
+                }}>
+                  {c.formTitle[mode]}
+                </h2>
+                <p style={{
+                  fontSize:isRTL?14:14,
+                  color:"#666",
+                  lineHeight:1.8,
+                  fontFamily:isRTL?"'Cairo', 'Tajawal', sans-serif":"'Montserrat',sans-serif",
+                  marginBottom:34,
+                  maxWidth:520
+                }}>
+                  {c.formSub[mode]}
+                </p>
+
+                {/* Sign Up Form */}
                 {mode==="signup" && (
                   <div style={{animation:"fadeIn .4s ease"}}>
-                    <FloatingInput label="Full Name" type="text" value={signupForm.name} onChange={e=>setSignupForm({...signupForm,name:e.target.value})} />
-                    <FloatingInput label="Email Address" type="email" value={signupForm.email} onChange={e=>setSignupForm({...signupForm,email:e.target.value})} />
-                    <FloatingInput label="Phone Number" type="tel" value={signupForm.phone} onChange={e=>setSignupForm({...signupForm,phone:e.target.value})} />
-                    <FloatingInput label="Password" type="password" value={signupForm.password} onChange={e=>setSignupForm({...signupForm,password:e.target.value})} />
-                    <button onClick={()=>submit("signup")} style={{width:"100%",background:"#251737",color:"#fff",border:"none",padding:"20px",fontSize:11,letterSpacing:3,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginTop:12,boxShadow:"0 12px 24px rgba(60,17,82,.15)",transition:"all .3s ease"}} onMouseEnter={e=>e.currentTarget.style.transform="translateY(-2px)"} onMouseLeave={e=>e.currentTarget.style.transform="translateY(0)"}>Create Account</button>
+                    <FloatingInput label={c.labels.name} type="text" value={signupForm.name} onChange={e=>setSignupForm({...signupForm,name:e.target.value})} isRTL={isRTL} />
+                    <FloatingInput label={c.labels.email} type="email" value={signupForm.email} onChange={e=>setSignupForm({...signupForm,email:e.target.value})} isRTL={isRTL} />
+                    <FloatingInput label={c.labels.phone} type="tel" value={signupForm.phone} onChange={e=>setSignupForm({...signupForm,phone:e.target.value})} isRTL={isRTL} />
+                    <FloatingInput label={c.labels.password} type="password" value={signupForm.password} onChange={e=>setSignupForm({...signupForm,password:e.target.value})} isRTL={isRTL} />
+                    <button
+                      onClick={()=>submit("signup")}
+                      style={{
+                        width:"100%",
+                        background:"#251737",
+                        color:"#fff",
+                        border:"none",
+                        padding:isRTL?"17px 20px":"20px",
+                        fontSize:isRTL?14:11,
+                        letterSpacing:isRTL?0:3,
+                        textTransform:isRTL?"none":"uppercase",
+                        cursor:"pointer",
+                        fontFamily:isRTL?"'Cairo', 'Tajawal', sans-serif":"'Montserrat',sans-serif",
+                        fontWeight:700,
+                        marginTop:12,
+                        boxShadow:"0 12px 24px rgba(60,17,82,.15)",
+                        transition:"all .3s ease",
+                        borderRadius:2
+                      }}
+                      onMouseEnter={e=>e.currentTarget.style.transform="translateY(-2px)"}
+                      onMouseLeave={e=>e.currentTarget.style.transform="translateY(0)"}
+                    >
+                      {c.buttons.signup}
+                    </button>
                   </div>
                 )}
 
+                {/* Login Form */}
                 {mode==="login" && (
                   <div style={{animation:"fadeIn .4s ease"}}>
-                    <FloatingInput label="Email Address" type="email" value={loginForm.email} onChange={e=>setLoginForm({...loginForm,email:e.target.value})} />
-                    <FloatingInput label="Password" type="password" value={loginForm.password} onChange={e=>setLoginForm({...loginForm,password:e.target.value})} />
+                    <FloatingInput label={c.labels.email} type="email" value={loginForm.email} onChange={e=>setLoginForm({...loginForm,email:e.target.value})} isRTL={isRTL} />
+                    <FloatingInput label={c.labels.password} type="password" value={loginForm.password} onChange={e=>setLoginForm({...loginForm,password:e.target.value})} isRTL={isRTL} />
                     
-                    <div style={{display:"flex",justifyContent:"flex-end",margin:"-12px 0 24px"}}>
-                      <button onClick={()=>setMode("forgot")} style={{background:"transparent",border:"none",color:"#B8922A",fontSize:10,letterSpacing:1.5,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,cursor:"pointer",transition:"color .3s ease"}} onMouseEnter={e=>e.currentTarget.style.color="#251737"} onMouseLeave={e=>e.currentTarget.style.color="#B8922A"}>Forgot Password?</button>
+                    <div style={{display:"flex",justifyContent:isRTL?"flex-start":"flex-end",margin:"-8px 0 24px"}}>
+                      <button
+                        onClick={()=>setMode("forgot")}
+                        style={{
+                          background:"transparent",
+                          border:"none",
+                          color:"#B8922A",
+                          fontSize:isRTL?12:10,
+                          letterSpacing:isRTL?0:1.5,
+                          textTransform:isRTL?"none":"uppercase",
+                          fontFamily:isRTL?"'Cairo', 'Tajawal', sans-serif":"'Montserrat',sans-serif",
+                          fontWeight:600,
+                          cursor:"pointer",
+                          transition:"color .3s ease"
+                        }}
+                        onMouseEnter={e=>e.currentTarget.style.color="#251737"}
+                        onMouseLeave={e=>e.currentTarget.style.color="#B8922A"}
+                      >
+                        {c.buttons.forgotLink}
+                      </button>
                     </div>
-                    <button onClick={()=>submit("login")} style={{width:"100%",background:"#251737",color:"#fff",border:"none",padding:"20px",fontSize:11,letterSpacing:3,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:600,boxShadow:"0 12px 24px rgba(60,17,82,.15)",transition:"all .3s ease"}} onMouseEnter={e=>e.currentTarget.style.transform="translateY(-2px)"} onMouseLeave={e=>e.currentTarget.style.transform="translateY(0)"}>Login</button>
+
+                    <button
+                      onClick={()=>submit("login")}
+                      style={{
+                        width:"100%",
+                        background:"#251737",
+                        color:"#fff",
+                        border:"none",
+                        padding:isRTL?"17px 20px":"20px",
+                        fontSize:isRTL?14:11,
+                        letterSpacing:isRTL?0:3,
+                        textTransform:isRTL?"none":"uppercase",
+                        cursor:"pointer",
+                        fontFamily:isRTL?"'Cairo', 'Tajawal', sans-serif":"'Montserrat',sans-serif",
+                        fontWeight:700,
+                        boxShadow:"0 12px 24px rgba(60,17,82,.15)",
+                        transition:"all .3s ease",
+                        borderRadius:2
+                      }}
+                      onMouseEnter={e=>e.currentTarget.style.transform="translateY(-2px)"}
+                      onMouseLeave={e=>e.currentTarget.style.transform="translateY(0)"}
+                    >
+                      {c.buttons.login}
+                    </button>
                   </div>
                 )}
 
+                {/* Forgot Password Form */}
                 {mode==="forgot" && (
                   <div style={{animation:"fadeIn .4s ease"}}>
-                    <FloatingInput label="Email Address" type="email" value={forgotEmail} onChange={e=>setForgotEmail(e.target.value)} />
-                    <button onClick={()=>submit("forgot")} style={{width:"100%",background:"#251737",color:"#fff",border:"none",padding:"20px",fontSize:11,letterSpacing:3,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:600,boxShadow:"0 12px 24px rgba(60,17,82,.15)",transition:"all .3s ease"}} onMouseEnter={e=>e.currentTarget.style.transform="translateY(-2px)"} onMouseLeave={e=>e.currentTarget.style.transform="translateY(0)"}>Send Reset Link</button>
-                    <button onClick={()=>setMode("login")} style={{width:"100%",background:"transparent",color:"#251737",border:"1px solid #251737",padding:"18px",fontSize:11,letterSpacing:2.6,textTransform:"uppercase",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginTop:16,transition:"all .3s ease"}} onMouseEnter={e=>e.currentTarget.style.background="rgba(60,17,82,.04)"} onMouseLeave={e=>e.currentTarget.style.background="transparent"}>Back to Login</button>
+                    <FloatingInput label={c.labels.email} type="email" value={forgotEmail} onChange={e=>setForgotEmail(e.target.value)} isRTL={isRTL} />
+                    
+                    <button
+                      onClick={()=>submit("forgot")}
+                      style={{
+                        width:"100%",
+                        background:"#251737",
+                        color:"#fff",
+                        border:"none",
+                        padding:isRTL?"17px 20px":"20px",
+                        fontSize:isRTL?14:11,
+                        letterSpacing:isRTL?0:3,
+                        textTransform:isRTL?"none":"uppercase",
+                        cursor:"pointer",
+                        fontFamily:isRTL?"'Cairo', 'Tajawal', sans-serif":"'Montserrat',sans-serif",
+                        fontWeight:700,
+                        boxShadow:"0 12px 24px rgba(60,17,82,.15)",
+                        transition:"all .3s ease",
+                        borderRadius:2
+                      }}
+                      onMouseEnter={e=>e.currentTarget.style.transform="translateY(-2px)"}
+                      onMouseLeave={e=>e.currentTarget.style.transform="translateY(0)"}
+                    >
+                      {c.buttons.sendReset}
+                    </button>
+                    
+                    <button
+                      onClick={()=>setMode("login")}
+                      style={{
+                        width:"100%",
+                        background:"transparent",
+                        color:"#251737",
+                        border:"1px solid #251737",
+                        padding:isRTL?"16px 20px":"18px",
+                        fontSize:isRTL?13:11,
+                        letterSpacing:isRTL?0:2.6,
+                        textTransform:isRTL?"none":"uppercase",
+                        cursor:"pointer",
+                        fontFamily:isRTL?"'Cairo', 'Tajawal', sans-serif":"'Montserrat',sans-serif",
+                        fontWeight:600,
+                        marginTop:16,
+                        transition:"all .3s ease",
+                        borderRadius:2
+                      }}
+                      onMouseEnter={e=>e.currentTarget.style.background="rgba(60,17,82,.04)"}
+                      onMouseLeave={e=>e.currentTarget.style.background="transparent"}
+                    >
+                      {c.buttons.backToLogin}
+                    </button>
                   </div>
                 )}
 
-                <p style={{fontSize:11,color:"#999",lineHeight:1.7,fontFamily:"'Montserrat',sans-serif",marginTop:32,textAlign:"center"}}>
-                  Your account is used for Khadlaj updates, wishlists, and private fragrance offers.
+                {/* Footer trust note */}
+                <p style={{
+                  fontSize:isRTL?12:11,
+                  color:"#888",
+                  lineHeight:1.7,
+                  fontFamily:isRTL?"'Cairo', 'Tajawal', sans-serif":"'Montserrat',sans-serif",
+                  marginTop:32,
+                  textAlign:"center"
+                }}>
+                  {c.footerNote}
                 </p>
               </div>
             )}
