@@ -5913,26 +5913,7 @@ const GLOBAL_CSS = `
       height: 100% !important;
     }
     .banner-arrow-btn {
-      width: 28px !important;
-      height: 28px !important;
-      background: rgba(37, 23, 55, 0.45) !important;
-      backdrop-filter: blur(4px) !important;
-      -webkit-backdrop-filter: blur(4px) !important;
-      border: 1px solid rgba(255, 255, 255, 0.3) !important;
-      color: #fff !important;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
-    }
-    .banner-arrow-prev {
-      left: 5px !important;
-    }
-    .banner-arrow-next {
-      right: 5px !important;
-    }
-    .banner-arrow-btn svg {
-      width: 12px !important;
-      height: 12px !important;
-      stroke: #fff !important;
-      stroke-width: 2.4 !important;
+      display: none !important;
     }
     .banner-indicators {
       bottom: 4px !important;
@@ -12245,7 +12226,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
                     Khadlaj Island 100ml EDP
                   </h4>
                   <p style={{fontSize:13,color:"#555555",lineHeight:1.5,marginBottom:8}}>
-                    Iconic 100ml Eau De Parfum with lavish golden craftsmanship and intoxicating notes of exotic mango, solar florals, warm vanilla, and amber.
+                    Iconic 100ml Eau De Parfum crafted with sparkling citrus, refreshing marine sea breeze accords, and an enduring base of warm amber and musk.
                   </p>
                   <div style={{display:"flex",flexWrap:"wrap",gap:6,fontSize:11,fontWeight:600,color:"#896103"}}>
                     <span style={{background:"rgba(184,146,42,0.1)",padding:"2px 8px",borderRadius:4}}>✓ 96 Winners</span>
