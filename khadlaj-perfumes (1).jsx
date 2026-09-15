@@ -12204,14 +12204,14 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
           <div style={{display:"flex",flexDirection:"column",gap:26}}>
 
             <h1 style={{fontFamily:"'Cinzel',serif",fontSize:"clamp(2.2rem, 5vw, 3.2rem)",lineHeight:1.15,fontWeight:600,letterSpacing:"0.02em",color:"#251737"}}>
-              CELEBRATING SAUDI NATIONAL DAY <span style={{background:"linear-gradient(135deg,#B8922A 0%,#D4AF37 50%,#8A6518 100%)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>GRAND PERFUME GIVEAWAY</span>
+              CELEBRATING SAUDI NATIONAL DAY <span style={{background:"linear-gradient(135deg,#B8922A 0%,#D4AF37 50%,#8A6518 100%)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>PERFUME GIVEAWAY</span>
               <span style={{display:"block",fontFamily:"'Cairo',sans-serif",fontSize:"clamp(1.4rem, 3.5vw, 1.8rem)",fontWeight:700,color:"#165d31",WebkitTextFillColor:"initial",marginTop:8}}>
                 احتفالاً باليوم الوطني السعودي • شارك في السحب الكبير
               </span>
             </h1>
 
             <p style={{fontSize:16,color:"#555555",lineHeight:1.8}}>
-              In proud celebration of <strong>Saudi National Day 2026</strong>, <strong style={{color:"#251737"}}>Khadlaj Perfumes</strong> invites all residents of the Kingdom to participate in our grand giveaway. <strong>Campaign is active strictly from 14th to 23rd September</strong>. Register below for your official raffle entry to win 1 of <strong>96 Bottles of Khadlaj Island 100ml EDP</strong> with complimentary home delivery across all KSA provinces.
+              In proud celebration of <strong>Saudi National Day 2026</strong>, <strong style={{color:"#251737"}}>Khadlaj Perfumes</strong> invites all residents of the Kingdom to participate in our perfume giveaway. <strong>Campaign is active strictly from 14th to 23rd September</strong>. Register below for your official raffle entry to win 1 of <strong>96 Bottles of Khadlaj Island 100ml EDP</strong> with complimentary home delivery across all KSA provinces.
             </p>
 
             {/* Countdown Box */}
@@ -12238,7 +12238,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
             <div style={{background:"linear-gradient(145deg, #FCFBF9 0%, #FFFFFF 60%, #F5F1E9 100%)",border:"1px solid #D4AF37",borderRadius:20,padding:24,boxShadow:"0 18px 45px rgba(37,23,55,0.07)"}}>
               <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:14}}>
                 <span style={{display:"inline-flex",alignItems:"center",gap:6,fontSize:11,fontWeight:800,color:"#896103",letterSpacing:"0.12em",textTransform:"uppercase"}}>
-                  <span>🎁</span> THE GRAND PRIZE • 96 BOTTLES OF KHADLAJ ISLAND 100ML
+                  <span>🎁</span> THE PRIZE • 96 BOTTLES OF KHADLAJ ISLAND 100ML
                 </span>
                 <span style={{fontSize:11,color:"#166534",background:"#DCFCE7",border:"1px solid #86EFAC",padding:"2px 10px",borderRadius:12,fontWeight:700}}>
                   100% FREE ENTRY
