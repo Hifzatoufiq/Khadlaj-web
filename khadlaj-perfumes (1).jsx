@@ -5866,6 +5866,19 @@ const GLOBAL_CSS = `
     border-radius: 20px;
   }
 
+  .review-card-text.clamped {
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .review-card-text.expanded {
+    display: block !important;
+    -webkit-line-clamp: unset !important;
+    overflow: visible !important;
+  }
+
   @media(max-width: 900px) {
     .banner-slider-container {
       aspect-ratio: 2172 / 724 !important;
@@ -7919,6 +7932,87 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
   );
 }
 
+function ReviewCardItem({ r, isRTL }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const text = isRTL && r.textAr ? r.textAr : r.text;
+  const name = isRTL && r.nameAr ? r.nameAr : r.name;
+  const country = isRTL && r.countryAr ? r.countryAr : r.country;
+
+  return (
+    <div
+      className="review-card"
+      style={{
+        background: "#251737",
+        padding: "28px 20px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        textAlign: "center",
+        transition: "background 0.3s ease",
+        height: "100%",
+        boxSizing: "border-box"
+      }}
+      onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.03)"}
+      onMouseLeave={e => e.currentTarget.style.background = "#251737"}
+    >
+      <StarRating n={r.stars} color="#B8922A" />
+      <div style={{ margin: "14px 0 10px", width: "100%", display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <p
+          className={`review-card-text ${isExpanded ? "expanded" : "clamped"}`}
+          style={{
+            fontSize: 13.5,
+            color: "rgba(255,255,255,0.85)",
+            lineHeight: 1.6,
+            margin: 0,
+            fontStyle: "italic",
+            fontWeight: 300,
+            fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"
+          }}
+        >
+          "{text}"
+        </p>
+        <button
+          type="button"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setIsExpanded(!isExpanded);
+          }}
+          style={{
+            background: "none",
+            border: "none",
+            color: "#B8922A",
+            fontSize: 11.5,
+            fontWeight: 600,
+            cursor: "pointer",
+            marginTop: 8,
+            padding: "4px 8px",
+            fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",
+            textDecoration: "underline",
+            textUnderlineOffset: "3px",
+            letterSpacing: isRTL ? 0 : "0.5px",
+            transition: "opacity 0.2s"
+          }}
+          onMouseEnter={e => e.currentTarget.style.opacity = "0.75"}
+          onMouseLeave={e => e.currentTarget.style.opacity = "1"}
+        >
+          {isExpanded
+            ? (isRTL ? "عرض أقل ▲" : "Read Less ▲")
+            : (isRTL ? "اقرأ المزيد ▼" : "Read More ▼")}
+        </button>
+      </div>
+      <div style={{ marginTop: "auto", paddingTop: 8 }}>
+        <p style={{ fontSize: 9, fontWeight: 600, color: "#fff", letterSpacing: 2, fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif", textTransform: "uppercase", margin: 0 }}>
+          {name}
+        </p>
+        <p style={{ fontWeight: 600, fontSize: 8, letterSpacing: 4, color: "#B8922A", marginTop: 5, textTransform: "uppercase", fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif", margin: "5px 0 0" }}>
+          {country}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 /* ═══════════════════════════════════════════════════════════════
    PAGE: HOME
 ═══════════════════════════════════════════════════════════════ */
@@ -8616,16 +8710,7 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
         <SectionHeader eyebrow={isRTL ? "آراء العملاء" : "Reviews"} title={t("connoisseursTitle", "Loved Across the World")} sub={t("connoisseursSubtitle", "Real stories from fragrance lovers around the world.")} light={true} />
         <div className="grid-4 review-grid" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:1,background:"rgba(255,255,255,.15)"}}>
           {REVIEWS.map((r,i)=>(
-            <a href={r.url || "#"} target="_blank" rel="noopener noreferrer" key={i} style={{textDecoration:"none", color:"inherit"}}>
-              <div className="review-card" style={{background:"#251737",padding:"32px 24px",display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center",transition:"background 0.3s ease", height:"100%"}} onMouseEnter={e=>e.currentTarget.style.background="rgba(255,255,255,0.03)"} onMouseLeave={e=>e.currentTarget.style.background="#251737"}>
-                <StarRating n={r.stars} color="#B8922A"/>
-                <p style={{fontSize:14,color:"rgba(255,255,255,0.85)",lineHeight:1.6,margin:"16px 0",fontStyle:"italic",fontWeight:300,fontFamily:"'Montserrat',sans-serif"}}>"{isRTL && r.textAr ? r.textAr : r.text}"</p>
-                <div style={{marginTop:"auto"}}>
-                  <p style={{fontSize:9,fontWeight:600,color:"#fff",letterSpacing:2,fontFamily:"'Montserrat',sans-serif",textTransform:"uppercase"}}>{isRTL && r.nameAr ? r.nameAr : r.name}</p>
-                  <p style={{fontWeight:600,fontSize:8,letterSpacing:4,color:"#B8922A",marginTop:6,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif"}}>{isRTL && r.countryAr ? r.countryAr : r.country}</p>
-                </div>
-              </div>
-            </a>
+            <ReviewCardItem key={i} r={r} isRTL={isRTL} />
           ))}
         </div>
       </section>
