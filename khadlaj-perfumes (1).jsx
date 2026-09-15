@@ -12202,11 +12202,6 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
           
           {/* Left Column: Narrative & National Day Giveaway Entry Ticket */}
           <div style={{display:"flex",flexDirection:"column",gap:26}}>
-            
-            <div style={{display:"inline-flex",alignItems:"center",gap:10,padding:"6px 16px",background:"#FEF2F2",border:"1px solid #F87171",borderRadius:30,alignSelf:"flex-start",fontSize:12,fontWeight:800,letterSpacing:"0.1em",textTransform:"uppercase",color:"#991B1B"}}>
-              <span style={{width:8,height:8,background:"#DC2626",borderRadius:"50%",boxShadow:"0 0 8px #DC2626"}}></span>
-              <span>🇸🇦 ONLY FOR KSA PARTICIPANTS • حصرياً للمقيمين داخل المملكة</span>
-            </div>
 
             <h1 style={{fontFamily:"'Cinzel',serif",fontSize:"clamp(2.2rem, 5vw, 3.2rem)",lineHeight:1.15,fontWeight:600,letterSpacing:"0.02em",color:"#251737"}}>
               CELEBRATING SAUDI NATIONAL DAY <span style={{background:"linear-gradient(135deg,#B8922A 0%,#D4AF37 50%,#8A6518 100%)",WebkitBackgroundClip:"text",WebkitTextFillColor:"transparent"}}>GRAND PERFUME GIVEAWAY</span>
