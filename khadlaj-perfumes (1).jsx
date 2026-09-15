@@ -12884,52 +12884,172 @@ export default function App(){
   const [loading, setLoading] = useState(false);
 
   const getKhadlajConciergeFallback = (query, rtl) => {
-    const q = (query || "").toLowerCase();
-    const arabic = rtl || /[\u0600-\u06FF]/.test(query);
+    const raw = (query || "").trim();
+    const q = raw.toLowerCase();
+    const isArabic = rtl || /[\u0600-\u06FF]/.test(raw);
+    const isUrdu = /(konsa|kaunsa|kya|batao|bataen|chahiye|chahye|kitne|kitna|hoga|hogi|mujhe|mujhay|shukriya|acha|achha|mardana|zanana|khushboo|khushbu|bhejo|mangwana|order kaise|kese|kaise)/i.test(raw);
 
-    if (q.includes("shiyaaka shadow") || q.includes("شياكة شادو")) {
-      return arabic
-        ? "عطر شياكة شادو (Shiyaaka Shadow) هو إحدى روائع دار خَدْلَج الأكثر تميزاً وفخامة. يجمع بين نفحات التوابل الدافئة، العود الملكي، والعنبر الفاخر مع لمسات المسك المخملي التي تمنحك حضوراً ساحراً يدوم طويلاً."
-        : "Shiyaaka Shadow is one of Khadlaj's crown jewels—an intense, captivating fragrance blending radiant warm spices, opulent royal oud, rich golden amber, and a lingering trail of velvety musk. Perfect for evening occasions.";
+    // 1. GREETINGS & SALUTATIONS
+    if (/^(hi|hello|hey|salam|assalam|aoa|slm|greetings|good morning|good evening|good afternoon|hola|hiya|welcome)($|[\s!?.,])/i.test(q) || /^(مرحبا|أهلا|سلام|السلام عليكم|صباح الخير|مساء الخير)/i.test(raw) || /^(salam|assalam o alaikum|hello|hi|kese ho|kaise ho)/i.test(raw)) {
+      if (isArabic) {
+        return "أهلاً وسهلاً بك في دار خَدْلَج للعطور! ✨ يسعدني مساعدتك في استكشاف تشكيلاتنا الملكية، معرفة النوتات العطرية، الأسعار، أو ترشيح العطر الأنسب لذوقك ومناسبتك. كيف يمكنني خدمتك اليوم؟";
+      }
+      if (isUrdu) {
+        return "خوش آمدید! Khadlaj Perfumes میں خوش آمدید ✨۔ میں آپ کا پرسنل پرفیوم کنسلٹنٹ ہوں۔ آپ مجھ سے ہمارے بہترین پرفیومز، خوشبو کے نوٹس (Oud, Vanilla, Amber)، قیمتیں، یا خواتین و مردانہ کلیکشن کے بارے میں کچھ بھی پوچھ سکتے ہیں۔ آپ کو کس قسم کا پرفیوم پسند ہے؟";
+      }
+      return "Hello and welcome to Khadlaj Perfumes! ✨ I am your dedicated luxury concierge. How may I assist you today? I can guide you through our iconic collections (Shiyaaka, Island, Master Royal Oud), look up fragrance notes & prices, or suggest the perfect signature scent.";
     }
-    if (q.includes("island sun") || q.includes("آيلاند صن") || q.includes("ايلاند صن")) {
-      return arabic
-        ? "عطر آيلاند صن (Island Sun) بتركيز إكستري دي بارفان يقدم تناغماً صيفياً مشرقاً من المانجو الناضجة، حليب جوز الهند، الليم المنعش، زهور الياسمين وحبوب التونكا الفاخرة."
-        : "Island Sun Extrait De Parfum is a tropical sun-drenched masterpiece featuring vibrant mango, creamy coconut milk, zesty lime, exotic jasmine blossoms, tonka bean, and sunlit woods.";
+
+    // 2. DISCOUNT CODES & PROMOTIONS
+    if (/(discount|code|promo|voucher|coupon|offer|deal|sale|off|خصم|كود|كوبون|عرض)/i.test(q)) {
+      if (isArabic) {
+        return "يسعدنا تقديم كود الخصم الحصري 'KHADLAJ25' الذي يمنحك خصماً فورياً بقيمة 25% على كافة تشكيلات خَدْلَج عند إتمام طلبك! ✨";
+      }
+      if (isUrdu) {
+        return "آپ کے لیے ہمارا اسپیشل پرومو کوڈ 'KHADLAJ25' دستیاب ہے! چیک آؤٹ پر یہ کوڈ درج کریں اور تمام پرفیومز پر فلیٹ 25% رعایت حاصل کریں۔ 🎁";
+      }
+      return "Enjoy our exclusive privilege: Use promo code 'KHADLAJ25' at checkout to receive flat 25% OFF across all Khadlaj fragrance collections! 🎁";
     }
-    if (q.includes("island") || q.includes("ايلاند") || q.includes("آيلاند")) {
-      return arabic
-        ? "تضم تشكيلة آيلاند (Island Collection) روائع استثنائية: Island Sun (مانجو وجوز هند)، Island Classic (حمضيات وأخشاب مائية)، و Island Dreams (برغموت وغريب فروت). جميعها بتركيز إكستري دي بارفان."
-        : "Our Island Collection includes Island Sun (Mango, Coconut & Tonka), Island Classic (Aquatic Citrus & Amber), and Island Dreams (Grapefruit & Ambroxan). All crafted as Extrait De Parfum for exceptional longevity.";
+
+    // 3. SHIPPING & DELIVERY POLICIES
+    if (/(delivery|shipping|ship|track|courier|dispatch|saudi|ksa|uae|dubai|gcc|توصيل|شحن|استلام|مدة التوصيل)/i.test(q) || /(delivery kitne|kitne din|kab milega|deliver)/i.test(raw)) {
+      if (isArabic) {
+        return "سياسة الشحن والتوصيل لدى خَدْلَج:\n• داخل الإمارات (UAE): توصيل سريع خلال 1-2 يوم عمل، ومجاني للطلبات فوق 200 درهم.\n• المملكة العربية السعودية ودول الخليج (KSA & GCC): شحن سريع مع تتبع فوري عبر الرسائل خلال 2-4 أيام عمل.";
+      }
+      if (isUrdu) {
+        return "Khadlaj Delivery Policy:\n• UAE میں 1 سے 2 دن میں ایکسپریس ڈلیوری (200 درہم سے زائد پر فری شپنگ)۔\n• سعودی عرب (KSA) اور تمام GCC ممالک میں 2 سے 4 دن میں ایکسپریس ڈلیوری مع SMS لائیو ٹریکنگ۔";
+      }
+      return "Khadlaj Perfumes Delivery Information:\n• UAE Orders: Dispatched within 1-2 business days with complimentary FREE delivery on orders above AED 200.\n• KSA & GCC Orders: Express doorstep courier within 2-4 business days with live SMS tracking.";
     }
-    if (q.includes("shiyaaka") || q.includes("شياكة")) {
-      return arabic
-        ? "مجموعة شياكة الأيقونية تضم: شياكة شادو (عود وعنبر)، شياكة بلو (أكواتيك وعنبر)، شياكة مين (فوجير خشبي)، شياكة وايت (زهور ناعمة)، وشياكة سكاي وسنو (انتعاش حمضي وعصري)."
-        : "Our iconic Shiyaaka Collection includes: Shiyaaka Shadow (Oud & Amber), Shiyaaka Blue (Marine & Amberwood), Shiyaaka Men (Spicy Fougère & Cedar), Shiyaaka White (Powdery Florals), and Shiyaaka Sky & Snow (Fresh Citrus Breeze).";
+
+    // 4. SPECIFIC PRODUCT LOOKUPS
+    if (/(island sun|آيلاند صن|ايلاند صن)/i.test(q)) {
+      if (isArabic) {
+        return "🌟 عطر آيلاند صن (Island Sun Extrait De Parfum) - 165 درهم (100 مل):\n• النوتات: مانجو استوائية، حليب جوز الهند، ليمون، ياسمين، وحبوب التونكا.\n• الطابع: انتعاش صيفي استوائي مبهج وفاخر يناسب الجنسين.";
+      }
+      if (isUrdu) {
+        return "🌟 Island Sun Extrait De Parfum (100ml - 165 AED):\n• نوٹس: رسیلا آم (Mango)، ناریل (Coconut Milk)، لیموں، چمیلی اور ٹونکا بین۔\n• وائب: سمر اور ٹراپیکل وائبز کے لیے انتہائی پرکشش اور لانگ لاسٹنگ عطر۔";
+      }
+      return "🌟 Island Sun Extrait De Parfum (100ml - 165 AED):\n• Notes: Juicy Mango, Creamy Coconut, Zesty Lime, Exotic Jasmine, Tonka Bean & Warm Woods.\n• Character: A vibrant, tropical sun-drenched escape in a bottle with exceptional sillage and longevity.";
     }
-    if (q.includes("saraya") || q.includes("سرايا") || q.includes("karus") || q.includes("كاروس") || q.includes("oud") || q.includes("عود")) {
-      return arabic
-        ? "تشكيلة ماستر بيرفيومري ورويال عود من خَدْلَج تضم: عطر سرايا (عود ملكي وزعفران وورد جوري)، وعطر كاروس جولد أبسولو (عنبر ملكي وعود وخشب صندل فاخر)."
-        : "Our Master Perfumery & Royal Oud lines showcase our finest craftsmanship: Saraya (Royal Oud, Saffron & Damascena Rose) and Karus Gold Absolu (Opulent Amber, Golden Oud & Sandalwood).";
+
+    if (/(island classic|island 100|آيلاند كلاسيك)/i.test(q) || (q.includes("island") && !q.includes("dreams") && !q.includes("dunes"))) {
+      if (isArabic) {
+        return "🌊 عطر آيلاند (Island 100ml EDP) - 150 درهم:\n• النوتات: حمضيات منعشة وبرغموت، نسيم بحري أكواتيك، وقاعدة فاخرة من العنبر والمسك.\n• الطابع: منعش، عصري، ويمنحك إحساساً بالنقاء والأناقة طوال اليوم.";
+      }
+      if (isUrdu) {
+        return "🌊 Khadlaj Island 100ml EDP (150 AED):\n• نوٹس: اسپارکلنگ سٹرس (Citrus)، سمندری ہوا کے میرین نوٹس (Marine)، اور گولڈن عنبر (Amber)۔\n• خصوصیت: سعودی نیشنل ڈے کا آفیشل ونر پرائز عطر، انتہائی فریش اور دیرپا۔";
+      }
+      return "🌊 Khadlaj Island 100ml EDP (150 AED):\n• Notes: Sparkling Citrus & Bergamot, Crisp Marine Sea Breeze, and Warm Golden Amber & Musk.\n• Character: Pure oceanic sophistication, perfectly refreshing for all-day elegance.";
     }
-    if (q.includes("delivery") || q.includes("shipping") || q.includes("توصيل") || q.includes("شحن") || q.includes("policy")) {
-      return arabic
-        ? "سياسة التوصيل لدى خَدْلَج: يتم شحن الطلبات خلال 1-2 يوم عمل. التوصيل مجاني داخل الإمارات للطلبات الأكثر من 200 درهم، مع توفر الشحن السريع لكافة دول الخليج العربي."
-        : "Khadlaj Delivery Policy: Orders are dispatched within 1-2 business days. Complimentary FREE express delivery across the UAE on orders above AED 200, with rapid GCC shipping available.";
+
+    if (/(island dreams|island vanilla dunes|آيلاند دريمز)/i.test(q)) {
+      return "✨ Island Dreams (125 AED) blends zesty grapefruit, bergamot & modern ambroxan. Island Vanilla Dunes features golden sun-warmed vanilla, silky musk, and amber dunes.";
     }
-    if (q.includes("discount") || q.includes("code") || q.includes("promo") || q.includes("خصم") || q.includes("كود") || q.includes("كوبون")) {
-      return arabic
-        ? "يسعدنا تقديم كود الخصم الحصري 'KHADLAJ25' الذي يمنحك خصماً فورياً بقيمة 25% على كافة العطور عند إتمام طلبك!"
-        : "Enjoy our exclusive privilege: use code 'KHADLAJ25' at checkout to receive flat 25% off across all Khadlaj fragrance collections!";
+
+    if (/(shiyaaka shadow|شياكة شادو|shadow)/i.test(q)) {
+      if (isArabic) {
+        return "👑 عطر شياكة شادو (Shiyaaka Shadow EDP) - 150 درهم (100 مل):\n• النوتات: عود داكن، عنبر مدخن، توابل ملكية دافئة، ومسك مخملي.\n• الطابع: عطر رجالي غامض وفاخر للمناسبات المسائية الفخمة.";
+      }
+      if (isUrdu) {
+        return "👑 Shiyaaka Shadow (100ml EDP - 150 AED):\n• نوٹس: رائل عود (Royal Oud)، سموکڈ عنبر (Smoked Amber)، گرم مسالے اور ویلویٹ مسک۔\n• وائب: مردانہ وقار اور رات کی شاندار تقریبات کے لیے سب سے زیادہ بکنے والا عطر۔";
+      }
+      return "👑 Shiyaaka Shadow 100ml EDP (150 AED):\n• Notes: Dark Royal Oud, Smoked Golden Amber, Warm Radiant Spices & Velvet Musk.\n• Character: Deeply masculine, mysterious, and opulent—our top evening signature bestseller.";
     }
-    if (q.includes("best") || q.includes("recommend") || q.includes("أفضل") || q.includes("ترشيح") || q.includes("اقتراح")) {
-      return arabic
-        ? "أبرز عطورنا الأكثر مبيعاً:\n1. عطر شياكة شادو (عود وعنبر ملكي فخم)\n2. عطر آيلاند صن (انتعاش استوائي مبهج بالمانجو وجوز الهند)\n3. عطر موفي (زهري راقٍ بالفانيليا واللوز)"
-        : "Top recommended customer favorites:\n1. Shiyaaka Shadow (Rich Royal Oud, Amber & Velvet Musk)\n2. Island Sun (Tropical Mango, Coconut & Exotic Tonka)\n3. Muse (Regal Orange Blossom, Orris & Vanilla Almond)";
+
+    if (/(shiyaaka|شياكة)/i.test(q)) {
+      if (isArabic) {
+        return "تشكيلة شياكة الأيقونية (100 مل - 150 درهم):\n1. شياكة شادو: عود وعنبر فاخر للمساء.\n2. شياكة مين: لافندر وأخشاب الأرز للعمل والأناقة الكلاسيكية.\n3. شياكة بلو: نسيم بحري منعش وعنبر خشبي.\n4. شياكة سكاي وسنو: انتعاش حمضي عصري ساحر.";
+      }
+      return "The Iconic Shiyaaka Collection (100ml EDP - 150 AED each):\n1. Shiyaaka Shadow: Rich Royal Oud & Smoked Amber.\n2. Shiyaaka Men: Crisp Lavender, Cedarwood & Fougère Spices.\n3. Shiyaaka Blue: Refreshing Marine & Amberwood.\n4. Shiyaaka Sky & Snow: Vibrant Citrus & Crisp Mountain Breeze.";
     }
-    return arabic
-      ? "أهلاً بك في دار خَدْلَج للعطور. أنا مستشارك العطري، يسعدني مساعدتك في اختيار عطرك المثالي أو استكشاف مجموعاتنا الحصرية ونوتاتها العطرية المميزة. كيف يمكنني خدمتك اليوم؟"
-      : "Welcome to Khadlaj Perfumes. As your dedicated luxury concierge, I am delighted to assist you with exploring our bespoke fragrance notes, finding your signature scent, or answering questions about our collections and shipping. How may I assist you today?";
+
+    if (/(saraya|سرايا)/i.test(q)) {
+      return "💎 Saraya Extrait De Parfum (100ml - 185 AED): A master perfumery creation uniting rare royal Cambodi Oud, saffron threads, precious Damascena rose, and amber.";
+    }
+
+    if (/(karus|كاروس)/i.test(q)) {
+      return "⚜️ Karus Gold Absolu (100ml EDP - 150 AED): Opulent golden oud, royal amber crystals, and creamy Mysore sandalwood.";
+    }
+
+    if (/(muse|موز|ميوز)/i.test(q)) {
+      return "🌸 Muse Eau de Parfum (100ml - 165 AED): Luminous orange blossom, Italian bergamot, creamy almond, Florentine orris, vanilla, and white musk. Soft, feminine, and utterly comforting.";
+    }
+
+    if (/(nuha|نهى)/i.test(q)) {
+      return "🎀 Nuha & Nuha Bon Bon (150 AED): Irresistible sweet gourmand florals with spun caramel, candied berries, and gentle vanilla musk.";
+    }
+
+    if (/(cloud candy|biscotti|date toffee|cream velvet|peach velvet|azure velvet)/i.test(q)) {
+      return "🍨 Khadlaj Gourmand Treasures (125 - 150 AED):\n• Cloud Candy: Spun sugar, wild berries & marshmallow.\n• Biscotti Date Toffee: Roasted dates, golden toffee & warm vanilla.\n• Cream Velvet: Cashmere musk, magnolia & creamy sandalwood.";
+    }
+
+    if (/(hareem al sultan|oil|حريم السلطان|دهن|تولة)/i.test(q)) {
+      return "✨ Hareem Al Sultan Gold (35ml / Concentrated Perfume Oil - 65 AED): World-famous viral perfume oil featuring red apple, bergamot, jasmine, golden amber, and vanilla.";
+    }
+
+    // 5. INGREDIENT & NOTE LOOKUPS
+    if (/(vanilla|فانيليا|فانيلا)/i.test(q)) {
+      return "🍨 Top Khadlaj Vanilla Fragrances:\n1. Muse (165 AED) - Creamy Vanilla & Almond Blossom\n2. Island Vanilla Dunes (150 AED) - Warm Vanilla & Amber Sand\n3. Biscotti Date Toffee (125 AED) - Rich Toffee Vanilla Gourmand";
+    }
+
+    if (/(oud|عود)/i.test(q)) {
+      return "🪵 Top Khadlaj Royal Oud Fragrances:\n1. Saraya Extrait (185 AED) - Precious Royal Oud & Saffron\n2. Shiyaaka Shadow (150 AED) - Dark Oud & Smoked Amber\n3. Karus Gold Absolu (150 AED) - Golden Oud & Sandalwood\n4. Wild Indonesian Oud (150 AED) - 100% Pure Indonesian Oud Oil";
+    }
+
+    if (/(mango|coconut|tropical|مانجو|جوز هند)/i.test(q)) {
+      return "🥭 Island Sun Extrait De Parfum (165 AED) is our definitive tropical fragrance—featuring succulent ripe mango, coconut cream, zesty lime, and tonka bean!";
+    }
+
+    if (/(fresh|aquatic|citrus|summer|منعش|صيفي|حمضيات)/i.test(q)) {
+      return "🌊 Best Fresh & Summer Khadlaj Perfumes:\n1. Island 100ml EDP (150 AED) - Sparkling Citrus & Marine Sea Breeze\n2. Island Sun (165 AED) - Exotic Mango & Coconut\n3. Shiyaaka Sky & Snow (150 AED) - Crisp Citrus & Clean Mountain Air";
+    }
+
+    // 6. GENDER RECOMMENDATIONS
+    if (/(women|her|ladies|girls|female|خوات|نسائي|بناتي)/i.test(q) || /(aurat|ladies k liye|khawateen)/i.test(raw)) {
+      if (isArabic) {
+        return "🌸 أفضل عطور خَدْلَج النسائية:\n1. عطر Muse (165 درهم) - زهر البرتقال والفانيليا واللوز الفاخر.\n2. عطر Nuha (150 درهم) - زهور ناعمة مع لمسات الفواكه اللذيذة.\n3. زيت عطر Hareem Al Sultan Gold (65 درهم) - العطر الزيتي الأكثر شهرة عالمياً.\n4. عطر Cloud Candy (150 درهم) - سويت وكراميل ومارشملو منعش.";
+      }
+      if (isUrdu) {
+        return "🌸 خواتین کے لیے بہترین Khadlaj پرفیومز:\n1. Muse (165 AED) - ونیلا، بادام اور نارنجی کے پھولوں کی پرسکون خوشبو۔\n2. Hareem Al Sultan Gold (65 AED) - دنیا بھر میں وائرل پرفیوم آئل۔\n3. Nuha / Nuha Bon Bon (150 AED) - سویٹ پھول اور کیریمل ونیلا۔\n4. Cloud Candy (150 AED) - بیریز اور مارشمیلو گورمنڈ خوشبو۔";
+      }
+      return "🌸 Top Recommended Fragrances For Her:\n1. Muse (165 AED) - Delicate Orange Blossom, Vanilla & Almond Cream.\n2. Nuha Bon Bon (150 AED) - Luxurious Candied Berries & Floral Gourmand.\n3. Hareem Al Sultan Gold Oil (65 AED) - The world-renowned viral luxury oil.\n4. Cloud Candy (150 AED) - Playful Spun Sugar, Wild Berries & Vanilla.";
+    }
+
+    if (/(men|him|male|gents|رجالي|شبابي|رجال)/i.test(q) || /(mardon|mardana|gents k liye)/i.test(raw)) {
+      if (isArabic) {
+        return "👑 أفضل عطور خَدْلَج الرجالية الأكثر فخامة:\n1. عطر Shiyaaka Shadow (150 درهم) - عود داكن وعنبر مدخن مفعم بالرجولة.\n2. عطر Shiyaaka Men (150 درهم) - لافندر وخشب الأرز الكلاسيكي.\n3. عطر Karus Gold Absolu (150 درهم) - عنبر ذهبي وصندل فاخر.\n4. عطر Titan (150 درهم) - أخشاب قوية وثبات عالي جداً.";
+      }
+      if (isUrdu) {
+        return "👑 مردانہ کلیکشن کے سب سے بہترین پرفیومز:\n1. Shiyaaka Shadow (150 AED) - عود، عنبر اور گرم مسالوں کی شاندار خوشبو۔\n2. Shiyaaka Men (150 AED) - لافینڈر اور سیڈرووڈ کی کلاسک ایگزیکٹو خوشبو۔\n3. Karus Gold Absolu (150 AED) - رائل عنبر اور صندل کی دیرپا خوشبو۔\n4. Titan (150 AED) - بولڈ ووڈی اور پاور فل پرسنیلٹی کے لیے۔";
+      }
+      return "👑 Top Recommended Fragrances For Him:\n1. Shiyaaka Shadow (150 AED) - Bold Dark Oud, Smoked Amber & Velvet Musk.\n2. Shiyaaka Men (150 AED) - Crisp Lavender, Cedarwood & Spicy Fougère.\n3. Karus Gold Absolu (150 AED) - Opulent Royal Amber & Mysore Sandalwood.\n4. Titan (150 AED) - Commanding Woody Amber with remarkable projection.";
+    }
+
+    // 7. BESTSELLER / TOP RECOMMENDATIONS
+    if (/(best|top|popular|bestseller|recommend|أفضل|أكثر مبيعا|ترشيح|اقتراح)/i.test(q) || /(konsa acha hai|sab se best)/i.test(raw)) {
+      if (isArabic) {
+        return "🌟 أبرز عطور خَدْلَج الأكثر مبيعاً وتقييماً:\n1. عطر Shiyaaka Shadow (150 درهم) - عود وعنبر ملكي فخم.\n2. عطر Island Sun (165 درهم) - انتعاش استوائي ساحر بالمانجو وجوز الهند.\n3. عطر Muse (165 درهم) - زهري راقٍ بالفانيليا واللوز.\n4. عطر Saraya (185 درهم) - عود وورد جوري وزعفران ملكي.\n\nهل ترغب في عطر لمناسبة خاصة أم للاستخدام اليومي؟";
+      }
+      if (isUrdu) {
+        return "🌟 Khadlaj Perfumes کے ٹاپ بیسٹ سیلرز:\n1. Shiyaaka Shadow (150 AED) - رائل عود اور عنبر (شاندار ثبات)۔\n2. Island Sun (165 AED) - ٹراپیکل مینگو اور کوکونٹ کی تروتازہ خوشبو۔\n3. Muse (165 AED) - خواتین کا ٹاپ فیورٹ، ونیلا اور الائچی/بادام۔\n4. Saraya (185 AED) - خالص کمبوڈین عود، زعفران اور گلاب۔\n\nکیا آپ کو سٹرونگ عود پسند ہے یا لائٹ فریش خوشبو؟";
+      }
+      return "🌟 Top Bestsellers at Khadlaj Perfumes:\n1. Shiyaaka Shadow (150 AED) - Royal Oud, Smoked Amber & Velvet Musk.\n2. Island Sun (165 AED) - Sun-drenched Mango, Coconut & Tonka Bean.\n3. Muse (165 AED) - Orange Blossom, Creamy Vanilla & Orris.\n4. Saraya (185 AED) - Precious Royal Oud, Saffron & Damascena Rose.\n\nWould you like a recommendation tailored to a specific occasion or scent family?";
+    }
+
+    // 8. HOW TO ORDER / PAYMENT METHODS
+    if (/(order|buy|purchase|payment|apple pay|visa|mastercard|cod|cash on delivery|شراء|طلب|طريقة الطلب|دفع)/i.test(q) || /(order kaise|mangwana)/i.test(raw)) {
+      return "To place your order:\n1. Browse our collections and click 'Add to Cart' or 'Buy Now'.\n2. Go to Cart and apply coupon code 'KHADLAJ25' for 25% OFF.\n3. Choose your delivery address and checkout securely via Apple Pay, Visa, Mastercard, or Cash on Delivery (COD).";
+    }
+
+    // 9. CONVERSATIONAL DEFAULT (Always helpful and guiding)
+    if (isArabic) {
+      return `أهلاً بك دائماً في دار خَدْلَج للعطور. بخصوص استفسارك عن "${raw}"، يسعدني مساعدتك في استكشاف نوتات عطورنا الحصرية، معرفة الأسعار، أو ترشيح العطر المثالي لك (سواء كان عود ملكي، فانيليا سويت، أو انتعاش حمضي استوائي). كيف تفضل أن أساعدك؟`;
+    }
+    if (isUrdu) {
+      return `Khadlaj Perfumes میں آپ کے سوال "${raw}" کے حوالے سے، میں آپ کی رہنمائی کے لیے حاضر ہوں۔ آپ ہم سے ہمارے مشہور پرفیومز (Shiyaaka, Island, Saraya, Muse)، نوتات، قیمتیں، ڈلیوری اور ڈسکاؤنٹ کوڈ 'KHADLAJ25' کے بارے میں جان سکتے ہیں۔ آپ کو کس قسم کی خوشبو پسند ہے؟`;
+    }
+    return `Thank you for asking about "${raw}"! As your Khadlaj fragrance concierge, I can help you discover your signature scent, explore our collections (Shiyaaka, Island, Master Royal Oud, Gourmand), provide notes & pricing, or help you apply promo code 'KHADLAJ25' for 25% off. What type of scent profile do you prefer?`;
   };
 
   const sendChatMessage = async (overrideText) => {
