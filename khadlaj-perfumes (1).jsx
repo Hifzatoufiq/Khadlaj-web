@@ -12188,7 +12188,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
           <span>ONLY FOR KSA PARTICIPANTS</span>
         </span>
         <span style={{fontWeight:700,color:"#FDFBF7",letterSpacing:"0.08em"}}>
-          🇸🇦 SAUDI NATIONAL DAY GIVEAWAY • 14TH – 23RD SEPTEMBER 2026 • 96 BOTTLES OF KHADLAJ ISLAND 100ML TO BE WON
+          SAUDI NATIONAL DAY GIVEAWAY • 14TH – 23RD SEPTEMBER 2026 • 96 BOTTLES OF KHADLAJ ISLAND 100ML TO BE WON
         </span>
         <span style={{display:"inline-flex",alignItems:"center",gap:6,background:"rgba(255,255,255,0.1)",border:"1px solid rgba(212,175,55,0.4)",padding:"3px 12px",borderRadius:20,fontSize:11,color:"#F4E4A6",fontWeight:700}}>
           <span style={{width:6,height:6,background:"#22C55E",borderRadius:"50%",boxShadow:"0 0 8px #22C55E"}}></span>
