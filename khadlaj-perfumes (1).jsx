@@ -12405,30 +12405,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
                     </div>
                   </div>
 
-                  {/* Scent Family */}
-                  <div style={{display:"flex",flexDirection:"column",gap:6}}>
-                    <label style={{fontSize:12,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.08em",color:"#3C1152"}}>Favorite Fragrance Family</label>
-                    <div style={{display:"flex",flexWrap:"wrap",gap:8}}>
-                      {["Oud & Amber", "French Oriental", "White Musk", "Vanilla Gourmand"].map(sf => (
-                        <button
-                          type="button"
-                          key={sf}
-                          onClick={()=>setForm({...form, scentFamily: sf})}
-                          style={{
-                            padding:"7px 14px",borderRadius:20,fontSize:12,fontWeight:600,border:"1px solid",cursor:"pointer",
-                            background: form.scentFamily === sf ? "#3C1152" : "#F7F5F0",
-                            borderColor: form.scentFamily === sf ? "#3C1152" : "#E2D8CA",
-                            color: form.scentFamily === sf ? "#FFFFFF" : "#555555",
-                            boxShadow: form.scentFamily === sf ? "0 4px 12px rgba(60,17,82,0.25)" : "none",
-                            transition: "all .2s"
-                          }}
-                        >
-                          {sf === "Oud & Amber" ? "🪵 " : sf === "French Oriental" ? "🌹 " : sf === "White Musk" ? "✨ " : "🍨 "}
-                          {sf}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
+
 
                   {/* Consent */}
                   <label style={{display:"flex",alignItems:"flex-start",gap:8,fontSize:12,color:"#666666",lineHeight:1.4,marginTop:4,cursor:"pointer"}}>
