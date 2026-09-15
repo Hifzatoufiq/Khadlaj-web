@@ -105,10 +105,10 @@ export async function handleGiveawayRequest(req, res) {
 
     const { name, phone, email, instagram, city, address, scentPreference } = body;
 
-    if (!name?.trim() || !phone?.trim() || !email?.trim() || !city?.trim() || !address?.trim()) {
+    if (!name?.trim() || !phone?.trim() || !email?.trim() || !instagram?.trim() || !city?.trim() || !address?.trim()) {
       sendJson(res, 422, {
         success: false,
-        message: "All fields are required (Name, Phone, Email, City, Address). This giveaway is strictly for KSA participants.",
+        message: "All fields are required (Name, Phone, Email, Instagram Username, City, Address). This giveaway is strictly for KSA participants.",
       });
       return;
     }

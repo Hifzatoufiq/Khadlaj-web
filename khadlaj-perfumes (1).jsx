@@ -2448,7 +2448,7 @@ const PRODUCTS = [
     "notes": [
       "Perfume oil"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/RIMAAL_GREEN_15_ML_-_Khadlaj_Perfumes-1965844.jpg?v=1776231685"
+    "img": "/assets/images/smart_cropped/smart_RIMAAL_GREEN_15_ML_-_Khadlaj_Perfumes-1965844.jpg"
   },
   {
     "id": 7792438214855,
@@ -11996,6 +11996,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
     email: "",
     countryCode: "+966",
     phone: "",
+    instagram: "",
     city: "Riyadh",
     address: "",
     scentFamily: "Oud & Amber",
@@ -12048,7 +12049,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
       }
       const d = Math.floor(diff / (1000 * 60 * 60 * 24));
       const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const m = Math.floor((diff % (1000 * 60)) / (1000 * 60));
       const s = Math.floor((diff % (1000 * 60)) / 1000);
       setDays(String(d).padStart(2, "0"));
       setHours(String(h).padStart(2, "0"));
@@ -12074,6 +12075,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
           name: form.name,
           phone: fullPhone,
           email: form.email,
+          instagram: form.instagram,
           city: form.city,
           address: form.address,
           scentPreference: form.scentFamily
@@ -12163,7 +12165,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
       a: "This giveaway is strictly and exclusively open to residents living within the Kingdom of Saudi Arabia (ONLY FOR KSA PARTICIPANTS). Entries outside KSA or with non-Saudi delivery addresses will not be eligible for the draw."
     },
     {
-      q: "When and where will the 500 Giveaway winners be announced?",
+      q: "When and where will the 96 Giveaway winners be announced?",
       a: "Winners will be selected via our verified random draw system and officially announced on Khadlaj Instagram Stories (@khadlajperfumes) on September 23rd, 2026. Winners will also be contacted directly via WhatsApp/Phone for complimentary express door-to-door delivery."
     },
     {
@@ -12186,7 +12188,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
           <span>ONLY FOR KSA PARTICIPANTS</span>
         </span>
         <span style={{fontWeight:700,color:"#FDFBF7",letterSpacing:"0.08em"}}>
-          🇸🇦 SAUDI NATIONAL DAY GIVEAWAY • 14TH – 23RD SEPTEMBER 2026 • 500 LUXURY SETS TO BE WON
+          🇸🇦 SAUDI NATIONAL DAY GIVEAWAY • 14TH – 23RD SEPTEMBER 2026 • 96 BOTTLES OF KHADLAJ ISLAND 100ML TO BE WON
         </span>
         <span style={{display:"inline-flex",alignItems:"center",gap:6,background:"rgba(255,255,255,0.1)",border:"1px solid rgba(212,175,55,0.4)",padding:"3px 12px",borderRadius:20,fontSize:11,color:"#F4E4A6",fontWeight:700}}>
           <span style={{width:6,height:6,background:"#22C55E",borderRadius:"50%",boxShadow:"0 0 8px #22C55E"}}></span>
@@ -12214,7 +12216,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
             </h1>
 
             <p style={{fontSize:16,color:"#555555",lineHeight:1.8}}>
-              In proud celebration of <strong>Saudi National Day 2026</strong>, <strong style={{color:"#251737"}}>Khadlaj Perfumes</strong> invites all residents of the Kingdom to participate in our grand giveaway. <strong>Campaign is active strictly from 14th to 23rd September</strong>. Register below for your official raffle entry to win 1 of <strong>500 Handcrafted Luxury Fragrance Gift Sets</strong> with complimentary home delivery across all KSA provinces.
+              In proud celebration of <strong>Saudi National Day 2026</strong>, <strong style={{color:"#251737"}}>Khadlaj Perfumes</strong> invites all residents of the Kingdom to participate in our grand giveaway. <strong>Campaign is active strictly from 14th to 23rd September</strong>. Register below for your official raffle entry to win 1 of <strong>96 Bottles of Khadlaj Island 100ml EDP</strong> with complimentary home delivery across all KSA provinces.
             </p>
 
             {/* Countdown Box */}
@@ -12241,7 +12243,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
             <div style={{background:"linear-gradient(145deg, #FCFBF9 0%, #FFFFFF 60%, #F5F1E9 100%)",border:"1px solid #D4AF37",borderRadius:20,padding:24,boxShadow:"0 18px 45px rgba(37,23,55,0.07)"}}>
               <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:14}}>
                 <span style={{display:"inline-flex",alignItems:"center",gap:6,fontSize:11,fontWeight:800,color:"#896103",letterSpacing:"0.12em",textTransform:"uppercase"}}>
-                  <span>🎁</span> THE GRAND PRIZE • 500 GIFT SETS
+                  <span>🎁</span> THE GRAND PRIZE • 96 BOTTLES OF KHADLAJ ISLAND 100ML
                 </span>
                 <span style={{fontSize:11,color:"#166534",background:"#DCFCE7",border:"1px solid #86EFAC",padding:"2px 10px",borderRadius:12,fontWeight:700}}>
                   100% FREE ENTRY
@@ -12249,17 +12251,17 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
               </div>
               <div style={{display:"flex",gap:20,alignItems:"center"}}>
                 <div style={{width:105,height:120,background:"radial-gradient(circle, #FFFFFF 40%, #E8DFD1 100%)",borderRadius:12,display:"flex",alignItems:"center",justifyContent:"center",padding:6,flexShrink:0,border:"1px solid #EADDC9",boxShadow:"0 4px 15px rgba(0,0,0,0.06)"}}>
-                  <img src="assets/images/products/island-gift-standard-transparent.png" alt="Khadlaj Luxury Giveaway Gift Set" style={{maxWidth:"100%",maxHeight:"100%",objectFit:"contain"}}/>
+                  <img src="assets/images/products/island-sun-transparent.png" alt="Khadlaj Island 100ml EDP" style={{maxWidth:"100%",maxHeight:"100%",objectFit:"contain"}}/>
                 </div>
                 <div>
                   <h4 style={{fontFamily:"'Cinzel',serif",fontSize:18,color:"#251737",fontWeight:700,marginBottom:4}}>
-                    Khadlaj Royal Discovery Set
+                    Khadlaj Island 100ml EDP
                   </h4>
                   <p style={{fontSize:13,color:"#555555",lineHeight:1.5,marginBottom:8}}>
-                    Complete luxury collection featuring 100ml Eau de Parfum, 200ml Perfumed Body Spray, and Pocket Travel Edition.
+                    Iconic 100ml Eau De Parfum with lavish golden craftsmanship and intoxicating notes of exotic mango, solar florals, warm vanilla, and amber.
                   </p>
                   <div style={{display:"flex",flexWrap:"wrap",gap:6,fontSize:11,fontWeight:600,color:"#896103"}}>
-                    <span style={{background:"rgba(184,146,42,0.1)",padding:"2px 8px",borderRadius:4}}>✓ 500 Winners</span>
+                    <span style={{background:"rgba(184,146,42,0.1)",padding:"2px 8px",borderRadius:4}}>✓ 96 Winners</span>
                     <span style={{background:"rgba(184,146,42,0.1)",padding:"2px 8px",borderRadius:4}}>✓ Free KSA Shipping</span>
                     <span style={{background:"rgba(184,146,42,0.1)",padding:"2px 8px",borderRadius:4}}>✓ Announced on IG</span>
                   </div>
@@ -12342,6 +12344,24 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
                         value={form.phone}
                         onChange={e=>setForm({...form,phone:e.target.value})}
                         style={{width:"100%",padding:"12px 14px",background:"#FAFAF8",border:"1px solid #D8CEBE",borderRadius:8,color:"#251737",fontSize:14,outline:"none",transition:"all .2s"}}
+                        onFocus={e=>e.target.style.borderColor="#B8922A"}
+                        onBlur={e=>e.target.style.borderColor="#D8CEBE"}
+                      />
+                    </div>
+                  </div>
+
+                  {/* Instagram Username */}
+                  <div style={{display:"flex",flexDirection:"column",gap:6}}>
+                    <label style={{fontSize:12,fontWeight:700,textTransform:"uppercase",letterSpacing:"0.08em",color:"#3C1152"}}>Instagram Username *</label>
+                    <div style={{position:"relative",display:"flex",alignItems:"center"}}>
+                      <span style={{position:"absolute",left:14,color:"#999999",fontSize:15}}>📸</span>
+                      <input 
+                        type="text" 
+                        required 
+                        placeholder="e.g. @username"
+                        value={form.instagram}
+                        onChange={e=>setForm({...form,instagram:e.target.value})}
+                        style={{width:"100%",padding:"12px 16px 12px 42px",background:"#FAFAF8",border:"1px solid #D8CEBE",borderRadius:8,color:"#251737",fontSize:14,outline:"none",transition:"all .2s"}}
                         onFocus={e=>e.target.style.borderColor="#B8922A"}
                         onBlur={e=>e.target.style.borderColor="#D8CEBE"}
                       />
@@ -12484,7 +12504,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
                     WINNERS ANNOUNCEMENT ON INSTAGRAM STORIES
                   </h4>
                   <p style={{fontSize:12.5,lineHeight:1.5,opacity:0.95,margin:"0 0 12px"}}>
-                    All 500 winners will be announced live on <strong>Khadlaj Instagram Stories (@khadlajperfumes)</strong> on <strong>September 23rd</strong>!
+                    All 96 winners will be announced live on <strong>Khadlaj Instagram Stories (@khadlajperfumes)</strong> on <strong>September 23rd</strong>!
                   </p>
                   <a 
                     href="https://instagram.com/khadlajperfumes" 
