@@ -12211,7 +12211,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
             </h1>
 
             <p style={{fontSize:16,color:"#555555",lineHeight:1.8}}>
-              In proud celebration of <strong>Saudi National Day 2026</strong>, <strong style={{color:"#251737"}}>Khadlaj Perfumes</strong> invites all residents of the Kingdom to participate in our perfume giveaway. <strong>Campaign is active strictly from 14th to 23rd September</strong>. Register below for your official raffle entry to win 1 of <strong>96 Bottles of Khadlaj Island 100ml EDP</strong> with complimentary home delivery across all KSA provinces.
+              In proud celebration of <strong>Saudi National Day 2026</strong>, <strong style={{color:"#251737"}}>Khadlaj Perfumes</strong> invites all residents of the Kingdom to participate in our perfume giveaway. <strong>Campaign is active strictly from 14th to 23rd September</strong>. Register below for your official raffle entry to win 1 of <strong>96 Bottles of Khadlaj Island 100ml EDP</strong>.
             </p>
 
             {/* Countdown Box */}
