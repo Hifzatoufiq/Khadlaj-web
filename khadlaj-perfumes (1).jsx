@@ -12511,16 +12511,6 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
         </div>
       </section>
 
-      {/* Trust & Heritage Strip */}
-      <section style={{borderTop:"1px solid #EAE4D9",borderBottom:"1px solid #EAE4D9",background:"#FAF8F5",padding:"35px 24px"}}>
-        <div style={{maxWidth:1280,margin:"0 auto",display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(220px, 1fr))",gap:24,textAlign:"center"}}>
-          <div><div style={{fontSize:26,marginBottom:6}}>👑</div><h4 style={{fontFamily:"'Cinzel',serif",fontSize:15,color:"#251737",fontWeight:700}}>HERITAGE SINCE 1997</h4><p style={{fontSize:12,color:"#666666",marginTop:4}}>Over 25 years of master perfumery</p></div>
-          <div><div style={{fontSize:26,marginBottom:6}}>🌿</div><h4 style={{fontFamily:"'Cinzel',serif",fontSize:15,color:"#251737",fontWeight:700}}>100% PURE ESSENCES</h4><p style={{fontSize:12,color:"#666666",marginTop:4}}>Pure Cambodian Oud & Taif Rose oils</p></div>
-          <div><div style={{fontSize:26,marginBottom:6}}>🇸🇦</div><h4 style={{fontFamily:"'Cinzel',serif",fontSize:15,color:"#251737",fontWeight:700}}>FAST KSA DELIVERY</h4><p style={{fontSize:12,color:"#666666",marginTop:4}}>Express 2-4 day doorstep delivery</p></div>
-          <div><div style={{fontSize:26,marginBottom:6}}>🔒</div><h4 style={{fontFamily:"'Cinzel',serif",fontSize:15,color:"#251737",fontWeight:700}}>AUTHENTIC GUARANTEE</h4><p style={{fontSize:12,color:"#666666",marginTop:4}}>Official direct-from-brand guarantee</p></div>
-        </div>
-      </section>
-
       {/* FAQ Section */}
       <section style={{maxWidth:800,margin:"0 auto",padding:"20px 24px 80px"}}>
         <div style={{textAlign:"center",marginBottom:36}}>
