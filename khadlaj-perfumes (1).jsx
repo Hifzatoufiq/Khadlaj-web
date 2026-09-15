@@ -12220,9 +12220,6 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
                 <span style={{fontSize:13,textTransform:"uppercase",letterSpacing:"0.12em",color:"#3C1152",fontWeight:700}}>
                   ⏳ NATIONAL DAY GIVEAWAY CLOSING IN
                 </span>
-                <span style={{fontSize:11,background:"rgba(220,38,38,0.08)",color:"#DC2626",border:"1px solid rgba(220,38,38,0.25)",padding:"3px 10px",borderRadius:20,fontWeight:700}}>
-                  ONLY 47 ENTRIES REMAINING
-                </span>
               </div>
               <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:10}}>
                 {[{n:days,l:"Days"},{n:hours,l:"Hours"},{n:minutes,l:"Minutes"},{n:seconds,l:"Seconds"}].map((b,i)=>(
