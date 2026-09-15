@@ -8387,17 +8387,11 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
                 <>KHADLAJ <em className="luxury-gold-text" style={{fontStyle:"normal"}}>SCENT FINDER</em></>
               )}
             </h2>
-            <p style={{color:"rgba(255,255,255,0.7)",lineHeight:1.8,fontSize:14,maxWidth:460,fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif",marginBottom:32}}>
+            <p style={{color:"rgba(255,255,255,0.7)",lineHeight:1.8,fontSize:14,maxWidth:460,fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif",marginBottom:0}}>
               {isRTL 
                 ? "العطر لغة شخصية تعبر عن هويتك وروحك. اختر طابعك ومناسبتك، وسيقوم خبير العطور الذكي المدعوم بالذكاء الاصطناعي بتحليل ذوقك وتصميم توصية عطرية حصرية من أندر إبداعات دار خدلج."
                 : "Fragrance is a deeply personal language. Select your preferred olfactive vibe and occasion, and our AI Olfactive Sommelier will craft a bespoke signature match from our master perfume lines."}
             </p>
-            <div style={{display:"flex", alignItems:"center", gap:14}}>
-              <span style={{fontSize:22, color:"#B8922A"}}>✦</span>
-              <span style={{fontSize:11, letterSpacing:1.5, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", textTransform:"uppercase", color:"rgba(255,255,255,0.6)"}}>
-                {isRTL ? "احترام الجودة، تقديم الأفضل دائماً" : "Respect the Quality, Provide the Best"}
-              </span>
-            </div>
           </div>
 
           {/* Right quiz container */}
