@@ -12235,7 +12235,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
             <div style={{background:"linear-gradient(145deg, #FCFBF9 0%, #FFFFFF 60%, #F5F1E9 100%)",border:"1px solid #D4AF37",borderRadius:20,padding:24,boxShadow:"0 18px 45px rgba(37,23,55,0.07)"}}>
               <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",marginBottom:14}}>
                 <span style={{display:"inline-flex",alignItems:"center",gap:6,fontSize:11,fontWeight:800,color:"#896103",letterSpacing:"0.12em",textTransform:"uppercase"}}>
-                  <span>🎁</span> THE PRIZE • 96 BOTTLES OF KHADLAJ ISLAND 100ML
+                  THE PRIZE • 96 BOTTLES OF KHADLAJ ISLAND 100ML
                 </span>
                 <span style={{fontSize:11,color:"#166534",background:"#DCFCE7",border:"1px solid #86EFAC",padding:"2px 10px",borderRadius:12,fontWeight:700}}>
                   100% FREE ENTRY
@@ -12243,7 +12243,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
               </div>
               <div style={{display:"flex",gap:20,alignItems:"center"}}>
                 <div style={{width:105,height:120,background:"radial-gradient(circle, #FFFFFF 40%, #E8DFD1 100%)",borderRadius:12,display:"flex",alignItems:"center",justifyContent:"center",padding:6,flexShrink:0,border:"1px solid #EADDC9",boxShadow:"0 4px 15px rgba(0,0,0,0.06)"}}>
-                  <img src="assets/images/products/island-sun-transparent.png" alt="Khadlaj Island 100ml EDP" style={{maxWidth:"100%",maxHeight:"100%",objectFit:"contain"}}/>
+                  <img src="assets/images/products/island-standard-transparent.png" alt="Khadlaj Island 100ml EDP" style={{maxWidth:"100%",maxHeight:"100%",objectFit:"contain"}}/>
                 </div>
                 <div>
                   <h4 style={{fontFamily:"'Cinzel',serif",fontSize:18,color:"#251737",fontWeight:700,marginBottom:4}}>
