@@ -12254,7 +12254,6 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
                   </p>
                   <div style={{display:"flex",flexWrap:"wrap",gap:6,fontSize:11,fontWeight:600,color:"#896103"}}>
                     <span style={{background:"rgba(184,146,42,0.1)",padding:"2px 8px",borderRadius:4}}>✓ 96 Winners</span>
-                    <span style={{background:"rgba(184,146,42,0.1)",padding:"2px 8px",borderRadius:4}}>✓ Free KSA Shipping</span>
                     <span style={{background:"rgba(184,146,42,0.1)",padding:"2px 8px",borderRadius:4}}>✓ Announced on IG</span>
                   </div>
                 </div>
