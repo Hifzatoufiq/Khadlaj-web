@@ -1,13 +1,17 @@
 {
   "version": 2,
   "builds": [
+    { "src": "api/*.js", "use": "@vercel/node" },
     { "src": "index.html", "use": "@vercel/static" },
     { "src": "bundle-*.js", "use": "@vercel/static" },
     { "src": "assets/**", "use": "@vercel/static" },
     { "src": "video/**", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" },
+    { "src": "/api/chat/?", "dest": "/api/chat.js" },
+    { "src": "/api/scent-finder/?", "dest": "/api/scent-finder.js" },
+    { "src": "/api/giveaway(?:/.*)?", "dest": "/api/giveaway.js" },
+    { "src": "/api/(.+?)(?:\\.js)?$", "dest": "/api/$1.js" },
     { "src": "/video/(.*)", "dest": "/video/$1" },
     { "src": "/assets/(.*)", "dest": "/assets/$1" },
     { "src": "/bundle-(.*)\\.js", "dest": "/bundle-$1.js" },

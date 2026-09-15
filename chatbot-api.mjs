@@ -266,6 +266,15 @@ export async function handleChatRequest(req, res) {
     sendJson(res, 200, { ok: true });
     return;
   }
+  if (req.method === "GET") {
+    sendJson(res, 200, {
+      status: "online",
+      service: "Khadlaj Perfumes AI Concierge",
+      openaiConfigured: Boolean(process.env.OPENAI_API_KEY),
+      model: CHAT_MODEL
+    });
+    return;
+  }
   if (req.method !== "POST") {
     sendJson(res, 405, { error: "Method not allowed." });
     return;
@@ -298,6 +307,9 @@ export async function handleChatRequest(req, res) {
     return;
   }
 
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 7500);
+
   try {
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -313,7 +325,9 @@ export async function handleChatRequest(req, res) {
           ...conversation,
         ],
       }),
+      signal: controller.signal,
     });
+    clearTimeout(timeoutId);
 
     const data = await response.json().catch(() => null);
     if (!response.ok) {
@@ -330,6 +344,7 @@ export async function handleChatRequest(req, res) {
 
     sendJson(res, 200, { reply });
   } catch (error) {
+    clearTimeout(timeoutId);
     console.warn("OpenAI request error, falling back to Khadlaj knowledge base:", error);
     sendJson(res, 200, { reply: getKnowledgeBaseReply(lastUserMessage) });
   }

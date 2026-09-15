@@ -42,16 +42,39 @@ function sendJson(res, statusCode, payload) {
 
   if (typeof res.setHeader === "function") {
     for (const [key, value] of Object.entries(headers)) {
-      res.setHeader(key, value);
+      try {
+        res.setHeader(key, value);
+      } catch {}
     }
   }
 
-  if (typeof res.status === "function" && typeof res.json === "function") {
-    return res.status(statusCode).json(payload);
+  if (typeof res.status === "function") {
+    try {
+      const s = res.status(statusCode);
+      if (s && typeof s.json === "function") {
+        return s.json(payload);
+      }
+    } catch {}
   }
 
-  res.writeHead(statusCode, headers);
-  res.end(JSON.stringify(payload));
+  if (typeof res.json === "function") {
+    try {
+      if (typeof res.statusCode !== "undefined") {
+        res.statusCode = statusCode;
+      }
+      return res.json(payload);
+    } catch {}
+  }
+
+  if (typeof res.writeHead === "function") {
+    try {
+      res.writeHead(statusCode, headers);
+    } catch {}
+  }
+
+  if (typeof res.end === "function") {
+    return res.end(JSON.stringify(payload));
+  }
 }
 
 async function readJsonBody(req) {

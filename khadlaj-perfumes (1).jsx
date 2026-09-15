@@ -12833,6 +12833,55 @@ export default function App(){
   const [inputVal, setInputVal] = useState("");
   const [loading, setLoading] = useState(false);
 
+  const getKhadlajConciergeFallback = (query, rtl) => {
+    const q = (query || "").toLowerCase();
+    const arabic = rtl || /[\u0600-\u06FF]/.test(query);
+
+    if (q.includes("shiyaaka shadow") || q.includes("شياكة شادو")) {
+      return arabic
+        ? "عطر شياكة شادو (Shiyaaka Shadow) هو إحدى روائع دار خَدْلَج الأكثر تميزاً وفخامة. يجمع بين نفحات التوابل الدافئة، العود الملكي، والعنبر الفاخر مع لمسات المسك المخملي التي تمنحك حضوراً ساحراً يدوم طويلاً."
+        : "Shiyaaka Shadow is one of Khadlaj's crown jewels—an intense, captivating fragrance blending radiant warm spices, opulent royal oud, rich golden amber, and a lingering trail of velvety musk. Perfect for evening occasions.";
+    }
+    if (q.includes("island sun") || q.includes("آيلاند صن") || q.includes("ايلاند صن")) {
+      return arabic
+        ? "عطر آيلاند صن (Island Sun) بتركيز إكستري دي بارفان يقدم تناغماً صيفياً مشرقاً من المانجو الناضجة، حليب جوز الهند، الليم المنعش، زهور الياسمين وحبوب التونكا الفاخرة."
+        : "Island Sun Extrait De Parfum is a tropical sun-drenched masterpiece featuring vibrant mango, creamy coconut milk, zesty lime, exotic jasmine blossoms, tonka bean, and sunlit woods.";
+    }
+    if (q.includes("island") || q.includes("ايلاند") || q.includes("آيلاند")) {
+      return arabic
+        ? "تضم تشكيلة آيلاند (Island Collection) روائع استثنائية: Island Sun (مانجو وجوز هند)، Island Classic (حمضيات وأخشاب مائية)، و Island Dreams (برغموت وغريب فروت). جميعها بتركيز إكستري دي بارفان."
+        : "Our Island Collection includes Island Sun (Mango, Coconut & Tonka), Island Classic (Aquatic Citrus & Amber), and Island Dreams (Grapefruit & Ambroxan). All crafted as Extrait De Parfum for exceptional longevity.";
+    }
+    if (q.includes("shiyaaka") || q.includes("شياكة")) {
+      return arabic
+        ? "مجموعة شياكة الأيقونية تضم: شياكة شادو (عود وعنبر)، شياكة بلو (أكواتيك وعنبر)، شياكة مين (فوجير خشبي)، شياكة وايت (زهور ناعمة)، وشياكة سكاي وسنو (انتعاش حمضي وعصري)."
+        : "Our iconic Shiyaaka Collection includes: Shiyaaka Shadow (Oud & Amber), Shiyaaka Blue (Marine & Amberwood), Shiyaaka Men (Spicy Fougère & Cedar), Shiyaaka White (Powdery Florals), and Shiyaaka Sky & Snow (Fresh Citrus Breeze).";
+    }
+    if (q.includes("saraya") || q.includes("سرايا") || q.includes("karus") || q.includes("كاروس") || q.includes("oud") || q.includes("عود")) {
+      return arabic
+        ? "تشكيلة ماستر بيرفيومري ورويال عود من خَدْلَج تضم: عطر سرايا (عود ملكي وزعفران وورد جوري)، وعطر كاروس جولد أبسولو (عنبر ملكي وعود وخشب صندل فاخر)."
+        : "Our Master Perfumery & Royal Oud lines showcase our finest craftsmanship: Saraya (Royal Oud, Saffron & Damascena Rose) and Karus Gold Absolu (Opulent Amber, Golden Oud & Sandalwood).";
+    }
+    if (q.includes("delivery") || q.includes("shipping") || q.includes("توصيل") || q.includes("شحن") || q.includes("policy")) {
+      return arabic
+        ? "سياسة التوصيل لدى خَدْلَج: يتم شحن الطلبات خلال 1-2 يوم عمل. التوصيل مجاني داخل الإمارات للطلبات الأكثر من 200 درهم، مع توفر الشحن السريع لكافة دول الخليج العربي."
+        : "Khadlaj Delivery Policy: Orders are dispatched within 1-2 business days. Complimentary FREE express delivery across the UAE on orders above AED 200, with rapid GCC shipping available.";
+    }
+    if (q.includes("discount") || q.includes("code") || q.includes("promo") || q.includes("خصم") || q.includes("كود") || q.includes("كوبون")) {
+      return arabic
+        ? "يسعدنا تقديم كود الخصم الحصري 'KHADLAJ25' الذي يمنحك خصماً فورياً بقيمة 25% على كافة العطور عند إتمام طلبك!"
+        : "Enjoy our exclusive privilege: use code 'KHADLAJ25' at checkout to receive flat 25% off across all Khadlaj fragrance collections!";
+    }
+    if (q.includes("best") || q.includes("recommend") || q.includes("أفضل") || q.includes("ترشيح") || q.includes("اقتراح")) {
+      return arabic
+        ? "أبرز عطورنا الأكثر مبيعاً:\n1. عطر شياكة شادو (عود وعنبر ملكي فخم)\n2. عطر آيلاند صن (انتعاش استوائي مبهج بالمانجو وجوز الهند)\n3. عطر موفي (زهري راقٍ بالفانيليا واللوز)"
+        : "Top recommended customer favorites:\n1. Shiyaaka Shadow (Rich Royal Oud, Amber & Velvet Musk)\n2. Island Sun (Tropical Mango, Coconut & Exotic Tonka)\n3. Muse (Regal Orange Blossom, Orris & Vanilla Almond)";
+    }
+    return arabic
+      ? "أهلاً بك في دار خَدْلَج للعطور. أنا مستشارك العطري، يسعدني مساعدتك في اختيار عطرك المثالي أو استكشاف مجموعاتنا الحصرية ونوتاتها العطرية المميزة. كيف يمكنني خدمتك اليوم؟"
+      : "Welcome to Khadlaj Perfumes. As your dedicated luxury concierge, I am delighted to assist you with exploring our bespoke fragrance notes, finding your signature scent, or answering questions about our collections and shipping. How may I assist you today?";
+  };
+
   const sendChatMessage = async (overrideText) => {
     const text = (typeof overrideText === "string" ? overrideText : inputVal).trim();
     if (!text || loading) return;
@@ -12855,11 +12904,13 @@ export default function App(){
       if (response.ok && data.reply) {
         setMessages(prev => [...prev, { role: "assistant", content: data.reply }]);
       } else {
-        setMessages(prev => [...prev, { role: "assistant", content: data.error || "I am unable to answer right now. Please try again in a moment." }]);
+        const fallback = getKhadlajConciergeFallback(text, isRTL);
+        setMessages(prev => [...prev, { role: "assistant", content: (data && data.reply) || fallback }]);
       }
     } catch (err) {
-      console.error(err);
-      setMessages(prev => [...prev, { role: "assistant", content: "I am unable to connect right now. Please check your network connection and try again." }]);
+      console.warn("Chat API call fell back to local concierge:", err);
+      const fallback = getKhadlajConciergeFallback(text, isRTL);
+      setMessages(prev => [...prev, { role: "assistant", content: fallback }]);
     } finally {
       setLoading(false);
     }
