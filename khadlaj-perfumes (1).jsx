@@ -5229,8 +5229,8 @@ const GLOBAL_CSS = `
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700&family=Cairo:wght@400;600;700&display=swap');
   @import url('https://fonts.cdnfonts.com/css/trajan-pro');
   *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;}
-  body{background:#fff;color:#000;font-family:'Montserrat',sans-serif;overflow-x:clip;}
+  html{scroll-behavior:smooth;overflow-x:hidden !important;max-width:100% !important;width:100%;}
+  body{background:#fff;color:#000;font-family:'Montserrat',sans-serif;overflow-x:hidden !important;max-width:100% !important;width:100%;position:relative;}
   ::-webkit-scrollbar{width:3px;}
   ::-webkit-scrollbar-track{background:#fff;}
   ::-webkit-scrollbar-thumb{background:#000;}
@@ -5764,7 +5764,7 @@ const GLOBAL_CSS = `
       height: 48px !important;
     }
     .floating-chat-home {
-      bottom: 56px !important;
+      bottom: 20px !important;
     }
     .floating-chat-inner {
       bottom: 20px !important;
@@ -5781,9 +5781,9 @@ const GLOBAL_CSS = `
   @media(max-width: 600px) {
     .floating-whatsapp-btn {
       left: 14px !important;
-      bottom: 20px !important;
-      width: 42px !important;
-      height: 42px !important;
+      bottom: 18px !important;
+      width: 44px !important;
+      height: 44px !important;
     }
     .floating-whatsapp-btn svg {
       width: 23px !important;
@@ -5795,17 +5795,17 @@ const GLOBAL_CSS = `
       height: 46px !important;
     }
     .floating-chat-home {
-      bottom: 52px !important;
+      bottom: 18px !important;
     }
     .floating-chat-inner {
-      bottom: 16px !important;
+      bottom: 18px !important;
     }
     .floating-chat-window {
       right: 10px !important;
       left: 10px !important;
       width: auto !important;
       max-width: none !important;
-      bottom: 66px !important;
+      bottom: 70px !important;
       height: 72vh !important;
       max-height: 540px !important;
     }
@@ -6736,6 +6736,193 @@ const GLOBAL_CSS = `
     border-radius: 4px 14px 14px 14px !important;
   }
 
+  /* ═══════════════════════════════════════════════════════════════
+     LUXURY TRUST STRIP (WHY KHADLAJ) & MOBILE RESPONSIVENESS
+  ═══════════════════════════════════════════════════════════════ */
+  .trust-strip-section {
+    background: #FAF8F5;
+    border-bottom: 1px solid #ECE7DE;
+    padding: 50px 5% 64px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .trust-strip-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+  .trust-card {
+    padding: 32px 20px;
+    background: #FFFFFF;
+    border: 1px solid #ECE6DB;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 2px 8px rgba(37, 23, 55, 0.03);
+    box-sizing: border-box;
+    width: 100%;
+  }
+  .trust-card:hover {
+    transform: translateY(-4px);
+    border-color: #B8922A;
+    box-shadow: 0 12px 28px rgba(184, 146, 42, 0.1);
+  }
+  .trust-icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(235, 218, 168, 0.22) 0%, rgba(184, 146, 42, 0.08) 100%);
+    border: 1.5px solid rgba(184, 146, 42, 0.28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px auto;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+  .trust-card:hover .trust-icon-circle {
+    transform: scale(1.08);
+    border-color: #B8922A;
+  }
+  .trust-card-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #251737;
+    letter-spacing: 1px;
+    font-family: 'Cinzel', 'Trajan Pro', serif;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    line-height: 1.35;
+  }
+  .trust-card-desc {
+    font-size: 11.5px;
+    color: #6F6776;
+    line-height: 1.55;
+    font-family: 'Montserrat', sans-serif;
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
+  /* Responsive Trust Strip */
+  @media(max-width: 900px) {
+    .trust-strip-section {
+      padding: 36px 4% 64px !important;
+    }
+    .trust-strip-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 12px !important;
+    }
+    .trust-card {
+      padding: 20px 12px !important;
+      border-radius: 10px !important;
+    }
+    .trust-icon-circle {
+      width: 42px !important;
+      height: 42px !important;
+      margin-bottom: 10px !important;
+    }
+    .trust-icon-circle svg {
+      width: 20px !important;
+      height: 20px !important;
+    }
+    .trust-card-title {
+      font-size: 10.5px !important;
+      letter-spacing: 0.6px !important;
+      margin-bottom: 6px !important;
+    }
+    .trust-card-desc {
+      font-size: 10px !important;
+      line-height: 1.45 !important;
+      max-width: none !important;
+    }
+    .review-card {
+      padding: 20px 14px !important;
+    }
+    .review-card p {
+      font-size: 12px !important;
+      margin: 10px 0 !important;
+      line-height: 1.5 !important;
+    }
+  }
+
+  @media(max-width: 600px) {
+    .trust-strip-section {
+      padding: 26px 12px 76px !important;
+    }
+    .trust-strip-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 8px !important;
+    }
+    .trust-card {
+      padding: 16px 8px !important;
+      border-radius: 8px !important;
+    }
+    .trust-icon-circle {
+      width: 38px !important;
+      height: 38px !important;
+      margin-bottom: 8px !important;
+    }
+    .trust-icon-circle svg {
+      width: 19px !important;
+      height: 19px !important;
+    }
+    .trust-card-title {
+      font-size: 9.5px !important;
+      letter-spacing: 0.4px !important;
+      margin-bottom: 4px !important;
+      line-height: 1.25 !important;
+    }
+    .trust-card-desc {
+      font-size: 8.8px !important;
+      line-height: 1.35 !important;
+    }
+  }
+
+  @media(max-width: 350px) {
+    .trust-strip-grid {
+      grid-template-columns: 1fr !important;
+      gap: 8px !important;
+    }
+    .trust-card {
+      padding: 14px 10px !important;
+    }
+  }
+
+  /* Announcement Text Responsive */
+  .announcement-text {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  @media(max-width: 768px) {
+    .announcement-text {
+      white-space: normal !important;
+      letter-spacing: 0.6px !important;
+      font-size: 9px !important;
+      line-height: 1.35 !important;
+      padding: 2px 4px !important;
+      text-align: center !important;
+    }
+  }
+
+  [dir="rtl"] .trust-card-title {
+    font-family: 'Cairo', sans-serif !important;
+    letter-spacing: 0 !important;
+    font-size: 11.5px !important;
+  }
+  [dir="rtl"] .trust-card-desc {
+    font-family: 'Tajawal', sans-serif !important;
+    font-size: 11px !important;
+  }
+
 `;
 
 /* ═══════════════════════════════════════════════════════════════
@@ -7664,6 +7851,7 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
         {maxIndex > 0 && (
           <>
             <button
+              className="hide-mob"
               onClick={prevSlide}
               aria-label="Previous Slide"
               style={{
@@ -7704,6 +7892,7 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
             </button>
 
             <button
+              className="hide-mob"
               onClick={nextSlide}
               aria-label="Next Slide"
               style={{
@@ -8181,7 +8370,7 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
       </section>
       {/* ── SCENT FINDER QUIZ (AI POWERED) ── */}
       <section style={{background:"#251737", padding:"96px 5%", color:"#fff", borderTop:"1px solid rgba(255,255,255,0.08)", position:"relative", zIndex:1}}>
-        <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(320px, 1fr))", gap:64, alignItems:"center"}} className="hero-split">
+        <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 320px), 1fr))", gap:64, alignItems:"center"}} className="hero-split">
           
           {/* Left info column */}
           <div>
@@ -8450,10 +8639,10 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
       {/* ── TESTIMONIALS ── */}
       <section style={{background:"#251737",padding:"64px 5%"}}>
         <SectionHeader eyebrow={isRTL ? "آراء العملاء" : "Reviews"} title={t("connoisseursTitle", "Loved Across the World")} sub={t("connoisseursSubtitle", "Real stories from fragrance lovers around the world.")} light={true} />
-        <div className="grid-4" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:1,background:"rgba(255,255,255,.15)"}}>
+        <div className="grid-4 review-grid" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:1,background:"rgba(255,255,255,.15)"}}>
           {REVIEWS.map((r,i)=>(
             <a href={r.url || "#"} target="_blank" rel="noopener noreferrer" key={i} style={{textDecoration:"none", color:"inherit"}}>
-              <div style={{background:"#251737",padding:"32px 24px",display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center",transition:"background 0.3s ease", height:"100%"}} onMouseEnter={e=>e.currentTarget.style.background="rgba(255,255,255,0.03)"} onMouseLeave={e=>e.currentTarget.style.background="#251737"}>
+              <div className="review-card" style={{background:"#251737",padding:"32px 24px",display:"flex",flexDirection:"column",alignItems:"center",textAlign:"center",transition:"background 0.3s ease", height:"100%"}} onMouseEnter={e=>e.currentTarget.style.background="rgba(255,255,255,0.03)"} onMouseLeave={e=>e.currentTarget.style.background="#251737"}>
                 <StarRating n={r.stars} color="#B8922A"/>
                 <p style={{fontSize:14,color:"rgba(255,255,255,0.85)",lineHeight:1.6,margin:"16px 0",fontStyle:"italic",fontWeight:300,fontFamily:"'Montserrat',sans-serif"}}>"{isRTL && r.textAr ? r.textAr : r.text}"</p>
                 <div style={{marginTop:"auto"}}>
@@ -8466,54 +8655,64 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
         </div>
       </section>
 
-
-{/* ── WHY KHADLAJ — Trust strip ── */}
-      <section style={{background:"#fff",borderBottom:"1px solid #E8E4DC",padding:"40px 5% 80px",position:"relative",zIndex:1}}>
-        <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:24,textAlign:"center"}} className="grid-4">
-          {[
-            {
-              icon:<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(184,146,42,0.03)" /><path d="M12 22V12" /><path d="M12 12c2-2.5 4-3 5-5-2 .5-4.5 2-5 5z" fill="rgba(184,146,42,0.1)" /><path d="M12 12c-2-2.5-4-3-5-5 2 .5 4.5 2 5 5z" fill="rgba(184,146,42,0.1)" /><path d="M12 15c1.5-1.5 3-1.8 3.8-3-.8.3-2.2 1-3.8 3z" /><path d="M12 15c-1.5-1.5-3-1.8-3.8-3 .8.3 2.2 1 3.8 3z" /></svg>,
-              title: isRTL ? "مكونات طبيعية ونادرة" : "Natural Ingredients",
-              desc: isRTL ? "ورد الطائف، عود كمبودي، زنبق فرنسي — من مصادر أصيلة ونقية" : "Taif roses, Cambodian oud, French iris — ethically sourced"
-            },
-            {
-              icon:<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(184,146,42,0.03)" /><polygon points="12 6 13.5 9.5 17 9.5 14 11.5 15.5 15 12 13 8.5 15 10 11.5 7 9.5 10.5 9.5 12 6" fill="rgba(184,146,42,0.15)" /></svg>,
-              title: isRTL ? "دار عطور حائزة على جوائز" : "Award-Winning",
-              desc: isRTL ? "دار عطور عريقة ومعتمدة منذ عام 1997 في أكثر من 90 دولة حول العالم" : "Recognised fragrance house since 1997 across 90+ countries"
-            },
-            {
-              icon:<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(184,146,42,0.03)" /><rect x="6" y="8" width="8" height="6" rx="1" fill="rgba(184,146,42,0.1)" /><path d="M14 9h3l2 2v3h-5V9z" /><circle cx="8.5" cy="16.5" r="1.5" fill="#B8922A" /><circle cx="15.5" cy="16.5" r="1.5" fill="#B8922A" /></svg>,
-              title: isRTL ? "توصيل مجاني وسريع" : "Complimentary Delivery",
-              desc: isRTL ? "شحن مجاني لكافة الطلبات الأكثر من 150 SAR" : "Free shipping on all orders above SAR 150"
-            },
-            {
-              icon:<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" fill="rgba(184,146,42,0.03)" /><rect x="6" y="8" width="12" height="8" rx="1" fill="rgba(184,146,42,0.1)" /><path d="M6 11h12M12 8v8" /><path d="M12 8c-.8-1-2.2-1.5-2.2-.5s1.2 1 2.2.5c.8-1 2.2-1.5 2.2-.5s-1.2 1-2.2.5z" /></svg>,
-              title: isRTL ? "تغليف فاخر للإهداء" : "Luxury Packaging",
-              desc: isRTL ? "كل طلبية تصلك بتغليف خدلج الفاخر والمثالي للإهداء" : "Every order arrives gift-ready in premium Khadlaj packaging"
-            },
-          ].map((item,i)=>(
-            <div key={i} style={{
-              padding:"40px 28px",
-              background:"#FCFBFA",
-              border:"1px solid #F0ECE6",
-              transition:"all .3s cubic-bezier(0.25, 0.8, 0.25, 1)",
-            }}
-            onMouseEnter={e=>{
-              e.currentTarget.style.transform="translateY(-6px)";
-              e.currentTarget.style.borderColor="#B8922A";
-              e.currentTarget.style.boxShadow="0 16px 36px rgba(184,146,42,0.08)";
-            }}
-            onMouseLeave={e=>{
-              e.currentTarget.style.transform="translateY(0)";
-              e.currentTarget.style.borderColor="#F0ECE6";
-              e.currentTarget.style.boxShadow="none";
-            }}
-            >
-              <div style={{marginBottom:22,display:"flex",justifyContent:"center"}}>{item.icon}</div>
-              <p style={{fontSize:11,fontWeight:600,color:"#251737",letterSpacing:2,fontFamily:"'Montserrat',sans-serif",marginBottom:12,textTransform:"uppercase"}}>{item.title}</p>
-              <p style={{fontSize:12,color:"#777",lineHeight:1.7,fontFamily:"'Montserrat',sans-serif",maxWidth:220,margin:"0 auto"}}>{item.desc}</p>
-            </div>
-          ))}
+      {/* ── WHY KHADLAJ — Luxury Trust Strip ── */}
+      <section className="trust-strip-section">
+        <div className="max-container">
+          <div className="trust-strip-grid">
+            {[
+              {
+                icon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 22V12" />
+                    <path d="M12 12c2-2.5 4-3 5-5-2 .5-4.5 2-5 5z" fill="rgba(184,146,42,0.12)" />
+                    <path d="M12 12c-2-2.5-4-3-5-5 2 .5 4.5 2 5 5z" fill="rgba(184,146,42,0.12)" />
+                    <path d="M12 15c1.5-1.5 3-1.8 3.8-3-.8.3-2.2 1-3.8 3z" />
+                    <path d="M12 15c-1.5-1.5-3-1.8-3.8-3 .8.3 2.2 1 3.8 3z" />
+                  </svg>
+                ),
+                title: isRTL ? "مكونات طبيعية وأصيلة" : "Natural Ingredients",
+                desc: isRTL ? "ورد الطائف، عود كمبودي، زنبق فرنسي — من مصادر أصيلة ونقية" : "Taif roses, Cambodian oud, French iris — ethically sourced"
+              },
+              {
+                icon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <polygon points="12 4 14.5 8.5 19 9 15.5 12.5 16.5 17 12 14.5 7.5 17 8.5 12.5 5 9 9.5 8.5 12 4" fill="rgba(184,146,42,0.15)" />
+                  </svg>
+                ),
+                title: isRTL ? "دار عطور عالمية معتمدة" : "Award-Winning",
+                desc: isRTL ? "دار عطور عريقة ومعتمدة منذ عام 1997 في أكثر من 90 دولة حول العالم" : "Recognised fragrance house since 1997 across 90+ countries"
+              },
+              {
+                icon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="7" width="11" height="8" rx="1.5" fill="rgba(184,146,42,0.08)" />
+                    <path d="M14 10h4l2.5 3v2h-6.5V10z" fill="rgba(184,146,42,0.15)" />
+                    <circle cx="7.5" cy="17" r="2" fill="#B8922A" />
+                    <circle cx="16.5" cy="17" r="2" fill="#B8922A" />
+                  </svg>
+                ),
+                title: isRTL ? "توصيل سريع ومجاني" : "Complimentary Delivery",
+                desc: isRTL ? "شحن مجاني لكافة الطلبات الأكثر من 150 SAR" : "Free shipping on all orders above SAR 150"
+              },
+              {
+                icon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="4" y="9" width="16" height="11" rx="2" fill="rgba(184,146,42,0.08)" />
+                    <path d="M4 13h16M12 9v11" />
+                    <path d="M12 9c-.8-1-2.2-1.5-2.2-.5s1.2 1 2.2.5c.8-1 2.2-1.5 2.2-.5s-1.2 1-2.2.5z" fill="rgba(184,146,42,0.2)" />
+                  </svg>
+                ),
+                title: isRTL ? "تغليف هدايا فاخر" : "Luxury Packaging",
+                desc: isRTL ? "كل طلبية تصلك بتغليف خدلج الفاخر والمثالي للإهداء" : "Every order arrives gift-ready in premium Khadlaj packaging"
+              },
+            ].map((item,i)=>(
+              <div key={i} className="trust-card">
+                <div className="trust-icon-circle">{item.icon}</div>
+                <h4 className="trust-card-title">{item.title}</h4>
+                <p className="trust-card-desc">{item.desc}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -10882,7 +11081,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
             fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",
             textTransform:"uppercase", fontWeight:600,
             textAlign:"center", flex:1,
-            color:"#fff", whiteSpace:"nowrap",
+            color:"#fff",
           }}>
             {t("freeShippingNotice", "FREE SHIPPING ON ORDERS ABOVE SAR 150")}
           </p>
@@ -11997,7 +12196,7 @@ function KSACampaignPage({ setPage, addToCart, setViewProduct }){
 
       {/* Hero Section */}
       <section style={{maxWidth:1280,margin:"0 auto",padding:"50px 24px 80px"}}>
-        <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(320px, 1fr))",gap:50,alignItems:"start"}}>
+        <div className="grid-2" style={{display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 320px), 1fr))",gap:50,alignItems:"start"}}>
           
           {/* Left Column: Narrative & National Day Giveaway Entry Ticket */}
           <div style={{display:"flex",flexDirection:"column",gap:26}}>

@@ -103,7 +103,7 @@ export async function handleGiveawayRequest(req, res) {
       return;
     }
 
-    const { name, phone, email, city, address, scentPreference } = body;
+    const { name, phone, email, instagram, city, address, scentPreference } = body;
 
     if (!name?.trim() || !phone?.trim() || !email?.trim() || !city?.trim() || !address?.trim()) {
       sendJson(res, 422, {
@@ -139,6 +139,7 @@ export async function handleGiveawayRequest(req, res) {
       name: name.trim(),
       phone: phone.trim(),
       email: cleanEmail,
+      instagram: instagram ? instagram.trim() : "",
       city: city.trim(),
       address: address.trim(),
       scentPreference: scentPreference || "Royal Oud & Amber",
@@ -210,7 +211,7 @@ export async function handleGiveawayRequest(req, res) {
     const winnerRecord = {
       ...chosen,
       drawnAt: new Date().toISOString(),
-      prize: "500 Luxury Fragrance Discovery Sets",
+      prize: "96 Bottles of Khadlaj Island 100ml EDP",
       announcementChannel: "Instagram Stories (@khadlajperfumes)",
     };
 
@@ -235,12 +236,13 @@ export async function handleGiveawayRequest(req, res) {
     }
 
     const entries = await loadEntries();
-    const headers = ["Ticket Number", "Full Name", "Phone", "Email", "City", "Delivery Address", "Scent Preference", "Date"];
+    const headers = ["Ticket Number", "Full Name", "Phone", "Email", "Instagram", "City", "Delivery Address", "Scent Preference", "Date"];
     const rows = entries.map((e) => [
       `"${e.ticketNumber}"`,
       `"${(e.name || "").replace(/"/g, '""')}"`,
       `"${(e.phone || "").replace(/"/g, '""')}"`,
       `"${(e.email || "").replace(/"/g, '""')}"`,
+      `"${(e.instagram || "").replace(/"/g, '""')}"`,
       `"${(e.city || "").replace(/"/g, '""')}"`,
       `"${(e.address || "").replace(/"/g, '""')}"`,
       `"${(e.scentPreference || "").replace(/"/g, '""')}"`,
