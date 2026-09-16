@@ -95,4 +95,15 @@ for root, dirs, files in os.walk(theme_dir):
         zipf.write(file_path, arcname)
 zipf.close()
 
-print('khadlaj-theme.zip created successfully!')
+# 6. Also sync to root folders for native Shopify GitHub auto-sync
+for d in ['layout', 'templates', 'config']:
+    dst = d
+    if os.path.exists(dst):
+        shutil.rmtree(dst)
+    shutil.copytree(os.path.join(theme_dir, d), dst)
+
+for f in os.listdir(os.path.join(theme_dir, 'assets')):
+    shutil.copy2(os.path.join(theme_dir, 'assets', f), os.path.join('assets', f))
+
+print('khadlaj-theme.zip created successfully and root Shopify theme structure updated!')
+

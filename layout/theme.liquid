@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ shop.name }}</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  {{ content_for_header }}
+  {{ 'index.css' | asset_url | stylesheet_tag }}
+  <script>
+    window.__VIDEO_URL__ = "{{ 'website-update-web-version.mp4' | asset_url }}";
+    window.__SHIYAAKA_VIDEO_URL__ = "{{ 'shiyaaka-sky-approved.mp4' | asset_url }}";
+  </script>
+</head>
+<body>
+  <div id="preloader">
+    <img src="https://hifzatoufiq.github.io/Khadlaj-web/assets/images/purple-logo.png?v=2" alt="Khadlaj Logo" class="vip-logo" />
+    <div class="vip-loader-bar"></div>
+  </div>
+  {{ content_for_layout }}
+  <script src="{{ 'bundle-v230-shopify.js' | asset_url }}"></script>
+</body>
+</html>
