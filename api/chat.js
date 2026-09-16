@@ -1,4 +1,5 @@
-const DEFAULT_KEY = Buffer.from("c2stcHJvai02enZQbHpBT3lzbUVMYXVmZnZibE40WXJ0Tm0xd0lveG1oYlpXcTlpTGZUTWhvT1phZXNrV0Y5SGxOZGVBR2Zwb21peG1CaWxMMlQzQmxia0ZKZU5YQTBUUTZJWHZPUHVnX0JhekhKNk1LbVFSNEpoZUVXRnQxMnhoQ1BXdno2TjhweWQtckx0N0ktZVVGMF9FM3Y0SHBpenFyVUE=", "base64").toString("utf-8");
+const DEFAULT_KEY = Buffer.from("c2stcHJvai1BZG04MW5JLXY2akowT3F4MVphblRjMzg3R1d2eUg4UEV5eTMxbFoxaEUwbXNxMFBTbXI4TW02enFsWm9FQ0lqQXNMcWFYc1JWb1QzQmxia0ZKa1JCVGdKRkF1RHdKWVd4bElZWXFDck1ueW1qWFpPekxWLW9pWFgzbDNfM1Y2OC1tYXRkQXByR1hkZXljNmRHY1pneTVNT2dxd0E=", "base64").toString("utf-8");
+
 
 const SITE_CONTEXT = [
   "Brand: Khadlaj Perfumes (UAE luxury fragrance house established in 1997 by Mohamed Iqbal Abdul Sattar).",
