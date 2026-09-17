@@ -6112,11 +6112,11 @@ const GLOBAL_CSS = `
   }
   
   .k25-card-title { 
-    font-family: 'Playfair Display', serif; font-size: 34px; color: #fff; margin-bottom: 6px; letter-spacing: 3px;
+    font-family: 'Playfair Display', serif; font-size: 34px; color: #fff; margin-bottom: 24px; letter-spacing: 3px;
     background: linear-gradient(to right, #ffffff, #C8A97E, #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
     background-size: 200% auto; animation: shine 5s linear infinite;
   }
-  .k25-card-subtitle { font-size: 10px; color: #C8A97E; letter-spacing: 5px; margin-bottom: 20px; text-transform: uppercase; font-weight: 500; }
+  .k25-card-subtitle { display: none !important; }
   .k25-card-desc { font-family: 'Montserrat', sans-serif; font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 30px; padding: 0 10px; }
   
   /* Creative Animated Button */
@@ -8229,7 +8229,6 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
                   </div>
                   <div className="k25-card-content">
                     <h3 className="k25-card-title">{isRTL && item.nameAr ? item.nameAr : item.name}</h3>
-                    <p className="k25-card-subtitle">{isRTL && item.subtitleAr ? item.subtitleAr : item.subtitle}</p>
                     <button className="k25-card-btn" onClick={() => {
                       if (setSelectedCollection) setSelectedCollection("shiyaaka");
                       setPage("collection-view");

@@ -1,6 +1,3 @@
-const DEFAULT_KEY = Buffer.from("c2stcHJvai1BZG04MW5JLXY2akowT3F4MVphblRjMzg3R1d2eUg4UEV5eTMxbFoxaEUwbXNxMFBTbXI4TW02enFsWm9FQ0lqQXNMcWFYc1JWb1QzQmxia0ZKa1JCVGdKRkF1RHdKWVd4bElZWXFDck1ueW1qWFpPekxWLW9pWFgzbDNfM1Y2OC1tYXRkQXByR1hkZXljNmRHY1pneTVNT2dxd0E=", "base64").toString("utf-8");
-
-
 const SITE_CONTEXT = [
   "Brand: Khadlaj Perfumes (UAE luxury fragrance house established in 1997 by Mohamed Iqbal Abdul Sattar).",
   "Heritage: 25+ years of master perfumery combining Arabian heritage with French craftsmanship.",
@@ -328,7 +325,7 @@ module.exports = async function handler(req, res) {
   }
 
   const lastUserMessage = [...conversation].reverse().find(m => m.role === "user")?.content || "";
-  const apiKey = (process.env.OPENAI_API_KEY || "").trim() || DEFAULT_KEY;
+  const apiKey = (process.env.OPENAI_API_KEY || "").trim();
   const chatModel = (process.env.OPENAI_CHAT_MODEL || "").trim() || "gpt-4o-mini";
 
   if (!apiKey) {

@@ -1,6 +1,4 @@
-const DEFAULT_KEY = Buffer.from("c2stcHJvai1BZG04MW5JLXY2akowT3F4MVphblRjMzg3R1d2eUg4UEV5eTMxbFoxaEUwbXNxMFBTbXI4TW02enFsWm9FQ0lqQXNMcWFYc1JWb1QzQmxia0ZKa1JCVGdKRkF1RHdKWVd4bElZWXFDck1ueW1qWFpPekxWLW9pWFgzbDNfM1Y2OC1tYXRkQXByR1hkZXljNmRHY1pneTVNT2dxd0E=", "base64").toString("utf-8");
-
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY || DEFAULT_KEY;
+const OPENAI_API_KEY = (process.env.OPENAI_API_KEY || "").trim();
 const CHAT_MODEL = process.env.OPENAI_CHAT_MODEL || "gpt-4o-mini";
 
 const SITE_CONTEXT = [

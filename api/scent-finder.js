@@ -1,5 +1,3 @@
-const DEFAULT_KEY = Buffer.from("c2stcHJvai02enZQbHpBT3lzbUVMYXVmZnZibE40WXJ0Tm0xd0lveG1oYlpXcTlpTGZUTWhvT1phZXNrV0Y5SGxOZGVBR2Zwb21peG1CaWxMMlQzQmxia0ZKZU5YQTBUUTZJWHZPUHVnX0JhekhKNk1LbVFSNEpoZUVXRnQxMnhoQ1BXdno2TjhweWQtckx0N0ktZVVGMF9FM3Y0SHBpenFyVUE=", "base64").toString("utf-8");
-
 const SCENT_CATALOG = [
   {
     id: 9200000000010,
@@ -263,7 +261,7 @@ module.exports = async function handler(req, res) {
   const customNotes = typeof body.customNotes === "string" ? body.customNotes.trim() : "";
   const lang = typeof body.lang === "string" ? body.lang.trim() : "en";
 
-  const apiKey = (process.env.OPENAI_API_KEY || "").trim() || DEFAULT_KEY;
+  const apiKey = (process.env.OPENAI_API_KEY || "").trim();
   const chatModel = (process.env.OPENAI_CHAT_MODEL || "").trim() || "gpt-4o-mini";
 
   if (!apiKey) {
