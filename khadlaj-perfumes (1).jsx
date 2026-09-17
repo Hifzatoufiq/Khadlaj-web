@@ -5379,52 +5379,18 @@ const GLOBAL_CSS = `
 
   @media(max-width: 900px) {
     .nav-sticky-wrapper.nav-home-fixed {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 100 !important;
+    }
+    .nav-sticky-wrapper.nav-inner-sticky {
       position: sticky !important;
       top: 0 !important;
-    }
-    .nav-home-fixed nav {
-      background: rgba(255, 255, 255, 0.97) !important;
-      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.08) !important;
-      border-bottom: 1px solid rgba(232, 228, 220, 0.6) !important;
-    }
-    .nav-home-fixed .nav-logo-box {
-      height: 44px !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-    }
-    .nav-home-fixed .nav-logo-box.logo-top .nav-logo-horizontal,
-    .nav-home-fixed .nav-logo-box.logo-scrolled .nav-logo-horizontal,
-    .nav-home-fixed .nav-logo-horizontal {
-      opacity: 1 !important;
-      pointer-events: auto !important;
-      display: block !important;
-      width: clamp(100px, 30vw, 125px) !important;
-      max-height: 38px !important;
-    }
-    .nav-home-fixed .nav-logo-box.logo-top .nav-logo-vertical,
-    .nav-home-fixed .nav-logo-box.logo-scrolled .nav-logo-vertical,
-    .nav-home-fixed .nav-logo-vertical {
-      opacity: 0 !important;
-      pointer-events: none !important;
-      display: none !important;
-    }
-    .nav-home-fixed .mob-burger svg line {
-      stroke: #251737 !important;
-    }
-    .nav-home-fixed .mob-burger span {
-      background: #251737 !important;
-    }
-    .nav-home-fixed .mob-search-left svg,
-    .nav-home-fixed .nav-right-icons svg {
-      stroke: #251737 !important;
-      filter: none !important;
-    }
-    .nav-home-fixed .mob-lang-btn {
-      background: rgba(184, 146, 42, 0.1) !important;
-      border: 1.2px solid #B8922A !important;
-      color: #251737 !important;
-      box-shadow: none !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 100 !important;
     }
 
     .hero-first-scroll-wrap {
@@ -5638,9 +5604,59 @@ const GLOBAL_CSS = `
     .mob-lang-btn {
       display: inline-flex !important;
     }
-    .hide-mob-divider {
+    .nav-divider-line {
+      display: block !important;
+      margin-top: 2px !important;
+      margin-bottom: 6px !important;
+    }
+    .nav-links-bar {
+      display: flex !important;
+      justify-content: flex-start !important;
+      overflow-x: auto !important;
+      white-space: nowrap !important;
+      padding: 4px 2px 8px !important;
+      gap: 16px !important;
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+      -webkit-overflow-scrolling: touch !important;
+    }
+    .nav-links-bar::-webkit-scrollbar {
       display: none !important;
     }
+    .nav-links-bar .nav-link {
+      font-size: 10.5px !important;
+      letter-spacing: 1.2px !important;
+      padding-bottom: 4px !important;
+      flex-shrink: 0 !important;
+    }
+    [dir="rtl"] .nav-links-bar .nav-link {
+      font-size: 12.5px !important;
+      letter-spacing: 0 !important;
+    }
+  }
+
+  .nav-links-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(16px, 2.2vw, 32px);
+    padding-bottom: 14px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    transition: color 0.35s ease, padding-bottom 0.35s ease;
+  }
+  [dir="rtl"] .nav-links-bar {
+    font-family: 'Cairo', sans-serif;
+    font-size: 14.5px;
+    letter-spacing: 0;
+  }
+  .nav-divider-line {
+    width: 100%;
+    height: 1px;
+    transition: all 0.35s ease;
   }
 
   @media(max-width: 600px) {
@@ -11402,8 +11418,8 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
             </div>
           </div>
 
-          {/* Thin divider line (cleanly spaced so it never touches the logo) */}
-          <div className="hide-mob-divider" style={{
+          {/* Divider line */}
+          <div className="nav-divider-line" style={{
             width: "100%",
             height: 1,
             background: isTransparent ? "rgba(255,255,255,0.22)" : "rgba(232,228,220,0.6)",
@@ -11412,20 +11428,8 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
             transition: "all 0.35s ease"
           }} />
 
-          {/* Desktop Nav Links */}
-          <div className={`hide-mob ${isTransparent ? 'nav-transparent' : ''}`} style={{
-            display:"flex",
-            justifyContent:"center",
-            gap: "clamp(16px, 2.2vw, 32px)",
-            paddingBottom: isTransparent ? 16 : 10,
-            fontSize: isRTL ? "14.5px" : "12px",
-            letterSpacing: isRTL ? "0" : "1.5px",
-            textTransform:"uppercase",
-            color: isTransparent ? "#fff" : "#251737",
-            fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",
-            fontWeight:600,
-            transition:"color 0.35s ease, padding-bottom 0.35s ease"
-          }}>
+          {/* Nav Links Bar */}
+          <div className={`nav-links-bar ${isTransparent ? 'nav-transparent' : ''}`}>
             {[
               { label: t("home", "Home"), pg: "main" },
               { label: t("bestSellers", "Best Sellers"), pg: "collections", cat: "Best Sellers" },
