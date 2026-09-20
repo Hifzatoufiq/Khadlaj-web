@@ -11427,32 +11427,6 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                </div>
              </div>
 
-             {/* FREQUENTLY BOUGHT TOGETHER (Minimalist) */}
-             <div style={{marginBottom:48, paddingTop:24, borderTop:"1px solid #eee"}}>
-               <h3 style={{fontSize:11, fontWeight:500, color:"#555", textTransform:"uppercase", letterSpacing:1.5, marginBottom:24, fontFamily:"'Montserrat',sans-serif"}}>{isRTL ? "غالباً ما يُشترى معاً" : "Frequently Bought Together"}</h3>
-               <div style={{display:"flex", alignItems:"center", gap:16, marginBottom:24}}>
-                  <div style={{width:56, height:56, background:"#FAFAFA", display:"flex", alignItems:"center", justifyContent:"center"}}>
-                    <img loading="lazy" decoding="async" src={getOptimizedImage(product.img,700)} style={{maxHeight:"90%", maxWidth:"90%", objectFit:"contain", mixBlendMode:"multiply"}} alt="Product 1" />
-                  </div>
-                  <span style={{fontSize:14, color:"#ccc", fontWeight:300}}>+</span>
-                  <div style={{width:56, height:56, background:"#FAFAFA", display:"flex", alignItems:"center", justifyContent:"center"}}>
-                    <img decoding="async" src={getOptimizedImage(PRODUCTS[4].img,700)} style={{maxHeight:"90%", maxWidth:"90%", objectFit:"contain", mixBlendMode:"multiply"}} alt="Product 2" />
-                  </div>
-                  <div style={{marginLeft: isRTL ? 0 : "auto", marginRight: isRTL ? "auto" : 0, textAlign: isRTL ? "left" : "right"}}>
-                    <div style={{fontSize:10, color:"#999", textDecoration:"line-through", fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(product.price + PRODUCTS[4].price + 20)}</div>
-                    <div style={{fontSize:14, fontWeight:500, color:"#111", fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(product.price + PRODUCTS[4].price)}</div>
-                  </div>
-               </div>
-               <button 
-                 onClick={()=>{addToCart(product,1); addToCart(PRODUCTS[4],1); setAdded(true); setTimeout(()=>setAdded(false),2200);}}
-                 style={{width:"100%", height:40, background:"#fff", border:"1px solid #ddd", color:"#111", textTransform:"uppercase", letterSpacing:1.5, fontSize:10, fontWeight:500, cursor:"pointer", transition:"all 0.3s", fontFamily:"'Montserrat',sans-serif"}}
-                 onMouseEnter={e=>{e.currentTarget.style.border="1px solid #111";}}
-                 onMouseLeave={e=>{e.currentTarget.style.border="1px solid #ddd";}}
-               >
-                 {isRTL ? "أضف المجموعة إلى الحقيبة" : "Add Bundle to Bag"}
-               </button>
-             </div>
-
              {/* SLEEK TRUST BADGES */}
              <div style={{display:"flex", justifyContent:"space-between", marginBottom:48, paddingTop:24, borderTop:"1px solid #eee"}}>
                <div style={{display:"flex", flexDirection:"column", alignItems:"center", gap:8, fontSize:9, color:"#777", fontFamily:"'Montserrat',sans-serif", textTransform:"uppercase", letterSpacing:1.5}}>
