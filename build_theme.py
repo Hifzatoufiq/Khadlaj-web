@@ -75,12 +75,7 @@ with open('bundle-v230.js', 'r', encoding='utf-8') as f:
 shutil.copy('assets/videos/website-update-web-version.mp4', os.path.join(theme_dir, 'assets', 'website-update-web-version.mp4'))
 shutil.copy('assets/videos/shiyaaka-sky-approved.mp4', os.path.join(theme_dir, 'assets', 'shiyaaka-sky-approved.mp4'))
 
-# Replace local image paths with absolute github pages paths so they work in Shopify!
-bundle_code = bundle_code.replace('"/assets/', '"https://hifzatoufiq.github.io/Khadlaj-web/assets/')
-bundle_code = bundle_code.replace("'./assets/", "'https://hifzatoufiq.github.io/Khadlaj-web/assets/")
-bundle_code = bundle_code.replace('"./assets/', '"https://hifzatoufiq.github.io/Khadlaj-web/assets/')
-bundle_code = bundle_code.replace("'/assets/", "'https://hifzatoufiq.github.io/Khadlaj-web/assets/")
-
+# Write bundle directly without breaking github string replacements
 with open(os.path.join(theme_dir, 'assets', 'bundle-v230-shopify.js'), 'w', encoding='utf-8') as f:
     f.write(bundle_code)
 
