@@ -9712,13 +9712,20 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
           <video
             ref={heroVideoRef}
             className="hero-video"
-            src={window.__VIDEO_URL__ || "https://cdn.shopify.com/videos/c/o/v/72cc17c9b4814387bc03c19cae9c00e2.mp4"}
+            src={window.__VIDEO_URL__ || resolveAsset("website-update-web-version.mp4") || "https://cdn.shopify.com/videos/c/o/v/72cc17c9b4814387bc03c19cae9c00e2.mp4"}
             autoPlay
             muted={isMuted}
             loop
             playsInline
             webkit-playsinline="true"
             preload="auto"
+            onError={(e) => {
+              console.warn("Hero video error, falling back to backup CDN");
+              if (e.target.src !== "https://cdn.shopify.com/videos/c/o/v/72cc17c9b4814387bc03c19cae9c00e2.mp4") {
+                e.target.src = "https://cdn.shopify.com/videos/c/o/v/72cc17c9b4814387bc03c19cae9c00e2.mp4";
+                e.target.play().catch(() => {});
+              }
+            }}
             onCanPlay={() => window.hidePreloader && window.hidePreloader()}
             onLoadedData={() => window.hidePreloader && window.hidePreloader()}
             style={{
