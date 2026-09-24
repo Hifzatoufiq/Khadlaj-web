@@ -279,6 +279,12 @@ export function resolveAsset(url) {
   const filename = clean.split('/').pop();
 
   if (typeof window !== 'undefined') {
+    if (filename.includes('purple-logo')) {
+      return window.__PURPLE_LOGO__ || (window.__THEME_ASSETS__ && window.__THEME_ASSETS__['purple-logo.png']) || PURPLE_LOGO_BASE64;
+    }
+    if (filename.includes('horizontal-logo')) {
+      return window.__HORIZONTAL_LOGO__ || (window.__THEME_ASSETS__ && window.__THEME_ASSETS__['khadlaj-horizontal-logo.png']) || HORIZONTAL_LOGO_BASE64;
+    }
     if (window.__THEME_ASSETS__ && window.__THEME_ASSETS__[filename]) {
       return window.__THEME_ASSETS__[filename];
     }
@@ -9033,6 +9039,11 @@ function NewLaunchesHeroBannerSlider({ setPage, setViewProduct, setSelectedColle
                 src={resolveAsset(b.img)}
                 alt={b.title}
                 className="banner-slide-img"
+                onError={(e) => {
+                  const fname = b.img.split('/').pop();
+                  const fb = (window.__THEME_ASSETS__ && window.__THEME_ASSETS__[fname]) || (window.__SHOPIFY_ASSET_BASE__ && (window.__SHOPIFY_ASSET_BASE__ + fname));
+                  if (fb && fb !== e.currentTarget.src) e.currentTarget.src = fb;
+                }}
                 style={{
                   width: "100%",
                   height: "100%",
@@ -9351,6 +9362,11 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
                 <img
                   src={resolveAsset(c.img)}
                   alt={c.title}
+                  onError={(e) => {
+                    const fname = c.img.split('/').pop();
+                    const fb = (window.__THEME_ASSETS__ && window.__THEME_ASSETS__[fname]) || (window.__SHOPIFY_ASSET_BASE__ && (window.__SHOPIFY_ASSET_BASE__ + fname));
+                    if (fb && fb !== e.currentTarget.src) e.currentTarget.src = fb;
+                  }}
                   style={{
                     width: "100%",
                     height: "100%",
@@ -9696,7 +9712,7 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
           <video
             ref={heroVideoRef}
             className="hero-video"
-            src={window.__VIDEO_URL__ || "./assets/videos/website-update-web-version.mp4"}
+            src={window.__VIDEO_URL__ || "https://cdn.shopify.com/videos/c/o/v/72cc17c9b4814387bc03c19cae9c00e2.mp4"}
             autoPlay
             muted={isMuted}
             loop
@@ -9947,7 +9963,7 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
 
         {/* Right Video Area */}
         <div style={{flex:"1 1 50%", minWidth:300, position:"relative", minHeight:"600px"}}>
-          <video src={window.__SHIYAAKA_VIDEO_URL__ || "/assets/videos/shiyaaka-sky-approved.mp4"} autoPlay loop muted playsInline preload="auto" style={{position:"absolute", width:"100%", height:"100%", objectFit:"cover"}} />
+          <video src={window.__SHIYAAKA_VIDEO_URL__ || "https://cdn.shopify.com/videos/c/o/v/b4e5160153fa483f8fed33709d1b26cc.mp4"} autoPlay loop muted playsInline preload="auto" style={{position:"absolute", width:"100%", height:"100%", objectFit:"cover"}} />
         </div>
       </section>
 
@@ -10620,6 +10636,11 @@ function DedicatedCollectionPage({ collectionKey = "island", addToCart, setViewP
               src={resolveAsset(config.banner)}
               alt={isRTL && config.titleAr ? config.titleAr : config.title}
               className="collection-banner-img"
+              onError={(e) => {
+                const fname = config.banner.split('/').pop();
+                const fb = (window.__THEME_ASSETS__ && window.__THEME_ASSETS__[fname]) || (window.__SHOPIFY_ASSET_BASE__ && (window.__SHOPIFY_ASSET_BASE__ + fname));
+                if (fb && fb !== e.currentTarget.src) e.currentTarget.src = fb;
+              }}
               style={{
                 width:"100%",
                 height:"auto",
@@ -10860,6 +10881,10 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
               src={resolveAsset("/assets/images/banners/deals_desktop.png")}
               alt={activeCat === "Home & Ambience" ? "Home & Ambience - Special Deals" : "Special Deals & Offers"}
               className="collection-banner-img"
+              onError={(e) => {
+                const fb = (window.__THEME_ASSETS__ && window.__THEME_ASSETS__['deals_desktop.png']) || (window.__SHOPIFY_ASSET_BASE__ && (window.__SHOPIFY_ASSET_BASE__ + 'deals_desktop.png'));
+                if (fb && fb !== e.currentTarget.src) e.currentTarget.src = fb;
+              }}
               style={{
                 width:"100%",
                 height:"auto",
@@ -12943,9 +12968,10 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
             <div onClick={()=>setPage("main")} className={`nav-logo-box ${isTransparent ? 'logo-top' : 'logo-scrolled'}`}>
               {/* Stacked Vertical Logo (Top / Transparent mode) - Restored large size */}
               <img
-                src={PURPLE_LOGO_BASE64}
+                src={window.__PURPLE_LOGO__ || resolveAsset("purple-logo.png") || PURPLE_LOGO_BASE64}
                 alt="Khadlaj Perfumes"
                 className="nav-logo-vertical"
+                onError={(e) => { if (e.currentTarget.src !== PURPLE_LOGO_BASE64) e.currentTarget.src = PURPLE_LOGO_BASE64; }}
                 style={{
                   opacity: isTransparent ? 1 : 0,
                   pointerEvents: isTransparent ? "auto" : "none",
@@ -12954,9 +12980,10 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
 
               {/* Horizontal Logo (Scrolled mode) - Extra large & prominent */}
               <img
-                src={HORIZONTAL_LOGO_BASE64}
+                src={window.__HORIZONTAL_LOGO__ || resolveAsset("khadlaj-horizontal-logo.png") || HORIZONTAL_LOGO_BASE64}
                 alt="Khadlaj Perfumes"
                 className="nav-logo-horizontal"
+                onError={(e) => { if (e.currentTarget.src !== HORIZONTAL_LOGO_BASE64) e.currentTarget.src = HORIZONTAL_LOGO_BASE64; }}
                 style={{
                   opacity: isTransparent ? 0 : 1,
                   pointerEvents: isTransparent ? "none" : "auto",

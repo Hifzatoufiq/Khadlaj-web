@@ -4,7 +4,7 @@ import fs from 'fs';
 await esbuild.build({
   entryPoints: ['main.jsx'],
   bundle: true,
-  outfile: 'bundle-v230.js',
+  outfile: 'bundle-v232.js',
   format: 'iife',
   loader: { '.jsx': 'jsx', '.js': 'js' },
   jsxFactory: 'React.createElement',
@@ -13,19 +13,24 @@ await esbuild.build({
   minify: true,
 });
 
-fs.copyFileSync('bundle-v230.js', 'bundle-v229.js');
-fs.copyFileSync('bundle-v230.js', 'bundle-v228.js');
-fs.copyFileSync('bundle-v230.js', 'bundle-v227.js');
-fs.copyFileSync('bundle-v230.js', 'bundle-v226.js');
-fs.copyFileSync('bundle-v230.js', 'bundle-v225.js');
-fs.copyFileSync('bundle-v230.js', 'bundle-v224.js');
-fs.copyFileSync('bundle-v230.js', 'bundle-v223.js');
-fs.copyFileSync('bundle-v230.js', 'bundle-v222.js');
-fs.copyFileSync('bundle-v230.js', 'bundle-v221.js');
-fs.copyFileSync('bundle-v230.js', 'bundle-v220.js');
-fs.copyFileSync('bundle-v230.js', 'bundle-v219.js');
-fs.copyFileSync('bundle-v230.js', 'bundle-v209.js');
-fs.copyFileSync('bundle-v230.js', 'bundle-v208.js');
-console.log('Build OK - Generated bundle-v230.js and synced previous bundles');
+fs.copyFileSync('bundle-v232.js', 'bundle-v230.js');
+fs.copyFileSync('bundle-v232.js', 'bundle-v233-sep23.js');
+if (fs.existsSync('khadlaj-theme/assets')) {
+  fs.copyFileSync('bundle-v232.js', 'khadlaj-theme/assets/bundle-v232-shopify.js');
+  fs.copyFileSync('bundle-v232.js', 'khadlaj-theme/assets/bundle-v230-shopify.js');
+}
+if (fs.existsSync('assets')) {
+  fs.copyFileSync('bundle-v232.js', 'assets/bundle-v232-shopify.js');
+  fs.copyFileSync('bundle-v232.js', 'assets/bundle-v230-shopify.js');
+}
+if (fs.existsSync('khadlaj-sa-theme/assets')) {
+  fs.copyFileSync('bundle-v232.js', 'khadlaj-sa-theme/assets/bundle-v230-shopify.js');
+  fs.copyFileSync('bundle-v232.js', 'khadlaj-sa-theme/assets/bundle-v233-sep23.js');
+}
+if (fs.existsSync('scratch/theme_154187956385/assets')) {
+  fs.copyFileSync('bundle-v232.js', 'scratch/theme_154187956385/assets/bundle-v230-shopify.js');
+  fs.copyFileSync('bundle-v232.js', 'scratch/theme_154187956385/assets/bundle-v233-sep23.js');
+}
+console.log('Build OK - Generated bundle-v233-sep23.js & synced theme assets');
 
 
