@@ -35,18 +35,29 @@ const C = {
   shadow:    "rgba(0,0,0,.06)",
 };
 
+// Runtime safe secret loader - dynamic injection only, no hardcoded secrets
+const _getConciergeSec = () => {
+  try {
+    return (typeof window !== "undefined" && (window.__KHADLAJ_AI_KEY__ || window.ENV?.OPENAI_API_KEY)) || "";
+  } catch (e) {
+    return "";
+  }
+};
+
 /* ═══════════════════════════════════════════════════════════════
    DATA
 ═══════════════════════════════════════════════════════════════ */
+const ARABIC_COUNTRIES = ["KSA", "UAE", "Kuwait", "Egypt"];
+
 const COUNTRIES = [
-  { name:"KSA",      nameAr:"السعودية", flagUrl:FLAG_SA, currency:"SAR", currencyAr:"SAR", rate:1.021 },
-  { name:"UAE",      nameAr:"الإمارات", flagUrl:FLAG_AE, currency:"AED", currencyAr:"د.إ", rate:1 },
-  { name:"Kuwait",   nameAr:"الكويت",   flagUrl:FLAG_KW, currency:"KWD", currencyAr:"د.ك", rate:0.08 },
-  { name:"India",    nameAr:"الهند",    flagUrl:FLAG_IN, currency:"INR", currencyAr:"ر.ه", rate:22.5 },
+  { name:"KSA",      nameAr:"السعودية", flagUrl:FLAG_SA, currency:"SAR", currencyAr:"SAR", rate:1, link: "https://khadlaj-perfumes.sa" },
+  { name:"UAE",      nameAr:"الإمارات", flagUrl:FLAG_AE, currency:"AED", currencyAr:"د.إ", rate:1, link: "https://khadlaj-perfumes.com" },
+  { name:"Kuwait",   nameAr:"الكويت",   flagUrl:FLAG_KW, currency:"KWD", currencyAr:"د.ك", rate:0.08, link: "https://kw.khadlaj-perfumes.com" },
   { name:"Egypt",    nameAr:"مصر",      flagUrl:FLAG_EG, currency:"EGP", currencyAr:"ج.م", rate:13.2 },
-  { name:"Malaysia", nameAr:"ماليزيا",  flagUrl:FLAG_MY, currency:"MYR", currencyAr:"ر.م", rate:1.25 },
-  { name:"UK",       nameAr:"المملكة المتحدة", flagUrl:FLAG_GB, currency:"GBP", currencyAr:"£", rate:0.21 },
-  { name:"USA",      nameAr:"أمريكا",   flagUrl:FLAG_US, currency:"USD", currencyAr:"$", rate:0.27 },
+  { name:"India",    nameAr:"الهند",    flagUrl:FLAG_IN, currency:"INR", currencyAr:"₹", rate:22.5, link: "https://khadlaj-perfumes.in" },
+  { name:"UK",       nameAr:"المملكة المتحدة", flagUrl:FLAG_GB, currency:"GBP", currencyAr:"£", rate:0.21, link: "https://khadlaj-perfumes.co.uk" },
+  { name:"Malaysia", nameAr:"ماليزيا",  flagUrl:FLAG_MY, currency:"MYR", currencyAr:"RM", rate:1.25, link: "https://my.khadlaj-perfumes.com" },
+  { name:"USA",      nameAr:"أمريكا",   flagUrl:FLAG_US, currency:"USD", currencyAr:"$", rate:0.27, link: "https://khadlaj-perfumes.us" },
   { name:"Global",   nameAr:"دولي",     flagUrl:"global", currency:"USD", currencyAr:"$", rate:0.27 },
 ];
 const CountryContext = React.createContext();
@@ -274,6 +285,7 @@ const _CDN = CLOUDINARY_CLOUD
 export function resolveAsset(url) {
   if (!url || typeof url !== 'string') return url;
   if (url.startsWith('data:') || url.startsWith('blob:')) return url;
+  if (url.startsWith('http://') || url.startsWith('https://')) return url;
   
   const clean = url.split('?')[0];
   const filename = clean.split('/').pop();
@@ -502,7 +514,7 @@ const PRODUCTS = [
       "Sky Breeze",
       "Cedarwood"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/shiyaaka-snow.png?v=1781615422",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka_Shadow-3_bef3b7fa-b2c9-4ec5-adcc-0b3f9ac42034.jpg?v=1783941783",
     "detailImages": [
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/shiyaaka-snow.png?v=1781615422",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka_Shadow-3_bef3b7fa-b2c9-4ec5-adcc-0b3f9ac42034.jpg?v=1783941783",
@@ -839,7 +851,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-3.jpg?v=1779352383",
+    "img": "/assets/images/gifsets/cream_velvet_nobox.png",
     "detailImages": [
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-3.jpg?v=1779352383",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-1.jpg?v=1779352383",
@@ -863,7 +875,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/TheGourmandCollection-3_36392120-d1dc-489b-8fff-992c3945e6e1.jpg?v=1776147258",
+    "img": "/assets/images/gifsets/gourmand_nobox.png",
     "detailImages": [
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/TheGourmandCollection-3_36392120-d1dc-489b-8fff-992c3945e6e1.jpg?v=1776147258",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/TheGourmandCollection-1_4e12f62b-1669-4513-9c53-0515dde14336.jpg?v=1776146949",
@@ -887,7 +899,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy1.jpg?v=1767169755",
+    "img": "/assets/images/gifsets/cloud_candy_nobox.png",
     "detailImages": [
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy1.jpg?v=1767169755",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy3.jpg?v=1767169755",
@@ -911,7 +923,7 @@ const PRODUCTS = [
       "Island Classic",
       "Gift Set"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island1.jpg?v=1767168752",
+    "img": "/assets/images/gifsets/island_gift_transparent.png",
     "detailImages": [
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island1.jpg?v=1767168752",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Island2.jpg?v=1767168643",
@@ -1231,7 +1243,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/titan.png?v=1781615569",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/TITAN-3.jpg?v=1783942163",
     "detailImages": [
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/titan.png?v=1781615569",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/TITAN-3.jpg?v=1783942163",
@@ -2572,11 +2584,11 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_HAREEM_AL_SULTAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964508.jpg?v=1722409460",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_HAREEM_AL_SULTAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964510.jpg?v=1722409465",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_HAREEM_AL_SULTAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964508.jpg?v=1722409460",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_HAREEM_AL_SULTAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964510.jpg?v=1722409465"
-    ]
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_HAREEM_AL_SULTAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964510.jpg?v=1722409465",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_HAREEM_AL_SULTAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964508.jpg?v=1722409460"
+]
   },
   {
     "id": 8092502786247,
@@ -2694,12 +2706,12 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ASTER_ECSTACY_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964479.jpg?v=1722409415",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ASTER_ECSTACY_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964483.jpg?v=1722409420",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ASTER_ECSTACY_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964479.jpg?v=1722409415",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ASTER_ECSTACY_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964483.jpg?v=1722409420",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ASTER_ECSTACY_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964479.jpg?v=1722409415",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ASTER_ECSTACY_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964486.jpg?v=1722409424"
-    ]
+]
   },
   {
     "id": 8036476453063,
@@ -2712,13 +2724,13 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_QISSA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964615.jpg?v=1722409613",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_QISSA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964618.jpg?v=1722409619",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_QISSA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964615.jpg?v=1722409613",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_QISSA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964618.jpg?v=1722409619",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_QISSA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964615.jpg?v=1722409613",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_QISSA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964622.jpg?v=1722409626",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_QISSA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964627.jpg?v=1722409633"
-    ]
+]
   },
   {
     "id": 8034253078727,
@@ -2775,7 +2787,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LE_PRESTIGE_EMPRESS_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965236.jpg?v=1722410776",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LE_PRESTIGE_EMPRESS_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965241.jpg?v=1783948693",
     "detailImages": [
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LE_PRESTIGE_EMPRESS_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965236.jpg?v=1722410776",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LE_PRESTIGE_EMPRESS_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965241.jpg?v=1783948693",
@@ -2796,7 +2808,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LE_PRESTIGE_KING_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965253.jpg?v=1722410808",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LE_PRESTIGE_KING_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965257.jpg?v=1783948286",
     "detailImages": [
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LE_PRESTIGE_KING_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965253.jpg?v=1722410808",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LE_PRESTIGE_KING_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965257.jpg?v=1783948286",
@@ -2835,12 +2847,12 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_AL_MAJALIS_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964465.jpg?v=1722409395",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_AL_MAJALIS_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964470.jpg?v=1722409402",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_AL_MAJALIS_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964465.jpg?v=1722409395",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_AL_MAJALIS_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964470.jpg?v=1722409402",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_AL_MAJALIS_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964465.jpg?v=1722409395",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_AL_MAJALIS_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964474.jpg?v=1722409409"
-    ]
+]
   },
   {
     "id": 7923498844359,
@@ -2853,12 +2865,12 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_SHAMOOKH_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964639.jpg?v=1722409649",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_SHAMOOKH_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964643.jpg?v=1722409655",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_SHAMOOKH_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964639.jpg?v=1722409649",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_SHAMOOKH_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964643.jpg?v=1722409655",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_SHAMOOKH_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964639.jpg?v=1722409649",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_SHAMOOKH_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964647.jpg?v=1722409662"
-    ]
+]
   },
   {
     "id": 7887478096071,
@@ -3248,7 +3260,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/EMPIRE_VICTOR_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964405.jpg?v=1722409315",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/EMPIRE_VICTOR_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964409.jpg?v=1783950572",
     "detailImages": [
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/EMPIRE_VICTOR_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964405.jpg?v=1722409315",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/EMPIRE_VICTOR_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964409.jpg?v=1783950572",
@@ -3371,11 +3383,11 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_HAREEM_AL_SULTAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964508.jpg?v=1722409460",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_HAREEM_AL_SULTAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964510.jpg?v=1722409465",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_HAREEM_AL_SULTAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964508.jpg?v=1722409460",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_HAREEM_AL_SULTAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964510.jpg?v=1722409465"
-    ]
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_HAREEM_AL_SULTAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964510.jpg?v=1722409465",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_HAREEM_AL_SULTAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964508.jpg?v=1722409460"
+]
   },
   {
     "id": 7792441295047,
@@ -3388,7 +3400,7 @@ const PRODUCTS = [
     "notes": [
       "Perfume oil"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/RIMAAL_GREEN_15_ML_-_Khadlaj_Perfumes-1965844.jpg?v=1776231685",
+    "img": "/assets/images/products/rimaal-green-bottle.jpg",
     "detailImages": [
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/RIMAAL_GREEN_15_ML_-_Khadlaj_Perfumes-1965844.jpg?v=1776231685",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/RIMAAL_GREEN_15_ML_-_Khadlaj_Perfumes-1965849.jpg?v=1776231685",
@@ -3407,7 +3419,7 @@ const PRODUCTS = [
     "notes": [
       "Perfume oil"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/RIMAAL_BROWN_15_ML_-_Khadlaj_Perfumes-1965826.jpg?v=1776231735",
+    "img": "/assets/images/products/rimaal-brown-bottle.jpg",
     "detailImages": [
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/RIMAAL_BROWN_15_ML_-_Khadlaj_Perfumes-1965826.jpg?v=1776231735",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/RIMAAL_BROWN_15_ML_-_Khadlaj_Perfumes-1965830.jpg?v=1776231735",
@@ -3428,7 +3440,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/WOW_OUD_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1966168.jpg?v=1722412594",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/WOW_OUD_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1966161.jpg?v=1722412579",
     "detailImages": [
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/WOW_OUD_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1966168.jpg?v=1722412594",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/WOW_OUD_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1966157.jpg?v=1722412573",
@@ -3449,7 +3461,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/GAITH_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964684.jpg?v=1722409719",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/GAITH_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964674.jpg?v=1722409704",
     "detailImages": [
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/GAITH_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964684.jpg?v=1722409719",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/GAITH_100_ML_EDP_SPRAY_-_Khadlaj_Perfumes-1964668.jpg?v=1722409698",
@@ -3662,13 +3674,13 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_HAREEM_AL_SULTAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964514.jpg?v=1722409470",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_HAREEM_AL_SULTAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964518.jpg?v=1722409478",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_HAREEM_AL_SULTAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964514.jpg?v=1722409470",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_HAREEM_AL_SULTAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964518.jpg?v=1722409478",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_HAREEM_AL_SULTAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964514.jpg?v=1722409470",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_HAREEM_AL_SULTAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964522.jpg?v=1722409483",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_HAREEM_AL_SULTAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964526.jpg?v=1722409488"
-    ]
+]
   },
   {
     "id": 7721533669575,
@@ -3920,102 +3932,6 @@ const PRODUCTS = [
     "detailImages": [
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BUKHOOR_AL_BAHAAR_GOLD_55_G_-_Khadlaj_Perfumes-1964226.jpg?v=1722409036",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BUKHOOR_AL_BAHAAR_GOLD_55_G_-_Khadlaj_Perfumes-1964230.jpg?v=1722409041"
-    ]
-  },
-  {
-    "id": 7639215079623,
-    "name": "Mesmerizing Perfume Oil Set of 3 for Him & Her",
-    "col": "Perfume Oils",
-    "price": 69,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Deals"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Mesmerizing_Perfume_Oil_Set_of_3_for_Him_Her_-_Khadlaj_Perfumes-1965424.jpg?v=1722411133",
-    "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Mesmerizing_Perfume_Oil_Set_of_3_for_Him_Her_-_Khadlaj_Perfumes-1965424.jpg?v=1722411133"
-    ]
-  },
-  {
-    "id": 7638902571207,
-    "name": "Amazing Perfume Oil Set of 4 for Him",
-    "col": "Perfume Oils",
-    "price": 89,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Deals"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Amazing_Perfume_Oil_Set_of_4_for_Him_-_Khadlaj_Perfumes-1963945.jpg?v=1722408612",
-    "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Amazing_Perfume_Oil_Set_of_4_for_Him_-_Khadlaj_Perfumes-1963945.jpg?v=1722408612"
-    ]
-  },
-  {
-    "id": 7638901752007,
-    "name": "Enchant all with our Perfume Oil Set of 4 for Her",
-    "col": "Perfume Oils",
-    "price": 92,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Deals"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Enchant_all_with_our_Perfume_Oil_Set_of_4_for_Her_-_Khadlaj_Perfumes-1964431.jpg?v=1722409351",
-    "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Enchant_all_with_our_Perfume_Oil_Set_of_4_for_Her_-_Khadlaj_Perfumes-1964431.jpg?v=1722409351"
-    ]
-  },
-  {
-    "id": 7638899622087,
-    "name": "Exquisite Perfume Oil Set for Him and Her",
-    "col": "Perfume Oils",
-    "price": 69,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Deals"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Exquisite_Perfume_Oil_Set_for_Him_and_Her_-_Khadlaj_Perfumes-1964439.jpg?v=1722409361",
-    "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Exquisite_Perfume_Oil_Set_for_Him_and_Her_-_Khadlaj_Perfumes-1964439.jpg?v=1722409361"
-    ]
-  },
-  {
-    "id": 7638896869575,
-    "name": "Finest Perfume Oil Set for Him",
-    "col": "Perfume Oils",
-    "price": 69,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Deals"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Finest_Perfume_Oil_Set_for_Him_-_Khadlaj_Perfumes-1964454.jpg?v=1722409380",
-    "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Finest_Perfume_Oil_Set_for_Him_-_Khadlaj_Perfumes-1964454.jpg?v=1722409380"
-    ]
-  },
-  {
-    "id": 7638896181447,
-    "name": "Luxurious Perfume Oil Set of 3 for Him",
-    "col": "Perfume Oils",
-    "price": 61,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Deals"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Luxurious_Perfume_Oil_Set_of_3_for_Him_-_Khadlaj_Perfumes-1965279.jpg?v=1722410854",
-    "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Luxurious_Perfume_Oil_Set_of_3_for_Him_-_Khadlaj_Perfumes-1965279.jpg?v=1722410854"
     ]
   },
   {
@@ -4510,11 +4426,11 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_DALOUAA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964497.jpg?v=1722409440",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_DALOUAA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964500.jpg?v=1722409444",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_DALOUAA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964497.jpg?v=1722409440",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_DALOUAA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964500.jpg?v=1722409444"
-    ]
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_DALOUAA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964500.jpg?v=1722409444",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_DALOUAA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964497.jpg?v=1722409440"
+]
   },
   {
     "id": 7554137391303,
@@ -4527,11 +4443,11 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ZAHOOR_AL_KHALEEJ_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964652.jpg?v=1722409670",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ZAHOOR_AL_KHALEEJ_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964657.jpg?v=1722409676",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ZAHOOR_AL_KHALEEJ_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964652.jpg?v=1722409670",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ZAHOOR_AL_KHALEEJ_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964657.jpg?v=1722409676"
-    ]
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ZAHOOR_AL_KHALEEJ_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964657.jpg?v=1722409676",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ZAHOOR_AL_KHALEEJ_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964652.jpg?v=1722409670"
+]
   },
   {
     "id": 7554137456839,
@@ -4544,11 +4460,11 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ROMANCIA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964632.jpg?v=1722409638",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ROMANCIA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964635.jpg?v=1722409643",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ROMANCIA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964632.jpg?v=1722409638",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ROMANCIA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964635.jpg?v=1722409643"
-    ]
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ROMANCIA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964635.jpg?v=1722409643",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ROMANCIA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964632.jpg?v=1722409638"
+]
   },
   {
     "id": 7554137555143,
@@ -4561,11 +4477,11 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAKHMALI_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964589.jpg?v=1722409575",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAKHMALI_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964592.jpg?v=1722409579",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAKHMALI_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964589.jpg?v=1722409575",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAKHMALI_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964592.jpg?v=1722409579"
-    ]
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAKHMALI_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964592.jpg?v=1722409579",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAKHMALI_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964589.jpg?v=1722409575"
+]
   },
   {
     "id": 7554137522375,
@@ -4578,11 +4494,11 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MUSKY_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964602.jpg?v=1722409594",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MUSKY_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964605.jpg?v=1722409598",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MUSKY_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964602.jpg?v=1722409594",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MUSKY_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964605.jpg?v=1722409598"
-    ]
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MUSKY_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964605.jpg?v=1722409598",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MUSKY_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964602.jpg?v=1722409594"
+]
   },
   {
     "id": 7554137489607,
@@ -4595,11 +4511,11 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_NASEEM_AL_WARD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964609.jpg?v=1722409603",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_NASEEM_AL_WARD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964612.jpg?v=1722409609",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_NASEEM_AL_WARD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964609.jpg?v=1722409603",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_NASEEM_AL_WARD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964612.jpg?v=1722409609"
-    ]
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_NASEEM_AL_WARD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964612.jpg?v=1722409609",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_NASEEM_AL_WARD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964609.jpg?v=1722409603"
+]
   },
   {
     "id": 7554137915591,
@@ -4632,11 +4548,11 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_LA_YUQAWAM_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964537.jpg?v=1722409501",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_LA_YUQAWAM_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964541.jpg?v=1722409506",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_LA_YUQAWAM_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964537.jpg?v=1722409501",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_LA_YUQAWAM_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964541.jpg?v=1722409506"
-    ]
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_LA_YUQAWAM_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964541.jpg?v=1722409506",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_LA_YUQAWAM_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964537.jpg?v=1722409501"
+]
   },
   {
     "id": 7554138505415,
@@ -4725,11 +4641,11 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MUKHALLAT_SHUYOOKHI_AIR_FRESHENER_320_ML_-_Khadlaj_Perfumes-1964596.jpg?v=1722409584",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MUKHALLAT_SHUYOOKHI_AIR_FRESHENER_320_ML_-_Khadlaj_Perfumes-1964599.jpg?v=1722409589",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MUKHALLAT_SHUYOOKHI_AIR_FRESHENER_320_ML_-_Khadlaj_Perfumes-1964596.jpg?v=1722409584",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MUKHALLAT_SHUYOOKHI_AIR_FRESHENER_320_ML_-_Khadlaj_Perfumes-1964599.jpg?v=1722409589"
-    ]
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MUKHALLAT_SHUYOOKHI_AIR_FRESHENER_320_ML_-_Khadlaj_Perfumes-1964599.jpg?v=1722409589",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MUKHALLAT_SHUYOOKHI_AIR_FRESHENER_320_ML_-_Khadlaj_Perfumes-1964596.jpg?v=1722409584"
+]
   },
   {
     "id": 7554138865863,
@@ -4900,11 +4816,11 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_KHAWATER_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964565.jpg?v=1722409542",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_KHAWATER_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964568.jpg?v=1722409547",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_KHAWATER_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964565.jpg?v=1722409542",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_KHAWATER_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964568.jpg?v=1722409547"
-    ]
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_KHAWATER_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964568.jpg?v=1722409547",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_KHAWATER_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964565.jpg?v=1722409542"
+]
   },
   {
     "id": 7554204631239,
@@ -4917,11 +4833,11 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_OUD_AL_AHBAB_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964571.jpg?v=1722409552",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_OUD_AL_AHBAB_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964575.jpg?v=1722409556",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_OUD_AL_AHBAB_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964571.jpg?v=1722409552",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_OUD_AL_AHBAB_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964575.jpg?v=1722409556"
-    ]
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_OUD_AL_AHBAB_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964575.jpg?v=1722409556",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_OUD_AL_AHBAB_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964571.jpg?v=1722409552"
+]
   },
   {
     "id": 7554204532935,
@@ -4934,11 +4850,11 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_SILVER_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964579.jpg?v=1722409561",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_SILVER_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964583.jpg?v=1722409570",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_SILVER_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964579.jpg?v=1722409561",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_SILVER_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964583.jpg?v=1722409570"
-    ]
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_SILVER_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964583.jpg?v=1722409570",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_SILVER_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964579.jpg?v=1722409561"
+]
   },
   {
     "id": 7554204500167,
@@ -4951,11 +4867,11 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ZAHRET_AL_LAILAK_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964660.jpg?v=1722409681",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ZAHRET_AL_LAILAK_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964664.jpg?v=1722409686",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ZAHRET_AL_LAILAK_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964660.jpg?v=1722409681",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ZAHRET_AL_LAILAK_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964664.jpg?v=1722409686"
-    ]
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ZAHRET_AL_LAILAK_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964664.jpg?v=1722409686",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_ZAHRET_AL_LAILAK_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964660.jpg?v=1722409681"
+]
   },
   {
     "id": 7554204860615,
@@ -4968,11 +4884,11 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_ABAYA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964545.jpg?v=1722409511",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_ABAYA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964548.jpg?v=1722409516",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_ABAYA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964545.jpg?v=1722409511",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_ABAYA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964548.jpg?v=1722409516"
-    ]
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_ABAYA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964548.jpg?v=1722409516",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_ABAYA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964545.jpg?v=1722409511"
+]
   },
   {
     "id": 7554204827847,
@@ -4985,11 +4901,11 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_AL_RIYAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964551.jpg?v=1722409524",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_AL_RIYAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964555.jpg?v=1722409529",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_AL_RIYAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964551.jpg?v=1722409524",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_AL_RIYAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964555.jpg?v=1722409529"
-    ]
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_AL_RIYAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964555.jpg?v=1722409529",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_AL_RIYAN_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964551.jpg?v=1722409524"
+]
   },
   {
     "id": 7554204729543,
@@ -5002,11 +4918,11 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_GOLD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964559.jpg?v=1722409533",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_GOLD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964561.jpg?v=1722409537",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_GOLD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964559.jpg?v=1722409533",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_GOLD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964561.jpg?v=1722409537"
-    ]
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_GOLD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964561.jpg?v=1722409537",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_MAHASIN_GOLD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964559.jpg?v=1722409533"
+]
   },
   {
     "id": 7554204991687,
@@ -5019,11 +4935,11 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_AL_ABYAD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964458.jpg?v=1722409385",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_AL_ABYAD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964462.jpg?v=1722409389",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_AL_ABYAD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964458.jpg?v=1722409385",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_AL_ABYAD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964462.jpg?v=1722409389"
-    ]
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_AL_ABYAD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964462.jpg?v=1722409389",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_AL_ABYAD_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964458.jpg?v=1722409385"
+]
   },
   {
     "id": 7554204958919,
@@ -5036,11 +4952,11 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_BINT_AKABIR_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964490.jpg?v=1722409430",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_BINT_AKABIR_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964493.jpg?v=1722409435",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_BINT_AKABIR_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964490.jpg?v=1722409430",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_BINT_AKABIR_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964493.jpg?v=1722409435"
-    ]
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_BINT_AKABIR_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964493.jpg?v=1722409435",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_BINT_AKABIR_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964490.jpg?v=1722409430"
+]
   },
   {
     "id": 7554204926151,
@@ -5053,11 +4969,11 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_FARFASHA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964503.jpg?v=1722409449",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_FARFASHA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964506.jpg?v=1722409455",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_FARFASHA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964503.jpg?v=1722409449",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_FARFASHA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964506.jpg?v=1722409455"
-    ]
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_FARFASHA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964506.jpg?v=1722409455",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_FARFASHA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964503.jpg?v=1722409449"
+]
   },
   {
     "id": 7554204893383,
@@ -5070,11 +4986,11 @@ const PRODUCTS = [
     "notes": [
       "Air freshner"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_KASAR_AL_SAADA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964530.jpg?v=1722409492",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_KASAR_AL_SAADA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964534.jpg?v=1722409496",
     "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_KASAR_AL_SAADA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964530.jpg?v=1722409492",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_KASAR_AL_SAADA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964534.jpg?v=1722409496"
-    ]
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_KASAR_AL_SAADA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964534.jpg?v=1722409496",
+      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/FRASH_KASAR_AL_SAADA_AIR_FRESHENER_320ML_-_Khadlaj_Perfumes-1964530.jpg?v=1722409492"
+]
   },
   {
     "id": 7554205122759,
@@ -5246,7 +5162,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ROSE_AND_ROMANCE_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965890.jpg?v=1722412035",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ROSE_AND_ROMANCE_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965893.jpg?v=1784382622",
     "detailImages": [
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ROSE_AND_ROMANCE_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965890.jpg?v=1722412035",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/ROSE_AND_ROMANCE_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965893.jpg?v=1784382622"
@@ -5303,7 +5219,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_BADAR_30_G_-_Khadlaj_Perfumes-1965621.jpg?v=1722411506",
+    "img": "/assets/images/products/oud-muattar-badar-bottle.jpg",
     "detailImages": [
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_BADAR_30_G_-_Khadlaj_Perfumes-1965621.jpg?v=1722411506",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_MUATTAR_BADAR_30_G_-_Khadlaj_Perfumes-1965623.jpg?v=1722411510"
@@ -5782,7 +5698,7 @@ const PRODUCTS = [
       "Woody",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KLASSIK_FRONT.jpg?v=1784007666",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/OUD_POUR_KLASSIK_100ML_EDP_SPRAY_-_Khadlaj_Perfumes-1965756.jpg?v=1722411765",
     "detailImages": [
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KLASSIK_FRONT.jpg?v=1784007666",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Copy_of_Untitled-1.jpg?v=1784007738",
@@ -6354,100 +6270,140 @@ const TEAM = [
 
 const REELS = [
   {
-    id: "7602275376135408918",
-    title: "Hareem Al Sultan Gold Review",
-    caption: "The viral sensation on #perfumetok. Does it live up to the hype?",
-    tag: "Viral on TikTok",
-    price: 195,
-    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy1.jpg?v=1767169755"
-  },
-  {
-    id: "7614741288168066334",
-    title: "Panache First Impressions",
-    caption: "A gorgeous creamy floral gourmand. Completely blind buy safe!",
-    tag: "First Impressions",
-    price: 200,
-    img: "/assets/images/products/panache-cutout.png"
-  },
-  {
-    id: "7639701570875165985",
-    title: "Shiyaaka Silver - Affordable Niche?",
-    caption: "This smells 10x more expensive than it is. Unbelievable quality.",
-    tag: "Hidden Gem",
-    price: 126,
-    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SHAHI_OUD_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965925.jpg?v=1722412108"
-  },
-  {
-    id: "7608773049986469134",
-    title: "Island Extrait Layering Combo",
-    caption: "How I layer Khadlaj Island for a 24-hour scent bubble.",
-    tag: "Layering Tip",
-    price: 355,
-    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/UNO_INTIMO_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1966036.jpg?v=1722412332"
-  },
-  {
-    id: "7643796160100191496",
-    title: "Zayaan Silver Unboxing",
-    caption: "The packaging on this is insane. Luxury on a budget.",
-    tag: "Unboxing",
-    price: 150,
-    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Bleu_Glace_02.jpg?v=1738325363"
-  },
-  {
-    id: "7602275376135408918",
-    title: "Cream Velvet - Compliment Getter",
-    caption: "Wore this today and got stopped 3 times. Must have for gourmand lovers.",
-    tag: "Review",
-    price: 345,
-    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CreamVelvet-3.jpg?v=1779352383"
-  },
-  {
-    id: "7369114430497361170",
-    title: "Shiyaaka Perfume Review",
-    caption: "The viral sensation on #perfumetok. Does it live up to the hype?",
-    tag: "Viral on TikTok",
-    price: 126,
-    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy1.jpg?v=1767169755"
-  },
-  {
-    id: "7324677889293634817",
-    title: "Shiyaaka Silver First Impressions",
-    caption: "A gorgeous scent profile. Completely blind buy safe!",
-    tag: "First Impressions",
-    price: 126,
-    img: "/assets/images/products/panache-cutout.png"
-  },
-  {
-    id: "7624542837278870805",
-    title: "Waheed Perfumes Review",
-    caption: "This smells 10x more expensive than it is. Unbelievable quality.",
-    tag: "Hidden Gem",
-    price: 200,
-    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SHAHI_OUD_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965925.jpg?v=1722412108"
-  },
-  {
-    id: "7504908791528377608",
-    title: "Khadlaj Perfumes Deep Dive",
-    caption: "How to find your perfect signature scent with Khadlaj.",
-    tag: "Perfume Tips",
-    price: 150,
-    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/UNO_INTIMO_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1966036.jpg?v=1722412332"
-  },
-  {
-    id: "7455362471231114503",
-    title: "Zahra's Khadlaj Favorites",
-    caption: "The packaging on this is insane. Luxury on a budget.",
-    tag: "Unboxing",
+    id: "7641095559163563285",
+    creator: "@khadlajperfumes",
+    tiktokUrl: "https://www.tiktok.com/@khadlajperfumes/video/7641095559163563285",
+    title: "Sawaar Vanille Blanc",
+    titleAr: "سوار فانيليا بلانك",
+    caption: "Unboxing Sawaar Vanille Blanc by Khadlaj. Does it live up to the hype?",
+    captionAr: "فتح صندوق سوار فانيليا بلانك من خَدْلَج. هل يستحق كل هذه الشهرة؟",
+    tag: "Official Reel",
+    tagAr: "فيديو رسمي",
     price: 180,
+    productName: "SHIYAAKA BLUE",
+    videoFile: "khadlaj_reel_1.mp4",
+    posterFile: "khadlaj_reel_1_poster.jpg",
+    videoUrl: "https://cdn.shopify.com/videos/c/o/v/b4e5160153fa483f8fed33709d1b26cc.mp4",
+    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.Blue.1.jpg?v=1784382157"
+  },
+  {
+    id: "7451949579638951185",
+    creator: "@khadlajperfumes",
+    tiktokUrl: "https://www.tiktok.com/@khadlajperfumes/video/7451949579638951185",
+    title: "Exploring Khadlaj Scents",
+    titleAr: "استكشف أروع عطور خَدْلَج",
+    caption: "The viral sensation on #perfumetok. Does it live up to the hype?",
+    captionAr: "العطر الأكثر شهرة وتفاعلاً على تيك توك. هل يستحق كل هذه الضجة؟",
+    tag: "Viral on TikTok",
+    tagAr: "الأكثر انتشاراً",
+    price: 126,
+    productName: "SHIYAAKA SILVER",
+    videoFile: "khadlaj_reel_2.mp4",
+    posterFile: "khadlaj_reel_2_poster.jpg",
+    videoUrl: "https://cdn.shopify.com/videos/c/o/v/eedca68692644b0991d51fb3427d1bf4.mp4",
+    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SHIYAAKA_SILVER_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965957.jpg?v=1722412169"
+  },
+  {
+    id: "7333114785908804865",
+    creator: "@khadlajperfumes",
+    tiktokUrl: "https://www.tiktok.com/@khadlajperfumes/video/7333114785908804865",
+    title: "Secret Musk Heritage",
+    titleAr: "سيكريت مسك الفاخر",
+    caption: "Unveil the mystique of Khadlaj Secret Musk. 45+ years of pure perfumery.",
+    captionAr: "اكتشف سحر مسك خَدْلَج الخاص وخبرة تزيد عن 45 عاماً من الإبداع.",
+    tag: "Masterpiece",
+    tagAr: "تحفة عطرية",
+    price: 200,
+    productName: "SHAHI OUD",
+    videoFile: "khadlaj_reel_3.mp4",
+    posterFile: "khadlaj_reel_3_poster.jpg",
+    videoUrl: "https://cdn.shopify.com/videos/c/o/v/72cc17c9b4814387bc03c19cae9c00e2.mp4",
+    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SHAHI_OUD_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965925.jpg?v=1722412108"
+  },
+  {
+    id: "7580781439290019088",
+    creator: "@theperfumereviewer1",
+    tiktokUrl: "https://www.tiktok.com/@theperfumereviewer1/video/7580781439290019088",
+    title: "Island Dream Unboxing",
+    titleAr: "آيلاند دريم - تقييم خاص",
+    caption: "Khadlaj Island Dream Perfume unboxing. Completely blind-buy safe!",
+    captionAr: "فتح صندوق عطر آيلاند دريم. جودة استثنائية وخيار مضمون للشراء المباشر!",
+    tag: "Creator Review",
+    tagAr: "تقييم خبير",
+    price: 150,
+    productName: "UNO INTIMO",
+    videoFile: "khadlaj_reel_4.mp4",
+    posterFile: "khadlaj_reel_4_poster.jpg",
+    videoUrl: "https://cdn.shopify.com/videos/c/o/v/eedca68692644b0991d51fb3427d1bf4.mp4",
+    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/UNO_INTIMO_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1966036.jpg?v=1722412332"
+  },
+  {
+    id: "7686164378688900360",
+    creator: "@herscentces",
+    tiktokUrl: "https://www.tiktok.com/@herscentces/video/7686164378688900360",
+    title: "Muse by Khadlaj",
+    titleAr: "ميوز من خَدْلَج",
+    caption: "Soft, creamy, cozy Muse by Khadlaj. A magnetic compliment magnet.",
+    captionAr: "عطر ميوز ناعم وكريمي ساحر يجذب الأنظار والإطراءات في كل مناسبة.",
+    tag: "Trending Pick",
+    tagAr: "اختيار رائج",
+    price: 180,
+    productName: "LE PRESTIGE TRIUMPH",
+    videoFile: "khadlaj_reel_5.mp4",
+    posterFile: "khadlaj_reel_5_poster.jpg",
+    videoUrl: "https://cdn.shopify.com/videos/c/o/v/b4e5160153fa483f8fed33709d1b26cc.mp4",
     img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LE_PRESTIGE_TRIUMPH_-_Khadlaj_Perfumes-1966158.jpg?v=1722412558"
   },
   {
-    id: "7336459568240807176",
-    title: "Khadlaj Sponsored Post",
-    caption: "Our best-selling fragrances of the year.",
-    tag: "Bestseller",
+    id: "7686184987841907990",
+    creator: "@cypmua",
+    tiktokUrl: "https://www.tiktok.com/@cypmua/video/7686184987841907990",
+    title: "CYPMUA Glamour Review",
+    titleAr: "تقييم CYPMUA لعطور خَدْلَج",
+    caption: "Luxury aesthetics meet unforgettable fragrance trails. Must-have scent!",
+    captionAr: "فخامة المظهر والجوهر مع لمسة عطرية ساحرة لا تُنسى.",
+    tag: "First Impressions",
+    tagAr: "انطباع أولي",
     price: 210,
-    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LE_PRESTIGE_TRIUMPH_-_Khadlaj_Perfumes-1966158.jpg?v=1722412558"
+    productName: "CLOUD CANDY",
+    videoFile: "khadlaj_reel_6.mp4",
+    posterFile: "khadlaj_reel_6_poster.jpg",
+    videoUrl: "https://cdn.shopify.com/videos/c/o/v/72cc17c9b4814387bc03c19cae9c00e2.mp4",
+    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy1.jpg?v=1767169755"
+  },
+  {
+    id: "7682545890699136286",
+    creator: "@thenoelthomas",
+    tiktokUrl: "https://www.tiktok.com/@thenoelthomas/video/7682545890699136286",
+    title: "Pure Musk Blend",
+    titleAr: "بيور مسك بليند الخارق",
+    caption: "Pure Musk Blend is actually GOATED. Hands down one of the absolute best values.",
+    captionAr: "عطر بيور مسك بليند أسطوري واستثنائي بأعلى قيمة وثبات في عالم العطور.",
+    tag: "Bestseller",
+    tagAr: "الأكثر طلباً",
+    price: 180,
+    productName: "SHIYAAKA SKY",
+    videoFile: "khadlaj_reel_7.mp4",
+    posterFile: "khadlaj_reel_7_poster.jpg",
+    videoUrl: "https://cdn.shopify.com/videos/c/o/v/b4e5160153fa483f8fed33709d1b26cc.mp4",
+    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.Blue.1.jpg?v=1784382157"
+  },
+  {
+    id: "7682386099213225236",
+    creator: "@indofragz",
+    tiktokUrl: "https://www.tiktok.com/@indofragz/video/7682386099213225236",
+    title: "IndoFragz Review",
+    titleAr: "توصية IndoFragz العالمية",
+    caption: "Rich, deep, opulent oriental projection that lasts all day and night.",
+    captionAr: "فوحان ملكي وثبات أسطوري يدوم لساعات طويلة من الفخامة الشرقية.",
+    tag: "Beast Mode",
+    tagAr: "ثبات وفوحان",
+    price: 200,
+    productName: "SHAHI OUD",
+    videoFile: "khadlaj_reel_8.mp4",
+    posterFile: "khadlaj_reel_8_poster.jpg",
+    videoUrl: "https://cdn.shopify.com/videos/c/o/v/72cc17c9b4814387bc03c19cae9c00e2.mp4",
+    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SHAHI_OUD_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965925.jpg?v=1722412108"
   }
 ];
 
@@ -6457,7 +6413,7 @@ const SOCIAL_LINKS = {
   youtube: "https://www.youtube.com/",
   linkedin: "https://www.linkedin.com/",
   tiktok: "https://www.tiktok.com/@khadlaj.uk",
-  whatsapp: "https://wa.me/971501234567?text=Hello%20Khadlaj%20Perfumes",
+  whatsapp: "https://wa.me/971521211992?text=Hello%20Khadlaj%20Perfumes",
 };
 
 /* ═══════════════════════════════════════════════════════════════
@@ -6838,7 +6794,7 @@ function formatProductSize(size, isRTL) {
     .replace(/EDP/gi, "ماء عطر");
 }
 
-const CATEGORIES = ["Best Sellers","New","Home & Ambience","Deals","For Him","For Her","Unisex","Perfume Oils","EAU DE PARFUM","Master Perfumery"];
+const CATEGORIES = ["Best Sellers","New","For Him","For Her","Unisex","Perfume Oils","EAU DE PARFUM","Master Perfumery"];
 
 /* ═══════════════════════════════════════════════════════════════
    GLOBAL CSS
@@ -6847,19 +6803,136 @@ const GLOBAL_CSS = `
   @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cinzel:wght@400;500;600;700&family=Tajawal:wght@300;400;500;700&family=Cairo:wght@400;600;700&display=swap');
   @import url('https://fonts.cdnfonts.com/css/trajan-pro');
   *{box-sizing:border-box;margin:0;padding:0;}
-  html{scroll-behavior:smooth;overflow-x:hidden !important;max-width:100% !important;width:100%;}
-  body{background:#fff;color:#000;font-family:'Montserrat',sans-serif;overflow-x:hidden !important;max-width:100% !important;width:100%;position:relative;}
-  ::-webkit-scrollbar{width:3px;}
-  ::-webkit-scrollbar-track{background:#fff;}
-  ::-webkit-scrollbar-thumb{background:#000;}
-  .hide-scrollbar::-webkit-scrollbar { display: none; }
-  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  html {
+    scroll-behavior: smooth !important;
+  }
+  html, body{
+    background:#fff;
+    color:#000;
+    font-family:'Montserrat',sans-serif;
+    overflow-x:hidden !important;
+    max-width:100% !important;
+    width:100%;
+    position:relative;
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Universal Smooth Transitions for buttons, links, inputs & interactive elements */
+  a, button, input, select, textarea {
+    transition: color 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Smooth Page Transitions */
+  @keyframes luxuryPageFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .page-transition-wrap {
+    animation: luxuryPageFadeIn 0.42s cubic-bezier(0.16, 1, 0.3, 1) both;
+    will-change: opacity, transform;
+    width: 100%;
+  }
+
+  /* Smooth Product Card & Image Reveal */
+  .card-lift, .product-card, .collection-card {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.3s ease !important;
+  }
+  .card-lift img, .product-card img, .collection-card img {
+    transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease !important;
+  }
+  .card-lift:hover img, .product-card:hover img {
+    transform: scale(1.05);
+  }
+  /* Completely hide all browser scrollbars (remove right side scroll line & white corner track) */
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar,
+  ::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent !important;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: transparent !important;
+  }
+  * {
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
+  }
+  .hide-scrollbar::-webkit-scrollbar { display: none !important; width: 0 !important; height: 0 !important; }
+  .hide-scrollbar { -ms-overflow-style: none !important; scrollbar-width: none !important; }
   h1,h2,h3,h4,.disp{font-family:'Trajan Pro', 'Cinzel', serif; text-transform: uppercase; font-weight: 400 !important;}
+  .reel-heading-bold { font-weight: 700 !important; }
+  .product-card-title, h3.product-card-title, .product-layout-details h1 { font-weight: 700 !important; color: #251737 !important; }
   .mono{font-family:'Montserrat',sans-serif;}
   
   .country-dropdown { position: relative; display: inline-block; padding: 6px 0; }
-  .country-dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: #fff; border: 1px solid #E8E4DC; border-radius: 3px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 200; padding: 6px; min-width: 140px; margin-top: 4px; }
-  .country-dropdown:hover .country-dropdown-menu { display: flex; flex-direction: column; gap: 2px; }
+  .country-dropdown-menu { 
+    display: none; 
+    position: absolute; 
+    top: 100%; 
+    left: 0; 
+    background: rgba(255, 255, 255, 0.98); 
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(184, 146, 42, 0.35); 
+    border-radius: 8px; 
+    box-shadow: 0 16px 40px rgba(37, 23, 55, 0.16), 0 2px 10px rgba(0,0,0,0.06); 
+    z-index: 500; 
+    padding: 10px 8px; 
+    min-width: 220px; 
+    margin-top: 8px; 
+    animation: fadeInDown .25s ease both;
+  }
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .country-dropdown:hover .country-dropdown-menu { display: flex; flex-direction: column; gap: 4px; }
+  .country-dropdown-menu button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .country-dropdown-menu button:hover {
+    background: #F9F6F0 !important;
+    border-color: rgba(184, 146, 42, 0.25) !important;
+    transform: translateX(2px);
+  }
+  [dir="rtl"] .country-dropdown-menu button:hover {
+    transform: translateX(-2px);
+  }
+  .country-dropdown-menu button.active-country {
+    background: #F4EFE4 !important;
+    border-color: #B8922A !important;
+    box-shadow: 0 2px 8px rgba(184, 146, 42, 0.15);
+  }
 
   /* YSL-style primary button: solid black */
   .btn-gold{
@@ -6890,6 +6963,11 @@ const GLOBAL_CSS = `
 
   @keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
   .fu{animation:fadeUp .65s ease both;}
+
+  @keyframes searchCardPop {
+    from { opacity: 0; transform: translateY(18px) scale(0.97); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
 
   @keyframes ribbonScroll{
     0%{transform:translate3d(0, 0, 0);}
@@ -6951,11 +7029,13 @@ const GLOBAL_CSS = `
     width: 100%;
     height: 100vh;
     height: 100dvh;
-    min-height: 560px;
+    min-height: 100vh;
+    max-height: 100vh;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     background: #080808;
+    box-sizing: border-box;
   }
   .hero-first-scroll-wrap .hero-video-wrap {
     position: relative;
@@ -6973,7 +7053,7 @@ const GLOBAL_CSS = `
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center center;
+    object-position: center 28%;
     display: block;
     opacity: 1;
   }
@@ -6981,50 +7061,94 @@ const GLOBAL_CSS = `
     flex-shrink: 0;
     overflow: hidden;
     background: #251737;
-    padding: 18px 0;
+    padding: 14px 0;
     border-top: 1px solid rgba(193,164,106,0.15);
     border-bottom: 1px solid rgba(193,164,106,0.15);
     direction: ltr !important;
     text-align: left !important;
     user-select: none;
   }
+  .nav-sticky-wrapper {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 10000 !important;
+  }
   .nav-sticky-wrapper.nav-home-fixed {
-    position: fixed;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 10000 !important;
   }
   .nav-sticky-wrapper.nav-inner-sticky {
-    position: sticky;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 10000 !important;
+  }
+  .nav-sticky-wrapper.nav-search-hidden {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+  .nav-inner-page-spacer {
+    display: block !important;
+    width: 100% !important;
+    height: 168px !important;
+    min-height: 168px !important;
+    flex-shrink: 0 !important;
+  }
+  @media(max-width: 900px) {
+    .nav-inner-page-spacer {
+      height: 98px !important;
+      min-height: 98px !important;
+    }
   }
 
   @media(max-width: 900px) {
+    .nav-sticky-wrapper {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      z-index: 10000 !important;
+    }
     .nav-sticky-wrapper.nav-home-fixed {
       position: fixed !important;
       top: 0 !important;
       left: 0 !important;
       right: 0 !important;
-      z-index: 100 !important;
+      z-index: 10000 !important;
     }
     .nav-sticky-wrapper.nav-inner-sticky {
-      position: sticky !important;
+      position: fixed !important;
       top: 0 !important;
       left: 0 !important;
       right: 0 !important;
-      z-index: 100 !important;
+      z-index: 10000 !important;
     }
-
     .hero-first-scroll-wrap {
-      height: auto !important;
-      min-height: auto !important;
-      max-height: none !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+      min-height: 100vh !important;
+      max-height: 100vh !important;
+      display: flex !important;
+      flex-direction: column !important;
       background: #080808 !important;
+      overflow: hidden !important;
     }
     .hero-first-scroll-wrap .hero-video-wrap {
       position: relative !important;
       width: 100% !important;
-      aspect-ratio: 16 / 9 !important;
-      height: auto !important;
-      min-height: auto !important;
+      aspect-ratio: auto !important;
+      height: 100% !important;
+      flex: 1 !important;
+      min-height: 0 !important;
       max-height: none !important;
-      flex: none !important;
       overflow: hidden !important;
       background: #080808 !important;
     }
@@ -7034,26 +7158,29 @@ const GLOBAL_CSS = `
       width: 100% !important;
       height: 100% !important;
       object-fit: cover !important;
-      object-position: center center !important;
+      object-position: center 28% !important;
     }
     .hero-scent-ribbon {
-      padding: 13px 0 !important;
+      padding: 12px 0 !important;
     }
   }
   @media(max-width: 600px) {
     .hero-first-scroll-wrap {
-      height: auto !important;
-      min-height: auto !important;
+      height: 82vh !important;
+      height: 82dvh !important;
+      min-height: 500px !important;
       max-height: none !important;
+      display: flex !important;
+      flex-direction: column !important;
     }
     .hero-first-scroll-wrap .hero-video-wrap {
       position: relative !important;
       width: 100% !important;
-      aspect-ratio: 16 / 9 !important;
-      height: auto !important;
-      min-height: auto !important;
+      aspect-ratio: auto !important;
+      height: 100% !important;
+      flex: 1 !important;
+      min-height: 0 !important;
       max-height: none !important;
-      flex: none !important;
     }
     .hero-scent-ribbon {
       padding: 11px 0 !important;
@@ -7070,10 +7197,10 @@ const GLOBAL_CSS = `
     transition: padding 0.35s ease;
   }
   .nav-header-grid.nav-top {
-    padding: 24px 0 16px;
+    padding: 24px 0 18px;
   }
   .nav-header-grid.nav-scrolled {
-    padding: 12px 0 8px;
+    padding: 14px 0 10px;
   }
 
   .nav-logo-box {
@@ -7086,16 +7213,16 @@ const GLOBAL_CSS = `
     position: relative;
     margin: 0 auto;
     width: clamp(240px, 30vw, 320px);
-    height: 86px;
+    height: 88px;
     transition: height 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     transform: translateZ(0);
     backface-visibility: hidden;
   }
   .nav-logo-box.logo-top {
-    height: 86px;
+    height: 88px;
   }
   .nav-logo-box.logo-scrolled {
-    height: 64px;
+    height: 70px;
   }
 
   .nav-logo-vertical {
@@ -7104,7 +7231,7 @@ const GLOBAL_CSS = `
     transform: translate(-50%, -50%) scale(1);
     width: clamp(110px, 15vw, 140px);
     height: auto;
-    max-height: 80px;
+    max-height: 82px;
     object-fit: contain;
     filter: brightness(0) invert(1);
     transition: opacity 0.45s cubic-bezier(0.25, 1, 0.5, 1), transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
@@ -7124,9 +7251,9 @@ const GLOBAL_CSS = `
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%) scale(0.94);
-    width: clamp(210px, 28vw, 290px);
+    width: clamp(220px, 28vw, 300px);
     height: auto;
-    max-height: 62px;
+    max-height: 66px;
     object-fit: contain;
     transition: opacity 0.45s cubic-bezier(0.25, 1, 0.5, 1), transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
     will-change: opacity, transform;
@@ -7164,18 +7291,18 @@ const GLOBAL_CSS = `
       justify-content: space-between !important;
       align-items: center !important;
       width: 100% !important;
-      gap: 8px !important;
+      gap: 12px !important;
     }
     .nav-header-grid.nav-top {
-      padding: 12px 0 8px !important;
+      padding: 16px 0 12px !important;
     }
     .nav-header-grid.nav-scrolled {
-      padding: 8px 0 6px !important;
+      padding: 12px 0 10px !important;
     }
     .nav-left-utility {
       display: flex !important;
       align-items: center !important;
-      gap: 12px !important;
+      gap: 14px !important;
       flex: 1 1 0 !important;
       justify-content: flex-start !important;
       padding-left: 0 !important;
@@ -7186,27 +7313,27 @@ const GLOBAL_CSS = `
       flex: 0 0 auto !important;
       margin: 0 auto !important;
       text-align: center !important;
-      width: clamp(110px, 32vw, 150px) !important;
-      height: 60px !important;
+      width: clamp(140px, 38vw, 185px) !important;
+      height: 66px !important;
     }
     .nav-logo-box.logo-top {
-      height: 60px !important;
+      height: 66px !important;
     }
     .nav-logo-box.logo-scrolled {
-      height: 46px !important;
+      height: 56px !important;
     }
     .nav-logo-vertical {
-      width: clamp(80px, 22vw, 105px) !important;
-      max-height: 56px !important;
+      width: clamp(95px, 26vw, 125px) !important;
+      max-height: 62px !important;
     }
     .nav-logo-horizontal {
-      width: clamp(110px, 30vw, 140px) !important;
-      max-height: 40px !important;
+      width: clamp(140px, 36vw, 180px) !important;
+      max-height: 50px !important;
     }
     .nav-right-icons {
       display: flex !important;
       align-items: center !important;
-      gap: 14px !important;
+      gap: 16px !important;
       flex: 1 1 0 !important;
       justify-content: flex-end !important;
       padding-left: 0 !important;
@@ -7223,33 +7350,10 @@ const GLOBAL_CSS = `
       display: inline-flex !important;
     }
     .nav-divider-line {
-      display: block !important;
-      margin-top: 2px !important;
-      margin-bottom: 6px !important;
-    }
-    .nav-links-bar {
-      display: flex !important;
-      justify-content: flex-start !important;
-      overflow-x: auto !important;
-      white-space: nowrap !important;
-      padding: 4px 2px 8px !important;
-      gap: 16px !important;
-      scrollbar-width: none !important;
-      -ms-overflow-style: none !important;
-      -webkit-overflow-scrolling: touch !important;
-    }
-    .nav-links-bar::-webkit-scrollbar {
       display: none !important;
     }
-    .nav-links-bar .nav-link {
-      font-size: 10.5px !important;
-      letter-spacing: 1.2px !important;
-      padding-bottom: 4px !important;
-      flex-shrink: 0 !important;
-    }
-    [dir="rtl"] .nav-links-bar .nav-link {
-      font-size: 12.5px !important;
-      letter-spacing: 0 !important;
+    .nav-links-bar {
+      display: none !important;
     }
   }
 
@@ -7279,51 +7383,54 @@ const GLOBAL_CSS = `
 
   @media(max-width: 600px) {
     nav > div {
-      padding: 0 14px !important;
+      padding: 0 16px !important;
     }
     .nav-header-grid {
-      gap: 6px !important;
+      gap: 8px !important;
     }
     .nav-header-grid.nav-top {
-      padding: 10px 0 6px !important;
+      padding: 14px 0 10px !important;
     }
     .nav-header-grid.nav-scrolled {
-      padding: 6px 0 !important;
+      padding: 10px 0 8px !important;
     }
     .nav-left-utility {
-      gap: 10px !important;
+      gap: 12px !important;
     }
     .nav-logo-box {
-      width: clamp(95px, 28vw, 125px) !important;
-      height: 52px !important;
+      width: clamp(130px, 36vw, 165px) !important;
+      height: 60px !important;
     }
     .nav-logo-box.logo-top {
-      height: 52px !important;
+      height: 60px !important;
     }
     .nav-logo-box.logo-scrolled {
-      height: 40px !important;
+      height: 52px !important;
     }
     .nav-logo-vertical {
-      width: clamp(70px, 20vw, 90px) !important;
-      max-height: 48px !important;
+      width: clamp(88px, 24vw, 115px) !important;
+      max-height: 56px !important;
     }
     .nav-logo-horizontal {
-      width: clamp(90px, 26vw, 115px) !important;
-      max-height: 34px !important;
+      width: clamp(125px, 34vw, 155px) !important;
+      max-height: 46px !important;
     }
     .nav-right-icons {
-      gap: 10px !important;
+      gap: 12px !important;
     }
     .hero-first-scroll-wrap {
-      height: auto !important;
-      min-height: auto !important;
+      height: 82vh !important;
+      height: 82dvh !important;
+      min-height: 500px !important;
       max-height: none !important;
+      display: flex !important;
+      flex-direction: column !important;
     }
     .hero-first-scroll-wrap .hero-video-wrap {
-      aspect-ratio: 16 / 9 !important;
-      height: auto !important;
-      min-height: auto !important;
-      flex: none !important;
+      aspect-ratio: auto !important;
+      height: 100% !important;
+      min-height: 0 !important;
+      flex: 1 !important;
     }
     .hero-scent-ribbon {
       padding: 11px 0 !important;
@@ -7331,6 +7438,119 @@ const GLOBAL_CSS = `
     .hero-scent-ribbon span {
       font-size: 11px !important;
       letter-spacing: 5px !important;
+    }
+  }
+
+  /* Trust Badges Strip Responsive */
+  .trust-strip-wrap {
+    background: #FAF8F5;
+    border-top: 1px solid #ECE7DE;
+    border-bottom: 1px solid #ECE7DE;
+    padding: 50px 5% 64px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .trust-strip-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .trust-strip-card {
+    padding: 32px 20px;
+    background: #FFFFFF;
+    border: 1px solid #ECE6DB;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(37,23,55,0.03);
+    box-sizing: border-box;
+  }
+  .trust-strip-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(37,23,55,0.08);
+    border-color: rgba(184,146,42,0.4);
+  }
+  .trust-strip-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(235,218,168,0.22) 0%, rgba(184,146,42,0.08) 100%);
+    border: 1.5px solid rgba(184,146,42,0.28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 14px;
+    flex-shrink: 0;
+  }
+  .trust-strip-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #251737;
+    letter-spacing: 1px;
+    font-family: 'Cinzel','Trajan Pro',serif;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    line-height: 1.35;
+  }
+  .trust-strip-desc {
+    font-size: 11.5px;
+    color: #6F6776;
+    line-height: 1.55;
+    font-family: 'Montserrat',sans-serif;
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
+  @media(max-width: 991px) {
+    .trust-strip-wrap {
+      padding: 40px 4% 50px !important;
+    }
+    .trust-strip-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 16px !important;
+    }
+    .trust-strip-card {
+      padding: 26px 16px !important;
+    }
+  }
+
+  @media(max-width: 580px) {
+    .trust-strip-wrap {
+      padding: 30px 3.5% 38px !important;
+    }
+    .trust-strip-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 10px !important;
+    }
+    .trust-strip-card {
+      padding: 18px 10px !important;
+      border-radius: 12px !important;
+    }
+    .trust-strip-icon {
+      width: 40px !important;
+      height: 40px !important;
+      margin-bottom: 10px !important;
+    }
+    .trust-strip-icon svg {
+      width: 20px !important;
+      height: 20px !important;
+    }
+    .trust-strip-title {
+      font-size: 10px !important;
+      letter-spacing: 0.5px !important;
+      margin-bottom: 6px !important;
+    }
+    .trust-strip-desc {
+      font-size: 10px !important;
+      line-height: 1.4 !important;
+      max-width: 100% !important;
     }
   }
 
@@ -7394,6 +7614,7 @@ const GLOBAL_CSS = `
     }
     .floating-chat-btn {
       right: 16px !important;
+      bottom: 20px !important;
       width: 48px !important;
       height: 48px !important;
     }
@@ -7405,11 +7626,12 @@ const GLOBAL_CSS = `
     }
     .floating-chat-window {
       right: 16px !important;
-      bottom: 74px !important;
-      width: 360px !important;
+      bottom: 76px !important;
+      width: 380px !important;
       max-width: calc(100vw - 32px) !important;
-      height: 520px !important;
-      max-height: calc(100vh - 90px) !important;
+      height: min(520px, calc(100vh - 95px)) !important;
+      max-height: calc(100vh - 95px) !important;
+      z-index: 999999 !important;
     }
   }
   @media(max-width: 600px) {
@@ -7418,6 +7640,7 @@ const GLOBAL_CSS = `
       bottom: 18px !important;
       width: 44px !important;
       height: 44px !important;
+      z-index: 99990 !important;
     }
     .floating-whatsapp-btn svg {
       width: 23px !important;
@@ -7427,6 +7650,7 @@ const GLOBAL_CSS = `
       right: 14px !important;
       width: 46px !important;
       height: 46px !important;
+      z-index: 99995 !important;
     }
     .floating-chat-home {
       bottom: 18px !important;
@@ -7435,13 +7659,18 @@ const GLOBAL_CSS = `
       bottom: 18px !important;
     }
     .floating-chat-window {
-      right: 10px !important;
+      position: fixed !important;
+      top: 14px !important;
+      bottom: 14px !important;
       left: 10px !important;
+      right: 10px !important;
       width: auto !important;
       max-width: none !important;
-      bottom: 70px !important;
-      height: 72vh !important;
-      max-height: 540px !important;
+      height: auto !important;
+      max-height: none !important;
+      border-radius: 20px !important;
+      z-index: 999999 !important;
+      box-shadow: 0 25px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(212,175,55,0.4) !important;
     }
     .auth-form-panel {
       padding: 36px 20px !important;
@@ -7568,11 +7797,18 @@ const GLOBAL_CSS = `
       gap: 4px !important;
     }
     .collection-banner-img {
-      aspect-ratio: 2048 / 768 !important;
-      object-fit: contain !important;
       width: 100% !important;
       height: auto !important;
+      display: block !important;
+      object-fit: contain !important;
     }
+  }
+
+  .collection-banner-img {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    object-fit: contain !important;
   }
 
   /* Transparent Navbar Over Video */
@@ -7664,18 +7900,73 @@ const GLOBAL_CSS = `
   @keyframes floatY { 0% { transform: translateY(0px); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0px); } }
   .bottle-float { animation: floatY 4s ease-in-out infinite; }
 
+  /* Featured Products & Luxury Category Pills */
+  .featured-products-section {
+    padding: 0 5% 90px;
+    background: #fff;
+  }
+  .featured-header-row {
+    padding-top: 80px;
+    margin-bottom: 38px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .category-pills-wrap {
+    position: relative;
+    margin-bottom: 40px;
+  }
+  .category-pills-track {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 4px 2px 14px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+  }
+  .category-pills-track::-webkit-scrollbar {
+    display: none;
+  }
+  .category-pill-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 11.5px;
+    letter-spacing: 1.2px;
+    cursor: pointer;
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    user-select: none;
+  }
+  [dir="rtl"] .category-pill-btn {
+    font-family: 'Cairo', 'Tajawal', sans-serif;
+    font-size: 13.5px;
+    letter-spacing: 0.2px;
+  }
+
   /* 25th Anniversary Section */
   /* 25th Anniversary Section - Single Line Animated Layout */
-  .khadlaj25-section { background: #FAF8F4; padding: 120px 0; overflow: hidden; }
-  .k25-header { text-align: center; padding: 0 5%; margin-bottom: 80px; }
+  .khadlaj25-section { background: #FAF8F4; padding: 44px 0 16px; overflow: hidden; }
+  .k25-header { text-align: center; padding: 0 5%; margin-bottom: 36px; }
+  .k25-header h2 { font-size: clamp(32px, 4.5vw, 48px) !important; line-height: 1.2 !important; letter-spacing: 0.5px; }
   
-  .k25-slider-container { width: 100%; overflow-x: auto; position: relative; padding: 20px 0; scroll-behavior: smooth; -ms-overflow-style: none; scrollbar-width: none; scroll-snap-type: x mandatory; direction: ltr; }
+  .k25-slider-container { width: 100%; overflow-x: auto; position: relative; padding: 16px 0 4px; scroll-behavior: smooth; -ms-overflow-style: none; scrollbar-width: none; scroll-snap-type: x mandatory; direction: ltr; }
   .k25-slider-container::-webkit-scrollbar { display: none; }
   .k25-slider-track { display: flex; width: max-content; direction: ltr; }
   
   
   .k25-card { 
-    width: 380px; margin: 0 20px; scroll-snap-align: center;
+    width: 410px; margin: 0 20px; scroll-snap-align: center;
     background: linear-gradient(145deg, #2A1A40, #180F25); 
     border: 1px solid rgba(184,146,42,0.25);
     border-radius: 200px 200px 20px 20px;
@@ -7692,7 +7983,7 @@ const GLOBAL_CSS = `
   }
   
   .k25-card-img-wrapper { 
-    height: 420px; width: 100%; position: relative; 
+    height: 460px; width: 100%; position: relative; 
     background: radial-gradient(circle at 50% 50%, rgba(184,146,42,0.12) 0%, transparent 65%); 
     flex-shrink: 0; 
     display: flex; align-items: center; justify-content: center;
@@ -7771,10 +8062,61 @@ const GLOBAL_CSS = `
     .k25-card { width: 340px; }
   }
   @media(max-width: 768px) {
-    .k25-card { width: 300px; }
-    .k25-card-img-wrapper { height: 360px; }
-    .k25-card-content { padding: 10px 20px 30px; }
-    .k25-card-title { font-size: 28px; }
+    .show-mob-flex { display: flex !important; }
+    .k25-slider-container {
+      width: 100% !important;
+      overflow-x: auto !important;
+      scroll-snap-type: x mandatory !important;
+      -webkit-overflow-scrolling: touch !important;
+      padding: 10px 0 16px !important;
+      scrollbar-width: none !important;
+    }
+    .k25-slider-container::-webkit-scrollbar {
+      display: none !important;
+    }
+    .k25-slider-track {
+      display: flex !important;
+      width: max-content !important;
+      padding: 0 16px !important;
+      gap: 16px !important;
+    }
+    .k25-card { 
+      width: calc(100vw - 32px) !important; 
+      max-width: 410px !important;
+      flex: 0 0 calc(100vw - 32px) !important;
+      margin: 0 !important;
+      scroll-snap-align: center !important;
+      scroll-snap-stop: always !important;
+      border-radius: 180px 180px 20px 20px !important;
+      box-sizing: border-box !important;
+    }
+    .k25-card-img-wrapper { 
+      height: 390px !important; 
+      border-radius: 180px 180px 0 0 !important;
+    }
+    .k25-card-content { padding: 14px 22px 30px !important; }
+    .k25-card-title { font-size: 27px !important; margin-bottom: 14px !important; }
+    .k25-card-btn { padding: 12px 30px !important; font-size: 11px !important; letter-spacing: 2px !important; }
+  }
+  @media(max-width: 480px) {
+    .k25-slider-track {
+      padding: 0 14px !important;
+      gap: 14px !important;
+    }
+    .k25-card { 
+      width: calc(100vw - 28px) !important; 
+      max-width: 390px !important;
+      flex: 0 0 calc(100vw - 28px) !important;
+      border-radius: 165px 165px 18px 18px !important;
+    }
+    .k25-card-img-wrapper { 
+      height: 365px !important; 
+      border-radius: 165px 165px 0 0 !important;
+    }
+    .k25-card-content { padding: 12px 18px 26px !important; }
+    .k25-card-title { font-size: 25px !important; margin-bottom: 12px !important; }
+    .k25-card-desc { font-size: 12px !important; line-height: 1.5 !important; margin-bottom: 16px !important; }
+    .k25-card-btn { padding: 11px 26px !important; font-size: 10.5px !important; letter-spacing: 2px !important; }
   }
 
   /* Discovery Grid */
@@ -7806,39 +8148,139 @@ const GLOBAL_CSS = `
     .discovery-grid { grid-template-columns: repeat(3, 1fr); }
   }
   @media(max-width: 768px) {
-    .discovery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 0 3%; }
-    .discovery-card { aspect-ratio: 4/5; }
+    .discovery-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; padding: 0 3% !important; }
+    .discovery-card { aspect-ratio: 3/4 !important; height: auto !important; border-radius: 10px !important; }
+    .discovery-card-overlay { padding: 20px 14px !important; }
+    .discovery-name { font-size: 18px !important; margin-bottom: 12px !important; }
+    .discovery-type { font-size: 8px !important; letter-spacing: 2px !important; margin-bottom: 6px !important; }
+    .discovery-btn { padding: 8px 16px !important; font-size: 8px !important; letter-spacing: 1.5px !important; }
   }
   @media(max-width: 480px) {
-    .discovery-grid { grid-template-columns: 1fr; }
-    .discovery-card { aspect-ratio: auto; height: 400px; }
+    .discovery-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; padding: 0 10px !important; }
+    .discovery-card { aspect-ratio: 3/4 !important; height: auto !important; border-radius: 8px !important; }
+    .discovery-card-overlay { padding: 14px 10px !important; }
+    .discovery-name { font-size: 15px !important; margin-bottom: 8px !important; }
+    .discovery-type { font-size: 7.5px !important; letter-spacing: 1px !important; margin-bottom: 4px !important; }
+    .discovery-btn { padding: 6px 12px !important; font-size: 7.5px !important; letter-spacing: 1px !important; }
   }
 
   /* Gift Slider */
-  .gift-slider-section { padding: 80px 0 100px; background: #fff; overflow: hidden; position: relative; direction: ltr; }
-  .gift-slider-track { display: flex; width: max-content; animation: slideGifts 35s linear infinite; direction: ltr; }
-  .gift-slider-track:hover { animation-play-state: paused; }
+  .gift-slider-section { padding: 60px 0 90px; background: #faf8f5; overflow: hidden; position: relative; direction: ltr; width: 100%; max-width: 100vw; }
+  .gift-slider-track-wrap { width: 100%; overflow: hidden; position: relative; }
+  .gift-slider-track { display: flex; width: max-content; animation: slideGifts 38s linear infinite; direction: ltr; }
+  .gift-slider-track:hover,
+  .gift-slider-track:active { animation-play-state: paused; }
   @keyframes slideGifts { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-  
-  .gift-slide-card { width: 680px; height: 380px; margin: 0 20px; background: #F0EBE6; border: 1px solid #EBE4DD; border-radius: 4px; overflow: hidden; cursor: pointer; transition: transform 0.4s ease, box-shadow 0.4s ease; display: flex; flex-direction: row; }
-  .gift-slide-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(0,0,0,0.08); }
-  
-  .gift-slide-img { flex: 1.3; position: relative; display: flex; justify-content: center; align-items: center; padding: 20px; }
-  .gift-slide-img img { width: 100%; height: 100%; object-fit: contain; transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1)); position: relative; z-index: 0; }
-  .gift-slide-card:hover .gift-slide-img img { transform: scale(1.08); filter: drop-shadow(0 30px 40px rgba(0,0,0,0.15)); }
-  
-  .gift-slide-content { flex: 1; padding: 10% 8% 10% 0; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; z-index: 2; }
-  .gift-slide-eyebrow { color: #888; font-size: 9px; letter-spacing: 4px; text-transform: uppercase; font-family: 'Montserrat',sans-serif; margin-bottom: 16px; font-weight: 600; }
-  .gift-slide-title { font-family: 'Playfair Display', serif; font-size: 42px; line-height: 1.1; color: #251737; margin-bottom: 30px; font-weight: 300; }
-  .gift-slide-btn { background: transparent; color: #251737; border: 1px solid #251737; padding: 14px 32px; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; cursor: pointer; transition: all 0.4s ease; width: max-content; }
-  .gift-slide-card:hover .gift-slide-btn { background: #B8922A; border-color: #B8922A; color: #fff; }
-  
-  @media(max-width: 768px) {
-    .gift-slide-card { width: 340px; height: auto; flex-direction: column; }
-    .gift-slide-img { height: 300px; flex: auto; padding: 20px; }
-    .gift-slide-content { padding: 40px 20px; }
-    .gift-slide-title { font-size: 32px; }
+
+  .gift-slide-card {
+    width: 520px; height: 320px; margin: 0 16px;
+    background: linear-gradient(135deg, #F7F2ED 0%, #EDE5DC 100%);
+    border: 1px solid rgba(184,146,42,0.18); border-radius: 14px;
+    overflow: hidden; cursor: pointer;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    display: flex; flex-direction: row;
+    box-shadow: 0 12px 36px rgba(37,23,55,0.07);
   }
+  .gift-slide-card:hover { transform: translateY(-8px); box-shadow: 0 28px 56px rgba(37,23,55,0.13); }
+
+  .gift-slide-img { flex: 1.5; position: relative; display: flex; justify-content: center; align-items: center; padding: 12px 8px 12px 20px; background: linear-gradient(135deg, rgba(184,146,42,0.04), transparent); }
+  .gift-slide-img img { width: 100%; height: 100%; max-height: 290px; object-fit: contain; transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); filter: drop-shadow(0 18px 28px rgba(0,0,0,0.12)); position: relative; z-index: 0; }
+  .gift-slide-card:hover .gift-slide-img img { transform: scale(1.09); filter: drop-shadow(0 24px 36px rgba(0,0,0,0.16)); }
+
+  .gift-slide-content { flex: 1; padding: 24px 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; z-index: 2; border-left: 1px solid rgba(184,146,42,0.12); }
+  .gift-slide-eyebrow { color: #B8922A; font-size: 9px; letter-spacing: 3px; text-transform: uppercase; font-family: 'Montserrat',sans-serif; margin-bottom: 10px; font-weight: 600; }
+  .gift-slide-title { font-family: 'Playfair Display', serif; font-size: 28px; line-height: 1.15; color: #251737; margin-bottom: 16px; font-weight: 400; }
+  .gift-slide-btn { background: transparent; color: #251737; border: 1.5px solid #251737; padding: 11px 28px; font-size: 9.5px; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.4s ease; width: max-content; border-radius: 3px; font-family: 'Montserrat', sans-serif; font-weight: 600; }
+  .gift-slide-card:hover .gift-slide-btn { background: #B8922A; border-color: #B8922A; color: #fff; }
+
+  @media(max-width: 1024px) {
+    .gift-slide-card { width: 400px; height: 260px; margin: 0 12px; }
+    .gift-slide-title { font-size: 22px; margin-bottom: 12px; }
+    .gift-slide-img img { max-height: 220px; }
+  }
+
+  @media(max-width: 768px) {
+    .gift-slider-section { padding: 44px 0 60px !important; }
+    .gift-slider-track-wrap { margin-top: 22px !important; overflow-x: scroll !important; overflow-y: hidden !important; scroll-snap-type: x mandatory !important; -webkit-overflow-scrolling: touch !important; scrollbar-width: none !important; padding: 0 5% !important; }
+    .gift-slider-track-wrap::-webkit-scrollbar { display: none !important; }
+    .gift-slider-track { animation: none !important; transform: none !important; width: auto !important; display: flex !important; gap: 16px !important; }
+    .gift-slide-card {
+      scroll-snap-align: center !important;
+      flex: 0 0 90vw !important;
+      width: 90vw !important;
+      max-width: 420px !important;
+      height: 230px !important;
+      flex-direction: row !important;
+      margin: 0 !important;
+      border-radius: 16px !important;
+    }
+    .gift-slide-img {
+      flex: 1.4 !important;
+      height: 100% !important;
+      padding: 14px 8px 14px 16px !important;
+      border-left: none !important;
+      border-bottom: none !important;
+      background: linear-gradient(135deg, rgba(184,146,42,0.06), transparent) !important;
+    }
+    .gift-slide-img img {
+      max-height: 190px !important;
+      object-fit: contain !important;
+    }
+    .gift-slide-content {
+      flex: 1 !important;
+      padding: 20px 16px !important;
+      border-left: 1px solid rgba(184,146,42,0.12) !important;
+      justify-content: center !important;
+    }
+    .gift-slide-eyebrow {
+      font-size: 8.5px !important;
+      letter-spacing: 2px !important;
+      margin-bottom: 8px !important;
+    }
+    .gift-slide-title {
+      font-size: 20px !important;
+      line-height: 1.2 !important;
+      margin-bottom: 14px !important;
+    }
+    .gift-slide-btn {
+      padding: 9px 20px !important;
+      font-size: 9px !important;
+      letter-spacing: 1.5px !important;
+    }
+    .gift-dots { display: flex !important; }
+  }
+
+  @media(max-width: 480px) {
+    .gift-slide-card {
+      flex: 0 0 92vw !important;
+      width: 92vw !important;
+      height: 210px !important;
+    }
+    .gift-slide-img {
+      padding: 12px 6px 12px 14px !important;
+    }
+    .gift-slide-img img {
+      max-height: 170px !important;
+    }
+    .gift-slide-title {
+      font-size: 18px !important;
+      margin-bottom: 12px !important;
+    }
+    .gift-slide-content {
+      padding: 16px 14px !important;
+    }
+  }
+
+  @media(max-width: 768px) {
+    .featured-products-section { padding: 0 4% 60px !important; }
+    .featured-header-row { padding-top: 48px !important; margin-bottom: 24px !important; }
+    .category-pills-wrap { margin-bottom: 28px !important; }
+    .category-pill-btn { padding: 9px 16px !important; font-size: 11px !important; letter-spacing: 0.8px !important; }
+    [dir="rtl"] .category-pill-btn { font-size: 13px !important; }
+    .khadlaj25-section { padding: 40px 0 16px !important; }
+    .k25-header { margin-bottom: 28px !important; }
+    .k25-header h2 { font-size: clamp(36px, 7.5vw, 52px) !important; }
+
   
   @keyframes shimmerSweep { 0% { left: -100%; } 100% { left: 150%; } }
   .shimmer-effect {
@@ -7860,7 +8302,7 @@ const GLOBAL_CSS = `
   .scratch-hover:hover { transform: scale(1.04); box-shadow: inset 0 4px 10px rgba(0,0,0,0.4), 0 12px 30px rgba(184,146,42,0.25) !important; }
   .scratch-text { font-size: 30px; letter-spacing: 5px; }
 
-  .popup-overlay { position: fixed; inset: 0; z-index: 300; background: rgba(0,0,0,.7); display: flex; align-items: center; justify-content: center; padding: 20px; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); }
+  .popup-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; width: 100vw; height: 100vh; z-index: 99999999 !important; background: rgba(0,0,0,.78) !important; display: flex !important; align-items: center !important; justify-content: center !important; padding: 20px 16px !important; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); overflow-y: auto !important; box-sizing: border-box; }
 
   .max-container { max-width: 1440px; margin: 0 auto; width: 100%; }
 
@@ -7871,7 +8313,7 @@ const GLOBAL_CSS = `
     .product-card{min-width:0!important;overflow:hidden!important;}
     .product-image-stage{height:clamp(190px,42vw,270px)!important;}
     .product-card-info{padding:12px 4px 16px!important;min-width:0!important;}
-    .product-card-title{font-size:13px!important;letter-spacing:.6px!important;overflow-wrap:anywhere!important;}
+    .product-card-title{font-size:13px!important;letter-spacing:.6px!important;overflow-wrap:anywhere!important;font-weight:700!important;}
     .product-card-size{font-size:11px!important;margin-bottom:9px!important;}
     .product-notes{gap:3px!important;min-width:0!important;overflow:hidden!important;}
     .product-note{font-size:7.3px!important;letter-spacing:.25px!important;padding:3px 4px!important;gap:2px!important;min-width:0!important;}
@@ -7887,13 +8329,18 @@ const GLOBAL_CSS = `
     .hero-visual { min-height: 420px !important; order:-1; }
     .hero-headline { font-size: 38px !important; }
     .gift-hero-copy{max-width:72%!important;padding-left:6%!important;}
+    .section-header-wrap { margin-bottom: 34px !important; padding: 0 14px !important; }
+    .section-header-title { font-size: clamp(30px, 6vw, 44px) !important; }
+    .section-header-sub { font-size: 13px !important; line-height: 1.6 !important; }
+    .scent-finder-section { padding: 50px 4% !important; }
   }
   @media(max-width:600px){
     .collections-layout{grid-template-columns:1fr!important;}
     .collections-sidebar{position:static!important;left:auto!important;top:auto!important;width:100%!important;max-height:none!important;overflow:visible!important;}
     .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important;}
     .product-image-stage{height:clamp(170px,48vw,230px)!important;}
-    .product-card-title{font-size:12px!important;letter-spacing:.4px!important;}
+    .product-img-inner { inset: 16px 0 10px 0 !important; }
+    .product-card-title{font-size:12px!important;letter-spacing:.4px!important;font-weight:700!important;}
     .product-note{font-size:6.8px!important;padding:3px 3.5px!important;}
     .cart-line{grid-template-columns:82px 1fr!important;align-items:start!important;}
     .cart-line-actions{grid-column:1 / -1!important;flex-direction:row!important;justify-content:space-between!important;align-items:center!important;}
@@ -7908,15 +8355,19 @@ const GLOBAL_CSS = `
     .hero-subtitle { font-size: 13px !important; line-height: 1.6 !important; max-width: 100% !important; margin-bottom: 16px !important; }
     .hero-stats-row { gap: 10px !important; padding-top: 10px !important; flex-wrap: wrap !important; }
     .hero-stat-item { padding-right: 10px !important; margin-right: 10px !important; }
-    .popup-overlay { align-items: center !important; padding: 16px !important; }
+    .popup-overlay { align-items: center !important; padding: 16px !important; z-index: 99999999 !important; overflow-y: auto !important; }
     .popup-in { box-sizing: border-box !important; border-radius: 16px !important; width: 92% !important; max-width: 420px !important; border: 1px solid rgba(212,175,55,0.3) !important; animation: popIn .35s cubic-bezier(0.34, 1.56, 0.64, 1) both !important; padding: 32px 20px 28px !important; }
     @keyframes popIn { from { transform: scale(0.88); opacity: 0; } to { transform: scale(1); opacity: 1; } }
     .disp.mobile-text { font-size: 19px !important; letter-spacing: 0.5px !important; }
+    .section-header-wrap { margin-bottom: 26px !important; padding: 0 12px !important; }
+    .section-header-title { font-size: clamp(26px, 7vw, 38px) !important; }
+    .section-header-sub { font-size: 12px !important; line-height: 1.55 !important; }
+    .scent-finder-section { padding: 40px 3% !important; }
   }
   @media(max-width:480px){
     .grid-4{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;}
     .product-image-stage{height:clamp(150px,52vw,205px)!important;}
-    .product-card-title{font-size:11px!important;line-height:1.25!important;}
+    .product-card-title{font-size:11px!important;line-height:1.25!important;font-weight:700!important;}
     .product-note{font-size:6.2px!important;letter-spacing:0!important;padding:2.5px 3px!important;}
     .scratch-text { font-size: 24px !important; letter-spacing: 3px !important; }
     .scratch-hover { height: 85px !important; }
@@ -7927,8 +8378,14 @@ const GLOBAL_CSS = `
     .k25-image-pane { min-height: 500px; width: 100%; }
     .k25-text-pane { padding: 80px 8% !important; align-items: center; text-align: center; }
     .k25-row-title { font-size: 38px; }
-    .khadlaj25-section { padding: 80px 0 !important; }
-    .k25-header { margin-bottom: 50px; }
+    .featured-products-section { padding: 0 3.5% 48px !important; }
+    .featured-header-row { padding-top: 36px !important; margin-bottom: 20px !important; }
+    .category-pills-track { gap: 8px !important; padding-bottom: 10px !important; }
+    .category-pill-btn { padding: 8.5px 14px !important; font-size: 10.5px !important; }
+    [dir="rtl"] .category-pill-btn { font-size: 12.5px !important; }
+    .khadlaj25-section { padding: 36px 0 14px !important; }
+    .k25-header { margin-bottom: 24px !important; }
+    .k25-header h2 { font-size: clamp(32px, 8.5vw, 46px) !important; }
     .hero-cta-row { flex-direction: column !important; gap: 8px !important; width: 100% !important; }
     .hero-cta-row button { width: 100% !important; text-align: center !important; justify-content: center !important; }
     .hero-stats-row { border-top: none !important; padding-top: 0 !important; }
@@ -8369,18 +8826,22 @@ const GLOBAL_CSS = `
   ═══════════════════════════════════════════════════════════════ */
   .trust-strip-section {
     background: #FAF8F5;
+    border-top: 1px solid #ECE7DE;
     border-bottom: 1px solid #ECE7DE;
     padding: 50px 5% 64px;
     position: relative;
     z-index: 1;
     width: 100%;
     box-sizing: border-box;
+    display: block;
   }
   .trust-strip-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
     text-align: center;
     box-sizing: border-box;
   }
@@ -8474,10 +8935,22 @@ const GLOBAL_CSS = `
     .review-card {
       padding: 20px 14px !important;
     }
-    .review-card p {
+    .review-card p.review-card-text {
       font-size: 12px !important;
       margin: 10px 0 !important;
       line-height: 1.5 !important;
+    }
+    .review-card .review-card-name {
+      font-size: 8.5px !important;
+      letter-spacing: 1.5px !important;
+      margin: 0 !important;
+      line-height: 1.2 !important;
+    }
+    .review-card .review-card-country {
+      font-size: 7px !important;
+      letter-spacing: 2px !important;
+      margin: 3px 0 0 !important;
+      line-height: 1.2 !important;
     }
   }
 
@@ -8511,6 +8984,19 @@ const GLOBAL_CSS = `
     .trust-card-desc {
       font-size: 8.8px !important;
       line-height: 1.35 !important;
+    }
+    .review-card {
+      padding: 16px 10px !important;
+    }
+    .review-card .review-card-name {
+      font-size: 7.5px !important;
+      letter-spacing: 1px !important;
+      margin: 0 !important;
+    }
+    .review-card .review-card-country {
+      font-size: 6.5px !important;
+      letter-spacing: 1.5px !important;
+      margin: 2px 0 0 !important;
     }
   }
 
@@ -8631,7 +9117,7 @@ function ProductCard({ p, onView, onCart }){
           opacity: hov ? .7 : .45,
           transition:"opacity .35s ease"
         }}/>
-        <div style={{position:"absolute", inset:"42px 0 26px 0", display:"flex", alignItems:"flex-end", justifyContent:"center"}}>
+        <div className="product-img-inner" style={{position:"absolute", inset:"42px 0 26px 0", display:"flex", alignItems:"flex-end", justifyContent:"center"}}>
           <img
             src={getOptimizedImage(p.img,500)} alt={p.name} loading="lazy"
             style={{
@@ -8676,7 +9162,7 @@ function ProductCard({ p, onView, onCart }){
       </div>
       <div className="product-card-info" style={{padding:"16px 10px 18px", flex:1, display:"flex", flexDirection:"column", alignItems:"center", textAlign:"center"}}>
         <p style={{fontSize: isRTL ? 12 : 9.5, letterSpacing: isRTL ? 0 : 3, color:"#B8922A", textTransform:"uppercase", marginBottom:7, fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif", fontWeight:600}}>{isRTL ? (COLLECTION_LABELS_AR[collectionLabel] || collectionLabel) : collectionLabel}</p>
-        <h3 className="product-card-title" style={{fontSize: isRTL ? 18 : 15.5, fontWeight:700, color:"#251737", lineHeight:1.35, marginBottom:5, textTransform:"uppercase", letterSpacing: isRTL ? 0 : 1.1, fontFamily: isRTL ? "'Cairo', serif" : "inherit"}}>{getProductName(p, isRTL)}</h3>
+        <h3 className="product-card-title" style={{fontSize: isRTL ? 18 : 16, fontWeight: 700, color:"#251737", lineHeight:1.35, marginBottom:5, textTransform:"uppercase", letterSpacing: isRTL ? 0 : 1.2, fontFamily: isRTL ? "'Cairo', serif" : "'Cinzel', serif"}}>{getProductName(p, isRTL)}</h3>
         <p className="product-card-size" style={{fontSize: isRTL ? 13.5 : 12.5, color:"#888", marginBottom:12, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", letterSpacing: isRTL ? 0 : .4, fontWeight:500}}>{formatProductSize(p.size, isRTL)}</p>
         {notes.length > 0 && (
           <div className="product-notes" style={{display:"flex", flexWrap:"nowrap", gap:4, marginBottom:12, justifyContent:"center", alignItems:"center", width:"100%"}}>
@@ -8701,135 +9187,284 @@ function ProductCard({ p, onView, onCart }){
 }
 function SectionHeader({ eyebrow, title, sub, light=false }){
   return (
-    <div style={{textAlign:"center",marginBottom:52}}>
+    <div className="section-header-wrap" style={{textAlign:"center",marginBottom:52}}>
       {eyebrow && <p className="eyebrow" style={{marginBottom:14,color:"#B8922A"}}>{eyebrow}</p>}
-      <h2 className="disp" style={{fontSize:"clamp(28px,3.8vw,52px)",fontWeight:300,color: light ? "#fff" : "#251737",lineHeight:1.15,letterSpacing:"-0.5px",marginBottom:sub?14:0}}>{title}</h2>
-      {sub && <p style={{color: light ? "rgba(255,255,255,0.7)" : "#777",fontSize:14,maxWidth:500,margin:"0 auto",lineHeight:1.8,fontFamily:"'Montserrat',sans-serif"}}>{sub}</p>}
+      <h2 className="disp section-header-title" style={{fontSize:"clamp(28px,3.8vw,52px)",fontWeight:300,color: light ? "#fff" : "#251737",lineHeight:1.15,letterSpacing:"-0.5px",marginBottom:sub?14:0}}>{title}</h2>
+      {sub && <p className="section-header-sub" style={{color: light ? "rgba(255,255,255,0.7)" : "#777",fontSize:14,maxWidth:500,margin:"0 auto",lineHeight:1.8,fontFamily:"'Montserrat',sans-serif"}}>{sub}</p>}
     </div>
   );
 }
 
-function TikTokCard({ t: item }) {
+function TikTokCard({ t: item, setViewProduct, setPage }) {
   const [hov, setHov] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef(null);
   const { activeCountry } = React.useContext(CountryContext);
-  const { lang } = React.useContext(LanguageContext);
+  const { lang, isRTL } = React.useContext(LanguageContext);
   const formatPrice = (price) => formatCurrency(price, activeCountry, lang);
+
+  const videoSrc = resolveAsset(item.videoFile) || item.videoUrl;
+  const posterSrc = resolveAsset(item.posterFile) || item.img;
+
+  const togglePlay = (e) => {
+    e.stopPropagation();
+    if (!videoRef.current) return;
+    if (videoRef.current.paused) {
+      const playPromise = videoRef.current.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => setIsPlaying(true)).catch(() => {});
+      }
+    } else {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const toggleMute = (e) => {
+    e.stopPropagation();
+    if (!videoRef.current) return;
+    videoRef.current.muted = !videoRef.current.muted;
+    setIsMuted(videoRef.current.muted);
+  };
+
+  const handleShop = (e) => {
+    e.stopPropagation();
+    if (typeof setViewProduct === "function" && typeof setPage === "function") {
+      const targetProd = (PRODUCTS || []).find(p => 
+        (item.productName && p.name && p.name.toUpperCase().includes(item.productName.toUpperCase())) ||
+        (item.productId && p.id === item.productId)
+      ) || (PRODUCTS && PRODUCTS[0]);
+      if (targetProd) {
+        setViewProduct(targetProd);
+        setPage("product");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <div
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
       style={{
-        flex:"0 0 320px",
-        height: 520,
+        flex: "0 0 320px",
+        height: 560,
         position: "relative",
-        background:"#251737",
-        borderRadius: 16,
-        overflow:"hidden",
-        display:"flex",
-        flexDirection:"column",
-        justifyContent: "flex-end",
+        background: "#0d0714",
+        borderRadius: 20,
+        overflow: "hidden",
         scrollSnapAlign: "center",
-        transform: hov ? "translateY(-8px)" : "translateY(0)",
-        boxShadow: hov ? "0 24px 48px rgba(0,0,0,.15)" : "0 8px 24px rgba(0,0,0,.06)",
-        transition: "all .4s cubic-bezier(.25,.8,.25,1)",
+        transform: hov ? "translateY(-6px)" : "translateY(0)",
+        boxShadow: hov ? "0 22px 48px rgba(0,0,0,0.5)" : "0 10px 28px rgba(0,0,0,0.25)",
+        transition: "all .35s cubic-bezier(.25,.8,.25,1)",
+        border: "1px solid rgba(184,146,42,0.35)",
+        userSelect: "none"
       }}
     >
-      {/* Blurred product image — shows while iframe loads */}
-      <div style={{
-        position: "absolute", inset: "-10%", width: "120%", height: "120%",
-        backgroundImage: `url(${resolveAsset(item.img)})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        opacity: 0.25,
-        filter: "blur(10px)",
-        zIndex: 0
-      }} />
-
-      {/* TikTok Player v1 — autoplay, muted, loop (lazy loaded for speed) */}
-      <iframe
-        src={`https://www.tiktok.com/player/v1/${item.id}?music_info=0&description=0&loop=1&autoplay=1&muted=1&controls=0&rel=0&native_context_menu=0&closed_caption=0`}
-        loading="lazy"
-        scrolling="no"
-        allow="autoplay; encrypted-media; fullscreen"
-        allowFullScreen
-        title={item.title}
+      {/* Background Video (fills 100% of the card) */}
+      <div 
+        onClick={togglePlay}
         style={{
-          position: "absolute", inset: 0, width: "100%", height: "100%",
-          border: "none", zIndex: 1,
-          pointerEvents: hov ? "auto" : "none",
-          transform: hov ? "scale(1.02)" : "scale(1)",
-          transition: "transform .6s ease",
-          background: "transparent",
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          background: "#050208",
+          overflow: "hidden",
+          cursor: "pointer"
         }}
-      />
+      >
+        <video
+          ref={videoRef}
+          src={videoSrc}
+          poster={posterSrc}
+          autoPlay
+          loop
+          muted={isMuted}
+          playsInline
+          preload="metadata"
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+          style={{
+            position: "absolute",
+            inset: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            display: "block",
+            transform: hov ? "scale(1.03)" : "scale(1)",
+            transition: "transform 0.6s ease"
+          }}
+        />
 
-      {/* Bottom gradient */}
-      <div style={{
-        position: "absolute", inset: 0, zIndex: 2,
-        background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.1) 55%, rgba(0,0,0,0) 100%)",
-        pointerEvents: "none",
-        opacity: hov ? 1 : 0.7,
-        transition: "opacity .4s ease"
-      }}/>
-
-      {/* Authentic TikTok-style bottom bar */}
-      <div style={{
-        position: "relative", zIndex: 3,
-        padding: "20px 20px 22px",
-        color: "#fff",
-        pointerEvents: "none",
-        display: "flex",
-        flexDirection: "column",
-        gap: 10,
-      }}>
-        {/* Handle row */}
-        <div style={{display:"flex", alignItems:"center", gap:8}}>
-          {/* TikTok icon */}
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff">
-            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.31 6.31 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.87a8.18 8.18 0 0 0 4.78 1.52V7.01a4.85 4.85 0 0 1-1.01-.32z"/>
-          </svg>
-          <span style={{
-            fontSize: 13, fontWeight: 700,
-            fontFamily:"'Montserrat',sans-serif",
-            letterSpacing: 0.3, color:"#fff"
-          }}>@khadlajperfumes</span>
+        {/* Top Sound Mute/Unmute Toggle */}
+        <div style={{
+          position: "absolute",
+          top: 14,
+          right: isRTL ? "auto" : 14,
+          left: isRTL ? 14 : "auto",
+          zIndex: 4
+        }}>
+          {/* Sound Mute/Unmute Circular Button */}
+          <button
+            onClick={toggleMute}
+            title={isMuted ? "Unmute" : "Mute"}
+            style={{
+              width: 34,
+              height: 34,
+              borderRadius: "50%",
+              background: "rgba(13,7,20,0.78)",
+              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
+              border: "1px solid rgba(255,255,255,0.22)",
+              color: "#fff",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              transition: "transform .2s ease, background .2s ease",
+              boxShadow: "0 4px 12px rgba(0,0,0,0.3)"
+            }}
+            onMouseEnter={e => e.currentTarget.style.transform = "scale(1.1)"}
+            onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}
+          >
+            {isMuted ? (
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="1" y1="1" x2="23" y2="23"></line>
+                <path d="M9 9v3a3 3 0 0 0 5.12 2.12M15 9.34V4a3 3 0 0 0-5.94-.6"></path>
+                <path d="M17 16.95A7 7 0 0 1 5 12v-2m14 0v2a7 7 0 0 1-.11 1.23"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
+              </svg>
+            ) : (
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              </svg>
+            )}
+          </button>
         </div>
 
-        {/* Caption */}
-        <p style={{
-          fontSize: 11, lineHeight: 1.5,
-          fontFamily:"'Montserrat',sans-serif",
-          color:"rgba(255,255,255,0.8)",
-          letterSpacing: 0.2,
-          margin: 0,
-        }}>{item.caption}</p>
+        {/* Play State Indicator when Paused */}
+        {!isPlaying && (
+          <div style={{
+            position: "absolute",
+            inset: 0,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "rgba(0,0,0,0.35)",
+            zIndex: 3,
+            pointerEvents: "none"
+          }}>
+            <div style={{
+              width: 52,
+              height: 52,
+              borderRadius: "50%",
+              background: "rgba(184,146,42,0.9)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              boxShadow: "0 8px 24px rgba(0,0,0,0.4)"
+            }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" style={{ marginLeft: 3 }}>
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+          </div>
+        )}
 
-        {/* Watch button */}
-        <a
-          href={`https://www.tiktok.com/video/${item.id}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{
-            pointerEvents: "auto",
-            display: "inline-flex", alignItems:"center", gap:6,
-            background: "rgba(255,255,255,0.12)",
-            border: "1px solid rgba(255,255,255,0.25)",
-            borderRadius: 100,
-            padding: "6px 14px",
-            fontSize: 10, letterSpacing: 1.5,
-            textTransform: "uppercase",
-            color:"#fff", textDecoration:"none",
-            fontFamily:"'Montserrat',sans-serif",
-            fontWeight: 600,
-            width: "fit-content",
-            backdropFilter: "blur(8px)",
-            transition: "background .2s",
-          }}
-          onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.25)"}
-          onMouseLeave={e => e.currentTarget.style.background = "rgba(255,255,255,0.12)"}
-        >
-          ▶ Watch on TikTok
-        </a>
+        {/* Bottom Overlay - Matching User Reference Screenshot Exactly */}
+        <div style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          background: "linear-gradient(to top, rgba(12,6,18,0.96) 0%, rgba(12,6,18,0.72) 46%, rgba(12,6,18,0.2) 78%, transparent 100%)",
+          padding: "40px 18px 22px",
+          zIndex: 4,
+          color: "#fff",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: isRTL ? "flex-end" : "flex-start",
+          textAlign: isRTL ? "right" : "left"
+        }}>
+          {/* Row 1: TikTok Music Logo + Creator Handle */}
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            marginBottom: 8
+          }}>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff">
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.31 6.31 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.87a8.18 8.18 0 0 0 4.78 1.52V7.01a4.85 4.85 0 0 1-1.01-.32z"/>
+            </svg>
+            <span style={{
+              color: "#fff",
+              fontWeight: 700,
+              fontSize: 16,
+              letterSpacing: -0.2,
+              fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+            }}>
+              {item.creator || "@khadlajperfumes"}
+            </span>
+          </div>
+
+          {/* Row 2: Caption Text */}
+          <p style={{
+            margin: "0 0 14px 0",
+            color: "rgba(255,255,255,0.88)",
+            fontSize: 13,
+            lineHeight: 1.45,
+            fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
+            fontWeight: 400
+          }}>
+            {isRTL ? (item.captionAr || item.caption) : item.caption}
+          </p>
+
+          {/* Row 3: Action Buttons */}
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            width: "100%"
+          }}>
+            {/* WATCH ON TIKTOK Pill Button (Exact Screenshot Match) */}
+            <a
+              href={item.tiktokUrl || `https://www.tiktok.com/@khadlajperfumes/video/${item.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={e => e.stopPropagation()}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+                background: "rgba(255,255,255,0.14)",
+                backdropFilter: "blur(12px)",
+                WebkitBackdropFilter: "blur(12px)",
+                border: "1px solid rgba(255,255,255,0.32)",
+                borderRadius: 999,
+                padding: "9px 20px",
+                color: "#fff",
+                fontSize: 11,
+                fontWeight: 700,
+                letterSpacing: 1.3,
+                textTransform: "uppercase",
+                textDecoration: "none",
+                cursor: "pointer",
+                transition: "all .2s ease",
+                fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = "#fff"; e.currentTarget.style.color = "#000"; e.currentTarget.style.borderColor = "#fff"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.14)"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.32)"; }}
+            >
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              <span>{isRTL ? "مشاهدة على تيك توك" : "WATCH ON TIKTOK"}</span>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -8839,66 +9474,182 @@ function TikTokCard({ t: item }) {
    TRUST BANNER
 ═══════════════════════════════════════════════════════════════ */
 function TrustBanner() {
-  const { isRTL, t } = React.useContext(LanguageContext);
-  const items = [
-    {
-      title: t("securePayments", "SECURE PAYMENTS"),
-      desc: t("securePaymentsSub", "100% encrypted transactions"),
-      icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="5" width="20" height="14" rx="2" /><line x1="2" y1="10" x2="22" y2="10" /></svg>
-    },
-    {
-      title: t("crueltyFree", "CRUELTY FREE"),
-      desc: t("crueltyFreeSub", "Ethically crafted fragrances"),
-      icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M13 16a3 3 0 0 1 2.24 5"/><path d="M18 12h.01"/><path d="M18 21h-8a4 4 0 0 1-4-4 7 7 0 0 1 7-7h.2L9.6 6.4a1 1 0 1 1 2.8-2.8L15.8 7h.2c3.3 0 6 2.7 6 6v1a2 2 0 0 1-2 2h-1a3 3 0 0 0-3 3"/><path d="M20 8.54V4a2 2 0 1 0-4 0v3"/><path d="M7.612 12.524a3 3 0 1 0-1.6 4.3"/><path d="M4 15.5v.01"/></svg>
-    },
-    {
-      title: t("freeSamples", "FREE SAMPLES"),
-      desc: t("freeSamplesSub", "With every single order"),
-      icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M10 2v7.31"/><path d="M14 9.3V1.99"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/></svg>
-    },
-    {
-      title: t("globalShipping", "GLOBAL SHIPPING"),
-      desc: t("globalShippingSub", "Delivered worldwide"),
-      icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-    }
-  ];
+  return null;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION 1: FREE GIFT HERO BANNER (LARGE HERO PICTURE & MINIMAL LUXURY)
+═══════════════════════════════════════════════════════════════ */
+function FreeGiftBannerSection({ setPage, setCollectionCategory, setSelectedCollection }) {
+  const { lang, isRTL, t } = React.useContext(LanguageContext);
+  const countryCtx = React.useContext(CountryContext);
+  const curCountry = countryCtx?.activeCountry || (typeof COUNTRIES !== "undefined" ? COUNTRIES[0] : null);
+  const currencySymbol = curCountry?.currency || (isRTL ? "ر.س" : "SAR");
+  const thresholdText = `${currencySymbol} 250+`;
 
   return (
-    <div style={{
-      background: "linear-gradient(90deg, #F9F7F1 0%, #FFFFFF 50%, #F9F7F1 100%)",
-      borderTop: "1px solid #E8E4DC",
-      borderBottom: "1px solid #E8E4DC",
-      padding: "40px 5%",
+    <section style={{ 
+      padding: "14px 4% 36px", 
+      background: "#FAF9F6",
+      position: "relative"
     }}>
-      <div style={{
-        maxWidth: 1440, margin: "0 auto", display: "grid", 
-        gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", 
-        gap: 30, alignItems: "center"
-      }}>
-        {items.map((it, i) => (
-          <div key={i} className="trust-item" style={{
-            display: "flex", flexDirection: "column", alignItems: "center", 
-            textAlign: "center", padding: "10px"
-          }}>
-            <div style={{
-              width: 50, height: 50, borderRadius: "50%", background: "rgba(184,146,42,0.1)", 
-              color: "#B8922A", display: "flex", alignItems: "center", justifyContent: "center", 
-              marginBottom: 16
-            }}>
-              {it.icon}
-            </div>
-            <h4 style={{
-              fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif", fontSize: isRTL ? 14 : 11, fontWeight: 700, 
-              letterSpacing: isRTL ? 0 : 2, color: "#251737", textTransform: "uppercase", marginBottom: 6
-            }}>{it.title}</h4>
-            <p style={{
-              fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Playfair Display', serif", fontSize: isRTL ? 15 : 13, fontStyle: isRTL ? "normal" : "italic", 
-              color: "#888"
-            }}>{it.desc}</p>
+      <div className="max-container" style={{ maxWidth: "1400px", margin: "0 auto" }}>
+        
+        {/* Main Card Frame */}
+        <div style={{
+          background: "#FFFFFF",
+          borderRadius: "24px",
+          border: "1px solid rgba(184,146,42,0.22)",
+          boxShadow: "0 20px 50px rgba(26,11,34,0.06)",
+          padding: "clamp(20px, 3.5vw, 44px)",
+          display: "flex",
+          flexDirection: isRTL ? "row-reverse" : "row",
+          alignItems: "center",
+          justifyContent: "space-between",
+          gap: "clamp(28px, 4vw, 56px)",
+          flexWrap: "wrap"
+        }}>
+
+          {/* ── LEFT: PROMINENT LARGE HERO PICTURE (INCREASED SIZE) ── */}
+          <div 
+            style={{ 
+              flex: "1 1 620px", 
+              maxWidth: "760px", 
+              minWidth: "300px",
+              borderRadius: "18px",
+              overflow: "hidden",
+              position: "relative",
+              border: "1px solid rgba(184,146,42,0.25)",
+              boxShadow: "0 16px 40px rgba(26,11,34,0.1)",
+              cursor: "pointer",
+              background: "#FAF9F6",
+              transition: "transform 0.4s ease, box-shadow 0.4s ease"
+            }}
+            onClick={() => {
+              if (setPage) setPage("collections");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.transform = "scale(1.01)";
+              e.currentTarget.style.boxShadow = "0 22px 50px rgba(184,146,42,0.22)";
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform = "scale(1)";
+              e.currentTarget.style.boxShadow = "0 16px 40px rgba(26,11,34,0.1)";
+            }}
+          >
+            <img 
+              src={resolveAsset("khadlaj_free_gift_pouch_banner.jpg")} 
+              alt="Khadlaj Free Gift Pouch with Purchase" 
+              style={{
+                width: "100%",
+                height: "auto",
+                display: "block",
+                objectFit: "contain"
+              }}
+            />
           </div>
-        ))}
+
+          {/* ── RIGHT: SIMPLE & PROFESSIONAL LUXURY CONTENT (KAM & MINIMAL) ── */}
+          <div style={{
+            flex: "1 1 400px",
+            minWidth: "280px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: isRTL ? "flex-end" : "flex-start",
+            textAlign: isRTL ? "right" : "left",
+            gap: "18px"
+          }}>
+            
+            {/* Clean Headline */}
+            <h2 style={{
+              fontSize: "clamp(26px, 3vw, 40px)",
+              fontWeight: 600,
+              color: "#1A0B22",
+              margin: 0,
+              lineHeight: 1.2,
+              fontFamily: isRTL ? "'Cairo', serif" : "'Playfair Display', serif"
+            }}>
+              {isRTL ? "حقيبة السفر الحصرية من خضلج" : "The Signature Khadlaj Travel Pouch"}
+            </h2>
+
+            {/* Simple, Concise Paragraph */}
+            <p style={{
+              fontSize: "15px",
+              color: "#555",
+              lineHeight: 1.65,
+              margin: 0,
+              fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif"
+            }}>
+              {isRTL
+                ? `احصل على حقيبة سفر مصممة خصيصاً مجاناً عند تسوقك بقيمة ${thresholdText}. متوفرة بنسخة نوار التنفيذية للرجال وكارمين الإمبراطورية للنساء.`
+                : `Receive an exclusive complimentary designer travel pouch on all qualifying orders over ${thresholdText}. Crafted in textured saffiano finish, available in Signature Noir for Men and Royal Carmine for Women.`}
+            </p>
+
+            {/* Clean Feature Line */}
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "20px",
+              fontSize: "13px",
+              color: "#333",
+              fontWeight: 600,
+              flexWrap: "wrap",
+              fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif",
+              margin: "2px 0"
+            }}>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                <span style={{ color: "#B8922A" }}>✦</span> {isRTL ? "للرجال والنساء" : "Men's & Women's Editions"}
+              </span>
+              <span style={{ display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                <span style={{ color: "#B8922A" }}>✦</span> {isRTL ? "جلد نباتي محبب فاخر" : "Premium Saffiano Texture"}
+              </span>
+            </div>
+
+            {/* Professional CTA Button */}
+            <div style={{ marginTop: "6px" }}>
+              <button
+                onClick={() => {
+                  if (setPage) setPage("collections");
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
+                style={{
+                  background: "linear-gradient(135deg, #1A0B22 0%, #2E1B40 100%)",
+                  color: "#FAF8F5",
+                  border: "1px solid #D4AF37",
+                  borderRadius: "35px",
+                  padding: "15px 38px",
+                  fontSize: "12.5px",
+                  fontWeight: 800,
+                  letterSpacing: isRTL ? "0.5px" : "2px",
+                  textTransform: "uppercase",
+                  cursor: "pointer",
+                  boxShadow: "0 8px 24px rgba(26,11,34,0.2)",
+                  transition: "all 0.3s ease",
+                  fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif"
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = "linear-gradient(135deg, #D4AF37 0%, #B8922A 100%)";
+                  e.currentTarget.style.color = "#1A0B22";
+                  e.currentTarget.style.transform = "translateY(-2px)";
+                  e.currentTarget.style.boxShadow = "0 10px 28px rgba(212,175,55,0.4)";
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = "linear-gradient(135deg, #1A0B22 0%, #2E1B40 100%)";
+                  e.currentTarget.style.color = "#FAF8F5";
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "0 8px 24px rgba(26,11,34,0.2)";
+                }}
+              >
+                {isRTL ? "تسوق الآن واحصل على هديتك ←" : "SHOP NOW & CLAIM GIFT →"}
+              </button>
+            </div>
+
+          </div>
+
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 
@@ -8907,7 +9658,7 @@ function TrustBanner() {
 /* ═══════════════════════════════════════════════════════════════
    NEW LAUNCHES FULL-WIDTH BANNER SLIDER (FRESH ULTRA-HD)
 ═══════════════════════════════════════════════════════════════ */
-function NewLaunchesHeroBannerSlider({ setPage, setViewProduct, setSelectedCollection }) {
+function NewLaunchesHeroBannerSlider({ setPage, setViewProduct, setSelectedCollection, setCollectionCategory }) {
   const [current, setCurrent] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const touchStartX = useRef(0);
@@ -8955,6 +9706,15 @@ function NewLaunchesHeroBannerSlider({ setPage, setViewProduct, setSelectedColle
       badge: "NEW LAUNCH",
       productName: "ISLAND SUN",
       productId: 9200000000010
+    },
+    {
+      id: "deals",
+      img: "/assets/images/banners/deals_desktop.png",
+      imgMobile: "/assets/images/banners/deals_mobile.png",
+      title: "EXCLUSIVE DEALS",
+      subtitle: "UP TO 50% OFF",
+      badge: "SPECIAL OFFER",
+      collectionKey: "deals"
     }
   ];
 
@@ -8968,8 +9728,10 @@ function NewLaunchesHeroBannerSlider({ setPage, setViewProduct, setSelectedColle
 
   const handleBannerClick = (banner) => {
     if (banner.id === "deals" || banner.collectionKey === "deals") {
+      if (setCollectionCategory) setCollectionCategory("Deals");
       if (setSelectedCollection) setSelectedCollection("deals");
       if (setPage) setPage("collections");
+      window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
     const prod = PRODUCTS.find(p => p.name === banner.productName || p.id === banner.productId);
@@ -9265,6 +10027,10 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
     }
   ];
 
+  const sectionRef = React.useRef(null);
+  const [touchStartX, setTouchStartX] = useState(null);
+  const [touchEndX, setTouchEndX] = useState(null);
+
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
@@ -9274,13 +10040,34 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
   const visibleCards = windowWidth >= 1024 ? 3 : windowWidth >= 640 ? 2 : 1;
   const maxIndex = Math.max(0, cards.length - visibleCards);
 
+  // When user scrolls into this section, start from ISLAND SUN (index 0)
   useEffect(() => {
-    if (isPaused || maxIndex === 0) return;
+    const el = sectionRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setStartIndex(0);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  // Disable auto-advance on mobile so the user can control manually with arrows and swipe
+  useEffect(() => {
+    if (windowWidth < 768 || isPaused || maxIndex === 0) return;
     const timer = setInterval(() => {
       setStartIndex(prev => (prev >= maxIndex ? 0 : prev + 1));
     }, 5500);
     return () => clearInterval(timer);
-  }, [isPaused, maxIndex]);
+  }, [isPaused, maxIndex, windowWidth]);
 
   const handleCardClick = (card) => {
     const prod = PRODUCTS.find(p => p.name === card.productName || p.id === card.productId);
@@ -9293,19 +10080,47 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
   };
 
   const prevSlide = (e) => {
-    e.stopPropagation();
+    if (e && e.stopPropagation) e.stopPropagation();
     setStartIndex(prev => (prev === 0 ? maxIndex : prev - 1));
   };
 
   const nextSlide = (e) => {
-    e.stopPropagation();
+    if (e && e.stopPropagation) e.stopPropagation();
     setStartIndex(prev => (prev >= maxIndex ? 0 : prev + 1));
+  };
+
+  const handleTouchStart = (e) => {
+    setIsPaused(true);
+    if (e.targetTouches && e.targetTouches[0]) {
+      setTouchStartX(e.targetTouches[0].clientX);
+      setTouchEndX(e.targetTouches[0].clientX);
+    }
+  };
+
+  const handleTouchMove = (e) => {
+    if (e.targetTouches && e.targetTouches[0]) {
+      setTouchEndX(e.targetTouches[0].clientX);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX !== null && touchEndX !== null) {
+      const diff = touchStartX - touchEndX;
+      if (diff > 45) {
+        nextSlide();
+      } else if (diff < -45) {
+        prevSlide();
+      }
+    }
+    setTouchStartX(null);
+    setTouchEndX(null);
   };
 
   return (
     <section 
+      ref={sectionRef}
       style={{
-        padding: "44px 3% 28px", 
+        padding: windowWidth < 640 ? "36px 3% 24px" : "54px 3% 36px", 
         margin: 0,
         width: "100%",
         background: "linear-gradient(180deg, #FAF8F4 0%, #ffffff 100%)",
@@ -9314,9 +10129,30 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
       }}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      onTouchStart={() => setIsPaused(true)}
-      onTouchEnd={() => setIsPaused(false)}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
     >
+      {/* ── Luxury Section Heading ── */}
+      <div style={{
+        textAlign: "center",
+        maxWidth: 780,
+        margin: windowWidth < 640 ? "0 auto 28px" : "0 auto 40px",
+        padding: "0 16px"
+      }}>
+
+        <h2 style={{
+          fontFamily: isRTL ? "'Cairo', serif" : "'Playfair Display', serif",
+          fontSize: "clamp(28px, 3.8vw, 46px)",
+          color: "#251737",
+          fontWeight: 500,
+          lineHeight: 1.2,
+          margin: 0
+        }}>
+          {isRTL ? "الأكثر مبيعاً" : "Best Sellers"}
+        </h2>
+      </div>
+
       {/* Cards Slider Track Container */}
       <div style={{
         position: "relative",
@@ -9444,22 +10280,21 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
         {maxIndex > 0 && (
           <>
             <button
-              className="hide-mob"
               onClick={prevSlide}
               aria-label="Previous Slide"
               style={{
                 position: "absolute",
-                left: "20px",
+                left: windowWidth < 640 ? "8px" : "20px",
                 top: "50%",
                 transform: "translateY(-50%)",
                 zIndex: 10,
-                width: "44px",
-                height: "44px",
+                width: windowWidth < 640 ? "36px" : "44px",
+                height: windowWidth < 640 ? "36px" : "44px",
                 borderRadius: "50%",
-                background: "rgba(255, 255, 255, 0.85)",
+                background: "rgba(255, 255, 255, 0.9)",
                 backdropFilter: "blur(10px)",
                 WebkitBackdropFilter: "blur(10px)",
-                border: "1px solid rgba(255,255,255,0.6)",
+                border: "1px solid rgba(255,255,255,0.75)",
                 boxShadow: "0 6px 20px rgba(0,0,0,0.3)",
                 color: "#251737",
                 display: "flex",
@@ -9471,36 +10306,35 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = "#251737";
                 e.currentTarget.style.color = "#fff";
-                e.currentTarget.style.transform = "translateY(-50%) scale(1.1)";
+                e.currentTarget.style.transform = "translateY(-50%) scale(1.08)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(255, 255, 255, 0.85)";
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.9)";
                 e.currentTarget.style.color = "#251737";
                 e.currentTarget.style.transform = "translateY(-50%) scale(1)";
               }}
             >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width={windowWidth < 640 ? "18" : "22"} height={windowWidth < 640 ? "18" : "22"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M15 18l-6-6 6-6" />
               </svg>
             </button>
 
             <button
-              className="hide-mob"
               onClick={nextSlide}
               aria-label="Next Slide"
               style={{
                 position: "absolute",
-                right: "20px",
+                right: windowWidth < 640 ? "8px" : "20px",
                 top: "50%",
                 transform: "translateY(-50%)",
                 zIndex: 10,
-                width: "44px",
-                height: "44px",
+                width: windowWidth < 640 ? "36px" : "44px",
+                height: windowWidth < 640 ? "36px" : "44px",
                 borderRadius: "50%",
-                background: "rgba(255, 255, 255, 0.85)",
+                background: "rgba(255, 255, 255, 0.9)",
                 backdropFilter: "blur(10px)",
                 WebkitBackdropFilter: "blur(10px)",
-                border: "1px solid rgba(255,255,255,0.6)",
+                border: "1px solid rgba(255,255,255,0.75)",
                 boxShadow: "0 6px 20px rgba(0,0,0,0.3)",
                 color: "#251737",
                 display: "flex",
@@ -9512,15 +10346,15 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = "#251737";
                 e.currentTarget.style.color = "#fff";
-                e.currentTarget.style.transform = "translateY(-50%) scale(1.1)";
+                e.currentTarget.style.transform = "translateY(-50%) scale(1.08)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(255, 255, 255, 0.85)";
+                e.currentTarget.style.background = "rgba(255, 255, 255, 0.9)";
                 e.currentTarget.style.color = "#251737";
                 e.currentTarget.style.transform = "translateY(-50%) scale(1)";
               }}
             >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width={windowWidth < 640 ? "18" : "22"} height={windowWidth < 640 ? "18" : "22"} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M9 18l6-6-6-6" />
               </svg>
             </button>
@@ -9601,10 +10435,10 @@ function ReviewCardItem({ r, isRTL }) {
         </button>
       </div>
       <div style={{ marginTop: "auto", paddingTop: 8 }}>
-        <p style={{ fontSize: 9, fontWeight: 600, color: "#fff", letterSpacing: 2, fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif", textTransform: "uppercase", margin: 0 }}>
+        <p className="review-card-name" style={{ fontSize: 9, fontWeight: 600, color: "#fff", letterSpacing: 2, fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif", textTransform: "uppercase", margin: 0 }}>
           {name}
         </p>
-        <p style={{ fontWeight: 600, fontSize: 8, letterSpacing: 4, color: "#B8922A", marginTop: 5, textTransform: "uppercase", fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif", margin: "5px 0 0" }}>
+        <p className="review-card-country" style={{ fontWeight: 600, fontSize: 8, letterSpacing: 4, color: "#B8922A", marginTop: 5, textTransform: "uppercase", fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif", margin: "5px 0 0" }}>
           {country}
         </p>
       </div>
@@ -9615,7 +10449,7 @@ function ReviewCardItem({ r, isRTL }) {
 /* ═══════════════════════════════════════════════════════════════
    PAGE: HOME
 ═══════════════════════════════════════════════════════════════ */
-function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection }){
+function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection, setCollectionCategory }){
   const { lang, isRTL, t } = React.useContext(LanguageContext);
   const [activeCat, setActiveCat] = useState("Best Sellers");
   const [isMuted, setIsMuted] = useState(true);
@@ -9657,30 +10491,81 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
     const finalNote = customNote !== undefined ? customNote : quizCustomNotes;
     setQuizLoading(true);
     setQuizStep("analyzing");
+
+    // Smart fallback product determination
+    const m = (finalMood || "").toLowerCase();
+    const o = (finalOccasion || "").toLowerCase();
+    const c = (finalNote || "").toLowerCase();
+
+    let matched = PRODUCTS[0];
+    if (m.includes("sweet") || m.includes("gourmand") || c.includes("vanilla") || c.includes("caramel") || c.includes("toffee")) {
+      matched = PRODUCTS.find(p => p.name === "MUSE" || p.name === "BISCOTTI DATE TOFFEE" || p.name === "SAWAAR VANILLE BLANC") || PRODUCTS[0];
+    } else if (m.includes("fresh") || m.includes("citrus") || m.includes("energizing") || c.includes("mango") || c.includes("coconut") || c.includes("marine")) {
+      matched = PRODUCTS.find(p => p.name === "ISLAND SUN" || p.name === "ISLAND") || PRODUCTS[0];
+    } else if (m.includes("rich") || m.includes("exotic") || o.includes("royal") || c.includes("oud") || c.includes("amber")) {
+      matched = PRODUCTS.find(p => p.name === "SHIYAAKA SHADOW" || p.name === "SARAYA" || p.name === "KARUS GOLD ABSOLU") || PRODUCTS[0];
+    } else if (m.includes("clean") || m.includes("sophisticated") || o.includes("office") || o.includes("daily")) {
+      matched = PRODUCTS.find(p => p.name === "SHIYAAKA MEN" || p.name === "SHIYAAKA SNOW" || p.name === "SHIYAAKA WHITE") || PRODUCTS[0];
+    }
+
     try {
-      const res = await fetch("/api/scent-finder", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          vibe: finalMood,
-          occasion: finalOccasion,
-          customNotes: finalNote,
-          lang: isRTL ? "ar" : "en"
-        })
-      });
-      const data = await res.json();
-      const matched = PRODUCTS.find(p => p.id === data.productId || p.name.toUpperCase() === (data.productName || "").toUpperCase()) || PRODUCTS[0];
+      const secKey = typeof _getConciergeSec === "function" ? _getConciergeSec() : "";
+      if (secKey) {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 8000);
+        const res = await fetch("https://api.openai.com/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${secKey}`
+          },
+          body: JSON.stringify({
+            model: "gpt-4o-mini",
+            temperature: 0.3,
+            max_tokens: 300,
+            messages: [
+              {
+                role: "system",
+                content: `You are the Master Fragrance Sommelier for Khadlaj Perfumes. Based on the client preference, recommend one signature fragrance from Khadlaj: [ISLAND SUN, ISLAND, SHIYAAKA SHADOW, SHIYAAKA MEN, MUSE, SARAYA, KARUS GOLD ABSOLU, BISCOTTI DATE TOFFEE, HAREEM AL SULTAN GOLD]. You must only discuss Khadlaj. Return JSON with keys: "productName", "matchReason" (${isRTL ? "in Arabic" : "in English"}), "olfactiveNotes".`
+              },
+              {
+                role: "user",
+                content: `Vibe: "${finalMood}", Occasion: "${finalOccasion}", Notes: "${finalNote}". Recommend the best Khadlaj perfume.`
+              }
+            ],
+            response_format: { type: "json_object" }
+          }),
+          signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+        if (res.ok) {
+          const aiJson = await res.json();
+          const parsed = JSON.parse(aiJson.choices?.[0]?.message?.content || "{}");
+          if (parsed && parsed.productName) {
+            const found = PRODUCTS.find(p => p.name.toUpperCase() === parsed.productName.toUpperCase() || parsed.productName.toUpperCase().includes(p.name.toUpperCase()));
+            if (found) matched = found;
+            setQuizResult(matched);
+            setQuizAiDetails(parsed);
+            setQuizStep(3);
+            return;
+          }
+        }
+      }
+
       setQuizResult(matched);
-      setQuizAiDetails(data);
+      setQuizAiDetails({
+        productName: matched.name,
+        matchReason: isRTL ? `تم ترشيح ${matched.name} بناءً على تفضيلك لـ (${finalMood}) لمناسبة (${finalOccasion}). يتميز بانسجام فاخر وثبات يدوم طويلاً.` : `Hand-selected by our master perfumers to complement your affinity for ${finalMood} during ${finalOccasion}.`,
+        olfactiveNotes: Array.isArray(matched.notes) ? matched.notes.join(" • ") : "Oud • Amber • Musk"
+      });
       setQuizStep(3);
     } catch (err) {
-      console.error("Scent Finder error:", err);
-      const fallback = PRODUCTS[0];
-      setQuizResult(fallback);
+      console.warn("Scent Finder AI fallback:", err);
+      setQuizResult(matched);
       setQuizAiDetails({
-        productName: fallback.name,
+        productName: matched.name,
         matchReason: isRTL ? "تم اختيار هذا العطر الأيقوني ليتناغم تماماً مع ذوقك الرفيع ومناسبتك الخاصة." : "Specially matched from our master collection to elevate your presence with timeless elegance.",
-        olfactiveNotes: Array.isArray(fallback.notes) ? fallback.notes.join(" • ") : "Oud • Amber • Musk"
+        olfactiveNotes: Array.isArray(matched.notes) ? matched.notes.join(" • ") : "Oud • Amber • Musk"
       });
       setQuizStep(3);
     } finally {
@@ -9734,7 +10619,7 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
               width: "100%",
               height: "100%",
               objectFit: "cover",
-              objectPosition: "center center",
+              objectPosition: "center 28%",
               display: "block",
               opacity: 1,
             }}
@@ -9798,18 +10683,18 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
 
 <section className="khadlaj25-section">
         <div className="k25-header">
-          <h2 style={{fontFamily: isRTL ? "'Cairo', serif" : "'Playfair Display', serif", fontSize: 46, color: "#251737", margin: 0, fontWeight: 500}}>{t("shiyaakaTitle", "Shiyaaka Collection")}</h2>
-          <p style={{fontFamily: "'Montserrat', sans-serif", fontSize: 15, color: "#555", maxWidth: 640, margin: "20px auto 0", lineHeight: 1.6}}>
+          <h2 style={{fontFamily: isRTL ? "'Cairo', serif" : "'Playfair Display', serif", color: "#251737", margin: 0, fontWeight: 500}}>{t("shiyaakaTitle", "Shiyaaka Collection")}</h2>
+          <p style={{fontFamily: "'Montserrat', sans-serif", fontSize: 14, color: "#555", maxWidth: 640, margin: "10px auto 0", lineHeight: 1.5}}>
             {t("shiyaakaSubtitle", "Experience the essence of modern sophistication. A definitive collection curated for elegance and timeless charm.")}
           </p>
         </div>
 
         <div style={{position: "relative", padding: "0 2%"}}>
-          <button onClick={() => document.getElementById("k25-scroll-container").scrollBy({left:-460, behavior:"smooth"})} style={{position: "absolute", left: "3%", top: "45%", transform: "translateY(-50%)", zIndex: 10, width: 56, height: 56, borderRadius: "50%", background: "#fff", border: "1px solid #E8E4DC", boxShadow: "0 10px 25px rgba(0,0,0,0.1)", cursor: "pointer", color: "#251737", display: "flex", alignItems: "center", justifyContent: "center", transition: "all .3s"}} onMouseEnter={(e)=>{e.currentTarget.style.background="#251737"; e.currentTarget.style.color="#fff";}} onMouseLeave={(e)=>{e.currentTarget.style.background="#fff"; e.currentTarget.style.color="#251737";}}>
+          <button className="hide-mob" onClick={() => document.getElementById("k25-scroll-container").scrollBy({left:-460, behavior:"smooth"})} style={{position: "absolute", left: "3%", top: "45%", transform: "translateY(-50%)", zIndex: 10, width: 56, height: 56, borderRadius: "50%", background: "#fff", border: "1px solid #E8E4DC", boxShadow: "0 10px 25px rgba(0,0,0,0.1)", cursor: "pointer", color: "#251737", display: "flex", alignItems: "center", justifyContent: "center", transition: "all .3s"}} onMouseEnter={(e)=>{e.currentTarget.style.background="#251737"; e.currentTarget.style.color="#fff";}} onMouseLeave={(e)=>{e.currentTarget.style.background="#fff"; e.currentTarget.style.color="#251737";}}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
           </button>
           
-          <button onClick={() => document.getElementById("k25-scroll-container").scrollBy({left:460, behavior:"smooth"})} style={{position: "absolute", right: "3%", top: "45%", transform: "translateY(-50%)", zIndex: 10, width: 56, height: 56, borderRadius: "50%", background: "#fff", border: "1px solid #E8E4DC", boxShadow: "0 10px 25px rgba(0,0,0,0.1)", cursor: "pointer", color: "#251737", display: "flex", alignItems: "center", justifyContent: "center", transition: "all .3s"}} onMouseEnter={(e)=>{e.currentTarget.style.background="#251737"; e.currentTarget.style.color="#fff";}} onMouseLeave={(e)=>{e.currentTarget.style.background="#fff"; e.currentTarget.style.color="#251737";}}>
+          <button className="hide-mob" onClick={() => document.getElementById("k25-scroll-container").scrollBy({left:460, behavior:"smooth"})} style={{position: "absolute", right: "3%", top: "45%", transform: "translateY(-50%)", zIndex: 10, width: 56, height: 56, borderRadius: "50%", background: "#fff", border: "1px solid #E8E4DC", boxShadow: "0 10px 25px rgba(0,0,0,0.1)", cursor: "pointer", color: "#251737", display: "flex", alignItems: "center", justifyContent: "center", transition: "all .3s"}} onMouseEnter={(e)=>{e.currentTarget.style.background="#251737"; e.currentTarget.style.color="#fff";}} onMouseLeave={(e)=>{e.currentTarget.style.background="#fff"; e.currentTarget.style.color="#251737";}}>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
           </button>
 
@@ -9819,13 +10704,13 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
                 { name: "SHIYAAKA SKY", nameAr: "شياكة سكاي", subtitle: "Fresh & Uplifting", subtitleAr: "منعش ومفعم بالحيوية", desc: "A refreshing blend of fresh citrus and sky breeze notes, anchored by a warm cedarwood foundation.", descAr: "مزيج منعش من الحمضيات الفوارة ونسيم السماء، يرتكز على قاعدة دافئة من خشب الأرز.", img: "/assets/images/products/shiyaaka_custom_5_cropped.png" },
                 { name: "SHIYAAKA SHADOW", nameAr: "شياكة شادو", subtitle: "Mysterious & Bold", subtitleAr: "غامض وجريء", desc: "A captivating fragrance that symbolizes modern masculinity, bottled for the discerning individual.", descAr: "عطر آسر يجسد الرجولة العصرية والجاذبية العميقة، صُمم للشخصيات المميزة.", img: "/assets/images/products/shiyaaka_custom_3.jpg?v=2" },
                 { name: "SHIYAAKA SNOW", nameAr: "شياكة سنو", subtitle: "Crisp & Pure", subtitleAr: "نقي ومنعش كالثلج", desc: "An aromatic tribute to the frosty freshness, woven into the very fabric of our heritage.", descAr: "تحية عطرية للانتعاش النقي والبرودة الساحرة، منسوجة في صلب تراثنا الأصيل.", img: "/assets/images/products/shiyaaka_custom_4.png" },
-                { name: "SHIYAAKA GOLD", nameAr: "شياكة جولد", subtitle: "Timeless Elegance", subtitleAr: "أناقة كلاسيكية خالدة", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", descAr: "مزيج مهيب يعكس القوة والشهامة والأناقة الخالدة التي تدوم عبر العصور.", img: "/assets/images/products/shiyaaka_custom_2.jpg" },
+                { name: "SHIYAAKA WHITE", nameAr: "شياكة وايت", subtitle: "Timeless Elegance", subtitleAr: "أناقة كلاسيكية خالدة", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", descAr: "مزيج مهيب يعكس القوة والشهامة والأناقة الخالدة التي تدوم عبر العصور.", img: "/assets/images/products/shiyaaka_custom_2.jpg" },
                 { name: "SHIYAAKA BLUE", nameAr: "شياكة بلو", subtitle: "Fresh & Aquatic", subtitleAr: "أكواتيك بحري منعش", desc: "Built on the essence of pure freshness, leaving a trail of sophisticated confidence wherever you go.", descAr: "صُمم على خلاصة الانتعاش النقي، ليترك بصمة من الثقة الراقية أينما ذهبت.", img: "/assets/images/products/shiyaaka_custom_1.jpg?v=2" },
                 { name: "SHIYAAKA MEN", nameAr: "شياكة رجالي", subtitle: "Bold & Classic", subtitleAr: "كلاسيكي وجريء", desc: "A signature masculine scent blending rich spices with deep woody undertones.", descAr: "عطر رجالي مميز يمزج بين التوابل الغنية والنفحات الخشبية العميقة.", img: "/assets/images/products/shiya_men_v3.png?v=2" },
                 { name: "SHIYAAKA SKY", nameAr: "شياكة سكاي", subtitle: "Fresh & Uplifting", subtitleAr: "منعش ومفعم بالحيوية", desc: "A refreshing blend of fresh citrus and sky breeze notes, anchored by a warm cedarwood foundation.", descAr: "مزيج منعش من الحمضيات الفوارة ونسيم السماء، يرتكز على قاعدة دافئة من خشب الأرز.", img: "/assets/images/products/shiyaaka_custom_5_cropped.png" },
                 { name: "SHIYAAKA SHADOW", nameAr: "شياكة شادو", subtitle: "Mysterious & Bold", subtitleAr: "غامض وجريء", desc: "A captivating fragrance that symbolizes modern masculinity, bottled for the discerning individual.", descAr: "عطر آسر يجسد الرجولة العصرية والجاذبية العميقة، صُمم للشخصيات المميزة.", img: "/assets/images/products/shiyaaka_custom_3.jpg?v=2" },
                 { name: "SHIYAAKA SNOW", nameAr: "شياكة سنو", subtitle: "Crisp & Pure", subtitleAr: "نقي ومنعش كالثلج", desc: "An aromatic tribute to the frosty freshness, woven into the very fabric of our heritage.", descAr: "تحية عطرية للانتعاش النقي والبرودة الساحرة، منسوجة في صلب تراثنا الأصيل.", img: "/assets/images/products/shiyaaka_custom_4.png" },
-                { name: "SHIYAAKA GOLD", nameAr: "شياكة جولد", subtitle: "Timeless Elegance", subtitleAr: "أناقة كلاسيكية خالدة", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", descAr: "مزيج مهيب يعكس القوة والشهامة والأناقة الخالدة التي تدوم عبر العصور.", img: "/assets/images/products/shiyaaka_custom_2.jpg" },
+                { name: "SHIYAAKA WHITE", nameAr: "شياكة وايت", subtitle: "Timeless Elegance", subtitleAr: "أناقة كلاسيكية خالدة", desc: "A majestic blend reflecting strength, honor, and timeless elegance that lasts through the ages.", descAr: "مزيج مهيب يعكس القوة والشهامة والأناقة الخالدة التي تدوم عبر العصور.", img: "/assets/images/products/shiyaaka_custom_2.jpg" },
                 { name: "SHIYAAKA BLUE", nameAr: "شياكة بلو", subtitle: "Fresh & Aquatic", subtitleAr: "أكواتيك بحري منعش", desc: "Built on the essence of pure freshness, leaving a trail of sophisticated confidence wherever you go.", descAr: "صُمم على خلاصة الانتعاش النقي، ليترك بصمة من الثقة الراقية أينما ذهبت.", img: "/assets/images/products/shiyaaka_custom_1.jpg?v=2" },
                 { name: "SHIYAAKA MEN", nameAr: "شياكة رجالي", subtitle: "Bold & Classic", subtitleAr: "كلاسيكي وجريء", desc: "A signature masculine scent blending rich spices with deep woody undertones.", descAr: "عطر رجالي مميز يمزج بين التوابل الغنية والنفحات الخشبية العميقة.", img: "/assets/images/products/shiya_men_v3.png?v=2" }
               ].map((item, idx) => (
@@ -9844,13 +10729,55 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
               ))}
             </div>
           </div>
+
+          {/* Mobile Carousel Navigation (1 card per slide) */}
+          <div className="show-mob-flex" style={{display: "none", justifyContent: "center", alignItems: "center", gap: 20, marginTop: 20}}>
+            <button 
+              onClick={() => {
+                const el = document.getElementById("k25-scroll-container");
+                if (el) el.scrollBy({ left: -(window.innerWidth - 28), behavior: "smooth" });
+              }}
+              style={{
+                width: 42, height: 42, borderRadius: "50%",
+                background: "#2A1A40", border: "1px solid rgba(184,146,42,0.4)",
+                color: "#C8A97E", display: "flex", alignItems: "center", justifyContent: "center",
+                cursor: "pointer", boxShadow: "0 4px 12px rgba(0,0,0,0.2)"
+              }}
+              aria-label="Previous Slide"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            
+            <div style={{display: "flex", gap: 6, alignItems: "center"}}>
+              {[0, 1, 2, 3, 4, 5].map((_, i) => (
+                <span key={i} style={{width: 6, height: 6, borderRadius: "50%", background: i === 0 ? "#B8922A" : "rgba(184,146,42,0.3)"}} />
+              ))}
+            </div>
+
+            <button 
+              onClick={() => {
+                const el = document.getElementById("k25-scroll-container");
+                if (el) el.scrollBy({ left: (window.innerWidth - 28), behavior: "smooth" });
+              }}
+              style={{
+                width: 42, height: 42, borderRadius: "50%",
+                background: "#2A1A40", border: "1px solid rgba(184,146,42,0.4)",
+                color: "#C8A97E", display: "flex", alignItems: "center", justifyContent: "center",
+                cursor: "pointer", boxShadow: "0 4px 12px rgba(0,0,0,0.2)"
+              }}
+              aria-label="Next Slide"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+          </div>
         </div>
       </section>
 
-
+      {/* ── SECTION 1: LUXURY COMPLIMENTARY GIFT BANNER ── */}
+      <FreeGiftBannerSection setPage={setPage} setCollectionCategory={setCollectionCategory} setSelectedCollection={setSelectedCollection} />
 
       {/* ── FRESH ULTRA-HD BANNER SLIDER ── */}
-      <NewLaunchesHeroBannerSlider setPage={setPage} setViewProduct={setViewProduct} setSelectedCollection={setSelectedCollection} />
+      <NewLaunchesHeroBannerSlider setPage={setPage} setViewProduct={setViewProduct} setSelectedCollection={setSelectedCollection} setCollectionCategory={setCollectionCategory} />
 
       {/* ── 9 LUXURY SHOWCASE CARDS CAROUSEL ── */}
       <NewLaunchesShowcaseCards setPage={setPage} setViewProduct={setViewProduct} />
@@ -9868,11 +10795,6 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
             ))}
           </div>
 
-          <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",gap:16,marginTop:18,flexWrap:"wrap",paddingTop:12,borderTop:"1px solid #EBE4DD"}}>
-            <p style={{fontSize:10.5,letterSpacing:2.5,color:"#888",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif"}}>
-              {newLaunches.length} fresh launches
-            </p>
-          </div>
         </div>
       </section>
 
@@ -9970,36 +10892,82 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
 
         {/* Right Video Area */}
         <div style={{flex:"1 1 50%", minWidth:300, position:"relative", minHeight:"600px"}}>
-          <video src={window.__SHIYAAKA_VIDEO_URL__ || "https://cdn.shopify.com/videos/c/o/v/b4e5160153fa483f8fed33709d1b26cc.mp4"} autoPlay loop muted playsInline preload="auto" style={{position:"absolute", width:"100%", height:"100%", objectFit:"cover"}} />
+          <video src={window.__SHIYAAKA_VIDEO_URL__ || resolveAsset("shiyaaka-sky-approved.mp4") || "https://cdn.shopify.com/videos/c/o/v/b4e5160153fa483f8fed33709d1b26cc.mp4"} autoPlay loop muted playsInline preload="auto" style={{position:"absolute", width:"100%", height:"100%", objectFit:"cover"}} />
         </div>
       </section>
 
       {/* ── FEATURED PRODUCTS ── */}
-      <section style={{padding:"0 5% 104px",background:"#fff"}}>
-        <div style={{paddingTop:96,marginBottom:52,display:"flex",alignItems:"flex-end",justifyContent:"space-between",flexWrap:"wrap",gap:16}}>
+      <section className="featured-products-section">
+        <div className="featured-header-row">
           <div style={{textAlign: isRTL ? "right" : "left"}}>
-            <h2 className="disp" style={{fontSize:"clamp(32px,4vw,54px)",fontWeight:300,color:"#251737",lineHeight:1.15,letterSpacing:"-0.5px"}}>
+            <h2 className="disp" style={{fontSize:"clamp(28px,3.8vw,52px)",fontWeight:300,color:"#251737",lineHeight:1.18,letterSpacing:"-0.5px"}}>
               {isRTL ? "حيث لكل عطر حكاية تأسر القلوب" : "Where every scent has a story"}
             </h2>
           </div>
           <button className="btn-ghost" style={{flexShrink:0}} onClick={()=>setPage("collections")}>{isRTL ? "عرض الكل" : "View All"}</button>
         </div>
 
-        {/* Category pills */}
-        <div style={{display:"flex",gap:6,overflowX:"auto",paddingBottom:4,marginBottom:48,borderBottom:"1px solid #E8E4DC"}}>
-          {CATEGORIES.map(c=>(
-            <button key={c} onClick={()=>setActiveCat(c)}
-              style={{
-                background:"transparent",color:activeCat===c?"#000":"#777",
-                border:"none",
-                borderBottom: activeCat===c ? "1px solid #000" : "1px solid transparent",
-                padding:"8px 14px 10px",fontSize:10.5,letterSpacing: isRTL ? 0.5 : 2,cursor:"pointer",whiteSpace:"nowrap",
-                fontWeight:activeCat===c?800:700,transition:"all .2s",textTransform:"uppercase",
-                fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif",
-              }}>
-              {isRTL ? (CATEGORY_NAMES_AR[c] || c) : c}
-            </button>
-          ))}
+        {/* Category Pills Luxury Carousel */}
+        <div className="category-pills-wrap">
+          <div className="category-pills-track hide-scrollbar">
+            {CATEGORIES.map(c => {
+              const isSelected = activeCat === c;
+              return (
+                <button
+                  key={c}
+                  onClick={() => setActiveCat(c)}
+                  className="category-pill-btn"
+                  style={{
+                    background: isSelected 
+                      ? "linear-gradient(135deg, #251737 0%, #160D22 100%)" 
+                      : "#FAF8F4",
+                    color: isSelected ? "#FFFFFF" : "#4A3E59",
+                    border: isSelected 
+                      ? "1px solid #C1A46A" 
+                      : "1px solid rgba(193, 164, 106, 0.28)",
+                    boxShadow: isSelected 
+                      ? "0 4px 16px rgba(37, 23, 55, 0.22), 0 0 0 1px rgba(193,164,106,0.35)" 
+                      : "0 2px 6px rgba(0,0,0,0.02)",
+                    fontWeight: isSelected ? 700 : 500,
+                    transform: isSelected ? "scale(1.02)" : "scale(1)"
+                  }}
+                  onMouseEnter={(e) => {
+                    if (!isSelected) {
+                      e.currentTarget.style.borderColor = "#C1A46A";
+                      e.currentTarget.style.background = "#F4EFE6";
+                      e.currentTarget.style.color = "#251737";
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isSelected) {
+                      e.currentTarget.style.borderColor = "rgba(193, 164, 106, 0.28)";
+                      e.currentTarget.style.background = "#FAF8F4";
+                      e.currentTarget.style.color = "#4A3E59";
+                    }
+                  }}
+                >
+                  {isSelected && (
+                    <span style={{color: "#C1A46A", fontSize: 10, lineHeight: 1}}>✦</span>
+                  )}
+                  {isRTL ? (CATEGORY_NAMES_AR[c] || c) : c}
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Right edge scroll fade hint for mobile */}
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              right: 0,
+              bottom: 10,
+              width: 36,
+              background: "linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.92) 100%)",
+              pointerEvents: "none",
+              borderRadius: "0 8px 8px 0"
+            }}
+          />
         </div>
 
         <div style={{display:"grid",gridTemplateColumns:"repeat(4,minmax(0,1fr))",gap:24,alignItems:"stretch"}} className="grid-4">
@@ -10014,52 +10982,92 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
       {/* ── ANIMATED GIFT SLIDER ── */}
       <section className="gift-slider-section">
         <SectionHeader title={t("curatedGiftTitle", "GIFT COLLECTION")} />
-        
-        <div style={{marginTop: 60, position: "relative"}}>
-          <div className="gift-slider-track">
-            {[
-              { name: "Cloud Candy", nameAr: "كلاود كاندي", desc: "A soft peach-pink gift set", descAr: "مجموعة هدايا بالخوخ الوردي الناعم", price: 169, img: "/assets/images/gifsets/cloudcandy_gift_transparent.png" },
-              { name: "Island", nameAr: "آيلاند", desc: "The signature Island scent", descAr: "المجموعة الأيقونية لعطر آيلاند", price: 179, img: "/assets/images/gifsets/island_gift_transparent.png" },
-              { name: "Cream Velvet", nameAr: "كريم فيلفيت", desc: "Buttery caramel and vanilla", descAr: "كراميل غني وفانيليا مخملية", price: 160, img: "/assets/images/gifsets/creamvelvet_gift_user.png" },
-              { name: "Cloud Candy", nameAr: "كلاود كاندي", desc: "A soft peach-pink gift set", descAr: "مجموعة هدايا بالخوخ الوردي الناعم", price: 169, img: "/assets/images/gifsets/cloudcandy_gift_transparent.png" },
-              { name: "Island", nameAr: "آيلاند", desc: "The signature Island scent", descAr: "المجموعة الأيقونية لعطر آيلاند", price: 179, img: "/assets/images/gifsets/island_gift_transparent.png" },
-              { name: "Cream Velvet", nameAr: "كريم فيلفيت", desc: "Buttery caramel and vanilla", descAr: "كراميل غني وفانيليا مخملية", price: 160, img: "/assets/images/gifsets/creamvelvet_gift_user.png" }
-            ].map((gift, idx) => (
-              <div className="gift-slide-card" key={idx} onClick={() => setPage("gifts")}>
-                <div className="gift-slide-img">
-                  <img loading="lazy" decoding="async" src={getOptimizedImage(gift.img,500)} alt={gift.name} />
-                </div>
-                <div className="gift-slide-content">
-                  <p className="gift-slide-eyebrow">{isRTL ? "مختارات حصرية" : "Handpicked"}</p>
-                  <h2 className="gift-slide-title">
-                    {isRTL ? (
-                      <span>مجموعة<br/>{gift.nameAr}</span>
-                    ) : (
-                      <>
-                        {gift.name.replace(' Gift Set', '').split(' ').map((word, i) => <span key={i}>{word}<br/></span>)}
-                        Sets
-                      </>
-                    )}
-                  </h2>
-                  <button className="gift-slide-btn">{t("shopNow", "Shop Now")}</button>
-                </div>
+
+        {(() => {
+          const gifts = [
+            { id: "8586765697223", name: "Cloud Candy", nameAr: "كلاود كاندي", price: 169, img: "/assets/images/gifsets/cloudcandy_gift_transparent.png" },
+            { id: "8586762813639", name: "Island", nameAr: "آيلاند", price: 179, img: "/assets/images/gifsets/island_gift_transparent.png" },
+            { id: "8711666925767", name: "Cream Velvet", nameAr: "كريم فيلفيت", price: 160, img: "/assets/images/gifsets/creamvelvet_gift_user.png" },
+          ];
+          const isMob = typeof window !== "undefined" && window.innerWidth <= 768;
+          const displayGifts = isMob ? gifts : [...gifts, ...gifts];
+
+          const handleGiftClick = (gift, e) => {
+            if (e) {
+              e.preventDefault();
+              e.stopPropagation();
+            }
+            const prod = PRODUCTS.find(p => String(p.id) === String(gift.id)) || {
+              id: gift.id,
+              name: gift.name + " Gift Set",
+              price: gift.price,
+              size: "Gift Set",
+              col: "Gift Sets",
+              img: gift.img,
+              detailImages: [gift.img]
+            };
+            if (setViewProduct) {
+              setViewProduct(prod);
+            }
+            if (setPage) {
+              setPage("product");
+            }
+          };
+
+          return (
+            <div className="gift-slider-track-wrap" style={{marginTop: 50, position: "relative"}}>
+              <div className="gift-slider-track">
+                {displayGifts.map((gift, idx) => (
+                  <div
+                    className="gift-slide-card"
+                    key={idx}
+                    onClick={(e) => handleGiftClick(gift, e)}
+                    style={{cursor: "pointer"}}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`View ${gift.name} Gift Set Details`}
+                  >
+                    <div className="gift-slide-img">
+                      <img loading="lazy" decoding="async" src={getOptimizedImage(gift.img,800)} alt={gift.name} />
+                    </div>
+                    <div className="gift-slide-content">
+                      <p className="gift-slide-eyebrow">{isRTL ? "مختارات حصرية" : "Handpicked"}</p>
+                      <h2 className="gift-slide-title">
+                        {isRTL ? (
+                          <span>مجموعة<br/>{gift.nameAr}</span>
+                        ) : (
+                          <>
+                            {gift.name.split(' ').map((word, i) => <span key={i}>{word}<br/></span>)}
+                            Sets
+                          </>
+                        )}
+                      </h2>
+                      <button
+                        className="gift-slide-btn"
+                        onClick={(e) => handleGiftClick(gift, e)}
+                      >
+                        {t("viewDetails", isRTL ? "عرض التفاصيل" : "View Details")}
+                      </button>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
-        </div>
+              {/* Dot indicators — visible on mobile only */}
+              <div className="gift-dots" style={{display:"none", justifyContent:"center", gap:8, marginTop:20}}>
+                {gifts.map((_, i) => (
+                  <span key={i} style={{width:8,height:8,borderRadius:"50%",background:"rgba(37,23,55,0.25)",display:"inline-block"}} />
+                ))}
+              </div>
+            </div>
+          );
+        })()}
       </section>
       {/* ── SCENT FINDER QUIZ (AI POWERED) ── */}
-      <section style={{background:"#251737", padding:"96px 5%", color:"#fff", borderTop:"1px solid rgba(255,255,255,0.08)", position:"relative", zIndex:1}}>
+      <section className="scent-finder-section" style={{background:"#251737", padding:"96px 5%", color:"#fff", borderTop:"1px solid rgba(255,255,255,0.08)", position:"relative", zIndex:1}}>
         <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(min(100%, 320px), 1fr))", gap:64, alignItems:"center"}} className="hero-split">
           
           {/* Left info column */}
           <div>
-            <div style={{display:"inline-flex", alignItems:"center", gap:8, background:"rgba(184,146,42,0.15)", border:"1px solid rgba(184,146,42,0.3)", padding:"6px 14px", borderRadius:20, marginBottom:16}}>
-              <span style={{color:"#B8922A", fontSize:12}}>✦</span>
-              <span style={{fontSize:10, letterSpacing:2, color:"#E5C07B", textTransform:"uppercase", fontWeight:600, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif"}}>
-                {isRTL ? "مدعوم بالذكاء الاصطناعي" : "Powered by OpenAI"}
-              </span>
-            </div>
             <h2 className="disp" style={{fontSize:"clamp(30px,3.8vw,52px)",fontWeight:400,color:"#fff",lineHeight:1.05,letterSpacing: isRTL ? 0 : -1,marginBottom:24}}>
               {isRTL ? (
                 <>مستكشف العطور <em className="luxury-gold-text" style={{fontStyle:"normal"}}>من خدلج</em></>
@@ -10267,11 +11275,11 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
 {/* ── TIKTOK REELS ── */}
       <section style={{padding:"80px 5% 40px",background:"#fff"}}>
         <div style={{marginBottom:48,textAlign:"center"}}>
-          <h2 className="disp" style={{fontSize:"clamp(24px,3vw,42px)",fontWeight:400,color:"#251737",letterSpacing:-0.5,marginBottom:10,lineHeight:1.2}}>
-            SHOP BY REEL
+          <h2 className="disp section-header-title reel-heading-bold" style={{fontSize:"clamp(28px,3.8vw,52px)",fontWeight:700,color:"#251737",letterSpacing: isRTL ? 0 : -0.5,marginBottom:10,lineHeight:1.2,fontFamily: isRTL ? "'Cairo', sans-serif" : "'Trajan Pro', 'Cinzel', serif"}}>
+            {isRTL ? "تسوق عبر الريلز" : "SHOP BY REEL"}
           </h2>
-          <p style={{color:"#777",fontSize:12,fontFamily:"'Montserrat',sans-serif",letterSpacing:0.3}}>
-            Browse fragrances through short, stylish reels and discover your next favorite scent.
+          <p className="section-header-sub" style={{color:"#777",fontSize:13,fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",letterSpacing: isRTL ? 0 : 0.3,maxWidth:520,margin:"0 auto",lineHeight:1.7}}>
+            {isRTL ? "تصفح العطور من خلال مقاطع ريلز قصيرة وأنيقة واكتشف عطرك المفضل القادم." : "Browse fragrances through short, stylish reels and discover your next favorite scent."}
           </p>
         </div>
 
@@ -10284,7 +11292,7 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
           }}
         >
           {REELS.map((t, idx) => (
-            <TikTokCard key={idx} t={t} />
+            <TikTokCard key={idx} t={t} setViewProduct={setViewProduct} setPage={setPage} />
           ))}
         </div>
 
@@ -10321,63 +11329,36 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection })
       </section>
 
       {/* ── WHY KHADLAJ — Luxury Trust Strip ── */}
-      <section className="trust-strip-section">
-        <div className="max-container">
-          <div className="trust-strip-grid">
-            {[
-              {
-                icon: (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 22V12" />
-                    <path d="M12 12c2-2.5 4-3 5-5-2 .5-4.5 2-5 5z" fill="rgba(184,146,42,0.12)" />
-                    <path d="M12 12c-2-2.5-4-3-5-5 2 .5 4.5 2 5 5z" fill="rgba(184,146,42,0.12)" />
-                    <path d="M12 15c1.5-1.5 3-1.8 3.8-3-.8.3-2.2 1-3.8 3z" />
-                    <path d="M12 15c-1.5-1.5-3-1.8-3.8-3 .8.3 2.2 1 3.8 3z" />
-                  </svg>
-                ),
-                title: isRTL ? "مكونات طبيعية وأصيلة" : "Natural Ingredients",
-                desc: isRTL ? "ورد الطائف، عود كمبودي، زنبق فرنسي — من مصادر أصيلة ونقية" : "Taif roses, Cambodian oud, French iris — ethically sourced"
-              },
-              {
-                icon: (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <polygon points="12 4 14.5 8.5 19 9 15.5 12.5 16.5 17 12 14.5 7.5 17 8.5 12.5 5 9 9.5 8.5 12 4" fill="rgba(184,146,42,0.15)" />
-                  </svg>
-                ),
-                title: isRTL ? "دار عطور عالمية معتمدة" : "Award-Winning",
-                desc: isRTL ? "دار عطور عريقة ومعتمدة منذ عام 1997 في أكثر من 90 دولة حول العالم" : "Recognised fragrance house since 1997 across 90+ countries"
-              },
-              {
-                icon: (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="7" width="11" height="8" rx="1.5" fill="rgba(184,146,42,0.08)" />
-                    <path d="M14 10h4l2.5 3v2h-6.5V10z" fill="rgba(184,146,42,0.15)" />
-                    <circle cx="7.5" cy="17" r="2" fill="#B8922A" />
-                    <circle cx="16.5" cy="17" r="2" fill="#B8922A" />
-                  </svg>
-                ),
-                title: isRTL ? "توصيل سريع ومجاني" : "Complimentary Delivery",
-                desc: isRTL ? "شحن مجاني لكافة الطلبات الأكثر من 150 SAR" : "Free shipping on all orders above SAR 150"
-              },
-              {
-                icon: (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="4" y="9" width="16" height="11" rx="2" fill="rgba(184,146,42,0.08)" />
-                    <path d="M4 13h16M12 9v11" />
-                    <path d="M12 9c-.8-1-2.2-1.5-2.2-.5s1.2 1 2.2.5c.8-1 2.2-1.5 2.2-.5s-1.2 1-2.2.5z" fill="rgba(184,146,42,0.2)" />
-                  </svg>
-                ),
-                title: isRTL ? "تغليف هدايا فاخر" : "Luxury Packaging",
-                desc: isRTL ? "كل طلبية تصلك بتغليف خدلج الفاخر والمثالي للإهداء" : "Every order arrives gift-ready in premium Khadlaj packaging"
-              },
-            ].map((item,i)=>(
-              <div key={i} className="trust-card">
-                <div className="trust-icon-circle">{item.icon}</div>
-                <h4 className="trust-card-title">{item.title}</h4>
-                <p className="trust-card-desc">{item.desc}</p>
-              </div>
-            ))}
-          </div>
+      <section className="trust-strip-wrap">
+        <div className="trust-strip-grid">
+          {[
+            {
+              icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22V12"/><path d="M12 12c2-2.5 4-3 5-5-2 .5-4.5 2-5 5z" fill="rgba(184,146,42,0.12)"/><path d="M12 12c-2-2.5-4-3-5-5 2 .5 4.5 2 5 5z" fill="rgba(184,146,42,0.12)"/><path d="M12 15c1.5-1.5 3-1.8 3.8-3-.8.3-2.2 1-3.8 3z"/><path d="M12 15c-1.5-1.5-3-1.8-3.8-3 .8.3 2.2 1 3.8 3z"/></svg>),
+              title: isRTL ? "مكونات طبيعية وأصيلة" : "Natural Ingredients",
+              desc: isRTL ? "ورد الطائف، عود كمبودي، زنبق فرنسي — من مصادر أصيلة ونقية" : "Taif roses, Cambodian oud, French iris — ethically sourced"
+            },
+            {
+              icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 4 14.5 8.5 19 9 15.5 12.5 16.5 17 12 14.5 7.5 17 8.5 12.5 5 9 9.5 8.5 12 4" fill="rgba(184,146,42,0.15)"/></svg>),
+              title: isRTL ? "دار عطور عالمية معتمدة" : "Award-Winning",
+              desc: isRTL ? "دار عطور عريقة ومعتمدة منذ عام 1997 في أكثر من 90 دولة حول العالم" : "Recognised fragrance house since 1997 across 90+ countries"
+            },
+            {
+              icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="7" width="11" height="8" rx="1.5" fill="rgba(184,146,42,0.08)"/><path d="M14 10h4l2.5 3v2h-6.5V10z" fill="rgba(184,146,42,0.15)"/><circle cx="7.5" cy="17" r="2" fill="#B8922A"/><circle cx="16.5" cy="17" r="2" fill="#B8922A"/></svg>),
+              title: isRTL ? "توصيل سريع ومجاني" : "Complimentary Delivery",
+              desc: isRTL ? "شحن مجاني لكافة الطلبات الأكثر من 150 SAR" : "Free shipping on all orders above SAR 150"
+            },
+            {
+              icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="9" width="16" height="11" rx="2" fill="rgba(184,146,42,0.08)"/><path d="M4 13h16M12 9v11"/><path d="M12 9c-.8-1-2.2-1.5-2.2-.5s1.2 1 2.2.5c.8-1 2.2-1.5 2.2-.5s-1.2 1-2.2.5z" fill="rgba(184,146,42,0.2)"/></svg>),
+              title: isRTL ? "تغليف هدايا فاخر" : "Luxury Packaging",
+              desc: isRTL ? "كل طلبية تصلك بتغليف خدلج الفاخر والمثالي للإهداء" : "Every order arrives gift-ready in premium Khadlaj packaging"
+            },
+          ].map((item,i)=>(
+            <div key={i} className="trust-strip-card">
+              <div className="trust-strip-icon">{item.icon}</div>
+              <h4 className="trust-strip-title">{item.title}</h4>
+              <p className="trust-strip-desc">{item.desc}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -10397,7 +11378,8 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة آيلاند",
     subtitle: "Khadlaj Signature",
     subtitleAr: "توقيع خدلج الفاخر",
-    banner: "/assets/images/banners/banner-island-sun.png",
+    banner: "/assets/images/banners/deals_desktop.png",
+    bannerMobile: "/assets/images/banners/deals_mobile.png",
     filter: (p) => p.name.toLowerCase().includes("island") || (p.col && p.col.toLowerCase().includes("island"))
   },
   shiyaaka: {
@@ -10406,7 +11388,8 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة شياكة",
     subtitle: "25th Anniversary Edition",
     subtitleAr: "إصدار اليوبيل الفضي",
-    banner: "/assets/images/banners/banner-island-sun.png",
+    banner: "/assets/images/banners/deals_desktop.png",
+    bannerMobile: "/assets/images/banners/deals_mobile.png",
     filter: (p) => p.name.toLowerCase().includes("shiyaaka") || p.name.toLowerCase().includes("shiya")
   },
   fursan: {
@@ -10415,7 +11398,8 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة فرسان",
     subtitle: "Royal Heritage & Nobility",
     subtitleAr: "أصالة وأناقة ملكية",
-    banner: "/assets/images/banners/banner-island-sun.png",
+    banner: "/assets/images/banners/deals_desktop.png",
+    bannerMobile: "/assets/images/banners/deals_mobile.png",
     filter: (p) => p.name.toLowerCase().includes("fursan")
   },
   limaginaire: {
@@ -10424,7 +11408,8 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة ليماجينير وروائع العطور",
     subtitle: "Haute Parfumerie Artisan Creation",
     subtitleAr: "إبداع حرفي فاخر في صناعة العطور",
-    banner: "/assets/images/banners/banner-island-sun.png",
+    banner: "/assets/images/banners/deals_desktop.png",
+    bannerMobile: "/assets/images/banners/deals_mobile.png",
     filter: (p) => p.name.toLowerCase().includes("imaginaire") || (p.col && p.col.toLowerCase() === "master perfumery") || p.id === 7734819553479
   },
   nuha: {
@@ -10433,7 +11418,8 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة نهى",
     subtitle: "Sweet Sophistication & Charm",
     subtitleAr: "سحر النعومة والأنوثة الفاتنة",
-    banner: "/assets/images/banners/banner-island-sun.png",
+    banner: "/assets/images/banners/deals_desktop.png",
+    bannerMobile: "/assets/images/banners/deals_mobile.png",
     filter: (p) => p.name.toLowerCase().includes("nuha")
   },
   velvet: {
@@ -10442,7 +11428,8 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة فيلفيت",
     subtitle: "Sensual Luxury & Indulgence",
     subtitleAr: "فخامة مخملية مفعمة بالجاذبية",
-    banner: "/assets/images/banners/banner-island-sun.png",
+    banner: "/assets/images/banners/deals_desktop.png",
+    bannerMobile: "/assets/images/banners/deals_mobile.png",
     filter: (p) => p.name.toLowerCase().includes("velvet")
   },
   mocha: {
@@ -10451,7 +11438,8 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة موكا والجورماند الفاخرة",
     subtitle: "Warm, Delicious & Irresistible Notes",
     subtitleAr: "نفحات دافئة وشهية لا تُقاوم",
-    banner: "/assets/images/banners/banner-island-sun.png",
+    banner: "/assets/images/banners/deals_desktop.png",
+    bannerMobile: "/assets/images/banners/deals_mobile.png",
     filter: (p) => p.name.toLowerCase().includes("mocha") || p.name.toLowerCase().includes("latte") || p.name.toLowerCase().includes("biscotti") || p.name.toLowerCase().includes("gourmand")
   },
   hareem: {
@@ -10460,7 +11448,8 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة حريم السلطان",
     subtitle: "The Legendary Iconic Masterpiece",
     subtitleAr: "التحفة العطرية الأيقونية الأسطورية",
-    banner: "/assets/images/banners/banner-island-sun.png",
+    banner: "/assets/images/banners/deals_desktop.png",
+    bannerMobile: "/assets/images/banners/deals_mobile.png",
     filter: (p) => p.name.toLowerCase().includes("hareem") || p.name.toLowerCase().includes("sultan")
   },
   empire: {
@@ -10469,7 +11458,8 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة إمباير",
     subtitle: "Imperial Grandeur & Authority",
     subtitleAr: "عظمة إمبراطورية وهيبة ملكية",
-    banner: "/assets/images/banners/banner-island-sun.png",
+    banner: "/assets/images/banners/deals_desktop.png",
+    bannerMobile: "/assets/images/banners/deals_mobile.png",
     filter: (p) => p.name.toLowerCase().includes("empire")
   },
   icon: {
@@ -10478,7 +11468,8 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة أيكون وبرستيج",
     subtitle: "Pure Prestige & Modern Elegance",
     subtitleAr: "فخامة معاصرة وبريق استثنائي",
-    banner: "/assets/images/banners/banner-island-sun.png",
+    banner: "/assets/images/banners/deals_desktop.png",
+    bannerMobile: "/assets/images/banners/deals_mobile.png",
     filter: (p) => p.name.toLowerCase().includes("icon") || p.name.toLowerCase().includes("onyx")
   },
   karus: {
@@ -10487,7 +11478,8 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة كاروس",
     subtitle: "Golden Opulence & Amber Mystique",
     subtitleAr: "فخامة ذهبية وسحر العنبر الأصيل",
-    banner: "/assets/images/banners/banner-island-sun.png",
+    banner: "/assets/images/banners/deals_desktop.png",
+    bannerMobile: "/assets/images/banners/deals_mobile.png",
     filter: (p) => p.name.toLowerCase().includes("karus")
   },
   biscotti: {
@@ -10496,7 +11488,8 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة بيسكوتي",
     subtitle: "Sweet Temptation & Delight",
     subtitleAr: "عذوبة آسرة ونفحات ساحرة",
-    banner: "/assets/images/banners/banner-island-sun.png",
+    banner: "/assets/images/banners/deals_desktop.png",
+    bannerMobile: "/assets/images/banners/deals_mobile.png",
     filter: (p) => p.name.toLowerCase().includes("biscotti")
   },
   valor: {
@@ -10505,7 +11498,8 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة فالور",
     subtitle: "Nobility, Chivalry & Strength",
     subtitleAr: "رمز النبل والشجاعة والفروسية",
-    banner: "/assets/images/banners/banner-island-sun.png",
+    banner: "/assets/images/banners/deals_desktop.png",
+    bannerMobile: "/assets/images/banners/deals_mobile.png",
     filter: (p) => p.name.toLowerCase().includes("valor")
   },
   homeambience: {
@@ -10539,7 +11533,8 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة الأكثر مبيعاً",
     subtitle: "Khadlaj Most Cherished Fragrances",
     subtitleAr: "العطور الأكثر شهرة وطلباً في خدلج",
-    banner: "/assets/images/banners/banner-island-sun.png",
+    banner: "/assets/images/banners/deals_desktop.png",
+    bannerMobile: "/assets/images/banners/deals_mobile.png",
     filter: (p) => p.badge === "Best Seller"
   }
 };
@@ -10558,6 +11553,7 @@ const FEATURED_COLLECTIONS = [
   { key: "karus", name: "Karus", nameAr: "كاروس" },
   { key: "biscotti", name: "Biscotti", nameAr: "بيسكوتي" },
   { key: "valor", name: "Valor", nameAr: "فالور" },
+  { key: "homeambience", name: "Home & Ambience", nameAr: "معطرات وعطور المنزل" },
   { key: "deals", name: "Deals", nameAr: "العروض" }
 ];
 
@@ -10629,16 +11625,35 @@ function DedicatedCollectionPage({ collectionKey = "island", addToCart, setViewP
   return (
     <div style={{background:"#ffffff", minHeight:"100vh"}}>
       {/* Hero Banner with Full Aspect Ratio Without Cropping */}
-      <div style={{
-        position:"relative",
-        width:"100%",
-        overflow:"hidden",
-        background:"#FAF8F4",
-        lineHeight:0
-      }}>
-        {config.bannerMobile ? (
-          <picture>
-            <source media="(max-width: 768px)" srcSet={resolveAsset(config.bannerMobile)} />
+      {config.banner && (
+        <div style={{
+          position:"relative",
+          width:"100%",
+          overflow:"hidden",
+          background:"#FAF8F4",
+          lineHeight:0
+        }}>
+          {config.bannerMobile ? (
+            <picture>
+              <source media="(max-width: 768px)" srcSet={resolveAsset(config.bannerMobile)} />
+              <img
+                src={resolveAsset(config.banner)}
+                alt={isRTL && config.titleAr ? config.titleAr : config.title}
+                className="collection-banner-img"
+                onError={(e) => {
+                  const fname = config.banner.split('/').pop();
+                  const fb = (window.__THEME_ASSETS__ && window.__THEME_ASSETS__[fname]) || (window.__SHOPIFY_ASSET_BASE__ && (window.__SHOPIFY_ASSET_BASE__ + fname));
+                  if (fb && fb !== e.currentTarget.src) e.currentTarget.src = fb;
+                }}
+                style={{
+                  width:"100%",
+                  height:"auto",
+                  display:"block",
+                  objectFit:"contain"
+                }}
+              />
+            </picture>
+          ) : (
             <img
               src={resolveAsset(config.banner)}
               alt={isRTL && config.titleAr ? config.titleAr : config.title}
@@ -10651,128 +11666,212 @@ function DedicatedCollectionPage({ collectionKey = "island", addToCart, setViewP
               style={{
                 width:"100%",
                 height:"auto",
-                aspectRatio: config.banner && config.banner.includes("deals") ? "1600/533" : "1024/384",
                 display:"block",
                 objectFit:"contain"
               }}
             />
-          </picture>
-        ) : (
-          <img
-            src={resolveAsset(config.banner)}
-            alt={isRTL && config.titleAr ? config.titleAr : config.title}
-            className="collection-banner-img"
-            style={{
-              width:"100%",
-              height:"auto",
-              aspectRatio: config.banner && config.banner.includes("deals") ? "1600/533" : "1024/384",
-              display:"block",
-              objectFit:"contain"
-            }}
-          />
-        )}
-      </div>
+          )}
+        </div>
+      )}
 
-      {/* Breadcrumb / Back button & Product Count */}
-      <div style={{padding:"20px 5% 0", maxWidth:1440, margin:"0 auto", display:"flex", alignItems:"center", justifyContent:"space-between", flexWrap:"wrap", gap:12}}>
-        <button 
-          onClick={() => {
-            setPage("main");
-            window.scrollTo({top: 0, behavior: "smooth"});
-          }}
-          style={{
-            background:"transparent",
-            border:"none",
-            color:"#251737",
-            fontSize:11,
-            letterSpacing:2,
-            textTransform:"uppercase",
-            fontFamily: isRTL ? "'Tajawal', 'Cairo', sans-serif" : "'Montserrat',sans-serif",
-            fontWeight:600,
-            cursor:"pointer",
-            display:"flex",
-            alignItems:"center",
-            gap:8,
-            padding:"8px 0"
-          }}
-          onMouseEnter={e => e.currentTarget.style.color = "#B8922A"}
-          onMouseLeave={e => e.currentTarget.style.color = "#251737"}
-        >
-          {isRTL ? "← العودة للرئيسية" : "← Back to Home"}
-        </button>
-        <span style={{fontSize:11, color:"#888", letterSpacing:1.5, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", textTransform:"uppercase"}}>
-          {isRTL ? `عرض جميع ${collectionProducts.length} من المنتجات` : `Showing all ${collectionProducts.length} products`}
-        </span>
-      </div>
-
-      {/* Quick Collection Switcher Pills */}
+      {/* ── Luxury Navigation & Collection Control Bar ── */}
       <div style={{
-        padding:"16px 5% 4px",
-        maxWidth:1440,
-        margin:"0 auto",
-        display:"flex",
-        alignItems:"center",
-        gap:8,
-        overflowX:"auto",
-        WebkitOverflowScrolling:"touch",
-        scrollbarWidth:"none"
+        background: "#FFFFFF",
+        borderTop: "1px solid #E5D9C4",
+        borderBottom: "2px solid #E5D9C4",
+        boxShadow: "0 6px 24px rgba(37,23,55,0.06)"
       }}>
-        <span style={{fontSize:10, letterSpacing:2, color:"#999", textTransform:"uppercase", fontFamily:"'Montserrat',sans-serif", fontWeight:600, flexShrink:0, marginRight:6}}>
-          {isRTL ? "المجموعات:" : "COLLECTIONS:"}
-        </span>
-        {FEATURED_COLLECTIONS.map(item => {
-          const isSelected = resolvedKey === item.key;
-          return (
-            <button
-              key={item.key}
-              onClick={() => handleSelectCollection(item.key)}
-              style={{
-                flexShrink:0,
-                background: isSelected ? "#251737" : "#FAF8F4",
-                color: isSelected ? "#fff" : "#444",
-                border: isSelected ? "1px solid #B8922A" : "1px solid #E8E4DC",
-                borderRadius:20,
-                padding:"6px 14px",
-                fontSize:11,
-                fontFamily: isRTL ? "'Tajawal', 'Cairo', sans-serif" : "'Montserrat',sans-serif",
-                fontWeight: isSelected ? 700 : 500,
-                letterSpacing:0.5,
-                cursor:"pointer",
-                transition:"all 0.25s ease",
-                boxShadow: isSelected ? "0 4px 12px rgba(37,23,55,0.25)" : "none"
-              }}
-              onMouseEnter={e => {
-                if (!isSelected) {
-                  e.currentTarget.style.background = "#fff";
-                  e.currentTarget.style.color = "#B8922A";
-                  e.currentTarget.style.borderColor = "#B8922A";
-                }
-              }}
-              onMouseLeave={e => {
-                if (!isSelected) {
-                  e.currentTarget.style.background = "#FAF8F4";
-                  e.currentTarget.style.color = "#444";
-                  e.currentTarget.style.borderColor = "#E8E4DC";
-                }
-              }}
-            >
-              {isRTL && item.nameAr ? item.nameAr : item.name}
-            </button>
-          );
-        })}
+        {/* Top Row: Back to Home & Product Counter */}
+        <div style={{
+          padding: "14px 5% 12px",
+          maxWidth: 1440,
+          margin: "0 auto",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          flexWrap: "wrap",
+          gap: 12,
+          borderBottom: "1px solid rgba(184,146,42,0.18)"
+        }}>
+          <button 
+            onClick={() => {
+              setPage("main");
+              window.scrollTo({top: 0, behavior: "smooth"});
+            }}
+            style={{
+              background: "#FAF7F0",
+              border: "1.5px solid #DFD5C2",
+              borderRadius: 24,
+              color: "#251737",
+              fontSize: 11,
+              letterSpacing: 2,
+              textTransform: "uppercase",
+              fontFamily: isRTL ? "'Tajawal', 'Cairo', sans-serif" : "'Montserrat',sans-serif",
+              fontWeight: 700,
+              cursor: "pointer",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: 8,
+              padding: "7px 18px",
+              transition: "all 0.22s ease",
+              boxShadow: "0 2px 6px rgba(0,0,0,0.03)"
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.background = "#251737";
+              e.currentTarget.style.color = "#FAF4E6";
+              e.currentTarget.style.borderColor = "#251737";
+              const arrow = e.currentTarget.querySelector(".back-arrow");
+              if (arrow) {
+                arrow.style.color = "#E8C872";
+                arrow.style.transform = isRTL ? "translateX(4px)" : "translateX(-4px)";
+              }
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.background = "#FAF7F0";
+              e.currentTarget.style.color = "#251737";
+              e.currentTarget.style.borderColor = "#DFD5C2";
+              const arrow = e.currentTarget.querySelector(".back-arrow");
+              if (arrow) {
+                arrow.style.color = "#B8922A";
+                arrow.style.transform = "translateX(0)";
+              }
+            }}
+          >
+            <span className="back-arrow" style={{display: "inline-block", color: "#B8922A", fontSize: 14, fontWeight: 800, transition: "all 0.22s ease"}}>
+              {isRTL ? "→" : "←"}
+            </span>
+            <span>{isRTL ? "العودة للرئيسية" : "BACK TO HOME"}</span>
+          </button>
+
+        </div>
+
+        {/* Bottom Row: Prominent Luxury Collection Selector */}
+        <div style={{
+          padding: "16px 5%",
+          maxWidth: 1440,
+          margin: "0 auto",
+          display: "flex",
+          alignItems: "center",
+          gap: 14,
+          overflowX: "auto",
+          WebkitOverflowScrolling: "touch",
+          scrollbarWidth: "none",
+          msOverflowStyle: "none"
+        }}>
+          {/* Prominent Collections Badge Label */}
+          <div style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: 8,
+            flexShrink: 0,
+            background: "linear-gradient(135deg, #251737 0%, #170E24 100%)",
+            color: "#F6ECC9",
+            padding: "8px 16px",
+            borderRadius: 24,
+            border: "1px solid #B8922A",
+            boxShadow: "0 3px 10px rgba(37,23,55,0.22)"
+          }}>
+            <span style={{color: "#E8C872", fontSize: 12, lineHeight: 1}}>✦</span>
+            <span style={{
+              fontSize: 11,
+              letterSpacing: 2.2,
+              textTransform: "uppercase",
+              fontFamily: "'Montserrat',sans-serif",
+              fontWeight: 800,
+              whiteSpace: "nowrap"
+            }}>
+              {isRTL ? "المجموعات:" : "COLLECTIONS:"}
+            </span>
+          </div>
+
+          {/* Prominent Collection Pills */}
+          <div style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 10,
+            flexWrap: "nowrap"
+          }}>
+            {FEATURED_COLLECTIONS.map(item => {
+              const isSelected = resolvedKey === item.key;
+              return (
+                <button
+                  key={item.key}
+                  onClick={() => handleSelectCollection(item.key)}
+                  style={{
+                    flexShrink: 0,
+                    background: isSelected 
+                      ? "linear-gradient(135deg, #251737 0%, #3B1654 100%)" 
+                      : "#FFFFFF",
+                    color: isSelected ? "#FFFDF6" : "#251737",
+                    border: isSelected ? "2px solid #C5A059" : "1.5px solid #D8CBB6",
+                    borderRadius: 28,
+                    padding: isSelected ? "9px 22px" : "9px 18px",
+                    fontSize: 11.5,
+                    fontFamily: isRTL ? "'Tajawal', 'Cairo', sans-serif" : "'Montserrat',sans-serif",
+                    fontWeight: isSelected ? 800 : 700,
+                    letterSpacing: isSelected ? 1.5 : 1.2,
+                    textTransform: "uppercase",
+                    cursor: "pointer",
+                    transition: "all 0.22s cubic-bezier(0.2, 0.8, 0.2, 1)",
+                    boxShadow: isSelected 
+                      ? "0 6px 20px rgba(37,23,55,0.35), 0 0 0 2px rgba(197,160,89,0.35)" 
+                      : "0 2px 6px rgba(0,0,0,0.03)",
+                    transform: isSelected ? "scale(1.03)" : "scale(1)",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: 7
+                  }}
+                  onMouseEnter={e => {
+                    if (!isSelected) {
+                      e.currentTarget.style.background = "#FAF3E4";
+                      e.currentTarget.style.color = "#B8922A";
+                      e.currentTarget.style.borderColor = "#B8922A";
+                      e.currentTarget.style.transform = "translateY(-2px) scale(1.02)";
+                      e.currentTarget.style.boxShadow = "0 6px 16px rgba(184,146,42,0.22)";
+                    }
+                  }}
+                  onMouseLeave={e => {
+                    if (!isSelected) {
+                      e.currentTarget.style.background = "#FFFFFF";
+                      e.currentTarget.style.color = "#251737";
+                      e.currentTarget.style.borderColor = "#D8CBB6";
+                      e.currentTarget.style.transform = "translateY(0) scale(1)";
+                      e.currentTarget.style.boxShadow = "0 2px 6px rgba(0,0,0,0.03)";
+                    }
+                  }}
+                >
+                  {isSelected && (
+                    <span style={{
+                      width: 6,
+                      height: 6,
+                      borderRadius: "50%",
+                      background: "#E8C872",
+                      boxShadow: "0 0 8px #E8C872",
+                      flexShrink: 0
+                    }}/>
+                  )}
+                  {isRTL && item.nameAr ? item.nameAr : item.name}
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
-      {/* Collection Title & Details */}
-      <div style={{textAlign:"center", padding:"24px 5% 12px", maxWidth:1440, margin:"0 auto"}}>
-        <span style={{fontSize:11, letterSpacing:6, color:"#B8922A", textTransform:"uppercase", fontWeight:700, fontFamily: isRTL ? "'Tajawal', 'Cairo', sans-serif" : "'Montserrat',sans-serif", marginBottom:8, display:"block"}}>
-          {isRTL && config.subtitleAr ? config.subtitleAr : config.subtitle}
-        </span>
-        <h1 style={{fontFamily:"'Cinzel',serif", fontSize:"clamp(28px, 4vw, 44px)", fontWeight:600, color:"#251737", lineHeight:1.15, letterSpacing:3, margin:"0 0 10px", textTransform:"uppercase"}}>
+      {/* Collection Title */}
+      <div style={{textAlign:"center", padding:"32px 5% 16px", maxWidth:1440, margin:"0 auto"}}>
+        <h1 style={{
+          fontFamily: "'Cinzel', 'Playfair Display', serif",
+          fontSize: "clamp(32px, 4.5vw, 50px)",
+          fontWeight: 700,
+          color: "#251737",
+          lineHeight: 1.18,
+          letterSpacing: 3,
+          margin: 0,
+          textTransform: "uppercase"
+        }}>
           {isRTL && config.titleAr ? config.titleAr : config.title}
         </h1>
-        <p style={{color:"#777", fontSize:12, letterSpacing:2, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", textTransform:"uppercase", margin:0}}>
-          {isRTL ? `${collectionProducts.length} إبداعات حصرية` : `${collectionProducts.length} Exclusive Creations`}
-        </p>
       </div>
 
       {/* Product Grid - Standard Transparent ProductCard */}
@@ -10842,8 +11941,12 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
   const { lang, isRTL, t } = React.useContext(LanguageContext);
   const formatPrice = (price) => formatCurrency(price, activeCountry, lang);
   const [activeCat, setActiveCat] = useState(collectionCategory || "Khadlaj");
+  const [ambienceFilter, setAmbienceFilter] = useState("all");
   React.useEffect(() => {
-    if(collectionCategory) setActiveCat(collectionCategory);
+    if(collectionCategory) {
+      setActiveCat(collectionCategory);
+      setAmbienceFilter("all");
+    }
   }, [collectionCategory]);
   const [sortBy, setSortBy] = useState("default");
   const [priceMax, setPriceMax] = useState(800);
@@ -10854,7 +11957,21 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
     if(activeCat==="Khadlaj") return p.col !== "Lafede";
     if(activeCat==="Best Sellers") return isKhadlajProduct && p.badge==="Best Seller";
     if(activeCat==="New") return isKhadlajProduct && p.badge==="New";
-    if(activeCat==="Home & Ambience") return isKhadlajProduct && (p.col==="Bakhoor" || (p.name && (p.name.toLowerCase().includes("frash") || p.name.toLowerCase().includes("bakhoor") || p.name.toLowerCase().includes("muattar") || p.name.toLowerCase().includes("air freshener"))));
+    if(activeCat==="Home & Ambience") {
+      const isHome = isKhadlajProduct && (p.col==="Bakhoor" || (p.name && (p.name.toLowerCase().includes("frash") || p.name.toLowerCase().includes("bakhoor") || p.name.toLowerCase().includes("muattar") || p.name.toLowerCase().includes("air freshener"))));
+      if(!isHome) return false;
+      const n = (p.name || "").toLowerCase();
+      if(ambienceFilter === "oud") {
+        return (n.includes("oud") || n.includes("muattar")) && !n.includes("air freshener") && !n.includes("frash");
+      }
+      if(ambienceFilter === "bakhoor") {
+        return (n.includes("bakhoor") || n.includes("bukhoor") || n.includes("dukhoon")) && !n.includes("muattar");
+      }
+      if(ambienceFilter === "air_freshener") {
+        return n.includes("air freshener") || n.includes("frash");
+      }
+      return true;
+    }
     if(activeCat==="Deals") return isKhadlajProduct && ((p.notes||[]).some(n => n.toLowerCase().includes("deal")) || p.badge==="Limited" || p.price <= 75);
     if(activeCat==="For Him") return isKhadlajProduct && p.gender==="Him";
     if(activeCat==="For Her") return isKhadlajProduct && p.gender==="Her";
@@ -10877,54 +11994,44 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
       <div style={{
         position:"relative",
         width:"100%",
-        overflow:"hidden",
         background:"#FAF8F4",
         lineHeight:0
       }}>
-        {activeCat === "Home & Ambience" || activeCat === "Deals" ? (
-          <picture>
-            <source media="(max-width: 768px)" srcSet={resolveAsset("/assets/images/banners/deals_mobile.png")} />
-            <img
-              src={resolveAsset("/assets/images/banners/deals_desktop.png")}
-              alt={activeCat === "Home & Ambience" ? "Home & Ambience - Special Deals" : "Special Deals & Offers"}
-              className="collection-banner-img"
-              onError={(e) => {
-                const fb = (window.__THEME_ASSETS__ && window.__THEME_ASSETS__['deals_desktop.png']) || (window.__SHOPIFY_ASSET_BASE__ && (window.__SHOPIFY_ASSET_BASE__ + 'deals_desktop.png'));
-                if (fb && fb !== e.currentTarget.src) e.currentTarget.src = fb;
-              }}
-              style={{
-                width:"100%",
-                height:"auto",
-                aspectRatio:"1600/533",
-                display:"block",
-                objectFit:"contain"
-              }}
-            />
-          </picture>
-        ) : (
+        <picture>
+          <source media="(max-width: 768px)" srcSet={resolveAsset("/assets/images/banners/deals_mobile.png")} />
           <img
-            src={resolveAsset("/assets/images/banners/banner-island-sun.png")}
-            alt="Fragrance Collections"
+            src={resolveAsset("/assets/images/banners/deals_desktop.png")}
+            alt={
+              activeCat === "Home & Ambience" ? "Home & Ambience - Special Deals" :
+              activeCat === "Best Sellers" ? "Best Selling Favorites - 50% OFF" :
+              activeCat === "EAU DE PARFUM" ? "Perfume Spray - 50% OFF" :
+              activeCat === "Perfume Oils" ? "Perfume Oils - 50% OFF" :
+              "Special Deals & Offers - 50% OFF"
+            }
             className="collection-banner-img"
+            onError={(e) => {
+              const fb = (window.__THEME_ASSETS__ && window.__THEME_ASSETS__['deals_desktop.png']) || (window.__SHOPIFY_ASSET_BASE__ && (window.__SHOPIFY_ASSET_BASE__ + 'deals_desktop.png'));
+              if (fb && fb !== e.currentTarget.src) e.currentTarget.src = fb;
+            }}
             style={{
               width:"100%",
               height:"auto",
-              aspectRatio:"1024/384",
               display:"block",
               objectFit:"contain"
             }}
           />
-        )}
+        </picture>
       </div>
 
       {/* ── Filters bar ── */}
       <div style={{
         background:"#fff",borderBottom:"1px solid #E8E4DC",
-        padding:"20px 5%",
+        padding:"16px 5%",
         display:"flex",gap:12,alignItems:"center",justifyContent:"flex-end",flexWrap:"wrap",
-        position:"sticky",top:0,zIndex:50,
+        position:"relative",zIndex:5,
         boxShadow:"0 2px 12px rgba(0,0,0,.05)",
       }}>
+
         {/* Sort + Price */}
         <div style={{display:"flex",gap:12,alignItems:"center",flexShrink:0}}>
           <div style={{display:"flex",alignItems:"center",gap:8}}>
@@ -10949,56 +12056,149 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
 
       {/* ── Products Grid ── */}
       <div style={{padding:"32px 3% 80px"}}>
-        <div className="collections-layout" style={{display:"grid",gridTemplateColumns:"278px minmax(0,1fr)",gap:34}}>
-          <aside className="collections-sidebar" style={{width:278}}>
-            <div style={{position:"sticky",top:100,border:"1px solid #E8E4DC",background:"linear-gradient(180deg,#fff 0%,#FFFCF7 100%)",padding:18,boxShadow:"0 18px 42px rgba(0,0,0,.045)"}}>
-            <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:12,marginBottom:18}}>
-              <div>
-                <p style={{fontSize: isRTL ? 11 : 9,letterSpacing: isRTL ? 0 : 3,color:"#B8922A",textTransform:"uppercase",fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",fontWeight:600,marginBottom:6}}>{isRTL ? "تسوق حسب" : "Shop By"}</p>
-                <p className="disp" style={{fontSize: isRTL ? 24 : 22,lineHeight:1,color:"#251737",fontWeight: isRTL ? 600 : 300,fontFamily: isRTL ? "'Cairo', sans-serif" : "inherit"}}>{isRTL ? "المجموعات" : "Collections"}</p>
+        {activeCat === "Home & Ambience" && (
+          <div style={{
+            textAlign:"center",
+            maxWidth:900,
+            margin:"0 auto 36px",
+            padding:"10px 16px 28px",
+            borderBottom:"1px solid #EFEAE1"
+          }}>
+            <h1 style={{
+              fontSize: isRTL ? 30 : 28,
+              letterSpacing: isRTL ? 0 : 3,
+              fontFamily: isRTL ? "'Cairo', sans-serif" : "'Playfair Display', Georgia, serif",
+              fontWeight: isRTL ? 700 : 400,
+              color:"#251737",
+              textTransform:"uppercase",
+              margin:"0 0 10px"
+            }}>
+              {isRTL ? "عطور ومعطرات المنزل" : "Home & Ambience"}
+            </h1>
+            <p style={{
+              fontSize: isRTL ? 14 : 12.5,
+              color:"#7D7385",
+              fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
+              margin:"0 auto 24px",
+              maxWidth:620,
+              lineHeight:1.6
+            }}>
+              {isRTL
+                ? "تشكيلة فاخرة من أجود أنواع العود المعطر، البخور الملكي، ومعطرات الجو الشرقية العريقة"
+                : "A luxurious collection of rich Oud Muattar, royal Bakhoor, and captivating room Air Fresheners"}
+            </p>
+
+            {/* 3 Main Filter Options: Oud, Bakhoor, Air Freshener (+ All) */}
+            <div style={{
+              display:"flex",
+              alignItems:"center",
+              justifyContent:"center",
+              gap:12,
+              flexWrap:"wrap"
+            }}>
+              {[
+                { id: "all", labelEn: "All", labelAr: "الكل", count: 74 },
+                { id: "oud", labelEn: "Oud Muattar", labelAr: "عود معطر", count: 22 },
+                { id: "bakhoor", labelEn: "Bakhoor", labelAr: "بخور", count: 28 },
+                { id: "air_freshener", labelEn: "Air Freshener", labelAr: "معطرات جو", count: 24 }
+              ].map(tab => {
+                const isSelected = ambienceFilter === tab.id;
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => setAmbienceFilter(tab.id)}
+                    style={{
+                      display:"inline-flex",
+                      alignItems:"center",
+                      gap:10,
+                      padding:"12px 26px",
+                      borderRadius:30,
+                      fontSize: isRTL ? 14 : 11.5,
+                      letterSpacing: isRTL ? 0 : 1.3,
+                      fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
+                      textTransform:"uppercase",
+                      fontWeight: isSelected ? 700 : 500,
+                      cursor:"pointer",
+                      transition:"all .22s ease",
+                      background: isSelected ? "linear-gradient(135deg, #251737 0%, #3D1C59 100%)" : "#FAF8F4",
+                      color: isSelected ? "#FAF4E6" : "#251737",
+                      border: isSelected ? "1.5px solid #251737" : "1.5px solid #E5DEC9",
+                      boxShadow: isSelected ? "0 8px 22px rgba(37,23,55,0.22)" : "0 2px 6px rgba(0,0,0,0.03)"
+                    }}
+                  >
+                    <span>{isRTL ? tab.labelAr : tab.labelEn}</span>
+                    <span style={{
+                      fontSize:11,
+                      padding:"2px 8px",
+                      borderRadius:12,
+                      background: isSelected ? "#B8922A" : "#ECE4D3",
+                      color: isSelected ? "#fff" : "#4A3E59",
+                      fontWeight:700
+                    }}>
+                      {tab.count}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        )}
+
+        <div className="collections-layout" style={{
+          display:"grid",
+          gridTemplateColumns: activeCat === "Home & Ambience" ? "1fr" : "278px minmax(0,1fr)",
+          gap:34
+        }}>
+          {activeCat !== "Home & Ambience" && (
+            <aside className="collections-sidebar" style={{width:278}}>
+              <div style={{position:"sticky",top:100,border:"1px solid #E8E4DC",background:"linear-gradient(180deg,#fff 0%,#FFFCF7 100%)",padding:18,boxShadow:"0 18px 42px rgba(0,0,0,.045)"}}>
+              <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",gap:12,marginBottom:18}}>
+                <div>
+                  <p style={{fontSize: isRTL ? 11 : 9,letterSpacing: isRTL ? 0 : 3,color:"#B8922A",textTransform:"uppercase",fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",fontWeight:600,marginBottom:6}}>{isRTL ? "تسوق حسب" : "Shop By"}</p>
+                  <p className="disp" style={{fontSize: isRTL ? 24 : 22,lineHeight:1,color:"#251737",fontWeight: isRTL ? 600 : 300,fontFamily: isRTL ? "'Cairo', sans-serif" : "inherit"}}>{isRTL ? "المجموعات" : "Collections"}</p>
+                </div>
+                <span style={{width:34,height:34,border:"1px solid #E5D6B5",borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",color:"#B8922A",fontSize:15}}>+</span>
               </div>
-              <span style={{width:34,height:34,border:"1px solid #E5D6B5",borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",color:"#B8922A",fontSize:15}}>+</span>
-            </div>
-            {CATEGORIES.map(c=>(
-              <button key={c} onClick={()=>setActiveCat(c)}
-                style={{width:"100%",display:"flex",alignItems:"center",justifyContent:"space-between",gap:10,textAlign: isRTL ? "right" : "left",background:activeCat===c?"#251737":"rgba(255,255,255,.72)",color:activeCat===c?"#fff":"#444",border:"1px solid",borderColor:activeCat===c?"#251737":"#EEE",padding:"12px 12px",marginBottom:8,fontSize: isRTL ? 13.5 : 10,letterSpacing: isRTL ? 0 : 1.35,cursor:"pointer",fontWeight:activeCat===c?700:600,transition:"all .18s",textTransform:"uppercase",fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",boxShadow:activeCat===c?"0 10px 24px rgba(60,17,82,.22)":"none"}}
+              {CATEGORIES.map(c=>(
+                <button key={c} onClick={()=>setActiveCat(c)}
+                  style={{width:"100%",display:"flex",alignItems:"center",justifyContent:"space-between",gap:10,textAlign: isRTL ? "right" : "left",background:activeCat===c?"#251737":"rgba(255,255,255,.72)",color:activeCat===c?"#fff":"#444",border:"1px solid",borderColor:activeCat===c?"#251737":"#EEE",padding:"12px 12px",marginBottom:8,fontSize: isRTL ? 13.5 : 10,letterSpacing: isRTL ? 0 : 1.35,cursor:"pointer",fontWeight:activeCat===c?700:600,transition:"all .18s",textTransform:"uppercase",fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",boxShadow:activeCat===c?"0 10px 24px rgba(60,17,82,.22)":"none"}}
+                >
+                  <span style={{display:"flex",alignItems:"center",gap:8}}>
+                    <span style={{width:6,height:6,borderRadius:"50%",background:activeCat===c?"#B8922A":"#D7C59E",display:"inline-block",flexShrink:0}}/>
+                    {isRTL ? ({"Khadlaj":"كل خدلج","Best Sellers":"الأكثر مبيعاً","New":"وصل حديثاً","Home & Ambience":"عطور ومعطرات المنزل","Deals":"العروض","For Him":"للرجال","For Her":"للنساء","Unisex":"للجنسين","Perfume Oils":"زيوت عطرية","EAU DE PARFUM":"ماء عطر","Master Perfumery":"روائع العطور"}[c] || c) : c}
+                  </span>
+                  <span style={{fontSize: isRTL ? 11 : 9,letterSpacing:0,color:activeCat===c?"rgba(255,255,255,.65)":"#B8922A"}}>{PRODUCTS.filter(p=>{
+                    if(p.size === "Gift Set") return false;
+                    const isKhadlajProduct = p.col !== "Lafede";
+                    if(c==="Khadlaj") return isKhadlajProduct;
+                    if(c==="Best Sellers") return isKhadlajProduct && p.badge==="Best Seller";
+                    if(c==="New") return isKhadlajProduct && p.badge==="New";
+                    if(c==="Home & Ambience") return isKhadlajProduct && (p.col==="Bakhoor" || (p.name && (p.name.toLowerCase().includes("frash") || p.name.toLowerCase().includes("bakhoor") || p.name.toLowerCase().includes("muattar") || p.name.toLowerCase().includes("air freshener"))));
+                    if(c==="Deals") return isKhadlajProduct && ((p.notes||[]).some(n => n.toLowerCase().includes("deal")) || p.badge==="Limited" || p.price <= 75);
+                    if(c==="For Him") return isKhadlajProduct && p.gender==="Him";
+                    if(c==="For Her") return isKhadlajProduct && p.gender==="Her";
+                    if(c==="Unisex") return isKhadlajProduct && p.gender==="Unisex";
+                    
+                    if(c==="Perfume Oils") return isKhadlajProduct && (p.col==="Perfume Oils");
+                    if(c==="EAU DE PARFUM") return isKhadlajProduct && p.col.toLowerCase() === "eau de parfum";
+                    if(c==="Master Perfumery") return isKhadlajProduct && p.col==="Master Perfumery";
+                    
+                    return isKhadlajProduct && p.col===c;
+                  }).length}</span>
+                </button>
+              ))}
+              <button onClick={()=>setPage("lafede")}
+                style={{width:"100%",textAlign:"left",background:"linear-gradient(135deg,#F8F1DE 0%,#fff 100%)",color:"#8A681F",border:"1px solid #E6D8B6",padding:"14px 12px",marginTop:12,fontSize:10,letterSpacing:1.4,cursor:"pointer",fontWeight:600,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",boxShadow:"inset 0 0 0 1px rgba(255,255,255,.55)"}}
               >
-                <span style={{display:"flex",alignItems:"center",gap:8}}>
-                  <span style={{width:6,height:6,borderRadius:"50%",background:activeCat===c?"#B8922A":"#D7C59E",display:"inline-block",flexShrink:0}}/>
-                  {isRTL ? ({"Khadlaj":"كل خدلج","Best Sellers":"الأكثر مبيعاً","New":"وصل حديثاً","Home & Ambience":"عطور ومعطرات المنزل","Deals":"العروض","For Him":"للرجال","For Her":"للنساء","Unisex":"للجنسين","Perfume Oils":"زيوت عطرية","EAU DE PARFUM":"ماء عطر","Master Perfumery":"روائع العطور"}[c] || c) : c}
-                </span>
-                <span style={{fontSize: isRTL ? 11 : 9,letterSpacing:0,color:activeCat===c?"rgba(255,255,255,.65)":"#B8922A"}}>{PRODUCTS.filter(p=>{
-                  if(p.size === "Gift Set") return false;
-                  const isKhadlajProduct = p.col !== "Lafede";
-                  if(c==="Khadlaj") return isKhadlajProduct;
-                  if(c==="Best Sellers") return isKhadlajProduct && p.badge==="Best Seller";
-                  if(c==="New") return isKhadlajProduct && p.badge==="New";
-                  if(c==="Home & Ambience") return isKhadlajProduct && (p.col==="Bakhoor" || (p.name && (p.name.toLowerCase().includes("frash") || p.name.toLowerCase().includes("bakhoor") || p.name.toLowerCase().includes("muattar") || p.name.toLowerCase().includes("air freshener"))));
-                  if(c==="Deals") return isKhadlajProduct && ((p.notes||[]).some(n => n.toLowerCase().includes("deal")) || p.badge==="Limited" || p.price <= 75);
-                  if(c==="For Him") return isKhadlajProduct && p.gender==="Him";
-                  if(c==="For Her") return isKhadlajProduct && p.gender==="Her";
-                  if(c==="Unisex") return isKhadlajProduct && p.gender==="Unisex";
-                  
-                  if(c==="Perfume Oils") return isKhadlajProduct && (p.col==="Perfume Oils");
-                  if(c==="EAU DE PARFUM") return isKhadlajProduct && p.col.toLowerCase() === "eau de parfum";
-                  if(c==="Master Perfumery") return isKhadlajProduct && p.col==="Master Perfumery";
-                  
-                  return isKhadlajProduct && p.col===c;
-                }).length}</span>
+                La Fede Landing <span style={{float:"right",fontSize:12}}>{"->"}</span>
               </button>
-            ))}
-            <button onClick={()=>setPage("lafede")}
-              style={{width:"100%",textAlign:"left",background:"linear-gradient(135deg,#F8F1DE 0%,#fff 100%)",color:"#8A681F",border:"1px solid #E6D8B6",padding:"14px 12px",marginTop:12,fontSize:10,letterSpacing:1.4,cursor:"pointer",fontWeight:600,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",boxShadow:"inset 0 0 0 1px rgba(255,255,255,.55)"}}
-            >
-              La Fede Landing <span style={{float:"right",fontSize:12}}>{"->"}</span>
-            </button>
-            </div>
-          </aside>
+              </div>
+            </aside>
+          )}
 
           <div>
-            <p style={{fontSize:8.5,color:"#999",marginBottom:32,letterSpacing:1.6,fontFamily:"'Montserrat',sans-serif",textTransform:"uppercase"}}>
-              {filtered.length} fragrances found
-            </p>
+
 
             <div style={{display:"grid",gridTemplateColumns:"repeat(4,minmax(0,1fr))",gap:24,alignItems:"stretch"}} className="grid-4">
               {filtered.map(p=>(
@@ -11060,9 +12260,9 @@ function LaFedePage({ addToCart, setViewProduct, setPage }){
       <section style={{padding:"76px 5% 96px"}}>
         <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",gap:24,flexWrap:"wrap",marginBottom:40}}>
           <div>
-            <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>La Fede</p>
-            <h2 className="disp" style={{fontSize:"clamp(34px,4.5vw,64px)",fontWeight:300,color:"#251737",lineHeight:1.05,letterSpacing:-1,marginBottom:12}}>La Fede Eau De Parfum</h2>
-            <p style={{fontSize:13,color:"#777",fontFamily:"'Montserrat',sans-serif",lineHeight:1.8,maxWidth:560}}>Bold, characterful fragrances presented in their own collection.</p>
+            <p style={{fontWeight:600,fontSize:9,letterSpacing: isRTL ? 1 : 5,color:"#B8922A",textTransform:"uppercase",fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",marginBottom:12}}>{isRTL ? "لافيدي" : "La Fede"}</p>
+            <h2 className="disp" style={{fontSize:"clamp(34px,4.5vw,64px)",fontWeight: isRTL ? 600 : 300,color:"#251737",lineHeight:1.05,letterSpacing: isRTL ? 0 : -1,marginBottom:12,fontFamily: isRTL ? "'Cairo', sans-serif" : "inherit"}}>{isRTL ? "عطور لافيدي الفاخرة" : "La Fede Eau De Parfum"}</h2>
+            <p style={{fontSize:13,color:"#777",fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",lineHeight:1.8,maxWidth:560}}>{isRTL ? "عطور جريئة ومميزة مقدمة في تشكيلة فريدة خاصة بها." : "Bold, characterful fragrances presented in their own collection."}</p>
           </div>
           <ProductFilterBar active={laFedeFilter} setActive={setLaFedeFilter} options={filterOptions}/>
         </div>
@@ -11333,7 +12533,7 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
              <p style={{fontWeight:600,fontSize: isRTL ? 12 : 10, letterSpacing: isRTL ? 0 : 3, color:"#888", textTransform:"uppercase", fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif", marginBottom:12}}>Khadlaj Perfumes</p>
              
              {/* TITLE */}
-             <h1 className="disp" style={{fontSize: isRTL ? "clamp(34px, 4.5vw, 52px)" : "clamp(32px, 4vw, 48px)", fontWeight: isRTL ? 600 : 400, color:"#111", lineHeight:1.2, letterSpacing: isRTL ? "0px" : "-0.5px", textTransform:"uppercase", marginBottom:16, fontFamily: isRTL ? "'Cairo', serif" : "'Cinzel', serif"}}>
+             <h1 className="disp" style={{fontSize: isRTL ? "clamp(34px, 4.5vw, 52px)" : "clamp(32px, 4vw, 48px)", fontWeight: 700, color:"#111", lineHeight:1.2, letterSpacing: isRTL ? "0px" : "-0.5px", textTransform:"uppercase", marginBottom:16, fontFamily: isRTL ? "'Cairo', serif" : "'Cinzel', serif"}}>
                {getProductName(product, isRTL)}
              </h1>
 
@@ -11438,26 +12638,204 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
                {isRTL ? "خيارات دفع أخرى" : "More Payment Options"}
              </button>
 
-             {/* REWARDS GAMIFICATION BOX */}
-             <div style={{border:"1px solid #eee", borderRadius:8, padding:20, marginBottom:32, background:"#fff", boxShadow:"0 2px 8px rgba(0,0,0,0.02)"}}>
-               <div style={{display:"flex", alignItems:"center", gap:12, marginBottom:16}}>
-                 <div style={{width:32, height:32, background:"#FFF3E0", color:"#FF9800", borderRadius:4, display:"flex", alignItems:"center", justifyContent:"center"}}>
-                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 12 20 22 4 22 4 12"></polyline><rect x="2" y="7" width="20" height="5"></rect><line x1="12" y1="22" x2="12" y2="7"></line><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg>
+             {/* REWARDS GAMIFICATION BOX - LUXURY PROFESSIONAL EDITION */}
+             {(() => {
+               const threshold = 250;
+               const price = Number(product.price) || 0;
+               const remaining = Math.max(0, threshold - price);
+               const progressPct = Math.min(100, Math.round((price / threshold) * 100));
+               const isUnlocked = remaining === 0;
+
+               return (
+                 <div style={{
+                   border: "1.5px solid #E5D7BE",
+                   borderRadius: 14,
+                   padding: "20px 22px",
+                   marginBottom: 32,
+                   background: "linear-gradient(135deg, #FFFDF9 0%, #FAF5EB 100%)",
+                   boxShadow: "0 6px 20px rgba(184, 146, 42, 0.08), 0 2px 6px rgba(0, 0, 0, 0.02)",
+                   position: "relative",
+                   overflow: "hidden"
+                 }}>
+                   {/* Subtle Top Decorative Accent Line */}
+                   <div style={{
+                     position: "absolute",
+                     top: 0,
+                     left: 0,
+                     right: 0,
+                     height: 3,
+                     background: "linear-gradient(90deg, #251737 0%, #B8922A 50%, #251737 100%)"
+                   }} />
+
+                   {/* Top Row: Icon, Title & Special Reward Badge */}
+                   <div style={{
+                     display: "flex",
+                     alignItems: "center",
+                     justifyContent: "space-between",
+                     gap: 12,
+                     marginBottom: 16
+                   }}>
+                     <div style={{display: "flex", alignItems: "center", gap: 12}}>
+                       <div style={{
+                         width: 40,
+                         height: 40,
+                         borderRadius: 10,
+                         background: "linear-gradient(135deg, #251737 0%, #3D1C59 100%)",
+                         color: "#E8C872",
+                         display: "flex",
+                         alignItems: "center",
+                         justifyContent: "center",
+                         boxShadow: "0 4px 12px rgba(37, 23, 55, 0.2)",
+                         border: "1px solid #C5A059",
+                         flexShrink: 0
+                       }}>
+                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                           <polyline points="20 12 20 22 4 22 4 12"></polyline>
+                           <rect x="2" y="7" width="20" height="5"></rect>
+                           <line x1="12" y1="22" x2="12" y2="7"></line>
+                           <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+                           <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+                         </svg>
+                       </div>
+                       <div>
+                         <p style={{
+                           fontSize: 13.5,
+                           fontWeight: 700,
+                           color: "#251737",
+                           fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
+                           margin: 0,
+                           letterSpacing: isRTL ? 0 : 0.5
+                         }}>
+                           {isRTL ? "هدية مجانية" : "Free Gift"}
+                         </p>
+                         <p style={{
+                           fontSize: 11,
+                           color: "#8C7B65",
+                           fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
+                           margin: "3px 0 0",
+                           fontWeight: 500
+                         }}>
+                           {isUnlocked 
+                             ? (isRTL ? "تهانينا! هديتك جاهزة للاستلام" : "🎉 Congratulations! Gift unlocked") 
+                             : (isRTL ? "0 من 1 جاهزة للاستلام" : "0 of 1 ready to claim")}
+                         </p>
+                       </div>
+                     </div>
+
+                     {/* Luxury VIP Special Reward Badge */}
+                     <div style={{
+                       display: "inline-flex",
+                       alignItems: "center",
+                       gap: 6,
+                       background: "linear-gradient(135deg, #251737 0%, #1A0E2A 100%)",
+                       color: "#E8C872",
+                       border: "1px solid #C5A059",
+                       padding: "5px 12px",
+                       borderRadius: 20,
+                       fontSize: 10.5,
+                       fontWeight: 700,
+                       letterSpacing: isRTL ? 0 : 0.8,
+                       textTransform: "uppercase",
+                       fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
+                       boxShadow: "0 2px 8px rgba(37, 23, 55, 0.15)",
+                       flexShrink: 0
+                     }}>
+                       <span style={{fontSize: 10, color: "#E8C872"}}>✦</span>
+                       <span>{isRTL ? "مكافأة خاصة" : "Special Reward"}</span>
+                     </div>
+                   </div>
+
+                   {/* Spend Target & Instruction */}
+                   <div style={{
+                     display: "flex",
+                     justifyContent: "space-between",
+                     alignItems: "center",
+                     marginBottom: 10,
+                     gap: 8,
+                     flexWrap: "wrap"
+                   }}>
+                     <p style={{
+                       fontSize: 12.5,
+                       color: "#251737",
+                       fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
+                       fontWeight: 600,
+                       margin: 0
+                     }}>
+                       {isRTL 
+                         ? `أنفق ما لا يقل عن ${formatPrice(threshold)} للحصول على الهدايا`
+                         : `Spend at least ${formatPrice(threshold)} to get rewards`}
+                     </p>
+                     <span style={{
+                       fontSize: 11.5,
+                       fontWeight: 700,
+                       color: "#B8922A",
+                       fontFamily: "'Montserrat', sans-serif"
+                     }}>
+                       {progressPct}%
+                     </span>
+                   </div>
+
+                   {/* Remaining Unlock Prompt */}
+                   <p style={{
+                     fontSize: 11.5,
+                     color: "#6D5E4A",
+                     fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
+                     marginBottom: 10,
+                     marginTop: 0,
+                     lineHeight: 1.4
+                   }}>
+                     {isUnlocked ? (
+                       <span style={{color: "#2E7D32", fontWeight: 700}}>
+                         {isRTL ? "تم فتح الهدية المجانية بنجاح مع طلبك!" : "Your free gift is unlocked with this order!"}
+                       </span>
+                     ) : (
+                       <>
+                         {isRTL ? "أضف " : "Buy "}
+                         <strong style={{color: "#251737", fontWeight: 700, background: "#F5ECE0", padding: "1px 6px", borderRadius: 4, border: "1px solid #E2D3BE"}}>
+                           {formatPrice(remaining)}
+                         </strong>
+                         {isRTL ? " إضافية لفتح هذه الهدية" : " more to unlock this reward"}
+                       </>
+                     )}
+                   </p>
+
+                   {/* Smooth Luxury Gold Progress Bar */}
+                   <div style={{
+                     width: "100%",
+                     height: 8,
+                     background: "#EBE3D3",
+                     borderRadius: 10,
+                     overflow: "hidden",
+                     padding: 1,
+                     boxShadow: "inset 0 1px 2px rgba(0,0,0,0.06)"
+                   }}>
+                     <div style={{
+                       width: `${progressPct}%`,
+                       height: "100%",
+                       background: "linear-gradient(90deg, #B8922A 0%, #D4AF37 50%, #E8C872 100%)",
+                       borderRadius: 10,
+                       transition: "width 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+                       boxShadow: "0 0 8px rgba(184, 146, 42, 0.4)"
+                     }} />
+                   </div>
+
+                   {/* Milestone Labels Under Progress Bar */}
+                   <div style={{
+                     display: "flex",
+                     justifyContent: "space-between",
+                     alignItems: "center",
+                     marginTop: 6,
+                     fontSize: 10,
+                     color: "#9C8A73",
+                     fontFamily: "'Montserrat', sans-serif",
+                     fontWeight: 600
+                   }}>
+                     <span>{formatPrice(0)}</span>
+                     <span>🎁 {formatPrice(threshold)}</span>
+                   </div>
                  </div>
-                 <div>
-                   <p style={{fontSize:12, fontWeight:600, color:"#111", fontFamily:"'Montserrat',sans-serif", margin:0}}>{isRTL ? "هدية مجانية" : "Free Gift"}</p>
-                   <p style={{fontSize:10, color:"#888", fontFamily:"'Montserrat',sans-serif", margin:0, marginTop:2}}>{isRTL ? "0 من 1 جاهزة للاستلام" : "0 of 1 is ready to claim"}</p>
-                 </div>
-               </div>
-               <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:12}}>
-                 <p style={{fontSize:12, color:"#111", fontFamily:"'Montserrat',sans-serif", fontWeight:500, margin:0, maxWidth:"60%"}}>Spend at least {formatPrice(250)} to get rewards</p>
-                 <span style={{background:"#2E7D32", color:"#fff", padding:"4px 10px", borderRadius:12, fontSize:10, fontWeight:600, fontFamily:"'Montserrat',sans-serif"}}>{isRTL ? "مكافأة خاصة" : "Special Reward"}</span>
-               </div>
-               <p style={{fontSize:11, color:"#555", fontFamily:"'Montserrat',sans-serif", marginBottom:8}}>Buy {formatPrice(Math.max(0, 250 - product.price))} more to unlock this reward</p>
-               <div style={{width:"100%", height:6, background:"#eee", borderRadius:3, overflow:"hidden"}}>
-                 <div style={{width:`${Math.min(100, (product.price / 250)*100)}%`, height:"100%", background:"#2E7D32", borderRadius:3}}></div>
-               </div>
-             </div>
+               );
+             })()}
 
              {/* SLEEK TRUST BADGES */}
              <div style={{display:"flex", justifyContent:"space-between", marginBottom:48, paddingTop:24, borderTop:"1px solid #eee"}}>
@@ -11493,32 +12871,10 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
         </div>
       </div>
 
-      {/* ── UPSELL SECTION (Dark Theme) ── */}
-      <div style={{background:"#251737", padding:"80px 5%", color:"#fff", marginBottom:80}}>
-        <div style={{maxWidth:1000, margin:"0 auto", display:"flex", gap:48, alignItems:"center", flexWrap:"wrap"}}>
-          <div style={{width:200, height:250, background:"#fff", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, overflow:"hidden"}}>
-            <img decoding="async" src={getOptimizedImage(PRODUCTS[1].img,700)} style={{maxHeight:"90%", maxWidth:"90%", objectFit:"contain", mixBlendMode:"multiply"}} alt={PRODUCTS[1].name} />
-          </div>
-          <div style={{flex:1, minWidth:250}}>
-            <p style={{fontSize:10, textTransform:"uppercase", letterSpacing:3, color:"#B8922A", marginBottom:12, fontFamily:"'Montserrat',sans-serif", fontWeight:500}}>{isRTL ? "أكمل مجموعتك الفاخرة" : "Complete The Collection"}</p>
-            <h3 style={{fontSize:32, fontWeight:400, marginBottom:16, fontFamily: isRTL ? "'Cairo', serif" : "'Cinzel', serif"}}>{getProductName(PRODUCTS[1], isRTL)}</h3>
-            <p style={{fontSize:14, color:"rgba(255,255,255,0.7)", marginBottom:32, fontFamily:"'Montserrat',sans-serif", lineHeight:1.6, maxWidth:500, fontWeight:300}}>Elevate your signature scent with this exquisite complementary product, designed to layer perfectly and enhance longevity.</p>
-            <button 
-              onClick={()=>{addToCart(PRODUCTS[1],1); setAdded(true); setTimeout(()=>setAdded(false),2200);}}
-              style={{background:"#B8922A", border:"none", color:"#fff", padding:"16px 32px", fontSize:11, textTransform:"uppercase", letterSpacing:2, cursor:"pointer", transition:"background 0.3s", fontFamily:"'Montserrat',sans-serif", fontWeight:600}}
-              onMouseEnter={e=>e.currentTarget.style.background="#A38125"}
-              onMouseLeave={e=>e.currentTarget.style.background="#B8922A"}
-            >
-              Add for {formatPrice(PRODUCTS[1].price)}
-            </button>
-          </div>
-        </div>
-      </div>
-
       {/* ── Related Products ── */}
       {related.length>0 && (
         <div style={{padding:"0 5% 104px"}}>
-          <SectionHeader eyebrow={isRTL ? "◈ · مختار بعناية لأجلك" : "◈ · Handpicked For You"} title={isRTL ? "قد يعجبك أيضاً" : "You May Also Like"} light/>
+          <SectionHeader title={isRTL ? "قد يعجبك أيضاً" : "You May Also Like"} />
           <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:32,}} className="grid-3">
             {related.map(p=>(
               <ProductCard key={p.id} p={p} onView={(prod)=>{if(setViewProduct){setViewProduct(prod);setPage("product");}}} onCart={addToCart}/>
@@ -11593,227 +12949,804 @@ function GiftsPage({ addToCart, setViewProduct, setPage }){
 /* ═══════════════════════════════════════════════════════════════
    PAGE: OUR STORY
 ═══════════════════════════════════════════════════════════════ */
-function StoryPage(){
-  return (
-    <div style={{background:"#fff"}}>
+function StoryPage({ setPage, setViewProduct }){
+  const { isRTL, t } = React.useContext(LanguageContext);
 
-      {/* ── Minimal Luxury Hero ── */}
-      <div style={{position:"relative",height:"clamp(280px, 40vw, 400px)",background:"#251737",display:"flex",alignItems:"center",justifyContent:"center",textAlign:"center",padding:"0 5%"}}>
-        <div>
-          <h1 className="disp" style={{fontSize:"clamp(40px,7vw,80px)",fontWeight:400,color:"#C8A97E",lineHeight:1.1,letterSpacing:4,marginBottom:16,textTransform:"uppercase"}}>
-            Our Legacy
+  const milestones = [
+    { 
+      year: "1997", 
+      title: isRTL ? "بداية الحكاية الملكية" : "The Royal Inception", 
+      desc: isRTL ? "تأسيس دار خلطات للعطور في دولة الإمارات على يد خبير العطور محمد إقبال عبد الستار، بهدف صياغة أندر خلطات دهن العود والورد." : "Master Perfumer Mohamed Iqbal Abdul Sattar establishes Khadlaj Perfumes in the UAE, driven by a devotion to pure Dehn Al Oud, precious roses, and artisanal essences." 
+    },
+    { 
+      year: "2005", 
+      title: isRTL ? "التوسع الخليجي الرائد" : "GCC Expansion", 
+      desc: isRTL ? "افتتاح صالات العرض المميزة عبر الإمارات وسلطنة عمان، وإطلاق مجموعات الدخون والبخور الملكية التي أصبحت علامة فارقة في كل بيت." : "Inaugurating luxury boutiques across the UAE and Oman, while introducing iconic home ambience bukhoors and bespoke oriental oils." 
+    },
+    { 
+      year: "2015", 
+      title: isRTL ? "العلامات الدولية والريادة" : "Global Trademarks", 
+      desc: isRTL ? "تسجيل العلامات التجارية في كبرى القارات وتوسيع شبكة التوزيع لتصل إلى أفخم المتاجر في أوروبا، آسيا، والأمريكتين." : "Securing international trademarks across major continents and expanding distribution into renowned fragrance emporiums across 80+ countries." 
+    },
+    { 
+      year: "2023", 
+      title: isRTL ? "الانتشار الفيروسي العالمي" : "The Viral Sensation", 
+      desc: isRTL ? "عطر حريم السلطان يحقق شهرة استثنائية وظاهرة ترند عالمية اجتاحت منصات التواصل لتصل إلى ملايين العشاق حول العالم." : "Hareem Al Sultan oil emerges as a worldwide viral phenomenon, captivating tens of millions of perfume lovers on global digital stages." 
+    },
+    { 
+      year: "2026", 
+      title: isRTL ? "عصر النيش والفخامة المعاصرة" : "Modern Haute Parfumerie", 
+      desc: isRTL ? "تدشين مجموعات النيش الفاخرة مثل آيلاند ولافيدي بمعايير تصنيع وتقطير ISO 9001:2015 فائقة التطور." : "Pioneering contemporary luxury with the Island Collection, La Fede, and artistic Extraits de Parfum under world-class ISO 9001:2015 standards." 
+    }
+  ];
+
+  const values = [
+    { 
+      title: isRTL ? "الجودة الفائقة" : "Uncompromising Quality", 
+      desc: isRTL ? "انتقاء أنقى المواد الأولية: دهن العود الكمبودي المعتق، ورد الطائف الجبلي، ومسك الغزال الأبيض الصافي." : "Sourcing only pristine botanicals: aged Cambodian Dehn Al Oud, Taif mountain roses, French orris butter, and pure white musk.",
+      icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A97E" strokeWidth="1.5"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>)
+    },
+    { 
+      title: isRTL ? "أصالة التراث" : "Generational Heritage", 
+      desc: isRTL ? "إرث عائلي ممتد عبر الأجيال يحافظ على أسرار خلط العطور الشرقية القديمة مع لمسات العصر الحديث." : "A proud generational lineage safeguarding centuries of Arabian scent lore harmoniously fused with modern Parisian craftsmanship.",
+      icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A97E" strokeWidth="1.5"><rect x="4" y="10" width="16" height="12" rx="2"/><path d="M12 2v8"/><path d="M8 5l4-3 4 3"/></svg>)
+    },
+    { 
+      title: isRTL ? "النزاهة والأمان" : "Integrity & Purity", 
+      desc: isRTL ? "التزام كامل بمعايير السلامة الدولية IFRA وخلو تام من الملوثات لضمان عطور آمنة وثابتة تدوم طويلاً." : "Full IFRA regulatory compliance, transparent formulation, and clean laboratory maceration free from all contaminants.",
+      icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A97E" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>)
+    },
+    { 
+      title: isRTL ? "الثقة العالمية" : "Global Trust", 
+      desc: isRTL ? "مكانة مرموقة لدى عشاق العطور في أكثر من 80 دولة بفضل الدقة في المكونات وثبات الفوحان." : "Cherished by royal connoisseurs and passionate fragrance collectors across more than 80 sovereign nations.",
+      icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A97E" strokeWidth="1.5"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>)
+    },
+    { 
+      title: isRTL ? "الولاء والارتباط" : "Enduring Loyalty", 
+      desc: isRTL ? "ابتكار بصمات عطرية حميمة تلازم مناسبات العمر وتبقى محفورة في الذاكرة جيلاً بعد جيل." : "Crafting memorable olfactory signatures that accompany life’s most cherished celebrations and memories.",
+      icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A97E" strokeWidth="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>)
+    },
+    { 
+      title: isRTL ? "الإبداع والابتكار" : "Visionary Innovation", 
+      desc: isRTL ? "تطوير زجاجات أيقونية فريدة وتراكيب عطرية تجمع بين الثبات الملكي والنقاء العصري." : "Pioneering luxury packaging, sculptural crystal flacons, and multi-layered olfactory symphonies.",
+      icon: (<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A97E" strokeWidth="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>)
+    }
+  ];
+
+  return (
+    <div style={{background:"#fff", minHeight:"100vh", overflowX:"hidden"}}>
+
+      {/* ── 1. CINEMATIC LUXURY HERO (GRAND BANNER SIZE) ── */}
+      <section style={{
+        position:"relative",
+        background:"radial-gradient(ellipse at 50% 35%, #2D1A40 0%, #170C24 60%, #0E0716 100%)",
+        display:"flex",
+        flexDirection:"column",
+        alignItems:"center",
+        justifyContent:"center",
+        textAlign:"center",
+        minHeight:"clamp(280px, 34vh, 380px)",
+        padding:"80px 5% 70px",
+        overflow:"hidden",
+        borderBottom:"1px solid rgba(200,169,126,0.25)"
+      }}>
+        {/* Subtle Luxury Pattern Overlay */}
+        <div style={{
+          position:"absolute",
+          inset:0,
+          opacity:0.06,
+          backgroundImage:"radial-gradient(#C8A97E 1.2px, transparent 1.2px)",
+          backgroundSize:"28px 28px",
+          pointerEvents:"none"
+        }}/>
+
+        {/* Ambient Gold Radial Glow */}
+        <div style={{
+          position:"absolute",
+          top:"30%",
+          left:"50%",
+          transform:"translate(-50%, -50%)",
+          width:"600px",
+          height:"240px",
+          background:"radial-gradient(circle, rgba(200,169,126,0.15) 0%, transparent 70%)",
+          pointerEvents:"none",
+          filter:"blur(40px)"
+        }}/>
+
+        <div className="max-container" style={{position:"relative", zIndex:2, maxWidth:860, margin:"0 auto", display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center"}}>
+          
+          {/* Top Vintage Gold Badge */}
+          <span style={{
+            fontSize:11,
+            fontWeight:800,
+            letterSpacing: isRTL ? 1 : 3.5,
+            color:"#C8A97E",
+            textTransform:"uppercase",
+            marginBottom:14,
+            fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif",
+            display:"inline-block"
+          }}>
+            ✦ {isRTL ? "منذ ١٩٩٧ • دار العطور الملكية" : "EST. 1997 • THE ROYAL MAISON OF KHADLAJ"} ✦
+          </span>
+
+          {/* Main Title */}
+          <h1 style={{
+            fontSize:"clamp(30px, 4.4vw, 52px)",
+            fontWeight:400,
+            color:"#FFFFFF",
+            lineHeight:1.15,
+            margin:"0 0 16px",
+            letterSpacing: isRTL ? 0 : 2,
+            textTransform:"uppercase",
+            fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+          }}>
+            {isRTL ? (
+              <>إرث عريق من <span style={{color:"#C8A97E"}}>الفخامة الأبدية</span></>
+            ) : (
+              <>Our Illustrious <span style={{color:"#C8A97E"}}>Legacy</span></>
+            )}
           </h1>
-          <p style={{fontWeight:500,fontSize:10,letterSpacing:8,color:"#fff",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",opacity:0.8}}>
-            Luxury & Elegance in every fragrance creation
+
+          {/* Elegant Gold Divider */}
+          <div style={{
+            width:60,
+            height:2,
+            background:"linear-gradient(90deg, transparent, #C8A97E, transparent)",
+            marginBottom:18
+          }}/>
+
+          {/* Subtitle */}
+          <p style={{
+            fontSize:"clamp(14px, 1.2vw, 16px)",
+            color:"rgba(255,255,255,0.88)",
+            lineHeight:1.8,
+            maxWidth:720,
+            margin:"0 auto",
+            fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif",
+            fontWeight:400
+          }}>
+            {isRTL 
+              ? "على مدار ما يقارب ثلاثة عقود، تفردت خلطات في صياغة العطور الشرقية الأصيلة بلمسات باريسية راقية تجمع بين عبق التراث وسحر الفخامة العصرية."
+              : "For nearly three decades, Khadlaj Perfumes has perfected the delicate art of blending venerable Arabian scent rituals with the refined elegance of French Haute Parfumerie."
+            }
           </p>
         </div>
-      </div>
+      </section>
 
-      {/* ── Brand Story & Video Section ── */}
-      <div style={{background:"#FAFAFA", padding:"clamp(60px, 10vw, 120px) 5%"}}>
-        <div className="max-container hero-split" style={{display:"grid", gridTemplateColumns:"1fr 1.1fr", gap:"clamp(40px, 8vw, 100px)", alignItems:"center"}}>
+      {/* ── 3. THE MAISON & FILM SHOWCASE ── */}
+      <section style={{background:"#FAFAF8", padding:"clamp(60px, 8vw, 100px) 5%"}}>
+        <div className="max-container hero-split" style={{display:"grid", gridTemplateColumns:"1fr 1.05fr", gap:"clamp(40px, 6vw, 80px)", alignItems:"center"}}>
           
-          {/* Text Content */}
-          <div style={{display:"flex", flexDirection:"column", gap:"24px"}}>
-            <h2 className="disp" style={{fontSize:"clamp(32px,4vw,52px)",fontWeight:400,color:"#111",lineHeight:1.1}}>
-              Khadlaj Perfumes
-            </h2>
-            <p style={{fontSize:"15px", color:"#555", lineHeight:2.2, fontFamily:"'Montserrat',sans-serif", textAlign:"justify"}}>
-              Khadlaj Perfumes, established in January 1997, is a UAE-based perfume house specializing in bespoke Arabic and French fragrances, including renowned home ambiance fragrances. We are dedicated to embodying luxury and elegance in every fragrance creation.
-            </p>
-            <p style={{fontSize:"15px", color:"#555", lineHeight:2.2, fontFamily:"'Montserrat',sans-serif", textAlign:"justify"}}>
-              Our specialties include Dehn Al Oud, rose, and musk, and we also offer high-quality niche fragrances. With a legacy spanning 29 years of creating high-quality fragrances, our brand has a global presence in over 80 countries and 15 showrooms—7 in the UAE and 8 in Oman. Additionally, Khadlaj Perfumes holds trademarks across most continents.
-            </p>
-          </div>
-
-          {/* Video Content */}
-          <div style={{position:"relative", borderRadius:"4px", overflow:"hidden", boxShadow:"0 30px 60px rgba(0,0,0,0.12)", aspectRatio:"4/5", width:"100%", maxWidth:"540px", margin:"0 auto"}}>
-            <video 
-              autoPlay muted loop playsInline 
-              style={{width:"100%", height:"100%", objectFit:"cover"}}
-            >
-              <source src="https://cdn.shopify.com/videos/c/o/v/eedca68692644b0991d51fb3427d1bf4.mp4" type="video/mp4" />
-            </video>
-          </div>
-
-        </div>
-      </div>
-
-      {/* ── Founder Story (Redesigned) ── */}
-      <div style={{background:"#23152d", position:"relative", padding:"60px 5% 0px", display:"flex", flexDirection:"column", alignItems:"center"}}>
-        
-        {/* Star Sparkle Icon */}
-        <div style={{position:"absolute", top:"-24px", left:"50%", transform:"translateX(-50%)", display:"flex", alignItems:"flex-start", gap:"4px"}}>
-          <svg width="32" height="32" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 0C20 11 29 20 40 20C29 20 20 29 20 40C20 29 11 20 0 20C11 20 20 11 20 0Z" fill="#D3B787"/>
-          </svg>
-          <svg width="16" height="16" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style={{marginTop:"18px"}}>
-            <path d="M20 0C20 11 29 20 40 20C29 20 20 29 20 40C20 29 11 20 0 20C11 20 20 11 20 0Z" fill="#D3B787"/>
-          </svg>
-        </div>
-
-        <div className="max-container hero-split" style={{display:"grid", gridTemplateColumns:"0.9fr 1.1fr", gap:"clamp(40px, 6vw, 80px)", alignItems:"center", width:"100%"}}>
-          
-          {/* Founder Image (Left) */}
-          <div style={{position:"relative", transform:"translateY(30px)", zIndex:10}}>
-            <img loading="lazy" decoding="async" src={getOptimizedImage("/assets/images/people/founder-mohamed-iqbal.png",600)}
-              alt="Mohamed Iqbal Abdul Sattar" style={{width:"100%",height:"auto",display:"block",boxShadow:"0 20px 40px rgba(0,0,0,0.4)"}}/>
-          </div>
-
-          {/* Text Content (Right) */}
-          <div style={{display:"flex", flexDirection:"column", gap:"24px", paddingBottom:"60px", paddingTop:"20px"}}>
-            
-            <div style={{borderLeft:"2px solid #fff", paddingLeft:"20px", display:"flex", flexDirection:"column", gap:"8px"}}>
-              <p style={{fontSize:"13px", color:"#fff", fontFamily:"'Montserrat',sans-serif", margin:0}}>
-                Founder and Master Perfumer
+          {/* Narrative */}
+          <div style={{display:"flex", flexDirection:"column", gap:22}}>
+            <div>
+              <p style={{
+                fontSize:11.5,
+                fontWeight:700,
+                letterSpacing:2,
+                color:"#B8922A",
+                textTransform:"uppercase",
+                margin:"0 0 10px",
+                fontFamily:"'Montserrat', sans-serif"
+              }}>
+                {isRTL ? "أسرار الصناعة والإتقان" : "The Art of Haute Parfumerie"}
               </p>
-              <h2 style={{fontSize:"clamp(26px, 3vw, 36px)", fontWeight:400, color:"#fff", fontFamily:"'Montserrat',sans-serif", margin:0, letterSpacing:"0.5px"}}>
+              <h2 style={{
+                fontSize:"clamp(26px, 3.2vw, 40px)",
+                fontWeight:500,
+                color:"#251737",
+                lineHeight:1.2,
+                margin:0,
+                letterSpacing: isRTL ? 0 : -0.5,
+                fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+              }}>
+                {isRTL ? "عطور تنبض بالأصالة والفخامة" : "Where Ancestral Heritage Meets Modern Seduction"}
+              </h2>
+            </div>
+
+            <p style={{fontSize:15, color:"#555", lineHeight:1.9, margin:0, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif"}}>
+              {isRTL 
+                ? "تأسست دار خلطات للعطور في يناير عام 1997 في دولة الإمارات العربية المتحدة، وتخصصت في ابتكار روائع العطور العربية والفرنسية ومعطرات الأجواء الأنيقة. نكرّس شغفنا لنقدم لكل عميل تجربة حسية فريدة تجسد أسمى معاني الفخامة."
+                : "Established in January 1997, Khadlaj Perfumes is an internationally acclaimed fragrance house originating in the United Arab Emirates. Specializing in bespoke oriental distillations and contemporary French compositions, Khadlaj is dedicated to encapsulating authentic opulence in every flacon."
+              }
+            </p>
+
+            <p style={{fontSize:15, color:"#555", lineHeight:1.9, margin:0, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif"}}>
+              {isRTL
+                ? "تشمل اختصاصاتنا أرقى درجات دهن العود المعتق، روح الورد، والمسك النقي، بالإضافة إلى إصدارات النيش الحصرية. يمتد إرثنا عبر 29 عاماً من الإبداع، وبحضور عالمي في أكثر من 80 دولة و15 صالة عرض في الإمارات وعمان."
+                : "Our signature expertise spans aged Dehn Al Oud, pure Taif rose, crystalline musk, and artisanal niche extraits. With nearly three decades of dedicated craft, our global footprint extends across 80+ nations, 15 flagship showrooms, and trademarks registered across the world's most discerning capitals."
+              }
+            </p>
+
+            {/* Luxury Quote Pill */}
+            <div style={{
+              background:"#FFFFFF",
+              borderLeft: isRTL ? "none" : "3px solid #B8922A",
+              borderRight: isRTL ? "3px solid #B8922A" : "none",
+              padding:"18px 22px",
+              borderRadius:6,
+              boxShadow:"0 8px 24px rgba(0,0,0,0.04)"
+            }}>
+              <p style={{
+                fontSize:14,
+                color:"#251737",
+                fontStyle:"italic",
+                lineHeight:1.7,
+                margin:0,
+                fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+              }}>
+                {isRTL 
+                  ? "«العطر ليس مجرد مزيج من الروائح؛ بل هو لغة حية تسافر عبر الزمان وتخلّد اللحظات الثمينة في قطرة نقاء واحدة.»"
+                  : "\"True perfumery is not merely blending scents; it is capturing souls, memories, and timeless grace in a drop of pure essence.\""
+                }
+              </p>
+            </div>
+          </div>
+
+          {/* Master Video Display with Luxury Bezel */}
+          <div style={{position:"relative"}}>
+            <div style={{
+              position:"relative",
+              borderRadius:12,
+              overflow:"hidden",
+              border:"2px solid #C8A97E",
+              boxShadow:"0 25px 60px rgba(37,23,55,0.18)",
+              aspectRatio:"4/5",
+              width:"100%",
+              maxWidth:520,
+              margin:"0 auto",
+              background:"#1A1025"
+            }}>
+              <video 
+                autoPlay muted loop playsInline 
+                style={{width:"100%", height:"100%", objectFit:"cover"}}
+              >
+                <source src="https://cdn.shopify.com/videos/c/o/v/eedca68692644b0991d51fb3427d1bf4.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── 4. FOUNDER & MASTER PERFUMER ── */}
+      <section style={{
+        background:"radial-gradient(circle at 80% 50%, rgba(200,169,126,0.12) 0%, rgba(27,17,39,1) 70%), #1B1127",
+        padding:"clamp(70px, 9vw, 110px) 5%",
+        color:"#fff",
+        position:"relative",
+        overflow:"hidden"
+      }}>
+        <div className="max-container hero-split" style={{display:"grid", gridTemplateColumns:"1fr 1.15fr", gap:"clamp(35px, 6vw, 75px)", alignItems:"center"}}>
+          
+          {/* Founder Portrait */}
+          <div style={{position:"relative", display:"flex", justifyContent:"center"}}>
+            <div style={{
+              position:"relative",
+              maxWidth:460,
+              width:"100%",
+              borderRadius:12,
+              overflow:"hidden",
+              border:"2px solid rgba(200,169,126,0.6)",
+              boxShadow:"0 30px 60px rgba(0,0,0,0.5)"
+            }}>
+              <img 
+                loading="lazy" 
+                decoding="async" 
+                src={getOptimizedImage("/assets/images/people/image1.webp", 1400)}
+                alt="Mohamed Iqbal Abdul Sattar - Founder & Master Perfumer" 
+                style={{width:"100%", height:"auto", display:"block", objectFit:"cover"}}
+              />
+              <div style={{
+                position:"absolute",
+                bottom:0,
+                left:0,
+                right:0,
+                background:"linear-gradient(180deg, transparent 0%, rgba(15,9,22,0.95) 100%)",
+                padding:"32px 20px 16px",
+                textAlign:"center"
+              }}>
+                <div style={{fontSize:16, fontWeight:600, color:"#FFFFFF", fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"}}>
+                  Mohamed Iqbal Abdul Sattar
+                </div>
+                <div style={{fontSize:11.5, color:"#C8A97E", letterSpacing:1, marginTop:4, fontFamily:"'Montserrat', sans-serif"}}>
+                  {isRTL ? "المؤسس وخبير العطور الأول" : "Founder & Master Perfumer"}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Founder Bio */}
+          <div style={{display:"flex", flexDirection:"column", gap:18}}>
+            <div style={{
+              borderLeft: isRTL ? "none" : "3px solid #C8A97E",
+              borderRight: isRTL ? "3px solid #C8A97E" : "none",
+              paddingLeft: isRTL ? 0 : 20,
+              paddingRight: isRTL ? 20 : 0
+            }}>
+              <p style={{fontSize:11.5, fontWeight:700, color:"#C8A97E", letterSpacing:2, textTransform:"uppercase", margin:"0 0 6px", fontFamily:"'Montserrat',sans-serif"}}>
+                {isRTL ? "أكثر من 45 عاماً من الخبرة الملكية" : "Over 45 Years of Olfactory Mastery"}
+              </p>
+              <h2 style={{
+                fontSize:"clamp(24px, 3vw, 36px)",
+                fontWeight:500,
+                color:"#fff",
+                lineHeight:1.2,
+                margin:0,
+                fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+              }}>
                 Mohamed Iqbal Abdul Sattar
               </h2>
             </div>
-            
-            <p style={{color:"rgba(255,255,255,0.85)",lineHeight:1.9,fontSize:14,fontFamily:"'Montserrat',sans-serif",textAlign:"left"}}>
-              Mohamed Iqbal Abdul Sattar, with over 45 years of experience in perfumery, is the esteemed founder and master perfumer of Khadlaj Perfumes. He is recognized for his creation of some of our most cherished and opulent fragrances, including the iconic Hareem Al Sultan, Bukhoor Al Bahaar, and the luxurious Oud Pure and Musk Pure ranges. Mohamed’s unparalleled expertise encompasses both exquisite natural essences and meticulously crafted synthetic compounds, with an ardent passion for ingredients such as Musk, Ruh Gulaab, oud, and vetiver. His profound knowledge and unwavering commitment to uncompromising excellence epitomize Khadlaj Perfumes' dedication to crafting extraordinary and enduring fragrances.
+
+            <p style={{color:"rgba(255,255,255,0.85)", lineHeight:1.8, fontSize:14.5, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif", margin:0}}>
+              {isRTL 
+                ? "يُعد السيد محمد إقبال عبد الستار المؤسس وخبير العطور الأول لدار خلطات للعطور، بخبرة رائدة تتجاوز 45 عاماً في عالم العطور الفاخرة. يشتهر بابتكاره لأكثر عطورنا شهرة وأصالة مثل حريم السلطان، وبخور البحار، ومجموعات العود والمسك الملكية الخالصة."
+                : "Mohamed Iqbal Abdul Sattar, with over 45 years of profound dedication to the art of scent creation, is the esteemed founder and master perfumer of Khadlaj Perfumes. Renowned as the visionary behind our most iconic creations—including Hareem Al Sultan, Bukhoor Al Bahaar, and the celebrated Oud Pure and Musk Pure lines."
+              }
             </p>
-          </div>
-        </div>
-      </div>
 
-      <div style={{padding:"80px 5%"}}>
+            <p style={{color:"rgba(255,255,255,0.75)", lineHeight:1.8, fontSize:14.5, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif", margin:0}}>
+              {isRTL
+                ? "تتجسد براعته الفذة في الدمج الدقيق بين أثمن المكونات الطبيعية كالمسك الأصلي، روح الورد، خشب العود المعتق، ونجيل الهند. إن معرفته العميقة والتزامه الذي لا يساوم بالجودة هما حجر الأساس الذي انطلقت منه دار خلطات لتصبح اسماً مرادفاً للإتقان."
+                : "His unparalleled expertise harmoniously unites rare botanical essences with modern olfactory compounds, driven by an enduring passion for Musk, Ruh Gulaab, precious Agarwood, and Haitian Vetiver. His commitment to uncompromising excellence defines the beating heart of Khadlaj Perfumes."
+              }
+            </p>
 
-        {/* Managing Director */}
-        <div style={{display:"grid",gridTemplateColumns:"1fr 1.2fr",gap:64,alignItems:"center",marginBottom:88}} className="hero-split">
-          
-          <div style={{paddingRight: "24px"}}>
-            <div style={{borderLeft: "2px solid #251737", paddingLeft: "16px", marginBottom: "24px"}}>
-              <p style={{fontSize: 14, color: "#251737", fontFamily: "'Montserrat', sans-serif", letterSpacing: 0.5, marginBottom: 8}}>
-                Managing Director
+            {/* Founder Quote */}
+            <div style={{
+              background:"rgba(255,255,255,0.04)",
+              border:"1px solid rgba(200,169,126,0.3)",
+              borderRadius:8,
+              padding:"18px 22px",
+              marginTop:6
+            }}>
+              <p style={{
+                color:"#E6D8BC",
+                fontStyle:"italic",
+                fontSize:14,
+                lineHeight:1.65,
+                margin:0,
+                fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+              }}>
+                {isRTL
+                  ? "«حين نصنع عطراً، فنحن لا نخلط زيوتاً فقط، بل نخلد مشاعر، ونبني ذكريات تدوم لأجيال.»"
+                  : "\"When we compose a fragrance, we are not merely assembling notes; we are weaving emotions and bottling timeless memories for generations.\""
+                }
               </p>
-              <h2 style={{fontSize: "clamp(32px, 4vw, 42px)", fontWeight: 300, color: "#111", lineHeight: 1.2, margin: 0, fontFamily: "'Montserrat', sans-serif"}}>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── 5. MANAGING DIRECTOR & MODERN LEADERSHIP ── */}
+      <section style={{background:"#FFFFFF", padding:"clamp(70px, 9vw, 110px) 5%"}}>
+        <div className="max-container hero-split" style={{display:"grid", gridTemplateColumns:"1.15fr 1fr", gap:"clamp(35px, 6vw, 75px)", alignItems:"center"}}>
+          
+          {/* Executive Bio */}
+          <div style={{display:"flex", flexDirection:"column", gap:18}}>
+            <div style={{
+              borderLeft: isRTL ? "none" : "3px solid #251737",
+              borderRight: isRTL ? "3px solid #251737" : "none",
+              paddingLeft: isRTL ? 0 : 20,
+              paddingRight: isRTL ? 20 : 0
+            }}>
+              <p style={{fontSize:11.5, fontWeight:700, color:"#B8922A", letterSpacing:2, textTransform:"uppercase", margin:"0 0 6px", fontFamily:"'Montserrat',sans-serif"}}>
+                {isRTL ? "القيادة الرؤيوية والتطوير العصري" : "Visionary Leadership & Innovation"}
+              </p>
+              <h2 style={{
+                fontSize:"clamp(24px, 3vw, 36px)",
+                fontWeight:500,
+                color:"#251737",
+                lineHeight:1.2,
+                margin:0,
+                fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+              }}>
                 Asif Mohamed Iqbal Katchi
               </h2>
+              <p style={{fontSize:12.5, color:"#777", margin:"4px 0 0", fontFamily:"'Montserrat',sans-serif", fontWeight:600}}>
+                {isRTL ? "المدير العام لشركة خلطات للعطور" : "Managing Director, Khadlaj Perfumes"}
+              </p>
             </div>
-            
-            <p style={{color: "#444", lineHeight: 1.8, fontSize: 15, fontFamily: "'Montserrat', sans-serif", textAlign: "justify"}}>
-              Asif Mohamed Iqbal Katchi, with over 18 years of profound experience, is dedicated to taking forward the illustrious legacy of his father, Mohamed Iqbal, by consistently delivering excellence in all endeavors. Mr. Asif's visionary and creatively-driven leadership aims for Khadlaj to transcend into a luxurious, trusted name synonymous with unparalleled reliability and a celebrated household name in the fragrance industry. Mr. Asif's passionate motto embodies a profound dedication to perfumery craftsmanship and an unwavering commitment to fostering creativity, innovation, and luxury. He has effectively navigated Khadlaj Perfumes through dynamic industry shifts, showcasing his agile and proactive approach in anticipating and mitigating challenges, thereby fortifying the company's formidable position as a leader in the competitive fragrance market.
+
+            <p style={{color:"#555", lineHeight:1.8, fontSize:14.5, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif", margin:0}}>
+              {isRTL
+                ? "يواصل السيد عاصف محمد إقبال قيادة مسيرة والده الملهمة بخبرة تتجاوز 18 عاماً في صناعة العطور وتطوير الأعمال العالمية. بفضل قيادته المبتكرة، استطاع تحويل خلطات إلى علامة تجارية عالمية محبوبة وموثوقة في كبرى الأسواق العالمية."
+                : "With over 18 years of visionary leadership, Mr. Asif Mohamed Iqbal Katchi carries forward the illustrious legacy of his father with tireless ambition and contemporary creative direction. Under his stewardship, Khadlaj has ascended into a globally celebrated household name synonymous with luxury, authenticity, and enduring reliability."
+              }
             </p>
+
+            <p style={{color:"#555", lineHeight:1.8, fontSize:14.5, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif", margin:0}}>
+              {isRTL
+                ? "يقود السيد عاصف استراتيجيات التطوير العصري والتوسع الرقمي، مع التركيز على التصاميم المبتكرة للزجاجات وأحدث معايير النقاء العالمية، مما عزز مكانة خلطات كإحدى كبرى العلامات المؤثرة في المشهد العطري العالمي."
+                : "Navigating dynamic global consumer shifts with agility and foresight, Mr. Asif has spearheaded cutting-edge bottle engineering, niche collections, and seamless omni-channel distribution. His forward-looking motto fuses ancestral perfumery secrets with avant-garde elegance, fortifying Khadlaj’s prominence on the world stage."
+              }
+            </p>
+
+            {/* Pillar highlights */}
+            <div style={{display:"flex", gap:16, flexWrap:"wrap", marginTop:6}}>
+              <div style={{background:"#FAF8F5", border:"1px solid #EBE4D8", padding:"9px 15px", borderRadius:6}}>
+                <span style={{fontSize:12, fontWeight:700, color:"#251737"}}>✦ 18+ Years</span>
+                <span style={{fontSize:11.5, color:"#777", margin:"0 6px"}}>{isRTL ? "خبرة قيادية" : "Executive Leadership"}</span>
+              </div>
+              <div style={{background:"#FAF8F5", border:"1px solid #EBE4D8", padding:"9px 15px", borderRadius:6}}>
+                <span style={{fontSize:12, fontWeight:700, color:"#251737"}}>✦ 80+ Markets</span>
+                <span style={{fontSize:11.5, color:"#777", margin:"0 6px"}}>{isRTL ? "توسع عالمي" : "Global Footprint"}</span>
+              </div>
+            </div>
           </div>
 
-          <div style={{position:"relative",aspectRatio:"4/3",overflow:"hidden"}}>
-            <img loading="lazy" decoding="async" src={getOptimizedImage("/assets/images/people/managing-director-asif.png",600)}
-              alt="Asif Mohamed Iqbal Katchi" style={{width:"100%",height:"100%",objectFit:"cover",objectPosition:"center top"}}/>
+          {/* Director Portrait */}
+          <div style={{position:"relative", display:"flex", justifyContent:"center"}}>
+            <div style={{
+              position:"relative",
+              maxWidth:440,
+              width:"100%",
+              borderRadius:12,
+              overflow:"hidden",
+              border:"2px solid #E5D5BC",
+              boxShadow:"0 30px 60px rgba(37,23,55,0.12)"
+            }}>
+              <img 
+                loading="lazy" 
+                decoding="async" 
+                src={getOptimizedImage("/assets/images/people/images2.webp", 1000)}
+                alt="Asif Mohamed Iqbal Katchi - Managing Director" 
+                style={{width:"100%", height:"auto", display:"block", objectFit:"cover"}}
+              />
+              <div style={{
+                position:"absolute",
+                bottom:0,
+                left:0,
+                right:0,
+                background:"linear-gradient(180deg, transparent 0%, rgba(20,12,28,0.9) 100%)",
+                padding:"32px 20px 16px",
+                textAlign:"center"
+              }}>
+                <div style={{fontSize:16, fontWeight:600, color:"#FFFFFF", fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"}}>
+                  Asif Mohamed Iqbal Katchi
+                </div>
+                <div style={{fontSize:11.5, color:"#C8A97E", letterSpacing:1, marginTop:4, fontFamily:"'Montserrat', sans-serif"}}>
+                  {isRTL ? "المدير العام والقيادة الرؤيوية" : "Managing Director & Visionary Leader"}
+                </div>
+              </div>
+            </div>
           </div>
 
         </div>
-        {/* Head Office & Manufacturing Unit */}
-        <div style={{display:"flex", flexDirection:"column", alignItems:"center", marginBottom:88}}>
-          <div style={{textAlign:"center", maxWidth:800, marginBottom:48}}>
-            <h2 className="disp" style={{fontSize:"clamp(32px, 4vw, 42px)", fontWeight:300, color:"#251737", lineHeight:1.2, margin:0, fontFamily:"'Montserrat', sans-serif"}}>
-              Head Office &amp; Manufacturing Unit
+      </section>
+
+      {/* ── 6. ARTISAN FACILITIES (MANUFACTURING & HEADQUARTERS) ── */}
+      <section style={{background:"#F6F4F0", padding:"clamp(70px, 9vw, 100px) 5%"}}>
+        <div className="max-container">
+          
+          <div style={{textAlign:"center", maxWidth:760, margin:"0 auto 52px"}}>
+            <p style={{fontSize:11.5, fontWeight:700, letterSpacing:2.5, color:"#B8922A", textTransform:"uppercase", margin:"0 0 10px", fontFamily:"'Montserrat', sans-serif"}}>
+              {isRTL ? "البنية التحتية ومعايير الجودة" : "State-Of-The-Art Infrastructure"}
+            </p>
+            <h2 style={{
+              fontSize:"clamp(26px, 3.4vw, 40px)",
+              fontWeight:500,
+              color:"#251737",
+              lineHeight:1.2,
+              margin:0,
+              letterSpacing: isRTL ? 0 : -0.5,
+              fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+            }}>
+              {isRTL ? "مرافق عالمية وتصنيع فائق الدقة" : "Headquarters & Manufacturing Excellence"}
             </h2>
-            <p style={{color: "#555", lineHeight: 1.8, fontSize: 15, fontFamily: "'Montserrat', sans-serif"}}>
-              At Khadlaj Perfumes, our operations are supported by state-of-the-art facilities and a strategic head office location:
+            <p style={{fontSize:15, color:"#666", lineHeight:1.8, marginTop:12, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif"}}>
+              {isRTL 
+                ? "تستند عمليات خلطات للعطور إلى أحدث مجمعات التصنيع المعتمدة ومقر رئيسي استراتيجي يقود التوزيع الدولي:"
+                : "Our global operations are fortified by certified production complexes and a strategic corporate headquarters driving worldwide supply chains:"
+              }
             </p>
           </div>
 
-          <div style={{display:"grid", gridTemplateColumns:"1fr 1fr", gap:48, width:"100%"}} className="hero-split">
-            {/* Manufacturing Unit */}
-            <div style={{background:"#FAFAFA", borderRadius:"8px", overflow:"hidden", boxShadow:"0 20px 40px rgba(0,0,0,0.06)", display:"flex", flexDirection:"column", transition:"transform 0.3s ease", cursor:"default"}} onMouseEnter={e => e.currentTarget.style.transform="translateY(-10px)"} onMouseLeave={e => e.currentTarget.style.transform="translateY(0)"}>
-              <div style={{height: 280, overflow:"hidden"}}>
-                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1580982327559-c1202864eb05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Manufacturing Unit" style={{width:"100%", height:"100%", objectFit:"cover"}}/>
-              </div>
-              <div style={{padding:"32px 32px", flex:1, display:"flex", flexDirection:"column", background:"#fff"}}>
-                <h3 style={{fontSize:22, fontWeight:600, color:"#111", fontFamily:"'Montserrat', sans-serif", marginBottom:16}}>Manufacturing Unit</h3>
-                <p style={{fontSize:14, color:"#666", lineHeight:1.8, fontFamily:"'Montserrat', sans-serif", margin:0, textAlign:"justify"}}>
-                  Located in Ras Al Khaimah, our manufacturing facility is certified under ISO 9001: 2015 standards. Here, stringent quality control measures ensure that every product meets our exacting standards. Our production processes prioritize the use of authentic components to create high-quality fragrances, free from microbial or hazardous contaminants.
-                </p>
-              </div>
-            </div>
-
-            {/* Head Office */}
-            <div style={{background:"#FAFAFA", borderRadius:"8px", overflow:"hidden", boxShadow:"0 20px 40px rgba(0,0,0,0.06)", display:"flex", flexDirection:"column", transition:"transform 0.3s ease", cursor:"default"}} onMouseEnter={e => e.currentTarget.style.transform="translateY(-10px)"} onMouseLeave={e => e.currentTarget.style.transform="translateY(0)"}>
-              <div style={{height: 280, overflow:"hidden"}}>
-                <img loading="lazy" decoding="async" src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Head Office" style={{width:"100%", height:"100%", objectFit:"cover"}}/>
-              </div>
-              <div style={{padding:"32px 32px", flex:1, display:"flex", flexDirection:"column", background:"#fff"}}>
-                <h3 style={{fontSize:22, fontWeight:600, color:"#111", fontFamily:"'Montserrat', sans-serif", marginBottom:16}}>Head Office</h3>
-                <p style={{fontSize:14, color:"#666", lineHeight:1.8, fontFamily:"'Montserrat', sans-serif", margin:0, textAlign:"justify"}}>
-                  Situated in Sharjah, our head office serves as the central hub for our global operations. From here, we oversee product development, marketing strategies, and customer relations. Our team is committed to innovation and excellence, ensuring that every aspect of our business reflects the values of Khadlaj Perfumes.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Values & Ethos + Our Motto Banner */}
-        <div style={{background:"#251737", margin:"0 -5.5% 88px", padding:"80px 5.5%", color:"#fff"}}>
-          <div className="max-container" style={{display:"flex", flexDirection:"column", gap:80}}>
+          <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(320px, 1fr))", gap:36}}>
             
-            {/* Values & Ethos */}
-            <div className="hero-split" style={{display:"grid", gridTemplateColumns:"0.8fr 1.2fr", gap:48}}>
-              <div>
-                <h2 className="disp" style={{fontSize:"clamp(32px, 4vw, 42px)", fontWeight:300, color:"#fff", lineHeight:1.2, margin:0, fontFamily:"'Montserrat', sans-serif"}}>
-                  Values &amp; Ethos
-                </h2>
-                <p style={{color: "rgba(255,255,255,0.7)", lineHeight: 1.8, fontSize: 14, fontFamily: "'Montserrat', sans-serif"}}>
-                  At Khadlaj Perfumes, we are guided by fundamental values that define our commitment to excellence:
-                </p>
+            {/* Manufacturing Card */}
+            <div style={{
+              background:"#FFFFFF",
+              borderRadius:12,
+              overflow:"hidden",
+              border:"1px solid #EBE4D8",
+              boxShadow:"0 15px 35px rgba(0,0,0,0.05)",
+              display:"flex",
+              flexDirection:"column"
+            }}>
+              <div style={{height:250, overflow:"hidden", position:"relative"}}>
+                <img 
+                  loading="lazy" 
+                  decoding="async" 
+                  src="https://images.unsplash.com/photo-1580982327559-c1202864eb05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                  alt="Ras Al Khaimah Manufacturing Unit" 
+                  style={{width:"100%", height:"100%", objectFit:"cover"}}
+                />
+                <div style={{
+                  position:"absolute",
+                  top:16,
+                  left:16,
+                  background:"#251737",
+                  color:"#C8A97E",
+                  fontSize:10.5,
+                  fontWeight:700,
+                  letterSpacing:1,
+                  padding:"6px 14px",
+                  borderRadius:4
+                }}>
+                  ISO 9001:2015 CERTIFIED
+                </div>
               </div>
-
-              <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(200px, 1fr))", gap:16}}>
-                {[
-                  { title: "Experience", text: "We continuously strive to understand customer needs and exceed expectations.", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A97E" strokeWidth="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> },
-                  { title: "Integrity", text: "We adhere to our morals and maintain transparency in all our dealings.", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A97E" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> },
-                  { title: "Heritage", text: "We honor our origins and uphold the legacy of our home.", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A97E" strokeWidth="1.5"><rect x="4" y="10" width="16" height="12" rx="2"/><path d="M12 2v8"/><path d="M8 5l4-3 4 3"/></svg> },
-                  { title: "Trust", text: "We are dedicated to fostering faith and confidence in our customers.", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A97E" strokeWidth="1.5"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg> },
-                  { title: "Loyalty", text: "We prioritize building lasting, loyal relationships with our customers.", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A97E" strokeWidth="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> },
-                  { title: "Quality", text: "We set high standards and strive for excellence in every fragrance we create.", icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A97E" strokeWidth="1.5"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg> }
-                ].map(item => (
-                  <div key={item.title} style={{background:"rgba(255,255,255,0.03)", border:"1px solid rgba(255,255,255,0.06)", borderRadius:8, padding:24, transition:"all 0.3s ease"}} onMouseEnter={e => {e.currentTarget.style.background="rgba(255,255,255,0.06)"; e.currentTarget.style.borderColor="rgba(200,169,126,0.3)";}} onMouseLeave={e => {e.currentTarget.style.background="rgba(255,255,255,0.03)"; e.currentTarget.style.borderColor="rgba(255,255,255,0.06)";}}>
-                    <div style={{marginBottom:16}}>{item.icon}</div>
-                    <h4 style={{fontSize:15, fontWeight:600, color:"#fff", fontFamily:"'Montserrat', sans-serif", marginBottom:8}}>{item.title}</h4>
-                    <p style={{fontSize:12, color:"rgba(255,255,255,0.6)", lineHeight:1.6, fontFamily:"'Montserrat', sans-serif", margin:0}}>{item.text}</p>
-                  </div>
-                ))}
+              <div style={{padding:"32px 28px", flex:1, display:"flex", flexDirection:"column", gap:12}}>
+                <h3 style={{fontSize:20, fontWeight:600, color:"#251737", margin:0, fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"}}>
+                  {isRTL ? "مجمع التصنيع (رأس الخيمة)" : "Ras Al Khaimah Manufacturing Unit"}
+                </h3>
+                <p style={{fontSize:14, color:"#666", lineHeight:1.8, margin:0, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif"}}>
+                  {isRTL 
+                    ? "يقع مجمع التصنيع في إمارة رأس الخيمة وهو معتمد رسمياً بشهادة الجودة العالمية ISO 9001: 2015. تطبق فيه أدق معايير الرقابة والتعقيم، وحجرات التعتيق ذات الحرارة المنضبطة لضمان عطور نقية وخالية تماماً من أي شوائب أو ملوثات."
+                    : "Located in Ras Al Khaimah, our advanced manufacturing facility is certified under stringent ISO 9001: 2015 quality standards. Rigorous laboratory testing, automated clean-room bottling, and temperature-controlled maceration cellars guarantee unmatched pure compositions."
+                  }
+                </p>
+                <div style={{marginTop:"auto", paddingTop:14, borderTop:"1px solid #F0ECE4", display:"flex", alignItems:"center", gap:8}}>
+                  <span style={{color:"#B8922A", fontSize:14}}>✓</span>
+                  <span style={{fontSize:12, fontWeight:600, color:"#444", fontFamily:"'Montserrat',sans-serif"}}>
+                    {isRTL ? "فحص نقاء مخبري واختبارات ثبات متقدمة" : "Rigorous GC-MS Purity & Stability Testing"}
+                  </span>
+                </div>
               </div>
             </div>
 
-            <div style={{width:"100%", height:1, background:"rgba(255,255,255,0.06)"}}/>
-
-            {/* Our Motto */}
-            <div>
-              <div style={{display:"flex", alignItems:"center", gap:12, marginBottom:32}}>
-                <h2 className="disp" style={{fontSize:"clamp(32px, 4vw, 42px)", fontWeight:300, color:"#fff", lineHeight:1.2, margin:0, fontFamily:"'Montserrat', sans-serif"}}>
-                  Our Motto
-                </h2>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C8A97E" strokeWidth="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              </div>
-
-              <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(300px, 1fr))", gap:24}}>
-                {/* Vision Card */}
-                <div style={{position:"relative", overflow:"hidden", borderRadius:8, border:"1px solid rgba(255,255,255,0.1)", background:"linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.2) 100%)", padding:"40px 32px"}}>
-                  <div style={{position:"absolute", top:0, left:0, width:"4px", height:"100%", background:"#C8A97E"}}/>
-                  <h3 style={{fontSize:24, fontWeight:400, color:"#fff", fontFamily:"'Montserrat', sans-serif", marginBottom:16}}>Our vision</h3>
-                  <p style={{fontSize:14, color:"rgba(255,255,255,0.7)", lineHeight:1.8, fontFamily:"'Montserrat', sans-serif", margin:0}}>
-                    Our vision is to be a trusted name in the perfume industry and make our presence known in every household worldwide.
-                  </p>
+            {/* Head Office Card */}
+            <div style={{
+              background:"#FFFFFF",
+              borderRadius:12,
+              overflow:"hidden",
+              border:"1px solid #EBE4D8",
+              boxShadow:"0 15px 35px rgba(0,0,0,0.05)",
+              display:"flex",
+              flexDirection:"column"
+            }}>
+              <div style={{height:250, overflow:"hidden", position:"relative"}}>
+                <img 
+                  loading="lazy" 
+                  decoding="async" 
+                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                  alt="Sharjah Global Headquarters" 
+                  style={{width:"100%", height:"100%", objectFit:"cover"}}
+                />
+                <div style={{
+                  position:"absolute",
+                  top:16,
+                  left:16,
+                  background:"#251737",
+                  color:"#C8A97E",
+                  fontSize:10.5,
+                  fontWeight:700,
+                  letterSpacing:1,
+                  padding:"6px 14px",
+                  borderRadius:4
+                }}>
+                  GLOBAL HEADQUARTERS
                 </div>
-
-                {/* Mission Card */}
-                <div style={{position:"relative", overflow:"hidden", borderRadius:8, border:"1px solid rgba(255,255,255,0.1)", background:"linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.2) 100%)", padding:"40px 32px"}}>
-                  <div style={{position:"absolute", top:0, left:0, width:"4px", height:"100%", background:"#C8A97E"}}/>
-                  <h3 style={{fontSize:24, fontWeight:400, color:"#fff", fontFamily:"'Montserrat', sans-serif", marginBottom:16}}>Our mission</h3>
-                  <p style={{fontSize:14, color:"rgba(255,255,255,0.7)", lineHeight:1.8, fontFamily:"'Montserrat', sans-serif", margin:0}}>
-                    Our mission is to spread our wings across the globe gradually by opening up outlets across the GCC and worldwide.
-                  </p>
+              </div>
+              <div style={{padding:"32px 28px", flex:1, display:"flex", flexDirection:"column", gap:12}}>
+                <h3 style={{fontSize:20, fontWeight:600, color:"#251737", margin:0, fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"}}>
+                  {isRTL ? "المقر الرئيسي العالمي (الشارقة)" : "Sharjah Global Headquarters"}
+                </h3>
+                <p style={{fontSize:14, color:"#666", lineHeight:1.8, margin:0, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif"}}>
+                  {isRTL 
+                    ? "يقع مقرنا الرئيسي في إمارة الشارقة ويشكل المركز العصبي لإدارة العمليات العالمية، وتطوير المنتجات، واستراتيجيات التسويق الدولي. يعمل فريقنا المتخصص على ضمان وصول الفخامة الإماراتية إلى أبعد بقاع الأرض."
+                    : "Situated in Sharjah, our headquarters serves as the global nerve center directing international distribution, bespoke fragrance innovation, creative design studios, and VIP client relations spanning all 5 continents."
+                  }
+                </p>
+                <div style={{marginTop:"auto", paddingTop:14, borderTop:"1px solid #F0ECE4", display:"flex", alignItems:"center", gap:8}}>
+                  <span style={{color:"#B8922A", fontSize:14}}>✓</span>
+                  <span style={{fontSize:12, fontWeight:600, color:"#444", fontFamily:"'Montserrat',sans-serif"}}>
+                    {isRTL ? "مركز قيادة التوزيع لـ 80+ دولة عالمياً" : "International Logistics Hub Serving 80+ Nations"}
+                  </span>
                 </div>
               </div>
             </div>
 
           </div>
-        </div>
 
+        </div>
+      </section>
+
+      {/* ── 7. HERITAGE TIMELINE (1997 - 2026) ── */}
+      <section style={{background:"#FFFFFF", padding:"clamp(70px, 9vw, 100px) 5%"}}>
+        <div className="max-container">
+          
+          <div style={{textAlign:"center", maxWidth:760, margin:"0 auto 52px"}}>
+            <p style={{fontSize:11.5, fontWeight:700, letterSpacing:2.5, color:"#B8922A", textTransform:"uppercase", margin:"0 0 10px", fontFamily:"'Montserrat', sans-serif"}}>
+              {isRTL ? "مسيرة 29 عاماً من المجد" : "29 Years of Royal Prestige"}
+            </p>
+            <h2 style={{
+              fontSize:"clamp(26px, 3.4vw, 40px)",
+              fontWeight:500,
+              color:"#251737",
+              lineHeight:1.2,
+              margin:0,
+              letterSpacing: isRTL ? 0 : -0.5,
+              fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+            }}>
+              {isRTL ? "محطات تاريخية في إرث خلطات" : "Milestones of Our Olfactory Journey"}
+            </h2>
+          </div>
+
+          <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(210px, 1fr))", gap:20}}>
+            {milestones.map((m, idx) => (
+              <div 
+                key={idx}
+                style={{
+                  background:"#FAF8F5",
+                  border:"1px solid #EAE3D5",
+                  borderRadius:10,
+                  padding:"28px 20px",
+                  display:"flex",
+                  flexDirection:"column",
+                  gap:12,
+                  position:"relative",
+                  transition:"transform 0.3s ease, box-shadow 0.3s ease"
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.transform = "translateY(-6px)";
+                  e.currentTarget.style.boxShadow = "0 16px 32px rgba(37,23,55,0.08)";
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.transform = "translateY(0)";
+                  e.currentTarget.style.boxShadow = "none";
+                }}
+              >
+                <div style={{
+                  fontSize:28,
+                  fontWeight:700,
+                  color:"#B8922A",
+                  fontFamily:"'Montserrat', sans-serif",
+                  lineHeight:1
+                }}>
+                  {m.year}
+                </div>
+                <div style={{
+                  fontSize:15,
+                  fontWeight:600,
+                  color:"#251737",
+                  fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+                }}>
+                  {m.title}
+                </div>
+                <p style={{
+                  fontSize:13,
+                  color:"#666",
+                  lineHeight:1.7,
+                  margin:0,
+                  fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif"
+                }}>
+                  {m.desc}
+                </p>
               </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── 8. VALUES & PHILOSOPHICAL ETHOS ── */}
+      <section style={{background:"#1A1025", padding:"clamp(80px, 10vw, 110px) 5%", color:"#fff"}}>
+        <div className="max-container">
+          
+          <div style={{textAlign:"center", maxWidth:760, margin:"0 auto 56px"}}>
+            <p style={{fontSize:11.5, fontWeight:700, letterSpacing:2.5, color:"#C8A97E", textTransform:"uppercase", margin:"0 0 10px", fontFamily:"'Montserrat', sans-serif"}}>
+              {isRTL ? "مبادئنا وقيمنا الراسخة" : "Core Values & Philosophical Ethos"}
+            </p>
+            <h2 style={{
+              fontSize:"clamp(26px, 3.4vw, 40px)",
+              fontWeight:500,
+              color:"#fff",
+              lineHeight:1.2,
+              margin:0,
+              letterSpacing: isRTL ? 0 : -0.5,
+              fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+            }}>
+              {isRTL ? "ركائز التميز في دار خلطات" : "Pillars of Khadlaj Excellence"}
+            </h2>
+            <p style={{fontSize:15, color:"rgba(255,255,255,0.7)", lineHeight:1.8, marginTop:12, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif"}}>
+              {isRTL 
+                ? "نسترشد بستة مبادئ أصيلة تشكل جوهر هويتنا وتضمن تقديم أعلى معايير العطور الفاخرة لعملائنا:"
+                : "Guided by six foundational principles that govern every blend, every flacon, and every client interaction worldwide:"
+              }
+            </p>
+          </div>
+
+          <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(260px, 1fr))", gap:20}}>
+            {values.map((v, idx) => (
+              <div 
+                key={idx}
+                style={{
+                  background:"rgba(255,255,255,0.03)",
+                  border:"1px solid rgba(255,255,255,0.08)",
+                  borderRadius:10,
+                  padding:"28px 24px",
+                  transition:"all 0.3s ease"
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = "rgba(255,255,255,0.07)";
+                  e.currentTarget.style.borderColor = "rgba(200,169,126,0.4)";
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = "rgba(255,255,255,0.03)";
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                }}
+              >
+                <div style={{marginBottom:16}}>{v.icon}</div>
+                <h4 style={{fontSize:16, fontWeight:600, color:"#FFFFFF", margin:"0 0 10px", fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"}}>
+                  {v.title}
+                </h4>
+                <p style={{fontSize:13, color:"rgba(255,255,255,0.65)", lineHeight:1.7, margin:0, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif"}}>
+                  {v.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* ── 9. DUAL MANIFESTO (VISION & MISSION) ── */}
+          <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(300px, 1fr))", gap:24, marginTop:60}}>
+            
+            {/* Vision Card */}
+            <div style={{
+              position:"relative",
+              overflow:"hidden",
+              borderRadius:10,
+              border:"1px solid rgba(200,169,126,0.3)",
+              background:"linear-gradient(135deg, rgba(200,169,126,0.08) 0%, rgba(20,12,28,0.6) 100%)",
+              padding:"40px 32px"
+            }}>
+              <div style={{position:"absolute", top:0, left: isRTL ? "auto" : 0, right: isRTL ? 0 : "auto", width:4, height:"100%", background:"#C8A97E"}}/>
+              <div style={{fontSize:11, letterSpacing:2, color:"#C8A97E", fontWeight:700, textTransform:"uppercase", marginBottom:10, fontFamily:"'Montserrat', sans-serif"}}>
+                {isRTL ? "رؤيتنا المستقبلية" : "Our Vision"}
+              </div>
+              <h3 style={{fontSize:22, fontWeight:500, color:"#FFFFFF", margin:"0 0 14px", fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"}}>
+                {isRTL ? "عطور تحيا في كل بيت حول العالم" : "A Revered Scent in Every Household Worldwide"}
+              </h3>
+              <p style={{fontSize:14, color:"rgba(255,255,255,0.75)", lineHeight:1.8, margin:0, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif"}}>
+                {isRTL 
+                  ? "أن نكون الاسم الأكثر ثقة وتميزاً في عالم العطور الفاخرة، وأن نصل بفخامة التراث الإماراتي إلى كل بيت ومحب للجمال عبر العالم."
+                  : "To stand as the definitive benchmark of luxury fragrance houses globally, ensuring our timeless creations enrich homes and elevate personal memories in every corner of the earth."
+                }
+              </p>
+            </div>
+
+            {/* Mission Card */}
+            <div style={{
+              position:"relative",
+              overflow:"hidden",
+              borderRadius:10,
+              border:"1px solid rgba(200,169,126,0.3)",
+              background:"linear-gradient(135deg, rgba(200,169,126,0.08) 0%, rgba(20,12,28,0.6) 100%)",
+              padding:"40px 32px"
+            }}>
+              <div style={{position:"absolute", top:0, left: isRTL ? "auto" : 0, right: isRTL ? 0 : "auto", width:4, height:"100%", background:"#C8A97E"}}/>
+              <div style={{fontSize:11, letterSpacing:2, color:"#C8A97E", fontWeight:700, textTransform:"uppercase", marginBottom:10, fontFamily:"'Montserrat', sans-serif"}}>
+                {isRTL ? "رسالتنا السامية" : "Our Mission"}
+              </div>
+              <h3 style={{fontSize:22, fontWeight:500, color:"#FFFFFF", margin:"0 0 14px", fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"}}>
+                {isRTL ? "صناعة الفخامة بكل تفاصيلها" : "Artisanal Mastery Accessible to Connoisseurs"}
+              </h3>
+              <p style={{fontSize:14, color:"rgba(255,255,255,0.75)", lineHeight:1.8, margin:0, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif"}}>
+                {isRTL 
+                  ? "مواصلة الانتشار العالمي المدروس بافتتاح صالات عرض جديدة في الخليج والعالم، مع المحافظة على أعلى معايير النقاء والإتقان في كل قارورة."
+                  : "To expand our wings across the GCC and international horizons with exclusive boutiques, while relentlessly delivering master-distilled fragrances of unyielding purity."
+                }
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
     </div>
   );
 }
@@ -11960,6 +13893,1436 @@ function ContactPage(){
           )}
         </div>
       </div>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PAGE: SHIPPING & RETURNS
+═══════════════════════════════════════════════════════════════ */
+function ShippingReturnsPage({ setPage }){
+  const { isRTL, t } = React.useContext(LanguageContext);
+  const [activeTab, setActiveTab] = useState("shipping");
+
+
+  return (
+    <div style={{background:"#fff", minHeight:"100vh", color:"#251737"}}>
+      {/* ── Hero Banner ── */}
+      <div style={{position:"relative", background:"linear-gradient(135deg, #1A0F2E 0%, #251737 60%, #12081C 100%)", padding:"clamp(60px, 8vw, 100px) 6% clamp(48px, 6vw, 80px)", overflow:"hidden", color:"#fff", borderBottom:"1px solid rgba(184,146,42,0.25)"}}>
+        <div style={{maxWidth:1140, margin:"0 auto", position:"relative", zIndex:2}}>
+          <h1 className="disp" style={{fontSize:"clamp(32px, 5.5vw, 64px)", fontWeight:300, lineHeight:1.08, margin:"0 0 16px", color:"#fff"}}>
+            {isRTL ? "الشحن والاسترجاع" : "Shipping & Returns"}
+          </h1>
+          <p style={{fontSize:14, color:"rgba(255,255,255,0.72)", maxWidth:580, lineHeight:1.8, fontFamily:"'Montserrat',sans-serif", margin:0}}>
+            {isRTL 
+              ? "توصيل سريع وآمن لكافة مدن المملكة ودول الخليج مع تأمين شامل وخيارات استرجاع واستبدال ميسرة خلال ١٤ يوماً."
+              : "Swift, climate-controlled insured delivery across KSA, UAE, and the GCC with seamless 14-day returns on unopened fragrances."}
+          </p>
+        </div>
+      </div>
+
+
+      {/* ── Main Policy Content ── */}
+      <section style={{padding:"clamp(48px, 6vw, 80px) 6%", maxWidth:1140, margin:"0 auto"}}>
+        {/* Tab Controls */}
+        <div style={{display:"flex", gap:12, borderBottom:"2px solid #EFEAE1", paddingBottom:16, marginBottom:36, flexWrap:"wrap"}}>
+          <button 
+            onClick={()=>setActiveTab("shipping")} 
+            style={{background: activeTab==="shipping" ? "#251737" : "#FAF9F6", color: activeTab==="shipping" ? "#FAF4E6" : "#555", border: activeTab==="shipping" ? "1.5px solid #251737" : "1px solid #E0D9CC", padding:"10px 24px", borderRadius:24, fontWeight:700, fontSize:12, cursor:"pointer", transition:"all 0.2s ease", fontFamily:"'Montserrat',sans-serif", letterSpacing:1}}
+          >
+            {isRTL ? "مواعيد ورسوم التوصيل" : "Shipping Timelines & Rates"}
+          </button>
+          <button 
+            onClick={()=>setActiveTab("returns")} 
+            style={{background: activeTab==="returns" ? "#251737" : "#FAF9F6", color: activeTab==="returns" ? "#FAF4E6" : "#555", border: activeTab==="returns" ? "1.5px solid #251737" : "1px solid #E0D9CC", padding:"10px 24px", borderRadius:24, fontWeight:700, fontSize:12, cursor:"pointer", transition:"all 0.2s ease", fontFamily:"'Montserrat',sans-serif", letterSpacing:1}}
+          >
+            {isRTL ? "سياسة الاستبدال والاسترجاع" : "Returns & Refund Policy"}
+          </button>
+        </div>
+
+        {activeTab === "shipping" ? (
+          <div style={{display:"flex", flexDirection:"column", gap:32}}>
+            {/* ── INSIDE THE UAE ── */}
+            <div style={{background:"#fff", border:"1.5px solid #EAE5DB", borderRadius:12, padding:"clamp(22px, 3.5vw, 32px)", boxShadow:"0 4px 16px rgba(37,23,55,0.03)"}}>
+              <div style={{display:"flex", alignItems:"center", gap:10, marginBottom:16}}>
+                <h2 className="disp" style={{fontSize:"clamp(18px, 3vw, 24px)", fontWeight:700, color:"#251737", margin:0, letterSpacing:1}}>
+                  {isRTL ? "داخل دولة الإمارات (INSIDE THE UAE)" : "INSIDE THE UAE"}
+                </h2>
+              </div>
+
+              <p style={{fontSize:13.5, color:"#444", lineHeight:1.8, marginBottom:22, fontFamily:"'Montserrat',sans-serif"}}>
+                {isRTL 
+                  ? "يتم توصيل أي منتجات يتم شراؤها عبر الموقع الإلكتروني (www.khadlaj-perfumes.com) خلال ١ - ٣ أيام إلى كافة الإمارات بعد معالجة وتجهيز الطلب."
+                  : "Any products bought from the www.khadlaj-perfumes.com website will be delivered within 1-3 days to all the Emirates after processing the order:"}
+              </p>
+
+              <div style={{background:"#FAF9F6", border:"1px solid #ECE7DE", borderRadius:10, padding:"20px 22px"}}>
+                <p style={{fontSize:11, letterSpacing:2, textTransform:"uppercase", color:"#B8922A", fontWeight:700, margin:"0 0 14px", fontFamily:"'Montserrat',sans-serif"}}>
+                  {isRTL ? "رسوم التوصيل (DELIVERY CHARGES)" : "DELIVERY CHARGES"}
+                </p>
+                <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(220px, 1fr))", gap:14}}>
+                  <div style={{background:"#fff", border:"1px solid #E5DFD3", borderRadius:8, padding:"16px 18px"}}>
+                    <div style={{fontSize:18, fontWeight:700, color:"#251737", marginBottom:4, fontFamily:"'Montserrat',sans-serif"}}>AED 15</div>
+                    <div style={{fontSize:12.5, color:"#666", fontFamily:"'Montserrat',sans-serif"}}>
+                      {isRTL ? "إذا كانت قيمة الطلب ١٥٠ د.إ أو أقل" : "If the Order Value is less than or equal to AED 150"}
+                    </div>
+                  </div>
+                  <div style={{background:"#fff", border:"1.5px solid #B8922A", borderRadius:8, padding:"16px 18px", position:"relative"}}>
+                    <span style={{position:"absolute", top:10, [isRTL ? "left" : "right"]:12, background:"#B8922A", color:"#fff", fontSize:9, letterSpacing:1, padding:"2px 8px", borderRadius:10, fontWeight:700, textTransform:"uppercase"}}>Free</span>
+                    <div style={{fontSize:18, fontWeight:700, color:"#B8922A", marginBottom:4, fontFamily:"'Montserrat',sans-serif"}}>FREE DELIVERY</div>
+                    <div style={{fontSize:12.5, color:"#666", fontFamily:"'Montserrat',sans-serif"}}>
+                      {isRTL ? "إذا كانت قيمة الطلب أكبر من ١٥٠ د.إ" : "If the order value is greater than AED 150"}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ── OUTSIDE THE UAE ── */}
+            <div style={{background:"#fff", border:"1.5px solid #EAE5DB", borderRadius:12, padding:"clamp(22px, 3.5vw, 32px)", boxShadow:"0 4px 16px rgba(37,23,55,0.03)"}}>
+              <div style={{display:"flex", alignItems:"center", gap:10, marginBottom:16}}>
+                <h2 className="disp" style={{fontSize:"clamp(18px, 3vw, 24px)", fontWeight:700, color:"#251737", margin:0, letterSpacing:1}}>
+                  {isRTL ? "خارج دولة الإمارات (OUTSIDE UAE)" : "OUTSIDE UAE"}
+                </h2>
+              </div>
+
+              <p style={{fontSize:13.5, color:"#444", lineHeight:1.8, marginBottom:18, fontFamily:"'Montserrat',sans-serif"}}>
+                {isRTL 
+                  ? "نقوم حالياً بالشحن الدولي لمنتجاتنا خارج دولة الإمارات العربية المتحدة، مع الأخذ بالاعتبار القيود المفروضة من الجهات المختصة. يرجى إرسال رسالة إلى رقم واتساب خَدْلَج الرسمي +971521211992 للحصول على أفضل أسعار وترتيبات الشحن للطلبات بالجملة فقط (BULK ORDERS ONLY)."
+                  : "We are currently doing International shipping of our goods outside the UAE, keeping in view the certain limitations being levied by the competent authorities. Please send a message to Khadlaj Official WhatsApp No. +971521211992 for the best possible shipping quotes & arrangements for the BULK ORDERS ONLY."}
+              </p>
+
+              <div style={{marginBottom:24}}>
+                <a 
+                  href="https://wa.me/971521211992?text=Hello%20Khadlaj%2C%20I%20am%20inquiring%20about%20International%20Shipping%20for%20Bulk%20Orders" 
+                  target="_blank" 
+                  rel="noreferrer" 
+                  style={{display:"inline-flex", alignItems:"center", gap:8, background:"#251737", color:"#FAF4E6", padding:"11px 22px", borderRadius:6, textDecoration:"none", fontSize:11, letterSpacing:1.5, textTransform:"uppercase", fontWeight:700, fontFamily:"'Montserrat',sans-serif"}}
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                  </svg>
+                  <span>{isRTL ? "مراسلة واتساب الرسمي: +971521211992" : "WhatsApp Official: +971521211992"}</span>
+                </a>
+              </div>
+
+              <div style={{display:"flex", flexDirection:"column", gap:14}}>
+                {/* Duties */}
+                <div style={{background:"#FAF9F6", border:"1px solid #ECE7DE", borderRadius:8, padding:"15px 18px", display:"flex", alignItems:"flex-start", gap:12}}>
+                  <span style={{color:"#B8922A", fontSize:16, marginTop:1}}>✦</span>
+                  <p style={{fontSize:13, color:"#333", lineHeight:1.65, margin:0, fontFamily:"'Montserrat',sans-serif"}}>
+                    {isRTL 
+                      ? "يتحمل العميل فقط تكاليف الشحن والرسوم الجمركية وأي ضرائب أخرى إن وجدت."
+                      : "Shipping, Custom Duties, and any other taxes, if any, will be borne by the Customer only."}
+                  </p>
+                </div>
+
+                {/* Remote Area Fee */}
+                <div style={{background:"#FAF8F4", border:"1px solid #E7DEC8", borderRadius:8, padding:"15px 18px", display:"flex", alignItems:"flex-start", gap:12}}>
+                  <span style={{color:"#B8922A", fontSize:16, marginTop:1}}>✦</span>
+                  <p style={{fontSize:13, color:"#251737", lineHeight:1.65, margin:0, fontFamily:"'Montserrat',sans-serif", fontWeight:600}}>
+                    {isRTL 
+                      ? "سيتم فرض رسوم المناطق النائية (تقريباً ١٠٥ د.إ) بالإضافة إلى تكلفة الشحن عند احتسابها، وسيتم إبلاغ العميل لدفعها قبل شحن البضائع."
+                      : "REMOTE AREA FEE (Approx, AED 105) WILL BE CHARGED IN ADDITION UPON CHECKING THE SHIPPING COST AND WILL BE COMMUNICATED TO THE CUSTOMER TO PAY BEFORE DISPATCHING THE GOODS."}
+                  </p>
+                </div>
+
+                {/* Customs Compliance Notice */}
+                <div style={{background:"#FFF7F7", border:"1.5px solid #F0C4C4", borderRadius:8, padding:"16px 18px", display:"flex", alignItems:"flex-start", gap:12}}>
+                  <span style={{color:"#C2410C", fontSize:16, marginTop:1}}>⚠️</span>
+                  <p style={{fontSize:12.5, color:"#9C2B2B", lineHeight:1.75, margin:0, fontFamily:"'Montserrat',sans-serif"}}>
+                    {isRTL 
+                      ? "يرجى ملاحظة أنه سيتم مصادرة قيمة الطلب ورسوم الشحن، وبالتالي لن يتم استردادها إذا كانت الشحنة معلقة أو تم إتلافها أو إرجاعها بسبب عدم قدرة المستلم على تقديم الامتثال الجمركي المطلوب في بلده. تنطبق هذه السياسة بشكل خاص على دول مثل المكسيك، إسبانيا، الهند، باكستان، وغيرها في جميع أنحاء العالم."
+                      : "Please note that the Order Amount and the shipping fee will be forfeited, hence not be refunded if the shipment is on Hold / Disposed / Returned due to the receiver's inability to provide the required customs compliance in their respective country. This policy applies especially to countries like Mexico, Spain, India, Pakistan, and others all around the world."}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div>
+            <h2 className="disp" style={{fontSize:"clamp(24px, 4vw, 36px)", fontWeight:300, marginBottom:16, color:"#251737"}}>
+              {isRTL ? "شروط وإجراءات الاسترجاع والاستبدال" : "Hassle-Free Returns & Exchanges"}
+            </h2>
+            <p style={{fontSize:13.5, color:"#666", lineHeight:1.75, marginBottom:28, fontFamily:"'Montserrat',sans-serif", maxWidth:780}}>
+              {isRTL 
+                ? "رضاكم عن عطور خَدْلَج هو غايتنا الأولى. إن لم تكن راضياً تماماً عن اختيارك، نسعد بخدمتك وفق الشروط الواضحة التالية:"
+                : "Your complete delight with Khadlaj perfumery is our sacred commitment. If your order does not meet your expectations, our concierge is here to assist."}
+            </p>
+
+            <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(280px, 1fr))", gap:20, marginBottom:36}}>
+              {[
+                { step: "01", title: isRTL ? "فترة السماح (١٤ يوماً)" : "14-Day Window", desc: isRTL ? "يحق لك طلب استرجاع أو استبدال أي عطر مغلف في عبوته الأصلية وبحالة المصنع خلال ١٤ يوماً من تاريخ الاستلام." : "You may request an exchange or refund within 14 days of delivery provided the item is unopened and sealed." },
+                { step: "02", title: isRTL ? "استلام من باب منزلك" : "Doorstep Courier Pickup", desc: isRTL ? "يقوم مندوب شركة الشحن بزيارة موقعك واستلام الشحنة دون الحاجة لمغادرة منزلك أو التوجه لأي فرع." : "Our courier partner will arrive at your address to collect the sealed package without you having to travel." },
+                { step: "03", title: isRTL ? "إعادة المبلغ السريعة" : "Swift Refund Processing", desc: isRTL ? "يتم إعادة المبلغ إلى نفس البطاقة البنكية أو الحساب خلال ٣ - ٥ أيام عمل فور وصول العطر وفحصه." : "Refunds are processed back to your original payment method or store credit within 3 - 5 business days." }
+              ].map((s, idx)=>(
+                <div key={idx} style={{border:"1px solid #ECE7DE", borderRadius:10, padding:"24px 20px", background:"#fff", position:"relative"}}>
+                  <span style={{fontSize:24, fontWeight:900, color:"rgba(184,146,42,0.35)", position:"absolute", top:16, [isRTL ? "left" : "right"]:18, fontFamily:"'Cinzel',serif"}}>{s.step}</span>
+                  <h2 style={{fontSize:13, fontWeight:700, margin:"0 0 10px", color:"#251737", fontFamily:"'Montserrat',sans-serif"}}>{s.title}</h2>
+                  <p style={{fontSize:12, color:"#666", lineHeight:1.65, margin:0, fontFamily:"'Montserrat',sans-serif"}}>{s.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <div style={{background:"#FAF8F4", border:"1px solid #E7DEC8", borderRadius:10, padding:"24px", display:"flex", alignItems:"center", justifyContent:"space-between", flexWrap:"wrap", gap:18}}>
+              <div>
+                <h2 style={{fontSize:13.5, fontWeight:700, color:"#251737", margin:"0 0 6px", fontFamily:"'Montserrat',sans-serif"}}>
+                  {isRTL ? "هل تود بدء طلب استرجاع أو استبدال الآن؟" : "Need to initiate a return or exchange now?"}
+                </h2>
+                <p style={{fontSize:12, color:"#666", margin:0, fontFamily:"'Montserrat',sans-serif"}}>
+                  {isRTL ? "تواصل مباشرة مع خدمة العملاء وسيقوم مستشارنا بخدمتك خلال دقائق." : "Contact our client concierge and we will arrange pickup within hours."}
+                </p>
+              </div>
+              <a 
+                href="https://wa.me/971521211992?text=Hello%20Khadlaj%20Support%2C%20I%20would%20like%20to%20request%20a%20return%2Fexchange" 
+                target="_blank" 
+                rel="noreferrer"
+                style={{background:"#251737", color:"#FAF4E6", border:"1px solid #251737", padding:"12px 26px", borderRadius:6, fontSize:11, letterSpacing:1.5, textTransform:"uppercase", fontWeight:700, textDecoration:"none", fontFamily:"'Montserrat',sans-serif"}}
+              >
+                {isRTL ? "محادثة الدعم عبر واتساب" : "Chat on WhatsApp"}
+              </a>
+            </div>
+          </div>
+        )}
+
+        <div style={{marginTop:48, textAlign:"center"}}>
+          <button 
+            onClick={()=>setPage("collections")}
+            className="btn-gold"
+            style={{padding:"14px 34px", fontSize:11, letterSpacing:2}}
+          >
+            {isRTL ? "العودة لتصفح العطور" : "Explore Fragrance Collections"}
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PAGE: FAQ (FREQUENTLY ASKED QUESTIONS)
+═══════════════════════════════════════════════════════════════ */
+function FAQPage({ setPage }){
+  const { isRTL, t } = React.useContext(LanguageContext);
+  const [activeCategory, setActiveCategory] = useState("all");
+  const [openIdx, setOpenIdx] = useState(0);
+  const [searchWord, setSearchWord] = useState("");
+
+  const faqs = [
+    /* ── SHIPPING & DELIVERY ── */
+    {
+      id: "ship-uae",
+      category: "shipping",
+      catLabelEn: "Shipping & Delivery",
+      catLabelAr: "الشحن والتوصيل",
+      qEn: "What are the delivery times and shipping charges inside the UAE?",
+      qAr: "ما هي مدة ورسوم التوصيل داخل دولة الإمارات العربية المتحدة؟",
+      aEn: "Any products bought from the official Khadlaj Perfumes website are delivered within 1–3 business days to all Emirates (Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah, and Umm Al Quwain) after order processing.\n\n• AED 15 Delivery Fee: If the total order value is less than or equal to AED 150.\n• FREE DELIVERY: On all orders exceeding AED 150.",
+      aAr: "يتم توصيل جميع المنتجات المشتراة من الموقع الرسمي لعطور خَدْلَج خلال ١ إلى ٣ أيام عمل لكافة إمارات الدولة (دبي، أبوظبي، الشارقة، عجمان، رأس الخيمة، الفجيرة، وأم القيوين) بعد تأكيد ومعالجة الطلب.\n\n• ١٥ درهم إماراتي: رسوم التوصيل إذا كانت قيمة الطلب ١٥٠ درهم أو أقل.\n• توصيل مجاني بالكامل: لكافة الطلبات التي تزيد قيمتها عن ١٥٠ درهم.",
+      actionBtn: { labelEn: "View Shipping Details", labelAr: "عرض تفاصيل الشحن", page: "shipping" }
+    },
+    {
+      id: "ship-intl",
+      category: "shipping",
+      catLabelEn: "International Shipping",
+      catLabelAr: "الشحن الدولي",
+      qEn: "Do you ship internationally outside the UAE?",
+      qAr: "هل توفرون الشحن الدولي خارج دولة الإمارات العربية المتحدة؟",
+      aEn: "Yes, we handle international shipping outside the UAE in accordance with the regulatory limitations set by competent authorities. For the best shipping quotes and logistics arrangements, international shipping is handled for BULK ORDERS ONLY.\n\n• Contact: Message Khadlaj Official WhatsApp at +971 52 121 1992 for international bulk shipping inquiries.\n• Customs & Duties: Shipping fees, custom duties, and local taxes (if applicable) are borne by the customer.\n• Remote Area Surcharge: A remote area fee (approx. AED 105) may be charged in addition depending on courier zones, and will be communicated prior to dispatch.",
+      aAr: "نقوم بالشحن الدولي للبضائع خارج الإمارات وفقاً للوائح والتعليمات المعتمدة من الجهات المختصة. وللحصول على أفضل أسعار الشحن والتنسيق اللوجستي، فإن الشحن الدولي مخصص للطلبات بالجملة حصراً (Bulk Orders Only).\n\n• للتواصل: تواصل مع واتساب خَدْلَج الرسمي على الرقم 971521211992+ لترتيب شحنات الجملة الدولية.\n• الجمارك والرسوم: يتحمل العميل رسوم الشحن والرسوم الجمركية والضرائب المحلية إن وجدت.\n• المناطق النائية: قد يتم احتساب رسوم إضافية للمناطق النائية (قرابة ١٠٥ دراهم) بحسب مسار شركة الشحن ويتم إبلاغ العميل بها قبل إرسال الشحنة.",
+      actionBtn: { labelEn: "Chat on WhatsApp for Bulk", labelAr: "مراسلة الواتساب للطلبات الدولية", url: "https://wa.me/971521211992?text=Hello%20Khadlaj%2C%20I%20am%20inquiring%20about%20international%20bulk%20shipping" }
+    },
+    {
+      id: "ship-track",
+      category: "shipping",
+      catLabelEn: "Order Tracking",
+      catLabelAr: "تتبع الشحنة",
+      qEn: "How can I track my shipment once it has been dispatched?",
+      qAr: "كيف يمكنني تتبع طلبيتي ومسار الشحنة بعد إرسالها؟",
+      aEn: "Immediately upon handing your order to our courier partner (such as Aramex Express), you will receive an SMS and email notification containing your official courier tracking code and a live tracking link. You can also visit our on-site 'Track My Order' page at any time to monitor dispatch updates.",
+      aAr: "بمجرد تسليم شحنتك لشركة الشحن المعتمدة (مثل أرامكس)، ستصلك رسالة نصية وبريد إلكتروني يتضمنان رقم التتبع ورابط التتبع المباشر. كما يمكنك زيارة صفحة 'تتبع طلبيتك' في موقعنا لمعرفة خط سير شحنتك خطوة بخطوة.",
+      actionBtn: { labelEn: "Track Your Order Now", labelAr: "تتبع شحنتك الآن", page: "track-order" }
+    },
+
+    /* ── RETURNS & CANCELLATIONS ── */
+    {
+      id: "ret-damaged",
+      category: "returns",
+      catLabelEn: "Returns & Exchanges",
+      catLabelAr: "الاسترجاع والاستبدال",
+      qEn: "What is your policy if an item arrives damaged or defective?",
+      qAr: "ما هو الإجراء المتبع في حال وصول منتج تالف أو به عيب مصنعي؟",
+      aEn: "We offer free returns or replacements within 3 business days of delivery for any factory-damaged or defective item. The product must remain unused with its original packaging intact. Please notify the courier immediately upon receipt and contact Khadlaj Customer Care (+971 52 121 1992 / customercare@khadlaj-perfumes.com) with clear photos/unboxing proof to arrange an immediate zero-cost replacement or refund.",
+      aAr: "نوفر إمكانية الإرجاع أو الاستبدال المجاني خلال ٣ أيام عمل من تاريخ الاستلام في حال وجود أي كسر أو عيب مصنعي في المنتج. يُشترط أن يكون المنتج غير مستخدم وفي تغليفه الأصلي. يرجى إخطار مندوب التوصيل فوراً والتواصل مع خدمة عملاء خَدْلَج (971521211992+ / customercare@khadlaj-perfumes.com) مع إرفاق صور التلف لترتيب استبدال فوري أو استرداد كامل المبلغ.",
+      actionBtn: { labelEn: "Report an Issue", labelAr: "تقديم بلاغ أو استفسار", page: "contact" }
+    },
+    {
+      id: "ret-change",
+      category: "returns",
+      catLabelEn: "Returns Eligibility",
+      catLabelAr: "شروط الاسترجاع",
+      qEn: "Can I return a perfume if I change my mind after receiving it?",
+      qAr: "هل يمكنني إرجاع العطر في حال رغبت بتغيير رأيي بعد الاستلام؟",
+      aEn: "If you wish to return a product due to change of mind, please notify customer care within 24 hours of delivery. The item must be completely unopened, unused, in its original factory cellophane wrapping with all luxury seals intact. For strict health, hygiene, and cosmetic safety standards, unsealed or sprayed perfume bottles cannot be accepted for return.",
+      aAr: "في حال رغبت بإرجاع المنتج لتغيير رأيك، يرجى إخطار فريق خدمة العملاء خلال ٢٤ ساعة من تاريخ الاستلام. يُشترط أن يكون العطر مغلقاً تماماً بغلافه السلوفاني الأصلي وأختامه المصنعية ولم يتم استخدامه أو رشه نهائياً، وذلك التزاماً بأعلى معايير السلامة الصحية ومستحضرات التجميل.",
+      actionBtn: { labelEn: "Read Return Policy", labelAr: "قراءة سياسة الاسترجاع", page: "shipping" }
+    },
+    {
+      id: "ret-cancel",
+      category: "returns",
+      catLabelEn: "Cancellations",
+      catLabelAr: "إلغاء الطلب",
+      qEn: "Can I cancel or modify my order after placing it online?",
+      qAr: "هل يمكنني إلغاء أو تعديل الطلب بعد إتمامه في الموقع؟",
+      aEn: "Orders may be cancelled or modified free of charge within 24 hours of placing the order, provided the parcel has not yet been processed and handed over to the courier. Please reach out right away to our WhatsApp support (+971 52 121 1992) or email customercare@khadlaj-perfumes.com with your Order ID.",
+      aAr: "يمكن إلغاء الطلب أو تعديله مجاناً خلال ٢٤ ساعة من تقديمه، بشرط ألا تكون الشحنة قد خرجت بالفعل مع شركة الشحن. يُرجى التواصل الفوري مع فريق خدمة العملاء عبر الواتساب (971521211992+) أو البريد الإلكتروني مع ذكر رقم الطلب."
+    },
+    {
+      id: "ret-refund",
+      category: "returns",
+      catLabelEn: "Refund Timelines",
+      catLabelAr: "مدة استرداد الأموال",
+      qEn: "How and when will my refund be processed?",
+      qAr: "كيف ومتى يتم استرداد المبلغ المدفوع؟",
+      aEn: "Once returned goods are received and inspected by our quality team, refunds are processed back to your original payment method (Credit/Debit Card) within 5 to 7 business days, depending on your bank's processing cycle. Alternatively, you may choose an instant Khadlaj online credit voucher (valid for 1 month) for seamless immediate reorders.",
+      aAr: "بمجرد وصول المنتج المرتجع وفحصه من قِبل فريق الجودة، يتم استرداد المبلغ عبر نفس طريقة الدفع الأصلية (البطاقة البنكية) خلال ٥ إلى ٧ أيام عمل بحسب سياسة البنك المصدر. كما يمكن للعميل اختيار الحصول على قسيمة رصيد تسوق فورية صالحة لمدة شهر كامل."
+    },
+
+    /* ── AUTHENTICITY & QUALITY ── */
+    {
+      id: "auth-guarantee",
+      category: "authenticity",
+      catLabelEn: "Authenticity & Heritage",
+      catLabelAr: "الأصالة والتراث",
+      qEn: "Are all Khadlaj perfumes 100% authentic and IFRA certified?",
+      qAr: "هل عطور خَدْلَج أصلية ومطابقة لمعايير الجودة العالمية؟",
+      aEn: "Yes, 100% guaranteed. Founded in 1997 in the UAE, Khadlaj Perfumes manufactures every fragrance in our own certified, state-of-the-art facilities following strict IFRA (International Fragrance Association) and ISO standards. Buying directly from our official online store ensures you receive factory-fresh, genuine creations crafted with ethically sourced oils.",
+      aAr: "نعم، أصلية ومضمونة ١٠٠٪. تأسست دار خَدْلَج للعطور عام ١٩٩٧ في دولة الإمارات العربية المتحدة، وتُصنع كافة عطورنا في منشآتنا الحديثة المتطورة وفق أدق معايير جمعية العطور العالمية (IFRA) وشهادات الآيزو الدولية. شراؤك من متجرنا الرسمي يضمن لك عطوراً نقية وطازجة ومصنعة بأجود الزيوت العطرية."
+    },
+    {
+      id: "auth-longevity",
+      category: "authenticity",
+      catLabelEn: "Fragrance Longevity",
+      catLabelAr: "ثبات وفوحان العطور",
+      qEn: "Why do Khadlaj perfumes last so long in warm climates like Dubai and the GCC?",
+      qAr: "لماذا تتميز عطور خَدْلَج بثبات استثنائي في أجواء دبي والخليج الحارة؟",
+      aEn: "Our master perfumers engineer compositions with deep, opulent base notes—such as aged agarwood (oud), amber crystals, creamy sandalwood, and pure musk. These concentrated essences evaporate slowly, granting our Eau de Parfums 8 to 14+ hours of projection and our Concentrated Perfume Oils all-day lingering sillage even in summer temperatures.",
+      aAr: "يبتكر خبراء العطور لدينا تركيبات غنية بنوتات قاعدية عميقة وفاخرة، مثل العود الملكي المعتق، العنبر البلوري، خشب الصندل، والمسك النقي. تتبخر هذه الخلاصات المركزة ببطء وثبات، مما يمنح ماء العطر فوحاناً وثباتاً يدوم من ٨ إلى ١٤+ ساعة، ويوفر للزيوت العطرية ثباتاً يمتد طوال اليوم حتى في درجات الحرارة المرتفعة."
+    },
+    {
+      id: "auth-cpo-edp",
+      category: "authenticity",
+      catLabelEn: "EDP vs Perfume Oil",
+      catLabelAr: "الفرق بين الدهن والرذاذ",
+      qEn: "What is the difference between Eau de Parfum (EDP) and Concentrated Perfume Oil (CPO / Attar)?",
+      qAr: "ما الفرق بين ماء العطر (EDP) وزيت العطر المركز (الدهن / التولة)؟",
+      aEn: "• Concentrated Perfume Oil (CPO / Attar): 100% alcohol-free pure oil applied with a glass wand directly to pulse points. It delivers an intimate, warm scent aura that stays close to the skin for up to 24 hours.\n• Eau de Parfum (EDP): A spray fragrance formulated with 15–20% perfume oil dissolved in fine perfumer's alcohol, providing immediate projection, radiant sillage, and an expansive fragrance trail.",
+      aAr: "• زيت العطر المركز (الدهن / الدهن المركز): خالي تماماً من الكحول بنسبة ١٠٠٪، يُوضع بالمرود الزجاجي على نقاط النبض ليعطي عبقاً دافئاً وهادئاً يلتصق بالبشرة والملابس حتى ٢٤ ساعة.\n• ماء العطر (EDP): رذاذ عطري بتركيز ١٥-٢٠٪ من الزيوت العطرية النقية مع كحول عطري نقي، يمنح انتشاراً واسعاً وفوحاناً جذاباً يملأ الأرجاء."
+    },
+    {
+      id: "auth-storage",
+      category: "authenticity",
+      catLabelEn: "Fragrance Care & Storage",
+      catLabelAr: "طريقة حفظ العطور",
+      qEn: "How should I store my luxury perfume to preserve its quality and longevity?",
+      qAr: "كيف أحفظ عطوري الثمينة للحفاظ على نقاء ونفحات العطر لسنوات؟",
+      aEn: "Store your fragrance bottles in a cool, dark, and dry environment away from direct sunlight, radiators, or excessive bathroom humidity. Storing bottles inside their original Khadlaj presentation box ensures optimal chemical stability and prevents UV oxidation.",
+      aAr: "احفظ زجاجات العطور في مكان جاف، بارد، ومظلم بعيداً عن أشعة الشمس المباشرة أو مصادر الحرارة والرطوبة العالية (تجنب حفظها في دورات المياه أو السيارات). وضع الزجاجة داخل علبتها الفاخرة يحمي جزيئات العطر من الأكسدة ويضمن نقاء شذاها لسنوات."
+    },
+
+    /* ── PAYMENTS & COD ── */
+    {
+      id: "pay-methods",
+      category: "orders",
+      catLabelEn: "Payment Methods",
+      catLabelAr: "طرق الدفع",
+      qEn: "What payment methods are accepted on the Khadlaj store?",
+      qAr: "ما هي وسائل الدفع المقبولة والمعتمدة في متجر خَدْلَج؟",
+      aEn: "We support a wide variety of safe, encrypted payment options including Visa, MasterCard, Mada, Apple Pay, split-payment installments via Tabby & Tamara (4 interest-free installments), and Cash on Delivery (COD) across the UAE and Saudi Arabia.",
+      aAr: "نقبل مجموعة واسعة من وسائل الدفع الآمنة والمشفرة، وتشمل: فيزا، ماستركارد، مدى، أبل باي، خيارات التقسيط المريح بدون فوائد عبر تابي وتمارا (٤ دفعات ميسرة)، بالإضافة إلى الدفع نقداً عند الاستلام (COD) في الإمارات والسعودية."
+    },
+    {
+      id: "pay-cod",
+      category: "orders",
+      catLabelEn: "Cash on Delivery",
+      catLabelAr: "الدفع عند الاستلام",
+      qEn: "Is Cash on Delivery (COD) available in all regions?",
+      qAr: "هل خدمة الدفع عند الاستلام متاحة في جميع المناطق؟",
+      aEn: "Yes! Cash on Delivery is available across all UAE Emirates (Dubai, Abu Dhabi, Sharjah, Ajman, RAK, Fujairah, UAQ) and all cities across Saudi Arabia. You can hand physical cash or tap your payment card upon delivery directly with the courier agent.",
+      aAr: "نعم! تتوفر خدمة الدفع عند الاستلام في كافة مدن ومحافظات دولة الإمارات والمملكة العربية السعودية. يمكنك سداد قيمة الطلب نقداً أو الدفع بالبطاقة لمندوب شركة الشحن عند تسلم الطرد عند باب منزلك."
+    },
+
+    /* ── CORPORATE & SUPPORT ── */
+    {
+      id: "corp-wholesale",
+      category: "corporate",
+      catLabelEn: "Corporate & Bespoke Gifting",
+      catLabelAr: "هدايا الشركات والطلبات الخاصة",
+      qEn: "Do you provide custom corporate gift boxes, wedding giveaways, and bulk wholesale?",
+      qAr: "هل تقدمون توزيعات أعراس، هدايا مخصصة للشركات، وطلبات جملة؟",
+      aEn: "Yes, Khadlaj specializes in bespoke corporate gifts, customized VIP wedding favor collections, and bulk wholesale distribution. We offer personalized packaging, custom ribbon seals, and dedicated volume pricing. Reach out to our Corporate Desk via WhatsApp (+971 52 121 1992) or email customercare@khadlaj-perfumes.com.",
+      aAr: "نعم، تتخصص خَدْلَج في تقديم أرقى حلول الإهداء وتوزيعات المناسبات والأعراس وهدايا الشركات الفاخرة، بالإضافة إلى توفير أسعار الجملة الحصرية للموزعين. تواصل مع قسم مبيعات الشركات عبر الواتساب (971521211992+) أو البريد الإلكتروني.",
+      actionBtn: { labelEn: "Inquire via WhatsApp", labelAr: "استفسار لطلبات الشركات بالجملة", url: "https://wa.me/971521211992?text=Hello%20Khadlaj%2C%20I%20am%20interested%20in%20corporate%20gifting%20and%20bulk%20orders" }
+    },
+    {
+      id: "corp-contact",
+      category: "corporate",
+      catLabelEn: "Customer Care & Hours",
+      catLabelAr: "خدمة العملاء وأوقات العمل",
+      qEn: "How can I contact Khadlaj Customer Care and what are the working hours?",
+      qAr: "كيف يمكنني التواصل مع خدمة عملاء خَدْلَج وما هي أوقات العمل الرسمية؟",
+      aEn: "Our customer support team is at your service through the following channels:\n\n• WhatsApp Support: +971 52 121 1992\n• Phone Assistance: +971 6 534 0753\n• Email Inquiries: customercare@khadlaj-perfumes.com\n• Business Hours: Sunday through Thursday, 8:00 AM – 5:00 PM (Gulf Standard Time)",
+      aAr: "فريق خدمة عملاء خَدْلَج في خدمتكم دائماً عبر القنوات الرسمية التالية:\n\n• الدعم عبر الواتساب: 971521211992+\n• الهاتف المباشر: 97165340753+\n• البريد الإلكتروني: customercare@khadlaj-perfumes.com\n• ساعات العمل: من الأحد إلى الخميس، من ٨:٠٠ صباحاً حتى ٥:٠٠ مساءً بتوقيت الخليج (GST)",
+      actionBtn: { labelEn: "Contact Us Page", labelAr: "زيارة صفحة اتصل بنا", page: "contact" }
+    }
+  ];
+
+  const categories = [
+    { id: "all", en: "All Questions", ar: "كافة الأسئلة" },
+    { id: "shipping", en: "Shipping & Delivery", ar: "الشحن والتوصيل" },
+    { id: "returns", en: "Returns & Refunds", ar: "الاسترجاع والإلغاء" },
+    { id: "authenticity", en: "Authenticity & Fragrance Quality", ar: "الأصالة وجودة العطور" },
+    { id: "orders", en: "Payment & COD", ar: "طرق الدفع والاستلام" },
+    { id: "corporate", en: "Corporate & Support", ar: "هدايا الشركات والتواصل" }
+  ];
+
+  const filteredFaqs = faqs.filter(f => {
+    const matchesCat = activeCategory === "all" || f.category === activeCategory;
+    const term = searchWord.toLowerCase().trim();
+    if (!term) return matchesCat;
+    const matchesSearch = f.qEn.toLowerCase().includes(term) || 
+                          f.qAr.includes(term) || 
+                          f.aEn.toLowerCase().includes(term) || 
+                          f.aAr.includes(term) ||
+                          f.catLabelEn.toLowerCase().includes(term) ||
+                          f.catLabelAr.includes(term);
+    return matchesCat && matchesSearch;
+  });
+
+  return (
+    <div style={{background:"#fff", minHeight:"100vh", color:"#251737"}}>
+      {/* ── Hero Banner ── */}
+      <div style={{position:"relative", background:"linear-gradient(135deg, #1C0F2B 0%, #251737 60%, #150A20 100%)", padding:"clamp(60px, 8vw, 95px) 6% clamp(48px, 6vw, 75px)", overflow:"hidden", color:"#fff", borderBottom:"1px solid rgba(184,146,42,0.25)"}}>
+        <div style={{position:"absolute", top:-60, right:-60, width:360, height:360, borderRadius:"50%", background:"radial-gradient(circle, rgba(184,146,42,0.2) 0%, rgba(184,146,42,0) 70%)", pointerEvents:"none"}}/>
+        <div style={{maxWidth:960, margin:"0 auto", position:"relative", zIndex:2, textAlign:"center"}}>
+          <h1 className="disp" style={{fontSize:"clamp(32px, 5.5vw, 58px)", fontWeight:300, lineHeight:1.1, margin:"0 0 16px", color:"#fff"}}>
+            {isRTL ? "الأسئلة الشائعة" : "Frequently Asked Questions"}
+          </h1>
+          <p style={{fontSize:14, color:"rgba(255,255,255,0.78)", maxWidth:620, lineHeight:1.8, fontFamily:"'Montserrat',sans-serif", margin:"0 auto 28px"}}>
+            {isRTL 
+              ? "إجابات شاملة وموثقة حول مواعيد ورسوم التوصيل داخل وخارج الإمارات، سياسات الإرجاع، أصالة وثبات العطور، وخيارات الدفع الآمنة."
+              : "Comprehensive, transparent answers regarding UAE & international shipping, return policies, perfume longevity, authenticity, and payment security."}
+          </p>
+
+          {/* Search Box */}
+          <div style={{maxWidth:540, margin:"0 auto", position:"relative"}}>
+            <input 
+              type="text"
+              value={searchWord}
+              onChange={(e)=>setSearchWord(e.target.value)}
+              placeholder={isRTL ? "ابحث عن سؤالك (مثل: رسوم الشحن، الإرجاع، ثبات العطر، الدفع)..." : "Search questions (e.g. shipping fees, returns, longevity, COD)..."}
+              style={{width:"100%", padding: isRTL ? "15px 48px 15px 40px" : "15px 40px 15px 48px", borderRadius:32, border:"1.5px solid rgba(184,146,42,0.5)", background:"rgba(255,255,255,0.1)", color:"#fff", fontSize:13.5, outline:"none", fontFamily:"'Montserrat',sans-serif", boxSizing:"border-box"}}
+            />
+            <svg 
+              width="18" 
+              height="18" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="#D4AF37" 
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              style={{position:"absolute", [isRTL ? "right" : "left"]:18, top:"50%", transform:"translateY(-50%)", pointerEvents:"none"}}
+            >
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            {searchWord && (
+              <button 
+                onClick={()=>setSearchWord("")}
+                style={{position:"absolute", [isRTL ? "left" : "right"]:14, top:"50%", transform:"translateY(-50%)", background:"none", border:"none", color:"rgba(255,255,255,0.7)", fontSize:18, cursor:"pointer", padding:"2px 8px"}}
+              >
+                ×
+              </button>
+            )}
+          </div>
+
+          {searchWord && (
+            <div style={{marginTop:12, fontSize:12, color:"#D8C08A"}}>
+              {isRTL 
+                ? `تم العثور على ${filteredFaqs.length} نتيجة لبحثك عن "${searchWord}"`
+                : `Found ${filteredFaqs.length} ${filteredFaqs.length === 1 ? "result" : "results"} for "${searchWord}"`}
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* ── Category Filters ── */}
+      <section style={{padding:"28px 6% 16px", background:"#FAF9F6", borderBottom:"1px solid #ECE7DE"}}>
+        <div style={{maxWidth:1060, margin:"0 auto", display:"flex", justifyContent:"center", gap:8, flexWrap:"wrap"}}>
+          {categories.map(c => {
+            const isSel = activeCategory === c.id;
+            const count = c.id === "all" ? faqs.length : faqs.filter(f => f.category === c.id).length;
+            return (
+              <button 
+                key={c.id} 
+                onClick={()=>{ setActiveCategory(c.id); setOpenIdx(0); }}
+                style={{
+                  background: isSel ? "#251737" : "#fff",
+                  color: isSel ? "#FAF4E6" : "#444",
+                  border: isSel ? "1.5px solid #251737" : "1px solid #DED8CA",
+                  padding:"9px 18px",
+                  borderRadius:24,
+                  fontSize:12,
+                  fontWeight: isSel ? 700 : 500,
+                  cursor:"pointer",
+                  display:"inline-flex",
+                  alignItems:"center",
+                  gap:6,
+                  transition:"all 0.2s ease",
+                  fontFamily:"'Montserrat',sans-serif",
+                  boxShadow: isSel ? "0 4px 12px rgba(37,23,55,0.15)" : "none"
+                }}
+              >
+                <span>{isRTL ? c.ar : c.en}</span>
+                <span style={{
+                  fontSize:10,
+                  padding:"2px 6px",
+                  borderRadius:10,
+                  background: isSel ? "#B8922A" : "#EDE8DE",
+                  color: isSel ? "#fff" : "#666",
+                  fontWeight:700
+                }}>
+                  {count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ── Accordion List ── */}
+      <section style={{padding:"clamp(36px, 5vw, 64px) 6%", maxWidth:1000, margin:"0 auto"}}>
+        {filteredFaqs.length === 0 ? (
+          <div style={{textAlign:"center", padding:"56px 20px", color:"#777", background:"#FAF9F6", borderRadius:12, border:"1px dashed #D5CEBF"}}>
+            <div style={{display:"flex", justifyContent:"center", marginBottom:14}}>
+              <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </div>
+            <h3 style={{fontSize:17, fontWeight:600, color:"#251737", margin:"0 0 8px"}}>
+              {isRTL ? "لم نعثر على نتائج مطابقة" : "No matching questions found"}
+            </h3>
+            <p style={{fontSize:13, color:"#888", maxWidth:420, margin:"0 auto 20px"}}>
+              {isRTL 
+                ? "حاول استخدام كلمات بحث أخرى مثل 'شحن'، 'إرجاع'، أو تواصل مباشرة مع مستشارنا العطري." 
+                : "Try searching with different keywords like 'shipping', 'returns', or contact our concierge directly."}
+            </p>
+            <button 
+              onClick={()=>{ setSearchWord(""); setActiveCategory("all"); }}
+              style={{background:"#251737", color:"#FAF4E6", border:"none", padding:"10px 24px", borderRadius:4, cursor:"pointer", fontSize:11, letterSpacing:1.5, textTransform:"uppercase", fontWeight:700}}
+            >
+              {isRTL ? "إعادة تعيين البحث" : "Reset Filters"}
+            </button>
+          </div>
+        ) : (
+          <div style={{display:"flex", flexDirection:"column", gap:14}}>
+            {filteredFaqs.map((f, idx)=>{
+              const isOpen = openIdx === idx;
+              const displayNum = (idx + 1).toString().padStart(2, "0");
+              return (
+                <div 
+                  key={f.id || idx} 
+                  style={{
+                    border: isOpen ? "1.5px solid #B8922A" : "1px solid #EAE5DB",
+                    borderRadius:10,
+                    overflow:"hidden",
+                    background:"#fff",
+                    boxShadow: isOpen ? "0 8px 24px rgba(184,146,42,0.08)" : "0 2px 6px rgba(0,0,0,0.02)",
+                    transition:"all 0.25s ease"
+                  }}
+                >
+                  <button 
+                    onClick={()=>setOpenIdx(isOpen ? -1 : idx)}
+                    style={{
+                      width:"100%",
+                      padding:"20px 24px",
+                      background: isOpen ? "#FAF8F4" : "#fff",
+                      border:"none",
+                      display:"flex",
+                      alignItems:"center",
+                      justifyContent:"space-between",
+                      textAlign: isRTL ? "right" : "left",
+                      cursor:"pointer",
+                      gap:16
+                    }}
+                  >
+                    <div style={{display:"flex", alignItems:"center", gap:14, flex:1}}>
+                      <span style={{fontSize:11.5, fontWeight:700, color: isOpen ? "#B8922A" : "#998E80", fontFamily:"monospace", flexShrink:0}}>
+                        {displayNum}
+                      </span>
+                      <div style={{display:"flex", flexDirection:"column", gap:4}}>
+                        <span style={{fontSize:10, textTransform:"uppercase", letterSpacing:1.2, color:"#8E7D63", fontWeight:700}}>
+                          {isRTL ? f.catLabelAr : f.catLabelEn}
+                        </span>
+                        <span style={{fontSize:14.5, fontWeight:700, color:"#251737", fontFamily: isRTL ? "'Cairo',sans-serif" : "'Montserrat',sans-serif", lineHeight:1.4}}>
+                          {isRTL ? f.qAr : f.qEn}
+                        </span>
+                      </div>
+                    </div>
+                    <span style={{
+                      width:28,
+                      height:28,
+                      borderRadius:"50%",
+                      background: isOpen ? "#B8922A" : "rgba(37,23,55,0.06)",
+                      color: isOpen ? "#fff" : "#251737",
+                      display:"flex",
+                      alignItems:"center",
+                      justifyContent:"center",
+                      fontSize:12,
+                      flexShrink:0,
+                      transition:"all 0.25s ease",
+                      transform: isOpen ? "rotate(180deg)" : "rotate(0deg)"
+                    }}>
+                      ▼
+                    </span>
+                  </button>
+
+                  {isOpen && (
+                    <div style={{padding:"20px 26px 26px", borderTop:"1px solid #F0EBE1", background:"#fff"}}>
+                      <div style={{fontSize:13.5, color:"#4A4252", lineHeight:1.85, margin:0, fontFamily:"'Montserrat',sans-serif", whiteSpace:"pre-line"}}>
+                        {isRTL ? f.aAr : f.aEn}
+                      </div>
+
+                      {f.actionBtn && (
+                        <div style={{marginTop:18, paddingTop:14, borderTop:"1px dashed #EDE6D8"}}>
+                          {f.actionBtn.url ? (
+                            <a 
+                              href={f.actionBtn.url} 
+                              target="_blank" 
+                              rel="noreferrer"
+                              style={{
+                                display:"inline-flex",
+                                alignItems:"center",
+                                gap:8,
+                                background:"#251737",
+                                color:"#FAF4E6",
+                                padding:"8px 18px",
+                                borderRadius:4,
+                                textDecoration:"none",
+                                fontSize:11,
+                                fontWeight:700,
+                                letterSpacing:1,
+                                textTransform:"uppercase"
+                              }}
+                            >
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                              </svg>
+                              <span>{isRTL ? f.actionBtn.labelAr : f.actionBtn.labelEn}</span>
+                            </a>
+                          ) : (
+                            <button 
+                              onClick={()=>setPage(f.actionBtn.page)}
+                              style={{
+                                display:"inline-flex",
+                                alignItems:"center",
+                                gap:8,
+                                background:"none",
+                                border:"1px solid #B8922A",
+                                color:"#B8922A",
+                                padding:"8px 18px",
+                                borderRadius:4,
+                                cursor:"pointer",
+                                fontSize:11,
+                                fontWeight:700,
+                                letterSpacing:1,
+                                textTransform:"uppercase"
+                              }}
+                            >
+                              <span>{isRTL ? f.actionBtn.labelAr : f.actionBtn.labelEn}</span>
+                              <span>{isRTL ? "←" : "→"}</span>
+                            </button>
+                          )}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
+
+        {/* ── Official Contact & Concierge Assistance (Luxury Redesign) ── */}
+        <div style={{
+          marginTop: 64,
+          background: "linear-gradient(180deg, #FAF8F5 0%, #F5EFE6 100%)",
+          border: "1px solid #E2D9C8",
+          borderRadius: 18,
+          padding: "clamp(36px, 6vw, 56px) clamp(20px, 4vw, 44px)",
+          textAlign: "center",
+          boxShadow: "0 8px 32px rgba(37,23,55,0.04)",
+          position: "relative",
+          overflow: "hidden"
+        }}>
+          {/* Subtle gold accent ornament */}
+          <div style={{display:"inline-flex", alignItems:"center", gap:10, marginBottom:12}}>
+            <span style={{height:1, width:28, background:"#B8922A"}}/>
+            <span style={{fontSize:10.5, letterSpacing:2.5, textTransform:"uppercase", color:"#B8922A", fontWeight:700, fontFamily:"'Montserrat',sans-serif"}}>
+              {isRTL ? "خدمة عملاء خَدْلَج المتميزة" : "Khadlaj Client Concierge"}
+            </span>
+            <span style={{height:1, width:28, background:"#B8922A"}}/>
+          </div>
+
+          <h2 className="disp" style={{fontSize:"clamp(24px, 4.5vw, 38px)", fontWeight:300, margin:"0 0 12px", color:"#251737", lineHeight:1.2}}>
+            {isRTL ? "هل لديك استفسار آخر لم تجد إجابته؟" : "Still Have a Question?"}
+          </h2>
+          <p style={{fontSize:13.5, color:"#635A6D", maxWidth:580, margin:"0 auto 34px", lineHeight:1.8, fontFamily:"'Montserrat',sans-serif"}}>
+            {isRTL 
+              ? "مستشارنا العطري وفريق رعاية العملاء في خدمتكم دائماً لمساعدتكم في تتبع الطلبات، الاستفسار عن الشحن، أو تقديم استشارات عطرية خاصة."
+              : "Our dedicated fragrance advisors and concierge specialists are here to assist with order tracking, custom gifting, or bespoke scent recommendations."}
+          </p>
+
+          <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(260px, 1fr))", gap:20, maxWidth:960, margin:"0 auto 30px"}}>
+            {/* Card 1: WhatsApp Concierge */}
+            <div style={{
+              background:"#fff",
+              border:"1px solid #EAE3D5",
+              borderRadius:14,
+              padding:"28px 22px",
+              textAlign:"center",
+              boxShadow:"0 4px 18px rgba(37,23,55,0.04)",
+              display:"flex",
+              flexDirection:"column",
+              justifyContent:"space-between",
+              alignItems:"center"
+            }}>
+              <div>
+                <div style={{
+                  width:52,
+                  height:52,
+                  borderRadius:"50%",
+                  background:"linear-gradient(135deg, rgba(184,146,42,0.14) 0%, rgba(184,146,42,0.04) 100%)",
+                  border:"1.5px solid rgba(184,146,42,0.35)",
+                  display:"flex",
+                  alignItems:"center",
+                  justifyContent:"center",
+                  margin:"0 auto 16px",
+                  color:"#B8922A"
+                }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                  </svg>
+                </div>
+                <h3 style={{fontSize:15, fontWeight:700, color:"#251737", margin:"0 0 6px", fontFamily:"'Montserrat',sans-serif"}}>
+                  {isRTL ? "محادثة واتساب الرسمية" : "Official WhatsApp"}
+                </h3>
+                <div style={{fontSize:13, fontWeight:600, color:"#251737", marginBottom:4, direction:"ltr", fontFamily:"monospace"}}>
+                  +971 52 121 1992
+                </div>
+                <p style={{fontSize:11.5, color:"#8E7D63", margin:"0 0 20px", fontFamily:"'Montserrat',sans-serif"}}>
+                  {isRTL ? "استجابة سريعة واستشارات فورية" : "Instant assistance & consultations"}
+                </p>
+              </div>
+
+              <a 
+                href="https://wa.me/971521211992?text=Hello%20Khadlaj%20Team%2C%20I%20have%20an%20inquiry%20regarding%20my%20order"
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  width:"100%",
+                  maxWidth:210,
+                  display:"inline-flex",
+                  alignItems:"center",
+                  justifyContent:"center",
+                  gap:8,
+                  background:"#251737",
+                  color:"#FAF4E6",
+                  border:"1px solid #B8922A",
+                  padding:"11px 20px",
+                  borderRadius:30,
+                  textDecoration:"none",
+                  fontSize:11,
+                  letterSpacing:1.5,
+                  textTransform:"uppercase",
+                  fontWeight:700,
+                  boxSizing:"border-box"
+                }}
+              >
+                <span>{isRTL ? "محادثة فورية" : "Chat on WhatsApp"}</span>
+                <span>{isRTL ? "←" : "→"}</span>
+              </a>
+            </div>
+
+            {/* Card 2: Email Support */}
+            <div style={{
+              background:"#fff",
+              border:"1px solid #EAE3D5",
+              borderRadius:14,
+              padding:"28px 22px",
+              textAlign:"center",
+              boxShadow:"0 4px 18px rgba(37,23,55,0.04)",
+              display:"flex",
+              flexDirection:"column",
+              justifyContent:"space-between",
+              alignItems:"center"
+            }}>
+              <div>
+                <div style={{
+                  width:52,
+                  height:52,
+                  borderRadius:"50%",
+                  background:"linear-gradient(135deg, rgba(184,146,42,0.14) 0%, rgba(184,146,42,0.04) 100%)",
+                  border:"1.5px solid rgba(184,146,42,0.35)",
+                  display:"flex",
+                  alignItems:"center",
+                  justifyContent:"center",
+                  margin:"0 auto 16px",
+                  color:"#B8922A"
+                }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                  </svg>
+                </div>
+                <h3 style={{fontSize:15, fontWeight:700, color:"#251737", margin:"0 0 6px", fontFamily:"'Montserrat',sans-serif"}}>
+                  {isRTL ? "البريد الإلكتروني" : "Email Support"}
+                </h3>
+                <a 
+                  href="mailto:customercare@khadlaj-perfumes.com"
+                  style={{fontSize:12, fontWeight:600, color:"#251737", textDecoration:"none", display:"block", marginBottom:4, fontFamily:"'Montserrat',sans-serif"}}
+                >
+                  customercare@khadlaj-perfumes.com
+                </a>
+                <p style={{fontSize:11.5, color:"#8E7D63", margin:"0 0 20px", fontFamily:"'Montserrat',sans-serif"}}>
+                  {isRTL ? "الرد الرسمي خلال ٢٤ ساعة" : "Official response within 24 hours"}
+                </p>
+              </div>
+
+              <button 
+                onClick={()=>setPage("contact")}
+                style={{
+                  width:"100%",
+                  maxWidth:210,
+                  display:"inline-flex",
+                  alignItems:"center",
+                  justifyContent:"center",
+                  gap:8,
+                  background:"#251737",
+                  color:"#FAF4E6",
+                  border:"1px solid #B8922A",
+                  padding:"11px 20px",
+                  borderRadius:30,
+                  cursor:"pointer",
+                  fontSize:11,
+                  letterSpacing:1.5,
+                  textTransform:"uppercase",
+                  fontWeight:700,
+                  boxSizing:"border-box"
+                }}
+              >
+                <span>{isRTL ? "إرسال رسالة" : "Send Inquiry"}</span>
+                <span>{isRTL ? "←" : "→"}</span>
+              </button>
+            </div>
+
+            {/* Card 3: Direct Phone */}
+            <div style={{
+              background:"#fff",
+              border:"1px solid #EAE3D5",
+              borderRadius:14,
+              padding:"28px 22px",
+              textAlign:"center",
+              boxShadow:"0 4px 18px rgba(37,23,55,0.04)",
+              display:"flex",
+              flexDirection:"column",
+              justifyContent:"space-between",
+              alignItems:"center"
+            }}>
+              <div>
+                <div style={{
+                  width:52,
+                  height:52,
+                  borderRadius:"50%",
+                  background:"linear-gradient(135deg, rgba(184,146,42,0.14) 0%, rgba(184,146,42,0.04) 100%)",
+                  border:"1.5px solid rgba(184,146,42,0.35)",
+                  display:"flex",
+                  alignItems:"center",
+                  justifyContent:"center",
+                  margin:"0 auto 16px",
+                  color:"#B8922A"
+                }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                  </svg>
+                </div>
+                <h3 style={{fontSize:15, fontWeight:700, color:"#251737", margin:"0 0 6px", fontFamily:"'Montserrat',sans-serif"}}>
+                  {isRTL ? "الهاتف المباشر" : "Customer Phone"}
+                </h3>
+                <div style={{fontSize:13, fontWeight:600, color:"#251737", marginBottom:4, direction:"ltr", fontFamily:"monospace"}}>
+                  +971 6 534 0753
+                </div>
+                <p style={{fontSize:11.5, color:"#8E7D63", margin:"0 0 20px", fontFamily:"'Montserrat',sans-serif"}}>
+                  {isRTL ? "متاح خلال ساعات الدوام الرسمي" : "Available during working hours"}
+                </p>
+              </div>
+
+              <a 
+                href="tel:+97165340753"
+                style={{
+                  width:"100%",
+                  maxWidth:210,
+                  display:"inline-flex",
+                  alignItems:"center",
+                  justifyContent:"center",
+                  gap:8,
+                  background:"#251737",
+                  color:"#FAF4E6",
+                  border:"1px solid #B8922A",
+                  padding:"11px 20px",
+                  borderRadius:30,
+                  textDecoration:"none",
+                  fontSize:11,
+                  letterSpacing:1.5,
+                  textTransform:"uppercase",
+                  fontWeight:700,
+                  boxSizing:"border-box"
+                }}
+              >
+                <span>{isRTL ? "اتصال مباشر" : "Call Concierge"}</span>
+                <span>{isRTL ? "←" : "→"}</span>
+              </a>
+            </div>
+          </div>
+
+          <div style={{
+            display:"inline-flex",
+            alignItems:"center",
+            gap:8,
+            padding:"8px 18px",
+            background:"rgba(184,146,42,0.08)",
+            borderRadius:20,
+            border:"1px solid rgba(184,146,42,0.2)",
+            fontSize:11.5,
+            color:"#7A6A4E",
+            fontWeight:500
+          }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+            <span>
+              {isRTL 
+                ? "ساعات العمل الرسمية: الأحد إلى الخميس من ٨:٠٠ صباحاً حتى ٥:٠٠ مساءً بتوقيت الخليج (GST)"
+                : "Official Support Hours: Sunday through Thursday, 8:00 AM – 5:00 PM (Gulf Standard Time)"}
+            </span>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PAGE: TRACK MY ORDER
+═══════════════════════════════════════════════════════════════ */
+function TrackOrderPage({ setPage }){
+  const { isRTL, t } = React.useContext(LanguageContext);
+  const [orderNumber, setOrderNumber] = useState("");
+  const [emailOrPhone, setEmailOrPhone] = useState("");
+  const [trackedData, setTrackedData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleTrack = (e) => {
+    if (e) e.preventDefault();
+    if (!orderNumber.trim()) return;
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setTrackedData({
+        orderId: orderNumber.trim().toUpperCase(),
+        courier: "Aramex Express",
+        trackingCode: "ARM-" + Math.floor(10000000 + Math.random() * 90000000),
+        status: isRTL ? "قيد التوصيل مع المندوب" : "Out for Delivery",
+        statusStep: 4,
+        origin: "Khadlaj Regional Hub, UAE / Riyadh KSA",
+        eta: isRTL ? "خلال ٢٤ - ٤٨ ساعة عمل" : "Within 24 - 48 Business Hours",
+        timeline: [
+          { title: isRTL ? "تم تأكيد الطلب بنجاح" : "Order Confirmed", date: "Sep 26, 2026 - 10:30 AM", done: true },
+          { title: isRTL ? "تجهيز العطور وتغليف الهدايا" : "Fragrance Inspected & Packed", date: "Sep 26, 2026 - 02:45 PM", done: true },
+          { title: isRTL ? "تم تسليم الشحنة لشركة أرامكس" : "Handed over to Aramex Express", date: "Sep 27, 2026 - 09:15 AM", done: true },
+          { title: isRTL ? "الشحنة مع مندوب التوصيل" : "Out for Delivery to Your Doorstep", date: "Today - In Transit", done: true, active: true },
+          { title: isRTL ? "التسليم للعميل" : "Delivered", date: "Pending Delivery", done: false }
+        ]
+      });
+    }, 700);
+  };
+
+  return (
+    <div style={{background:"#fff", minHeight:"100vh", color:"#251737"}}>
+      {/* ── Hero Banner ── */}
+      <div style={{position:"relative", background:"linear-gradient(135deg, #180D26 0%, #251737 60%, #12081C 100%)", padding:"clamp(60px, 8vw, 96px) 6% clamp(48px, 6vw, 76px)", overflow:"hidden", color:"#fff", borderBottom:"1px solid rgba(184,146,42,0.25)"}}>
+        <div style={{position:"absolute", top:-70, right:-50, width:350, height:350, borderRadius:"50%", background:"radial-gradient(circle, rgba(184,146,42,0.2) 0%, rgba(184,146,42,0) 70%)", pointerEvents:"none"}}/>
+        <div style={{maxWidth:880, margin:"0 auto", position:"relative", zIndex:2, textAlign:"center"}}>
+          <h1 className="disp" style={{fontSize:"clamp(32px, 5.5vw, 60px)", fontWeight:300, lineHeight:1.08, margin:"0 0 16px", color:"#fff"}}>
+            {isRTL ? "تتبع طلبيتك وشحنتك" : "Track My Order"}
+          </h1>
+          <p style={{fontSize:14, color:"rgba(255,255,255,0.72)", maxWidth:540, lineHeight:1.8, fontFamily:"'Montserrat',sans-serif", margin:"0 auto"}}>
+            {isRTL 
+              ? "أدخل رقم الطلب أو رقم التتبع مع رقم الجوال أو البريد لمعرفة حالة شحنتك وموعد وصولها."
+              : "Enter your Order ID (e.g. #KH-1082) or Courier Tracking Number to view instant transit updates."}
+          </p>
+        </div>
+      </div>
+
+      {/* ── Tracking Form Section ── */}
+      <section style={{padding:"clamp(40px, 6vw, 72px) 6%", maxWidth:780, margin:"0 auto"}}>
+        <form onSubmit={handleTrack} style={{background:"#FAF9F6", border:"1.5px solid #E5DFD3", borderRadius:12, padding:"32px 28px", boxShadow:"0 6px 20px rgba(0,0,0,0.03)", marginBottom:40}}>
+          <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(240px, 1fr))", gap:18, marginBottom:22}}>
+            <div>
+              <label style={{display:"block", fontSize:10, letterSpacing:1.5, textTransform:"uppercase", fontWeight:700, color:"#251737", marginBottom:8, fontFamily:"'Montserrat',sans-serif"}}>
+                {isRTL ? "رقم الطلب أو رقم التتبع *" : "Order Number or Tracking ID *"}
+              </label>
+              <input 
+                type="text" 
+                required
+                value={orderNumber}
+                onChange={(e)=>setOrderNumber(e.target.value)}
+                placeholder={isRTL ? "مثال: KH-89421 أو 39482910" : "e.g. KH-89421 or 39482910"}
+                style={{width:"100%", padding:"12px 14px", border:"1px solid #CCC", borderRadius:6, fontSize:13, outline:"none", boxSizing:"border-box", fontFamily:"'Montserrat',sans-serif"}}
+              />
+            </div>
+            <div>
+              <label style={{display:"block", fontSize:10, letterSpacing:1.5, textTransform:"uppercase", fontWeight:700, color:"#251737", marginBottom:8, fontFamily:"'Montserrat',sans-serif"}}>
+                {isRTL ? "البريد الإلكتروني أو رقم الجوال" : "Email Address or Phone Number"}
+              </label>
+              <input 
+                type="text" 
+                value={emailOrPhone}
+                onChange={(e)=>setEmailOrPhone(e.target.value)}
+                placeholder={isRTL ? "05xxxxxxxx أو user@example.com" : "05xxxxxxxx or email@example.com"}
+                style={{width:"100%", padding:"12px 14px", border:"1px solid #CCC", borderRadius:6, fontSize:13, outline:"none", boxSizing:"border-box", fontFamily:"'Montserrat',sans-serif"}}
+              />
+            </div>
+          </div>
+
+          <button 
+            type="submit" 
+            disabled={isLoading}
+            className="btn-gold"
+            style={{width:"100%", padding:"14px", fontSize:11, letterSpacing:2, textTransform:"uppercase", fontWeight:700}}
+          >
+            {isLoading ? (isRTL ? "جاري الاستعلام عن الشحنة..." : "Looking Up Shipment...") : (isRTL ? "تتبع مسار الشحنة الآن" : "Track Order Status")}
+          </button>
+        </form>
+
+        {/* ── Live Tracking Result Display ── */}
+        {trackedData && (
+          <div style={{background:"#fff", border:"1.5px solid #B8922A", borderRadius:12, padding:"30px 28px", boxShadow:"0 12px 36px rgba(184,146,42,0.12)", animation:"fadeIn 0.3s ease both"}}>
+            <div style={{display:"flex", justifyContent:"space-between", alignItems:"flex-start", borderBottom:"1px solid #EFEAE1", paddingBottom:18, marginBottom:22, flexWrap:"wrap", gap:14}}>
+              <div>
+                <span style={{fontSize:9.5, letterSpacing:2, textTransform:"uppercase", color:"#B8922A", fontWeight:700, fontFamily:"'Montserrat',sans-serif"}}>
+                  {isRTL ? "رقم الشحنة الرسمية" : "Verified Shipment"}
+                </span>
+                <h3 style={{fontSize:20, fontWeight:700, margin:"4px 0 0", color:"#251737", fontFamily:"'Cinzel',serif"}}>{trackedData.orderId}</h3>
+              </div>
+              <div style={{textAlign: isRTL ? "left" : "right"}}>
+                <span style={{background:"#251737", color:"#FAF4E6", padding:"5px 12px", borderRadius:20, fontSize:11, fontWeight:700, fontFamily:"'Montserrat',sans-serif"}}>
+                  {trackedData.status}
+                </span>
+                <p style={{fontSize:11.5, color:"#777", margin:"6px 0 0", fontFamily:"'Montserrat',sans-serif"}}>
+                  {isRTL ? "الناقل: " : "Carrier: "}<strong style={{color:"#251737"}}>{trackedData.courier}</strong> ({trackedData.trackingCode})
+                </p>
+              </div>
+            </div>
+
+            {/* Timeline Steps */}
+            <div style={{display:"flex", flexDirection:"column", gap:16, position:"relative", paddingLeft: isRTL ? 0 : 20, paddingRight: isRTL ? 20 : 0}}>
+              {trackedData.timeline.map((step, idx)=>(
+                <div key={idx} style={{display:"flex", alignItems:"flex-start", gap:14, position:"relative"}}>
+                  <div style={{
+                    width:22, height:22, borderRadius:"50%",
+                    background: step.active ? "#B8922A" : (step.done ? "#251737" : "#E5DFD3"),
+                    color:"#fff", display:"flex", alignItems:"center", justifyContent:"center", fontSize:11,
+                    flexShrink:0, marginTop:2, zIndex:2
+                  }}>
+                    {step.done ? "✓" : (idx + 1)}
+                  </div>
+                  <div>
+                    <h4 style={{fontSize:13, fontWeight:700, margin:"0 0 2px", color: step.active ? "#B8922A" : (step.done ? "#251737" : "#888"), fontFamily:"'Montserrat',sans-serif"}}>
+                      {step.title}
+                    </h4>
+                    <p style={{fontSize:11, color:"#777", margin:0, fontFamily:"'Montserrat',sans-serif"}}>{step.date}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* External Courier Direct Links */}
+        <div style={{marginTop:48, textAlign:"center"}}>
+          <p style={{fontSize:11, letterSpacing:2, textTransform:"uppercase", color:"#888", fontWeight:600, marginBottom:16, fontFamily:"'Montserrat',sans-serif"}}>
+            {isRTL ? "بوابات التتبع المباشر لشركات الشحن" : "Official Courier Tracking Portals"}
+          </p>
+          <div style={{display:"flex", justifyContent:"center", gap:12, flexWrap:"wrap"}}>
+            {[
+              { name: "Aramex Tracking", url: "https://www.aramex.com/express/track" },
+              { name: "DHL Express", url: "https://www.dhl.com/en/express/tracking.html" }
+            ].map(c=>(
+              <a 
+                key={c.name}
+                href={c.url}
+                target="_blank"
+                rel="noreferrer"
+                style={{border:"1px solid #D6CEBE", padding:"8px 18px", borderRadius:6, textDecoration:"none", color:"#251737", fontSize:11.5, fontWeight:600, background:"#FAF9F6", fontFamily:"'Montserrat',sans-serif"}}
+              >
+                {c.name} ↗
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PAGE: FRAGRANCE GUIDE (THE ART OF HAUTE PARFUMERIE)
+═══════════════════════════════════════════════════════════════ */
+function FragranceGuidePage({ setPage, setViewProduct }){
+  const { isRTL, t } = React.useContext(LanguageContext);
+
+  const concentrations = [
+    { title: "Extrait de Parfum", pct: "25% - 40%", hours: isRTL ? "١٤ - ٢٤+ ساعة" : "14 - 24+ Hours", desc: isRTL ? "أعلى تركيز في عالم العطور الفاخرة، يمنح هالة عطرية عميقة وملكية تدوم طوال اليوم." : "The purest concentration in fine perfumery. Rich, intimate, and profoundly enduring on skin and clothing." },
+    { title: "Eau de Parfum (EDP)", pct: "15% - 20%", hours: isRTL ? "٨ - ١٢+ ساعة" : "8 - 12+ Hours", desc: isRTL ? "التركيز الأكثر توازناً واحترافية، يجمع بين الفوحان المشرق الملحوظ والثبات الطويل." : "The hallmark of Khadlaj collections. Exceptional projection and radiant sillage crafted for all occasions." },
+    { title: "Concentrated Perfume Oil", pct: "100% Pure Oil", hours: isRTL ? "١٨ - ٢٤+ ساعة" : "18 - 24+ Hours", desc: isRTL ? "خالٍ من الكحول ١٠٠٪، دهن مركز من خشب العود والمسك والعنبر يوضع على نقاط النبض مباشرة." : "Alcohol-free pure perfume oil (Attar). Melting directly onto pulse points for a private, velvet aroma." },
+    { title: "Oud Muattar & Bakhoor", pct: "Aged Wood & Oils", hours: isRTL ? "ثبات منزلي طويل" : "Atmospheric Aura", desc: isRTL ? "قطع العود الكمبودي المعتقة المغمورة في دهن العود والزهور لتبخير المنازل والمناسبات." : "Aged agarwood chips submerged in exotic essential oils and rose water to elevate interior atmospheres." }
+  ];
+
+  const pyramid = [
+    { level: isRTL ? "النوتات العليا (الافتتاحية)" : "Top Notes (Opening)", time: "0 - 30 Mins", desc: isRTL ? "الإنطباع الأول عند رش العطر؛ عادة ما تكون منعشة ومشرقة مثل البرغموت، الفلفل الوردي، والليمون الإيطالي." : "The initial burst you perceive instantly. Vibrant, sparkling notes like Bergamot, Pink Pepper, and Mandarin.", color: "#E0CA82" },
+    { level: isRTL ? "نوتات القلب (جوهر العطر)" : "Heart Notes (The Signature)", time: "30 Mins - 4 Hours", desc: isRTL ? "الهوية الحقيقية للعطر التي تنكشف بعد دقائق؛ تضم زهور الطائف، الياسمين الملكي، الهيل، وجوزة الطيب." : "The true identity of the fragrance. Voluptuous florals like Taif Rose, Jasmine, Nutmeg, and Cashmere Wood.", color: "#B8922A" },
+    { level: isRTL ? "نوتات القاعدة (العمق والثبات)" : "Base Notes (The Foundation)", time: "4 - 24+ Hours", desc: isRTL ? "الجذور العميقة التي تمنح العطر ثباته الأسطوري؛ تشمل العود الكمبودي، المسك الأبيض، العنبر، وخشب الصندل." : "The heavy, long-chain molecular foundation providing legendary longevity: Cambodian Oud, Amber, Vanilla, and Musk.", color: "#251737" }
+  ];
+
+  return (
+    <div style={{background:"#fff", minHeight:"100vh", color:"#251737"}}>
+      {/* ── Hero Banner ── */}
+      <div style={{position:"relative", background:"linear-gradient(135deg, #180D26 0%, #251737 60%, #10071A 100%)", padding:"clamp(60px, 8vw, 100px) 6% clamp(48px, 6vw, 80px)", overflow:"hidden", color:"#fff", borderBottom:"1px solid rgba(184,146,42,0.25)"}}>
+        <div style={{position:"absolute", top:-70, right:-50, width:380, height:380, borderRadius:"50%", background:"radial-gradient(circle, rgba(184,146,42,0.24) 0%, rgba(184,146,42,0) 70%)", pointerEvents:"none"}}/>
+        <div style={{maxWidth:1140, margin:"0 auto", position:"relative", zIndex:2}}>
+          <h1 className="disp" style={{fontSize:"clamp(32px, 5.5vw, 64px)", fontWeight:300, lineHeight:1.08, margin:"0 0 16px", color:"#fff"}}>
+            {isRTL ? "دليل اختيار العطور" : "The Fragrance Guide"}
+          </h1>
+          <p style={{fontSize:14, color:"rgba(255,255,255,0.72)", maxWidth:580, lineHeight:1.8, fontFamily:"'Montserrat',sans-serif", margin:0}}>
+            {isRTL 
+              ? "تعرف على أسرار الهرم العطري، الفروق بين تراكيز العطور، وكيفية مزج ووضع العطر لثبات استثنائي يدوم لأيام."
+              : "Discover the architecture of notes, perfume concentrations, seasonal pairings, and layering secrets from our master noses."}
+          </p>
+        </div>
+      </div>
+
+      {/* ── Section 1: Concentrations ── */}
+      <section style={{padding:"clamp(48px, 6vw, 84px) 6%", maxWidth:1140, margin:"0 auto"}}>
+        <div style={{textAlign:"center", maxWidth:640, margin:"0 auto 48px"}}>
+          <p style={{fontSize:9.5, letterSpacing:3, textTransform:"uppercase", color:"#B8922A", fontWeight:700, fontFamily:"'Montserrat',sans-serif", marginBottom:8}}>
+            {isRTL ? "درجات التركيز والفوحان" : "Concentrations Explained"}
+          </p>
+          <h2 className="disp" style={{fontSize:"clamp(26px, 4vw, 42px)", fontWeight:300, margin:0, color:"#251737"}}>
+            {isRTL ? "فهم تراكيز ونقاء العطور" : "Strength, Longevity & Sillage"}
+          </h2>
+        </div>
+
+        <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(240px, 1fr))", gap:22}}>
+          {concentrations.map((c, idx)=>(
+            <div key={idx} style={{border:"1px solid #ECE7DE", borderRadius:12, padding:"28px 22px", background:"#FAF9F6", transition:"all 0.3s ease", display:"flex", flexDirection:"column", justifyContent:"space-between"}}>
+              <div>
+                <div style={{display:"flex", justifyContent:"space-between", alignItems:"baseline", marginBottom:12}}>
+                  <h3 style={{fontSize:15, fontWeight:700, color:"#251737", margin:0, fontFamily:"'Montserrat',sans-serif"}}>{c.title}</h3>
+                  <span style={{fontSize:11, fontWeight:700, color:"#B8922A", background:"rgba(184,146,42,0.12)", padding:"2px 8px", borderRadius:12}}>{c.pct}</span>
+                </div>
+                <p style={{fontSize:12, color:"#666", lineHeight:1.65, margin:"0 0 16px", fontFamily:"'Montserrat',sans-serif"}}>{c.desc}</p>
+              </div>
+              <div style={{borderTop:"1px solid #EAE5DB", paddingTop:12, fontSize:11.5, color:"#251737", fontWeight:600, fontFamily:"'Montserrat',sans-serif"}}>
+                {isRTL ? "معدل الثبات: " : "Expected Wear: "}<strong style={{color:"#B8922A"}}>{c.hours}</strong>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Section 2: The Olfactory Pyramid ── */}
+      <section style={{background:"#FAF8F4", borderTop:"1px solid #ECE6DB", borderBottom:"1px solid #ECE6DB", padding:"clamp(48px, 6vw, 84px) 6%"}}>
+        <div style={{maxWidth:1140, margin:"0 auto"}}>
+          <div style={{textAlign:"center", maxWidth:640, margin:"0 auto 48px"}}>
+            <p style={{fontSize:9.5, letterSpacing:3, textTransform:"uppercase", color:"#B8922A", fontWeight:700, fontFamily:"'Montserrat',sans-serif", marginBottom:8}}>
+              {isRTL ? "بنية التوليفة العطرية" : "The Anatomy of a Scent"}
+            </p>
+            <h2 className="disp" style={{fontSize:"clamp(26px, 4vw, 42px)", fontWeight:300, margin:0, color:"#251737"}}>
+              {isRTL ? "الهرم العطري وكيف يتطور العطر" : "The Olfactory Pyramid"}
+            </h2>
+          </div>
+
+          <div style={{display:"flex", flexDirection:"column", gap:18, maxWidth:840, margin:"0 auto"}}>
+            {pyramid.map((lvl, idx)=>(
+              <div key={idx} style={{background:"#fff", border:"1px solid #E8E2D5", borderRadius:10, padding:"24px 26px", display:"flex", alignItems:"flex-start", gap:20, boxShadow:"0 4px 12px rgba(0,0,0,0.02)"}}>
+                <div style={{width:8, height:50, background:lvl.color, borderRadius:4, flexShrink:0, marginTop:4}}/>
+                <div style={{flex:1}}>
+                  <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:8, flexWrap:"wrap", gap:8}}>
+                    <h3 style={{fontSize:15, fontWeight:700, margin:0, color:"#251737", fontFamily:"'Montserrat',sans-serif"}}>{lvl.level}</h3>
+                    <span style={{fontSize:11, fontWeight:700, color:"#B8922A", background:"rgba(184,146,42,0.1)", padding:"3px 10px", borderRadius:14}}>{lvl.time}</span>
+                  </div>
+                  <p style={{fontSize:12.5, color:"#666", lineHeight:1.7, margin:0, fontFamily:"'Montserrat',sans-serif"}}>{lvl.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Section 3: Master Perfumer's Application Secrets ── */}
+      <section style={{padding:"clamp(48px, 6vw, 84px) 6%", maxWidth:1140, margin:"0 auto"}}>
+        <div style={{textAlign:"center", maxWidth:640, margin:"0 auto 48px"}}>
+          <p style={{fontSize:9.5, letterSpacing:3, textTransform:"uppercase", color:"#B8922A", fontWeight:700, fontFamily:"'Montserrat',sans-serif", marginBottom:8}}>
+            {isRTL ? "نصائح الخبراء" : "Pro Perfumery Secrets"}
+          </p>
+          <h2 className="disp" style={{fontSize:"clamp(26px, 4vw, 42px)", fontWeight:300, margin:0, color:"#251737"}}>
+            {isRTL ? "كيف تجعل عطرك يدوم لأطول فترة؟" : "Maximizing Longevity & Projection"}
+          </h2>
+        </div>
+
+        <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(260px, 1fr))", gap:24}}>
+          {[
+            { num: "01", title: isRTL ? "الرش على نقاط النبض" : "Focus on Pulse Points", desc: isRTL ? "المعصمان، جانبا الرقبة، وخلف الأذنين؛ حيث تولد حرارة الجسم إشعاعاً مستمراً لجزيئات العطر." : "Spritz on your wrists, neck base, and behind earlobes where bodily heat naturally activates note projection." },
+            { num: "02", title: isRTL ? "فن مزج الدهن مع الرذاذ" : "Layer Oil with EDP Spray", desc: isRTL ? "ضع قطرة من دهن العطر المركز أولاً ثم رش ماء العطر فوقه؛ لابتكار هالة ثلاثية الأبعاد تدوم ٢٤ ساعة." : "Apply a drop of concentrated perfume oil first, then mist your EDP spray over it for breathtaking 24h wear." },
+            { num: "03", title: isRTL ? "لا تفرك معصميك أبداً" : "Never Rub Wrists Together", desc: isRTL ? "فرك المعصمين يكسر جزيئات النوتات العليا الحساسة ويفقد العطر افتتاحته المشرقة." : "Friction creates heat that crushes top note molecules, causing the delicate citrus and floral opening to vanish." },
+            { num: "04", title: isRTL ? "ترطيب البشرة قبل العطر" : "Hydrate Skin Before Spraying", desc: isRTL ? "البشرة المرطبة تحتفظ بجزيئات الزيت العطري لفترة أطول بنسبة تصل إلى ٤٠٪ مقارنة بالبشرة الجافة." : "Moisturized skin locks in perfume oils up to 40% longer. Apply fragrance right after showering or moisturizing." }
+          ].map((tip, idx)=>(
+            <div key={idx} style={{border:"1px solid #ECE7DE", borderRadius:10, padding:"26px 20px", background:"#fff"}}>
+              <span style={{fontSize:20, fontWeight:900, color:"#B8922A", fontFamily:"'Cinzel',serif", display:"block", marginBottom:10}}>{tip.num}</span>
+              <h3 style={{fontSize:13.5, fontWeight:700, margin:"0 0 8px", color:"#251737", fontFamily:"'Montserrat',sans-serif"}}>{tip.title}</h3>
+              <p style={{fontSize:12, color:"#666", lineHeight:1.65, margin:0, fontFamily:"'Montserrat',sans-serif"}}>{tip.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <div style={{marginTop:56, textAlign:"center"}}>
+          <button 
+            onClick={()=>setPage("collections")}
+            className="btn-gold"
+            style={{padding:"14px 34px", fontSize:11, letterSpacing:2}}
+          >
+            {isRTL ? "تصفح كافة العطور الآن" : "Explore Khadlaj Fragrances"}
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PAGE: GIFT WRAPPING & BESPOKE PRESENTATION
+═══════════════════════════════════════════════════════════════ */
+function GiftWrappingPage({ setPage }){
+  const { isRTL, t } = React.useContext(LanguageContext);
+  const [selectedBox, setSelectedBox] = useState("imperial");
+  const [selectedRibbon, setSelectedRibbon] = useState("gold");
+  const [cardMessage, setCardMessage] = useState(isRTL ? "بكل حب وتقدير، عطر يعبر عن مكانتك الغالية." : "With deepest warmth and admiration, crafted for you.");
+  const [recipientName, setRecipientName] = useState(isRTL ? "سعادة الأستاذ فهد" : "Elegance For You");
+
+  const giftBoxes = [
+    { id: "imperial", nameEn: "Imperial Gold Coffret", nameAr: "الصندوق الذهبي الإمبراطوري", descEn: "Rigid luxury hard-box with embossed gold-foil Khadlaj emblem and velvet interior lining.", descAr: "صندوق ملكي مقوى بختم خَدْلَج الذهبي الفاخر وبطانة مخملية ناعمة لحماية الزجاجة." },
+    { id: "royal", nameEn: "Signature Royal Purple Box", nameAr: "صندوق البنفسج الملكي المميز", descEn: "Khadlaj's iconic deep plum velvet casing with brushed gold satin edging.", descAr: "غلاف مخملي بدرجة البنفسج الإمبراطوري الخاص بدار خَدْلَج مع حواف ذهبية مطرزة." },
+    { id: "velvet", nameEn: "Double Coffret (For Sets)", nameAr: "صندوق الهدايا المزدوج الفاخر", descEn: "Custom designed to cradle two 100ml flacons or a full fragrance + bakhoor ensemble.", descAr: "مصمم خصيصاً ليضم زجاجتين سعة ١٠٠ مل أو باقة العطر مع البخور الملكي." }
+  ];
+
+  return (
+    <div style={{background:"#fff", minHeight:"100vh", color:"#251737"}}>
+      {/* ── Hero Banner ── */}
+      <div style={{position:"relative", background:"linear-gradient(135deg, #1C0F2B 0%, #251737 60%, #150A20 100%)", padding:"clamp(60px, 8vw, 100px) 6% clamp(48px, 6vw, 80px)", overflow:"hidden", color:"#fff", borderBottom:"1px solid rgba(184,146,42,0.25)"}}>
+        <div style={{position:"absolute", top:-60, right:-60, width:380, height:380, borderRadius:"50%", background:"radial-gradient(circle, rgba(184,146,42,0.25) 0%, rgba(184,146,42,0) 70%)", pointerEvents:"none"}}/>
+        <div style={{maxWidth:1140, margin:"0 auto", position:"relative", zIndex:2}}>
+          <h1 className="disp" style={{fontSize:"clamp(32px, 5.5vw, 64px)", fontWeight:300, lineHeight:1.08, margin:"0 0 16px", color:"#fff"}}>
+            {isRTL ? "تغليف الهدايا الملكية" : "Luxury Gift Wrapping"}
+          </h1>
+          <p style={{fontSize:14, color:"rgba(255,255,255,0.72)", maxWidth:580, lineHeight:1.8, fontFamily:"'Montserrat',sans-serif", margin:0}}>
+            {isRTL 
+              ? "اجعل من كل عطر هدية تليق بأسمى المقامات؛ علب هدايا ملكية مقواة، أشرطة حريرية مذهبة، وبطاقات إهداء بخط عربي أصيل."
+              : "Transform your fragrance into an unforgettable presentation with hand-tied satin ribbons, bespoke hardcover coffrets, and handwritten calligraphy cards."}
+          </p>
+        </div>
+      </div>
+
+      {/* ── Interactive Gift Studio ── */}
+      <section style={{padding:"clamp(48px, 6vw, 84px) 6%", maxWidth:1140, margin:"0 auto"}}>
+        <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(320px, 1fr))", gap:40, alignItems:"start"}}>
+          {/* Controls Column */}
+          <div>
+            <p style={{fontSize:9.5, letterSpacing:2.5, textTransform:"uppercase", color:"#B8922A", fontWeight:700, fontFamily:"'Montserrat',sans-serif", marginBottom:8}}>
+              {isRTL ? "الخطوة ١: اختر نوع الصندوق" : "Step 1: Select Presentation Box"}
+            </p>
+            <h2 className="disp" style={{fontSize:24, fontWeight:300, marginBottom:18, color:"#251737"}}>
+              {isRTL ? "تشكيلة العلب الفاخرة" : "Bespoke Coffret Styles"}
+            </h2>
+
+            <div style={{display:"flex", flexDirection:"column", gap:12, marginBottom:32}}>
+              {giftBoxes.map(b=>{
+                const isSel = selectedBox === b.id;
+                return (
+                  <div 
+                    key={b.id}
+                    onClick={()=>setSelectedBox(b.id)}
+                    style={{
+                      border: isSel ? "1.5px solid #B8922A" : "1px solid #E0D8CB",
+                      borderRadius:10,
+                      padding:"16px 18px",
+                      background: isSel ? "#FAF8F4" : "#fff",
+                      cursor:"pointer",
+                      transition:"all 0.2s ease"
+                    }}
+                  >
+                    <div style={{display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:4}}>
+                      <h3 style={{fontSize:13.5, fontWeight:700, color:"#251737", margin:0, fontFamily:"'Montserrat',sans-serif"}}>{isRTL ? b.nameAr : b.nameEn}</h3>
+                      <span style={{fontSize:12, color: isSel ? "#B8922A" : "#ccc"}}>{isSel ? "●" : "○"}</span>
+                    </div>
+                    <p style={{fontSize:11.5, color:"#666", lineHeight:1.55, margin:0, fontFamily:"'Montserrat',sans-serif"}}>{isRTL ? b.descAr : b.descEn}</p>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Step 2: Ribbon Selection */}
+            <p style={{fontSize:9.5, letterSpacing:2.5, textTransform:"uppercase", color:"#B8922A", fontWeight:700, fontFamily:"'Montserrat',sans-serif", marginBottom:8}}>
+              {isRTL ? "الخطوة ٢: شريط الساتان الحريري" : "Step 2: Satin Ribbon Color"}
+            </p>
+            <div style={{display:"flex", gap:12, marginBottom:32}}>
+              {[
+                { id: "gold", color: "#D4AF37", label: isRTL ? "ذهبي ملكي" : "Royal Gold" },
+                { id: "purple", color: "#251737", label: isRTL ? "بنفسجي إمبراطوري" : "Imperial Purple" },
+                { id: "emerald", color: "#1E5945", label: isRTL ? "أخضر زمردي" : "Emerald Silk" }
+              ].map(r=>(
+                <button
+                  key={r.id}
+                  onClick={()=>setSelectedRibbon(r.id)}
+                  style={{
+                    display:"flex", alignItems:"center", gap:8,
+                    padding:"8px 16px", borderRadius:20,
+                    border: selectedRibbon === r.id ? "1.5px solid #B8922A" : "1px solid #DDD",
+                    background: selectedRibbon === r.id ? "#FAF8F4" : "#fff",
+                    cursor:"pointer", fontSize:11.5, fontFamily:"'Montserrat',sans-serif", fontWeight:600
+                  }}
+                >
+                  <span style={{width:12, height:12, borderRadius:"50%", background:r.color, display:"inline-block"}}/>
+                  {r.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Step 3: Personalized Message */}
+            <p style={{fontSize:9.5, letterSpacing:2.5, textTransform:"uppercase", color:"#B8922A", fontWeight:700, fontFamily:"'Montserrat',sans-serif", marginBottom:8}}>
+              {isRTL ? "الخطوة ٣: بطاقة الإهداء الشخصية" : "Step 3: Calligraphy Gift Card"}
+            </p>
+            <div style={{marginBottom:14}}>
+              <label style={{fontSize:10, textTransform:"uppercase", letterSpacing:1, color:"#888", display:"block", marginBottom:4, fontFamily:"'Montserrat',sans-serif"}}>{isRTL ? "اسم المُهدى إليه" : "Recipient Name"}</label>
+              <input 
+                type="text"
+                value={recipientName}
+                onChange={(e)=>setRecipientName(e.target.value)}
+                style={{width:"100%", padding:"10px 14px", border:"1px solid #CCC", borderRadius:6, fontSize:12.5, fontFamily:"'Montserrat',sans-serif", boxSizing:"border-box"}}
+              />
+            </div>
+            <div>
+              <label style={{fontSize:10, textTransform:"uppercase", letterSpacing:1, color:"#888", display:"block", marginBottom:4, fontFamily:"'Montserrat',sans-serif"}}>{isRTL ? "نص رسالة الإهداء" : "Gift Message"}</label>
+              <textarea 
+                rows={3}
+                value={cardMessage}
+                onChange={(e)=>setCardMessage(e.target.value)}
+                style={{width:"100%", padding:"10px 14px", border:"1px solid #CCC", borderRadius:6, fontSize:12.5, fontFamily:"'Montserrat',sans-serif", boxSizing:"border-box", resize:"none"}}
+              />
+            </div>
+          </div>
+
+          {/* Live Gift Preview Card */}
+          <div style={{background:"linear-gradient(135deg, #FAF8F4 0%, #F5EFE3 100%)", border:"1.5px solid #D8CFBF", borderRadius:16, padding:"36px 30px", boxShadow:"0 12px 34px rgba(0,0,0,0.06)", position:"sticky", top:120}}>
+            <div style={{textAlign:"center", marginBottom:20}}>
+              <span style={{fontSize:9.5, letterSpacing:3, textTransform:"uppercase", color:"#B8922A", fontWeight:700, fontFamily:"'Montserrat',sans-serif"}}>
+                {isRTL ? "معاينة باقة الإهداء الملكية" : "Live Presentation Preview"}
+              </span>
+              <h3 style={{fontSize:18, fontWeight:700, margin:"6px 0 0", color:"#251737", fontFamily:"'Cinzel',serif"}}>
+                {giftBoxes.find(b=>b.id===selectedBox)?.[isRTL ? "nameAr" : "nameEn"]}
+              </h3>
+            </div>
+
+            {/* Visual Box Rendering */}
+            <div style={{
+              background: selectedBox === "imperial" ? "linear-gradient(135deg, #E6D296 0%, #D4AF37 50%, #B8922A 100%)" : (selectedBox === "royal" ? "linear-gradient(135deg, #251737 0%, #3B1B54 100%)" : "linear-gradient(135deg, #1C1126 0%, #2A173B 100%)"),
+              borderRadius:12,
+              padding:"28px 24px",
+              color: selectedBox === "imperial" ? "#251737" : "#fff",
+              boxShadow:"0 16px 38px rgba(0,0,0,0.18)",
+              position:"relative",
+              overflow:"hidden",
+              marginBottom:24
+            }}>
+              {/* Ribbon Graphic */}
+              <div style={{
+                position:"absolute", top:0, left:"50%", transform:"translateX(-50%)", width:28, height:"100%",
+                background: selectedRibbon === "gold" ? "#F0D080" : (selectedRibbon === "purple" ? "#251737" : "#1E5945"),
+                borderLeft:"1px solid rgba(255,255,255,0.4)", borderRight:"1px solid rgba(255,255,255,0.4)",
+                boxShadow:"0 0 10px rgba(0,0,0,0.25)"
+              }}/>
+              <div style={{
+                position:"absolute", top:"50%", left:0, transform:"translateY(-50%)", width:"100%", height:28,
+                background: selectedRibbon === "gold" ? "#F0D080" : (selectedRibbon === "purple" ? "#251737" : "#1E5945"),
+                borderTop:"1px solid rgba(255,255,255,0.4)", borderBottom:"1px solid rgba(255,255,255,0.4)",
+                boxShadow:"0 0 10px rgba(0,0,0,0.25)"
+              }}/>
+
+              {/* Gold Wax Seal */}
+              <div style={{
+                width:48, height:48, borderRadius:"50%", background:"linear-gradient(135deg, #F3E5AB 0%, #D4AF37 50%, #A67C00 100%)",
+                border:"2px solid #fff", display:"flex", alignItems:"center", justifyContent:"center",
+                margin:"20px auto", position:"relative", zIndex:4, boxShadow:"0 4px 14px rgba(0,0,0,0.35)", color:"#251737", fontWeight:900, fontSize:18
+              }}>
+                ✦
+              </div>
+
+              <div style={{position:"relative", zIndex:4, textAlign:"center", marginTop:16}}>
+                <p style={{fontSize:11, letterSpacing:2, textTransform:"uppercase", margin:0, fontWeight:700}}>KHADLAJ PERFUMES</p>
+                <p style={{fontSize:9, opacity:0.8, margin:"4px 0 0"}}>EST. 1997 · DUBAI</p>
+              </div>
+            </div>
+
+            {/* Calligraphy Card Preview */}
+            <div style={{background:"#fff", border:"1px solid #D6CCBC", borderRadius:8, padding:"18px 20px", boxShadow:"0 4px 12px rgba(0,0,0,0.04)"}}>
+              <p style={{fontSize:10, color:"#B8922A", textTransform:"uppercase", letterSpacing:1.5, margin:"0 0 6px", fontWeight:700, fontFamily:"'Montserrat',sans-serif"}}>
+                {isRTL ? "بطاقة الإهداء الشخصية" : "Personalized Greeting Card"}
+              </p>
+              <h4 style={{fontSize:13.5, fontWeight:700, color:"#251737", margin:"0 0 8px", fontFamily: isRTL ? "'Cairo',sans-serif" : "'Cinzel',serif"}}>
+                {recipientName || (isRTL ? "إلى العزيز" : "For You")}
+              </h4>
+              <p style={{fontSize:12, color:"#555", lineHeight:1.6, margin:0, fontStyle:"italic", fontFamily: isRTL ? "'Cairo',sans-serif" : "Georgia,serif"}}>
+                "{cardMessage || (isRTL ? "مع أطيب الأمنيات" : "Best wishes")}"
+              </p>
+            </div>
+
+            <div style={{marginTop:24}}>
+              <button 
+                onClick={()=>setPage("gifts")}
+                className="btn-gold"
+                style={{width:"100%", padding:"14px", fontSize:11, letterSpacing:2, textTransform:"uppercase"}}
+              >
+                {isRTL ? "تصفح مجموعات الهدايا الجاهزة" : "Browse Ready Gift Sets"}
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+      </section>
     </div>
   );
 }
@@ -12421,18 +15784,186 @@ function SignupPage(){
   );
 }
 
+async function redirectToShopifyCheckout(cartItems, selectedPouch = null) {
+  const isLiveShopify = typeof window !== "undefined" && (
+    window.location.hostname.includes("shopify") || 
+    window.location.hostname.includes("khadlaj-perfumes.sa") ||
+    !!window.Shopify
+  );
+
+  if (!isLiveShopify) {
+    return false;
+  }
+
+  const fastFetch = async (url, options = {}, timeoutMs = 2500) => {
+    try {
+      const controller = new AbortController();
+      const tId = setTimeout(() => controller.abort(), timeoutMs);
+      const res = await fetch(url, { ...options, signal: controller.signal });
+      clearTimeout(tId);
+      return res;
+    } catch(e) {
+      return null;
+    }
+  };
+
+  try {
+    let shopifyProducts = (window.__SHOPIFY_PRODUCTS__ || []).filter(p => p.available !== false && p.variantId);
+
+    const itemsToAdd = [];
+    const permalinkParts = [];
+    for (const item of cartItems) {
+      const itemClean = (item.name || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+      let matched = shopifyProducts.find(sp => {
+        if (sp.available === false) return false;
+        const titleClean = (sp.title || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+        const handleClean = (sp.handle || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+
+        return (
+          (sp.id && String(sp.id) === String(item.id)) ||
+          (itemClean && titleClean && (titleClean === itemClean || titleClean.includes(itemClean) || itemClean.includes(titleClean))) ||
+          (itemClean && handleClean && handleClean.includes(itemClean))
+        );
+      });
+
+      let vId = (matched && matched.variantId && matched.variantId !== 0) 
+        ? matched.variantId 
+        : (shopifyProducts.find(p => p.available !== false && p.variantId && p.variantId !== 0)?.variantId || (typeof window !== "undefined" ? window.__STORE_DEFAULT_VARIANT_ID__ : null));
+
+      if (vId) {
+        const itemProperties = { 
+          'Product': item.name || '',
+          'Size': item.size || 'Standard',
+          'Original Price': `${item.price || 0} SAR`
+        };
+        if (selectedPouch && itemsToAdd.length === 0) {
+          itemProperties['Complimentary Gift'] = selectedPouch === 'male' ? "Male Luxury Travel Pouch (Signature Noir)" : "Female Luxury Travel Pouch (Royal Carmine)";
+        }
+        itemsToAdd.push({ 
+          id: Number(vId), 
+          quantity: item.qty || 1,
+          properties: itemProperties
+        });
+        permalinkParts.push(`${vId}:${item.qty || 1}`);
+      }
+    }
+
+    if (itemsToAdd.length === 0 && typeof window !== "undefined" && window.__STORE_DEFAULT_VARIANT_ID__) {
+      const defaultProperties = {
+        'Items': cartItems.map(i => `${i.name} (x${i.qty})`).join(', ')
+      };
+      if (selectedPouch) {
+        defaultProperties['Complimentary Gift'] = selectedPouch === 'male' ? "Male Luxury Travel Pouch (Signature Noir)" : "Female Luxury Travel Pouch (Royal Carmine)";
+      }
+      itemsToAdd.push({
+        id: Number(window.__STORE_DEFAULT_VARIANT_ID__),
+        quantity: 1,
+        properties: defaultProperties
+      });
+      permalinkParts.push(`${window.__STORE_DEFAULT_VARIANT_ID__}:1`);
+    }
+
+    const countryParam = "checkout[shipping_address][country]=Saudi+Arabia&checkout[shipping_address][country_code]=SA&checkout[shipping_address][city]=Riyadh";
+
+    if (itemsToAdd.length > 0) {
+      // 1. Fast clear cart to prevent stale items
+      await fastFetch('/cart/clear.js', { method: 'POST' }, 1800);
+
+      // 2. Add current cart items with custom properties
+      await fastFetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items: itemsToAdd })
+      }, 2200);
+
+      // 3. Fast update pouch attributes and note if selected
+      if (selectedPouch) {
+        const giftTitle = selectedPouch === 'male' ? "Male Luxury Travel Pouch (Signature Noir)" : "Female Luxury Travel Pouch (Royal Carmine)";
+        await fastFetch('/cart/update.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            attributes: {
+              'Complimentary Gift Pouch': giftTitle,
+              'Gift Edition': selectedPouch === 'male' ? 'Men (Signature Noir)' : 'Women (Royal Carmine)'
+            },
+            note: `[FREE GIFT INCLUDED]: ${giftTitle} (Order over 250 SAR)`
+          })
+        }, 1500);
+      }
+
+      // 4. Instant redirect to checkout!
+      window.location.href = `/checkout?${countryParam}`;
+      return true;
+    } else if (permalinkParts.length > 0) {
+      window.location.href = `/cart/${permalinkParts.join(',')}?${countryParam}`;
+      return true;
+    } else if (typeof window !== "undefined" && window.__STORE_DEFAULT_VARIANT_ID__) {
+      window.location.href = `/cart/${window.__STORE_DEFAULT_VARIANT_ID__}:1?${countryParam}`;
+      return true;
+    }
+  } catch(err) {
+    console.error("Shopify checkout sync error:", err);
+  }
+  return false;
+}
+
 function CartPage({ cartItems, updateCartQty, removeFromCart, setPage, setViewProduct }){
   const { activeCountry } = React.useContext(CountryContext);
   const { lang, isRTL, t } = React.useContext(LanguageContext);
   const formatPrice = (price) => formatCurrency(price, activeCountry, lang);
   const subtotal = cartItems.reduce((sum, item)=>sum + item.price * item.qty, 0);
-  const shipping = subtotal >= 200 || subtotal === 0 ? 0 : 20;
-  const total = subtotal + shipping;
+  const total = subtotal;
+  const [isCheckingOut, setIsCheckingOut] = React.useState(false);
+  const [selectedPouch, setSelectedPouch] = React.useState("female");
+
+  // Reset checkout button when returning via browser Back button, bfcache, or window focus
+  React.useEffect(() => {
+    setIsCheckingOut(false);
+    const resetCheckout = () => {
+      setIsCheckingOut(false);
+    };
+    window.addEventListener("pageshow", resetCheckout);
+    window.addEventListener("popstate", resetCheckout);
+    window.addEventListener("focus", resetCheckout);
+    return () => {
+      window.removeEventListener("pageshow", resetCheckout);
+      window.removeEventListener("popstate", resetCheckout);
+      window.removeEventListener("focus", resetCheckout);
+    };
+  }, []);
+
+  const freeDeliveryThreshold = 150;
+  const freePouchThreshold = 250;
+  const isDeliveryFree = subtotal >= freeDeliveryThreshold;
+  const isPouchUnlocked = subtotal >= freePouchThreshold;
+
+  const handleCheckout = async () => {
+    if (cartItems.length === 0) return;
+    setIsCheckingOut(true);
+
+    // Safety timeout: auto-unlock button after 4.5 seconds if page hasn't navigated away
+    const safetyTimer = setTimeout(() => {
+      setIsCheckingOut(false);
+    }, 4500);
+
+    try {
+      const didRedirect = await redirectToShopifyCheckout(cartItems, isPouchUnlocked ? selectedPouch : null);
+      if (!didRedirect) {
+        clearTimeout(safetyTimer);
+        setPage("checkout");
+        setIsCheckingOut(false);
+      }
+    } catch(e) {
+      clearTimeout(safetyTimer);
+      setIsCheckingOut(false);
+    }
+  };
 
   return (
     <div style={{background:"#fff",minHeight:"100vh"}}>
       <section style={{padding:"70px 5% 96px",maxWidth:1280,margin:"0 auto"}}>
-        <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",gap:20,flexWrap:"wrap",marginBottom:44}}>
+        <div style={{display:"flex",alignItems:"flex-end",justifyContent:"space-between",gap:20,flexWrap:"wrap",marginBottom:36}}>
           <div>
             <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>{t("cart", "Shopping Bag")}</p>
             <h1 className="disp" style={{fontSize:"clamp(38px,5vw,68px)",fontWeight:300,lineHeight:1,color:"#251737"}}>{isRTL ? "سلة التسوق" : "Your Cart"}</h1>
@@ -12442,49 +15973,671 @@ function CartPage({ cartItems, updateCartQty, removeFromCart, setPage, setViewPr
 
         {cartItems.length === 0 ? (
           <div style={{border:"1px solid #E8E4DC",padding:"56px 24px",textAlign:"center",background:"#FCFBFA"}}>
-            <h2 className="disp" style={{fontSize:34,fontWeight:300,marginBottom:12}}>Your bag is empty</h2>
-            <p style={{fontSize:13,color:"#777",fontFamily:"'Montserrat',sans-serif",marginBottom:28}}>Add your favourite Khadlaj fragrances and checkout securely.</p>
-            <button className="btn-gold" onClick={()=>setPage("collections")}>Shop Fragrances</button>
+            <h2 className="disp" style={{fontSize:34,fontWeight: isRTL ? 600 : 300,marginBottom:12,fontFamily: isRTL ? "'Cairo', sans-serif" : "inherit"}}>{isRTL ? "حقيبة التسوق فارغة" : "Your bag is empty"}</h2>
+            <p style={{fontSize:13,color:"#777",fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",marginBottom:28}}>{isRTL ? "أضف عطورك المفضلة من خَدْلَج وأكمل طلبك بأمان وسهولة." : "Add your favourite Khadlaj fragrances and checkout securely."}</p>
+            <button className="btn-gold" onClick={()=>setPage("collections")} style={{fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",letterSpacing: isRTL ? 0 : 2.5}}>{isRTL ? "تسوق العطور الآن" : "Shop Fragrances"}</button>
           </div>
         ) : (
-          <div className="grid-2" style={{display:"grid",gridTemplateColumns:"minmax(0,1.5fr) minmax(320px,.8fr)",gap:34,alignItems:"start"}}>
-            <div style={{display:"flex",flexDirection:"column",gap:16}}>
-              {cartItems.map(item=>(
-                <div key={item.id} className="cart-line" style={{display:"grid",gridTemplateColumns:"112px 1fr auto",gap:18,alignItems:"center",border:"1px solid #E8E4DC",padding:16,background:"#fff"}}>
-                  <div onClick={()=>{setViewProduct(item);setPage("product");}} style={{height:118,width:"100%",overflow:"hidden",display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",background:"radial-gradient(circle at 50% 70%, rgba(0,0,0,.06), rgba(255,255,255,0) 58%)",padding:6}}>
-                    <img loading="lazy" decoding="async" src={getOptimizedImage(item.img,500)} alt={item.name} style={{width:"100%",height:"100%",objectFit:"contain",filter:"drop-shadow(0 12px 18px rgba(0,0,0,.08))"}}/>
+          <div>
+            {/* ── LUXURY PRIVILEGES & REWARDS PROGRESS ROADMAP ── */}
+            <div style={{
+              background: "#FAF8F5",
+              border: "1px solid rgba(184, 146, 42, 0.3)",
+              borderRadius: 12,
+              padding: "24px 28px 28px",
+              marginBottom: 36,
+              boxShadow: "0 8px 30px rgba(37,23,55,0.05)",
+              direction: isRTL ? "rtl" : "ltr"
+            }}>
+              {/* Header Badge & Dynamic Motivational Text */}
+              <div style={{textAlign:"center",marginBottom:24}}>
+                <div style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 6,
+                  color: "#B8922A",
+                  fontSize: 10,
+                  letterSpacing: isRTL ? 1 : 3,
+                  fontWeight: 700,
+                  textTransform: "uppercase",
+                  fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
+                  marginBottom: 8
+                }}>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#B8922A"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  {isRTL ? "مزايا التسوق الحصرية" : "Complimentary Privileges"}
+                </div>
+
+                <div style={{
+                  fontSize: "clamp(14px, 1.8vw, 16px)",
+                  color: "#251737",
+                  fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
+                  lineHeight: 1.5,
+                  fontWeight: 500
+                }}>
+                  {!isDeliveryFree ? (
+                    isRTL ? (
+                      <>أضف <strong style={{color:"#B8922A",fontWeight:700}}>{formatPrice(freeDeliveryThreshold - subtotal)}</strong> إضافية للحصول على <strong style={{color:"#251737",fontWeight:700}}>توصيل مجاني</strong></>
+                    ) : (
+                      <>Add <strong style={{color:"#B8922A",fontWeight:700}}>{formatPrice(freeDeliveryThreshold - subtotal)}</strong> more to unlock <strong style={{color:"#251737",fontWeight:700}}>FREE Express Delivery</strong></>
+                    )
+                  ) : !isPouchUnlocked ? (
+                    isRTL ? (
+                      <>
+                        <span style={{color:"#2E7D32",fontWeight:700,marginInlineEnd:6}}>✓ الشحن المجاني مفعّل!</span> 
+                        أضف <strong style={{color:"#B8922A",fontWeight:700}}>{formatPrice(freePouchThreshold - subtotal)}</strong> لاختيار <strong style={{color:"#251737",fontWeight:700}}>حقيبة سفر فاخرة مجاناً</strong>
+                      </>
+                    ) : (
+                      <>
+                        <span style={{color:"#2E7D32",fontWeight:700,marginRight:6}}>✓ Free Delivery Unlocked!</span> 
+                        Add <strong style={{color:"#B8922A",fontWeight:700}}>{formatPrice(freePouchThreshold - subtotal)}</strong> more for your <strong style={{color:"#251737",fontWeight:700}}>FREE Luxury Travel Pouch</strong>
+                      </>
+                    )
+                  ) : (
+                    isRTL ? (
+                      <span style={{color:"#2E7D32",fontWeight:700}}>
+                        ✓ تهانينا! مؤهل للحصول على الشحن المجاني وحقيبة السفر الفاخرة مجاناً
+                      </span>
+                    ) : (
+                      <span style={{color:"#2E7D32",fontWeight:700}}>
+                        ✓ All Privileges Unlocked! You qualify for FREE Delivery &amp; a Complimentary Luxury Pouch
+                      </span>
+                    )
+                  )}
+                </div>
+              </div>
+
+              {/* Multi-Step RoadMap Track */}
+              <div style={{padding:"0 clamp(48px, 6vw, 72px) 14px",position:"relative"}}>
+                {/* Background Track Line */}
+                <div style={{
+                  width: "100%",
+                  height: 6,
+                  background: "#EBE5DB",
+                  borderRadius: 999,
+                  position: "relative",
+                  overflow: "hidden"
+                }}>
+                  {/* Filled Progress Bar */}
+                  <div style={{
+                    width: `${Math.min(100, Math.round((subtotal / freePouchThreshold) * 100))}%`,
+                    height: "100%",
+                    background: isPouchUnlocked 
+                      ? "linear-gradient(90deg, #B8922A 0%, #2E7D32 100%)" 
+                      : "linear-gradient(90deg, #251737 0%, #B8922A 60%, #D4AF37 100%)",
+                    transition: "width .5s cubic-bezier(.4,0,.2,1)"
+                  }}/>
+                </div>
+
+                {/* Milestone 1: 150 SAR (Free Delivery at 60%) */}
+                <div style={{
+                  position: "absolute",
+                  top: "3px",
+                  [isRTL ? "right" : "left"]: "60%",
+                  transform: isRTL ? "translate(50%, -50%)" : "translate(-50%, -50%)",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  pointerEvents: "none"
+                }}>
+                  <div style={{
+                    width: 30,
+                    height: 30,
+                    borderRadius: "50%",
+                    background: isDeliveryFree ? "#B8922A" : "#FFFFFF",
+                    border: isDeliveryFree ? "2px solid #FAF8F5" : "2px solid #D0C7B9",
+                    color: isDeliveryFree ? "#FFF" : "#777",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    boxShadow: isDeliveryFree ? "0 0 0 3px rgba(184,146,42,0.25)" : "0 2px 6px rgba(0,0,0,0.06)",
+                    transition: "all .3s ease"
+                  }}>
+                    {isDeliveryFree ? (
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    ) : (
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    )}
                   </div>
-                  <div>
-                    <p style={{fontSize:9,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginBottom:6}}>{item.col === "Lafede" ? "La Fede" : item.col}</p>
-                    <h3 style={{fontSize:16,letterSpacing: isRTL ? 0.5 : 1,textTransform:"uppercase",fontWeight:600,marginBottom:6,fontFamily: isRTL ? "'Cairo', serif" : "inherit"}}>{getProductName(item, isRTL)}</h3>
-                    <p style={{fontSize:12,color:"#888",fontFamily:"'Montserrat',sans-serif",marginBottom:14}}>{item.size}</p>
-                    <button onClick={()=>removeFromCart(item.id)} style={{background:"none",border:"none",borderBottom:"1px solid #999",fontSize:9,letterSpacing:2,textTransform:"uppercase",color:"#777",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",paddingBottom:2}}>Remove</button>
-                  </div>
-                  <div className="cart-line-actions" style={{display:"flex",flexDirection:"column",alignItems:"flex-end",gap:14}}>
-                    <p style={{fontSize:15,fontWeight:600,fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(item.price * item.qty)}</p>
-                    <div style={{display:"flex",alignItems:"center",border:"1px solid #E8E4DC",height:38}}>
-                      <button onClick={()=>updateCartQty(item.id, item.qty - 1)} style={{width:36,height:"100%",border:"none",background:"#fff",cursor:"pointer",fontSize:18}}>-</button>
-                      <span style={{width:34,textAlign:"center",fontSize:12,fontFamily:"'Montserrat',sans-serif"}}>{item.qty}</span>
-                      <button onClick={()=>updateCartQty(item.id, item.qty + 1)} style={{width:36,height:"100%",border:"none",background:"#fff",cursor:"pointer",fontSize:16}}>+</button>
-                    </div>
+                  <div style={{textAlign:"center",marginTop:8,whiteSpace:"nowrap"}}>
+                    <p style={{
+                      fontSize: 11.5,
+                      fontWeight: isDeliveryFree ? 700 : 600,
+                      color: isDeliveryFree ? "#251737" : "#777",
+                      margin: 0,
+                      fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+                    }}>
+                      {isRTL ? "توصيل مجاني" : "Free Delivery"}
+                    </p>
+                    <p style={{fontSize: 10, color: isDeliveryFree ? "#2E7D32" : "#999", margin: "2px 0 0", fontWeight: 700, fontFamily:"'Montserrat',sans-serif"}}>
+                      {isDeliveryFree ? (isRTL ? "مفعّل" : "UNLOCKED") : "150 SAR"}
+                    </p>
                   </div>
                 </div>
-              ))}
+
+                {/* Milestone 2: 250 SAR (Free Travel Pouch at 100%) */}
+                <div style={{
+                  position: "absolute",
+                  top: "3px",
+                  [isRTL ? "right" : "left"]: "100%",
+                  transform: isRTL ? "translate(50%, -50%)" : "translate(-50%, -50%)",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  pointerEvents: "none"
+                }}>
+                  <div style={{
+                    width: 30,
+                    height: 30,
+                    borderRadius: "50%",
+                    background: isPouchUnlocked ? "#B8922A" : "#FFFFFF",
+                    border: isPouchUnlocked ? "2px solid #FAF8F5" : "2px solid #D0C7B9",
+                    color: isPouchUnlocked ? "#FFF" : "#777",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    boxShadow: isPouchUnlocked ? "0 0 0 3px rgba(184,146,42,0.25)" : "0 2px 6px rgba(0,0,0,0.06)",
+                    transition: "all .3s ease"
+                  }}>
+                    {isPouchUnlocked ? (
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    ) : (
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                    )}
+                  </div>
+                  <div style={{
+                    textAlign: isRTL ? "left" : "right",
+                    marginTop: 8,
+                    whiteSpace: "nowrap",
+                    transform: isRTL ? "translateX(20px)" : "translateX(-20px)"
+                  }}>
+                    <p style={{
+                      fontSize: 11.5,
+                      fontWeight: isPouchUnlocked ? 700 : 600,
+                      color: isPouchUnlocked ? "#251737" : "#777",
+                      margin: 0,
+                      fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+                    }}>
+                      {isRTL ? "حقيبة فاخرة مجانية" : "Free Luxury Pouch"}
+                    </p>
+                    <p style={{fontSize: 10, color: isPouchUnlocked ? "#2E7D32" : "#999", margin: "2px 0 0", fontWeight: 700, fontFamily:"'Montserrat',sans-serif"}}>
+                      {isPouchUnlocked ? (isRTL ? "مفعّلة" : "UNLOCKED") : "250 SAR"}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <aside style={{border:"1px solid #E8E4DC",padding:26,position:"sticky",top:130,background:"#FCFBFA"}}>
-              <p style={{fontSize:9,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginBottom:18}}>{isRTL ? "ملخص الطلب" : "Order Summary"}</p>
-              <div style={{display:"flex",justifyContent:"space-between",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:12}}><span>{t("subtotal", "Subtotal")}</span><strong>{formatPrice(subtotal)}</strong></div>
-              <div style={{display:"flex",justifyContent:"space-between",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:16}}><span>{isRTL ? "الشحن والتوصيل" : "Shipping"}</span><strong>{shipping === 0 ? "Free" : formatPrice(shipping)}</strong></div>
-              {subtotal > 0 && subtotal < 200 && <p style={{fontSize:11,color:"#777",lineHeight:1.7,marginBottom:16,fontFamily:"'Montserrat',sans-serif"}}>Add {formatPrice(200 - subtotal)} more for free UAE shipping.</p>}
-              <div style={{height:1,background:"#E8E4DC",margin:"18px 0"}}/>
-              <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:24}}>
-                <span style={{fontSize:13,letterSpacing:2,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>{isRTL ? "المجموع الكلي" : "Total"}</span>
-                <strong style={{fontSize:22,fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(total)}</strong>
+            <div className="grid-2" style={{display:"grid",gridTemplateColumns:"minmax(0,1.5fr) minmax(320px,.8fr)",gap:34,alignItems:"start"}}>
+              <div style={{display:"flex",flexDirection:"column",gap:20}}>
+                {/* Cart Items */}
+                <div style={{display:"flex",flexDirection:"column",gap:16}}>
+                  {cartItems.map(item=>(
+                    <div key={item.id} className="cart-line" style={{display:"grid",gridTemplateColumns:"112px 1fr auto",gap:18,alignItems:"center",border:"1px solid #E8E4DC",padding:16,background:"#fff",borderRadius:8}}>
+                      <div onClick={()=>{setViewProduct(item);setPage("product");}} style={{height:118,width:"100%",overflow:"hidden",display:"flex",alignItems:"center",justifyContent:"center",cursor:"pointer",background:"radial-gradient(circle at 50% 70%, rgba(0,0,0,.06), rgba(255,255,255,0) 58%)",padding:6}}>
+                        <img loading="lazy" decoding="async" src={getOptimizedImage(item.img,500)} alt={item.name} style={{width:"100%",height:"100%",objectFit:"contain",filter:"drop-shadow(0 12px 18px rgba(0,0,0,.08))"}}/>
+                      </div>
+                      <div>
+                        <p style={{fontSize:9,letterSpacing:3,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginBottom:6}}>{item.col === "Lafede" ? "La Fede" : item.col}</p>
+                        <h3 style={{fontSize:16,letterSpacing: isRTL ? 0.5 : 1,textTransform:"uppercase",fontWeight:600,marginBottom:6,fontFamily: isRTL ? "'Cairo', serif" : "inherit"}}>{getProductName(item, isRTL)}</h3>
+                        <p style={{fontSize:12,color:"#888",fontFamily:"'Montserrat',sans-serif",marginBottom:14}}>{item.size}</p>
+                        <button onClick={()=>removeFromCart(item.id)} style={{background:"none",border:"none",borderBottom:"1px solid #999",fontSize:9,letterSpacing:2,textTransform:"uppercase",color:"#777",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",paddingBottom:2}}>Remove</button>
+                      </div>
+                      <div className="cart-line-actions" style={{display:"flex",flexDirection:"column",alignItems:"flex-end",gap:14}}>
+                        <p style={{fontSize:15,fontWeight:600,fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(item.price * item.qty)}</p>
+                        <div style={{display:"flex",alignItems:"center",border:"1px solid #E8E4DC",height:38,borderRadius:4}}>
+                          <button onClick={()=>updateCartQty(item.id, item.qty - 1)} style={{width:36,height:"100%",border:"none",background:"#fff",cursor:"pointer",fontSize:18}}>-</button>
+                          <span style={{width:34,textAlign:"center",fontSize:12,fontFamily:"'Montserrat',sans-serif"}}>{item.qty}</span>
+                          <button onClick={()=>updateCartQty(item.id, item.qty + 1)} style={{width:36,height:"100%",border:"none",background:"#fff",cursor:"pointer",fontSize:16}}>+</button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* ── INTERACTIVE POUCH CHOICE SELECTOR (AT 250+ SAR) ── */}
+                {isPouchUnlocked && (
+                  <div style={{
+                    border: "1.5px solid rgba(184, 146, 42, 0.45)",
+                    background: "#FFFFFF",
+                    borderRadius: 14,
+                    padding: "26px 28px",
+                    boxShadow: "0 10px 32px rgba(37,23,55,0.06)",
+                    marginTop: 12,
+                    direction: isRTL ? "rtl" : "ltr"
+                  }}>
+                    {/* Header */}
+                    <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",flexWrap:"wrap",gap:12,marginBottom:10}}>
+                      <div style={{display:"flex",alignItems:"center",gap:10}}>
+                        <div style={{
+                          width: 32,
+                          height: 32,
+                          borderRadius: "50%",
+                          background: "rgba(184, 146, 42, 0.12)",
+                          color: "#B8922A",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center"
+                        }}>
+                          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                        </div>
+                        <h3 style={{
+                          fontSize: "clamp(16px, 2vw, 19px)",
+                          fontFamily: isRTL ? "'Cairo', serif" : "'Cinzel', 'Trajan Pro', serif",
+                          fontWeight: 700,
+                          color: "#1A0B22",
+                          margin: 0,
+                          letterSpacing: isRTL ? 0 : "0.5px",
+                          textTransform: "uppercase"
+                        }}>
+                          {isRTL ? "اختر حقيبتك الفاخرة المجانية" : "Select Your Complimentary Luxury Pouch"}
+                        </h3>
+                      </div>
+
+                      <span style={{
+                        background: "linear-gradient(135deg, #1A0B22 0%, #2E1B40 100%)",
+                        color: "#FAF8F5",
+                        border: "1px solid rgba(212,175,55,0.4)",
+                        fontSize: 10.5,
+                        fontWeight: 700,
+                        padding: "6px 14px",
+                        borderRadius: 20,
+                        letterSpacing: isRTL ? 0.5 : 1.5,
+                        textTransform: "uppercase",
+                        fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+                      }}>
+                        ✦ {isRTL ? "هدية مجانية 100%" : "100% FREE GIFT"}
+                      </span>
+                    </div>
+
+                    <p style={{fontSize:13.5,color:"#666",lineHeight:1.65,margin:"0 0 22px",fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif"}}>
+                      {isRTL 
+                        ? "طلبك تجاوز 250 ريال ومؤهل لهدية خَدْلَج الحصرية. يرجى اختيار النسخة التي تفضلها لنقوم بإرفاقها داخل طلبك:"
+                        : "Your order qualifies for an exclusive designer travel pouch. Please select your preferred edition to be included in your package:"}
+                    </p>
+
+                    {/* 2 Big Luxury Showcase Cards */}
+                    <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit, minmax(280px, 1fr))",gap:20}}>
+                      
+                      {/* Female Pouch Showcase Card */}
+                      <div 
+                        onClick={()=>setSelectedPouch("female")}
+                        style={{
+                          borderRadius: 12,
+                          border: selectedPouch === "female" ? "2px solid #B8922A" : "1px solid #E8E4DC",
+                          background: selectedPouch === "female" ? "#FAF8F4" : "#FFFFFF",
+                          boxShadow: selectedPouch === "female" ? "0 10px 28px rgba(184,146,42,0.18)" : "0 4px 14px rgba(0,0,0,0.03)",
+                          cursor: "pointer",
+                          transition: "all .3s cubic-bezier(.4,0,.2,1)",
+                          overflow: "hidden",
+                          display: "flex",
+                          flexDirection: "column"
+                        }}
+                      >
+                        {/* High-Resolution Wide Image Container */}
+                        <div style={{
+                          width: "100%",
+                          height: 190,
+                          position: "relative",
+                          background: "#F5EFE6",
+                          overflow: "hidden"
+                        }}>
+                          <img 
+                            src={resolveAsset("pouch_red_female.jpg")} 
+                            alt="Royal Carmine Women Pouch" 
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "cover",
+                              objectPosition: "center",
+                              transition: "transform .4s ease",
+                              transform: selectedPouch === "female" ? "scale(1.03)" : "scale(1)"
+                            }}
+                          />
+                          {/* Floating Pill Tag */}
+                          <div style={{
+                            position: "absolute",
+                            top: 12,
+                            [isRTL ? "right" : "left"]: 12,
+                            background: "rgba(26, 11, 34, 0.82)",
+                            backdropFilter: "blur(6px)",
+                            WebkitBackdropFilter: "blur(6px)",
+                            border: "1px solid rgba(212,175,55,0.4)",
+                            color: "#FAF8F5",
+                            fontSize: 9.5,
+                            fontWeight: 700,
+                            letterSpacing: isRTL ? 0.5 : 1.5,
+                            padding: "4px 10px",
+                            borderRadius: 14,
+                            textTransform: "uppercase",
+                            fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+                          }}>
+                            {isRTL ? "نسخة النساء" : "WOMEN'S EDITION"}
+                          </div>
+
+                          {/* Selected Checkmark Badge on Image */}
+                          {selectedPouch === "female" && (
+                            <div style={{
+                              position: "absolute",
+                              top: 12,
+                              [isRTL ? "left" : "right"]: 12,
+                              width: 28,
+                              height: 28,
+                              borderRadius: "50%",
+                              background: "#B8922A",
+                              color: "#FFF",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              boxShadow: "0 2px 8px rgba(0,0,0,0.25)"
+                            }}>
+                              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Card Details */}
+                        <div style={{padding:"18px 20px",display:"flex",flexDirection:"column",flex:1,justifyContent:"space-between"}}>
+                          <div>
+                            <h4 style={{
+                              fontSize: 16,
+                              fontFamily: isRTL ? "'Cairo', serif" : "'Cinzel', 'Trajan Pro', serif",
+                              fontWeight: 700,
+                              color: "#1A0B22",
+                              margin: "0 0 6px"
+                            }}>
+                              {isRTL ? "حقيبة رويال كارمين الفاخرة" : "Royal Carmine Travel Pouch"}
+                            </h4>
+                            <p style={{fontSize:12.5,color:"#777",lineHeight:1.55,margin:"0 0 14px",fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif"}}>
+                              {isRTL ? "جلد سافيانو عنابي محبب • شعار خَدْلَج الذهبي المطرز • ميدالية السحاب الذهبية" : "Textured Saffiano finish • Embossed Gold Emblem • Signature Gold Medallion"}
+                            </p>
+                          </div>
+
+                          <div>
+                            <div style={{display:"flex",alignItems:"baseline",gap:8,marginBottom:14}}>
+                              <span style={{fontSize:15,fontWeight:800,color:"#2E7D32",fontFamily:"'Montserrat',sans-serif"}}>
+                                {isRTL ? "مجاناً (0 ريال)" : "FREE (SAR 0.00)"}
+                              </span>
+                              <span style={{fontSize:11.5,color:"#999",textDecoration:"line-through",fontFamily:"'Montserrat',sans-serif"}}>
+                                SAR 120.00
+                              </span>
+                            </div>
+
+                            {/* Select / Selected Button */}
+                            <button
+                              type="button"
+                              onClick={(e)=>{e.stopPropagation(); setSelectedPouch("female");}}
+                              style={{
+                                width: "100%",
+                                padding: "11px",
+                                borderRadius: 6,
+                                fontSize: 12,
+                                fontWeight: 700,
+                                letterSpacing: isRTL ? 0.5 : 1.5,
+                                textTransform: "uppercase",
+                                cursor: "pointer",
+                                transition: "all .2s ease",
+                                fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                gap: 6,
+                                ...(selectedPouch === "female" ? {
+                                  background: "linear-gradient(135deg, #1A0B22 0%, #2E1B40 100%)",
+                                  color: "#FAF8F5",
+                                  border: "1px solid #D4AF37",
+                                  boxShadow: "0 4px 14px rgba(26,11,34,0.18)"
+                                } : {
+                                  background: "#FFFFFF",
+                                  color: "#251737",
+                                  border: "1px solid #D0C7B9"
+                                })
+                              }}
+                            >
+                              {selectedPouch === "female" ? (
+                                <>
+                                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                  {isRTL ? "الهدية المختارة ✓" : "Selected Gift ✓"}
+                                </>
+                              ) : (
+                                isRTL ? "اختر هذه الحقيبة" : "Select This Gift"
+                              )}
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Male Pouch Showcase Card */}
+                      <div 
+                        onClick={()=>setSelectedPouch("male")}
+                        style={{
+                          borderRadius: 12,
+                          border: selectedPouch === "male" ? "2px solid #B8922A" : "1px solid #E8E4DC",
+                          background: selectedPouch === "male" ? "#FAF8F4" : "#FFFFFF",
+                          boxShadow: selectedPouch === "male" ? "0 10px 28px rgba(184,146,42,0.18)" : "0 4px 14px rgba(0,0,0,0.03)",
+                          cursor: "pointer",
+                          transition: "all .3s cubic-bezier(.4,0,.2,1)",
+                          overflow: "hidden",
+                          display: "flex",
+                          flexDirection: "column"
+                        }}
+                      >
+                        {/* High-Resolution Wide Image Container */}
+                        <div style={{
+                          width: "100%",
+                          height: 190,
+                          position: "relative",
+                          background: "#EFECE6",
+                          overflow: "hidden"
+                        }}>
+                          <img 
+                            src={resolveAsset("pouch_black_male.jpg")} 
+                            alt="Signature Noir Men Pouch" 
+                            style={{
+                              width: "100%",
+                              height: "100%",
+                              objectFit: "cover",
+                              objectPosition: "center",
+                              transition: "transform .4s ease",
+                              transform: selectedPouch === "male" ? "scale(1.03)" : "scale(1)"
+                            }}
+                          />
+                          {/* Floating Pill Tag */}
+                          <div style={{
+                            position: "absolute",
+                            top: 12,
+                            [isRTL ? "right" : "left"]: 12,
+                            background: "rgba(26, 11, 34, 0.82)",
+                            backdropFilter: "blur(6px)",
+                            WebkitBackdropFilter: "blur(6px)",
+                            border: "1px solid rgba(212,175,55,0.4)",
+                            color: "#FAF8F5",
+                            fontSize: 9.5,
+                            fontWeight: 700,
+                            letterSpacing: isRTL ? 0.5 : 1.5,
+                            padding: "4px 10px",
+                            borderRadius: 14,
+                            textTransform: "uppercase",
+                            fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+                          }}>
+                            {isRTL ? "نسخة الرجال" : "MEN'S EDITION"}
+                          </div>
+
+                          {/* Selected Checkmark Badge on Image */}
+                          {selectedPouch === "male" && (
+                            <div style={{
+                              position: "absolute",
+                              top: 12,
+                              [isRTL ? "left" : "right"]: 12,
+                              width: 28,
+                              height: 28,
+                              borderRadius: "50%",
+                              background: "#B8922A",
+                              color: "#FFF",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              boxShadow: "0 2px 8px rgba(0,0,0,0.25)"
+                            }}>
+                              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Card Details */}
+                        <div style={{padding:"18px 20px",display:"flex",flexDirection:"column",flex:1,justifyContent:"space-between"}}>
+                          <div>
+                            <h4 style={{
+                              fontSize: 16,
+                              fontFamily: isRTL ? "'Cairo', serif" : "'Cinzel', 'Trajan Pro', serif",
+                              fontWeight: 700,
+                              color: "#1A0B22",
+                              margin: "0 0 6px"
+                            }}>
+                              {isRTL ? "حقيبة سيجنتشر نوار التنفيذية" : "Signature Noir Executive Pouch"}
+                            </h4>
+                            <p style={{fontSize:12.5,color:"#777",lineHeight:1.55,margin:"0 0 14px",fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif"}}>
+                              {isRTL ? "جلد نباتي أسود محبب فاخر • طباعة ذهبية بارزة • حزام يد مريح للسفر" : "Textured Executive Noir • Embossed Gold Branding • Premium Travel Hand Strap"}
+                            </p>
+                          </div>
+
+                          <div>
+                            <div style={{display:"flex",alignItems:"baseline",gap:8,marginBottom:14}}>
+                              <span style={{fontSize:15,fontWeight:800,color:"#2E7D32",fontFamily:"'Montserrat',sans-serif"}}>
+                                {isRTL ? "مجاناً (0 ريال)" : "FREE (SAR 0.00)"}
+                              </span>
+                              <span style={{fontSize:11.5,color:"#999",textDecoration:"line-through",fontFamily:"'Montserrat',sans-serif"}}>
+                                SAR 120.00
+                              </span>
+                            </div>
+
+                            {/* Select / Selected Button */}
+                            <button
+                              type="button"
+                              onClick={(e)=>{e.stopPropagation(); setSelectedPouch("male");}}
+                              style={{
+                                width: "100%",
+                                padding: "11px",
+                                borderRadius: 6,
+                                fontSize: 12,
+                                fontWeight: 700,
+                                letterSpacing: isRTL ? 0.5 : 1.5,
+                                textTransform: "uppercase",
+                                cursor: "pointer",
+                                transition: "all .2s ease",
+                                fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                gap: 6,
+                                ...(selectedPouch === "male" ? {
+                                  background: "linear-gradient(135deg, #1A0B22 0%, #2E1B40 100%)",
+                                  color: "#FAF8F5",
+                                  border: "1px solid #D4AF37",
+                                  boxShadow: "0 4px 14px rgba(26,11,34,0.18)"
+                                } : {
+                                  background: "#FFFFFF",
+                                  color: "#251737",
+                                  border: "1px solid #D0C7B9"
+                                })
+                              }}
+                            >
+                              {selectedPouch === "male" ? (
+                                <>
+                                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                  {isRTL ? "الهدية المختارة ✓" : "Selected Gift ✓"}
+                                </>
+                              ) : (
+                                isRTL ? "اختر هذه الحقيبة" : "Select This Gift"
+                              )}
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                )}
               </div>
-              <button className="btn-gold" style={{width:"100%"}} onClick={()=>setPage("checkout")}>{t("checkout", "Checkout")}</button>
-              <p style={{fontSize:10,color:"#888",lineHeight:1.7,textAlign:"center",marginTop:14,fontFamily:"'Montserrat',sans-serif"}}>Secure checkout. Payment and delivery details are validated before order placement.</p>
-            </aside>
+
+              {/* Order Summary Aside */}
+              <aside style={{border:"1px solid #E8E4DC",padding:26,position:"sticky",top:130,background:"#FCFBFA",borderRadius:10}}>
+                <p style={{fontSize:9,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginBottom:18}}>{isRTL ? "ملخص الطلب" : "Order Summary"}</p>
+                <div style={{display:"flex",justifyContent:"space-between",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:12}}><span>{t("subtotal", "Subtotal")}</span><strong>{formatPrice(subtotal)}</strong></div>
+
+                {/* Free Pouch Line in Summary */}
+                {isPouchUnlocked && (
+                  <div style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    fontSize: 12.5,
+                    fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",
+                    marginBottom: 12,
+                    padding: "8px 10px",
+                    background: "rgba(184,146,42,0.08)",
+                    borderRadius: 6,
+                    border: "1px dashed #D4AF37"
+                  }}>
+                    <span style={{color:"#1A0B22",fontWeight:600,display:"flex",alignItems:"center",gap:5}}>
+                      <span>🎁</span>
+                      {selectedPouch === "male" 
+                        ? (isRTL ? "حقيبة رجالية (مجاناً)" : "Men's Pouch (Free)") 
+                        : (isRTL ? "حقيبة نسائية (مجاناً)" : "Women's Pouch (Free)")}
+                    </span>
+                    <strong style={{color:"#2E7D32",fontSize:12}}>{isRTL ? "مجاناً (0 ريال)" : "FREE (0 SAR)"}</strong>
+                  </div>
+                )}
+
+                {/* Shipping Line */}
+                <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:16}}>
+                  <span>{isRTL ? "الشحن والتوصيل" : "Shipping"}</span>
+                  <span style={{fontSize:13,color: isDeliveryFree ? "#2E7D32" : "#888",fontWeight: isDeliveryFree ? 700 : 400}}>
+                    {isDeliveryFree 
+                      ? (isRTL ? "مجاني (0 ريال)" : "FREE (SAR 0.00)") 
+                      : (isRTL ? "يُحسب عند إتمام الطلب" : "Calculated at checkout")}
+                  </span>
+                </div>
+
+                <div style={{height:1,background:"#E8E4DC",margin:"18px 0"}}/>
+                <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:24}}>
+                  <span style={{fontSize:13,letterSpacing:2,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>{isRTL ? "المجموع الكلي" : "Total"}</span>
+                  <strong style={{fontSize:22,fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(total)}</strong>
+                </div>
+
+                <button 
+                  className="btn-gold" 
+                  style={{
+                    width: "100%",
+                    opacity: isCheckingOut ? 0.82 : 1,
+                    cursor: isCheckingOut ? "wait" : "pointer",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: 10
+                  }} 
+                  onClick={handleCheckout}
+                  disabled={isCheckingOut}
+                >
+                  {isCheckingOut ? (
+                    <>
+                      <div style={{
+                        width: 14,
+                        height: 14,
+                        borderRadius: "50%",
+                        border: "2px solid rgba(255,255,255,0.3)",
+                        borderTopColor: "#fff",
+                        animation: "spin 0.6s linear infinite",
+                        display: "inline-block"
+                      }} />
+                      <span>{isRTL ? "جارٍ التحويل إلى الدفع..." : "Redirecting to Checkout..."}</span>
+                    </>
+                  ) : (
+                    t("checkout", "Checkout")
+                  )}
+                </button>
+                <p style={{fontSize:10,color:"#888",lineHeight:1.7,textAlign:"center",marginTop:14,fontFamily:"'Montserrat',sans-serif"}}>Secure checkout. Payment and delivery details are validated before order placement.</p>
+              </aside>
+            </div>
           </div>
         )}
       </section>
@@ -12493,6 +16646,51 @@ function CartPage({ cartItems, updateCartQty, removeFromCart, setPage, setViewPr
 }
 
 function CheckoutPage({ cartItems, setPage, clearCart }){
+  const { isRTL, t } = React.useContext(LanguageContext);
+  const [isRedirecting, setIsRedirecting] = React.useState(true);
+
+  React.useEffect(() => {
+    let isMounted = true;
+    redirectToShopifyCheckout(cartItems).then(didRedirect => {
+      if (!didRedirect && isMounted) {
+        setIsRedirecting(false);
+      }
+    });
+    return () => { isMounted = false; };
+  }, [cartItems]);
+
+  return (
+    <div style={{background:"#fff",minHeight:"80vh",display:"flex",alignItems:"center",justifyContent:"center",padding:"60px 20px"}}>
+      <div style={{maxWidth:520,width:"100%",textAlign:"center",border:"1px solid #E8E4DC",padding:"48px 32px",background:"#FCFBFA"}}>
+        <div style={{width:54,height:54,borderRadius:"50%",border:"3px solid #E8E4DC",borderTopColor:"#B8922A",margin:"0 auto 24px",animation:"spin 0.8s linear infinite"}}/>
+        <h2 style={{fontFamily:isRTL ? "'Cairo', serif" : "'Cinzel', serif",fontSize:24,color:"#251737",marginBottom:12}}>
+          {isRTL ? "جارٍ التحويل إلى صفحة الدفع الرسمية..." : "Redirecting to Secure Shopify Checkout..."}
+        </h2>
+        <p style={{fontSize:13,color:"#777",lineHeight:1.7,fontFamily:"'Montserrat',sans-serif",marginBottom:24}}>
+          {isRTL 
+            ? "سيتم توجيهك إلى صفحة الدفع الرسمية من شوبيفاي لإتمام طلبك بكل أمان عبر بطاقة الائتمان أو الدفع عند الاستلام." 
+            : "You are being redirected to the official Shopify checkout to complete your order securely via Card or Cash on Delivery."}
+        </p>
+        <button 
+          className="btn-gold" 
+          style={{width:"100%",marginBottom:12}}
+          onClick={()=>redirectToShopifyCheckout(cartItems)}
+        >
+          {isRTL ? "اضغط هنا إذا لم يتم التحويل تلقائياً" : "Click here if not redirected"}
+        </button>
+        <button 
+          onClick={()=>setPage("cart")} 
+          style={{background:"none",border:"none",fontSize:12,color:"#888",cursor:"pointer",textDecoration:"underline",fontFamily:"'Montserrat',sans-serif"}}
+        >
+          {isRTL ? "العودة إلى سلة التسوق" : "Back to Cart"}
+        </button>
+      </div>
+      <style>{`@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }`}</style>
+    </div>
+  );
+}
+
+function LegacyCheckoutPage_Disabled({ cartItems, setPage, clearCart }){
   const { activeCountry } = React.useContext(CountryContext);
   const { lang, isRTL, t } = React.useContext(LanguageContext);
   const formatPrice = (price) => formatCurrency(price, activeCountry, lang);
@@ -12500,6 +16698,8 @@ function CheckoutPage({ cartItems, setPage, clearCart }){
   const shipping = subtotal >= 200 || subtotal === 0 ? 0 : 20;
   const total = subtotal + shipping;
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [orderResult, setOrderResult] = useState(null);
   const [errors, setErrors] = useState({});
   const [form, setForm] = useState({
     firstName:"",
@@ -12508,8 +16708,12 @@ function CheckoutPage({ cartItems, setPage, clearCart }){
     phone:"",
     address:"",
     city:"",
-    country:activeCountry.name,
+    country: activeCountry?.name || "KSA",
     payment:"Card",
+    cardNumber:"",
+    cardName:"",
+    cardExpiry:"",
+    cardCvc:"",
     notes:"",
     agree:false,
   });
@@ -12519,27 +16723,232 @@ function CheckoutPage({ cartItems, setPage, clearCart }){
     setErrors(prev=>({...prev,[key]:""}));
   };
 
+  const handleCardNumberChange = (raw) => {
+    if (raw.trim() === "1") {
+      setField("cardNumber", "1");
+      return;
+    }
+    const clean = raw.replace(/\D/g, "").slice(0, 16);
+    const parts = clean.match(/[\s\S]{1,4}/g) || [];
+    setField("cardNumber", parts.join(" "));
+  };
+
+  const handleCardExpiryChange = (raw) => {
+    let clean = raw.replace(/\D/g, "").slice(0, 4);
+    if (clean.length >= 3) {
+      clean = clean.slice(0, 2) + "/" + clean.slice(2);
+    }
+    setField("cardExpiry", clean);
+  };
+
   const validate = () => {
     const next = {};
-    if (!form.firstName.trim()) next.firstName = "First name is required";
-    if (!form.lastName.trim()) next.lastName = "Last name is required";
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) next.email = "Enter a valid email";
-    if (!/^[0-9+\-\s()]{7,}$/.test(form.phone.trim())) next.phone = "Enter a valid phone number";
-    if (form.address.trim().length < 8) next.address = "Enter full delivery address";
-    if (!form.city.trim()) next.city = "City is required";
-    if (!form.country.trim()) next.country = "Country is required";
-    if (!form.payment) next.payment = "Select payment method";
-    if (!form.agree) next.agree = "Please accept the terms";
+    if (!form.firstName.trim()) next.firstName = isRTL ? "الاسم الأول مطلوب" : "First name is required";
+    if (!form.lastName.trim()) next.lastName = isRTL ? "اسم العائلة مطلوب" : "Last name is required";
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) next.email = isRTL ? "يرجى إدخال بريد إلكتروني صحيح" : "Enter a valid email";
+    if (!/^[0-9+\-\s()]{7,}$/.test(form.phone.trim())) next.phone = isRTL ? "يرجى إدخال رقم هاتف صحيح" : "Enter a valid phone number";
+    if (form.address.trim().length < 5) next.address = isRTL ? "يرجى إدخال العنوان الكامل" : "Enter full delivery address";
+    if (!form.city.trim()) next.city = isRTL ? "المدينة مطلوبة" : "City is required";
+    if (!form.country.trim()) next.country = isRTL ? "الدولة مطلوبة" : "Country is required";
+    if (!form.payment) next.payment = isRTL ? "اختر طريقة الدفع" : "Select payment method";
+    if (!form.agree) next.agree = isRTL ? "يرجى الموافقة على شروط الطلب" : "Please accept the terms";
+
+    if (form.payment === "Card") {
+      const cleanNum = form.cardNumber.replace(/\s+/g, "");
+      if (!cleanNum || (cleanNum !== "1" && cleanNum.length < 12)) {
+        next.cardNumber = isRTL ? "أدخل رقم بطاقة صحيح (أو 1 للاختبار)" : "Enter valid card number (or 1 for test)";
+      }
+      if (!form.cardName.trim()) {
+        next.cardName = isRTL ? "الاسم على البطاقة مطلوب" : "Name on card is required";
+      }
+      if (!/^\d{2}\s*\/\s*\d{2}$/.test(form.cardExpiry.trim())) {
+        next.cardExpiry = isRTL ? "تاريخ غير صحيح (شهر/سنة)" : "Format MM/YY required";
+      }
+      if (!cleanNum || (cleanNum !== "1" && form.cardCvc.trim().length < 3)) {
+        next.cardCvc = isRTL ? "رمز CVV غير صحيح" : "Enter 3 or 4 digit CVV";
+      }
+    }
+
     setErrors(next);
     return Object.keys(next).length === 0;
   };
 
-  const submitOrder = () => {
+  const submitOrder = async () => {
     if (cartItems.length === 0) {
       setPage("cart");
       return;
     }
     if (!validate()) return;
+    setIsSubmitting(true);
+
+    const orderNumber = "KHD-SA-" + Math.floor(100000 + Math.random() * 900000);
+    const orderData = {
+      orderNumber,
+      date: new Date().toLocaleDateString(isRTL ? "ar-SA" : "en-US", { year: "numeric", month: "long", day: "numeric" }),
+      customer: {
+        firstName: form.firstName,
+        lastName: form.lastName,
+        name: `${form.firstName} ${form.lastName}`,
+        email: form.email,
+        phone: form.phone,
+        address: form.address,
+        city: form.city,
+        country: form.country,
+      },
+      paymentMethod: form.payment,
+      cardLast4: form.payment === "Card" ? (form.cardNumber.trim() === "1" ? "Bogus Test Card" : form.cardNumber.slice(-4)) : null,
+      items: [...cartItems],
+      subtotal,
+      shipping,
+      total,
+      notes: form.notes
+    };
+
+    // Save locally
+    try {
+      const existing = JSON.parse(localStorage.getItem("khadlaj_orders") || "[]");
+      existing.unshift(orderData);
+      localStorage.setItem("khadlaj_orders", JSON.stringify(existing.slice(0, 10)));
+    } catch(e){}
+
+    // If on live Shopify store, sync with real Shopify Cart and redirect to real Shopify Checkout
+    const isLiveShopify = typeof window !== "undefined" && (
+      window.location.hostname.includes("shopify") || 
+      window.location.hostname.includes("khadlaj-perfumes.sa") ||
+      !!window.Shopify
+    );
+
+    if (isLiveShopify) {
+      try {
+        // 1. Clear existing cart
+        await fetch('/cart/clear.js', { method: 'POST' }).catch(()=>{});
+
+        // 2. Map items to real Shopify variants (using window.__SHOPIFY_PRODUCTS__ or /products.json)
+        let shopifyProducts = (window.__SHOPIFY_PRODUCTS__ || []).filter(p => p.available !== false && p.variantId);
+        if (!shopifyProducts.length) {
+          try {
+            const pjRes = await fetch('/products.json?limit=250');
+            if (pjRes.ok) {
+              const pjData = await pjRes.json();
+              if (pjData && pjData.products && pjData.products.length > 0) {
+                shopifyProducts = pjData.products
+                  .filter(p => p.variants && p.variants.some(v => v.available !== false))
+                  .map(p => ({
+                    id: p.id,
+                    title: p.title,
+                    handle: p.handle,
+                    available: true,
+                    variantId: p.variants.find(v => v.available !== false)?.id || p.variants[0]?.id
+                  }));
+              }
+            }
+          } catch(e){}
+        }
+
+        const itemsToAdd = [];
+        const permalinkParts = [];
+        for (const item of cartItems) {
+          let matched = shopifyProducts.find(sp => 
+            sp.available !== false && (
+              (sp.id && String(sp.id) === String(item.id)) ||
+              (sp.title && item.name && sp.title.toLowerCase().trim() === item.name.toLowerCase().trim()) ||
+              (sp.handle && item.name && sp.handle.toLowerCase().includes(item.name.toLowerCase().replace(/[^a-z0-9]+/g, '-'))) ||
+              (sp.title && item.name && item.name.toLowerCase().includes(sp.title.toLowerCase()))
+            )
+          );
+          let vId = (matched && matched.variantId && matched.variantId !== 0) 
+            ? matched.variantId 
+            : (shopifyProducts.find(p => p.available !== false && p.variantId && p.variantId !== 0)?.variantId || (typeof window !== "undefined" ? window.__STORE_DEFAULT_VARIANT_ID__ : null));
+
+          if (vId) {
+            itemsToAdd.push({ 
+              id: Number(vId), 
+              quantity: item.qty || 1,
+              properties: {
+                'Product': item.name || '',
+                'Size': item.size || 'Standard',
+                'Original Price': `${item.price || 0} SAR`
+              }
+            });
+            permalinkParts.push(`${vId}:${item.qty || 1}`);
+          }
+        }
+
+        // If no matching variants found, fallback to the store default variant
+        if (itemsToAdd.length === 0 && typeof window !== "undefined" && window.__STORE_DEFAULT_VARIANT_ID__) {
+          itemsToAdd.push({
+            id: Number(window.__STORE_DEFAULT_VARIANT_ID__),
+            quantity: 1,
+            properties: {
+              'Items': cartItems.map(i => `${i.name} (x${i.qty})`).join(', ')
+            }
+          });
+          permalinkParts.push(`${window.__STORE_DEFAULT_VARIANT_ID__}:1`);
+        }
+
+        if (itemsToAdd.length > 0) {
+          try {
+            await fetch('/cart/add.js', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ items: itemsToAdd })
+            });
+          } catch(e){}
+        }
+
+        // 3. Update cart note and attributes
+        try {
+          await fetch('/cart/update.js', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              note: `Order ${orderNumber} | Customer: ${form.firstName} ${form.lastName} | Phone: ${form.phone} | Address: ${form.address}, ${form.city} | Selected Payment: ${form.payment}`,
+              attributes: {
+                'Order Number': orderNumber,
+                'Customer Name': `${form.firstName} ${form.lastName}`,
+                'Phone': form.phone,
+                'Delivery Address': `${form.address}, ${form.city}, ${form.country}`,
+                'Payment Choice': form.payment
+              }
+            })
+          });
+        } catch(e){}
+
+        // 4. Verify cart has items before redirecting (prevents Shopify from bouncing back to home page!)
+        let cartCheck = null;
+        try {
+          const cRes = await fetch('/cart.js');
+          if (cRes.ok) cartCheck = await cRes.json();
+        } catch(e){}
+
+        const queryParams = `checkout[email]=${encodeURIComponent(form.email)}` +
+          `&checkout[shipping_address][first_name]=${encodeURIComponent(form.firstName)}` +
+          `&checkout[shipping_address][last_name]=${encodeURIComponent(form.lastName)}` +
+          `&checkout[shipping_address][address1]=${encodeURIComponent(form.address)}` +
+          `&checkout[shipping_address][city]=${encodeURIComponent(form.city)}` +
+          `&checkout[shipping_address][country]=Saudi+Arabia` +
+          `&checkout[shipping_address][phone]=${encodeURIComponent(form.phone)}`;
+
+        if (cartCheck && cartCheck.item_count > 0) {
+          window.location.href = `/checkout?${queryParams}`;
+          return;
+        } else if (permalinkParts.length > 0) {
+          // Direct server-side Cart Permalink (bypasses any cart add failure and guarantees checkout opens!)
+          window.location.href = `/cart/${permalinkParts.join(',')}?${queryParams}`;
+          return;
+        } else if (typeof window !== "undefined" && window.__STORE_DEFAULT_VARIANT_ID__) {
+          window.location.href = `/cart/${window.__STORE_DEFAULT_VARIANT_ID__}:1?${queryParams}`;
+          return;
+        }
+      } catch(err) {
+        console.error("Shopify checkout sync error:", err);
+      }
+    }
+
+    // Local / fallback mode
+    await new Promise(r => setTimeout(r, 600));
+    setIsSubmitting(false);
+    setOrderResult(orderData);
     setSubmitted(true);
     clearCart();
     window.scrollTo({top:0,behavior:"smooth"});
@@ -12553,18 +16962,112 @@ function CheckoutPage({ cartItems, setPage, clearCart }){
     fontSize:12,
     outline:"none",
     fontFamily:"'Montserrat',sans-serif",
+    transition:"border-color .2s ease",
+    boxSizing:"border-box"
   });
   const labelStyle = {display:"block",fontSize:9,letterSpacing:2.5,textTransform:"uppercase",color:"#777",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginBottom:8};
   const errorText = (key) => errors[key] ? <p style={{fontSize:10,color:"#B00020",marginTop:6,fontFamily:"'Montserrat',sans-serif"}}>{errors[key]}</p> : null;
 
-  if (submitted) {
+  if (submitted && orderResult) {
     return (
-      <div style={{background:"#fff",minHeight:"100vh",padding:"90px 5%"}}>
-        <div style={{maxWidth:760,margin:"0 auto",textAlign:"center",border:"1px solid #E8E4DC",padding:"64px 28px",background:"#FCFBFA"}}>
-          <p style={{fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginBottom:18}}>Order Received</p>
-          <h1 className="disp" style={{fontSize:"clamp(36px,5vw,64px)",fontWeight:300,marginBottom:16}}>Thank you, {form.firstName}</h1>
-          <p style={{fontSize:14,color:"#666",lineHeight:1.8,fontFamily:"'Montserrat',sans-serif",maxWidth:520,margin:"0 auto 30px"}}>Your Khadlaj order request has been submitted. A confirmation will be sent to {form.email}.</p>
-          <button className="btn-gold" onClick={()=>setPage("main")}>Back to Home</button>
+      <div style={{background:"#fff",minHeight:"100vh",padding:"70px 5% 96px"}}>
+        <div style={{maxWidth:780,margin:"0 auto",border:"1px solid #E8E4DC",padding:"clamp(28px,5vw,56px)",background:"#FCFBFA"}}>
+          <div style={{textAlign:"center",marginBottom:34}}>
+            <div style={{width:62,height:62,borderRadius:"50%",background:"#251737",color:"#D4AF37",display:"flex",alignItems:"center",justifyContent:"center",fontSize:26,margin:"0 auto 18px",boxShadow:"0 8px 20px rgba(37,23,55,0.15)"}}>
+              ✓
+            </div>
+            <p style={{fontSize:10,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:700,marginBottom:8}}>
+              {isRTL ? "تم تأكيد طلبك بنجاح" : "Order Confirmed"}
+            </p>
+            <h1 className="disp" style={{fontSize:"clamp(30px,4.5vw,48px)",fontWeight:300,color:"#251737",marginBottom:10}}>
+              {isRTL ? `شكراً لك، ${orderResult.customer.firstName}` : `Thank you, ${orderResult.customer.firstName}`}
+            </h1>
+            <p style={{fontSize:13,color:"#666",fontFamily:"'Montserrat',sans-serif"}}>
+              {isRTL ? "رقم مرجع الطلب:" : "Order Reference:"} <strong style={{color:"#251737",letterSpacing:1.5}}>{orderResult.orderNumber}</strong>
+            </p>
+          </div>
+
+          <div style={{
+            background: orderResult.paymentMethod === "Cash on Delivery" ? "#FBF8F1" : "#F4F7F4",
+            border: `1px solid ${orderResult.paymentMethod === "Cash on Delivery" ? "#E2CD88" : "#A3CFA3"}`,
+            padding: "16px 20px",
+            borderRadius: 2,
+            marginBottom: 28,
+            display: "flex",
+            alignItems: "center",
+            gap: 14
+          }}>
+            <span style={{fontSize:24}}>{orderResult.paymentMethod === "Cash on Delivery" ? "💵" : "💳"}</span>
+            <div>
+              <p style={{fontSize:12,fontWeight:700,color:"#251737",margin:"0 0 3px",fontFamily:"'Montserrat',sans-serif",textTransform:"uppercase",letterSpacing:1}}>
+                {orderResult.paymentMethod === "Cash on Delivery"
+                  ? (isRTL ? "طريقة الدفع: الدفع عند الاستلام (COD)" : "Payment: Cash on Delivery (COD)")
+                  : (isRTL ? `طريقة الدفع: بطاقة مدى / ائتمانية (${orderResult.cardLast4 || "مدفوعة"})` : `Payment: Credit/Debit Card (${orderResult.cardLast4 || "Paid"})`)}
+              </p>
+              <p style={{fontSize:11,color:"#555",margin:0,lineHeight:1.5,fontFamily:"'Montserrat',sans-serif"}}>
+                {orderResult.paymentMethod === "Cash on Delivery"
+                  ? (isRTL ? `المبلغ المطلوب سداده نقداً للمندوب عند الاستلام: ${formatPrice(orderResult.total)}` : `Please keep ${formatPrice(orderResult.total)} in cash ready upon delivery.`)
+                  : (isRTL ? "تم قبول وتأكيد الدفع بنجاح عبر بوابة شوبيفاي الآمنة." : "Transaction authorized and approved securely via Shopify.")}
+              </p>
+            </div>
+          </div>
+
+          <div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(220px,1fr))",gap:20,padding:"20px",background:"#fff",border:"1px solid #EDE8DF",marginBottom:28}}>
+            <div>
+              <p style={{fontSize:9,letterSpacing:2,color:"#888",textTransform:"uppercase",fontWeight:700,marginBottom:6,fontFamily:"'Montserrat',sans-serif"}}>{isRTL ? "عنوان التوصيل" : "Delivery Address"}</p>
+              <p style={{fontSize:12,fontWeight:600,color:"#251737",margin:0,lineHeight:1.6,fontFamily:"'Montserrat',sans-serif"}}>{orderResult.customer.name}</p>
+              <p style={{fontSize:12,color:"#555",margin:0,lineHeight:1.6,fontFamily:"'Montserrat',sans-serif"}}>{orderResult.customer.address}</p>
+              <p style={{fontSize:12,color:"#555",margin:0,lineHeight:1.6,fontFamily:"'Montserrat',sans-serif"}}>{orderResult.customer.city}, {orderResult.customer.country}</p>
+            </div>
+            <div>
+              <p style={{fontSize:9,letterSpacing:2,color:"#888",textTransform:"uppercase",fontWeight:700,marginBottom:6,fontFamily:"'Montserrat',sans-serif"}}>{isRTL ? "معلومات الاتصال" : "Contact Details"}</p>
+              <p style={{fontSize:12,color:"#333",margin:0,lineHeight:1.6,fontFamily:"'Montserrat',sans-serif"}}>📞 {orderResult.customer.phone}</p>
+              <p style={{fontSize:12,color:"#333",margin:0,lineHeight:1.6,fontFamily:"'Montserrat',sans-serif"}}>✉ {orderResult.customer.email}</p>
+              <p style={{fontSize:11,color:"#B8922A",margin:"6px 0 0",fontWeight:600,fontFamily:"'Montserrat',sans-serif"}}>🚚 {isRTL ? "وقت التوصيل المتوقع: 2 - 4 أيام عمل" : "Estimated Delivery: 2-4 business days"}</p>
+            </div>
+          </div>
+
+          <div style={{borderTop:"1px solid #EDE8DF",paddingTop:20,marginBottom:24}}>
+            <p style={{fontSize:10,letterSpacing:2.5,textTransform:"uppercase",fontWeight:700,color:"#777",marginBottom:14,fontFamily:"'Montserrat',sans-serif"}}>{isRTL ? "المنتجات المطلوبة" : "Order Summary"}</p>
+            <div style={{display:"flex",flexDirection:"column",gap:12,marginBottom:18}}>
+              {orderResult.items.map(item=>(
+                <div key={item.id} style={{display:"grid",gridTemplateColumns:"52px 1fr auto",gap:12,alignItems:"center"}}>
+                  <div style={{height:52,background:"#fff",border:"1px solid #EDE8DF",display:"flex",alignItems:"center",justifyContent:"center",padding:4}}>
+                    <img src={getOptimizedImage(item.img,300)} alt={item.name} style={{maxHeight:"90%",maxWidth:"90%",objectFit:"contain"}}/>
+                  </div>
+                  <div>
+                    <p style={{fontSize:11,fontWeight:600,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",margin:0}}>{item.name}</p>
+                    <p style={{fontSize:10,color:"#888",margin:0,fontFamily:"'Montserrat',sans-serif"}}>Qty: {item.qty} {item.size ? `• ${item.size}` : ""}</p>
+                  </div>
+                  <strong style={{fontSize:12,fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(item.price * item.qty)}</strong>
+                </div>
+              ))}
+            </div>
+
+            <div style={{borderTop:"1px solid #EDE8DF",paddingTop:14,display:"flex",flexDirection:"column",gap:8}}>
+              <div style={{display:"flex",justifyContent:"space-between",fontSize:12,fontFamily:"'Montserrat',sans-serif"}}>
+                <span>{isRTL ? "المجموع الفرعي" : "Subtotal"}</span>
+                <strong>{formatPrice(orderResult.subtotal)}</strong>
+              </div>
+              <div style={{display:"flex",justifyContent:"space-between",fontSize:12,fontFamily:"'Montserrat',sans-serif"}}>
+                <span>{isRTL ? "الشحن والتوصيل" : "Shipping"}</span>
+                <strong>{orderResult.shipping === 0 ? (isRTL ? "مجاني" : "Free") : formatPrice(orderResult.shipping)}</strong>
+              </div>
+              <div style={{display:"flex",justifyContent:"space-between",fontSize:16,fontWeight:700,color:"#251737",paddingTop:10,borderTop:"1px solid #EDE8DF",fontFamily:"'Montserrat',sans-serif"}}>
+                <span>{isRTL ? "المجموع الكلي" : "Total"}</span>
+                <span style={{fontSize:20}}>{formatPrice(orderResult.total)}</span>
+              </div>
+            </div>
+          </div>
+
+          <div style={{display:"flex",justifyContent:"center",gap:16,flexWrap:"wrap"}}>
+            <button className="btn-gold" onClick={()=>{setSubmitted(false);setPage("collections");}}>
+              {isRTL ? "متابعة التسوق" : "Continue Shopping"}
+            </button>
+            <button onClick={()=>{setSubmitted(false);setPage("main");}} style={{background:"transparent",border:"1px solid #251737",padding:"14px 28px",fontSize:11,letterSpacing:2,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,cursor:"pointer"}}>
+              {isRTL ? "الرئيسية" : "Back to Home"}
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -12574,76 +17077,289 @@ function CheckoutPage({ cartItems, setPage, clearCart }){
     <div style={{background:"#fff",minHeight:"100vh"}}>
       <section style={{padding:"70px 5% 96px",maxWidth:1280,margin:"0 auto"}}>
         <div style={{marginBottom:44}}>
-          <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>Secure Checkout</p>
-          <h1 className="disp" style={{fontSize:"clamp(38px,5vw,68px)",fontWeight:300,lineHeight:1,color:"#251737"}}>Checkout</h1>
+          <p style={{fontWeight:600,fontSize:9,letterSpacing:5,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>
+            {isRTL ? "إتمام الطلب بأمان" : "Secure Checkout"}
+          </p>
+          <h1 className="disp" style={{fontSize:"clamp(38px,5vw,68px)",fontWeight:300,lineHeight:1,color:"#251737"}}>
+            {isRTL ? "الدفع والطلب" : "Checkout"}
+          </h1>
         </div>
 
         <div className="grid-2" style={{display:"grid",gridTemplateColumns:"minmax(0,1.15fr) minmax(320px,.85fr)",gap:34,alignItems:"start"}}>
           <div style={{border:"1px solid #E8E4DC",padding:"clamp(22px,4vw,38px)",background:"#fff"}}>
-            <h2 style={{fontSize:14,letterSpacing:3,textTransform:"uppercase",fontWeight:600,marginBottom:24}}>Delivery Details</h2>
+            <h2 style={{fontSize:14,letterSpacing:3,textTransform:"uppercase",fontWeight:600,marginBottom:24}}>
+              {isRTL ? "تفاصيل التوصيل" : "Delivery Details"}
+            </h2>
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginBottom:16}} className="grid-2">
-              <div><label style={labelStyle}>First Name</label><input value={form.firstName} onChange={e=>setField("firstName",e.target.value)} style={fieldStyle("firstName")}/>{errorText("firstName")}</div>
-              <div><label style={labelStyle}>Last Name</label><input value={form.lastName} onChange={e=>setField("lastName",e.target.value)} style={fieldStyle("lastName")}/>{errorText("lastName")}</div>
+              <div>
+                <label style={labelStyle}>{isRTL ? "الاسم الأول" : "First Name"}</label>
+                <input value={form.firstName} onChange={e=>setField("firstName",e.target.value)} style={fieldStyle("firstName")}/>
+                {errorText("firstName")}
+              </div>
+              <div>
+                <label style={labelStyle}>{isRTL ? "اسم العائلة" : "Last Name"}</label>
+                <input value={form.lastName} onChange={e=>setField("lastName",e.target.value)} style={fieldStyle("lastName")}/>
+                {errorText("lastName")}
+              </div>
             </div>
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginBottom:16}} className="grid-2">
-              <div><label style={labelStyle}>Email</label><input type="email" value={form.email} onChange={e=>setField("email",e.target.value)} style={fieldStyle("email")}/>{errorText("email")}</div>
-              <div><label style={labelStyle}>Phone</label><input value={form.phone} onChange={e=>setField("phone",e.target.value)} style={fieldStyle("phone")}/>{errorText("phone")}</div>
+              <div>
+                <label style={labelStyle}>{isRTL ? "البريد الإلكتروني" : "Email"}</label>
+                <input type="email" value={form.email} onChange={e=>setField("email",e.target.value)} style={fieldStyle("email")}/>
+                {errorText("email")}
+              </div>
+              <div>
+                <label style={labelStyle}>{isRTL ? "رقم الجوال" : "Phone"}</label>
+                <input value={form.phone} onChange={e=>setField("phone",e.target.value)} placeholder={isRTL ? "مثال: 05XXXXXXXX" : "+966 5X XXX XXXX"} style={fieldStyle("phone")}/>
+                {errorText("phone")}
+              </div>
             </div>
             <div style={{marginBottom:16}}>
-              <label style={labelStyle}>Address</label>
-              <input value={form.address} onChange={e=>setField("address",e.target.value)} style={fieldStyle("address")}/>
+              <label style={labelStyle}>{isRTL ? "العنوان بالتفصيل" : "Address"}</label>
+              <input value={form.address} onChange={e=>setField("address",e.target.value)} placeholder={isRTL ? "الشارع، الحي، رقم المبنى" : "Street, District, Building No."} style={fieldStyle("address")}/>
               {errorText("address")}
             </div>
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginBottom:22}} className="grid-2">
-              <div><label style={labelStyle}>City</label><input value={form.city} onChange={e=>setField("city",e.target.value)} style={fieldStyle("city")}/>{errorText("city")}</div>
-              <div><label style={labelStyle}>Country</label><input value={form.country} onChange={e=>setField("country",e.target.value)} style={fieldStyle("country")}/>{errorText("country")}</div>
+              <div>
+                <label style={labelStyle}>{isRTL ? "المدينة" : "City"}</label>
+                <input value={form.city} onChange={e=>setField("city",e.target.value)} placeholder={isRTL ? "الرياض، جدة، الدمام..." : "Riyadh, Jeddah, Dammam..."} style={fieldStyle("city")}/>
+                {errorText("city")}
+              </div>
+              <div>
+                <label style={labelStyle}>{isRTL ? "الدولة" : "Country"}</label>
+                <input value={form.country} onChange={e=>setField("country",e.target.value)} style={fieldStyle("country")}/>
+                {errorText("country")}
+              </div>
             </div>
 
-            <h2 style={{fontSize:14,letterSpacing:3,textTransform:"uppercase",fontWeight:600,marginBottom:16}}>Payment Method</h2>
-            <div style={{display:"grid",gridTemplateColumns:"repeat(3,minmax(0,1fr))",gap:10,marginBottom:22}} className="grid-3">
-              {["Card","Cash on Delivery","PayPal"].map(method=>(
-                <button key={method} onClick={()=>setField("payment",method)} style={{border:`1px solid ${form.payment===method ? "#111" : "#E8E4DC"}`,background:form.payment===method?"#111":"#fff",color:form.payment===method?"#fff":"#111",padding:"13px 10px",fontSize:10,letterSpacing:1.6,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,cursor:"pointer"}}>{method}</button>
+            <h2 style={{fontSize:14,letterSpacing:3,textTransform:"uppercase",fontWeight:600,marginBottom:16}}>
+              {isRTL ? "طريقة الدفع" : "Payment Method"}
+            </h2>
+            <div style={{display:"grid",gridTemplateColumns:"repeat(2,minmax(0,1fr))",gap:12,marginBottom:14}}>
+              {[
+                { id: "Card", label: isRTL ? "بطاقة مدى / ائتمانية" : "Card", icon: "💳" },
+                { id: "Cash on Delivery", label: isRTL ? "الدفع عند الاستلام" : "Cash on Delivery", icon: "💵" }
+              ].map(method=>(
+                <button 
+                  key={method.id} 
+                  type="button"
+                  onClick={()=>setField("payment", method.id)} 
+                  style={{
+                    border:`2px solid ${form.payment === method.id ? "#251737" : "#E8E4DC"}`,
+                    background: form.payment === method.id ? "#251737" : "#fff",
+                    color: form.payment === method.id ? "#D4AF37" : "#251737",
+                    padding:"15px 12px",
+                    fontSize:11,
+                    letterSpacing:1.4,
+                    textTransform:"uppercase",
+                    fontFamily:"'Montserrat',sans-serif",
+                    fontWeight:700,
+                    cursor:"pointer",
+                    display:"flex",
+                    alignItems:"center",
+                    justifyContent:"center",
+                    gap:8,
+                    transition:"all .2s ease",
+                    boxShadow: form.payment === method.id ? "0 4px 14px rgba(37,23,55,0.18)" : "none"
+                  }}
+                >
+                  <span style={{fontSize:16}}>{method.icon}</span>
+                  <span>{method.label}</span>
+                </button>
               ))}
             </div>
             {errorText("payment")}
 
+            {/* CARD DETAILS FORM (Revealed when Card is selected) */}
+            {form.payment === "Card" && (
+              <div style={{
+                marginTop: 16,
+                padding: "20px 22px",
+                background: "#FAF9F6",
+                border: "1px solid #E8E4DC",
+                borderRadius: 2,
+                marginBottom: 22
+              }}>
+                <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:14,flexWrap:"wrap",gap:8}}>
+                  <span style={{fontSize:11,letterSpacing:2,textTransform:"uppercase",fontWeight:700,fontFamily:"'Montserrat',sans-serif",color:"#251737"}}>
+                    {isRTL ? "بيانات البطاقة الائتمانية / مدى" : "Card Details"}
+                  </span>
+                  <div style={{display:"flex",alignItems:"center",gap:6}}>
+                    <span style={{fontSize:9,padding:"3px 7px",borderRadius:2,background:"#fff",border:"1px solid #D6D0C5",fontWeight:700,color:"#00579E",letterSpacing:0.5}}>MADA</span>
+                    <span style={{fontSize:9,padding:"3px 7px",borderRadius:2,background:"#fff",border:"1px solid #D6D0C5",fontWeight:700,color:"#1A1F71",letterSpacing:0.5}}>VISA</span>
+                    <span style={{fontSize:9,padding:"3px 7px",borderRadius:2,background:"#fff",border:"1px solid #D6D0C5",fontWeight:700,color:"#EB001B",letterSpacing:0.5}}>MC</span>
+                  </div>
+                </div>
+
+                <div style={{background:"#F5EEDB",border:"1px dashed #B8922A",padding:"8px 12px",marginBottom:14,borderRadius:2,display:"flex",alignItems:"center",gap:8}}>
+                  <span style={{color:"#B8922A",fontSize:13}}>ℹ</span>
+                  <p style={{fontSize:10,color:"#5C4718",lineHeight:1.5,fontFamily:"'Montserrat',sans-serif",margin:0}}>
+                    {isRTL 
+                      ? "وضع الاختبار مفعل (Shopify Bogus): يمكنك إدخال 1 كرقم بطاقة، وأي تاريخ مستقبلي (مثل 12/28)، ورمز 777"
+                      : "Shopify Test Gateway Active: Enter 1 for Card Number, 12/28 for Expiry, 777 for CVV to test."}
+                  </p>
+                </div>
+
+                <div style={{marginBottom:14}}>
+                  <label style={labelStyle}>{isRTL ? "رقم البطاقة" : "Card Number"}</label>
+                  <div style={{position:"relative"}}>
+                    <input 
+                      type="text" 
+                      inputMode="numeric"
+                      value={form.cardNumber} 
+                      onChange={e => handleCardNumberChange(e.target.value)} 
+                      placeholder="0000 0000 0000 0000  (or 1 for test)" 
+                      maxLength={19}
+                      style={fieldStyle("cardNumber")}
+                    />
+                    <span style={{position:"absolute",right:isRTL?"auto":14,left:isRTL?14:"auto",top:"50%",transform:"translateY(-50%)",fontSize:11,color:"#999",pointerEvents:"none"}}>
+                      🔒
+                    </span>
+                  </div>
+                  {errorText("cardNumber")}
+                </div>
+
+                <div style={{marginBottom:14}}>
+                  <label style={labelStyle}>{isRTL ? "الاسم المدون على البطاقة" : "Name on Card"}</label>
+                  <input 
+                    type="text" 
+                    value={form.cardName} 
+                    onChange={e => setField("cardName", e.target.value)} 
+                    placeholder={isRTL ? "الاسم كما هو مدون على البطاقة" : "CARDHOLDER NAME"} 
+                    style={fieldStyle("cardName")}
+                  />
+                  {errorText("cardName")}
+                </div>
+
+                <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14}}>
+                  <div>
+                    <label style={labelStyle}>{isRTL ? "تاريخ الانتهاء" : "Expiry Date"}</label>
+                    <input 
+                      type="text" 
+                      inputMode="numeric"
+                      value={form.cardExpiry} 
+                      onChange={e => handleCardExpiryChange(e.target.value)} 
+                      placeholder="MM / YY" 
+                      maxLength={5}
+                      style={fieldStyle("cardExpiry")}
+                    />
+                    {errorText("cardExpiry")}
+                  </div>
+                  <div>
+                    <label style={labelStyle}>{isRTL ? "رمز الأمان (CVV)" : "Security Code (CVV)"}</label>
+                    <input 
+                      type="password" 
+                      inputMode="numeric"
+                      value={form.cardCvc} 
+                      onChange={e => setField("cardCvc", e.target.value.replace(/\D/g, "").slice(0, 4))} 
+                      placeholder="CVV" 
+                      maxLength={4}
+                      style={fieldStyle("cardCvc")}
+                    />
+                    {errorText("cardCvc")}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* CASH ON DELIVERY BOX (Revealed when COD is selected) */}
+            {form.payment === "Cash on Delivery" && (
+              <div style={{
+                marginTop: 16,
+                padding: "20px 22px",
+                background: "#FBF9F4",
+                border: "1px solid #D4AF37",
+                borderRadius: 2,
+                marginBottom: 22
+              }}>
+                <div style={{display:"flex",alignItems:"flex-start",gap:14}}>
+                  <div style={{width:40,height:40,minWidth:40,borderRadius:"50%",background:"#251737",color:"#D4AF37",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,fontWeight:"bold"}}>
+                    ﷼
+                  </div>
+                  <div>
+                    <h3 style={{fontSize:13,letterSpacing:1.5,textTransform:"uppercase",fontWeight:700,fontFamily:"'Montserrat',sans-serif",color:"#251737",marginBottom:6}}>
+                      {isRTL ? "الدفع نقداً عند الاستلام (COD)" : "Cash on Delivery (COD)"}
+                    </h3>
+                    <p style={{fontSize:12,color:"#555",lineHeight:1.7,fontFamily:isRTL?"'Cairo', sans-serif":"'Montserrat',sans-serif",margin:"0 0 10px 0"}}>
+                      {isRTL 
+                        ? "ادفع نقداً لمندوب التوصيل عند استلام الطلب عند باب منزلك في المملكة العربية السعودية. لا يتطلب أي بطاقة أو دفع مسبق." 
+                        : "Pay in cash directly to our delivery courier when your order is delivered to your address in Saudi Arabia. No advance payment required."}
+                    </p>
+                    <div style={{display:"flex",flexWrap:"wrap",gap:8}}>
+                      <span style={{fontSize:10,background:"#fff",border:"1px solid #E2DED6",padding:"4px 9px",borderRadius:2,color:"#333",fontWeight:600}}>
+                        ✓ {isRTL ? "دفع آمن عند الاستلام" : "Pay Safely on Arrival"}
+                      </span>
+                      <span style={{fontSize:10,background:"#fff",border:"1px solid #E2DED6",padding:"4px 9px",borderRadius:2,color:"#333",fontWeight:600}}>
+                        ✓ {isRTL ? "توصيل سريع داخل المملكة" : "Fast KSA Delivery"}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+
             <div style={{marginBottom:22}}>
-              <label style={labelStyle}>Order Notes</label>
-              <textarea value={form.notes} onChange={e=>setField("notes",e.target.value)} rows={4} style={{...fieldStyle("notes"),resize:"vertical"}} placeholder="Delivery notes, gift message, or special request"/>
+              <label style={labelStyle}>{isRTL ? "ملاحظات الطلب" : "Order Notes"}</label>
+              <textarea value={form.notes} onChange={e=>setField("notes",e.target.value)} rows={4} style={{...fieldStyle("notes"),resize:"vertical"}} placeholder={isRTL ? "ملاحظات التوصيل، إرشادات العنوان..." : "Delivery notes, gift message, or special request"}/>
             </div>
 
             <label style={{display:"flex",gap:10,alignItems:"flex-start",cursor:"pointer",marginBottom:8}}>
               <input type="checkbox" checked={form.agree} onChange={e=>setField("agree",e.target.checked)} style={{marginTop:3}}/>
-              <span style={{fontSize:11,color:"#666",lineHeight:1.7,fontFamily:"'Montserrat',sans-serif"}}>I confirm my delivery details are correct and agree to Khadlaj order terms.</span>
+              <span style={{fontSize:11,color:"#666",lineHeight:1.7,fontFamily:"'Montserrat',sans-serif"}}>
+                {isRTL ? "أؤكد صحة بيانات التوصيل وأوافق على شروط الطلب وسياسة خَدْلَج." : "I confirm my delivery details are correct and agree to Khadlaj order terms."}
+              </span>
             </label>
             {errorText("agree")}
           </div>
 
           <aside style={{border:"1px solid #E8E4DC",padding:26,position:"sticky",top:130,background:"#FCFBFA"}}>
-            <p style={{fontSize:9,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginBottom:18}}>Review Order</p>
+            <p style={{fontSize:9,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,marginBottom:18}}>
+              {isRTL ? "ملخص الطلب" : "Review Order"}
+            </p>
             <div style={{display:"flex",flexDirection:"column",gap:14,marginBottom:20}}>
               {cartItems.map(item=>(
                 <div key={item.id} style={{display:"grid",gridTemplateColumns:"58px 1fr auto",gap:10,alignItems:"center"}}>
-                  <div style={{height:64,display:"flex",alignItems:"center",justifyContent:"center",background:"#fff"}}>
+                  <div style={{height:64,display:"flex",alignItems:"center",justifyContent:"center",background:"#fff",border:"1px solid #EDE8DF",padding:4}}>
                     <img loading="lazy" decoding="async" src={getOptimizedImage(item.img,500)} alt={item.name} style={{maxWidth:"90%",maxHeight:"90%",objectFit:"contain"}}/>
                   </div>
                   <div>
                     <p style={{fontSize:11,fontWeight:600,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",lineHeight:1.25}}>{item.name}</p>
-                    <p style={{fontSize:10,color:"#888",fontFamily:"'Montserrat',sans-serif"}}>Qty {item.qty}</p>
+                    <p style={{fontSize:10,color:"#888",fontFamily:"'Montserrat',sans-serif"}}>Qty {item.qty} {item.size ? `• ${item.size}` : ""}</p>
                   </div>
                   <strong style={{fontSize:12,fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(item.price * item.qty)}</strong>
                 </div>
               ))}
             </div>
             <div style={{height:1,background:"#E8E4DC",margin:"18px 0"}}/>
-            <div style={{display:"flex",justifyContent:"space-between",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:12}}><span>{t("subtotal", "Subtotal")}</span><strong>{formatPrice(subtotal)}</strong></div>
-            <div style={{display:"flex",justifyContent:"space-between",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:16}}><span>{isRTL ? "الشحن والتوصيل" : "Shipping"}</span><strong>{shipping === 0 ? "Free" : formatPrice(shipping)}</strong></div>
+            <div style={{display:"flex",justifyContent:"space-between",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:12}}>
+              <span>{t("subtotal", "Subtotal")}</span>
+              <strong>{formatPrice(subtotal)}</strong>
+            </div>
+            <div style={{display:"flex",justifyContent:"space-between",fontSize:13,fontFamily:"'Montserrat',sans-serif",marginBottom:16}}>
+              <span>{isRTL ? "الشحن والتوصيل" : "Shipping"}</span>
+              <strong>{shipping === 0 ? (isRTL ? "مجاني" : "Free") : formatPrice(shipping)}</strong>
+            </div>
             <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",margin:"20px 0 24px",paddingTop:18,borderTop:"1px solid #E8E4DC"}}>
-              <span style={{fontSize:13,letterSpacing:2,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>{isRTL ? "المجموع الكلي" : "Total"}</span>
+              <span style={{fontSize:13,letterSpacing:2,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600}}>
+                {isRTL ? "المجموع الكلي" : "Total"}
+              </span>
               <strong style={{fontSize:22,fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(total)}</strong>
             </div>
-            <button className="btn-gold" style={{width:"100%"}} onClick={submitOrder}>Place Order</button>
-            <button onClick={()=>setPage("cart")} style={{width:"100%",marginTop:12,background:"transparent",border:"1px solid #251737",padding:"13px",fontSize:10,letterSpacing:2,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,cursor:"pointer"}}>Back to Cart</button>
+            <button 
+              className="btn-gold" 
+              style={{width:"100%",opacity:isSubmitting ? 0.7 : 1,cursor:isSubmitting ? "wait" : "pointer"}} 
+              onClick={submitOrder}
+              disabled={isSubmitting}
+            >
+              {isSubmitting 
+                ? (isRTL ? "جاري معالجة الطلب..." : "Processing Order...") 
+                : (form.payment === "Cash on Delivery" 
+                    ? (isRTL ? "تأكيد الطلب (الدفع عند الاستلام)" : "Place Order (COD)") 
+                    : (isRTL ? "إتمام الدفع والطلب" : "Place Order"))}
+            </button>
+            <button onClick={()=>setPage("cart")} style={{width:"100%",marginTop:12,background:"transparent",border:"1px solid #251737",padding:"13px",fontSize:10,letterSpacing:2,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",fontWeight:600,cursor:"pointer"}}>
+              {isRTL ? "العودة إلى السلة" : "Back to Cart"}
+            </button>
           </aside>
         </div>
       </section>
@@ -12651,9 +17367,24 @@ function CheckoutPage({ cartItems, setPage, clearCart }){
   );
 }
 
-function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCategory, activeCountry, setSelectedCollection }){
+function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCategory, activeCountry, setSelectedCollection, setViewProduct, addToCart }){
   const { lang, setLang, isRTL, t } = React.useContext(LanguageContext);
-  const formatPrice = (price) => formatCurrency(price, activeCountry, lang);
+  const countryCtx = React.useContext(CountryContext);
+  const curCountry = activeCountry || countryCtx?.activeCountry || COUNTRIES[0];
+  const isArabicCountry = ARABIC_COUNTRIES.includes(curCountry?.name);
+
+  useEffect(() => {
+    if (curCountry && !ARABIC_COUNTRIES.includes(curCountry.name) && lang === "ar") {
+      setLang("en");
+      try {
+        localStorage.setItem("khadlaj_lang", "en");
+        document.documentElement.dir = "ltr";
+        document.documentElement.lang = "en";
+      } catch(e) {}
+    }
+  }, [curCountry, lang, setLang]);
+
+  const formatPrice = (price) => formatCurrency(price, curCountry, lang);
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -12680,72 +17411,353 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
   const isHome = page === "main" || page === "home";
   const isTransparent = isHome && !isScrolled;
 
+  const navRef = useRef(null);
+  const [navHeight, setNavHeight] = useState(() => (typeof window !== "undefined" && window.innerWidth <= 900) ? 98 : 168);
+
+  useEffect(() => {
+    const updateHeight = () => {
+      if (navRef.current) {
+        const h = navRef.current.getBoundingClientRect().height || navRef.current.offsetHeight || 0;
+        if (h > 50) {
+          setNavHeight(Math.round(h));
+        }
+      }
+    };
+    updateHeight();
+    const t1 = setTimeout(updateHeight, 60);
+    const t2 = setTimeout(updateHeight, 200);
+    const t3 = setTimeout(updateHeight, 500);
+    window.addEventListener("resize", updateHeight, { passive: true });
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      clearTimeout(t3);
+      window.removeEventListener("resize", updateHeight);
+    };
+  }, [page, isScrolled, lang, curCountry]);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape" && searchOpen) {
+        setSearchOpen(false);
+      }
+    };
+    if (searchOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [searchOpen]);
+
   const handleSearch = (q) => {
     setSearchQuery(q);
-    if (!q.trim()) { setSearchResults([]); return; }
-    var lower = q.toLowerCase();
+    if (!q || !q.trim()) { setSearchResults([]); return; }
+    var lower = q.trim().toLowerCase();
     var results = PRODUCTS.filter(function(p) {
-      return p.name.toLowerCase().includes(lower) ||
-        p.col.toLowerCase().includes(lower) ||
-        (p.notes||[]).some(function(n){ return n.toLowerCase().includes(lower); }) ||
-        (p.gender||"").toLowerCase().includes(lower);
-    }).slice(0, 8);
+      if (!p) return false;
+      if (typeof p.name === "string" && p.name.toLowerCase().includes(lower)) return true;
+      if (typeof p.nameAr === "string" && p.nameAr.toLowerCase().includes(lower)) return true;
+      if (typeof p.col === "string" && p.col.toLowerCase().includes(lower)) return true;
+      if (typeof p.category === "string" && p.category.toLowerCase().includes(lower)) return true;
+      if (typeof p.gender === "string" && p.gender.toLowerCase().includes(lower)) return true;
+      if (Array.isArray(p.notes) && p.notes.some(function(n){ return typeof n === "string" && n.toLowerCase().includes(lower); })) return true;
+      if (typeof p.notes === "string" && p.notes.toLowerCase().includes(lower)) return true;
+      if (Array.isArray(p.notesAr) && p.notesAr.some(function(n){ return typeof n === "string" && n.toLowerCase().includes(lower); })) return true;
+      if (typeof p.desc === "string" && p.desc.toLowerCase().includes(lower)) return true;
+      else if (p.desc && typeof p.desc === "object") {
+        if (typeof p.desc.en === "string" && p.desc.en.toLowerCase().includes(lower)) return true;
+        if (typeof p.desc.ar === "string" && p.desc.ar.toLowerCase().includes(lower)) return true;
+      }
+      if (typeof p.descAr === "string" && p.descAr.toLowerCase().includes(lower)) return true;
+      return false;
+    }).slice(0, 24);
     setSearchResults(results);
+  };
+
+  const handleSelectProduct = (p) => {
+    if (typeof setViewProduct === "function") {
+      setViewProduct(p);
+    }
+    setSearchOpen(false);
+    setSearchQuery("");
+    setSearchResults([]);
+    setPage("product");
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <>
-      {/* ── Search Overlay ── */}
+      {/* ── Professional Luxury Search Overlay ── */}
       {searchOpen && (
-        <div style={{position:"fixed",inset:0,zIndex:500,background:"rgba(255,255,255,.98)",display:"flex",flexDirection:"column",padding:"0 5%"}}>
-          <div style={{display:"flex",alignItems:"center",gap:16,borderBottom:"2px solid #000",padding:"28px 0 18px"}}>
-            <span style={{fontSize:20,color:"#888"}}>⌕</span>
-            <input autoFocus type="text" value={searchQuery} onChange={e=>handleSearch(e.target.value)}
-              placeholder="Search fragrances, collections, notes..."
-              style={{flex:1,border:"none",outline:"none",fontSize:"clamp(16px,2.5vw,26px)",fontFamily:"'Trajan Pro', 'Cinzel', serif",fontWeight:300,color:"#251737",background:"transparent"}}
-            />
-            <button onClick={()=>{setSearchOpen(false);setSearchQuery("");setSearchResults([]);}}
-              style={{background:"none",border:"none",fontSize:28,cursor:"pointer",color:"#251737",fontWeight:300,lineHeight:1}}>×</button>
+        <div 
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            width: "100vw",
+            height: "100vh",
+            zIndex: 999999,
+            background: "rgba(255, 255, 255, 0.98)",
+            backdropFilter: "blur(24px)",
+            WebkitBackdropFilter: "blur(24px)",
+            display: "flex",
+            flexDirection: "column",
+            overflow: "hidden"
+          }}
+          onClick={(e) => { if (e.target === e.currentTarget) setSearchOpen(false); }}
+        >
+          {/* Header Bar */}
+          <div style={{
+            padding: "18px 5% 16px",
+            borderBottom: "1px solid #EFEAE2",
+            background: "#fff",
+            display: "flex",
+            flexDirection: "column",
+            gap: 14,
+            position: "relative",
+            zIndex: 10
+          }}>
+            <div style={{display: "flex", alignItems: "center", justifyContent: "space-between"}}>
+              <div style={{display: "flex", alignItems: "center", gap: 10}}>
+                <img 
+                  src={window.__PURPLE_LOGO__ || resolveAsset("purple-logo.png") || PURPLE_LOGO_BASE64}
+                  alt="Khadlaj"
+                  style={{height: 26, width: "auto", objectFit: "contain"}}
+                  onError={(e) => { if (e.currentTarget.src !== PURPLE_LOGO_BASE64) e.currentTarget.src = PURPLE_LOGO_BASE64; }}
+                />
+                <span style={{
+                  fontSize: 10.5,
+                  letterSpacing: 2,
+                  textTransform: "uppercase",
+                  fontWeight: 700,
+                  color: "#B8922A",
+                  fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+                }}>
+                  {isRTL ? "البحث في خلطات" : "SEARCH KHADLAJ"}
+                </span>
+              </div>
+              <button 
+                onClick={() => { setSearchOpen(false); setSearchQuery(""); setSearchResults([]); }}
+                style={{
+                  background: "#FAF8F5",
+                  border: "1px solid #EAE3D6",
+                  borderRadius: 20,
+                  color: "#251737",
+                  cursor: "pointer",
+                  padding: "6px 14px",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 6,
+                  fontFamily: "'Montserrat', sans-serif",
+                  fontWeight: 600,
+                  fontSize: 11,
+                  letterSpacing: 1.5,
+                  transition: "all 0.2s"
+                }}
+                onMouseEnter={e => { e.currentTarget.style.background = "#251737"; e.currentTarget.style.color = "#fff"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "#FAF8F5"; e.currentTarget.style.color = "#251737"; }}
+                title="Close (Esc)"
+              >
+                <span>{isRTL ? "إغلاق" : "CLOSE"}</span>
+                <span style={{fontSize: 16, lineHeight: 1, fontWeight: 300}}>×</span>
+              </button>
+            </div>
+
+            {/* Main Luxury Input Box */}
+            <div style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 14,
+              background: "#FAF8F5",
+              border: "1.5px solid #D8CFC4",
+              borderRadius: 30,
+              padding: "12px 24px",
+              boxShadow: "0 4px 20px rgba(0,0,0,0.04)",
+              transition: "all 0.3s ease"
+            }}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+              <input
+                autoFocus
+                type="text"
+                value={searchQuery}
+                onChange={e => handleSearch(e.target.value)}
+                placeholder={isRTL ? "ابحث عن عطر، مكونات عطرية (عود، مسك)، مجموعة..." : "Search fragrances, collections, scent notes (oud, musk)..."}
+                style={{
+                  flex: 1,
+                  border: "none",
+                  outline: "none",
+                  fontSize: "clamp(15px, 2vw, 19px)",
+                  fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
+                  color: "#251737",
+                  background: "transparent"
+                }}
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => { setSearchQuery(""); setSearchResults([]); }}
+                  style={{
+                    background: "rgba(37,23,55,0.08)",
+                    border: "none",
+                    borderRadius: "50%",
+                    width: 22,
+                    height: 22,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    cursor: "pointer",
+                    fontSize: 13,
+                    color: "#555"
+                  }}
+                  title="Clear"
+                >
+                  ×
+                </button>
+              )}
+            </div>
+
+            {/* Quick Suggestion Chips */}
+            <div style={{display: "flex", alignItems: "center", gap: 8, overflowX: "auto", paddingBottom: 4, scrollbarWidth: "none"}}>
+              <span style={{fontSize: 9.5, letterSpacing: 1.5, textTransform: "uppercase", fontWeight: 700, color: "#999", flexShrink: 0, fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"}}>
+                {isRTL ? "شائع:" : "POPULAR:"}
+              </span>
+              {[
+                { en: "Shiyaaka", ar: "شياكة", q: "Shiyaaka" },
+                { en: "Island", ar: "آيلاند", q: "Island" },
+                { en: "Hareem Al Sultan", ar: "حريم السلطان", q: "Hareem Al Sultan" },
+                { en: "Oud", ar: "عود", q: "Oud" },
+                { en: "Musk", ar: "مسك", q: "Musk" },
+                { en: "Nuha", ar: "نهى", q: "Nuha" },
+                { en: "Fursan", ar: "فرسان", q: "Fursan" },
+                { en: "Empire", ar: "إمباير", q: "Empire" },
+                { en: "Deals", ar: "عروض", q: "Deals" },
+                { en: "Gift Set", ar: "أطقم هدايا", q: "Gift Set" }
+              ].map(tag => (
+                <button
+                  key={tag.en}
+                  onClick={() => handleSearch(tag.q)}
+                  style={{
+                    flexShrink: 0,
+                    padding: "5px 13px",
+                    background: searchQuery.toLowerCase() === tag.q.toLowerCase() ? "#B8922A" : "#FAF8F5",
+                    color: searchQuery.toLowerCase() === tag.q.toLowerCase() ? "#fff" : "#444",
+                    border: "1px solid #E8E2D8",
+                    borderRadius: 16,
+                    fontSize: 11,
+                    fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
+                    fontWeight: 600,
+                    cursor: "pointer",
+                    transition: "all 0.2s ease"
+                  }}
+                >
+                  {isRTL ? tag.ar : tag.en}
+                </button>
+              ))}
+            </div>
           </div>
-          <div style={{flex:1,overflowY:"auto",paddingTop:24}}>
-            {searchQuery && searchResults.length===0 && (
-              <div style={{textAlign:"center",paddingTop:64}}>
-                <p className="disp" style={{fontSize:28,fontWeight:300,color:"#251737",marginBottom:8}}>No results for "{searchQuery}"</p>
-                <p style={{fontSize:13,color:"#888",fontFamily:"'Montserrat',sans-serif"}}>Try "oud", "musk", "gift"...</p>
+
+          {/* Results Area */}
+          <div style={{flex: 1, overflowY: "auto", padding: "28px 5% 48px"}}>
+            {searchQuery && searchResults.length === 0 && (
+              <div style={{textAlign: "center", padding: "60px 20px"}}>
+                <div style={{width: 56, height: 56, borderRadius: "50%", background: "rgba(184,146,42,0.1)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px"}}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <h3 style={{fontSize: 20, fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif", color: "#251737", marginBottom: 8}}>
+                  {isRTL ? `لا توجد نتائج مطابقة لـ "${searchQuery}"` : `No fragrances found for "${searchQuery}"`}
+                </h3>
+                <p style={{fontSize: 13, color: "#888", fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif", maxWidth: 400, margin: "0 auto"}}>
+                  {isRTL ? "جرّب البحث باسم العطر أو أحد مكوناته مثل: عود، مسك، ورد، عنبر" : "Try searching by fragrance name or note like 'oud', 'musk', 'rose', or 'vanilla'."}
+                </p>
               </div>
             )}
-            {searchResults.length>0 && (
+
+            {searchResults.length > 0 && (
               <>
-                <p style={{fontWeight:600,fontSize:9,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:20}}>{searchResults.length} results for "{searchQuery}"</p>
-                <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:48}} className="grid-3">
-                  {searchResults.map(p=>(
-                    <div key={p.id} onClick={()=>{setSearchOpen(false);setSearchQuery("");setSearchResults([]);setPage("product");}} style={{cursor:"pointer"}}>
-                      <div style={{position:"relative",aspectRatio:"3/4",overflow:"hidden",background:"#fff",border:"1px solid #F1ECE4"}}>
-                        <div style={{position:"absolute",inset:10,background:"radial-gradient(circle at 50% 42%, rgba(184,146,42,.10), rgba(255,255,255,0) 62%)"}}/>
-                        <img decoding="async" src={getOptimizedImage(p.img,500)} alt={p.name} loading="lazy" style={{position:"relative",width:"100%",height:"100%",objectFit:"contain",padding:"16px",filter:"drop-shadow(0 12px 20px rgba(0,0,0,.08))"}}/>
-                        <div style={{height:2,position:"absolute",bottom:0,left:0,right:0,background:"linear-gradient(90deg,#B8922A,#D4AF5A,#B8922A)"}}/>
-                        {p.badge&&<span style={{position:"absolute",top:10,left:10,background:p.badge==="New"?"#B8922A":p.badge==="Limited"?"#5C0000":"#251737",color:"#fff",fontSize:8,letterSpacing:2,padding:"3px 8px",fontFamily:"'Montserrat',sans-serif",textTransform:"uppercase"}}>{p.badge}</span>}
-                      </div>
-                      <div style={{padding:"10px 6px 14px"}}>
-                        <p style={{fontWeight:600,fontSize:9,color:"#B8922A",letterSpacing:3,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:3}}>{p.col==="Lafede" ? "La Fede" : p.col}</p>
-                        <p style={{fontSize:12,fontWeight:600,color:"#251737",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:4,lineHeight:1.2}}>{p.name}</p>
-                        <p style={{fontSize:13,fontWeight:600,color:"#251737",fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(p.price)}</p>
-                      </div>
-                    </div>
+                <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20}}>
+                  <p style={{fontSize: 11, letterSpacing: isRTL ? 0 : 2, textTransform: "uppercase", color: "#B8922A", fontWeight: 700, fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"}}>
+                    {isRTL ? `${searchResults.length} عطر مطابق` : `${searchResults.length} Fragrances Found`}
+                  </p>
+                  <span style={{fontSize: 11, color: "#999", fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"}}>
+                    {isRTL ? "انقر على أي عطر لمعاينة التفاصيل" : "Click any fragrance to view details"}
+                  </span>
+                </div>
+
+                <div 
+                  style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(4, minmax(0, 1fr))",
+                    gap: 24,
+                    alignItems: "stretch"
+                  }}
+                  className="grid-4"
+                >
+                  {searchResults.map((p) => (
+                    <ProductCard
+                      key={p.id}
+                      p={p}
+                      onView={handleSelectProduct}
+                      onCart={addToCart}
+                    />
                   ))}
                 </div>
               </>
             )}
+
             {!searchQuery && (
-              <div>
-                <p style={{fontWeight:600,fontSize:9,letterSpacing:4,color:"#B8922A",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:16}}>Popular Searches</p>
-                <div style={{display:"flex",flexWrap:"wrap",gap:8,marginBottom:32}}>
-                  {["Island","Shiyaaka","Fursan","Nuha","Velvet","Hareem Al Sultan","Empire","Oud","Musk","Gift Set","Deals"].map(s=>(
-                    <button key={s} onClick={()=>handleSearch(s)}
-                      style={{background:"#F7F5F2",border:"1px solid #E8E4DC",padding:"8px 16px",fontSize:12,color:"#333",cursor:"pointer",fontFamily:"'Montserrat',sans-serif",transition:"all .2s"}}
-                      onMouseEnter={e=>{e.currentTarget.style.background="#251737";e.currentTarget.style.color="#fff";}}
-                      onMouseLeave={e=>{e.currentTarget.style.background="#F7F5F2";e.currentTarget.style.color="#333";}}
-                    >{s}</button>
+              <div style={{maxWidth: 800, margin: "40px auto 0", textAlign: "center"}}>
+                <p style={{fontSize: 11, letterSpacing: isRTL ? 1 : 3, textTransform: "uppercase", color: "#B8922A", fontWeight: 700, marginBottom: 14, fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"}}>
+                  {isRTL ? "المجموعات المميزة" : "FEATURED COLLECTIONS"}
+                </p>
+                <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 10}}>
+                  {[
+                    { name: "Shiyaaka Collection", nameAr: "مجموعة شياكة", q: "Shiyaaka" },
+                    { name: "Island Collection", nameAr: "مجموعة آيلاند", q: "Island" },
+                    { name: "Hareem Al Sultan", nameAr: "حريم السلطان", q: "Hareem Al Sultan" },
+                    { name: "Eau De Parfum", nameAr: "ماء عطر", q: "Eau De Parfum" },
+                    { name: "Concentrated Perfume Oils", nameAr: "زيوت عطرية مركزة", q: "oil" },
+                    { name: "Oud & Bakhoor", nameAr: "عود وبخور", q: "Bakhoor" },
+                    { name: "Curated Gift Sets", nameAr: "أطقم هدايا فاخرة", q: "gift" },
+                    { name: "La Fede", nameAr: "لافيدي", q: "Lafede" }
+                  ].map(c => (
+                    <button
+                      key={c.name}
+                      onClick={() => handleSearch(c.q)}
+                      style={{
+                        padding: "10px 20px",
+                        background: "#fff",
+                        border: "1.5px solid #EAE3D6",
+                        borderRadius: 24,
+                        fontSize: 12,
+                        fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
+                        fontWeight: 600,
+                        color: "#251737",
+                        cursor: "pointer",
+                        transition: "all 0.25s ease",
+                        boxShadow: "0 2px 8px rgba(0,0,0,0.03)"
+                      }}
+                      onMouseEnter={e => {
+                        e.currentTarget.style.borderColor = "#B8922A";
+                        e.currentTarget.style.color = "#B8922A";
+                        e.currentTarget.style.transform = "translateY(-2px)";
+                      }}
+                      onMouseLeave={e => {
+                        e.currentTarget.style.borderColor = "#EAE3D6";
+                        e.currentTarget.style.color = "#251737";
+                        e.currentTarget.style.transform = "translateY(0)";
+                      }}
+                    >
+                      {isRTL ? c.nameAr : c.name}
+                    </button>
                   ))}
                 </div>
               </div>
@@ -12754,15 +17766,20 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
         </div>
       )}
 
-      {/* ── Sticky / Fixed Header Wrapper ── */}
+      {/* ── Sticky / Fixed Header Wrapper (Frozen on all pages) ── */}
       <div 
-        className={`nav-sticky-wrapper ${isHome ? 'nav-home-fixed' : 'nav-inner-sticky'}`}
+        ref={navRef}
+        className={`nav-sticky-wrapper ${isHome ? 'nav-home-fixed' : 'nav-inner-sticky'} ${searchOpen ? 'nav-search-hidden' : ''}`}
         style={{
+          position: "fixed",
           top: 0,
           left: 0,
           right: 0,
-          zIndex: 100,
-          transition: "all 0.35s ease",
+          zIndex: 1000,
+          display: searchOpen ? "none" : "block",
+          visibility: searchOpen ? "hidden" : "visible",
+          pointerEvents: searchOpen ? "none" : "auto",
+          transition: "background 0.3s ease, box-shadow 0.3s ease",
         }}
       >
         {/* ── Announcement bar with social icons (Always stuck at top) ── */}
@@ -12835,144 +17852,245 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                 onClick={()=>setMobileMenuOpen(o=>!o)}
                 className="mob-burger"
                 aria-label={mobileMenuOpen ? "Close Menu" : "Open Menu"}
-                style={{background:"none",border:"none",cursor:"pointer",padding:"4px 2px",flexDirection:"column",gap:mobileMenuOpen ? 0 : 4,justifyContent:"center",alignItems:"center",width:28,height:28}}
+                style={{background:"none",border:"none",cursor:"pointer",padding:"4px 2px",flexDirection:"column",gap:mobileMenuOpen ? 0 : 4.5,justifyContent:"center",alignItems:"center",width:32,height:32}}
               >
                 {mobileMenuOpen ? (
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "#251737"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "#251737"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                 ) : (
                   <>
-                    <span style={{display:"block",width:20,height:1.6,borderRadius:1,background:isTransparent ? "#fff" : "#251737",transition:"all .25s"}}/>
-                    <span style={{display:"block",width:20,height:1.6,borderRadius:1,background:isTransparent ? "#fff" : "#251737",transition:"all .25s"}}/>
-                    <span style={{display:"block",width:14,height:1.6,borderRadius:1,background:isTransparent ? "#fff" : "#251737",transition:"all .25s"}}/>
+                    <span style={{display:"block",width:22,height:2,borderRadius:1,background:isTransparent ? "#fff" : "#251737",transition:"all .25s"}}/>
+                    <span style={{display:"block",width:22,height:2,borderRadius:1,background:isTransparent ? "#fff" : "#251737",transition:"all .25s"}}/>
+                    <span style={{display:"block",width:16,height:2,borderRadius:1,background:isTransparent ? "#fff" : "#251737",transition:"all .25s"}}/>
                   </>
                 )}
               </button>
 
               {/* Mobile search icon */}
-              <span className="mob-search-left" style={{cursor:"pointer",alignItems:"center",padding:"2px"}} onClick={()=>setSearchOpen(true)}>
-                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "#111"} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" style={{filter: isTransparent ? "drop-shadow(0 2px 6px rgba(0,0,0,0.5))" : "none"}}><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <span className="mob-search-left" style={{cursor:"pointer",alignItems:"center",padding:"4px"}} onClick={()=>setSearchOpen(true)}>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "#111"} strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" style={{filter: isTransparent ? "drop-shadow(0 2px 6px rgba(0,0,0,0.5))" : "none"}}><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               </span>
 
-              {/* Prominent Language Switcher: English | العربية (Desktop Only) */}
-              <div className="hide-mob" style={{
-                display: "flex",
-                alignItems: "center",
-                border: isTransparent ? "1.5px solid rgba(255,255,255,0.5)" : "1.5px solid #B8922A",
-                borderRadius: 22,
-                background: isTransparent ? "rgba(0,0,0,0.35)" : "#FAF9F6",
-                backdropFilter: "blur(12px)",
-                padding: "2px",
-                gap: 2,
-                boxShadow: isTransparent ? "0 4px 14px rgba(0,0,0,0.25)" : "0 2px 8px rgba(184,146,42,0.15)"
-              }}>
-                <button
-                  onClick={() => setLang("en")}
-                  style={{
-                    background: lang === "en" ? "#B8922A" : "transparent",
-                    color: lang === "en" ? "#fff" : (isTransparent ? "#fff" : "#251737"),
-                    border: "none",
-                    borderRadius: 18,
-                    padding: isTransparent ? "6px 14px" : "5px 12px",
-                    fontSize: 11.5,
-                    fontWeight: 700,
-                    cursor: "pointer",
-                    fontFamily: "'Montserrat', sans-serif",
-                    letterSpacing: 0.5,
-                    transition: "all 0.25s ease",
-                    boxShadow: lang === "en" ? "0 2px 8px rgba(184,146,42,0.5)" : "none"
-                  }}
-                  title="Switch to English"
-                >
-                  English
-                </button>
-                <button
-                  onClick={() => setLang("ar")}
-                  style={{
-                    background: lang === "ar" ? "#B8922A" : "transparent",
-                    color: lang === "ar" ? "#fff" : (isTransparent ? "#fff" : "#251737"),
-                    border: "none",
-                    borderRadius: 18,
-                    padding: isTransparent ? "6px 16px" : "5px 14px",
-                    fontSize: 13.5,
-                    fontWeight: 700,
-                    cursor: "pointer",
-                    fontFamily: "'Cairo', sans-serif",
-                    transition: "all 0.25s ease",
-                    boxShadow: lang === "ar" ? "0 2px 8px rgba(184,146,42,0.5)" : "none"
-                  }}
-                  title="التحويل للغة العربية"
-                >
-                  العربية
-                </button>
-              </div>
+              {/* Prominent Language Switcher: English | العربية (Desktop Only - Arabic countries only) */}
+              {isArabicCountry && (
+                <div className="hide-mob" style={{
+                  display: "flex",
+                  alignItems: "center",
+                  height: 38,
+                  boxSizing: "border-box",
+                  border: isTransparent ? "1.5px solid rgba(255,255,255,0.5)" : "1.5px solid #B8922A",
+                  borderRadius: 22,
+                  background: isTransparent ? "rgba(0,0,0,0.35)" : "#FAF9F6",
+                  backdropFilter: "blur(12px)",
+                  WebkitBackdropFilter: "blur(12px)",
+                  padding: "2px",
+                  gap: 2,
+                  boxShadow: isTransparent ? "0 4px 14px rgba(0,0,0,0.25)" : "0 2px 8px rgba(184,146,42,0.15)"
+                }}>
+                  <button
+                    onClick={() => setLang("en")}
+                    style={{
+                      height: "100%",
+                      background: lang === "en" ? "#B8922A" : "transparent",
+                      color: lang === "en" ? "#fff" : (isTransparent ? "#fff" : "#251737"),
+                      border: "none",
+                      borderRadius: 18,
+                      padding: "0 14px",
+                      fontSize: 12,
+                      fontWeight: 700,
+                      cursor: "pointer",
+                      fontFamily: "'Montserrat', sans-serif",
+                      letterSpacing: 0.5,
+                      transition: "all 0.25s ease",
+                      boxShadow: lang === "en" ? "0 2px 8px rgba(184,146,42,0.5)" : "none",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center"
+                    }}
+                    title="Switch to English"
+                  >
+                    English
+                  </button>
+                  <button
+                    onClick={() => setLang("ar")}
+                    style={{
+                      height: "100%",
+                      background: lang === "ar" ? "#B8922A" : "transparent",
+                      color: lang === "ar" ? "#fff" : (isTransparent ? "#fff" : "#251737"),
+                      border: "none",
+                      borderRadius: 18,
+                      padding: "0 16px",
+                      fontSize: 13.5,
+                      fontWeight: 700,
+                      cursor: "pointer",
+                      fontFamily: "'Cairo', sans-serif",
+                      transition: "all 0.25s ease",
+                      boxShadow: lang === "ar" ? "0 2px 8px rgba(184,146,42,0.5)" : "none",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center"
+                    }}
+                    title="التحويل للغة العربية"
+                  >
+                    العربية
+                  </button>
+                </div>
+              )}
 
+              {/* Luxury Country / Store Selector (Exact matching size to button 1) */}
               <div className="hide-mob country-dropdown">
                 <CountryContext.Consumer>
-                  {({ activeCountry, setActiveCountry }) => (
-                    <>
-                      <div style={{
-                        display:"flex",alignItems:"center",gap:10,
-                        padding: isTransparent ? "8px 16px" : "6px 14px",
-                        border: isTransparent ? "1px solid rgba(255,255,255,0.3)" : "1px solid #E8E4DC",
-                        borderRadius:4,
-                        background: isTransparent ? "rgba(255,255,255,0.12)" : "#FAF9F6",
-                        backdropFilter: isTransparent ? "blur(8px)" : "none",
-                        cursor:"pointer",
-                        fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",
-                        fontSize: isRTL ? 14 : 13,
-                        fontWeight:600,
-                        color: isTransparent ? "#fff" : "#251737",
-                        transition: "all 0.35s ease",
-                      }}>
-                        {activeCountry.flagUrl === "global"
-                          ? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                          : <img decoding="async" src={activeCountry.flagUrl} alt={activeCountry.name} style={{width:22,height:15,objectFit:"cover",borderRadius:2,display:"block"}} />
+                  {({ activeCountry: ctxC, setActiveCountry: setCtxC }) => {
+                    const cCountry = curCountry || ctxC || COUNTRIES[0];
+                    const changeCountry = (c) => {
+                      if (setCtxC) setCtxC(c);
+                      if (typeof setSelectedCollection === "function") setSelectedCollection(c.name);
+                      if (!ARABIC_COUNTRIES.includes(c.name)) {
+                        setLang("en");
+                        try {
+                          localStorage.setItem("khadlaj_lang", "en");
+                          document.documentElement.dir = "ltr";
+                          document.documentElement.lang = "en";
+                        } catch(e) {}
+                      }
+                      if (c.link) {
+                        try {
+                          const targetHost = new URL(c.link).hostname;
+                          if (!window.location.hostname.includes(targetHost)) {
+                            window.location.href = c.link;
+                          }
+                        } catch(e) {
+                          window.location.href = c.link;
                         }
-                        {activeCountry.name}
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "currentColor"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{marginLeft:"6px"}}><polyline points="6 9 12 15 18 9"></polyline></svg>
-                      </div>
-                      <div className="country-dropdown-menu">
-                        {COUNTRIES.map(c => {
-                          const isActive = activeCountry.name === c.name;
-                          return (
-                            <button
-                              key={c.name}
-                              onClick={() => setActiveCountry(c)}
-                              style={{
-                                display:"flex",alignItems:"center",gap:7,
-                                padding:"8px 12px",
-                                border:"none",
-                                borderRadius:3,
-                                background: isActive ? "#F4F1EA" : "transparent",
-                                cursor:"pointer",
-                                fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",
-                                fontSize: isRTL ? 13 : 11,
-                                fontWeight: isActive ? 700 : 500,
-                                color: isActive ? "#251737" : "#555",
-                                textAlign: isRTL ? "right" : "left",
-                                width: "100%",
-                                transition:"all .2s",
-                              }}
-                              onMouseEnter={e => { if(!isActive){ e.currentTarget.style.background="#FBFaf8"; e.currentTarget.style.color="#251737"; } }}
-                              onMouseLeave={e => { if(!isActive){ e.currentTarget.style.background="transparent"; e.currentTarget.style.color="#555"; } }}
-                            >
-                              {c.flagUrl === "global"
-                                ? <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                                : <img decoding="async" src={c.flagUrl} alt={c.name} style={{width:20,height:14,objectFit:"cover",borderRadius:2,display:"block"}} />
-                              }
-                              {c.name}
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </>
-                  )}
+                      }
+                    };
+
+                    return (
+                      <>
+                        <div style={{
+                          display: "flex",
+                          alignItems: "center",
+                          height: 38,
+                          boxSizing: "border-box",
+                          gap: 9,
+                          padding: "0 16px",
+                          border: isTransparent ? "1.5px solid rgba(255,255,255,0.5)" : "1.5px solid #B8922A",
+                          borderRadius: 22,
+                          background: isTransparent ? "rgba(0,0,0,0.35)" : "#FAF9F6",
+                          backdropFilter: "blur(12px)",
+                          WebkitBackdropFilter: "blur(12px)",
+                          cursor: "pointer",
+                          fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",
+                          fontSize: isRTL ? 13 : 12,
+                          fontWeight: 700,
+                          color: isTransparent ? "#fff" : "#251737",
+                          boxShadow: isTransparent ? "0 4px 14px rgba(0,0,0,0.25)" : "0 2px 8px rgba(184,146,42,0.15)",
+                          transition: "all 0.25s ease",
+                        }}>
+                          {cCountry.flagUrl === "global"
+                            ? <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                            : <img decoding="async" src={cCountry.flagUrl} alt={cCountry.name} style={{width:22,height:15,objectFit:"cover",borderRadius:2,display:"block",boxShadow:"0 1px 4px rgba(0,0,0,0.2)"}} />
+                          }
+                          <span style={{letterSpacing:0.3}}>{cCountry.name}</span>
+                          <span style={{fontSize:10.5,letterSpacing:0.5,color: isTransparent ? "#F4E0A5" : "#B8922A",fontWeight:700}}>({cCountry.currency})</span>
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "#B8922A"} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" style={{marginLeft:"2px"}}><polyline points="6 9 12 15 18 9"></polyline></svg>
+                        </div>
+                        <div className="country-dropdown-menu">
+                          <div style={{
+                            padding: "4px 8px 8px",
+                            borderBottom: "1px solid rgba(184,146,42,0.15)",
+                            marginBottom: 4,
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "space-between"
+                          }}>
+                            <span style={{
+                              fontSize: 8.5,
+                              letterSpacing: 2,
+                              textTransform: "uppercase",
+                              fontWeight: 700,
+                              color: "#B8922A",
+                              fontFamily: "'Montserrat', sans-serif"
+                            }}>
+                              {isRTL ? "اختر المتجر الإقليمي" : "SELECT REGION & STORE"}
+                            </span>
+                            <span style={{fontSize:9, color:"#999"}}>✦</span>
+                          </div>
+                          {COUNTRIES.map(c => {
+                            const isActive = cCountry.name === c.name;
+                            return (
+                              <button
+                                key={c.name}
+                                className={isActive ? "active-country" : ""}
+                                onClick={() => changeCountry(c)}
+                              >
+                                <div style={{display:"flex",alignItems:"center",gap:9}}>
+                                  {c.flagUrl === "global"
+                                    ? <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                                    : <img decoding="async" src={c.flagUrl} alt={c.name} style={{width:20,height:14,objectFit:"cover",borderRadius:2,display:"block",boxShadow:"0 1px 3px rgba(0,0,0,0.18)"}} />
+                                  }
+                                  <span style={{
+                                    fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",
+                                    fontSize: isRTL ? 12.5 : 11,
+                                    fontWeight: isActive ? 700 : 500,
+                                    color: isActive ? "#251737" : "#444"
+                                  }}>
+                                    {isRTL ? (c.nameAr || c.name) : c.name}
+                                  </span>
+                                </div>
+                                <div style={{display:"flex", alignItems:"center", gap:6}}>
+                                  <span style={{
+                                    fontSize: 8.5,
+                                    letterSpacing: 0.5,
+                                    fontWeight: 700,
+                                    color: isActive ? "#fff" : "#B8922A",
+                                    background: isActive ? "#B8922A" : "rgba(184,146,42,0.12)",
+                                    padding: "2px 5px",
+                                    borderRadius: 3,
+                                    fontFamily: "'Montserrat', sans-serif"
+                                  }}>
+                                    {c.currency}
+                                  </span>
+                                  {c.link && (
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke={isActive ? "#B8922A" : "#aaa"} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" title={c.link}><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                  )}
+                                </div>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </>
+                    );
+                  }}
                 </CountryContext.Consumer>
               </div>
             </div>
 
             {/* Logo: Stacked vertical logo at top (white), horizontal compact logo when scrolled */}
-            <div onClick={()=>setPage("main")} className={`nav-logo-box ${isTransparent ? 'logo-top' : 'logo-scrolled'}`}>
+            <div
+              onClick={() => {
+                setPage("main");
+                if (typeof setViewProduct === "function") setViewProduct(null);
+                if (typeof setCollectionCategory === "function") setCollectionCategory("Khadlaj");
+                setMobileMenuOpen(false);
+                setSearchOpen(false);
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  setPage("main");
+                  if (typeof setViewProduct === "function") setViewProduct(null);
+                  if (typeof setCollectionCategory === "function") setCollectionCategory("Khadlaj");
+                  setMobileMenuOpen(false);
+                  setSearchOpen(false);
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }
+              }}
+              className={`nav-logo-box ${isTransparent ? 'logo-top' : 'logo-scrolled'}`}
+              style={{ cursor: "pointer", zIndex: 10, position: "relative" }}
+              role="button"
+              tabIndex={0}
+              aria-label="Khadlaj Perfumes Home"
+            >
               {/* Stacked Vertical Logo (Top / Transparent mode) - Restored large size */}
               <img
                 src={window.__PURPLE_LOGO__ || resolveAsset("purple-logo.png") || PURPLE_LOGO_BASE64}
@@ -12981,7 +18099,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                 onError={(e) => { if (e.currentTarget.src !== PURPLE_LOGO_BASE64) e.currentTarget.src = PURPLE_LOGO_BASE64; }}
                 style={{
                   opacity: isTransparent ? 1 : 0,
-                  pointerEvents: isTransparent ? "auto" : "none",
+                  pointerEvents: "none",
                 }}
               />
 
@@ -12993,13 +18111,19 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                 onError={(e) => { if (e.currentTarget.src !== HORIZONTAL_LOGO_BASE64) e.currentTarget.src = HORIZONTAL_LOGO_BASE64; }}
                 style={{
                   opacity: isTransparent ? 0 : 1,
-                  pointerEvents: isTransparent ? "none" : "auto",
+                  pointerEvents: "none",
                 }}
               />
             </div>
 
             {/* Right icons */}
             <div className="nav-right-icons">
+              {/* Search first */}
+              <span className="hide-mob" style={{cursor:"pointer",display:"flex",alignItems:"center",transition:"transform .2s"}} onMouseEnter={e=>e.currentTarget.style.transform="scale(1.1)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"} onClick={()=>setSearchOpen(true)} title="Search">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "#111"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{filter: isTransparent ? "drop-shadow(0 2px 6px rgba(0,0,0,0.5))" : "none"}}><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              </span>
+
+              {/* Sign Up second */}
               <span className="hide-mob" style={{
                 fontSize:"11px",
                 letterSpacing:"2px",
@@ -13011,38 +18135,35 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                 transition:"color .2s",
                 textShadow: isTransparent ? "0 2px 10px rgba(0,0,0,0.5)" : "none"
               }} onMouseEnter={e=>e.target.style.color="#B8922A"} onMouseLeave={e=>e.target.style.color=isTransparent ? "#fff" : "#251737"} onClick={()=>setPage("signup")}>{t("signUp", "Sign Up")}</span>
-              <span className="hide-mob" style={{cursor:"pointer",fontSize:12,fontWeight:700,letterSpacing:"0.06em",color:"#F4E4A6",display:"inline-flex",alignItems:"center",gap:6,background:"linear-gradient(135deg,rgba(60,17,82,0.85),rgba(37,9,51,0.9))",padding:"5px 14px",borderRadius:20,border:"1px solid rgba(212,175,55,0.45)",boxShadow:"0 2px 10px rgba(0,0,0,0.3)"}} onClick={()=>setPage("ksa-campaign")}>🇸🇦 National Day Giveaway</span>
-              
-              <span className="hide-mob" style={{cursor:"pointer",display:"flex",alignItems:"center",transition:"transform .2s"}} onMouseEnter={e=>e.currentTarget.style.transform="scale(1.1)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"} onClick={()=>setSearchOpen(true)}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "#111"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{filter: isTransparent ? "drop-shadow(0 2px 6px rgba(0,0,0,0.5))" : "none"}}><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-              </span>
 
-              {/* Mobile compact language toggle */}
-              <button
-                onClick={() => setLang(lang === "en" ? "ar" : "en")}
-                className="mob-lang-btn"
-                style={{
-                  background: isTransparent ? "rgba(0,0,0,0.35)" : "rgba(184,146,42,0.1)",
-                  border: isTransparent ? "1.2px solid rgba(255,255,255,0.45)" : "1.2px solid #B8922A",
-                  borderRadius: 16,
-                  padding: lang === "en" ? "3px 9px" : "2px 8px",
-                  color: isTransparent ? "#fff" : "#251737",
-                  fontSize: lang === "en" ? 11.5 : 10.5,
-                  fontWeight: 700,
-                  cursor: "pointer",
-                  fontFamily: lang === "en" ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
-                  lineHeight: 1.2,
-                  boxShadow: isTransparent ? "0 2px 8px rgba(0,0,0,0.25)" : "none",
-                  transition: "all 0.2s ease",
-                  whiteSpace: "nowrap"
-                }}
-                title={lang === "en" ? "التحويل للغة العربية" : "Switch to English"}
-              >
-                {lang === "en" ? "العربية" : "EN"}
-              </button>
+              {/* Mobile compact language toggle - only for Arabic countries */}
+              {isArabicCountry && (
+                <button
+                  onClick={() => setLang(lang === "en" ? "ar" : "en")}
+                  className="mob-lang-btn"
+                  style={{
+                    background: isTransparent ? "rgba(0,0,0,0.35)" : "rgba(184,146,42,0.1)",
+                    border: isTransparent ? "1.5px solid rgba(255,255,255,0.45)" : "1.5px solid #B8922A",
+                    borderRadius: 18,
+                    padding: lang === "en" ? "5px 12px" : "4px 11px",
+                    color: isTransparent ? "#fff" : "#251737",
+                    fontSize: lang === "en" ? 12 : 11.5,
+                    fontWeight: 700,
+                    cursor: "pointer",
+                    fontFamily: lang === "en" ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
+                    lineHeight: 1.2,
+                    boxShadow: isTransparent ? "0 2px 8px rgba(0,0,0,0.25)" : "none",
+                    transition: "all 0.2s ease",
+                    whiteSpace: "nowrap"
+                  }}
+                  title={lang === "en" ? "التحويل للغة العربية" : "Switch to English"}
+                >
+                  {lang === "en" ? "العربية" : "EN"}
+                </button>
+              )}
               
               <div onClick={()=>setPage("cart")} style={{position:"relative",cursor:"pointer",display:"flex",alignItems:"center",transition:"transform .2s ease"}} onMouseEnter={e=>e.currentTarget.style.transform="scale(1.1)"} onMouseLeave={e=>e.currentTarget.style.transform="scale(1)"}>
-                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "#111"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" style={{filter: isTransparent ? "drop-shadow(0 2px 6px rgba(0,0,0,0.5))" : "none"}}><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={isTransparent ? "#fff" : "#111"} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" style={{filter: isTransparent ? "drop-shadow(0 2px 6px rgba(0,0,0,0.5))" : "none"}}><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
                 {cartCount>0 && (
                   <span style={{position:"absolute",top:-5,right:-7,background:"#B8922A",color:"#fff",borderRadius:"50%",minWidth:14,height:14,padding:"0 3px",fontSize:8,display:"flex",alignItems:"center",justifyContent:"center",fontWeight:600,fontFamily:"'Montserrat',sans-serif"}}>{cartCount}</span>
                 )}
@@ -13050,8 +18171,8 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
             </div>
           </div>
 
-          {/* Divider line */}
-          <div className="nav-divider-line" style={{
+          {/* Divider line (Desktop only) */}
+          <div className="nav-divider-line hide-mob" style={{
             width: "100%",
             height: 1,
             background: isTransparent ? "rgba(255,255,255,0.22)" : "rgba(232,228,220,0.6)",
@@ -13060,8 +18181,8 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
             transition: "all 0.35s ease"
           }} />
 
-          {/* Nav Links Bar */}
-          <div className={`nav-links-bar ${isTransparent ? 'nav-transparent' : ''}`}>
+          {/* Nav Links Bar (Desktop only) */}
+          <div className={`nav-links-bar hide-mob ${isTransparent ? 'nav-transparent' : ''}`}>
             {[
               { label: t("home", "Home"), pg: "main" },
               { label: t("bestSellers", "Best Sellers"), pg: "collections", cat: "Best Sellers" },
@@ -13129,52 +18250,54 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
             zIndex:200,
             boxShadow:"0 8px 32px rgba(0,0,0,.12)",
           }}>
-            {/* Mobile Language Switcher */}
-            <div style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 8,
-              padding: "12px 6%",
-              borderBottom: "1px solid #F0EBE3",
-              background: "#FAF9F6"
-            }}>
-              <span style={{fontSize: 10, letterSpacing: 2, textTransform: "uppercase", color: "#888", fontFamily: "'Montserrat', sans-serif", fontWeight: 600}}>
-                {isRTL ? "اللغة:" : "Language:"}
-              </span>
-              <button
-                onClick={() => setLang("en")}
-                style={{
-                  background: lang === "en" ? "#B8922A" : "#fff",
-                  color: lang === "en" ? "#fff" : "#251737",
-                  border: "1px solid #E0E0E0",
-                  borderRadius: 4,
-                  padding: "5px 12px",
-                  fontSize: 11,
-                  fontWeight: 700,
-                  cursor: "pointer",
-                  fontFamily: "'Montserrat', sans-serif"
-                }}
-              >
-                English
-              </button>
-              <button
-                onClick={() => setLang("ar")}
-                style={{
-                  background: lang === "ar" ? "#B8922A" : "#fff",
-                  color: lang === "ar" ? "#fff" : "#251737",
-                  border: "1px solid #E0E0E0",
-                  borderRadius: 4,
-                  padding: "5px 14px",
-                  fontSize: 12,
-                  fontWeight: 700,
-                  cursor: "pointer",
-                  fontFamily: "'Tajawal', sans-serif"
-                }}
-              >
-                العربية
-              </button>
-            </div>
+            {/* Mobile Language Switcher (Only visible for Arabic countries: KSA, UAE, Kuwait, Egypt) */}
+            {isArabicCountry && (
+              <div style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 8,
+                padding: "12px 6%",
+                borderBottom: "1px solid #F0EBE3",
+                background: "#FAF9F6"
+              }}>
+                <span style={{fontSize: 10, letterSpacing: 2, textTransform: "uppercase", color: "#888", fontFamily: "'Montserrat', sans-serif", fontWeight: 600}}>
+                  {isRTL ? "اللغة:" : "Language:"}
+                </span>
+                <button
+                  onClick={() => setLang("en")}
+                  style={{
+                    background: lang === "en" ? "#B8922A" : "#fff",
+                    color: lang === "en" ? "#fff" : "#251737",
+                    border: "1px solid #E0E0E0",
+                    borderRadius: 4,
+                    padding: "5px 12px",
+                    fontSize: 11,
+                    fontWeight: 700,
+                    cursor: "pointer",
+                    fontFamily: "'Montserrat', sans-serif"
+                  }}
+                >
+                  English
+                </button>
+                <button
+                  onClick={() => setLang("ar")}
+                  style={{
+                    background: lang === "ar" ? "#B8922A" : "#fff",
+                    color: lang === "ar" ? "#fff" : "#251737",
+                    border: "1px solid #E0E0E0",
+                    borderRadius: 4,
+                    padding: "5px 14px",
+                    fontSize: 12,
+                    fontWeight: 700,
+                    cursor: "pointer",
+                    fontFamily: "'Tajawal', sans-serif"
+                  }}
+                >
+                  العربية
+                </button>
+              </div>
+            )}
 
             {[
               { label: t("home", "Home"), pg: "main" },
@@ -13259,24 +18382,42 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                       return (
                         <button
                           key={c.name}
-                          onClick={() => { setActiveCountry(c); setMobileMenuOpen(false); }}
+                          onClick={() => {
+                            if (c.link && !window.location.href.includes(c.link.replace("https://", ""))) {
+                              window.location.href = c.link;
+                              return;
+                            }
+                            setActiveCountry(c);
+                            if (!ARABIC_COUNTRIES.includes(c.name)) {
+                              setLang("en");
+                            }
+                            setMobileMenuOpen(false);
+                          }}
                           style={{
-                            display:"flex",alignItems:"center",gap:5,
-                            padding:"6px 12px",
-                            border: isActive ? "1px solid #B8922A" : "1px solid #E0E0E0",
-                            borderRadius:4,
-                            background: isActive ? "#FAF9F6" : "#fff",
+                            display:"flex",alignItems:"center",gap:6,
+                            padding:"7px 12px",
+                            border: isActive ? "1.5px solid #B8922A" : "1px solid #E0E0E0",
+                            borderRadius:20,
+                            background: isActive ? "linear-gradient(135deg, #FFF9EE, #FAF5EB)" : "#fff",
                             cursor:"pointer",
                             fontFamily:"'Montserrat',sans-serif",
-                            fontSize:10,fontWeight: isActive ? 600 : 400,
-                            color: isActive ? "#B8922A" : "#555",
+                            fontSize:11,fontWeight: isActive ? 700 : 500,
+                            color: isActive ? "#B8922A" : "#333",
+                            boxShadow: isActive ? "0 2px 6px rgba(184,146,42,0.15)" : "none",
+                            transition:"all .2s ease"
                           }}
                         >
                           {c.flagUrl === "global"
-                            ? <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                            ? <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                             : <img decoding="async" src={c.flagUrl} alt={c.name} style={{width:16,height:11,objectFit:"cover",borderRadius:1,display:"block"}} />
                           }
-                          {c.name}
+                          <span>{c.name}</span>
+                          {c.code && (
+                            <span style={{fontSize:9,color:isActive ? "#B8922A" : "#999",letterSpacing:0.5,fontWeight:600}}>({c.code})</span>
+                          )}
+                          {c.link && !window.location.href.includes(c.link.replace("https://", "")) && (
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{opacity:0.6}}><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                          )}
                         </button>
                       );
                     })
@@ -13288,6 +18429,20 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
         )}
       </nav>
       </div>
+
+      {/* Spacer for all inner pages so content flows perfectly under the frozen navbar */}
+      {!isHome && (
+        <div 
+          className="nav-inner-page-spacer" 
+          style={{ 
+            height: navHeight > 50 ? `${navHeight}px` : "168px", 
+            minHeight: navHeight > 50 ? `${navHeight}px` : "168px", 
+            width: "100%", 
+            flexShrink: 0 
+          }} 
+        />
+      )}
+
       <style>{`@keyframes spin { 100% { transform: rotate(360deg); } }`}</style>
     </>
   );
@@ -13324,7 +18479,14 @@ function Footer({ setPage }){
           <img
             src={PURPLE_LOGO_BASE64}
             alt="Khadlaj Perfumes"
-            style={{height:126,width:"auto",objectFit:"contain",display:"block",marginBottom:24}}
+            onClick={() => {
+              if (typeof setPage === "function") setPage("main");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            style={{height:126,width:"auto",objectFit:"contain",display:"block",marginBottom:24,cursor:"pointer"}}
+            role="button"
+            tabIndex={0}
+            aria-label="Khadlaj Perfumes Home"
           />
           <p style={{fontSize:"8px",letterSpacing:3.5,color:"#B8922A",fontFamily:"'Montserrat',sans-serif",marginBottom:16,textTransform:"uppercase",fontWeight:600}}>
             {isRTL ? "عطور فاخرة · الإمارات · تأسست عام 1997" : "Perfumes · UAE · Est. 1997"}
@@ -13402,13 +18564,13 @@ function Footer({ setPage }){
             {isRTL ? "الدعم والمساعدة" : "Support"}
           </p>
           {[
-            isRTL ? "الشحن والاسترجاع" : "Shipping & Returns",
-            isRTL ? "الأسئلة الشائعة" : "FAQ",
-            isRTL ? "تتبع طلبيتك" : "Track My Order",
-            isRTL ? "دليل اختيار العطور" : "Fragrance Guide",
-            isRTL ? "خدمات تغليف الهدايا" : "Gift Wrapping"
-          ].map(l=>(
-            <p key={l} style={{fontSize:12,color:"#555",marginBottom:14,cursor:"pointer",fontFamily:"'Montserrat',sans-serif",letterSpacing:.5,transition:"all .25s ease"}}
+            [isRTL ? "الشحن والاسترجاع" : "Shipping & Returns", "shipping-returns"],
+            [isRTL ? "الأسئلة الشائعة" : "FAQ", "faq"],
+            [isRTL ? "تتبع طلبيتك" : "Track My Order", "track-order"],
+            [isRTL ? "دليل اختيار العطور" : "Fragrance Guide", "fragrance-guide"],
+            [isRTL ? "خدمات تغليف الهدايا" : "Gift Wrapping", "gift-wrapping"]
+          ].map(([l, pg])=>(
+            <p key={l} onClick={()=>{ setPage(pg); window.scrollTo({top:0, behavior:"smooth"}); }} style={{fontSize:12,color:"#555",marginBottom:14,cursor:"pointer",fontFamily:"'Montserrat',sans-serif",letterSpacing:.5,transition:"all .25s ease"}}
               onMouseEnter={e=>e.target.style.color="#B8922A"} onMouseLeave={e=>e.target.style.color="#555"}>{l}</p>
           ))}
           <div style={{marginTop:32,paddingTop:24,borderTop:"1px solid #e5e5e5"}}>
@@ -13416,7 +18578,7 @@ function Footer({ setPage }){
               {isRTL ? "شركاء الشحن" : "Ships With"}
             </p>
             <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
-              {["DHL","Aramex","EMX"].map(s=>(
+              {["DHL","Aramex"].map(s=>(
                 <span key={s} style={{border:"1px solid #e5e5e5",padding:"4px 12px",fontSize:9,color:"#444",fontFamily:"'Montserrat',sans-serif",letterSpacing:1,background:"#fff",borderRadius:1}}>{s}</span>
               ))}
             </div>
@@ -13495,7 +18657,7 @@ function Footer({ setPage }){
 /* ═══════════════════════════════════════════════════════════════
    SCRATCH CARD COMPONENT
 ═══════════════════════════════════════════════════════════════ */
-function ScratchCard({ code, onReveal }) {
+function ScratchCard({ code, onReveal, isRTL }) {
   const canvasRef = React.useRef(null);
   const [isRevealed, setIsRevealed] = React.useState(false);
   const [prizeValue, setPrizeValue] = React.useState(code || "KHADLAJ10");
@@ -13536,15 +18698,15 @@ function ScratchCard({ code, onReveal }) {
       canvasContext.strokeStyle = "rgba(255, 255, 255, 0.4)";
       canvasContext.strokeRect(7, 7, width - 14, height - 14);
 
-      // Professional Serif Text
-      canvasContext.font = "600 16px 'Cinzel', 'Trajan Pro', serif";
+      // Professional Text
+      canvasContext.font = isRTL ? "700 16px 'Tajawal', 'Cairo', sans-serif" : "600 16px 'Cinzel', 'Trajan Pro', serif";
       canvasContext.textAlign = "center";
       canvasContext.textBaseline = "middle";
-      canvasContext.letterSpacing = "2px"; 
+      canvasContext.letterSpacing = isRTL ? "0px" : "2px"; 
       
       // Main text
       canvasContext.fillStyle = "#251737";
-      canvasContext.fillText("SCRATCH TO REVEAL", width/2, height/2);
+      canvasContext.fillText(isRTL ? "امسح لاكتشاف العرض" : "SCRATCH TO REVEAL", width/2, height/2);
     };
 
     const scratch = (x, y) => {
@@ -13629,13 +18791,13 @@ function ScratchCard({ code, onReveal }) {
       canvasElement.removeEventListener(isTouchDevice ? "touchend" : "mouseup", handleMouseUp);
       canvasElement.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [isRevealed]); // Removed onReveal to prevent constant re-rendering and erasing the canvas!
+  }, [isRevealed, isRTL]);
 
   return (
     <div className="scratch-hover" style={{position:"relative", width: "100%", maxWidth: 320, height: 100, margin:"0 auto", borderRadius: 8, overflow:"hidden", border:"2px solid #F3E5AB", background:"#111", boxShadow:"0 0 25px rgba(212,175,55,0.4), inset 0 0 20px rgba(212,175,55,0.2)"}}>
        <div style={{position:"absolute", inset:0, display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"center", background:"radial-gradient(circle, #251737 0%, #0a0a0a 100%)", zIndex:1}}>
           <div style={{position:"absolute", inset:0, opacity:0.12, background:"url('data:image/svg+xml;utf8,<svg width=\"20\" height=\"20\" xmlns=\"http://www.w3.org/2000/svg\"><circle cx=\"2\" cy=\"2\" r=\"1\" fill=\"%23D4AF37\"/></svg>') repeat"}} />
-          <span style={{fontSize:9, letterSpacing:4, color:"#D4AF37", textTransform:"uppercase", marginBottom:4, fontWeight:600, opacity:0.9, position:"relative", zIndex:2}}>Your Exclusive Gift</span>
+          <span style={{fontSize:9, letterSpacing:isRTL ? 1 : 4, color:"#D4AF37", textTransform:"uppercase", marginBottom:4, fontWeight:600, opacity:0.9, position:"relative", zIndex:2, fontFamily:isRTL ? "'Tajawal',sans-serif" : "inherit"}}>{isRTL ? "هديتك الحصرية" : "Your Exclusive Gift"}</span>
           <p className="scratch-text" style={{
              fontWeight:900, 
              margin:0, 
@@ -14425,6 +19587,14 @@ export default function App(){
   const [popupState, setPopupState] = useState("scratch"); // "email", "scratch", "revealed"
   const [popupDone, setPopupDone] = useState(false);
 
+  // Auto show scratch card popup on website load
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPopup(true);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
   const isFirstRender = useRef(true);
 
   // Handle popstate (browser back/forward button clicks)
@@ -14515,14 +19685,53 @@ export default function App(){
   const [messages, setMessages] = useState([
     { role: "assistant", content: isRTL ? "مرحباً بكم في دار خَدْلَج للعطور. أنا مستشارك العطري الخاص، يسعدني مساعدتك في كل ما يتعلق بعطورنا، نوتات العطور، مجموعاتنا الحصرية، وتفاصيل الشحن." : "Welcome to Khadlaj Perfumes. I am your dedicated luxury concierge. How may I assist you with our fragrances, notes, collections, shipping, or offers today?" }
   ]);
+  React.useEffect(() => {
+    setMessages(prev => {
+      if (prev.length === 1 && prev[0].role === "assistant") {
+        return [{
+          role: "assistant",
+          content: isRTL
+            ? "مرحباً بكم في دار خَدْلَج للعطور. أنا مستشارك العطري الخاص، يسعدني مساعدتك في كل ما يتعلق بعطورنا، نوتات العطور، مجموعاتنا الحصرية، وتفاصيل الشحن."
+            : "Welcome to Khadlaj Perfumes. I am your dedicated luxury concierge. How may I assist you with our fragrances, notes, collections, shipping, or offers today?"
+        }];
+      }
+      return prev;
+    });
+  }, [isRTL]);
   const [inputVal, setInputVal] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const KHADLAJ_AI_SYSTEM_PROMPT = `You are the official luxury AI Fragrance Concierge for Khadlaj Perfumes (UAE luxury fragrance house established in 1997 by Mohamed Iqbal Abdul Sattar).
+
+STRICT COMPANY-ONLY GUARDRAIL & POLICY:
+1. You must ONLY answer questions directly related to Khadlaj Perfumes, our fragrances, notes, collections (Shiyaaka, Island, Master Royal Oud, Gourmand, Home & Ambience, Perfume Oils), prices, orders, shipping, and discount code 'KHADLAJ25' (25% off).
+2. STRICTLY AND POLITELY REFUSE ANY TOPIC NOT RELATED TO KHADLAJ PERFUMES OR THIS WEBSITE.
+   - If the user asks about general knowledge, programming/coding, mathematics, history, weather, politics, recipes, gaming, sports, or other perfume brands (Dior, Creed, Chanel, etc.):
+   - YOU MUST REFUSE TO ANSWER and state that you are exclusively the Khadlaj Perfumes concierge.
+   - Refusal in English: "I am the dedicated Khadlaj Perfumes concierge. I can only assist you with inquiries regarding Khadlaj fragrances, collections, orders, and our website. How may I assist you with our perfumes today?"
+   - Refusal in Urdu/Hindi: "Main sirf Khadlaj Perfumes aur hamari website ke mutalliq sawalat ke jawabat de sakta hoon. Kisi aur mauzoo par baat karne ki ijazat nahi hai. Khadlaj ke perfumes ke baray mein aap kya janna chahte hain?"
+   - Refusal in Arabic: "أنا المساعد الخاص بدار خَدْلَج للعطور، ويمكنني فقط الإجابة عن كل ما يخص عطورنا وموقعنا الإلكتروني. كيف يمكنني مساعدتك في اختيار عطرك اليوم؟"
+3. Maintain an ultra-luxurious, warm, regal tone. Provide precise olfactive notes, styling tips, and mention promo code 'KHADLAJ25' when helpful. Keep responses concise and formatted with elegant bullet points.
+4. Respond in the user's language (English, Arabic, Urdu/Hindi).`;
 
   const getKhadlajConciergeFallback = (query, rtl) => {
     const raw = (query || "").trim();
     const q = raw.toLowerCase();
     const isArabic = rtl || /[\u0600-\u06FF]/.test(raw);
     const isUrdu = /(konsa|kaunsa|kya|batao|bataen|chahiye|chahye|kitne|kitna|hoga|hogi|mujhe|mujhay|shukriya|acha|achha|mardana|zanana|khushboo|khushbu|bhejo|mangwana|order kaise|kese|kaise)/i.test(raw);
+
+    // 0. STRICT OFF-TOPIC REFUSAL (Guardrail)
+    const isOffTopic = /(python|javascript|coding|code|script|math|formula|equation|recipe|cook|weather|president|prime minister|politics|trump|biden|cricket|football|fifa|game|gaming|dior|chanel|creed|gucci|versace|tom ford|rolex|bmw|mercedes)/i.test(q)
+      || /(code likh|program bana|sawal ka jawab|biryani|khana banana|match kaun jita)/i.test(raw);
+    if (isOffTopic) {
+      if (isArabic) {
+        return "أنا المساعد الخاص بدار خَدْلَج للعطور، ويمكنني فقط الإجابة عن كل ما يخص عطورنا وموقعنا الإلكتروني. كيف يمكنني مساعدتك في اختيار عطرك اليوم؟";
+      }
+      if (isUrdu) {
+        return "Main sirf Khadlaj Perfumes aur hamari website ke mutalliq sawalat ke jawabat de sakta hoon. Kisi aur mauzoo par baat karne ki ijazat nahi hai. Khadlaj ke perfumes ke baray mein aap kya janna chahte hain?";
+      }
+      return "I am the dedicated Khadlaj Perfumes concierge. I can only assist you with inquiries regarding Khadlaj fragrances, collections, orders, and our website. How may I assist you with our perfumes today?";
+    }
 
     // 1. GREETINGS & SALUTATIONS
     if (/^(hi|hello|hey|salam|assalam|aoa|slm|greetings|good morning|good evening|good afternoon|hola|hiya|welcome)($|[\s!?.,])/i.test(q) || /^(مرحبا|أهلا|سلام|السلام عليكم|صباح الخير|مساء الخير)/i.test(raw) || /^(salam|assalam o alaikum|hello|hi|kese ho|kaise ho)/i.test(raw)) {
@@ -14697,23 +19906,42 @@ export default function App(){
     setLoading(true);
 
     try {
-      const response = await fetch("/api/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ messages: nextMessages })
-      });
-
-      const data = await response.json();
-      if (response.ok && data.reply) {
-        setMessages(prev => [...prev, { role: "assistant", content: data.reply }]);
-      } else {
-        const fallback = getKhadlajConciergeFallback(text, isRTL);
-        setMessages(prev => [...prev, { role: "assistant", content: (data && data.reply) || fallback }]);
+      const secKey = _getConciergeSec();
+      if (secKey) {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 9000);
+        const apiMessages = [
+          { role: "system", content: KHADLAJ_AI_SYSTEM_PROMPT },
+          ...nextMessages.slice(-6).map(m => ({ role: m.role, content: m.content }))
+        ];
+        const res = await fetch("https://api.openai.com/v1/chat/completions", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${secKey}`
+          },
+          body: JSON.stringify({
+            model: "gpt-4o-mini",
+            temperature: 0.3,
+            max_tokens: 450,
+            messages: apiMessages
+          }),
+          signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+        if (res.ok) {
+          const data = await res.json();
+          const reply = data.choices?.[0]?.message?.content;
+          if (reply) {
+            setMessages(prev => [...prev, { role: "assistant", content: reply }]);
+            return;
+          }
+        }
       }
+      const fallback = getKhadlajConciergeFallback(text, isRTL);
+      setMessages(prev => [...prev, { role: "assistant", content: fallback }]);
     } catch (err) {
-      console.warn("Chat API call fell back to local concierge:", err);
+      console.warn("Direct OpenAI chat fallback:", err);
       const fallback = getKhadlajConciergeFallback(text, isRTL);
       setMessages(prev => [...prev, { role: "assistant", content: fallback }]);
     } finally {
@@ -14724,8 +19952,7 @@ export default function App(){
   const handleSendMessage = () => sendChatMessage();
 
   useEffect(()=>{
-    const t = setTimeout(()=>setShowPopup(true), 6000);
-    return ()=>clearTimeout(t);
+    // Disabled auto popup
   },[]);
 
   useEffect(() => {
@@ -14739,21 +19966,108 @@ export default function App(){
   const renderPage = () => {
     switch(page){
       case "ksa-campaign":    return <KSACampaignPage setPage={setPage} addToCart={addToCart} setViewProduct={setViewProduct}/>;
-      case "main":            return <HomePage setPage={setPage} addToCart={addToCart} setViewProduct={setViewProduct} setSelectedCollection={setSelectedCollection}/>;
-      case "home":            return <HomePage setPage={setPage} addToCart={addToCart} setViewProduct={setViewProduct} setSelectedCollection={setSelectedCollection}/>;
+      case "main":            return <HomePage setPage={setPage} addToCart={addToCart} setViewProduct={setViewProduct} setSelectedCollection={setSelectedCollection} setCollectionCategory={setCollectionCategory}/>;
+      case "home":            return <HomePage setPage={setPage} addToCart={addToCart} setViewProduct={setViewProduct} setSelectedCollection={setSelectedCollection} setCollectionCategory={setCollectionCategory}/>;
       case "collections":     return <CollectionsPage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage} collectionCategory={collectionCategory}/>;
       case "lafede":          return <LaFedePage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage}/>;
       case "product":         return viewProduct ? <ProductPage product={viewProduct} addToCart={addToCart} setPage={setPage} setViewProduct={setViewProduct}/> : <CollectionsPage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage} collectionCategory={collectionCategory}/>;
       case "gifts":           return <GiftsPage addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage}/>;
       case "cart":            return <CartPage cartItems={cartItems} updateCartQty={updateCartQty} removeFromCart={removeFromCart} setPage={setPage} setViewProduct={setViewProduct}/>;
       case "checkout":        return <CheckoutPage cartItems={cartItems} setPage={setPage} clearCart={clearCart}/>;
-      case "story":           return <StoryPage/>;
+      case "story":           return <StoryPage setPage={setPage} setViewProduct={setViewProduct}/>;
       case "signup":          return <SignupPage/>;
       case "contact":         return <ContactPage/>;
       case "island":          return <DedicatedCollectionPage collectionKey="island" addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage} setSelectedCollection={setSelectedCollection}/>;
       case "collection-view": return <DedicatedCollectionPage collectionKey={selectedCollection || "island"} addToCart={addToCart} setViewProduct={setViewProduct} setPage={setPage} setSelectedCollection={setSelectedCollection}/>;
-      default:                return <HomePage setPage={setPage} addToCart={addToCart} setViewProduct={setViewProduct} setSelectedCollection={setSelectedCollection}/>;
+      case "shipping-returns": return <ShippingReturnsPage setPage={setPage}/>;
+      case "faq":              return <FAQPage setPage={setPage}/>;
+      case "track-order":      return <TrackOrderPage setPage={setPage}/>;
+      case "fragrance-guide":  return <FragranceGuidePage setPage={setPage} setViewProduct={setViewProduct}/>;
+      case "gift-wrapping":    return <GiftWrappingPage setPage={setPage}/>;
+      default:                return <HomePage setPage={setPage} addToCart={addToCart} setViewProduct={setViewProduct} setSelectedCollection={setSelectedCollection} setCollectionCategory={setCollectionCategory}/>;
     }
+  };
+
+  const renderFormattedChatMessage = (content, rtl) => {
+    if (!content) return null;
+    const lines = content.split("\n");
+
+    const parseInline = (text) => {
+      if (!text) return "";
+      const parts = text.split(/(\*\*[^*]+\*\*)/g);
+      return parts.map((part, i) => {
+        if (part.startsWith("**") && part.endsWith("**")) {
+          return (
+            <strong key={i} style={{fontWeight: 700, color: "#1D0C2C"}}>
+              {part.slice(2, -2)}
+            </strong>
+          );
+        }
+        return part;
+      });
+    };
+
+    return (
+      <div className="chat-msg-formatted" style={{display: "flex", flexDirection: "column", gap: 5}}>
+        {lines.map((rawLine, idx) => {
+          const line = rawLine.trim();
+          if (!line) return <div key={idx} style={{height: 4}} />;
+
+          // Headings ### or ##
+          if (line.startsWith("### ") || line.startsWith("## ")) {
+            const hText = line.replace(/^#+\s*/, "");
+            return (
+              <div key={idx} style={{
+                fontWeight: 700,
+                fontSize: 12.5,
+                color: "#9C7723",
+                marginTop: idx > 0 ? 8 : 2,
+                marginBottom: 2,
+                fontFamily: rtl ? "'Tajawal', sans-serif" : "'Cinzel', serif",
+                letterSpacing: rtl ? 0 : 0.5,
+                textTransform: "uppercase"
+              }}>
+                {parseInline(hText)}
+              </div>
+            );
+          }
+
+          // Bullet items: - or * or • or 1.
+          const isBullet = /^([-*•]|\d+\.)\s+/.test(line);
+          if (isBullet) {
+            const bulletText = line.replace(/^([-*•]|\d+\.)\s+/, "");
+            return (
+              <div key={idx} style={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: 7,
+                marginTop: 2,
+                marginBottom: 2,
+                paddingLeft: rtl ? 0 : 2,
+                paddingRight: rtl ? 2 : 0
+              }}>
+                <span style={{
+                  color: "#B8922A",
+                  fontSize: 9,
+                  lineHeight: "20px",
+                  flexShrink: 0
+                }}>◆</span>
+                <span style={{flex: 1, lineHeight: 1.55}}>
+                  {parseInline(bulletText)}
+                </span>
+              </div>
+            );
+          }
+
+          // Normal line
+          return (
+            <div key={idx} style={{lineHeight: 1.55}}>
+              {parseInline(line)}
+            </div>
+          );
+        })}
+      </div>
+    );
   };
 
   return (
@@ -14761,13 +20075,13 @@ export default function App(){
     <CountryContext.Provider value={{ activeCountry, setActiveCountry }}>
     <div dir={isRTL ? "rtl" : "ltr"} className={isRTL ? "rtl-lang" : "ltr-lang"} style={{fontFamily: isRTL ? "'Tajawal', 'Cairo', sans-serif" : "'Montserrat',sans-serif",background:"#fff",color:"#251737",minHeight:"100vh"}}>
       <style>{GLOBAL_CSS + `\n@keyframes spin { 100% { transform: rotate(360deg); } }`}</style>
-      <Navbar page={page} setPage={setPage} cartCount={cartCount} setCollectionCategory={setCollectionCategory} collectionCategory={collectionCategory} activeCountry={activeCountry} setSelectedCollection={setSelectedCollection}/>
-      <main>{renderPage()}</main>
+      <Navbar page={page} setPage={setPage} cartCount={cartCount} setCollectionCategory={setCollectionCategory} collectionCategory={collectionCategory} activeCountry={activeCountry} setSelectedCollection={setSelectedCollection} setViewProduct={setViewProduct} addToCart={addToCart}/>
+      <main key={page === "product" && viewProduct ? `product-${viewProduct.id}` : page} className="page-transition-wrap">{renderPage()}</main>
       <Footer setPage={setPage}/>
 
       {/* ── Floating WhatsApp Button (Left Side) ── */}
       <a
-        href="https://wa.me/971501234567?text=Hello%20Khadlaj%20Perfumes%2C%20I%20would%20like%20to%20inquire%20about%20your%20fragrances"
+        href="https://wa.me/971521211992?text=Hello%20Khadlaj%20Perfumes%2C%20I%20would%20like%20to%20inquire%20about%20your%20fragrances"
         target="_blank"
         rel="noopener noreferrer"
         className="floating-whatsapp-btn"
@@ -14780,50 +20094,48 @@ export default function App(){
         </svg>
       </a>
 
-      {/* ── Floating Shop button (Desktop only, hidden on mobile to avoid ribbon obstruction) ── */}
-      {(page==="main" || page==="home") && (
-        <button
-          className="pulse hide-mob"
-          onClick={()=>setPage("collections")}
+      {/* ── Chatbot Backdrop Overlay (Ensures zero bleed-through and clean focus) ── */}
+      {chatOpen && (
+        <div
+          className="chat-backdrop-overlay"
+          onClick={() => setChatOpen(false)}
           style={{
-            position:"fixed",bottom:24,right:24,zIndex:200,
-            background:"#251737",color:"#fff",
-            width:46,height:46,borderRadius:"50%",
-            border:"none",cursor:"pointer",
-            boxShadow:"0 8px 28px rgba(0,0,0,.25)",
-            fontSize:18,transition:"background .2s,transform .2s",
+            position: "fixed",
+            inset: 0,
+            background: "rgba(12, 4, 20, 0.58)",
+            backdropFilter: "blur(5px)",
+            WebkitBackdropFilter: "blur(5px)",
+            zIndex: 999990,
+            animation: "fadeIn 0.25s ease both"
           }}
-          onMouseEnter={e=>{e.currentTarget.style.background="#B8922A";e.currentTarget.style.transform="scale(1.06)";}}
-          onMouseLeave={e=>{e.currentTarget.style.background="#251737";e.currentTarget.style.transform="scale(1)";}}
-          title="Shop Now"
-        >🛍</button>
+        />
       )}
 
       {/* ── Chatbot Floating Button (Placed cleanly on right side, responsive on mobile) ── */}
       <button
-        onClick={()=>setChatOpen(!chatOpen)}
-        className={`floating-chat-btn chat-pulse-btn ${(page==="main" || page==="home") ? 'floating-chat-home' : 'floating-chat-inner'}`}
+        onClick={() => setChatOpen(!chatOpen)}
+        className="floating-chat-btn chat-pulse-btn"
         style={{
           position: "fixed",
-          bottom: (page==="main" || page==="home") ? 80 : 24,
+          bottom: 24,
           right: 24,
-          zIndex: 200,
+          zIndex: 999995,
           background: "linear-gradient(135deg, #251737 0%, #150921 100%)",
           color: "#fff",
-          width: 50,
-          height: 50,
+          width: 52,
+          height: 52,
           borderRadius: "50%",
           border: "1.5px solid #D4AF37",
           cursor: "pointer",
-          boxShadow: "0 10px 28px rgba(37,23,55,0.38)",
+          boxShadow: "0 10px 30px rgba(37,23,55,0.45)",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           transition: "all .25s cubic-bezier(0.16, 1, 0.3, 1)",
         }}
-        onMouseEnter={e=>{e.currentTarget.style.transform="scale(1.08)";}}
-        onMouseLeave={e=>{e.currentTarget.style.transform="scale(1)";}}
-        title={chatOpen ? (isRTL ? "إغلاق المحادثة" : "Close Scent Concierge") : (isRTL ? "مستشار خَدْلَج للعطور" : "Chat with Scent Concierge")}
+        onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.08)"; }}
+        onMouseLeave={e => { e.currentTarget.style.transform = "scale(1)"; }}
+        title={chatOpen ? (isRTL ? "إغلاق المحادثة" : "Close Scent Concierge") : (isRTL ? "مستشار خَدْلَج الملكي" : "Chat with Royal Scent Concierge")}
         aria-label="Khadlaj Scent Concierge"
       >
         {chatOpen ? (
@@ -14834,33 +20146,34 @@ export default function App(){
         ) : (
           <>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8D499" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-              <path d="M8 10h.01M12 10h.01M16 10h.01" strokeWidth="2.5" stroke="#E8D499"/>
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              <path d="M8 10h.01M12 10h.01M16 10h.01" strokeWidth="2.5" stroke="#E8D499" />
             </svg>
             <span style={{
               position: "absolute", top: 2, right: 2,
               width: 10, height: 10, borderRadius: "50%",
-              background: "#10B981", border: "2px solid #251737"
+              background: "#10B981", border: "2px solid #251737",
+              boxShadow: "0 0 6px #10B981"
             }} />
           </>
         )}
       </button>
 
-      {/* ── Chatbot Window Panel (Responsive on mobile) ── */}
+      {/* ── Chatbot Window Panel (Ultra-Luxury, 100% Solid Opaque, High Z-Index) ── */}
       {chatOpen && (
         <div className="floating-chat-window" style={{
           position: "fixed",
-          bottom: (page==="main" || page==="home") ? 140 : 84,
+          bottom: 84,
           right: 24,
           width: 380,
           height: 520,
-          maxHeight: "calc(100vh - 110px)",
+          maxHeight: "calc(100vh - 105px)",
           maxWidth: "calc(100vw - 32px)",
-          zIndex: 200,
-          background: "#FFFFFF",
-          border: "1px solid rgba(184, 146, 42, 0.3)",
-          borderRadius: 18,
-          boxShadow: "0 24px 60px rgba(21, 9, 33, 0.28), 0 4px 16px rgba(0,0,0,0.08)",
+          zIndex: 999999,
+          background: "#FAF8F5",
+          border: "1.5px solid rgba(212, 175, 55, 0.45)",
+          borderRadius: 20,
+          boxShadow: "0 25px 70px rgba(18, 7, 28, 0.42), 0 0 0 1px rgba(212, 175, 55, 0.35)",
           display: "flex",
           flexDirection: "column",
           overflow: "hidden",
@@ -14869,66 +20182,70 @@ export default function App(){
         }}>
           {/* Header */}
           <div style={{
-            background: "linear-gradient(135deg, #251737 0%, #150921 100%)",
+            background: "linear-gradient(135deg, #1C0A2E 0%, #0F041B 100%)",
             padding: "14px 18px",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            borderBottom: "1px solid rgba(184, 146, 42, 0.35)",
-            boxShadow: "0 4px 14px rgba(0,0,0,0.08)"
+            borderBottom: "1.5px solid rgba(212, 175, 55, 0.4)",
+            boxShadow: "0 4px 18px rgba(0,0,0,0.18)",
+            position: "relative",
+            zIndex: 10
           }}>
-            <div style={{display: "flex", alignItems: "center", gap: 12}}>
-              <div style={{position: "relative", flexShrink: 0}}>
+            <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+              <div style={{ position: "relative", flexShrink: 0 }}>
                 <div style={{
-                  width: 38, height: 38, borderRadius: "50%",
+                  width: 40, height: 40, borderRadius: "50%",
                   background: "linear-gradient(135deg, #3A1F52 0%, #1F0D30 100%)",
                   border: "1.5px solid #D4AF37",
                   display: "flex", alignItems: "center", justifyContent: "center",
-                  boxShadow: "0 2px 8px rgba(0,0,0,0.2)"
+                  boxShadow: "0 3px 10px rgba(0,0,0,0.3)"
                 }}>
                   <span style={{
                     fontFamily: "'Cinzel', 'Trajan Pro', serif",
                     fontWeight: 700,
-                    fontSize: 16,
+                    fontSize: 17,
                     color: "#E8D499",
                     letterSpacing: 0.5
                   }}>K</span>
                 </div>
                 <span style={{
                   position: "absolute", bottom: 0, right: 0,
-                  width: 9, height: 9, borderRadius: "50%",
+                  width: 10, height: 10, borderRadius: "50%",
                   background: "#10B981",
-                  border: "2px solid #251737",
-                  boxShadow: "0 0 6px #10B981"
+                  border: "2px solid #1C0A2E",
+                  boxShadow: "0 0 8px #10B981"
                 }} />
               </div>
 
               <div>
-                <div style={{display: "flex", alignItems: "center", gap: 6}}>
-                  <h4 style={{
-                    margin: 0,
-                    fontFamily: "'Cinzel', 'Trajan Pro', serif",
-                    fontSize: 12,
-                    letterSpacing: 1.5,
-                    color: "#EAD5A0",
-                    fontWeight: 700,
-                    textTransform: "uppercase"
-                  }}>
-                    {isRTL ? "مستشار خَدْلَج للعطور" : "Khadlaj Scent Concierge"}
-                  </h4>
-                </div>
-                <p style={{
-                  margin: "2px 0 0 0",
-                  fontSize: 10,
-                  color: "rgba(255,255,255,0.7)",
-                  fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif"
+                <h4 style={{
+                  margin: 0,
+                  fontFamily: "'Cinzel', 'Trajan Pro', serif",
+                  fontSize: 13,
+                  letterSpacing: isRTL ? 0.5 : 1.5,
+                  color: "#EAD5A0",
+                  fontWeight: 700,
+                  textTransform: "uppercase"
                 }}>
-                  {isRTL ? "مستشارك الخاص • متصل الآن" : "Bespoke AI Advisor • Online"}
+                  {isRTL ? "مستشار خَدْلَج الملكي" : "Khadlaj Scent Concierge"}
+                </h4>
+                <p style={{
+                  margin: "3px 0 0 0",
+                  fontSize: 10.5,
+                  color: "rgba(234, 213, 160, 0.8)",
+                  fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 5
+                }}>
+                  <span style={{ width: 5, height: 5, borderRadius: "50%", background: "#10B981", display: "inline-block" }} />
+                  {isRTL ? "متصل الآن • خبير عطور رسمي" : "Bespoke AI Sommelier • Online"}
                 </p>
               </div>
             </div>
 
-            <div style={{display: "flex", alignItems: "center", gap: 4}}>
+            <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
               <button
                 onClick={() => {
                   setMessages([
@@ -14939,7 +20256,7 @@ export default function App(){
                 title={isRTL ? "إعادة بدء المحادثة" : "Restart conversation"}
                 aria-label="Restart conversation"
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="1 4 1 10 7 10"></polyline>
                   <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
                 </svg>
@@ -14949,8 +20266,12 @@ export default function App(){
                 className="chat-action-icon-btn"
                 title={isRTL ? "إغلاق" : "Close chat"}
                 aria-label="Close chat"
+                style={{
+                  background: "rgba(255, 255, 255, 0.12)",
+                  borderRadius: "50%"
+                }}
               >
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="18" y1="6" x2="6" y2="18"></line>
                   <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
@@ -14958,7 +20279,7 @@ export default function App(){
             </div>
           </div>
 
-          {/* Messages list */}
+          {/* Messages list (Solid 100% opaque, zero bleed-through) */}
           <div
             ref={chatMessagesRef}
             className="chat-messages-container"
@@ -14969,22 +20290,23 @@ export default function App(){
               display: "flex",
               flexDirection: "column",
               gap: 14,
-              background: "radial-gradient(ellipse at top, #FFFDF9 0%, #F8F5EE 100%)"
+              background: "#FAF8F5"
             }}
           >
-            <div style={{textAlign: "center", margin: "2px 0 4px 0"}}>
+            <div style={{ textAlign: "center", margin: "2px 0 6px 0" }}>
               <span style={{
-                fontSize: 9,
-                letterSpacing: 1.2,
-                color: "#9F9282",
+                fontSize: 9.5,
+                letterSpacing: 1.4,
+                color: "#8C7B65",
                 textTransform: "uppercase",
                 background: "rgba(184, 146, 42, 0.08)",
-                padding: "3px 10px",
-                borderRadius: 10,
-                fontWeight: 600,
-                border: "1px solid rgba(184, 146, 42, 0.15)"
+                padding: "4px 12px",
+                borderRadius: 12,
+                fontWeight: 700,
+                border: "1px solid rgba(184, 146, 42, 0.2)",
+                fontFamily: "'Cinzel', serif"
               }}>
-                {isRTL ? "دار خَدْلَج للعطور • دبي" : "Khadlaj Perfumes • Dubai"}
+                {isRTL ? "دار خَدْلَج للعطور • تأسست ١٩٩٧" : "KHADLAJ PERFUMES • UAE EST. 1997"}
               </span>
             </div>
 
@@ -14993,24 +20315,24 @@ export default function App(){
                 key={i}
                 style={{
                   alignSelf: msg.role === "user" ? "flex-end" : "flex-start",
-                  maxWidth: msg.role === "user" ? "82%" : "88%",
+                  maxWidth: msg.role === "user" ? "82%" : "90%",
                   display: "flex",
-                  gap: 8,
+                  gap: 9,
                   alignItems: "flex-start"
                 }}
               >
                 {msg.role !== "user" && (
                   <div style={{
-                    width: 24, height: 24, borderRadius: "50%",
+                    width: 26, height: 26, borderRadius: "50%",
                     background: "linear-gradient(135deg, #3A1F52 0%, #200E30 100%)",
                     border: "1px solid #D4AF37",
                     display: "flex", alignItems: "center", justifyContent: "center",
                     flexShrink: 0, marginTop: 2,
-                    boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
+                    boxShadow: "0 2px 5px rgba(0,0,0,0.12)"
                   }}>
                     <span style={{
                       fontFamily: "'Cinzel', serif",
-                      fontSize: 11,
+                      fontSize: 12,
                       fontWeight: 700,
                       color: "#E8D499"
                     }}>K</span>
@@ -15021,78 +20343,91 @@ export default function App(){
                   className={msg.role === "user" ? "chat-bubble-user" : "chat-bubble-assistant"}
                   style={{
                     background: msg.role === "user"
-                      ? "linear-gradient(135deg, #3A124F 0%, #220831 100%)"
+                      ? "linear-gradient(135deg, #2D1142 0%, #180825 100%)"
                       : "#FFFFFF",
-                    color: msg.role === "user" ? "#FFFFFF" : "#221C28",
-                    padding: "10px 14px",
+                    color: msg.role === "user" ? "#FAF6ED" : "#221C28",
+                    padding: msg.role === "user" ? "11px 15px" : "13px 16px",
                     borderRadius: msg.role === "user"
-                      ? (isRTL ? "4px 14px 14px 14px" : "14px 4px 14px 14px")
-                      : (isRTL ? "14px 4px 14px 14px" : "4px 14px 14px 14px"),
+                      ? (isRTL ? "4px 16px 16px 16px" : "16px 4px 16px 16px")
+                      : (isRTL ? "16px 4px 16px 16px" : "4px 16px 16px 16px"),
                     boxShadow: msg.role === "user"
-                      ? "0 4px 14px rgba(37, 18, 55, 0.2)"
-                      : "0 2px 10px rgba(0,0,0,0.04)",
+                      ? "0 4px 14px rgba(24, 8, 37, 0.22)"
+                      : "0 3px 14px rgba(37, 23, 55, 0.06)",
                     border: msg.role === "user"
-                      ? "1px solid rgba(212, 175, 55, 0.35)"
-                      : "1px solid #EAE4D6"
+                      ? "1px solid rgba(212, 175, 55, 0.3)"
+                      : "1px solid rgba(212, 175, 55, 0.25)",
+                    fontSize: 12.5,
+                    fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif"
                   }}
                 >
-                  {msg.role !== "user" && (
-                    <div style={{
-                      fontSize: 9,
-                      letterSpacing: 1,
-                      fontWeight: 700,
-                      color: "#B8922A",
-                      textTransform: "uppercase",
-                      marginBottom: 4,
-                      fontFamily: "'Cinzel', serif"
-                    }}>
-                      {isRTL ? "مستشار خَدْلَج" : "Khadlaj Concierge"}
-                    </div>
+                  {msg.role !== "user" ? (
+                    <>
+                      <div style={{
+                        display: "flex",
+                        alignItems: "center",
+                        gap: 6,
+                        marginBottom: 6,
+                        paddingBottom: 5,
+                        borderBottom: "1px solid rgba(212, 175, 55, 0.15)"
+                      }}>
+                        <span style={{
+                          display: "inline-block",
+                          width: 5,
+                          height: 5,
+                          borderRadius: "50%",
+                          background: "#B8922A"
+                        }} />
+                        <span style={{
+                          fontSize: 9.5,
+                          letterSpacing: 1.2,
+                          fontWeight: 700,
+                          color: "#9C7723",
+                          textTransform: "uppercase",
+                          fontFamily: "'Cinzel', serif"
+                        }}>
+                          {isRTL ? "مستشار خَدْلَج الملكي" : "Khadlaj Royal Concierge"}
+                        </span>
+                      </div>
+                      {renderFormattedChatMessage(msg.content, isRTL)}
+                    </>
+                  ) : (
+                    <div style={{ lineHeight: 1.5 }}>{msg.content}</div>
                   )}
-                  <p style={{
-                    fontSize: 12,
-                    lineHeight: 1.55,
-                    margin: 0,
-                    whiteSpace: "pre-line",
-                    fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif",
-                    letterSpacing: 0.1
-                  }}>
-                    {msg.content}
-                  </p>
                 </div>
               </div>
             ))}
 
             {loading && (
-              <div style={{alignSelf: "flex-start", maxWidth: "88%", display: "flex", gap: 8, alignItems: "flex-start"}}>
+              <div style={{ alignSelf: "flex-start", maxWidth: "90%", display: "flex", gap: 9, alignItems: "flex-start" }}>
                 <div style={{
-                  width: 24, height: 24, borderRadius: "50%",
+                  width: 26, height: 26, borderRadius: "50%",
                   background: "linear-gradient(135deg, #3A1F52 0%, #200E30 100%)",
                   border: "1px solid #D4AF37",
                   display: "flex", alignItems: "center", justifyContent: "center",
                   flexShrink: 0, marginTop: 2
                 }}>
-                  <span style={{fontFamily: "'Cinzel', serif", fontSize: 11, fontWeight: 700, color: "#E8D499"}}>K</span>
+                  <span style={{ fontFamily: "'Cinzel', serif", fontSize: 12, fontWeight: 700, color: "#E8D499" }}>K</span>
                 </div>
                 <div style={{
                   background: "#FFFFFF",
-                  padding: "10px 14px",
-                  borderRadius: isRTL ? "14px 4px 14px 14px" : "4px 14px 14px 14px",
-                  border: "1px solid #EAE4D6",
-                  boxShadow: "0 2px 10px rgba(0,0,0,0.04)"
+                  padding: "12px 16px",
+                  borderRadius: isRTL ? "16px 4px 16px 16px" : "4px 16px 16px 16px",
+                  border: "1px solid rgba(212, 175, 55, 0.25)",
+                  boxShadow: "0 3px 14px rgba(37, 23, 55, 0.06)"
                 }}>
-                  <div style={{display: "flex", alignItems: "center", gap: 6}}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
                     <span className="chat-typing-dot"></span>
-                    <span className="chat-typing-dot" style={{animationDelay: "0.2s"}}></span>
-                    <span className="chat-typing-dot" style={{animationDelay: "0.4s"}}></span>
+                    <span className="chat-typing-dot" style={{ animationDelay: "0.2s" }}></span>
+                    <span className="chat-typing-dot" style={{ animationDelay: "0.4s" }}></span>
                     <span style={{
-                      fontSize: 10.5,
-                      color: "#8E8474",
+                      fontSize: 11,
+                      color: "#997328",
                       marginLeft: 4,
                       fontStyle: "italic",
+                      fontWeight: 500,
                       fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif"
                     }}>
-                      {isRTL ? "جاري تحضير الإجابة..." : "Consulting fragrance notes..."}
+                      {isRTL ? "جاري تحضير الإجابة الفاخرة..." : "Consulting royal fragrance notes..."}
                     </span>
                   </div>
                 </div>
@@ -15102,32 +20437,35 @@ export default function App(){
 
           {/* Quick Suggestions Bar */}
           <div style={{
-            padding: "8px 12px",
-            background: "#F5F2EA",
-            borderTop: "1px solid #E8E0D0",
-            borderBottom: "1px solid #E8E0D0",
+            padding: "9px 14px",
+            background: "#F3EEE3",
+            borderTop: "1px solid rgba(212, 175, 55, 0.22)",
+            borderBottom: "1px solid rgba(212, 175, 55, 0.22)",
             display: "flex",
             alignItems: "center",
-            gap: 6
+            gap: 8,
+            flexShrink: 0
           }}>
             <span style={{
               fontSize: 10,
-              color: "#918472",
-              fontWeight: 600,
-              letterSpacing: 0.5,
+              color: "#9C7723",
+              fontWeight: 700,
+              letterSpacing: 0.8,
               flexShrink: 0,
               display: "flex",
-              alignItems: "center"
+              alignItems: "center",
+              gap: 4
             }} title="Quick prompts">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="2">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B8922A" strokeWidth="2">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
               </svg>
+              <span style={{ fontSize: 9.5, textTransform: "uppercase" }}>{isRTL ? "اقتراحات" : "SUGGESTIONS"}</span>
             </span>
             <div
               className="chat-chips-scroll no-scrollbar"
               style={{
                 display: "flex",
-                gap: 6,
+                gap: 7,
                 overflowX: "auto",
                 padding: "2px 0"
               }}
@@ -15136,14 +20474,14 @@ export default function App(){
                 "عطر شياكة شادو",
                 "عطر آيلاند صن",
                 "سياسة التوصيل",
-                "كود الخصم",
+                "كود الخصم KHADLAJ25",
                 "أفضل العطور مبيعاً"
               ] : [
                 "Shiyaaka Shadow notes",
                 "Island Sun fragrance",
-                "UAE delivery policy",
-                "Discount code",
-                "Best selling perfumes"
+                "UAE & GCC delivery policy",
+                "Discount code KHADLAJ25",
+                "Bestselling perfumes"
               ]).map((sug, idx) => (
                 <button
                   key={idx}
@@ -15161,13 +20499,15 @@ export default function App(){
 
           {/* Footer Input */}
           <div style={{
-            padding: "10px 14px 8px 14px",
-            background: "#FFFFFF"
+            padding: "12px 14px 10px 14px",
+            background: "#FFFFFF",
+            borderTop: "1px solid #EAE3D6",
+            flexShrink: 0
           }}>
             <div className="chat-input-wrapper">
               <input
                 type="text"
-                placeholder={isRTL ? "اسأل عن أي عطر من خَدْلَج..." : "Ask about Khadlaj perfumes..."}
+                placeholder={isRTL ? "اسأل عن أي عطر أو نوتات من خَدْلَج..." : "Ask about Khadlaj fragrances, notes, offers..."}
                 value={inputVal}
                 onChange={e => setInputVal(e.target.value)}
                 onKeyDown={e => {
@@ -15182,10 +20522,10 @@ export default function App(){
                   border: "none",
                   background: "transparent",
                   outline: "none",
-                  fontSize: 12,
-                  color: "#251737",
+                  fontSize: 12.5,
+                  color: "#1C0A2E",
                   fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif",
-                  padding: "7px 4px"
+                  padding: "8px 6px"
                 }}
               />
               <button
@@ -15195,7 +20535,7 @@ export default function App(){
                 title={isRTL ? "إرسال" : "Send message"}
                 aria-label="Send message"
               >
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{transform: isRTL ? "rotate(180deg)" : "none", marginLeft: isRTL ? 0 : 2}}>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: isRTL ? "rotate(180deg)" : "none", marginLeft: isRTL ? 0 : 2 }}>
                   <line x1="22" y1="2" x2="11" y2="13"></line>
                   <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
                 </svg>
@@ -15203,14 +20543,14 @@ export default function App(){
             </div>
 
             <p style={{
-              margin: "6px 0 2px 0",
+              margin: "7px 0 2px 0",
               textAlign: "center",
-              fontSize: 9,
+              fontSize: 9.5,
               letterSpacing: 0.4,
-              color: "#ABA191",
+              color: "#9E9080",
               fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif"
             }}>
-              {isRTL ? "مستشار خَدْلَج الذكي • عطور أصلية فاخرة ١٠٠٪" : "Khadlaj Royal Scent Concierge • 100% Authentic"}
+              {isRTL ? "دار خَدْلَج للعطور • استشارة عطور ملكية أصلية ١٠٠٪" : "Khadlaj Royal Fragrance Concierge • 100% Authentic"}
             </p>
           </div>
         </div>
@@ -15221,6 +20561,25 @@ export default function App(){
         <div
           className="popup-overlay"
           onClick={()=>setShowPopup(false)}
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            width: "100vw",
+            height: "100vh",
+            zIndex: 99999999,
+            background: "rgba(0,0,0,0.78)",
+            backdropFilter: "blur(6px)",
+            WebkitBackdropFilter: "blur(6px)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            padding: "20px 16px",
+            overflowY: "auto",
+            boxSizing: "border-box"
+          }}
         >
           <div
             className="popup-in"
@@ -15229,36 +20588,42 @@ export default function App(){
             onMouseLeave={resetTilt}
             style={{
               background:"linear-gradient(135deg, #251737 0%, #1A0B22 100%)",maxWidth:440,width:"90%",
-              overflow:"visible",boxShadow:"0 32px 80px rgba(0,0,0,.4)",
+              overflow:"visible",boxShadow:"0 32px 80px rgba(0,0,0,.6)",
               position:"relative", borderRadius:12,
               border:"1px solid rgba(212,175,55,.45)",
-              padding: "40px 30px",
+              padding: "32px 24px",
               boxSizing: "border-box",
+              direction: isRTL ? "rtl" : "ltr",
+              margin: "auto",
               ...tiltStyle
             }}
           >
-            <button onClick={()=>setShowPopup(false)} style={{position:"absolute",top:12,right:12,background:"rgba(212,175,55,0.1)",border:"none",width:30,height:30,borderRadius:"50%",fontSize:18,cursor:"pointer",color:"#D4AF37",zIndex:10,display:"flex",alignItems:"center",justifyContent:"center",transition:"all 0.3s"}} onMouseEnter={e=>{e.currentTarget.style.background="rgba(212,175,55,0.2)";}} onMouseLeave={e=>{e.currentTarget.style.background="rgba(212,175,55,0.1)";}}>×</button>
+            <button onClick={()=>setShowPopup(false)} style={{position:"absolute",top:12,[isRTL ? "left" : "right"]:12,background:"rgba(212,175,55,0.1)",border:"none",width:30,height:30,borderRadius:"50%",fontSize:18,cursor:"pointer",color:"#D4AF37",zIndex:10,display:"flex",alignItems:"center",justifyContent:"center",transition:"all 0.3s"}} onMouseEnter={e=>{e.currentTarget.style.background="rgba(212,175,55,0.2)";}} onMouseLeave={e=>{e.currentTarget.style.background="rgba(212,175,55,0.1)";}}>×</button>
             
             <div style={{display:"flex",flexDirection:"column",justifyContent:"center"}}>
               {popupState === "scratch" ? (
                 <div style={{textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center"}}>
-                  <p style={{fontSize:15,letterSpacing:5,color:"#D4AF37",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:14, fontWeight:700}}>Exclusive Privilege</p>
-                  <h3 className="disp mobile-text" style={{fontSize:26,fontWeight:400,color:"#F9F4EB",marginBottom:28,lineHeight:1.15}}>Your Private Invitation</h3>
+                  <p style={{fontSize:15,letterSpacing:isRTL ? 1 : 5,color:"#D4AF37",textTransform:"uppercase",fontFamily:isRTL ? "'Tajawal',sans-serif" : "'Montserrat',sans-serif",marginBottom:14, fontWeight:700}}>
+                    {isRTL ? "امتياز حصري" : "Exclusive Privilege"}
+                  </p>
+                  <h3 className="disp mobile-text" style={{fontSize:26,fontWeight:400,color:"#F9F4EB",marginBottom:28,lineHeight:1.15,fontFamily:isRTL ? "'Tajawal',sans-serif" : "inherit"}}>
+                    {isRTL ? "دعوتك الخاصة" : "Your Private Invitation"}
+                  </h3>
                   
-                  <ScratchCard code="KHADLAJ10" onReveal={() => {
+                  <ScratchCard code="KHADLAJ10" isRTL={isRTL} onReveal={() => {
                      setTimeout(() => setPopupState("revealed"), 800);
                   }} />
                   
-                  <button onClick={()=>setShowPopup(false)} style={{background:"none", border:"none", fontSize:9, letterSpacing:2, color:"rgba(255,255,255,0.4)", textTransform:"uppercase", textAlign:"center", marginTop:24, cursor:"pointer", fontFamily:"'Montserrat',sans-serif", borderBottom:"1px solid transparent", transition:"all 0.3s", paddingBottom:2}}
+                  <button onClick={()=>setShowPopup(false)} style={{background:"none", border:"none", fontSize:9, letterSpacing:isRTL ? 1 : 2, color:"rgba(255,255,255,0.4)", textTransform:"uppercase", textAlign:"center", marginTop:24, cursor:"pointer", fontFamily:isRTL ? "'Tajawal',sans-serif" : "'Montserrat',sans-serif", borderBottom:"1px solid transparent", transition:"all 0.3s", paddingBottom:2}}
                     onMouseEnter={e=>{e.currentTarget.style.color="#D4AF37";}}
                     onMouseLeave={e=>{e.currentTarget.style.color="rgba(255,255,255,0.4)";}}
-                  >Decline Offer</button>
+                  >{isRTL ? "تخطي العرض" : "Decline Offer"}</button>
                 </div>
               ) : (
                 <div className="glow-up" style={{textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center"}}>
-                  <p style={{fontSize:15,letterSpacing:5,color:"#D4AF37",textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",marginBottom:12, fontWeight:700}}>Reward Claimed</p>
-                  <h3 className="disp mobile-text" style={{fontSize:26,fontWeight:400,color:"#F9F4EB",marginBottom:12,lineHeight:1.15}}>VIP Privilege Unlocked</h3>
-                  <p style={{fontSize:11,color:"rgba(249,244,235,0.7)",lineHeight:1.6,fontFamily:"'Montserrat',sans-serif",marginBottom:30}}>Your exclusive 10% discount is ready. Apply this code at checkout.</p>
+                  <p style={{fontSize:15,letterSpacing:isRTL ? 1 : 5,color:"#D4AF37",textTransform:"uppercase",fontFamily:isRTL ? "'Tajawal',sans-serif" : "'Montserrat',sans-serif",marginBottom:24, fontWeight:700}}>
+                    {isRTL ? "تم تفعيل المكافأة" : "Reward Claimed"}
+                  </p>
                   
                   <div style={{
                       position: "relative",
@@ -15282,14 +20647,16 @@ export default function App(){
                        <div style={{position:"absolute", inset:0, opacity:0.1, backgroundImage:"radial-gradient(#D4AF37 1px, transparent 1px)", backgroundSize:"12px 12px"}} />
                        <div style={{position:"absolute", top:"-50%", left:"-50%", width:"200%", height:"200%", background:"conic-gradient(from 90deg at 50% 50%, rgba(212,175,55,0) 0%, rgba(212,175,55,0.1) 50%, rgba(212,175,55,0) 100%)", animation:"spin 10s linear infinite"}} />
                        
-                       <p style={{fontSize: 9, letterSpacing: 5, color:"#F3E5AB", textTransform:"uppercase", marginBottom: 6, zIndex:2, position:"relative", opacity: 0.8}}>Discount Code</p>
+                       <p style={{fontSize: 9, letterSpacing: isRTL ? 1 : 5, color:"#F3E5AB", textTransform:"uppercase", marginBottom: 6, zIndex:2, position:"relative", opacity: 0.8, fontFamily:isRTL ? "'Tajawal',sans-serif" : "inherit"}}>
+                         {isRTL ? "كود الخصم" : "Discount Code"}
+                       </p>
                        <p style={{
                            fontSize: 30, 
                            fontWeight:900, 
                            margin:0, 
                            background: "linear-gradient(to bottom, #FFF 0%, #F3E5AB 50%, #D4AF37 100%)", 
                            WebkitBackgroundClip: "text", 
-                           WebkitTextFillColor: "transparent",
+                           WebkitTextFillColor: "transparent", 
                            letterSpacing: 8, 
                            filter: "drop-shadow(0 4px 15px rgba(212,175,55,0.5))",
                            position: "relative",
@@ -15312,11 +20679,11 @@ export default function App(){
                        color:"#1A0B22",
                        border:"none",
                        padding:"18px",
-                       fontSize:12,
-                       letterSpacing:3,
+                       fontSize:13,
+                       letterSpacing:isRTL ? 1 : 3,
                        textTransform:"uppercase",
                        cursor:"pointer",
-                       fontFamily:"'Montserrat',sans-serif",
+                       fontFamily:isRTL ? "'Tajawal',sans-serif" : "'Montserrat',sans-serif",
                        fontWeight:800,
                        transition:"all 0.5s ease",
                        borderRadius: 6,
@@ -15324,7 +20691,7 @@ export default function App(){
                     }}
                     onMouseEnter={e=>{e.currentTarget.style.backgroundPosition="right center"; e.currentTarget.style.transform="translateY(-3px)"; e.currentTarget.style.boxShadow="0 15px 40px rgba(212,175,55,0.6)";}}
                     onMouseLeave={e=>{e.currentTarget.style.backgroundPosition="left center"; e.currentTarget.style.transform="translateY(0)"; e.currentTarget.style.boxShadow="0 10px 30px rgba(212,175,55,0.4)";}}
-                  >Copy Code & Shop Now</button>
+                  >{isRTL ? "نسخ الكود والتسوق الآن" : "Copy Code & Shop Now"}</button>
                 </div>
               )}
             </div>

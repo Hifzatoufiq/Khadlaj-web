@@ -1,8 +1,11 @@
 
-      *{box-sizing:border-box;margin:0;padding:0;}
-      html, body{overflow-x:hidden !important;max-width:100% !important;width:100%;position:relative;}
+      *{box-sizing:border-box;margin:0;padding:0;-ms-overflow-style:none !important;scrollbar-width:none !important;}
+      html, body{overflow-x:hidden !important;max-width:100% !important;width:100%;position:relative;-ms-overflow-style:none !important;scrollbar-width:none !important;}
       body{background:#fff;font-family:'Montserrat',sans-serif;}
-      #root{min-height:100vh;overflow-x:hidden !important;max-width:100% !important;width:100%;position:relative;}
+      #root{min-height:100vh;overflow-x:hidden !important;max-width:100% !important;width:100%;position:relative;-ms-overflow-style:none !important;scrollbar-width:none !important;}
+      ::-webkit-scrollbar{display:none !important;width:0 !important;height:0 !important;background:transparent !important;}
+      ::-webkit-scrollbar-track{background:transparent !important;}
+      ::-webkit-scrollbar-thumb{background:transparent !important;}
       #preloader {
         position: fixed;
         top: 0; left: 0; width: 100vw; height: 100vh;
@@ -45,5 +48,115 @@
       @keyframes vipProgress {
         0% { transform: translateX(-100%); }
         100% { transform: translateX(300%); }
+      }
+
+      /* Sticky / Fixed Navbar */
+      .nav-sticky-wrapper.nav-home-fixed {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 1000 !important;
+        width: 100% !important;
+      }
+      .nav-sticky-wrapper.nav-inner-sticky {
+        position: sticky !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 1000 !important;
+        width: 100% !important;
+      }
+      .nav-inner-page-spacer {
+        display: none !important;
+        height: 0 !important;
+        width: 0 !important;
+        pointer-events: none !important;
+      }
+      .nav-inner-page-spacer.scrolled {
+        display: none !important;
+        height: 0 !important;
+      }
+      @media(max-width: 900px) {
+        .nav-sticky-wrapper.nav-home-fixed {
+          position: fixed !important;
+          top: 0 !important;
+          left: 0 !important;
+          right: 0 !important;
+          z-index: 1000 !important;
+          width: 100% !important;
+        }
+        .nav-sticky-wrapper.nav-inner-sticky {
+          position: sticky !important;
+          top: 0 !important;
+          left: 0 !important;
+          right: 0 !important;
+          z-index: 1000 !important;
+          width: 100% !important;
+        }
+        .nav-divider-line,
+        .nav-links-bar {
+          display: none !important;
+        }
+        .nav-inner-page-spacer {
+          display: none !important;
+          height: 0 !important;
+        }
+        .nav-inner-page-spacer.scrolled {
+          display: none !important;
+          height: 0 !important;
+        }
+      }
+
+      /* Review author mobile typography */
+      .review-author-name {
+        font-size: 9px;
+        letter-spacing: 2px;
+      }
+      .review-author-country {
+        font-size: 8px;
+        letter-spacing: 4px;
+      }
+      @media(max-width: 900px) {
+        .review-card .review-card-text {
+          font-size: 12px !important;
+          margin: 10px 0 !important;
+        }
+        .review-author-name {
+          font-size: 7.5px !important;
+          letter-spacing: 1px !important;
+          margin: 0 !important;
+        }
+        .review-author-country {
+          font-size: 6.5px !important;
+          letter-spacing: 1.5px !important;
+          margin: 3px 0 0 !important;
+        }
+      }
+      @media(max-width: 600px) {
+        .review-author-name {
+          font-size: 7px !important;
+          letter-spacing: 0.8px !important;
+          margin: 0 !important;
+        }
+        .review-author-country {
+          font-size: 6px !important;
+          letter-spacing: 1px !important;
+          margin: 2px 0 0 !important;
+        }
+      }
+
+      /* Popup and modal overlays on top of fixed navbar */
+      .popup-overlay {
+        z-index: 999999 !important;
+      }
+
+      /* Collection Pills Scroll Track */
+      #collection-pills-scroll::-webkit-scrollbar {
+        display: none !important;
+      }
+      #collection-pills-scroll {
+        -ms-overflow-style: none !important;
+        scrollbar-width: none !important;
       }
     

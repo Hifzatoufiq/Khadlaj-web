@@ -5,5 +5,21 @@ bundle-v3.js
 bundle-v4.js
 bundle.js
 scratch/
+scratch_*.js
+test*.jpg
+test*.png
+test_bundle.js
+theme-live-check/
+src_assets.js
+
+# Environment and sensitive keys
 .env
+.env.*
 .env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.key
+*.pem
+*.secret
+*.token
