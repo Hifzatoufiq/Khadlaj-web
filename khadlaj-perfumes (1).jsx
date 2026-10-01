@@ -352,7 +352,7 @@ const PAYMENTS = ["Visa","Mastercard","Apple Pay","Google Pay","Tabby","Tamara",
 
 const NAV_LINKS = ["Best Sellers","Perfume Spray","Perfume Oil","Home & Ambience","Gift Sets","Our legacy"];
 
-const SCENT_RIBBON = ["Island", "Icon", "Shiyaaka", "Empire", "Fursan", "Nuha", "Valor", "Velvet"];
+const SCENT_RIBBON = ["Island", "Icon", "Shiyaaka", "Empire", "Oud", "Nuha", "Valor", "Velvet"];
 
 const STATS = [
   { v:"1997", l:"Year Founded" },
@@ -11598,7 +11598,6 @@ const FEATURED_COLLECTIONS = [
   { key: "island", name: "Island", nameAr: "آيلاند" },
   { key: "shiyaaka", name: "Shiyaaka", nameAr: "شياكة" },
   { key: "oud", name: "Oud Collection", nameAr: "مجموعة العود" },
-  { key: "fursan", name: "Fursan", nameAr: "فرسان" },
   { key: "limaginaire", name: "L'Imaginaire", nameAr: "ليماجينير" },
   { key: "nuha", name: "Nuha", nameAr: "نهى" },
   { key: "velvet", name: "Velvet", nameAr: "فيلفيت" },
@@ -11631,10 +11630,8 @@ function DedicatedCollectionPage({ collectionKey = "island", addToCart, setViewP
     resolvedKey = rawKey;
   } else if (rawKey.includes("shiya")) {
     resolvedKey = "shiyaaka";
-  } else if (rawKey.includes("oud")) {
+  } else if (rawKey.includes("oud") || rawKey.includes("fursan")) {
     resolvedKey = "oud";
-  } else if (rawKey.includes("fursan")) {
-    resolvedKey = "fursan";
   } else if (rawKey.includes("imag")) {
     resolvedKey = "limaginaire";
   } else if (rawKey.includes("nuha")) {
