@@ -297,6 +297,9 @@ export function resolveAsset(url) {
     if (filename.includes('horizontal-logo')) {
       return window.__HORIZONTAL_LOGO__ || (window.__THEME_ASSETS__ && window.__THEME_ASSETS__['khadlaj-horizontal-logo.png']) || HORIZONTAL_LOGO_BASE64;
     }
+    if (filename.includes('mobile hero video') || filename.includes('mobile-hero-video')) {
+      return window.__MOBILE_HERO_VIDEO__ || window.__MOBILE_VIDEO_URL__ || (window.__THEME_ASSETS__ && (window.__THEME_ASSETS__['mobile hero video.mp4'] || window.__THEME_ASSETS__['mobile-hero-video.mp4'])) || "/assets/videos/mobile hero video.mp4";
+    }
     if (window.__THEME_ASSETS__ && window.__THEME_ASSETS__[filename]) {
       return window.__THEME_ASSETS__[filename];
     }
@@ -7057,6 +7060,12 @@ const GLOBAL_CSS = `
     display: block;
     opacity: 1;
   }
+  .hero-video-desktop {
+    display: block !important;
+  }
+  .hero-video-mobile {
+    display: none !important;
+  }
   .hero-scent-ribbon {
     flex-shrink: 0;
     overflow: hidden;
@@ -7158,7 +7167,14 @@ const GLOBAL_CSS = `
       width: 100% !important;
       height: 100% !important;
       object-fit: cover !important;
-      object-position: center 28% !important;
+    }
+    .hero-video-desktop {
+      display: none !important;
+    }
+    .hero-video-mobile {
+      display: block !important;
+      object-fit: cover !important;
+      object-position: center center !important;
     }
     .hero-scent-ribbon {
       padding: 12px 0 !important;
@@ -7181,6 +7197,14 @@ const GLOBAL_CSS = `
       flex: 1 !important;
       min-height: 0 !important;
       max-height: none !important;
+    }
+    .hero-video-desktop {
+      display: none !important;
+    }
+    .hero-video-mobile {
+      display: block !important;
+      object-fit: cover !important;
+      object-position: center center !important;
     }
     .hero-scent-ribbon {
       padding: 11px 0 !important;
@@ -10454,28 +10478,33 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection, s
   const [activeCat, setActiveCat] = useState("Best Sellers");
   const [isMuted, setIsMuted] = useState(true);
   const heroVideoRef = useRef(null);
+  const mobileHeroVideoRef = useRef(null);
   const [hov, setHov] = useState(null);
 
   useEffect(() => {
-    if (heroVideoRef.current) {
-      heroVideoRef.current.defaultMuted = true;
-      heroVideoRef.current.muted = true;
-      const playPromise = heroVideoRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {});
+    [heroVideoRef.current, mobileHeroVideoRef.current].forEach(v => {
+      if (v) {
+        v.defaultMuted = true;
+        v.muted = true;
+        const playPromise = v.play();
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {});
+        }
       }
-    }
+    });
   }, []);
 
   const toggleSound = () => {
-    if (heroVideoRef.current) {
-      const next = !isMuted;
-      heroVideoRef.current.muted = next;
-      setIsMuted(next);
-      if (!next) {
-        heroVideoRef.current.play().catch(() => {});
+    const next = !isMuted;
+    [heroVideoRef.current, mobileHeroVideoRef.current].forEach(v => {
+      if (v) {
+        v.muted = next;
+        if (!next) {
+          v.play().catch(() => {});
+        }
       }
-    }
+    });
+    setIsMuted(next);
   };
   const [quizStep, setQuizStep] = useState(1);
   const [quizMood, setQuizMood] = useState("");
@@ -10594,9 +10623,10 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection, s
       {/* ── FIRST SCROLL: LUXURY CINEMATIC HERO VIDEO WITH BOTTOM LINE ── */}
       <div className="hero-first-scroll-wrap">
         <section className="hero-video-wrap hero-section">
+          {/* Desktop Hero Video (Untouched) */}
           <video
             ref={heroVideoRef}
-            className="hero-video"
+            className="hero-video hero-video-desktop"
             src={window.__VIDEO_URL__ || resolveAsset("website-update-web-version.mp4") || "https://cdn.shopify.com/videos/c/o/v/72cc17c9b4814387bc03c19cae9c00e2.mp4"}
             autoPlay
             muted={isMuted}
@@ -10620,7 +10650,33 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection, s
               height: "100%",
               objectFit: "cover",
               objectPosition: "center 28%",
-              display: "block",
+              opacity: 1,
+            }}
+          />
+
+          {/* Mobile Hero Video (assets/videos/mobile hero video.mp4) */}
+          <video
+            ref={mobileHeroVideoRef}
+            className="hero-video hero-video-mobile"
+            src={window.__MOBILE_HERO_VIDEO__ || window.__MOBILE_VIDEO_URL__ || resolveAsset("/assets/videos/mobile hero video.mp4")}
+            autoPlay
+            muted={isMuted}
+            loop
+            playsInline
+            webkit-playsinline="true"
+            preload="auto"
+            onError={(e) => {
+              console.warn("Mobile hero video error:", e);
+            }}
+            onCanPlay={() => window.hidePreloader && window.hidePreloader()}
+            onLoadedData={() => window.hidePreloader && window.hidePreloader()}
+            style={{
+              position: "absolute",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "center center",
               opacity: 1,
             }}
           />
@@ -20603,11 +20659,11 @@ STRICT COMPANY-ONLY GUARDRAIL & POLICY:
             <div style={{display:"flex",flexDirection:"column",justifyContent:"center"}}>
               {popupState === "scratch" ? (
                 <div style={{textAlign:"center", display:"flex", flexDirection:"column", alignItems:"center"}}>
-                  <p style={{fontSize:15,letterSpacing:isRTL ? 1 : 5,color:"#D4AF37",textTransform:"uppercase",fontFamily:isRTL ? "'Tajawal',sans-serif" : "'Montserrat',sans-serif",marginBottom:14, fontWeight:700}}>
-                    {isRTL ? "امتياز حصري" : "Exclusive Privilege"}
+                  <p style={{fontSize:13,letterSpacing:isRTL ? 1 : 4,color:"#D4AF37",textTransform:"uppercase",fontFamily:isRTL ? "'Tajawal',sans-serif" : "'Montserrat',sans-serif",marginBottom:12, fontWeight:700}}>
+                    {isRTL ? "عرض حصري" : "Exclusive VIP Offer"}
                   </p>
-                  <h3 className="disp mobile-text" style={{fontSize:26,fontWeight:400,color:"#F9F4EB",marginBottom:28,lineHeight:1.15,fontFamily:isRTL ? "'Tajawal',sans-serif" : "inherit"}}>
-                    {isRTL ? "دعوتك الخاصة" : "Your Private Invitation"}
+                  <h3 className="disp mobile-text" style={{fontSize:24,fontWeight:500,color:"#F9F4EB",marginBottom:24,lineHeight:1.2,fontFamily:isRTL ? "'Tajawal',sans-serif" : "inherit",letterSpacing:isRTL ? 0 : 2}}>
+                    {isRTL ? "امسح واكشف كود الخصم" : "Scratch To Unlock Your Discount"}
                   </h3>
                   
                   <ScratchCard code="KHADLAJ10" isRTL={isRTL} onReveal={() => {
