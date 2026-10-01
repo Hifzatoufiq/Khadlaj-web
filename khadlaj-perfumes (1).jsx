@@ -11449,8 +11449,8 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة العود الفاخرة",
     subtitle: "Majestic Heritage & Timeless Sillage",
     subtitleAr: "أصالة التراث وسحر العود الخالد",
-    banner: "/assets/images/banners/home_ambience_banner.jpg",
-    bannerMobile: "/assets/images/banners/home_ambience_banner.jpg",
+    banner: "/assets/images/banners/deals_desktop.png",
+    bannerMobile: "/assets/images/banners/deals_mobile.png",
     filter: (p) => {
       const name = (p.name || "");
       const col = (p.col || "");
