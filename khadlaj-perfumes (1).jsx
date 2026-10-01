@@ -8414,6 +8414,7 @@ const GLOBAL_CSS = `
     .product-card{min-width:0!important;overflow:hidden!important;}
     .product-image-stage{height:clamp(190px,42vw,270px)!important;}
     .product-card-info{padding:12px 4px 16px!important;min-width:0!important;}
+    .product-card-col-label{font-size:7.5px!important;letter-spacing:1.2px!important;margin-bottom:3px!important;}
     .product-card-title{font-size:13px!important;letter-spacing:.6px!important;overflow-wrap:anywhere!important;font-weight:700!important;}
     .product-card-size{font-size:11px!important;margin-bottom:9px!important;}
     .product-notes{gap:3px!important;min-width:0!important;overflow:hidden!important;}
@@ -9311,7 +9312,7 @@ function ProductCard({ p, onView, onCart }){
         </div>
       </div>
       <div className="product-card-info" style={{padding:"16px 10px 18px", flex:1, display:"flex", flexDirection:"column", alignItems:"center", textAlign:"center"}}>
-        <p style={{fontSize: isRTL ? 12 : 9.5, letterSpacing: isRTL ? 0 : 3, color:"#B8922A", textTransform:"uppercase", marginBottom:7, fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif", fontWeight:600}}>{isRTL ? (COLLECTION_LABELS_AR[collectionLabel] || collectionLabel) : collectionLabel}</p>
+        <p className="product-card-col-label" style={{fontSize: isRTL ? 10.5 : 8.5, letterSpacing: isRTL ? 0 : 1.8, color:"#B8922A", textTransform:"uppercase", marginBottom:5, fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif", fontWeight:600}}>{isRTL ? (COLLECTION_LABELS_AR[collectionLabel] || collectionLabel) : collectionLabel}</p>
         <h3 className="product-card-title" style={{fontSize: isRTL ? 18 : 16, fontWeight: 700, color:"#251737", lineHeight:1.35, marginBottom:5, textTransform:"uppercase", letterSpacing: isRTL ? 0 : 1.2, fontFamily: isRTL ? "'Cairo', serif" : "'Cinzel', serif"}}>{getProductName(p, isRTL)}</h3>
         <p className="product-card-size" style={{fontSize: isRTL ? 13.5 : 12.5, color:"#888", marginBottom:12, fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat',sans-serif", letterSpacing: isRTL ? 0 : .4, fontWeight:500}}>{formatProductSize(p.size, isRTL)}</p>
         {notes.length > 0 && (
