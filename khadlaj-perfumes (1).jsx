@@ -7041,8 +7041,8 @@ const GLOBAL_CSS = `
   .reel-badge{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
 
   .tiktok-reel-card {
-    flex: 0 0 250px;
-    height: 440px;
+    flex: 0 0 260px;
+    height: 450px;
     position: relative;
     background: #0d0714;
     border-radius: 18px;
@@ -9542,59 +9542,89 @@ function TikTokCard({ t: item, setViewProduct, setPage }) {
           alignItems: isRTL ? "flex-end" : "flex-start",
           textAlign: isRTL ? "right" : "left"
         }}>
-          {/* Row 1: TikTok Music Logo + Creator Handle + Product Badge */}
+          {/* Row 1: TikTok Logo + Creator Handle */}
           <div style={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-between",
+            gap: 5,
             width: "100%",
-            gap: 6,
-            marginBottom: 6
+            marginBottom: 4
           }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="#fff">
-                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.31 6.31 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.87a8.18 8.18 0 0 0 4.78 1.52V7.01a4.85 4.85 0 0 1-1.01-.32z"/>
-              </svg>
-              <span style={{
-                color: "#fff",
-                fontWeight: 700,
-                fontSize: 13.5,
-                letterSpacing: -0.2,
-                fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
-              }}>
-                {item.creator || "@khadlajperfumes"}
-              </span>
-            </div>
-
-            {item.productName && (
-              <div 
-                onClick={handleShop}
-                title={isRTL ? "عرض تفاصيل العطر" : "View Perfume Details"}
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: 4,
-                  background: "rgba(184,146,42,0.22)",
-                  border: "1px solid rgba(212,175,55,0.6)",
-                  borderRadius: 6,
-                  padding: "2px 7px",
-                  cursor: "pointer"
-                }}
-              >
-                <span style={{ fontSize: 9, color: "#D4AF37", fontWeight: 700 }}>✦</span>
-                <span style={{ fontSize: 10.5, color: "#fff", fontWeight: 700, letterSpacing: 0.3, whiteSpace: "nowrap" }}>
-                  {item.productName}
-                </span>
-              </div>
-            )}
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="#fff" style={{ opacity: 0.9, flexShrink: 0 }}>
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.31 6.31 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.87a8.18 8.18 0 0 0 4.78 1.52V7.01a4.85 4.85 0 0 1-1.01-.32z"/>
+            </svg>
+            <span style={{
+              color: "rgba(255,255,255,0.92)",
+              fontWeight: 600,
+              fontSize: 12,
+              letterSpacing: -0.2,
+              whiteSpace: "nowrap",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+            }}>
+              {item.creator || "@khadlajperfumes"}
+            </span>
           </div>
 
-          {/* Row 2: Caption Text */}
+          {/* Row 2: Perfume Name & Price (Full Width - Never Cuts Off) */}
+          {(item.productName || item.title) && (
+            <div 
+              onClick={handleShop}
+              title={isRTL ? "عرض تفاصيل العطر" : "View Perfume Details"}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                width: "100%",
+                gap: 6,
+                marginBottom: 5,
+                cursor: "pointer",
+                padding: "3px 8px",
+                background: "rgba(184,146,42,0.22)",
+                border: "1px solid rgba(212,175,55,0.55)",
+                borderRadius: 6,
+                boxSizing: "border-box",
+                transition: "background .2s ease"
+              }}
+              onMouseEnter={e => e.currentTarget.style.background = "rgba(184,146,42,0.35)"}
+              onMouseLeave={e => e.currentTarget.style.background = "rgba(184,146,42,0.22)"}
+            >
+              <div style={{ display: "flex", alignItems: "center", gap: 5, minWidth: 0, flex: "1 1 auto" }}>
+                <span style={{ fontSize: 9, color: "#D4AF37", fontWeight: 700, flexShrink: 0 }}>✦</span>
+                <span style={{
+                  fontSize: 11,
+                  color: "#fff",
+                  fontWeight: 800,
+                  letterSpacing: 0.3,
+                  textTransform: "uppercase",
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis"
+                }}>
+                  {item.productName || item.title}
+                </span>
+              </div>
+              {item.price ? (
+                <span style={{
+                  fontSize: 10.5,
+                  color: "#E5C365",
+                  fontWeight: 700,
+                  whiteSpace: "nowrap",
+                  flexShrink: 0
+                }}>
+                  {formatPrice(item.price)}
+                </span>
+              ) : null}
+            </div>
+          )}
+
+          {/* Row 3: Caption Text */}
           <p style={{
-            margin: "0 0 10px 0",
-            color: "rgba(255,255,255,0.88)",
-            fontSize: 12,
-            lineHeight: 1.4,
+            margin: "0 0 8px 0",
+            color: "rgba(255,255,255,0.85)",
+            fontSize: 11.5,
+            lineHeight: 1.35,
             fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
             fontWeight: 400,
             display: "-webkit-box",
@@ -9605,50 +9635,52 @@ function TikTokCard({ t: item, setViewProduct, setPage }) {
             {isRTL ? (item.captionAr || item.caption) : item.caption}
           </p>
 
-          {/* Row 3: Action Buttons (SHOP NOW + WATCH ON TIKTOK) */}
+          {/* Row 4: Action Buttons (Compact SHOP NOW + WATCH ON TIKTOK) */}
           <div style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
-            gap: 8,
+            gap: 6,
             width: "100%",
-            marginTop: 4
+            marginTop: 2
           }}>
-            {/* Direct SHOP NOW Button */}
+            {/* Direct SHOP NOW Button - Compact, Single-Line, Sleek */}
             <button
               onClick={handleShop}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",
-                gap: 6,
+                gap: 5,
                 background: "linear-gradient(135deg, #B8922A 0%, #D4AF37 100%)",
-                border: "1px solid #E5C365",
+                border: "none",
                 borderRadius: 999,
-                padding: "8px 16px",
+                padding: "6px 12px",
                 color: "#1A0B22",
-                fontSize: 11,
+                fontSize: 10.5,
                 fontWeight: 800,
-                letterSpacing: isRTL ? "0" : "1.2px",
+                letterSpacing: isRTL ? "0" : "0.5px",
                 textTransform: "uppercase",
+                whiteSpace: "nowrap",
                 cursor: "pointer",
                 transition: "all .2s ease",
-                boxShadow: "0 4px 14px rgba(184,146,42,0.45)",
+                boxShadow: "0 2px 8px rgba(184,146,42,0.4)",
                 fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
-                flex: "1 1 auto"
+                flex: "1 1 auto",
+                lineHeight: 1.2
               }}
-              onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.03)"; e.currentTarget.style.boxShadow = "0 6px 18px rgba(184,146,42,0.65)"; }}
-              onMouseLeave={e => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.boxShadow = "0 4px 14px rgba(184,146,42,0.45)"; }}
+              onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.02)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(184,146,42,0.6)"; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.boxShadow = "0 2px 8px rgba(184,146,42,0.4)"; }}
             >
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
                 <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
                 <line x1="3" y1="6" x2="21" y2="6"></line>
                 <path d="M16 10a4 4 0 0 1-8 0"></path>
               </svg>
-              <span>{isRTL ? "تسوق المنتج" : "SHOP NOW"}</span>
+              <span style={{ whiteSpace: "nowrap" }}>{isRTL ? "تسوق الآن" : "SHOP NOW"}</span>
             </button>
 
-            {/* WATCH ON TIKTOK Pill Button */}
+            {/* WATCH ON TIKTOK Pill Button - Compact & Balanced */}
             <a
               href={item.tiktokUrl || `https://www.tiktok.com/@khadlajperfumes/video/${item.id}`}
               target="_blank"
@@ -9659,31 +9691,33 @@ function TikTokCard({ t: item, setViewProduct, setPage }) {
                 display: "inline-flex",
                 alignItems: "center",
                 justifyContent: "center",
-                gap: 5,
+                gap: 4,
                 background: "rgba(255,255,255,0.16)",
                 backdropFilter: "blur(12px)",
                 WebkitBackdropFilter: "blur(12px)",
-                border: "1px solid rgba(255,255,255,0.32)",
+                border: "1px solid rgba(255,255,255,0.28)",
                 borderRadius: 999,
-                padding: "8px 13px",
+                padding: "6px 10px",
                 color: "#fff",
-                fontSize: 10,
+                fontSize: 9.5,
                 fontWeight: 700,
-                letterSpacing: 0.8,
+                letterSpacing: 0.5,
                 textTransform: "uppercase",
                 textDecoration: "none",
+                whiteSpace: "nowrap",
                 cursor: "pointer",
                 transition: "all .2s ease",
                 fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
-                flex: "0 0 auto"
+                flex: "0 0 auto",
+                lineHeight: 1.2
               }}
               onMouseEnter={e => { e.currentTarget.style.background = "#fff"; e.currentTarget.style.color = "#000"; e.currentTarget.style.borderColor = "#fff"; }}
-              onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.16)"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.32)"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.16)"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.28)"; }}
             >
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}>
                 <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.31 6.31 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.87a8.18 8.18 0 0 0 4.78 1.52V7.01a4.85 4.85 0 0 1-1.01-.32z"/>
               </svg>
-              <span>TikTok</span>
+              <span style={{ whiteSpace: "nowrap" }}>TIKTOK</span>
             </a>
           </div>
         </div>
