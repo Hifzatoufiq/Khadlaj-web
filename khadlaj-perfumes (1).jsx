@@ -6317,12 +6317,7 @@ export function syncLiveShopifyPrices() {
       }
       if (typeof matched.available === "boolean") {
         prod.available = matched.available;
-      } else {
-        prod.available = true;
       }
-    } else {
-      prod.inShopify = false;
-      prod.available = false;
     }
   }
 
@@ -9533,22 +9528,20 @@ function ProductCard({ p, onView, onCart }){
           opacity: hov ? 1 : 0, zIndex:10
         }}>
           <button
-            disabled={p.available === false}
             onClick={(e)=>{
               e.stopPropagation();
-              if (p.available === false) return;
               if (onCart) onCart(p);
             }}
             style={{
-              width:"100%", background: p.available === false ? "#777" : "#251737", color:"#fff", border:"none", 
+              width:"100%", background:"#251737", color:"#fff", border:"none", 
               padding:"12px", fontSize: isRTL ? 13 : 11, letterSpacing: isRTL ? 0 : 2, fontWeight:700, 
-              cursor: p.available === false ? "not-allowed" : "pointer", textTransform:"uppercase",
+              cursor:"pointer", textTransform:"uppercase",
               fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif", transition:"background .3s"
             }}
-            onMouseEnter={(e)=>{ if (p.available !== false) e.target.style.background="#B8922A"; }}
-            onMouseLeave={(e)=>{ if (p.available !== false) e.target.style.background="#251737"; }}
+            onMouseEnter={(e)=>e.target.style.background="#B8922A"}
+            onMouseLeave={(e)=>e.target.style.background="#251737"}
           >
-            {p.available === false ? (isRTL ? "غير متوفر" : "Out of Stock") : t("addToCart", "Add to Bag")}
+            {t("addToCart", "Add to Bag")}
           </button>
         </div>
       </div>
@@ -13022,10 +13015,6 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
   }, [product.id]);
 
   const handleAdd = () => {
-    if (product.available === false) {
-      alert(isRTL ? "عذراً، هذا المنتج غير متوفر في المخزون حالياً" : "Sorry, this product is currently out of stock.");
-      return;
-    }
     addToCart(product, qty);
     setAdded(true);
     setTimeout(()=>setAdded(false),2200);
@@ -20529,19 +20518,7 @@ export default function App(){
           product.shopifyTitle = matched.title;
           product.name = matched.title;
         }
-        product.available = matched.available !== false;
       }
-    }
-
-    const isLiveShopify = typeof window !== "undefined" && (
-      window.location.hostname.includes("shopify") || 
-      window.location.hostname.includes("khadlaj-perfumes.sa") ||
-      !!window.Shopify
-    );
-
-    if (isLiveShopify && (!vId || product.available === false)) {
-      alert(isRTL ? "عذراً، هذا المنتج غير متوفر في المخزون حالياً" : "Sorry, this product is currently not in inventory or out of stock.");
-      return;
     }
 
     setCartItems(items=>{
