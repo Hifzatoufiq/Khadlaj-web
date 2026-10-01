@@ -593,28 +593,7 @@ const PRODUCTS = [
       "Shiyaaka Sky captures the feeling of limitless horizons and endless possibilities—a fragrance that embodies freshness elevated to a new level of sophistication."
     ]
   },
-  {
-    "id": 9100000000001,
-    "name": "KARUS GOLD ABSOLU",
-    "col": "Eau De Parfum",
-    "price": 150.0,
-    "size": "100 ML",
-    "badge": "New",
-    "gender": "Unisex",
-    "notes": [
-      "Gold Oud",
-      "Royal Amber",
-      "Velvet Musk"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Karus_Gold_Absolu.png?v=1786349760",
-    "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Karus_Gold_Absolu.png?v=1786349760",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Karus_Gold_Absolu_still_02.png?v=1783490081",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/extra_visual_complimenting_the_overall_theme.png?v=1783490080",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Karus_Gold_Absolu_still_03.png?v=1783490082",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/karus.jpg_1_fc8f8b22-1f61-4aea-b29f-e8a0bc6fff0c.jpg?v=1783431697"
-    ]
-  },
+
   {
     "id": 7554205647047,
     "name": "SHIYAAKA BLUE",
@@ -2377,23 +2356,7 @@ const PRODUCTS = [
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Oud_Alsabah_copy.jpg?v=1776231101"
     ]
   },
-  {
-    "id": 8203303518407,
-    "name": "PURE MUSK",
-    "col": "Perfume Oils",
-    "price": 50.0,
-    "size": "100ml EDP",
-    "badge": "",
-    "gender": "Unisex",
-    "notes": [
-      "Perfume oil"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/PURE_MUSK_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965788.jpg?v=1784382776",
-    "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/PURE_MUSK_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965788.jpg?v=1784382776",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/PURE_MUSK_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965784.jpg?v=1722411824"
-    ]
-  },
+
   {
     "id": 8203204690119,
     "name": "JOHAYNA GREEN",
@@ -6321,34 +6284,6 @@ export function syncLiveShopifyPrices() {
     }
   }
 
-  // Also dynamically append any live Shopify products not present in static PRODUCTS
-  for (const sp of shopifyList) {
-    if (!sp || !sp.id || matchedShopifyIds.has(sp.id) || !sp.variantId) continue;
-    const exists = PRODUCTS.some(p => p.shopifyId === sp.id || (p.variantId && p.variantId === sp.variantId));
-    if (!exists) {
-      matchedShopifyIds.add(sp.id);
-      PRODUCTS.push({
-        id: sp.id,
-        shopifyId: sp.id,
-        variantId: sp.variantId,
-        name: sp.title,
-        shopifyTitle: sp.title,
-        col: "Eau De Parfum",
-        price: sp.price || 0,
-        originalPrice: sp.compare_at_price || 0,
-        size: extractProductMl(sp.title, sp.variantTitle) || "100 ml",
-        badge: "New",
-        gender: "Unisex",
-        notes: [],
-        img: sp.image || "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KHADLAJ_ISLAND_SUN_100_ML_EXTRAIT_DE_PARFUM.png?v=1787209397",
-        detailImages: [],
-        desc: [sp.title],
-        available: sp.available !== false,
-        inShopify: true
-      });
-      updatedCount++;
-    }
-  }
 
   return updatedCount;
 }
@@ -11091,6 +11026,7 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection, s
     }
   };
 
+  const seenHomeKeys = new Set();
   const filtered = PRODUCTS.filter(p=>{
     const isKhadlajProduct = p.col !== "Lafede";
     if(activeCat==="Khadlaj") return p.col !== "Lafede";
@@ -11103,8 +11039,30 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection, s
     if(activeCat==="EAU DE PARFUM") return isKhadlajProduct && p.col.toLowerCase() === "eau de parfum";
     if(activeCat==="Master Perfumery") return isKhadlajProduct && p.col==="Master Perfumery";
     return isKhadlajProduct && (p.col || '').toLowerCase() === activeCat.toLowerCase();
+  }).filter(p => {
+    if (!p) return false;
+    const cleanKey = (p.originalName || p.name || '').toLowerCase()
+      .replace(/(\d+)\s*(ml|g|gms|gm|oz)/gi, '')
+      .replace(/eau\s+de\s+parfum|edp|spray|perfume|oil|extrait/gi, '')
+      .replace(/[^a-z0-9]/g, '');
+    if (!cleanKey) return true;
+    if (seenHomeKeys.has(cleanKey)) return false;
+    seenHomeKeys.add(cleanKey);
+    return true;
   }).slice(0, activeCat === "Best Sellers" ? 6 : 16);
-  const newLaunches = PRODUCTS.filter(p => p.badge === "New").slice(0, 8);
+
+  const seenNewKeys = new Set();
+  const newLaunches = PRODUCTS.filter(p => p.badge === "New").filter(p => {
+    if (!p) return false;
+    const cleanKey = (p.originalName || p.name || '').toLowerCase()
+      .replace(/(\d+)\s*(ml|g|gms|gm|oz)/gi, '')
+      .replace(/eau\s+de\s+parfum|edp|spray|perfume|oil|extrait/gi, '')
+      .replace(/[^a-z0-9]/g, '');
+    if (!cleanKey) return true;
+    if (seenNewKeys.has(cleanKey)) return false;
+    seenNewKeys.add(cleanKey);
+    return true;
+  }).slice(0, 8);
 
 
   return (
@@ -12240,6 +12198,20 @@ function DedicatedCollectionPage({ collectionKey = "island", addToCart, setViewP
     );
   }
 
+  // Deduplicate products
+  const seenCollKeys = new Set();
+  collectionProducts = collectionProducts.filter(p => {
+    if (!p) return false;
+    const cleanKey = (p.originalName || p.name || '').toLowerCase()
+      .replace(/(\d+)\s*(ml|g|gms|gm|oz)/gi, '')
+      .replace(/eau\s+de\s+parfum|edp|spray|perfume|oil|extrait/gi, '')
+      .replace(/[^a-z0-9]/g, '');
+    if (!cleanKey) return true;
+    if (seenCollKeys.has(cleanKey)) return false;
+    seenCollKeys.add(cleanKey);
+    return true;
+  });
+
   const handleSelectCollection = (k) => {
     setActiveKey(k);
     if (setSelectedCollection) setSelectedCollection(k);
@@ -12615,6 +12587,20 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
 
   if(sortBy==="price-asc") filtered=[...filtered].sort((a,b)=>a.price-b.price);
   if(sortBy==="price-desc") filtered=[...filtered].sort((a,b)=>b.price-a.price);
+
+  // Strict deduplication to ensure each unique perfume appears only once
+  const seenFilteredKeys = new Set();
+  filtered = filtered.filter(p => {
+    if (!p) return false;
+    const cleanKey = (p.originalName || p.name || '').toLowerCase()
+      .replace(/(\d+)\s*(ml|g|gms|gm|oz)/gi, '')
+      .replace(/eau\s+de\s+parfum|edp|spray|perfume|oil|extrait/gi, '')
+      .replace(/[^a-z0-9]/g, '');
+    if (!cleanKey) return true;
+    if (seenFilteredKeys.has(cleanKey)) return false;
+    seenFilteredKeys.add(cleanKey);
+    return true;
+  });
 
   return (
     <div style={{background:"#fff"}}>
@@ -18150,7 +18136,21 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
       })) return true;
 
       return false;
+    });
+
+    var seenSearchKeys = new Set();
+    results = results.filter(function(p) {
+      if (!p) return false;
+      var cleanKey = (p.originalName || p.name || '').toLowerCase()
+        .replace(/(\d+)\s*(ml|g|gms|gm|oz)/gi, '')
+        .replace(/eau\s+de\s+parfum|edp|spray|perfume|oil|extrait/gi, '')
+        .replace(/[^a-z0-9]/g, '');
+      if (!cleanKey) return true;
+      if (seenSearchKeys.has(cleanKey)) return false;
+      seenSearchKeys.add(cleanKey);
+      return true;
     }).slice(0, 32);
+
     setSearchResults(results);
   };
 
