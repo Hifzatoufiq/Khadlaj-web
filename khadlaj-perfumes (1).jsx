@@ -13479,7 +13479,7 @@ function StoryPage({ setPage, setViewProduct }){
             fontFamily: isRTL ? "'Tajawal', sans-serif" : "'Montserrat', sans-serif",
             display:"inline-block"
           }}>
-            ✦ {isRTL ? "منذ ١٩٩٧ • دار العطور الملكية" : "EST. 1997 • THE ROYAL MAISON OF KHADLAJ"} ✦
+            ✦ {isRTL ? "منذ ١٩٩٧" : "EST. 1997"} ✦
           </span>
 
           {/* Main Title */}
