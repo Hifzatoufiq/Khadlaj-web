@@ -6200,6 +6200,70 @@ const PRODUCTS = [
 // DYNAMIC LIVE SHOPIFY CATALOG & PRICE SYNC
 // ═══════════════════════════════════════════════════════════════
 
+export function extractProductMl(title, variantTitle) {
+  const combined = `${title || ''} ${variantTitle || ''}`;
+  const m = combined.match(/(\d+\s*(?:ml|g|gms|gm|oz))\b/i);
+  if (m) {
+    return m[1].toUpperCase().replace(/\s+/g, ' ');
+  }
+  return null;
+}
+
+export function findBestShopifyMatch(item, shopifyProducts) {
+  if (!item || !shopifyProducts || !shopifyProducts.length) return null;
+
+  // 1. Direct ID match (by Shopify ID or Variant ID)
+  if (item.id) {
+    const direct = shopifyProducts.find(sp => sp && (String(sp.id) === String(item.id) || String(sp.variantId) === String(item.id)));
+    if (direct) return direct;
+  }
+
+  const normalize = (str) => (str || '').toLowerCase().replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
+  const stopWords = new Set(['eau', 'de', 'parfum', 'edp', 'spray', 'perfume', 'oil', 'for', 'men', 'women', 'and', 'khadlaj', 'ml', 'concentrated', 'extrait', 'air', 'freshener', 'the', 'best', 'online', 'special', 'edition']);
+  const getTokens = (str) => normalize(str).split(' ').filter(w => w.length >= 2 && !stopWords.has(w));
+
+  const itemTokens = getTokens(item.name || item.title);
+  const itemClean = (item.name || item.title || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+
+  let bestMatch = null;
+  let highestScore = 0;
+
+  for (const sp of shopifyProducts) {
+    if (!sp) continue;
+    const spTitleNorm = normalize(sp.title);
+    const spHandleNorm = normalize(sp.handle);
+    const spClean = (sp.title + ' ' + (sp.handle || '')).toLowerCase().replace(/[^a-z0-9]/g, '');
+
+    let score = 0;
+
+    // Direct clean match
+    if (itemClean && spClean.includes(itemClean)) {
+      score += 100;
+    }
+
+    // Token matching
+    if (itemTokens.length > 0) {
+      let matchedTokens = 0;
+      for (const tok of itemTokens) {
+        if (spHandleNorm.includes(tok) || spTitleNorm.includes(tok)) {
+          matchedTokens++;
+          score += 25;
+        }
+      }
+      if (matchedTokens === itemTokens.length) {
+        score += 50;
+      }
+    }
+
+    if (score > highestScore && score >= 25) {
+      highestScore = score;
+      bestMatch = sp;
+    }
+  }
+
+  return bestMatch;
+}
+
 export function syncLiveShopifyPrices() {
   if (typeof window === "undefined") return 0;
   const shopifyList = window.__SHOPIFY_PRODUCTS__ || [];
@@ -6208,29 +6272,32 @@ export function syncLiveShopifyPrices() {
   let updatedCount = 0;
   for (const prod of PRODUCTS) {
     if (!prod) continue;
-    const prodClean = (prod.name || "").toLowerCase().replace(/[^a-z0-9]/g, "");
 
-    const matched = shopifyList.find(sp => {
-      if (!sp) return false;
-      if (sp.id && prod.id && String(sp.id) === String(prod.id)) return true;
-      const titleClean = (sp.title || "").toLowerCase().replace(/[^a-z0-9]/g, "");
-      const handleClean = (sp.handle || "").toLowerCase().replace(/[^a-z0-9]/g, "");
-      return (
-        (prodClean && titleClean && (titleClean === prodClean || titleClean.includes(prodClean) || prodClean.includes(titleClean))) ||
-        (prodClean && handleClean && handleClean.includes(prodClean))
-      );
-    });
+    const matched = findBestShopifyMatch(prod, shopifyList);
 
-    if (matched && typeof matched.price === "number" && matched.price > 0) {
-      if (prod.price !== matched.price) {
-        prod.price = matched.price;
-        updatedCount++;
+    if (matched) {
+      if (typeof matched.price === "number" && matched.price > 0) {
+        if (prod.price !== matched.price) {
+          prod.price = matched.price;
+          updatedCount++;
+        }
       }
-      if (typeof matched.compare_at_price === "number" && matched.compare_at_price > matched.price) {
+      if (typeof matched.compare_at_price === "number" && matched.compare_at_price > (matched.price || prod.price)) {
         prod.originalPrice = matched.compare_at_price;
       }
       if (matched.variantId) {
         prod.variantId = matched.variantId;
+      }
+      if (matched.id && !String(prod.id).startsWith("920000")) {
+        prod.shopifyId = matched.id;
+      }
+      if (matched.title) {
+        prod.shopifyTitle = matched.title;
+      }
+      const liveMl = extractProductMl(matched.title, matched.variantTitle);
+      if (liveMl && liveMl !== prod.size) {
+        prod.size = liveMl;
+        updatedCount++;
       }
       if (typeof matched.available === "boolean") {
         prod.available = matched.available;
@@ -6249,39 +6316,60 @@ export async function fetchAndSyncShopifyCatalog() {
     if (!data || !Array.isArray(data.products)) return 0;
 
     let updatedCount = 0;
+    const formattedList = [];
     for (const sp of data.products) {
       const v = (sp.variants && sp.variants[0]) || null;
       if (!v) continue;
       const spPrice = parseFloat(v.price);
       if (isNaN(spPrice) || spPrice <= 0) continue;
-
-      const titleClean = (sp.title || "").toLowerCase().replace(/[^a-z0-9]/g, "");
-      const handleClean = (sp.handle || "").toLowerCase().replace(/[^a-z0-9]/g, "");
-
-      const matchedProd = PRODUCTS.find(prod => {
-        if (!prod) return false;
-        if (prod.id && sp.id && String(prod.id) === String(sp.id)) return true;
-        const prodClean = (prod.name || "").toLowerCase().replace(/[^a-z0-9]/g, "");
-        return (
-          (prodClean && titleClean && (titleClean === prodClean || titleClean.includes(prodClean) || prodClean.includes(titleClean))) ||
-          (prodClean && handleClean && handleClean.includes(prodClean))
-        );
+      formattedList.push({
+        id: sp.id,
+        title: sp.title,
+        variantTitle: v.title,
+        handle: sp.handle,
+        variantId: v.id,
+        available: v.available,
+        price: spPrice,
+        compare_at_price: parseFloat(v.compare_at_price) || 0
       });
+    }
 
-      if (matchedProd) {
-        if (matchedProd.price !== spPrice) {
-          matchedProd.price = spPrice;
+    if (window.__SHOPIFY_PRODUCTS__ && Array.isArray(window.__SHOPIFY_PRODUCTS__)) {
+      const existingVariantIds = new Set(window.__SHOPIFY_PRODUCTS__.map(p => p.variantId));
+      for (const item of formattedList) {
+        if (!existingVariantIds.has(item.variantId)) {
+          window.__SHOPIFY_PRODUCTS__.push(item);
+          existingVariantIds.add(item.variantId);
+        }
+      }
+    } else {
+      window.__SHOPIFY_PRODUCTS__ = formattedList;
+    }
+
+    for (const prod of PRODUCTS) {
+      if (!prod) continue;
+      const matched = findBestShopifyMatch(prod, formattedList);
+      if (matched) {
+        if (prod.price !== matched.price) {
+          prod.price = matched.price;
           updatedCount++;
         }
-        const cmpPrice = parseFloat(v.compare_at_price);
-        if (!isNaN(cmpPrice) && cmpPrice > spPrice) {
-          matchedProd.originalPrice = cmpPrice;
+        if (matched.compare_at_price > matched.price) {
+          prod.originalPrice = matched.compare_at_price;
         }
-        if (v.id) {
-          matchedProd.variantId = v.id;
+        if (matched.variantId) {
+          prod.variantId = matched.variantId;
         }
-        if (typeof v.available === "boolean") {
-          matchedProd.available = v.available;
+        if (matched.title) {
+          prod.shopifyTitle = matched.title;
+        }
+        const liveMl = extractProductMl(matched.title, matched.variantTitle);
+        if (liveMl && liveMl !== prod.size) {
+          prod.size = liveMl;
+          updatedCount++;
+        }
+        if (typeof matched.available === "boolean") {
+          prod.available = matched.available;
         }
       }
     }
@@ -16320,33 +16408,24 @@ async function redirectToShopifyCheckout(cartItems, selectedPouch = null) {
   };
 
   try {
-    let shopifyProducts = (window.__SHOPIFY_PRODUCTS__ || []).filter(p => p.available !== false && p.variantId);
+    const shopifyProducts = (window.__SHOPIFY_PRODUCTS__ || []).filter(p => p && p.variantId);
 
     const itemsToAdd = [];
     const permalinkParts = [];
     for (const item of cartItems) {
-      const itemClean = (item.name || "").toLowerCase().replace(/[^a-z0-9]/g, "");
-      let matched = shopifyProducts.find(sp => {
-        if (sp.available === false) return false;
-        const titleClean = (sp.title || "").toLowerCase().replace(/[^a-z0-9]/g, "");
-        const handleClean = (sp.handle || "").toLowerCase().replace(/[^a-z0-9]/g, "");
-
-        return (
-          (sp.id && String(sp.id) === String(item.id)) ||
-          (itemClean && titleClean && (titleClean === itemClean || titleClean.includes(itemClean) || itemClean.includes(titleClean))) ||
-          (itemClean && handleClean && handleClean.includes(itemClean))
-        );
-      });
-
-      let vId = (matched && matched.variantId && matched.variantId !== 0) 
-        ? matched.variantId 
-        : (shopifyProducts.find(p => p.available !== false && p.variantId && p.variantId !== 0)?.variantId || (typeof window !== "undefined" ? window.__STORE_DEFAULT_VARIANT_ID__ : null));
+      let vId = item.variantId;
+      if (!vId) {
+        const matched = findBestShopifyMatch(item, shopifyProducts);
+        if (matched && matched.variantId) {
+          vId = matched.variantId;
+        }
+      }
 
       if (vId) {
         const itemProperties = { 
-          'Product': item.name || '',
+          'Product': item.shopifyTitle || item.name || '',
           'Size': item.size || 'Standard',
-          'Original Price': `${item.price || 0} SAR`
+          'Price': `${item.price || 0} SAR`
         };
         if (selectedPouch && itemsToAdd.length === 0) {
           itemProperties['Complimentary Gift'] = selectedPouch === 'male' ? "Male Luxury Travel Pouch (Signature Noir)" : "Female Luxury Travel Pouch (Royal Carmine)";
@@ -20179,12 +20258,30 @@ export default function App(){
     return () => document.removeEventListener('visibilitychange', handleVisibility);
   }, []);
 
-  // Keep cart items' prices in sync with live catalog
+  // Keep cart items' prices, variantId, and size in sync with live catalog
   useEffect(() => {
     setCartItems(prev => prev.map(item => {
       const live = PRODUCTS.find(p => p.id === item.id || p.name === item.name);
-      if (live && live.price && live.price !== item.price) {
-        return { ...item, price: live.price };
+      if (live) {
+        let changed = false;
+        const updated = { ...item };
+        if (live.price && live.price !== item.price) {
+          updated.price = live.price;
+          changed = true;
+        }
+        if (live.variantId && live.variantId !== item.variantId) {
+          updated.variantId = live.variantId;
+          changed = true;
+        }
+        if (live.size && live.size !== item.size) {
+          updated.size = live.size;
+          changed = true;
+        }
+        if (live.shopifyTitle && live.shopifyTitle !== item.shopifyTitle) {
+          updated.shopifyTitle = live.shopifyTitle;
+          changed = true;
+        }
+        return changed ? updated : item;
       }
       return item;
     }));
@@ -20356,12 +20453,26 @@ export default function App(){
   const addToCart = (product, qty=1) => {
     if (!product) return;
     const safeQty = Math.max(1, Number(qty) || 1);
+
+    let vId = product.variantId;
+    if (!vId && typeof window !== "undefined" && window.__SHOPIFY_PRODUCTS__) {
+      const matched = findBestShopifyMatch(product, window.__SHOPIFY_PRODUCTS__);
+      if (matched && matched.variantId) {
+        vId = matched.variantId;
+        product.variantId = vId;
+        if (matched.price) product.price = matched.price;
+        const liveMl = extractProductMl(matched.title, matched.variantTitle);
+        if (liveMl) product.size = liveMl;
+        if (matched.title) product.shopifyTitle = matched.title;
+      }
+    }
+
     setCartItems(items=>{
       const exists = items.find(item=>item.id === product.id);
       if (exists) {
-        return items.map(item=>item.id === product.id ? {...item, qty:item.qty + safeQty} : item);
+        return items.map(item=>item.id === product.id ? {...item, qty:item.qty + safeQty, variantId: vId || item.variantId} : item);
       }
-      return [...items, {...product, qty:safeQty}];
+      return [...items, {...product, qty:safeQty, variantId: vId}];
     });
   };
   const updateCartQty = (id, qty) => {
