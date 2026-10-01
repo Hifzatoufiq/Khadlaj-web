@@ -9157,47 +9157,24 @@ function getProductReviewData(p) {
   }
   const absHash = Math.abs(hash);
 
-  const bucket = absHash % 100;
-  let stars = 5;
-  let score = 4.9;
+  // ALWAYS 5 STARS - user instruction: "Should be 5, NO 3, Never put 3"
+  const stars = 5;
+  const score = (4.8 + (absHash % 3) * 0.1).toFixed(1);
 
-  if (p.badge === "Best Seller" || p.badge === "Trending" || (p.name && (p.name.includes("HAREEM") || p.name.includes("SHIYAAKA")))) {
-    stars = bucket % 5 === 0 ? 4 : 5;
-    score = stars === 5 ? (4.8 + (absHash % 3) * 0.1) : (4.4 + (absHash % 4) * 0.1);
-  } else if (bucket < 7) {
-    // 7% get 2 stars
-    stars = 2;
-    score = 2.4 + (absHash % 4) * 0.1;
-  } else if (bucket < 25) {
-    // 18% get 3 stars
-    stars = 3;
-    score = 3.2 + (absHash % 5) * 0.1;
-  } else if (bucket < 68) {
-    // 43% get 4 stars
-    stars = 4;
-    score = 4.1 + (absHash % 6) * 0.1;
-  } else {
-    // 32% get 5 stars
-    stars = 5;
-    score = 4.8 + (absHash % 3) * 0.1;
-  }
-
-  let count = 18 + (absHash % 240);
-  if (stars === 5) count += 150 + (absHash % 450);
-  else if (stars === 4) count += 45 + (absHash % 180);
-  else if (stars === 3) count = 15 + (absHash % 65);
-  else count = 8 + (absHash % 30);
+  // Natural review counts like (23), (38), (68), (154)...
+  const sampleCounts = [23, 38, 45, 52, 68, 74, 89, 96, 115, 128, 142, 154, 168, 185, 210, 235];
+  const count = sampleCounts[absHash % sampleCounts.length];
 
   return {
     stars,
-    score: Math.min(5.0, score).toFixed(1),
+    score,
     count
   };
 }
 
 function StarRating({ n=5, color=C.brass }){
-  const validN = Math.max(0, Math.min(5, Math.round(n)));
-  return <span style={{color,fontSize:13,letterSpacing:1}}>{"★".repeat(validN)}{"☆".repeat(5-validN)}</span>;
+  const validN = 5;
+  return <span style={{color,fontSize:13,letterSpacing:1}}>{"★".repeat(validN)}</span>;
 }
 
 function ProductCard({ p, onView, onCart }){
@@ -9334,7 +9311,7 @@ function ProductCard({ p, onView, onCart }){
             return (
               <div style={{display:"flex", alignItems:"center", gap:4, justifyContent:"center", flexDirection: isRTL ? "row-reverse" : "row"}}>
                 <span style={{color:"#C8A96E", fontSize:12, letterSpacing:1}}>
-                  {"★".repeat(rev.stars)}{"☆".repeat(5 - rev.stars)}
+                  {"★".repeat(5)}
                 </span>
                 <span style={{fontSize:10, color:"#aaa", fontFamily:"'Montserrat',sans-serif", fontWeight:600}}>
                   ({rev.count})
