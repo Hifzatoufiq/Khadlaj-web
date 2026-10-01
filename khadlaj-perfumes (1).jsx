@@ -312,6 +312,9 @@ export function resolveAsset(url) {
     if (filename.includes('home_ambience_banner') || filename.includes('home-ambience-banner') || filename.includes('homeambience')) {
       return (window.__THEME_ASSETS__ && window.__THEME_ASSETS__['home_ambience_banner.jpg']) || "/assets/images/banners/home_ambience_banner.jpg";
     }
+    if (filename.includes('deals_mobile') || filename.includes('DEALS mobile') || filename.includes('deals-mobile') || filename.includes('DEALS%20mobile')) {
+      return (window.__THEME_ASSETS__ && (window.__THEME_ASSETS__['deals_mobile.png'] || window.__THEME_ASSETS__['DEALS mobile version.png'])) || "/assets/deals_mobile.png";
+    }
     if (window.__THEME_ASSETS__ && window.__THEME_ASSETS__[filename]) {
       return window.__THEME_ASSETS__[filename];
     }
@@ -10042,7 +10045,9 @@ function NewLaunchesHeroBannerSlider({ setPage, setViewProduct, setSelectedColle
                 alt={b.title}
                 className="banner-slide-img"
                 onError={(e) => {
-                  const fname = b.img.split('/').pop();
+                  const isMob = typeof window !== 'undefined' && window.innerWidth <= 767;
+                  const chosenImg = (isMob && b.imgMobile) ? b.imgMobile : b.img;
+                  const fname = chosenImg.split('/').pop();
                   const fb = (window.__THEME_ASSETS__ && window.__THEME_ASSETS__[fname]) || (window.__SHOPIFY_ASSET_BASE__ && (window.__SHOPIFY_ASSET_BASE__ + fname));
                   if (fb && fb !== e.currentTarget.src) e.currentTarget.src = fb;
                 }}
@@ -12038,7 +12043,9 @@ function DedicatedCollectionPage({ collectionKey = "island", addToCart, setViewP
                 alt={isRTL && config.titleAr ? config.titleAr : config.title}
                 className="collection-banner-img"
                 onError={(e) => {
-                  const fname = config.banner.split('/').pop();
+                  const isMob = typeof window !== 'undefined' && window.innerWidth <= 768;
+                  const chosenBanner = (isMob && config.bannerMobile) ? config.bannerMobile : config.banner;
+                  const fname = chosenBanner.split('/').pop();
                   const fb = (window.__THEME_ASSETS__ && window.__THEME_ASSETS__[fname]) || (window.__SHOPIFY_ASSET_BASE__ && (window.__SHOPIFY_ASSET_BASE__ + fname));
                   if (fb && fb !== e.currentTarget.src) e.currentTarget.src = fb;
                 }}
@@ -12410,7 +12417,9 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
             }
             className="collection-banner-img"
             onError={(e) => {
-              const fb = (window.__THEME_ASSETS__ && window.__THEME_ASSETS__['deals_desktop.png']) || (window.__SHOPIFY_ASSET_BASE__ && (window.__SHOPIFY_ASSET_BASE__ + 'deals_desktop.png'));
+              const isMob = typeof window !== 'undefined' && window.innerWidth <= 768;
+              const targetKey = isMob ? 'deals_mobile.png' : 'deals_desktop.png';
+              const fb = (window.__THEME_ASSETS__ && window.__THEME_ASSETS__[targetKey]) || (window.__SHOPIFY_ASSET_BASE__ && (window.__SHOPIFY_ASSET_BASE__ + targetKey));
               if (fb && fb !== e.currentTarget.src) e.currentTarget.src = fb;
             }}
             style={{
