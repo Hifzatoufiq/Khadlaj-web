@@ -9927,15 +9927,6 @@ function NewLaunchesHeroBannerSlider({ setPage, setViewProduct, setSelectedColle
       badge: "NEW LAUNCH",
       productName: "ISLAND SUN",
       productId: 9200000000010
-    },
-    {
-      id: "deals",
-      img: "/assets/images/banners/deals_desktop.png",
-      imgMobile: "/assets/images/banners/deals_mobile.png",
-      title: "EXCLUSIVE DEALS",
-      subtitle: "UP TO 50% OFF",
-      badge: "SPECIAL OFFER",
-      collectionKey: "deals"
     }
   ];
 
