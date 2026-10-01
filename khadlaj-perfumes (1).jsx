@@ -19039,8 +19039,7 @@ function Footer({ setPage }){
             [isRTL ? "الشحن والاسترجاع" : "Shipping & Returns", "shipping-returns"],
             [isRTL ? "الأسئلة الشائعة" : "FAQ", "faq"],
             [isRTL ? "تتبع طلبيتك" : "Track My Order", "track-order"],
-            [isRTL ? "دليل اختيار العطور" : "Fragrance Guide", "fragrance-guide"],
-            [isRTL ? "خدمات تغليف الهدايا" : "Gift Wrapping", "gift-wrapping"]
+            [isRTL ? "دليل اختيار العطور" : "Fragrance Guide", "fragrance-guide"]
           ].map(([l, pg])=>(
             <p key={l} onClick={()=>{ setPage(pg); window.scrollTo({top:0, behavior:"smooth"}); }} style={{fontSize:12,color:"#555",marginBottom:14,cursor:"pointer",fontFamily:"'Montserrat',sans-serif",letterSpacing:.5,transition:"all .25s ease"}}
               onMouseEnter={e=>e.target.style.color="#B8922A"} onMouseLeave={e=>e.target.style.color="#555"}>{l}</p>
