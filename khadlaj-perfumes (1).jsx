@@ -9567,7 +9567,7 @@ function TikTokCard({ t: item, setViewProduct, setPage }) {
             </span>
           </div>
 
-          {/* Row 2: Perfume Name & Price (Full Width - Never Cuts Off) */}
+          {/* Row 2: Perfume Name (Full Width - No Price) */}
           {(item.productName || item.title) && (
             <div 
               onClick={handleShop}
@@ -9575,47 +9575,33 @@ function TikTokCard({ t: item, setViewProduct, setPage }) {
               style={{
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "space-between",
-                width: "100%",
                 gap: 6,
-                marginBottom: 5,
+                width: "100%",
+                marginBottom: 6,
                 cursor: "pointer",
-                padding: "3px 8px",
+                padding: "4px 9px",
                 background: "rgba(184,146,42,0.22)",
                 border: "1px solid rgba(212,175,55,0.55)",
                 borderRadius: 6,
                 boxSizing: "border-box",
                 transition: "background .2s ease"
               }}
-              onMouseEnter={e => e.currentTarget.style.background = "rgba(184,146,42,0.35)"}
+              onMouseEnter={e => e.currentTarget.style.background = "rgba(184,146,42,0.38)"}
               onMouseLeave={e => e.currentTarget.style.background = "rgba(184,146,42,0.22)"}
             >
-              <div style={{ display: "flex", alignItems: "center", gap: 5, minWidth: 0, flex: "1 1 auto" }}>
-                <span style={{ fontSize: 9, color: "#D4AF37", fontWeight: 700, flexShrink: 0 }}>✦</span>
-                <span style={{
-                  fontSize: 11,
-                  color: "#fff",
-                  fontWeight: 800,
-                  letterSpacing: 0.3,
-                  textTransform: "uppercase",
-                  whiteSpace: "nowrap",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis"
-                }}>
-                  {item.productName || item.title}
-                </span>
-              </div>
-              {item.price ? (
-                <span style={{
-                  fontSize: 10.5,
-                  color: "#E5C365",
-                  fontWeight: 700,
-                  whiteSpace: "nowrap",
-                  flexShrink: 0
-                }}>
-                  {formatPrice(item.price)}
-                </span>
-              ) : null}
+              <span style={{ fontSize: 9, color: "#D4AF37", fontWeight: 700, flexShrink: 0 }}>✦</span>
+              <span style={{
+                fontSize: 11.5,
+                color: "#fff",
+                fontWeight: 800,
+                letterSpacing: 0.4,
+                textTransform: "uppercase",
+                whiteSpace: "nowrap",
+                overflow: "hidden",
+                textOverflow: "ellipsis"
+              }}>
+                {item.productName || item.title}
+              </span>
             </div>
           )}
 
@@ -9635,91 +9621,42 @@ function TikTokCard({ t: item, setViewProduct, setPage }) {
             {isRTL ? (item.captionAr || item.caption) : item.caption}
           </p>
 
-          {/* Row 4: Action Buttons (Compact SHOP NOW + WATCH ON TIKTOK) */}
-          <div style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 6,
-            width: "100%",
-            marginTop: 2
-          }}>
-            {/* Direct SHOP NOW Button - Compact, Single-Line, Sleek */}
-            <button
-              onClick={handleShop}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 5,
-                background: "linear-gradient(135deg, #B8922A 0%, #D4AF37 100%)",
-                border: "none",
-                borderRadius: 999,
-                padding: "6px 12px",
-                color: "#1A0B22",
-                fontSize: 10.5,
-                fontWeight: 800,
-                letterSpacing: isRTL ? "0" : "0.5px",
-                textTransform: "uppercase",
-                whiteSpace: "nowrap",
-                cursor: "pointer",
-                transition: "all .2s ease",
-                boxShadow: "0 2px 8px rgba(184,146,42,0.4)",
-                fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
-                flex: "1 1 auto",
-                lineHeight: 1.2
-              }}
-              onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.02)"; e.currentTarget.style.boxShadow = "0 4px 12px rgba(184,146,42,0.6)"; }}
-              onMouseLeave={e => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.boxShadow = "0 2px 8px rgba(184,146,42,0.4)"; }}
-            >
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
-                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                <line x1="3" y1="6" x2="21" y2="6"></line>
-                <path d="M16 10a4 4 0 0 1-8 0"></path>
-              </svg>
-              <span style={{ whiteSpace: "nowrap" }}>{isRTL ? "تسوق الآن" : "SHOP NOW"}</span>
-            </button>
-
-            {/* WATCH ON TIKTOK Pill Button - Compact & Balanced */}
-            <a
-              href={item.tiktokUrl || `https://www.tiktok.com/@khadlajperfumes/video/${item.id}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={e => e.stopPropagation()}
-              title={isRTL ? "مشاهدة على تيك توك" : "Watch on TikTok"}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 4,
-                background: "rgba(255,255,255,0.16)",
-                backdropFilter: "blur(12px)",
-                WebkitBackdropFilter: "blur(12px)",
-                border: "1px solid rgba(255,255,255,0.28)",
-                borderRadius: 999,
-                padding: "6px 10px",
-                color: "#fff",
-                fontSize: 9.5,
-                fontWeight: 700,
-                letterSpacing: 0.5,
-                textTransform: "uppercase",
-                textDecoration: "none",
-                whiteSpace: "nowrap",
-                cursor: "pointer",
-                transition: "all .2s ease",
-                fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
-                flex: "0 0 auto",
-                lineHeight: 1.2
-              }}
-              onMouseEnter={e => { e.currentTarget.style.background = "#fff"; e.currentTarget.style.color = "#000"; e.currentTarget.style.borderColor = "#fff"; }}
-              onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.16)"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.28)"; }}
-            >
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}>
-                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.31 6.31 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.87a8.18 8.18 0 0 0 4.78 1.52V7.01a4.85 4.85 0 0 1-1.01-.32z"/>
-              </svg>
-              <span style={{ whiteSpace: "nowrap" }}>TIKTOK</span>
-            </a>
-          </div>
+          {/* Row 4: Direct SHOP NOW Button (Single, Full Width, Clean) */}
+          <button
+            onClick={handleShop}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: 6,
+              width: "100%",
+              marginTop: 2,
+              background: "linear-gradient(135deg, #B8922A 0%, #D4AF37 100%)",
+              border: "none",
+              borderRadius: 999,
+              padding: "7px 16px",
+              color: "#1A0B22",
+              fontSize: 11,
+              fontWeight: 800,
+              letterSpacing: isRTL ? "0" : "0.8px",
+              textTransform: "uppercase",
+              whiteSpace: "nowrap",
+              cursor: "pointer",
+              transition: "all .2s ease",
+              boxShadow: "0 3px 12px rgba(184,146,42,0.45)",
+              fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
+              lineHeight: 1.2
+            }}
+            onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.02)"; e.currentTarget.style.boxShadow = "0 5px 16px rgba(184,146,42,0.65)"; }}
+            onMouseLeave={e => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.boxShadow = "0 3px 12px rgba(184,146,42,0.45)"; }}
+          >
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <path d="M16 10a4 4 0 0 1-8 0"></path>
+            </svg>
+            <span style={{ whiteSpace: "nowrap" }}>{isRTL ? "تسوق الآن" : "SHOP NOW"}</span>
+          </button>
         </div>
       </div>
     </div>
