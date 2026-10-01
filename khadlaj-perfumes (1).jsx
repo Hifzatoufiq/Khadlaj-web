@@ -3983,44 +3983,6 @@ const PRODUCTS = [
     ]
   },
   {
-    "id": 7602862031047,
-    "name": "STELLAR OUD",
-    "col": "Eau De Parfum",
-    "price": 80.0,
-    "size": "100ml EDP",
-    "badge": "Best Seller",
-    "gender": "Unisex",
-    "notes": [
-      "Oud",
-      "Woody",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/STELLAR_OUD_100_ML_EDP_SPRAY_FOR_MEN_WOMEN_-_Khadlaj_Perfumes-1965994.jpg?v=1722412243",
-    "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/STELLAR_OUD_100_ML_EDP_SPRAY_FOR_MEN_WOMEN_-_Khadlaj_Perfumes-1965994.jpg?v=1722412243",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/STELLAR_OUD_100_ML_EDP_SPRAY_FOR_MEN_WOMEN_-_Khadlaj_Perfumes-1965984.jpg?v=1722412237"
-    ]
-  },
-  {
-    "id": 7602860949703,
-    "name": "STELLAR MUSK",
-    "col": "Eau De Parfum",
-    "price": 80.0,
-    "size": "100ml EDP",
-    "badge": "Best Seller",
-    "gender": "Her",
-    "notes": [
-      "Musk",
-      "Floral",
-      "Amber"
-    ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/STELLAR_MUSK_100_ML_EDP_SPRAY_FOR_WOMEN_-_Khadlaj_Perfumes-1965981.jpg?v=1722412210",
-    "detailImages": [
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/STELLAR_MUSK_100_ML_EDP_SPRAY_FOR_WOMEN_-_Khadlaj_Perfumes-1965981.jpg?v=1722412210",
-      "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/STELLAR_MUSK_100_ML_EDP_SPRAY_FOR_WOMEN_-_Khadlaj_Perfumes-1965978.jpg?v=1722412205"
-    ]
-  },
-  {
     "id": 7598654980295,
     "name": "CASHMERE SUNSHINE MUSK",
     "col": "Eau De Parfum",
