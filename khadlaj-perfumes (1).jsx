@@ -18401,6 +18401,14 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                   {({ activeCountry: ctxC, setActiveCountry: setCtxC }) => {
                     const cCountry = curCountry || ctxC || COUNTRIES[0];
                     const changeCountry = (c) => {
+                      if (c.link && c.name !== "KSA") {
+                        try {
+                          window.open(c.link, '_blank', 'noopener,noreferrer');
+                        } catch(e) {
+                          window.open(c.link, '_blank');
+                        }
+                        return;
+                      }
                       if (setCtxC) setCtxC(c);
                       if (typeof setSelectedCollection === "function") setSelectedCollection(c.name);
                       if (!ARABIC_COUNTRIES.includes(c.name)) {
@@ -18410,16 +18418,6 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                           document.documentElement.dir = "ltr";
                           document.documentElement.lang = "en";
                         } catch(e) {}
-                      }
-                      if (c.link) {
-                        try {
-                          const targetHost = new URL(c.link).hostname;
-                          if (!window.location.hostname.includes(targetHost)) {
-                            window.location.href = c.link;
-                          }
-                        } catch(e) {
-                          window.location.href = c.link;
-                        }
                       }
                     };
 
@@ -18842,8 +18840,13 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                         <button
                           key={c.name}
                           onClick={() => {
-                            if (c.link && !window.location.href.includes(c.link.replace("https://", ""))) {
-                              window.location.href = c.link;
+                            if (c.link && c.name !== "KSA") {
+                              try {
+                                window.open(c.link, '_blank', 'noopener,noreferrer');
+                              } catch(e) {
+                                window.open(c.link, '_blank');
+                              }
+                              setMobileMenuOpen(false);
                               return;
                             }
                             setActiveCountry(c);
@@ -18960,7 +18963,17 @@ function Footer({ setPage }){
                 {COUNTRIES.map(c=>(
                   <div
                     key={c.name}
-                    onClick={() => setActiveCountry(c)}
+                    onClick={() => {
+                      if (c.link && c.name !== "KSA") {
+                        try {
+                          window.open(c.link, '_blank', 'noopener,noreferrer');
+                        } catch(e) {
+                          window.open(c.link, '_blank');
+                        }
+                        return;
+                      }
+                      setActiveCountry(c);
+                    }}
                     style={{
                       display:"flex",
                       alignItems:"center",
