@@ -10002,7 +10002,8 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
       title: "MUSE",
       titleAr: "ميوز",
       img: "/assets/images/showcase/muse-card.png",
-      productName: "ISLAND SUN"
+      productName: "MUSE",
+      productId: 8869598462151
     },
     {
       id: "onyx-gold",
@@ -10010,7 +10011,7 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
       titleAr: "أونيكس جولد",
       img: "/assets/images/showcase/onyx-gold-card.png",
       productName: "ONYX GOLD",
-      productId: 9186641215787
+      productId: 8540408479943
     },
     {
       id: "karus-gold",
@@ -10018,14 +10019,15 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
       titleAr: "كاروس جولد أبسولو",
       img: "/assets/images/showcase/karus-gold-card.png",
       productName: "KARUS GOLD ABSOLU",
-      productId: 9186643247403
+      productId: 9100000000001
     },
     {
       id: "nuha-bon-bon",
       title: "NUHA BON BON",
       titleAr: "نهى بون بون",
       img: "/assets/images/showcase/nuha-bon-bon-card.png",
-      productName: "NUHA BON BON"
+      productName: "NUHA BON BON",
+      productId: 8597262368967
     },
     {
       id: "nafais-magrib",
@@ -10039,21 +10041,24 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
       title: "TITAN",
       titleAr: "تيتان",
       img: "/assets/images/showcase/titan-card.png",
-      productName: "TITAN"
+      productName: "TITAN",
+      productId: 8484193861831
     },
     {
       id: "shiyaaka-shadow",
       title: "SHIYAAKA SHADOW",
       titleAr: "شياكة شادو",
       img: "/assets/images/showcase/shiyaaka-shadow-card.png",
-      productName: "SHIYAAKA SHADOW"
+      productName: "SHIYAAKA SHADOW",
+      productId: 8409302073543
     },
     {
       id: "zayaan-gold",
       title: "ZAYAAN GOLD",
       titleAr: "زيان جولد",
       img: "/assets/images/showcase/zayaan-gold-card.png",
-      productName: "ZAYAAN GOLD"
+      productName: "ZAYAAN GOLD",
+      productId: 8443601223879
     }
   ];
 
@@ -10100,12 +10105,18 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
   }, [isPaused, maxIndex, windowWidth]);
 
   const handleCardClick = (card) => {
-    const prod = PRODUCTS.find(p => p.name === card.productName || p.id === card.productId);
+    const prod = PRODUCTS.find(p => 
+      (card.productId && p.id === card.productId) ||
+      (card.productName && p.name.toLowerCase().trim() === card.productName.toLowerCase().trim()) ||
+      (card.title && p.name.toLowerCase().trim() === card.title.toLowerCase().trim())
+    );
     if (prod && setViewProduct) {
       setViewProduct(prod);
-      setPage("product");
+      if (setPage) setPage("product");
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } else if (setPage) {
       setPage("collections");
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
