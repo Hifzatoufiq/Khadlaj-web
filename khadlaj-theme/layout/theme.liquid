@@ -217,42 +217,40 @@
       {% for c_name in target_colls %}
         {% assign target_c = collections[c_name] %}
         {% if target_c %}
-          {% for p in target_c.products limit: 50 %}
+          {% for p in target_c.products limit: 250 %}
             {% for v in p.variants %}
-              {% if v.available %}
-                window.__SHOPIFY_PRODUCTS__.push({
-                  id: {{ p.id }},
-                  title: {{ p.title | json }},
-                  variantTitle: {{ v.title | json }},
-                  handle: {{ p.handle | json }},
-                  variantId: {{ v.id }},
-                  available: true,
-                  price: {{ v.price | divided_by: 100.0 }}
-                });
-                if (!defId) {
-                  defId = {{ v.id }};
-                }
-              {% endif %}
-            {% endfor %}
-          {% endfor %}
-        {% endif %}
-      {% endfor %}
-      {% for c in collections %}
-        {% for p in c.products limit: 50 %}
-          {% for v in p.variants %}
-            {% if v.available %}
               window.__SHOPIFY_PRODUCTS__.push({
                 id: {{ p.id }},
                 title: {{ p.title | json }},
                 variantTitle: {{ v.title | json }},
                 handle: {{ p.handle | json }},
                 variantId: {{ v.id }},
-                available: true,
-                price: {{ v.price | divided_by: 100.0 }}
+                available: {{ v.available }},
+                price: {{ v.price | divided_by: 100.0 }},
+                compare_at_price: {{ v.compare_at_price | default: 0 | divided_by: 100.0 }}
               });
-              if (!defId) {
+              {% if v.available and defId == null %}
                 defId = {{ v.id }};
-              }
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+      {% for c in collections %}
+        {% for p in c.products limit: 250 %}
+          {% for v in p.variants %}
+            window.__SHOPIFY_PRODUCTS__.push({
+              id: {{ p.id }},
+              title: {{ p.title | json }},
+              variantTitle: {{ v.title | json }},
+              handle: {{ p.handle | json }},
+              variantId: {{ v.id }},
+              available: {{ v.available }},
+              price: {{ v.price | divided_by: 100.0 }},
+              compare_at_price: {{ v.compare_at_price | default: 0 | divided_by: 100.0 }}
+            });
+            {% if v.available and defId == null %}
+              defId = {{ v.id }};
             {% endif %}
           {% endfor %}
         {% endfor %}
@@ -262,19 +260,18 @@
         {% assign sp = all_products[h] %}
         {% if sp %}
           {% for v in sp.variants %}
-            {% if v.available %}
-              window.__SHOPIFY_PRODUCTS__.push({
-                id: {{ sp.id }},
-                title: {{ sp.title | json }},
-                variantTitle: {{ v.title | json }},
-                handle: {{ h | json }},
-                variantId: {{ v.id }},
-                available: true,
-                price: {{ v.price | divided_by: 100.0 }}
-              });
-              if (!defId) {
-                defId = {{ v.id }};
-              }
+            window.__SHOPIFY_PRODUCTS__.push({
+              id: {{ sp.id }},
+              title: {{ sp.title | json }},
+              variantTitle: {{ v.title | json }},
+              handle: {{ h | json }},
+              variantId: {{ v.id }},
+              available: {{ v.available }},
+              price: {{ v.price | divided_by: 100.0 }},
+              compare_at_price: {{ v.compare_at_price | default: 0 | divided_by: 100.0 }}
+            });
+            {% if v.available and defId == null %}
+              defId = {{ v.id }};
             {% endif %}
           {% endfor %}
         {% endif %}
@@ -321,7 +318,7 @@
   {% endif %}
   {{ content_for_layout }}
   {% if template == 'index' %}
-  <script src="{{ 'bundle-v293-oct1.js' | asset_url }}"></script>
+  <script src="{{ 'bundle-v294-oct1.js' | asset_url }}"></script>
   {% endif %}
 </body>
 </html>

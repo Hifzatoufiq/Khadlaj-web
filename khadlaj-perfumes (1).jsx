@@ -6196,8 +6196,107 @@ const PRODUCTS = [
   }
 ];
 
+// ═══════════════════════════════════════════════════════════════
+// DYNAMIC LIVE SHOPIFY CATALOG & PRICE SYNC
+// ═══════════════════════════════════════════════════════════════
 
+export function syncLiveShopifyPrices() {
+  if (typeof window === "undefined") return 0;
+  const shopifyList = window.__SHOPIFY_PRODUCTS__ || [];
+  if (!shopifyList.length) return 0;
 
+  let updatedCount = 0;
+  for (const prod of PRODUCTS) {
+    if (!prod) continue;
+    const prodClean = (prod.name || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+
+    const matched = shopifyList.find(sp => {
+      if (!sp) return false;
+      if (sp.id && prod.id && String(sp.id) === String(prod.id)) return true;
+      const titleClean = (sp.title || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+      const handleClean = (sp.handle || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+      return (
+        (prodClean && titleClean && (titleClean === prodClean || titleClean.includes(prodClean) || prodClean.includes(titleClean))) ||
+        (prodClean && handleClean && handleClean.includes(prodClean))
+      );
+    });
+
+    if (matched && typeof matched.price === "number" && matched.price > 0) {
+      if (prod.price !== matched.price) {
+        prod.price = matched.price;
+        updatedCount++;
+      }
+      if (typeof matched.compare_at_price === "number" && matched.compare_at_price > matched.price) {
+        prod.originalPrice = matched.compare_at_price;
+      }
+      if (matched.variantId) {
+        prod.variantId = matched.variantId;
+      }
+      if (typeof matched.available === "boolean") {
+        prod.available = matched.available;
+      }
+    }
+  }
+  return updatedCount;
+}
+
+export async function fetchAndSyncShopifyCatalog() {
+  if (typeof window === "undefined") return 0;
+  try {
+    const res = await fetch('/products.json?limit=250');
+    if (!res.ok) return 0;
+    const data = await res.json();
+    if (!data || !Array.isArray(data.products)) return 0;
+
+    let updatedCount = 0;
+    for (const sp of data.products) {
+      const v = (sp.variants && sp.variants[0]) || null;
+      if (!v) continue;
+      const spPrice = parseFloat(v.price);
+      if (isNaN(spPrice) || spPrice <= 0) continue;
+
+      const titleClean = (sp.title || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+      const handleClean = (sp.handle || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+
+      const matchedProd = PRODUCTS.find(prod => {
+        if (!prod) return false;
+        if (prod.id && sp.id && String(prod.id) === String(sp.id)) return true;
+        const prodClean = (prod.name || "").toLowerCase().replace(/[^a-z0-9]/g, "");
+        return (
+          (prodClean && titleClean && (titleClean === prodClean || titleClean.includes(prodClean) || prodClean.includes(titleClean))) ||
+          (prodClean && handleClean && handleClean.includes(prodClean))
+        );
+      });
+
+      if (matchedProd) {
+        if (matchedProd.price !== spPrice) {
+          matchedProd.price = spPrice;
+          updatedCount++;
+        }
+        const cmpPrice = parseFloat(v.compare_at_price);
+        if (!isNaN(cmpPrice) && cmpPrice > spPrice) {
+          matchedProd.originalPrice = cmpPrice;
+        }
+        if (v.id) {
+          matchedProd.variantId = v.id;
+        }
+        if (typeof v.available === "boolean") {
+          matchedProd.available = v.available;
+        }
+      }
+    }
+    return updatedCount;
+  } catch(e) {
+    return 0;
+  }
+}
+
+// Auto-run synchronous sync on module load if __SHOPIFY_PRODUCTS__ is ready
+if (typeof window !== "undefined") {
+  try {
+    syncLiveShopifyPrices();
+  } catch(e) {}
+}
 
 const REVIEWS = [
   { 
@@ -20050,6 +20149,46 @@ export default function App(){
   const [popupEmail, setPopupEmail] = useState("");
   const [popupState, setPopupState] = useState("scratch"); // "email", "scratch", "revealed"
   const [popupDone, setPopupDone] = useState(false);
+  const [liveSyncVersion, setLiveSyncVersion] = useState(0);
+
+  // Dynamic Live Shopify Catalog & Price Sync
+  useEffect(() => {
+    // 1. Initial sync with window.__SHOPIFY_PRODUCTS__ (injected via Liquid)
+    const initChanged = syncLiveShopifyPrices();
+    if (initChanged) {
+      setLiveSyncVersion(v => v + 1);
+    }
+    // 2. Asynchronous background sync with /products.json
+    fetchAndSyncShopifyCatalog().then(moreChanged => {
+      if (moreChanged) {
+        setLiveSyncVersion(v => v + 1);
+      }
+    });
+
+    // 3. Tab visibility sync: when store admin changes price in Shopify dashboard and returns to website
+    const handleVisibility = () => {
+      if (typeof document !== 'undefined' && document.visibilityState === 'visible') {
+        const changed = syncLiveShopifyPrices();
+        if (changed) setLiveSyncVersion(v => v + 1);
+        fetchAndSyncShopifyCatalog().then(m => {
+          if (m) setLiveSyncVersion(v => v + 1);
+        });
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibility);
+    return () => document.removeEventListener('visibilitychange', handleVisibility);
+  }, []);
+
+  // Keep cart items' prices in sync with live catalog
+  useEffect(() => {
+    setCartItems(prev => prev.map(item => {
+      const live = PRODUCTS.find(p => p.id === item.id || p.name === item.name);
+      if (live && live.price && live.price !== item.price) {
+        return { ...item, price: live.price };
+      }
+      return item;
+    }));
+  }, [liveSyncVersion]);
 
   // Auto show scratch card popup on website load
   useEffect(() => {
