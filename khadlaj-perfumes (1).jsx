@@ -6275,12 +6275,16 @@ export function syncLiveShopifyPrices() {
   if (!shopifyList.length) return 0;
 
   let updatedCount = 0;
+  const matchedShopifyIds = new Set();
+
   for (const prod of PRODUCTS) {
     if (!prod) continue;
 
     const matched = findBestShopifyMatch(prod, shopifyList);
 
     if (matched) {
+      matchedShopifyIds.add(matched.id);
+      prod.inShopify = true;
       if (typeof matched.price === "number" && matched.price > 0) {
         if (prod.price !== matched.price) {
           prod.price = matched.price;
@@ -6313,9 +6317,44 @@ export function syncLiveShopifyPrices() {
       }
       if (typeof matched.available === "boolean") {
         prod.available = matched.available;
+      } else {
+        prod.available = true;
       }
+    } else {
+      prod.inShopify = false;
+      prod.available = false;
     }
   }
+
+  // Also dynamically append any live Shopify products not present in static PRODUCTS
+  for (const sp of shopifyList) {
+    if (!sp || !sp.id || matchedShopifyIds.has(sp.id) || !sp.variantId) continue;
+    const exists = PRODUCTS.some(p => p.shopifyId === sp.id || (p.variantId && p.variantId === sp.variantId));
+    if (!exists) {
+      matchedShopifyIds.add(sp.id);
+      PRODUCTS.push({
+        id: sp.id,
+        shopifyId: sp.id,
+        variantId: sp.variantId,
+        name: sp.title,
+        shopifyTitle: sp.title,
+        col: "Eau De Parfum",
+        price: sp.price || 0,
+        originalPrice: sp.compare_at_price || 0,
+        size: extractProductMl(sp.title, sp.variantTitle) || "100 ml",
+        badge: "New",
+        gender: "Unisex",
+        notes: [],
+        img: sp.image || "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KHADLAJ_ISLAND_SUN_100_ML_EXTRAIT_DE_PARFUM.png?v=1787209397",
+        detailImages: [],
+        desc: [sp.title],
+        available: sp.available !== false,
+        inShopify: true
+      });
+      updatedCount++;
+    }
+  }
+
   return updatedCount;
 }
 
@@ -9494,20 +9533,22 @@ function ProductCard({ p, onView, onCart }){
           opacity: hov ? 1 : 0, zIndex:10
         }}>
           <button
+            disabled={p.available === false}
             onClick={(e)=>{
               e.stopPropagation();
+              if (p.available === false) return;
               if (onCart) onCart(p);
             }}
             style={{
-            width:"100%", background:"#251737", color:"#fff", border:"none", 
-            padding:"12px", fontSize: isRTL ? 13 : 11, letterSpacing: isRTL ? 0 : 2, fontWeight:700, 
-            cursor:"pointer", textTransform:"uppercase",
-            fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif", transition:"background .3s"
-          }}
-          onMouseEnter={(e)=>e.target.style.background="#B8922A"}
-          onMouseLeave={(e)=>e.target.style.background="#251737"}
+              width:"100%", background: p.available === false ? "#777" : "#251737", color:"#fff", border:"none", 
+              padding:"12px", fontSize: isRTL ? 13 : 11, letterSpacing: isRTL ? 0 : 2, fontWeight:700, 
+              cursor: p.available === false ? "not-allowed" : "pointer", textTransform:"uppercase",
+              fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif", transition:"background .3s"
+            }}
+            onMouseEnter={(e)=>{ if (p.available !== false) e.target.style.background="#B8922A"; }}
+            onMouseLeave={(e)=>{ if (p.available !== false) e.target.style.background="#251737"; }}
           >
-            {t("addToCart", "Add to Bag")}
+            {p.available === false ? (isRTL ? "غير متوفر" : "Out of Stock") : t("addToCart", "Add to Bag")}
           </button>
         </div>
       </div>
@@ -12981,6 +13022,10 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
   }, [product.id]);
 
   const handleAdd = () => {
+    if (product.available === false) {
+      alert(isRTL ? "عذراً، هذا المنتج غير متوفر في المخزون حالياً" : "Sorry, this product is currently out of stock.");
+      return;
+    }
     addToCart(product, qty);
     setAdded(true);
     setTimeout(()=>setAdded(false),2200);
@@ -16472,19 +16517,9 @@ async function redirectToShopifyCheckout(cartItems, selectedPouch = null) {
       }
     }
 
-    if (itemsToAdd.length === 0 && typeof window !== "undefined" && window.__STORE_DEFAULT_VARIANT_ID__) {
-      const defaultProperties = {
-        'Items': cartItems.map(i => `${i.name} (x${i.qty})`).join(', ')
-      };
-      if (selectedPouch) {
-        defaultProperties['Complimentary Gift'] = selectedPouch === 'male' ? "Male Luxury Travel Pouch (Signature Noir)" : "Female Luxury Travel Pouch (Royal Carmine)";
-      }
-      itemsToAdd.push({
-        id: Number(window.__STORE_DEFAULT_VARIANT_ID__),
-        quantity: 1,
-        properties: defaultProperties
-      });
-      permalinkParts.push(`${window.__STORE_DEFAULT_VARIANT_ID__}:1`);
+    if (itemsToAdd.length === 0) {
+      alert(typeof window !== "undefined" && window.__IS_RTL__ ? "عذراً، المنتجات في السلة غير متوفرة في المخزون حالياً" : "Sorry, items in your cart are currently not in store inventory.");
+      return false;
     }
 
     const countryParam = "checkout[shipping_address][country]=Saudi+Arabia&checkout[shipping_address][country_code]=SA&checkout[shipping_address][city]=Riyadh";
@@ -16521,9 +16556,6 @@ async function redirectToShopifyCheckout(cartItems, selectedPouch = null) {
       return true;
     } else if (permalinkParts.length > 0) {
       window.location.href = `/cart/${permalinkParts.join(',')}?${countryParam}`;
-      return true;
-    } else if (typeof window !== "undefined" && window.__STORE_DEFAULT_VARIANT_ID__) {
-      window.location.href = `/cart/${window.__STORE_DEFAULT_VARIANT_ID__}:1?${countryParam}`;
       return true;
     }
   } catch(err) {
@@ -17484,14 +17516,14 @@ function LegacyCheckoutPage_Disabled({ cartItems, setPage, clearCart }){
           );
           let vId = (matched && matched.variantId && matched.variantId !== 0) 
             ? matched.variantId 
-            : (shopifyProducts.find(p => p.available !== false && p.variantId && p.variantId !== 0)?.variantId || (typeof window !== "undefined" ? window.__STORE_DEFAULT_VARIANT_ID__ : null));
+            : (item.variantId || null);
 
           if (vId) {
             itemsToAdd.push({ 
               id: Number(vId), 
               quantity: item.qty || 1,
               properties: {
-                'Product': item.name || '',
+                'Product': item.shopifyTitle || item.name || '',
                 'Size': item.size || 'Standard',
                 'Original Price': `${item.price || 0} SAR`
               }
@@ -17500,16 +17532,10 @@ function LegacyCheckoutPage_Disabled({ cartItems, setPage, clearCart }){
           }
         }
 
-        // If no matching variants found, fallback to the store default variant
-        if (itemsToAdd.length === 0 && typeof window !== "undefined" && window.__STORE_DEFAULT_VARIANT_ID__) {
-          itemsToAdd.push({
-            id: Number(window.__STORE_DEFAULT_VARIANT_ID__),
-            quantity: 1,
-            properties: {
-              'Items': cartItems.map(i => `${i.name} (x${i.qty})`).join(', ')
-            }
-          });
-          permalinkParts.push(`${window.__STORE_DEFAULT_VARIANT_ID__}:1`);
+        if (itemsToAdd.length === 0) {
+          alert(isRTL ? "عذراً، المنتجات في السلة غير متوفرة في المخزون حالياً" : "Sorry, items in cart are not available in current store inventory.");
+          setIsSubmitting(false);
+          return;
         }
 
         if (itemsToAdd.length > 0) {
@@ -17561,9 +17587,6 @@ function LegacyCheckoutPage_Disabled({ cartItems, setPage, clearCart }){
         } else if (permalinkParts.length > 0) {
           // Direct server-side Cart Permalink (bypasses any cart add failure and guarantees checkout opens!)
           window.location.href = `/cart/${permalinkParts.join(',')}?${queryParams}`;
-          return;
-        } else if (typeof window !== "undefined" && window.__STORE_DEFAULT_VARIANT_ID__) {
-          window.location.href = `/cart/${window.__STORE_DEFAULT_VARIANT_ID__}:1?${queryParams}`;
           return;
         }
       } catch(err) {
@@ -20506,7 +20529,19 @@ export default function App(){
           product.shopifyTitle = matched.title;
           product.name = matched.title;
         }
+        product.available = matched.available !== false;
       }
+    }
+
+    const isLiveShopify = typeof window !== "undefined" && (
+      window.location.hostname.includes("shopify") || 
+      window.location.hostname.includes("khadlaj-perfumes.sa") ||
+      !!window.Shopify
+    );
+
+    if (isLiveShopify && (!vId || product.available === false)) {
+      alert(isRTL ? "عذراً، هذا المنتج غير متوفر في المخزون حالياً" : "Sorry, this product is currently not in inventory or out of stock.");
+      return;
     }
 
     setCartItems(items=>{
