@@ -7026,16 +7026,28 @@ const PRODUCT_NAMES_AR = {
   "WILD INDONESIAN OUD PURE": "عود إندونيسي بري نقي"
 };
 
+export function cleanDisplayTitle(title) {
+  if (!title) return "";
+  let clean = title.trim();
+  clean = clean.replace(/^khadlaj\s+/i, "");
+  clean = clean.replace(/\s*\d+\s*(?:ml|g|gms|gm|oz)\b.*$/i, "");
+  clean = clean.replace(/\s*(?:eau\s+de\s+parfum|extrait\s+de\s+parfum|edp\s+spray|edp|cpo|perfume\s+oil).*$/i, "");
+  return clean.trim();
+}
+
 function getProductName(p, isRTL) {
   if (!p) return "";
-  if (!isRTL) return p.shopifyTitle || p.name;
+  const rawTitle = p.shopifyTitle || p.name || "";
+  const cleanTitle = cleanDisplayTitle(rawTitle);
+
+  if (!isRTL) return cleanTitle || rawTitle;
   if (p.nameAr) return p.nameAr;
-  const orig = (p.originalName || p.name || "").toUpperCase().trim();
+  const orig = (p.originalName || cleanTitle || rawTitle).toUpperCase().trim();
   if (PRODUCT_NAMES_AR[orig]) return PRODUCT_NAMES_AR[orig];
-  const upper = (p.shopifyTitle || p.name || "").toUpperCase().trim();
+  const upper = cleanTitle.toUpperCase().trim();
   if (PRODUCT_NAMES_AR[upper]) return PRODUCT_NAMES_AR[upper];
   if (PRODUCT_NAMES_AR[p.name]) return PRODUCT_NAMES_AR[p.name];
-  return p.shopifyTitle || p.name;
+  return cleanTitle || rawTitle;
 }
 
 function formatProductSize(size, isRTL) {
@@ -17650,7 +17662,7 @@ function LegacyCheckoutPage_Disabled({ cartItems, setPage, clearCart }){
                     <img src={getOptimizedImage(item.img,300)} alt={item.name} style={{maxHeight:"90%",maxWidth:"90%",objectFit:"contain"}}/>
                   </div>
                   <div>
-                    <p style={{fontSize:11,fontWeight:600,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",margin:0}}>{item.name}</p>
+                    <p style={{fontSize:11,fontWeight:600,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",margin:0}}>{cleanDisplayTitle(item.name)}</p>
                     <p style={{fontSize:10,color:"#888",margin:0,fontFamily:"'Montserrat',sans-serif"}}>Qty: {item.qty} {item.size ? `• ${item.size}` : ""}</p>
                   </div>
                   <strong style={{fontSize:12,fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(item.price * item.qty)}</strong>
@@ -17937,7 +17949,7 @@ function LegacyCheckoutPage_Disabled({ cartItems, setPage, clearCart }){
                     <img loading="lazy" decoding="async" src={getOptimizedImage(item.img,500)} alt={item.name} style={{maxWidth:"90%",maxHeight:"90%",objectFit:"contain"}}/>
                   </div>
                   <div>
-                    <p style={{fontSize:11,fontWeight:600,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",lineHeight:1.25}}>{item.name}</p>
+                    <p style={{fontSize:11,fontWeight:600,textTransform:"uppercase",fontFamily:"'Montserrat',sans-serif",lineHeight:1.25}}>{cleanDisplayTitle(item.name)}</p>
                     <p style={{fontSize:10,color:"#888",fontFamily:"'Montserrat',sans-serif"}}>Qty {item.qty} {item.size ? `• ${item.size}` : ""}</p>
                   </div>
                   <strong style={{fontSize:12,fontFamily:"'Montserrat',sans-serif"}}>{formatPrice(item.price * item.qty)}</strong>
