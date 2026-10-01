@@ -6234,113 +6234,130 @@ export function findBestShopifyMatch(item, shopifyProducts) {
 
 export function syncLiveShopifyPrices() {
   if (typeof window === "undefined") return 0;
-  const shopifyList = window.__SHOPIFY_PRODUCTS__ || [];
-  if (!shopifyList.length) return 0;
+  try {
+    const shopifyList = window.__SHOPIFY_PRODUCTS__ || [];
+    if (!shopifyList.length) return 0;
 
-  let updatedCount = 0;
-  const matchedShopifyIds = new Set();
+    let updatedCount = 0;
+    const matchedShopifyIds = new Set();
+    const matchedShopifyVariantIds = new Set();
+    const matchedCleanTitles = new Set();
 
-  for (const prod of PRODUCTS) {
-    if (!prod) continue;
+    for (const prod of PRODUCTS) {
+      if (!prod) continue;
 
-    const matched = findBestShopifyMatch(prod, shopifyList);
+      const matched = findBestShopifyMatch(prod, shopifyList);
 
-    if (matched) {
-      matchedShopifyIds.add(String(matched.id));
-      if (matched.variantId) matchedShopifyVariantIds.add(String(matched.variantId));
-      if (matched.title) {
-        matchedCleanTitles.add(matched.title.toLowerCase().replace(/[^a-z0-9]/g, ''));
-      }
-      prod.inShopify = true;
-      if (typeof matched.price === "number" && matched.price > 0) {
-        if (prod.price !== matched.price) {
-          prod.price = matched.price;
+      if (matched) {
+        matchedShopifyIds.add(String(matched.id));
+        if (matched.variantId) matchedShopifyVariantIds.add(String(matched.variantId));
+        if (matched.title) {
+          matchedCleanTitles.add(matched.title.toLowerCase().replace(/[^a-z0-9]/g, ''));
+        }
+        prod.inShopify = true;
+        if (typeof matched.price === "number" && matched.price > 0) {
+          if (prod.price !== matched.price) {
+            prod.price = matched.price;
+            updatedCount++;
+          }
+        }
+        if (typeof matched.compare_at_price === "number" && matched.compare_at_price > (matched.price || prod.price)) {
+          prod.originalPrice = matched.compare_at_price;
+        }
+        if (matched.variantId) {
+          prod.variantId = matched.variantId;
+        }
+        if (matched.id && !String(prod.id).startsWith("920000")) {
+          prod.shopifyId = matched.id;
+        }
+        // Sync Dashboard Name
+        if (matched.title) {
+          if (!prod.originalName) {
+            prod.originalName = prod.name;
+          }
+          prod.shopifyTitle = matched.title;
+          if (prod.name !== matched.title) {
+            prod.name = matched.title;
+            updatedCount++;
+          }
+        }
+        // Sync Dashboard Image
+        if (matched.image) {
+          if (typeof matched.image === 'string' && (matched.image.startsWith('http') || matched.image.startsWith('//'))) {
+            prod.img = matched.image.startsWith('//') ? 'https:' + matched.image : matched.image;
+          } else if (typeof matched.image === 'object' && matched.image && matched.image.src) {
+            prod.img = matched.image.src.startsWith('//') ? 'https:' + matched.image.src : matched.image.src;
+          }
+        }
+        if (matched.images && Array.isArray(matched.images) && matched.images.length > 0) {
+          prod.detailImages = matched.images.map(img => typeof img === 'string' ? (img.startsWith('//') ? 'https:' + img : img) : (img && img.src ? (img.src.startsWith('//') ? 'https:' + img.src : img.src) : null)).filter(Boolean);
+        }
+        const liveMl = extractProductMl(matched.title, matched.variantTitle);
+        if (liveMl && liveMl !== prod.size) {
+          prod.size = liveMl;
           updatedCount++;
         }
-      }
-      if (typeof matched.compare_at_price === "number" && matched.compare_at_price > (matched.price || prod.price)) {
-        prod.originalPrice = matched.compare_at_price;
-      }
-      if (matched.variantId) {
-        prod.variantId = matched.variantId;
-      }
-      if (matched.id && !String(prod.id).startsWith("920000")) {
-        prod.shopifyId = matched.id;
-      }
-      // Sync Dashboard Name
-      if (matched.title) {
-        if (!prod.originalName) {
-          prod.originalName = prod.name;
-        }
-        prod.shopifyTitle = matched.title;
-        if (prod.name !== matched.title) {
-          prod.name = matched.title;
-          updatedCount++;
+        if (typeof matched.available === "boolean") {
+          prod.available = matched.available;
         }
       }
-      // Sync Dashboard Image
-      if (matched.image) {
-        prod.img = matched.image;
-      }
-      if (matched.images && Array.isArray(matched.images) && matched.images.length > 0) {
-        prod.detailImages = matched.images;
-      }
-      const liveMl = extractProductMl(matched.title, matched.variantTitle);
-      if (liveMl && liveMl !== prod.size) {
-        prod.size = liveMl;
+    }
+
+    // Automatically add any NEW products created in Shopify Dashboard
+    const seenNewIds = new Set();
+    for (const sp of shopifyList) {
+      if (!sp || !sp.id || !sp.variantId) continue;
+      const sId = String(sp.id);
+      const vId = String(sp.variantId);
+      if (matchedShopifyIds.has(sId) || matchedShopifyVariantIds.has(vId) || seenNewIds.has(sId)) continue;
+      
+      const spClean = (sp.title || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+      if (!spClean || matchedCleanTitles.has(spClean)) continue;
+
+      const alreadyInProducts = PRODUCTS.some(p => {
+        if (p.shopifyId && String(p.shopifyId) === sId) return true;
+        if (p.variantId && String(p.variantId) === vId) return true;
+        const pClean = (p.originalName || p.name || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+        return pClean && (pClean === spClean || pClean.includes(spClean) || spClean.includes(pClean));
+      });
+
+      if (!alreadyInProducts) {
+        seenNewIds.add(sId);
+        matchedCleanTitles.add(spClean);
+        let fallbackImg = "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KHADLAJ_ISLAND_SUN_100_ML_EXTRAIT_DE_PARFUM.png?v=1787209397";
+        if (typeof sp.image === 'string' && (sp.image.startsWith('http') || sp.image.startsWith('//'))) {
+          fallbackImg = sp.image.startsWith('//') ? 'https:' + sp.image : sp.image;
+        } else if (typeof sp.image === 'object' && sp.image && sp.image.src) {
+          fallbackImg = sp.image.src.startsWith('//') ? 'https:' + sp.image.src : sp.image.src;
+        }
+        PRODUCTS.push({
+          id: sp.id,
+          shopifyId: sp.id,
+          variantId: sp.variantId,
+          name: sp.title,
+          shopifyTitle: sp.title,
+          col: sp.type || "Eau De Parfum",
+          price: sp.price || 0,
+          originalPrice: sp.compare_at_price || 0,
+          size: extractProductMl(sp.title, sp.variantTitle) || "100 ml",
+          badge: "New",
+          gender: "Unisex",
+          notes: ["Fragrance"],
+          img: fallbackImg,
+          detailImages: [fallbackImg],
+          desc: [sp.description || sp.title],
+          available: sp.available !== false,
+          inShopify: true
+        });
         updatedCount++;
       }
-      if (typeof matched.available === "boolean") {
-        prod.available = matched.available;
-      }
     }
+
+    return updatedCount;
+  } catch(e) {
+    console.warn("syncLiveShopifyPrices safe catch:", e);
+    return 0;
   }
-
-  // Automatically add any NEW products created in Shopify Dashboard
-  const seenNewIds = new Set();
-  for (const sp of shopifyList) {
-    if (!sp || !sp.id || !sp.variantId) continue;
-    const sId = String(sp.id);
-    const vId = String(sp.variantId);
-    if (matchedShopifyIds.has(sId) || matchedShopifyVariantIds.has(vId) || seenNewIds.has(sId)) continue;
-    
-    const spClean = (sp.title || '').toLowerCase().replace(/[^a-z0-9]/g, '');
-    if (!spClean || matchedCleanTitles.has(spClean)) continue;
-
-    const alreadyInProducts = PRODUCTS.some(p => {
-      if (p.shopifyId && String(p.shopifyId) === sId) return true;
-      if (p.variantId && String(p.variantId) === vId) return true;
-      const pClean = (p.originalName || p.name || '').toLowerCase().replace(/[^a-z0-9]/g, '');
-      return pClean && (pClean === spClean || pClean.includes(spClean) || spClean.includes(pClean));
-    });
-
-    if (!alreadyInProducts) {
-      seenNewIds.add(sId);
-      matchedCleanTitles.add(spClean);
-      PRODUCTS.push({
-        id: sp.id,
-        shopifyId: sp.id,
-        variantId: sp.variantId,
-        name: sp.title,
-        shopifyTitle: sp.title,
-        col: sp.type || "Eau De Parfum",
-        price: sp.price || 0,
-        originalPrice: sp.compare_at_price || 0,
-        size: extractProductMl(sp.title, sp.variantTitle) || "100 ml",
-        badge: "New",
-        gender: "Unisex",
-        notes: ["Fragrance"],
-        img: sp.image || "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KHADLAJ_ISLAND_SUN_100_ML_EXTRAIT_DE_PARFUM.png?v=1787209397",
-        detailImages: sp.images && sp.images.length ? sp.images : (sp.image ? [sp.image] : []),
-        desc: [sp.description || sp.title],
-        available: sp.available !== false,
-        inShopify: true
-      });
-      updatedCount++;
-    }
-  }
-
-  return updatedCount;
 }
 
 export async function fetchAndSyncShopifyCatalog() {
@@ -6474,7 +6491,7 @@ export async function fetchAndSyncShopifyCatalog() {
           gender: "Unisex",
           notes: ["Fragrance"],
           img: sp.image || "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KHADLAJ_ISLAND_SUN_100_ML_EXTRAIT_DE_PARFUM.png?v=1787209397",
-          detailImages: sp.images && sp.images.length ? sp.images : (sp.image ? [sp.image] : []),
+          detailImages: sp.images && sp.images.length ? sp.images : (sp.image ? [sp.image] : ["https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KHADLAJ_ISLAND_SUN_100_ML_EXTRAIT_DE_PARFUM.png?v=1787209397"]),
           desc: [sp.description || sp.title],
           available: sp.available !== false,
           inShopify: true

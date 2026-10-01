@@ -45,6 +45,11 @@ class RootErrorBoundary extends React.Component {
         <div style={{ padding: "40px 20px", textAlign: "center", fontFamily: "sans-serif" }}>
           <h2>Something went wrong loading this view.</h2>
           <p style={{ color: "#888", fontSize: "14px" }}>Please refresh the page to reload Khadlaj Perfumes.</p>
+          {this.state.error && (
+            <p style={{ color: "#c00", fontSize: "12px", maxWidth: "600px", margin: "10px auto", fontFamily: "monospace" }}>
+              {this.state.error.message || String(this.state.error)}
+            </p>
+          )}
           <button 
             onClick={() => window.location.reload()} 
             style={{ marginTop: "20px", padding: "10px 24px", background: "#251737", color: "#fff", border: "none", borderRadius: "4px", cursor: "pointer" }}
