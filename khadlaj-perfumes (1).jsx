@@ -309,6 +309,9 @@ export function resolveAsset(url) {
     if (filename.includes('oud collection') || filename.includes('oud-collection') || filename.includes('oudcollection')) {
       return (window.__THEME_ASSETS__ && (window.__THEME_ASSETS__['oud-collection.jpg'] || window.__THEME_ASSETS__['oud collection.jpg'])) || "/assets/images/showcase/oud collection.jpg";
     }
+    if (filename.includes('home_ambience_banner') || filename.includes('home-ambience-banner') || filename.includes('homeambience')) {
+      return (window.__THEME_ASSETS__ && window.__THEME_ASSETS__['home_ambience_banner.jpg']) || "/assets/images/banners/home_ambience_banner.jpg";
+    }
     if (window.__THEME_ASSETS__ && window.__THEME_ASSETS__[filename]) {
       return window.__THEME_ASSETS__[filename];
     }
@@ -11446,8 +11449,8 @@ const COLLECTION_CONFIGS = {
     titleAr: "مجموعة العود الفاخرة",
     subtitle: "Majestic Heritage & Timeless Sillage",
     subtitleAr: "أصالة التراث وسحر العود الخالد",
-    banner: "/assets/images/showcase/oud collection.jpg",
-    bannerMobile: "/assets/images/showcase/oud collection.jpg",
+    banner: "/assets/images/banners/home_ambience_banner.jpg",
+    bannerMobile: "/assets/images/banners/home_ambience_banner.jpg",
     filter: (p) => {
       const name = (p.name || "");
       const col = (p.col || "");
@@ -11560,8 +11563,8 @@ const COLLECTION_CONFIGS = {
     titleAr: "معطرات وعطور المنزل",
     subtitle: "Bakhoor, Muattar & Luxurious Air Fresheners",
     subtitleAr: "بخور ومعطرات فاخرة لأجواء مفعمة بالأصالة",
-    banner: "/assets/images/banners/deals_desktop.png",
-    bannerMobile: "/assets/images/banners/deals_mobile.png",
+    banner: "/assets/images/banners/home_ambience_banner.jpg",
+    bannerMobile: "/assets/images/banners/home_ambience_banner.jpg",
     filter: (p) => {
       if (p.col === "Lafede" || p.size === "Gift Set") return false;
       const col = (p.col || "").toLowerCase();
