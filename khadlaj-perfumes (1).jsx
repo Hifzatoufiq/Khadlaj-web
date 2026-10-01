@@ -367,9 +367,10 @@ const STATS = [
 const PRODUCTS = [
   {
     "id": 9200000000010,
-    "name": "ISLAND SUN",
+    "name": "KHADLAJ ISLAND SUN 100 ML EXTRAIT DE PARFUM",
+    "originalName": "ISLAND SUN",
     "col": "Extrait De Parfum",
-    "price": 165.0,
+    "price": 169.0,
     "size": "100 ML",
     "badge": "New",
     "gender": "Unisex",
@@ -6222,8 +6223,9 @@ export function findBestShopifyMatch(item, shopifyProducts) {
   const stopWords = new Set(['eau', 'de', 'parfum', 'edp', 'spray', 'perfume', 'oil', 'for', 'men', 'women', 'and', 'khadlaj', 'ml', 'concentrated', 'extrait', 'air', 'freshener', 'the', 'best', 'online', 'special', 'edition']);
   const getTokens = (str) => normalize(str).split(' ').filter(w => w.length >= 2 && !stopWords.has(w));
 
-  const itemTokens = getTokens(item.name || item.title);
-  const itemClean = (item.name || item.title || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+  const rawName = item.originalName || item.name || item.title || '';
+  const itemTokens = getTokens(rawName);
+  const itemClean = rawName.toLowerCase().replace(/[^a-z0-9]/g, '');
 
   let bestMatch = null;
   let highestScore = 0;
@@ -6231,31 +6233,34 @@ export function findBestShopifyMatch(item, shopifyProducts) {
   for (const sp of shopifyProducts) {
     if (!sp) continue;
     const spTitleNorm = normalize(sp.title);
-    const spHandleNorm = normalize(sp.handle);
+    const spHandleTokens = new Set(normalize((sp.handle || '').replace(/-/g, ' ')).split(' '));
+    const spTitleTokens = new Set(spTitleNorm.split(' '));
     const spClean = (sp.title + ' ' + (sp.handle || '')).toLowerCase().replace(/[^a-z0-9]/g, '');
 
     let score = 0;
 
-    // Direct clean match
-    if (itemClean && spClean.includes(itemClean)) {
-      score += 100;
+    // Direct clean slug match (e.g. 'islandsun' in 'khadlajislandsun100mlextraitdeparfum')
+    if (itemClean.length >= 4 && spClean.includes(itemClean)) {
+      score += 200;
     }
 
-    // Token matching
+    // Exact whole-word token matching
     if (itemTokens.length > 0) {
       let matchedTokens = 0;
       for (const tok of itemTokens) {
-        if (spHandleNorm.includes(tok) || spTitleNorm.includes(tok)) {
+        if (spTitleTokens.has(tok) || spHandleTokens.has(tok)) {
           matchedTokens++;
-          score += 25;
+          score += 50;
         }
       }
       if (matchedTokens === itemTokens.length) {
-        score += 50;
+        score += 100;
+      } else if (matchedTokens < Math.min(itemTokens.length, 2)) {
+        score = 0;
       }
     }
 
-    if (score > highestScore && score >= 25) {
+    if (score > highestScore && score >= 100) {
       highestScore = score;
       bestMatch = sp;
     }
