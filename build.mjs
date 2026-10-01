@@ -63,7 +63,9 @@ fs.copyFileSync('bundle-v232.js', 'bundle-v279-oct1.js');
 fs.copyFileSync('bundle-v232.js', 'bundle-v280-oct1.js');
 fs.copyFileSync('bundle-v232.js', 'bundle-v281-oct1.js');
 fs.copyFileSync('bundle-v232.js', 'bundle-v282-oct1.js');
+fs.copyFileSync('bundle-v232.js', 'bundle-v283-oct1.js');
 if (fs.existsSync('khadlaj-theme/assets')) {
+  fs.copyFileSync('bundle-v232.js', 'khadlaj-theme/assets/bundle-v283-oct1.js');
   fs.copyFileSync('bundle-v232.js', 'khadlaj-theme/assets/bundle-v282-oct1.js');
   fs.copyFileSync('bundle-v232.js', 'khadlaj-theme/assets/bundle-v281-oct1.js');
   fs.copyFileSync('bundle-v232.js', 'khadlaj-theme/assets/bundle-v280-oct1.js');
@@ -162,8 +164,10 @@ if (fs.existsSync('assets')) {
   fs.copyFileSync('bundle-v232.js', 'assets/bundle-v280-oct1.js');
   fs.copyFileSync('bundle-v232.js', 'assets/bundle-v281-oct1.js');
   fs.copyFileSync('bundle-v232.js', 'assets/bundle-v282-oct1.js');
+  fs.copyFileSync('bundle-v232.js', 'assets/bundle-v283-oct1.js');
 }
 if (fs.existsSync('khadlaj-sa-theme/assets')) {
+  fs.copyFileSync('bundle-v232.js', 'khadlaj-sa-theme/assets/bundle-v283-oct1.js');
   fs.copyFileSync('bundle-v232.js', 'khadlaj-sa-theme/assets/bundle-v282-oct1.js');
   fs.copyFileSync('bundle-v232.js', 'khadlaj-sa-theme/assets/bundle-v281-oct1.js');
   fs.copyFileSync('bundle-v232.js', 'khadlaj-sa-theme/assets/bundle-v280-oct1.js');
