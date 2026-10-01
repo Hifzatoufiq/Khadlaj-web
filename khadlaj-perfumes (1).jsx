@@ -13496,7 +13496,7 @@ function StoryPage({ setPage, setViewProduct }){
             {isRTL ? (
               <>إرث عريق من <span style={{color:"#C8A97E"}}>الفخامة الأبدية</span></>
             ) : (
-              <>Our Illustrious <span style={{color:"#C8A97E"}}>Legacy</span></>
+              <>Our <span style={{color:"#C8A97E"}}>Legacy</span></>
             )}
           </h1>
 
