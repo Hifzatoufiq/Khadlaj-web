@@ -9325,7 +9325,6 @@ function TikTokCard({ t: item, setViewProduct, setPage }) {
       if (targetProd) {
         setViewProduct(targetProd);
         setPage("product");
-        window.scrollTo({ top: 0, behavior: "smooth" });
       }
     }
   };
@@ -9611,7 +9610,6 @@ function FreeGiftBannerSection({ setPage, setCollectionCategory, setSelectedColl
             }}
             onClick={() => {
               if (setPage) setPage("collections");
-              window.scrollTo({ top: 0, behavior: "smooth" });
             }}
             onMouseEnter={e => {
               e.currentTarget.style.transform = "scale(1.01)";
@@ -9695,7 +9693,6 @@ function FreeGiftBannerSection({ setPage, setCollectionCategory, setSelectedColl
               <button
                 onClick={() => {
                   if (setPage) setPage("collections");
-                  window.scrollTo({ top: 0, behavior: "smooth" });
                 }}
                 style={{
                   background: "linear-gradient(135deg, #1A0B22 0%, #2E1B40 100%)",
@@ -9815,7 +9812,6 @@ function NewLaunchesHeroBannerSlider({ setPage, setViewProduct, setSelectedColle
       if (setCollectionCategory) setCollectionCategory("Deals");
       if (setSelectedCollection) setSelectedCollection("deals");
       if (setPage) setPage("collections");
-      window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
     const prod = PRODUCTS.find(p => p.name === banner.productName || p.id === banner.productId);
@@ -10037,7 +10033,14 @@ function NewLaunchesHeroBannerSlider({ setPage, setViewProduct, setSelectedColle
 ═══════════════════════════════════════════════════════════════ */
 function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
   const { isRTL, t } = React.useContext(LanguageContext);
-  const [startIndex, setStartIndex] = useState(0);
+  const [startIndex, setStartIndex] = useState(() => {
+    try {
+      const saved = sessionStorage.getItem("khadlaj_showcase_start_idx");
+      return saved !== null ? parseInt(saved, 10) : 0;
+    } catch(e) {
+      return 0;
+    }
+  });
   const [isPaused, setIsPaused] = useState(false);
   const [hoveredIdx, setHoveredIdx] = useState(null);
   const [windowWidth, setWindowWidth] = useState(typeof window !== "undefined" ? window.innerWidth : 1200);
@@ -10129,24 +10132,23 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
   const visibleCards = windowWidth >= 1024 ? 3 : windowWidth >= 640 ? 2 : 1;
   const maxIndex = Math.max(0, cards.length - visibleCards);
 
-  // When user scrolls into this section, start from ISLAND SUN (index 0)
+  // Restore scroll position when returning to homepage after clicking a showcase card
   useEffect(() => {
-    const el = sectionRef.current;
-    if (!el || typeof IntersectionObserver === "undefined") return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setStartIndex(0);
+    try {
+      if (sessionStorage.getItem("khadlaj_return_to_showcase") === "true") {
+        sessionStorage.removeItem("khadlaj_return_to_showcase");
+        const savedScroll = sessionStorage.getItem("khadlaj_last_showcase_scroll");
+        const targetY = savedScroll ? parseInt(savedScroll, 10) : 0;
+        const timer = setTimeout(() => {
+          if (targetY > 50) {
+            window.scrollTo({ top: targetY, behavior: "instant" });
+          } else if (sectionRef.current) {
+            sectionRef.current.scrollIntoView({ behavior: "instant", block: "center" });
           }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    observer.observe(el);
-    return () => observer.disconnect();
+        }, 50);
+        return () => clearTimeout(timer);
+      }
+    } catch(e) {}
   }, []);
 
   // Disable auto-advance on mobile so the user can control manually with arrows and swipe
@@ -10158,7 +10160,29 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
     return () => clearInterval(timer);
   }, [isPaused, maxIndex, windowWidth]);
 
-  const handleCardClick = (card) => {
+  const handleCardClick = (card, idx) => {
+    try {
+      const currentScrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+      sessionStorage.setItem("khadlaj_last_showcase_scroll", currentScrollY.toString());
+      sessionStorage.setItem("khadlaj_return_to_showcase", "true");
+      sessionStorage.setItem("khadlaj_showcase_last_card", card.id || "");
+      
+      let targetStart = startIndex;
+      if (typeof idx === "number") {
+        if (visibleCards <= 1) {
+          targetStart = idx;
+        } else {
+          if (idx < targetStart) {
+            targetStart = idx;
+          } else if (idx >= targetStart + visibleCards) {
+            targetStart = Math.min(maxIndex, Math.max(0, idx - visibleCards + 1));
+          }
+        }
+      }
+      setStartIndex(targetStart);
+      sessionStorage.setItem("khadlaj_showcase_start_idx", String(targetStart));
+    } catch(e) {}
+
     const prod = PRODUCTS.find(p => 
       (card.productId && p.id === card.productId) ||
       (card.productName && p.name.toLowerCase().trim() === card.productName.toLowerCase().trim()) ||
@@ -10167,21 +10191,27 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
     if (prod && setViewProduct) {
       setViewProduct(prod);
       if (setPage) setPage("product");
-      window.scrollTo({ top: 0, behavior: "smooth" });
     } else if (setPage) {
       setPage("collections");
-      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
   const prevSlide = (e) => {
     if (e && e.stopPropagation) e.stopPropagation();
-    setStartIndex(prev => (prev === 0 ? maxIndex : prev - 1));
+    setStartIndex(prev => {
+      const next = prev === 0 ? maxIndex : prev - 1;
+      try { sessionStorage.setItem("khadlaj_showcase_start_idx", String(next)); } catch(err) {}
+      return next;
+    });
   };
 
   const nextSlide = (e) => {
     if (e && e.stopPropagation) e.stopPropagation();
-    setStartIndex(prev => (prev >= maxIndex ? 0 : prev + 1));
+    setStartIndex(prev => {
+      const next = prev >= maxIndex ? 0 : prev + 1;
+      try { sessionStorage.setItem("khadlaj_showcase_start_idx", String(next)); } catch(err) {}
+      return next;
+    });
   };
 
   const handleTouchStart = (e) => {
@@ -10213,6 +10243,7 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
 
   return (
     <section 
+      id="curated-masterpieces-showcase"
       ref={sectionRef}
       style={{
         padding: windowWidth < 640 ? "36px 3% 24px" : "54px 3% 36px", 
@@ -10273,7 +10304,7 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
               }}
             >
               <div
-                onClick={() => handleCardClick(c)}
+                onClick={() => handleCardClick(c, idx)}
                 onMouseEnter={() => setHoveredIdx(idx)}
                 onMouseLeave={() => setHoveredIdx(null)}
                 style={{
@@ -10360,7 +10391,7 @@ function NewLaunchesShowcaseCards({ setPage, setViewProduct }) {
                     }}
                     onClick={(e) => {
                       e.stopPropagation();
-                      handleCardClick(c);
+                      handleCardClick(c, idx);
                     }}
                   >
                     {isRTL ? "تسوق الآن" : "SHOP NOW"}
@@ -19929,15 +19960,22 @@ export default function App(){
         const targetKey = `${state.page || "main"}_${state.collectionCategory || ""}_${state.selectedCollection || ""}_${state.viewProduct?.id || ""}`;
 
         let savedY = 0;
-        if (typeof state.scrollY === "number") {
+        if (typeof state.scrollY === "number" && state.scrollY > 0) {
           savedY = state.scrollY;
-        } else if (typeof scrollMapRef.current[targetKey] === "number") {
+        } else if (typeof scrollMapRef.current[targetKey] === "number" && scrollMapRef.current[targetKey] > 0) {
           savedY = scrollMapRef.current[targetKey];
         } else {
           try {
             const stored = sessionStorage.getItem("khadlaj_scroll_" + targetKey);
-            if (stored !== null) savedY = Number(stored);
+            if (stored !== null && Number(stored) > 0) savedY = Number(stored);
           } catch (e) {}
+        }
+
+        if (savedY <= 50 && (!state.page || state.page === "main" || state.page === "home")) {
+          try {
+            const sc = sessionStorage.getItem("khadlaj_last_showcase_scroll");
+            if (sc && Number(sc) > 50) savedY = Number(sc);
+          } catch(e) {}
         }
 
         targetScrollYRef.current = savedY;
