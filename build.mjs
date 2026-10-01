@@ -54,6 +54,7 @@ fs.copyFileSync('bundle-v232.js', 'bundle-v270-oct1.js');
 fs.copyFileSync('bundle-v232.js', 'bundle-v271-oct1.js');
 fs.copyFileSync('bundle-v232.js', 'bundle-v272-oct1.js');
 fs.copyFileSync('bundle-v232.js', 'bundle-v273-oct1.js');
+fs.copyFileSync('bundle-v232.js', 'bundle-v274-oct1.js');
 if (fs.existsSync('khadlaj-theme/assets')) {
   fs.copyFileSync('bundle-v232.js', 'khadlaj-theme/assets/bundle-v262-oct1.js');
   fs.copyFileSync('bundle-v232.js', 'khadlaj-theme/assets/bundle-v263-oct1.js');
@@ -67,6 +68,7 @@ if (fs.existsSync('khadlaj-theme/assets')) {
   fs.copyFileSync('bundle-v232.js', 'khadlaj-theme/assets/bundle-v271-oct1.js');
   fs.copyFileSync('bundle-v232.js', 'khadlaj-theme/assets/bundle-v272-oct1.js');
   fs.copyFileSync('bundle-v232.js', 'khadlaj-theme/assets/bundle-v273-oct1.js');
+  fs.copyFileSync('bundle-v232.js', 'khadlaj-theme/assets/bundle-v274-oct1.js');
   fs.copyFileSync('bundle-v232.js', 'khadlaj-theme/assets/bundle-v232-shopify.js');
   fs.copyFileSync('bundle-v232.js', 'khadlaj-theme/assets/bundle-v230-shopify.js');
   fs.copyFileSync('bundle-v232.js', 'khadlaj-theme/assets/bundle-v235-sep28.js');
@@ -135,6 +137,7 @@ if (fs.existsSync('assets')) {
   fs.copyFileSync('bundle-v232.js', 'assets/bundle-v271-oct1.js');
   fs.copyFileSync('bundle-v232.js', 'assets/bundle-v272-oct1.js');
   fs.copyFileSync('bundle-v232.js', 'assets/bundle-v273-oct1.js');
+  fs.copyFileSync('bundle-v232.js', 'assets/bundle-v274-oct1.js');
 }
 if (fs.existsSync('khadlaj-sa-theme/assets')) {
   fs.copyFileSync('bundle-v232.js', 'khadlaj-sa-theme/assets/bundle-v230-shopify.js');
@@ -178,6 +181,7 @@ if (fs.existsSync('khadlaj-sa-theme/assets')) {
   fs.copyFileSync('bundle-v232.js', 'khadlaj-sa-theme/assets/bundle-v271-oct1.js');
   fs.copyFileSync('bundle-v232.js', 'khadlaj-sa-theme/assets/bundle-v272-oct1.js');
   fs.copyFileSync('bundle-v232.js', 'khadlaj-sa-theme/assets/bundle-v273-oct1.js');
+  fs.copyFileSync('bundle-v232.js', 'khadlaj-sa-theme/assets/bundle-v274-oct1.js');
 }
 if (fs.existsSync('scratch/theme_154187956385/assets')) {
   fs.copyFileSync('bundle-v232.js', 'scratch/theme_154187956385/assets/bundle-v230-shopify.js');
