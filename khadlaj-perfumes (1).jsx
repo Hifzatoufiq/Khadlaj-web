@@ -303,6 +303,9 @@ export function resolveAsset(url) {
     if (filename.includes('mobile hero video') || filename.includes('mobile-hero-video')) {
       return window.__MOBILE_HERO_VIDEO__ || window.__MOBILE_VIDEO_URL__ || (window.__THEME_ASSETS__ && (window.__THEME_ASSETS__['mobile hero video.mp4'] || window.__THEME_ASSETS__['mobile-hero-video.mp4'])) || "/assets/videos/mobile hero video.mp4";
     }
+    if (filename.includes('giftbanner')) {
+      return (window.__THEME_ASSETS__ && window.__THEME_ASSETS__['giftbanner.jpg']) || "/assets/bananer/giftbanner.jpg";
+    }
     if (window.__THEME_ASSETS__ && window.__THEME_ASSETS__[filename]) {
       return window.__THEME_ASSETS__[filename];
     }
@@ -9566,8 +9569,8 @@ function FreeGiftBannerSection({ setPage, setCollectionCategory, setSelectedColl
             }}
           >
             <img 
-              src={resolveAsset("khadlaj_free_gift_pouch_banner.jpg")} 
-              alt="Khadlaj Free Gift Pouch with Purchase" 
+              src={resolveAsset("giftbanner.jpg")} 
+              alt="Khadlaj Free Gift with Purchase" 
               style={{
                 width: "100%",
                 height: "auto",
