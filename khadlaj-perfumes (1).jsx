@@ -20665,7 +20665,17 @@ STRICT COMPANY-ONLY GUARDRAIL & POLICY:
                   <p style={{fontSize:13,letterSpacing:isRTL ? 1 : 4,color:"#D4AF37",textTransform:"uppercase",fontFamily:isRTL ? "'Tajawal',sans-serif" : "'Montserrat',sans-serif",marginBottom:12, fontWeight:700}}>
                     {isRTL ? "عرض حصري" : "Exclusive VIP Offer"}
                   </p>
-                  <h3 className="disp mobile-text" style={{fontSize:24,fontWeight:500,color:"#F9F4EB",marginBottom:24,lineHeight:1.2,fontFamily:isRTL ? "'Tajawal',sans-serif" : "inherit",letterSpacing:isRTL ? 0 : 2}}>
+                  <h3 className="disp mobile-text" style={{
+                    fontSize: isRTL ? 22 : 21,
+                    fontWeight: 700,
+                    color: "#F9F4EB",
+                    marginBottom: 24,
+                    lineHeight: 1.35,
+                    fontFamily: isRTL ? "'Cairo', 'Tajawal', sans-serif" : "'Cinzel', 'Trajan Pro', serif",
+                    letterSpacing: isRTL ? 0 : 2,
+                    textTransform: "uppercase",
+                    textShadow: "0 2px 10px rgba(0,0,0,0.5)"
+                  }}>
                     {isRTL ? "امسح واكشف كود الخصم" : "Scratch To Unlock Your Discount"}
                   </h3>
                   
