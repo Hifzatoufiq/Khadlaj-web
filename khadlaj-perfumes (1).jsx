@@ -16409,7 +16409,8 @@ function CartPage({ cartItems, updateCartQty, removeFromCart, setPage, setViewPr
               padding: "24px 28px 28px",
               marginBottom: 36,
               boxShadow: "0 8px 30px rgba(37,23,55,0.05)",
-              direction: isRTL ? "rtl" : "ltr"
+              direction: isRTL ? "rtl" : "ltr",
+              overflow: "hidden"
             }}>
               {/* Header Badge & Dynamic Motivational Text */}
               <div style={{textAlign:"center",marginBottom:24}}>
@@ -16469,121 +16470,122 @@ function CartPage({ cartItems, updateCartQty, removeFromCart, setPage, setViewPr
               </div>
 
               {/* Multi-Step RoadMap Track */}
-              <div style={{padding:"0 clamp(48px, 6vw, 72px) 14px",position:"relative"}}>
-                {/* Background Track Line */}
-                <div style={{
-                  width: "100%",
-                  height: 6,
-                  background: "#EBE5DB",
-                  borderRadius: 999,
-                  position: "relative",
-                  overflow: "hidden"
-                }}>
-                  {/* Filled Progress Bar */}
+              <div style={{padding:"0 clamp(60px, 9vw, 96px) 14px"}}>
+                {/* Track positioning frame — milestones are anchored to the exact bar width */}
+                <div style={{position:"relative", width:"100%", height:6}}>
+                  {/* Background Track Line */}
                   <div style={{
-                    width: `${Math.min(100, Math.round((subtotal / freePouchThreshold) * 100))}%`,
+                    width: "100%",
                     height: "100%",
-                    background: isPouchUnlocked 
-                      ? "linear-gradient(90deg, #B8922A 0%, #2E7D32 100%)" 
-                      : "linear-gradient(90deg, #251737 0%, #B8922A 60%, #D4AF37 100%)",
-                    transition: "width .5s cubic-bezier(.4,0,.2,1)"
-                  }}/>
-                </div>
+                    background: "#EBE5DB",
+                    borderRadius: 999,
+                    overflow: "hidden"
+                  }}>
+                    {/* Filled Progress Bar */}
+                    <div style={{
+                      width: `${Math.min(100, Math.round((subtotal / freePouchThreshold) * 100))}%`,
+                      height: "100%",
+                      background: isPouchUnlocked 
+                        ? "linear-gradient(90deg, #B8922A 0%, #2E7D32 100%)" 
+                        : "linear-gradient(90deg, #251737 0%, #B8922A 60%, #D4AF37 100%)",
+                      transition: "width .5s cubic-bezier(.4,0,.2,1)"
+                    }}/>
+                  </div>
 
-                {/* Milestone 1: 150 SAR (Free Delivery at 60%) */}
-                <div style={{
-                  position: "absolute",
-                  top: "3px",
-                  [isRTL ? "right" : "left"]: "60%",
-                  transform: isRTL ? "translate(50%, -50%)" : "translate(-50%, -50%)",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  pointerEvents: "none"
-                }}>
+                  {/* Milestone 1: 150 SAR (Free Delivery at 60%) */}
                   <div style={{
-                    width: 30,
-                    height: 30,
-                    borderRadius: "50%",
-                    background: isDeliveryFree ? "#B8922A" : "#FFFFFF",
-                    border: isDeliveryFree ? "2px solid #FAF8F5" : "2px solid #D0C7B9",
-                    color: isDeliveryFree ? "#FFF" : "#777",
+                    position: "absolute",
+                    top: "3px",
+                    [isRTL ? "right" : "left"]: "60%",
+                    transform: isRTL ? "translate(50%, -50%)" : "translate(-50%, -50%)",
                     display: "flex",
+                    flexDirection: "column",
                     alignItems: "center",
-                    justifyContent: "center",
-                    boxShadow: isDeliveryFree ? "0 0 0 3px rgba(184,146,42,0.25)" : "0 2px 6px rgba(0,0,0,0.06)",
-                    transition: "all .3s ease"
+                    pointerEvents: "none"
                   }}>
-                    {isDeliveryFree ? (
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                    ) : (
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
-                    )}
-                  </div>
-                  <div style={{textAlign:"center",marginTop:8,whiteSpace:"nowrap"}}>
-                    <p style={{
-                      fontSize: 11.5,
-                      fontWeight: isDeliveryFree ? 700 : 600,
-                      color: isDeliveryFree ? "#251737" : "#777",
-                      margin: 0,
-                      fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+                    <div style={{
+                      width: 30,
+                      height: 30,
+                      borderRadius: "50%",
+                      background: isDeliveryFree ? "#B8922A" : "#FFFFFF",
+                      border: isDeliveryFree ? "2px solid #FAF8F5" : "2px solid #D0C7B9",
+                      color: isDeliveryFree ? "#FFF" : "#777",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      boxShadow: isDeliveryFree ? "0 0 0 3px rgba(184,146,42,0.25)" : "0 2px 6px rgba(0,0,0,0.06)",
+                      transition: "all .3s ease"
                     }}>
-                      {isRTL ? "توصيل مجاني" : "Free Delivery"}
-                    </p>
-                    <p style={{fontSize: 10, color: isDeliveryFree ? "#2E7D32" : "#999", margin: "2px 0 0", fontWeight: 700, fontFamily:"'Montserrat',sans-serif"}}>
-                      {isDeliveryFree ? (isRTL ? "مفعّل" : "UNLOCKED") : "150 SAR"}
-                    </p>
+                      {isDeliveryFree ? (
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      ) : (
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                      )}
+                    </div>
+                    <div style={{textAlign:"center",marginTop:8,whiteSpace:"nowrap"}}>
+                      <p style={{
+                        fontSize: 11.5,
+                        fontWeight: isDeliveryFree ? 700 : 600,
+                        color: isDeliveryFree ? "#251737" : "#777",
+                        margin: 0,
+                        fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+                      }}>
+                        {isRTL ? "توصيل مجاني" : "Free Delivery"}
+                      </p>
+                      <p style={{fontSize: 10, color: isDeliveryFree ? "#2E7D32" : "#999", margin: "2px 0 0", fontWeight: 700, fontFamily:"'Montserrat',sans-serif"}}>
+                        {isDeliveryFree ? (isRTL ? "مفعّل" : "UNLOCKED") : "150 SAR"}
+                      </p>
+                    </div>
                   </div>
-                </div>
 
-                {/* Milestone 2: 250 SAR (Free Travel Pouch at 100%) */}
-                <div style={{
-                  position: "absolute",
-                  top: "3px",
-                  [isRTL ? "right" : "left"]: "100%",
-                  transform: isRTL ? "translate(50%, -50%)" : "translate(-50%, -50%)",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  pointerEvents: "none"
-                }}>
+                  {/* Milestone 2: 250 SAR (Free Travel Pouch at 100%) */}
                   <div style={{
-                    width: 30,
-                    height: 30,
-                    borderRadius: "50%",
-                    background: isPouchUnlocked ? "#B8922A" : "#FFFFFF",
-                    border: isPouchUnlocked ? "2px solid #FAF8F5" : "2px solid #D0C7B9",
-                    color: isPouchUnlocked ? "#FFF" : "#777",
+                    position: "absolute",
+                    top: "3px",
+                    [isRTL ? "right" : "left"]: "100%",
+                    transform: isRTL ? "translate(50%, -50%)" : "translate(-50%, -50%)",
                     display: "flex",
+                    flexDirection: "column",
                     alignItems: "center",
-                    justifyContent: "center",
-                    boxShadow: isPouchUnlocked ? "0 0 0 3px rgba(184,146,42,0.25)" : "0 2px 6px rgba(0,0,0,0.06)",
-                    transition: "all .3s ease"
+                    pointerEvents: "none"
                   }}>
-                    {isPouchUnlocked ? (
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                    ) : (
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
-                    )}
-                  </div>
-                  <div style={{
-                    textAlign: isRTL ? "left" : "right",
-                    marginTop: 8,
-                    whiteSpace: "nowrap",
-                    transform: isRTL ? "translateX(20px)" : "translateX(-20px)"
-                  }}>
-                    <p style={{
-                      fontSize: 11.5,
-                      fontWeight: isPouchUnlocked ? 700 : 600,
-                      color: isPouchUnlocked ? "#251737" : "#777",
-                      margin: 0,
-                      fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+                    <div style={{
+                      width: 30,
+                      height: 30,
+                      borderRadius: "50%",
+                      background: isPouchUnlocked ? "#B8922A" : "#FFFFFF",
+                      border: isPouchUnlocked ? "2px solid #FAF8F5" : "2px solid #D0C7B9",
+                      color: isPouchUnlocked ? "#FFF" : "#777",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      boxShadow: isPouchUnlocked ? "0 0 0 3px rgba(184,146,42,0.25)" : "0 2px 6px rgba(0,0,0,0.06)",
+                      transition: "all .3s ease"
                     }}>
-                      {isRTL ? "حقيبة فاخرة مجانية" : "Free Luxury Pouch"}
-                    </p>
-                    <p style={{fontSize: 10, color: isPouchUnlocked ? "#2E7D32" : "#999", margin: "2px 0 0", fontWeight: 700, fontFamily:"'Montserrat',sans-serif"}}>
-                      {isPouchUnlocked ? (isRTL ? "مفعّلة" : "UNLOCKED") : "250 SAR"}
-                    </p>
+                      {isPouchUnlocked ? (
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                      ) : (
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+                      )}
+                    </div>
+                    <div style={{
+                      textAlign: "center",
+                      marginTop: 8,
+                      whiteSpace: "nowrap"
+                    }}>
+                      <p style={{
+                        fontSize: 11.5,
+                        fontWeight: isPouchUnlocked ? 700 : 600,
+                        color: isPouchUnlocked ? "#251737" : "#777",
+                        margin: 0,
+                        fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+                      }}>
+                        {isRTL ? "حقيبة فاخرة مجانية" : "Free Luxury Pouch"}
+                      </p>
+                      <p style={{fontSize: 10, color: isPouchUnlocked ? "#2E7D32" : "#999", margin: "2px 0 0", fontWeight: 700, fontFamily:"'Montserrat',sans-serif"}}>
+                        {isPouchUnlocked ? (isRTL ? "مفعّلة" : "UNLOCKED") : "250 SAR"}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
