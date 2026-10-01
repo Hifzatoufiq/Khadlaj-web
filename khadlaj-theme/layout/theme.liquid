@@ -9,7 +9,8 @@
   {{ 'index.css' | asset_url | stylesheet_tag }}
   <script async src="https://www.tiktok.com/embed.js"></script>
   <script>
-    window.__VIDEO_URL__ = "{{ 'website-update-web-version.mp4' | asset_url }}";
+    window.__VIDEO_URL__ = "{{ 'desktop-hero-video.mp4' | asset_url }}";
+    window.__DESKTOP_HERO_VIDEO__ = "{{ 'desktop-hero-video.mp4' | asset_url }}";
     window.__MOBILE_HERO_VIDEO__ = "{{ 'mobile-hero-video.mp4' | asset_url }}";
     window.__MOBILE_VIDEO_URL__ = "{{ 'mobile-hero-video.mp4' | asset_url }}";
     window.__SHIYAAKA_VIDEO_URL__ = "{{ 'shiyaaka-sky-approved.mp4' | asset_url }}";
@@ -186,7 +187,9 @@
       "khadlaj_reel_8_poster.jpg": "{{ 'khadlaj_reel_8_poster.jpg' | asset_url }}",
       "khadlaj_free_gift_pouch_banner.jpg": "{{ 'khadlaj_free_gift_pouch_banner.jpg' | asset_url }}",
       "pouch_black_male.jpg": "{{ 'pouch_black_male.jpg' | asset_url }}",
-      "pouch_red_female.jpg": "{{ 'pouch_red_female.jpg' | asset_url }}"
+      "pouch_red_female.jpg": "{{ 'pouch_red_female.jpg' | asset_url }}",
+      "desktop-hero-video.mp4": "{{ 'desktop-hero-video.mp4' | asset_url }}",
+      "mobile-hero-video.mp4": "{{ 'mobile-hero-video.mp4' | asset_url }}"
     };
     (function() {
       var sampleUrl = "{{ 'deals_desktop.png' | asset_url }}";
@@ -314,7 +317,7 @@
   {% endif %}
   {{ content_for_layout }}
   {% if template == 'index' %}
-  <script src="{{ 'bundle-v262-oct1.js' | asset_url }}"></script>
+  <script src="{{ 'bundle-v263-oct1.js' | asset_url }}"></script>
   {% endif %}
 </body>
 </html>

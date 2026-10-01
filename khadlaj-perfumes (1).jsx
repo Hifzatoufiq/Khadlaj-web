@@ -297,6 +297,9 @@ export function resolveAsset(url) {
     if (filename.includes('horizontal-logo')) {
       return window.__HORIZONTAL_LOGO__ || (window.__THEME_ASSETS__ && window.__THEME_ASSETS__['khadlaj-horizontal-logo.png']) || HORIZONTAL_LOGO_BASE64;
     }
+    if (filename.includes('desktop hero video') || filename.includes('desktop-hero-video')) {
+      return window.__DESKTOP_HERO_VIDEO__ || window.__VIDEO_URL__ || (window.__THEME_ASSETS__ && (window.__THEME_ASSETS__['desktop-hero-video.mp4'] || window.__THEME_ASSETS__['desktop hero video.mp4'])) || "/assets/videos/desktop hero video.mp4";
+    }
     if (filename.includes('mobile hero video') || filename.includes('mobile-hero-video')) {
       return window.__MOBILE_HERO_VIDEO__ || window.__MOBILE_VIDEO_URL__ || (window.__THEME_ASSETS__ && (window.__THEME_ASSETS__['mobile hero video.mp4'] || window.__THEME_ASSETS__['mobile-hero-video.mp4'])) || "/assets/videos/mobile hero video.mp4";
     }
@@ -10623,11 +10626,11 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection, s
       {/* ── FIRST SCROLL: LUXURY CINEMATIC HERO VIDEO WITH BOTTOM LINE ── */}
       <div className="hero-first-scroll-wrap">
         <section className="hero-video-wrap hero-section">
-          {/* Desktop Hero Video (Untouched) */}
+          {/* Desktop Hero Video */}
           <video
             ref={heroVideoRef}
             className="hero-video hero-video-desktop"
-            src={window.__VIDEO_URL__ || resolveAsset("website-update-web-version.mp4") || "https://cdn.shopify.com/videos/c/o/v/72cc17c9b4814387bc03c19cae9c00e2.mp4"}
+            src={window.__DESKTOP_HERO_VIDEO__ || window.__VIDEO_URL__ || resolveAsset("desktop-hero-video.mp4") || resolveAsset("/assets/videos/desktop hero video.mp4") || resolveAsset("website-update-web-version.mp4")}
             autoPlay
             muted={isMuted}
             loop
