@@ -6310,14 +6310,22 @@ export function syncLiveShopifyPrices() {
         }
         // Sync Dashboard Image
         if (matched.image) {
+          let liveImg = null;
           if (typeof matched.image === 'string' && (matched.image.startsWith('http') || matched.image.startsWith('//'))) {
-            prod.img = matched.image.startsWith('//') ? 'https:' + matched.image : matched.image;
+            liveImg = matched.image.startsWith('//') ? 'https:' + matched.image : matched.image;
           } else if (typeof matched.image === 'object' && matched.image && matched.image.src) {
-            prod.img = matched.image.src.startsWith('//') ? 'https:' + matched.image.src : matched.image.src;
+            liveImg = matched.image.src.startsWith('//') ? 'https:' + matched.image.src : matched.image.src;
+          }
+          if (liveImg && prod.img !== liveImg) {
+            prod.img = liveImg;
+            updatedCount++;
           }
         }
         if (matched.images && Array.isArray(matched.images) && matched.images.length > 0) {
-          prod.detailImages = matched.images.map(img => typeof img === 'string' ? (img.startsWith('//') ? 'https:' + img : img) : (img && img.src ? (img.src.startsWith('//') ? 'https:' + img.src : img.src) : null)).filter(Boolean);
+          const liveImgs = matched.images.map(img => typeof img === 'string' ? (img.startsWith('//') ? 'https:' + img : img) : (img && img.src ? (img.src.startsWith('//') ? 'https:' + img.src : img.src) : null)).filter(Boolean);
+          if (liveImgs.length > 0) {
+            prod.detailImages = liveImgs;
+          }
         }
         const liveMl = extractProductMl(matched.title, matched.variantTitle);
         if (liveMl && liveMl !== prod.size) {
@@ -6449,11 +6457,23 @@ export async function fetchAndSyncShopifyCatalog() {
     }
 
     if (window.__SHOPIFY_PRODUCTS__ && Array.isArray(window.__SHOPIFY_PRODUCTS__)) {
-      const existingVariantIds = new Set(window.__SHOPIFY_PRODUCTS__.map(p => p.variantId));
+      const existingMap = new Map();
+      window.__SHOPIFY_PRODUCTS__.forEach(p => {
+        if (p && p.variantId) existingMap.set(p.variantId, p);
+      });
       for (const item of formattedList) {
-        if (!existingVariantIds.has(item.variantId)) {
+        if (existingMap.has(item.variantId)) {
+          const target = existingMap.get(item.variantId);
+          if (item.image) target.image = item.image;
+          if (item.images && item.images.length > 0) target.images = item.images;
+          if (item.title) target.title = item.title;
+          if (item.price) target.price = item.price;
+          if (item.compare_at_price) target.compare_at_price = item.compare_at_price;
+          if (item.description) target.description = item.description;
+          if (item.type) target.type = item.type;
+        } else {
           window.__SHOPIFY_PRODUCTS__.push(item);
-          existingVariantIds.add(item.variantId);
+          existingMap.set(item.variantId, item);
         }
       }
     } else {
@@ -6499,14 +6519,22 @@ export async function fetchAndSyncShopifyCatalog() {
           }
         }
         if (matched.image) {
+          let liveImg = null;
           if (typeof matched.image === 'string' && (matched.image.startsWith('http') || matched.image.startsWith('//'))) {
-            prod.img = matched.image.startsWith('//') ? 'https:' + matched.image : matched.image;
+            liveImg = matched.image.startsWith('//') ? 'https:' + matched.image : matched.image;
           } else if (typeof matched.image === 'object' && matched.image && matched.image.src) {
-            prod.img = matched.image.src.startsWith('//') ? 'https:' + matched.image.src : matched.image.src;
+            liveImg = matched.image.src.startsWith('//') ? 'https:' + matched.image.src : matched.image.src;
+          }
+          if (liveImg && prod.img !== liveImg) {
+            prod.img = liveImg;
+            updatedCount++;
           }
         }
         if (matched.images && Array.isArray(matched.images) && matched.images.length > 0) {
-          prod.detailImages = matched.images.map(img => typeof img === 'string' ? (img.startsWith('//') ? 'https:' + img : img) : (img && img.src ? (img.src.startsWith('//') ? 'https:' + img.src : img.src) : null)).filter(Boolean);
+          const liveImgs = matched.images.map(img => typeof img === 'string' ? (img.startsWith('//') ? 'https:' + img : img) : (img && img.src ? (img.src.startsWith('//') ? 'https:' + img.src : img.src) : null)).filter(Boolean);
+          if (liveImgs.length > 0) {
+            prod.detailImages = liveImgs;
+          }
         }
         const liveMl = extractProductMl(matched.title, matched.variantTitle);
         if (liveMl && liveMl !== prod.size) {
@@ -7215,16 +7243,19 @@ export function cleanDisplayTitle(title) {
 function getProductName(p, isRTL) {
   if (!p) return "";
   const rawTitle = p.shopifyTitle || p.name || "";
-  const cleanTitle = cleanDisplayTitle(rawTitle);
-
-  if (!isRTL) return cleanTitle || rawTitle;
+  if (!isRTL) return rawTitle;
   if (p.nameAr) return p.nameAr;
-  const orig = (p.originalName || cleanTitle || rawTitle).toUpperCase().trim();
+  const cleanTitle = cleanDisplayTitle(rawTitle);
+  const orig = (p.originalName || rawTitle).toUpperCase().trim();
   if (PRODUCT_NAMES_AR[orig]) return PRODUCT_NAMES_AR[orig];
-  const upper = cleanTitle.toUpperCase().trim();
+  const upper = rawTitle.toUpperCase().trim();
   if (PRODUCT_NAMES_AR[upper]) return PRODUCT_NAMES_AR[upper];
+  if (cleanTitle) {
+    const cleanUpper = cleanTitle.toUpperCase().trim();
+    if (PRODUCT_NAMES_AR[cleanUpper]) return PRODUCT_NAMES_AR[cleanUpper];
+  }
   if (PRODUCT_NAMES_AR[p.name]) return PRODUCT_NAMES_AR[p.name];
-  return cleanTitle || rawTitle;
+  return rawTitle;
 }
 
 function formatProductSize(size, isRTL) {
@@ -20516,7 +20547,17 @@ export default function App(){
     return () => document.removeEventListener('visibilitychange', handleVisibility);
   }, []);
 
-  // Keep cart items' names, prices, variantId, and size in sync with live catalog
+  // Keep active modal product in sync with live catalog
+  useEffect(() => {
+    if (viewProduct) {
+      const refreshed = PRODUCTS.find(p => p.id === viewProduct.id || (p.shopifyId && p.shopifyId === viewProduct.shopifyId) || (p.variantId && p.variantId === viewProduct.variantId));
+      if (refreshed) {
+        setViewProduct(refreshed);
+      }
+    }
+  }, [liveSyncVersion]);
+
+  // Keep cart items' names, prices, variantId, image, and size in sync with live catalog
   useEffect(() => {
     setCartItems(prev => prev.map(item => {
       const live = PRODUCTS.find(p => p.id === item.id || p.name === item.name || (p.originalName && p.originalName === item.name));
@@ -20542,6 +20583,10 @@ export default function App(){
         }
         if (live.shopifyTitle && live.shopifyTitle !== item.shopifyTitle) {
           updated.shopifyTitle = live.shopifyTitle;
+          changed = true;
+        }
+        if (live.img && live.img !== item.img) {
+          updated.img = live.img;
           changed = true;
         }
         return changed ? updated : item;
