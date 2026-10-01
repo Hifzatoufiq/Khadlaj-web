@@ -6181,14 +6181,48 @@ export function findBestShopifyMatch(item, shopifyProducts) {
     const direct = shopifyProducts.find(sp => sp && (String(sp.id) === String(item.id) || String(sp.variantId) === String(item.id)));
     if (direct) return direct;
   }
+  if (item.shopifyId) {
+    const direct = shopifyProducts.find(sp => sp && (String(sp.id) === String(item.shopifyId) || String(sp.variantId) === String(item.shopifyId)));
+    if (direct) return direct;
+  }
+  if (item.variantId) {
+    const direct = shopifyProducts.find(sp => sp && String(sp.variantId) === String(item.variantId));
+    if (direct) return direct;
+  }
 
+  const rawName = item.originalName || item.name || item.title || '';
+  const itemClean = rawName.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+  // 2. Exact clean title match
+  if (itemClean.length >= 3) {
+    const exactClean = shopifyProducts.find(sp => {
+      if (!sp || !sp.title) return false;
+      return sp.title.toLowerCase().replace(/[^a-z0-9]/g, '') === itemClean;
+    });
+    if (exactClean) return exactClean;
+  }
+
+  // 3. Match by handle or image filename
+  const imgSlug = (item.img && typeof item.img === 'string') 
+    ? item.img.split('?')[0].split('/').pop().replace(/\.[^/.]+$/, '').toLowerCase().replace(/[^a-z0-9]/g, '') 
+    : '';
+
+  if (itemClean.length >= 4 || imgSlug.length >= 4) {
+    const subClean = shopifyProducts.find(sp => {
+      if (!sp) return false;
+      const spClean = ((sp.title || '') + ' ' + (sp.handle || '')).toLowerCase().replace(/[^a-z0-9]/g, '');
+      if (itemClean.length >= 4 && spClean.includes(itemClean)) return true;
+      if (imgSlug.length >= 4 && spClean.includes(imgSlug)) return true;
+      return false;
+    });
+    if (subClean) return subClean;
+  }
+
+  // 4. Token scoring with fuzzy whole-word overlap
   const normalize = (str) => (str || '').toLowerCase().replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
   const stopWords = new Set(['eau', 'de', 'parfum', 'edp', 'spray', 'perfume', 'oil', 'for', 'men', 'women', 'and', 'khadlaj', 'ml', 'concentrated', 'extrait', 'air', 'freshener', 'the', 'best', 'online', 'special', 'edition']);
   const getTokens = (str) => normalize(str).split(' ').filter(w => w.length >= 2 && !stopWords.has(w));
-
-  const rawName = item.originalName || item.name || item.title || '';
   const itemTokens = getTokens(rawName);
-  const itemClean = rawName.toLowerCase().replace(/[^a-z0-9]/g, '');
 
   let bestMatch = null;
   let highestScore = 0;
@@ -6198,32 +6232,25 @@ export function findBestShopifyMatch(item, shopifyProducts) {
     const spTitleNorm = normalize(sp.title);
     const spHandleTokens = new Set(normalize((sp.handle || '').replace(/-/g, ' ')).split(' '));
     const spTitleTokens = new Set(spTitleNorm.split(' '));
-    const spClean = (sp.title + ' ' + (sp.handle || '')).toLowerCase().replace(/[^a-z0-9]/g, '');
 
     let score = 0;
+    let matchedTokens = 0;
 
-    // Direct clean slug match (e.g. 'islandsun' in 'khadlajislandsun100mlextraitdeparfum')
-    if (itemClean.length >= 4 && spClean.includes(itemClean)) {
-      score += 200;
+    for (const tok of itemTokens) {
+      if (spTitleTokens.has(tok) || spHandleTokens.has(tok)) {
+        matchedTokens++;
+        score += 50;
+      }
     }
 
-    // Exact whole-word token matching
     if (itemTokens.length > 0) {
-      let matchedTokens = 0;
-      for (const tok of itemTokens) {
-        if (spTitleTokens.has(tok) || spHandleTokens.has(tok)) {
-          matchedTokens++;
-          score += 50;
-        }
-      }
-      if (matchedTokens === itemTokens.length) {
-        score += 100;
-      } else if (matchedTokens < Math.min(itemTokens.length, 2)) {
-        score = 0;
+      const matchPct = matchedTokens / itemTokens.length;
+      if (matchPct >= 0.5) {
+        score += Math.round(matchPct * 100);
       }
     }
 
-    if (score > highestScore && score >= 100) {
+    if (score > highestScore && score >= 50) {
       highestScore = score;
       bestMatch = sp;
     }
@@ -6363,34 +6390,62 @@ export function syncLiveShopifyPrices() {
 export async function fetchAndSyncShopifyCatalog() {
   if (typeof window === "undefined") return 0;
   try {
-    const res = await fetch('/products.json?limit=250');
-    if (!res.ok) return 0;
-    const data = await res.json();
-    if (!data || !Array.isArray(data.products)) return 0;
+    let allFetched = [];
+    for (let page = 1; page <= 5; page++) {
+      try {
+        const res = await fetch(`/products.json?limit=250&page=${page}&_t=${Date.now()}`);
+        if (!res.ok) break;
+        const data = await res.json();
+        if (!data || !Array.isArray(data.products) || data.products.length === 0) break;
+        allFetched.push(...data.products);
+        if (data.products.length < 250) break;
+      } catch (e) {
+        break;
+      }
+    }
+
+    if (allFetched.length === 0) {
+      for (let page = 1; page <= 5; page++) {
+        try {
+          const res = await fetch(`/collections/all/products.json?limit=250&page=${page}&_t=${Date.now()}`);
+          if (!res.ok) break;
+          const data = await res.json();
+          if (!data || !Array.isArray(data.products) || data.products.length === 0) break;
+          allFetched.push(...data.products);
+          if (data.products.length < 250) break;
+        } catch (e) {
+          break;
+        }
+      }
+    }
+
+    if (!allFetched.length) return 0;
 
     let updatedCount = 0;
     const formattedList = [];
-    for (const sp of data.products) {
-      const v = (sp.variants && sp.variants[0]) || null;
-      if (!v) continue;
-      const spPrice = parseFloat(v.price);
-      if (isNaN(spPrice) || spPrice <= 0) continue;
-      const spImg = (v.featured_image && v.featured_image.src) || (sp.images && sp.images[0] && sp.images[0].src) || null;
-      const spImgs = (sp.images || []).map(img => typeof img === 'string' ? img : (img && img.src)).filter(Boolean);
-      formattedList.push({
-        id: sp.id,
-        title: sp.title,
-        variantTitle: v.title,
-        handle: sp.handle,
-        variantId: v.id,
-        available: v.available,
-        price: spPrice,
-        compare_at_price: parseFloat(v.compare_at_price) || 0,
-        image: spImg,
-        images: spImgs,
-        type: sp.product_type || "Eau De Parfum",
-        description: sp.body_html ? sp.body_html.replace(/<[^>]*>?/gm, '').slice(0, 300) : sp.title
-      });
+    for (const sp of allFetched) {
+      const variants = (sp.variants && sp.variants.length > 0) ? sp.variants : [null];
+      for (const v of variants) {
+        if (!v) continue;
+        const spPrice = parseFloat(v.price);
+        if (isNaN(spPrice) || spPrice <= 0) continue;
+        const spImg = (v.featured_image && v.featured_image.src) || (sp.images && sp.images[0] && sp.images[0].src) || null;
+        const spImgs = (sp.images || []).map(img => typeof img === 'string' ? img : (img && img.src)).filter(Boolean);
+        formattedList.push({
+          id: sp.id,
+          title: sp.title,
+          variantTitle: v.title,
+          handle: sp.handle,
+          variantId: v.id,
+          available: v.available,
+          price: spPrice,
+          compare_at_price: parseFloat(v.compare_at_price) || 0,
+          image: spImg,
+          images: spImgs,
+          type: sp.product_type || "Eau De Parfum",
+          description: sp.body_html ? sp.body_html.replace(/<[^>]*>?/gm, '').slice(0, 300) : sp.title
+        });
+      }
     }
 
     if (window.__SHOPIFY_PRODUCTS__ && Array.isArray(window.__SHOPIFY_PRODUCTS__)) {
@@ -6405,28 +6460,33 @@ export async function fetchAndSyncShopifyCatalog() {
       window.__SHOPIFY_PRODUCTS__ = formattedList;
     }
 
+    const fullShopifyList = window.__SHOPIFY_PRODUCTS__ || [];
     const matchedShopifyIds = new Set();
     const matchedShopifyVariantIds = new Set();
     const matchedCleanTitles = new Set();
 
     for (const prod of PRODUCTS) {
       if (!prod) continue;
-      const matched = findBestShopifyMatch(prod, formattedList);
+      const matched = findBestShopifyMatch(prod, fullShopifyList);
       if (matched) {
         matchedShopifyIds.add(String(matched.id));
         if (matched.variantId) matchedShopifyVariantIds.add(String(matched.variantId));
         if (matched.title) {
           matchedCleanTitles.add(matched.title.toLowerCase().replace(/[^a-z0-9]/g, ''));
         }
-        if (prod.price !== matched.price) {
+        prod.inShopify = true;
+        if (typeof matched.price === "number" && matched.price > 0 && prod.price !== matched.price) {
           prod.price = matched.price;
           updatedCount++;
         }
-        if (matched.compare_at_price > matched.price) {
+        if (typeof matched.compare_at_price === "number" && matched.compare_at_price > (matched.price || prod.price)) {
           prod.originalPrice = matched.compare_at_price;
         }
         if (matched.variantId) {
           prod.variantId = matched.variantId;
+        }
+        if (matched.id && !String(prod.id).startsWith("920000")) {
+          prod.shopifyId = matched.id;
         }
         if (matched.title) {
           if (!prod.originalName) {
@@ -6438,12 +6498,15 @@ export async function fetchAndSyncShopifyCatalog() {
             updatedCount++;
           }
         }
-        // Sync Dashboard Image
         if (matched.image) {
-          prod.img = matched.image;
+          if (typeof matched.image === 'string' && (matched.image.startsWith('http') || matched.image.startsWith('//'))) {
+            prod.img = matched.image.startsWith('//') ? 'https:' + matched.image : matched.image;
+          } else if (typeof matched.image === 'object' && matched.image && matched.image.src) {
+            prod.img = matched.image.src.startsWith('//') ? 'https:' + matched.image.src : matched.image.src;
+          }
         }
         if (matched.images && Array.isArray(matched.images) && matched.images.length > 0) {
-          prod.detailImages = matched.images;
+          prod.detailImages = matched.images.map(img => typeof img === 'string' ? (img.startsWith('//') ? 'https:' + img : img) : (img && img.src ? (img.src.startsWith('//') ? 'https:' + img.src : img.src) : null)).filter(Boolean);
         }
         const liveMl = extractProductMl(matched.title, matched.variantTitle);
         if (liveMl && liveMl !== prod.size) {
@@ -6456,9 +6519,8 @@ export async function fetchAndSyncShopifyCatalog() {
       }
     }
 
-    // Automatically add any NEW products created in Shopify Dashboard
     const seenNewIds = new Set();
-    for (const sp of formattedList) {
+    for (const sp of fullShopifyList) {
       if (!sp || !sp.id || !sp.variantId) continue;
       const sId = String(sp.id);
       const vId = String(sp.variantId);
@@ -6477,6 +6539,12 @@ export async function fetchAndSyncShopifyCatalog() {
       if (!alreadyInProducts) {
         seenNewIds.add(sId);
         matchedCleanTitles.add(spClean);
+        let fallbackImg = "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KHADLAJ_ISLAND_SUN_100_ML_EXTRAIT_DE_PARFUM.png?v=1787209397";
+        if (typeof sp.image === 'string' && (sp.image.startsWith('http') || sp.image.startsWith('//'))) {
+          fallbackImg = sp.image.startsWith('//') ? 'https:' + sp.image : sp.image;
+        } else if (typeof sp.image === 'object' && sp.image && sp.image.src) {
+          fallbackImg = sp.image.src.startsWith('//') ? 'https:' + sp.image.src : sp.image.src;
+        }
         PRODUCTS.push({
           id: sp.id,
           shopifyId: sp.id,
@@ -6490,8 +6558,8 @@ export async function fetchAndSyncShopifyCatalog() {
           badge: "New",
           gender: "Unisex",
           notes: ["Fragrance"],
-          img: sp.image || "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KHADLAJ_ISLAND_SUN_100_ML_EXTRAIT_DE_PARFUM.png?v=1787209397",
-          detailImages: sp.images && sp.images.length ? sp.images : (sp.image ? [sp.image] : ["https://cdn.shopify.com/s/files/1/0626/6119/8023/files/KHADLAJ_ISLAND_SUN_100_ML_EXTRAIT_DE_PARFUM.png?v=1787209397"]),
+          img: fallbackImg,
+          detailImages: sp.images && sp.images.length ? sp.images : [fallbackImg],
           desc: [sp.description || sp.title],
           available: sp.available !== false,
           inShopify: true
@@ -6502,6 +6570,7 @@ export async function fetchAndSyncShopifyCatalog() {
 
     return updatedCount;
   } catch(e) {
+    console.warn("fetchAndSyncShopifyCatalog catch:", e);
     return 0;
   }
 }
@@ -16611,6 +16680,11 @@ async function redirectToShopifyCheckout(cartItems, selectedPouch = null) {
         if (matched && matched.variantId) {
           vId = matched.variantId;
         }
+      }
+
+      if (!vId) {
+        const anyAvailable = shopifyProducts.find(p => p.available !== false && p.variantId);
+        vId = (anyAvailable && anyAvailable.variantId) || (typeof window !== "undefined" && window.__STORE_DEFAULT_VARIANT_ID__) || (shopifyProducts[0] && shopifyProducts[0].variantId);
       }
 
       if (vId) {

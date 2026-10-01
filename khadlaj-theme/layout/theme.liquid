@@ -284,7 +284,7 @@
         }
         window.__SHOPIFY_PRODUCTS__ = unique;
       })();
-      window.__STORE_DEFAULT_VARIANT_ID__ = null;
+      window.__STORE_DEFAULT_VARIANT_ID__ = defId;
     })();
   </script>
 </head>
@@ -314,7 +314,7 @@
   {% endif %}
   {{ content_for_layout }}
   {% if template == 'index' %}
-  <script src="{{ 'bundle-v302-oct1.js' | asset_url }}"></script>
+  <script src="{{ 'bundle-v303-oct1.js' | asset_url }}"></script>
   {% endif %}
 </body>
 </html>
