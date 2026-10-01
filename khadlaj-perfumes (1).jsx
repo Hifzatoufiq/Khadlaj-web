@@ -6247,72 +6247,148 @@ const TEAM = [
 
 const REELS = [
   {
-    id: "7641095559163563285",
-    creator: "@khadlajperfumes",
-    tiktokUrl: "https://www.tiktok.com/@khadlajperfumes/video/7641095559163563285",
-    title: "Sawaar Vanille Blanc",
-    titleAr: "سوار فانيليا بلانك",
-    caption: "Unboxing Sawaar Vanille Blanc by Khadlaj. Does it live up to the hype?",
-    captionAr: "فتح صندوق سوار فانيليا بلانك من خَدْلَج. هل يستحق كل هذه الشهرة؟",
-    tag: "Official Reel",
-    tagAr: "فيديو رسمي",
-    price: 180,
-    productName: "SHIYAAKA BLUE",
-    videoFile: "khadlaj_reel_1.mp4",
-    posterFile: "khadlaj_reel_1_poster.jpg",
-    videoUrl: "https://cdn.shopify.com/videos/c/o/v/b4e5160153fa483f8fed33709d1b26cc.mp4",
-    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.Blue.1.jpg?v=1784382157"
-  },
-  {
-    id: "7451949579638951185",
-    creator: "@khadlajperfumes",
-    tiktokUrl: "https://www.tiktok.com/@khadlajperfumes/video/7451949579638951185",
-    title: "Exploring Khadlaj Scents",
-    titleAr: "استكشف أروع عطور خَدْلَج",
-    caption: "The viral sensation on #perfumetok. Does it live up to the hype?",
-    captionAr: "العطر الأكثر شهرة وتفاعلاً على تيك توك. هل يستحق كل هذه الضجة؟",
-    tag: "Viral on TikTok",
+    id: "7639701570875165985",
+    creator: "@khadlaj.perfumes.es",
+    tiktokUrl: "https://www.tiktok.com/@khadlaj.perfumes.es/video/7639701570875165985",
+    title: "Pink Musk",
+    titleAr: "بينك مسك",
+    caption: "Femenina, Dulce y Sofisticada... Pink Musk de Khadlaj.",
+    captionAr: "عطر نسائي رقيق، أنثوي وساحر يمنحك شعوراً بالفخامة والأناقة.",
+    tag: "Viral TikTok",
     tagAr: "الأكثر انتشاراً",
-    price: 126,
-    productName: "SHIYAAKA SILVER",
+    price: 160,
+    productName: "PINK MUSK",
+    productId: 7887470559431,
+    videoFile: "khadlaj_reel_1.mp4",
+    posterFile: "khadlaj_reel_1_poster.jpg"
+  },
+  {
+    id: "7601959051894803744",
+    creator: "@khadlaj.perfumes.es",
+    tiktokUrl: "https://www.tiktok.com/@khadlaj.perfumes.es/video/7601959051894803744",
+    title: "Hareem Al Sultan Gold",
+    titleAr: "حريم السلطان جولد",
+    caption: "El secreto de sentirse como una diosa con Hareem Al Sultan Gold.",
+    captionAr: "سر الأنوثة والفخامة مع زيت حريم السلطان جولد الأسطوري.",
+    tag: "Bestseller",
+    tagAr: "الأكثر طلباً",
+    price: 195,
+    productName: "HAREEM AL SULTAN GOLD",
+    productId: 7582151672007,
     videoFile: "khadlaj_reel_2.mp4",
-    posterFile: "khadlaj_reel_2_poster.jpg",
-    videoUrl: "https://cdn.shopify.com/videos/c/o/v/eedca68692644b0991d51fb3427d1bf4.mp4",
-    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SHIYAAKA_SILVER_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965957.jpg?v=1722412169"
+    posterFile: "khadlaj_reel_2_poster.jpg"
   },
   {
-    id: "7333114785908804865",
-    creator: "@khadlajperfumes",
-    tiktokUrl: "https://www.tiktok.com/@khadlajperfumes/video/7333114785908804865",
-    title: "Secret Musk Heritage",
-    titleAr: "سيكريت مسك الفاخر",
-    caption: "Unveil the mystique of Khadlaj Secret Musk. 45+ years of pure perfumery.",
-    captionAr: "اكتشف سحر مسك خَدْلَج الخاص وخبرة تزيد عن 45 عاماً من الإبداع.",
-    tag: "Masterpiece",
-    tagAr: "تحفة عطرية",
-    price: 200,
-    productName: "SHAHI OUD",
+    id: "7594537323543465248",
+    creator: "@khadlaj.perfumes.es",
+    tiktokUrl: "https://www.tiktok.com/@khadlaj.perfumes.es/video/7594537323543465248",
+    title: "Pink Musk Elegance",
+    titleAr: "بينك مسك الفاخر",
+    caption: "Un perfume árabe femenino delicado, envolvente y sofisticado.",
+    captionAr: "عبير زهري ومسكي ناعم يرافقك بأناقة لا تُقاوم في كل لحظة.",
+    tag: "Trending",
+    tagAr: "رائج الآن",
+    price: 160,
+    productName: "PINK MUSK",
+    productId: 7887470559431,
     videoFile: "khadlaj_reel_3.mp4",
-    posterFile: "khadlaj_reel_3_poster.jpg",
-    videoUrl: "https://cdn.shopify.com/videos/c/o/v/72cc17c9b4814387bc03c19cae9c00e2.mp4",
-    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SHAHI_OUD_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965925.jpg?v=1722412108"
+    posterFile: "khadlaj_reel_3_poster.jpg"
   },
   {
-    id: "7580781439290019088",
-    creator: "@theperfumereviewer1",
-    tiktokUrl: "https://www.tiktok.com/@theperfumereviewer1/video/7580781439290019088",
-    title: "Island Dream Unboxing",
-    titleAr: "آيلاند دريم - تقييم خاص",
-    caption: "Khadlaj Island Dream Perfume unboxing. Completely blind-buy safe!",
-    captionAr: "فتح صندوق عطر آيلاند دريم. جودة استثنائية وخيار مضمون للشراء المباشر!",
+    id: "7643796160100191496",
+    creator: "@scentsbysami",
+    tiktokUrl: "https://www.tiktok.com/@scentsbysami/video/7643796160100191496",
+    title: "Ihthiraam by Khadlaj",
+    titleAr: "احترام من خَدْلَج",
+    caption: "Long-lasting, beast-mode oriental fragrance review by ScentsbySami.",
+    captionAr: "عطر احترام الفاخر بثبات وفوحان شرقي مميز واستثنائي.",
     tag: "Creator Review",
-    tagAr: "تقييم خبير",
-    price: 150,
-    productName: "UNO INTIMO",
+    tagAr: "تقييم المشاهير",
+    price: 95,
+    productName: "IHTHIRAAM",
+    productId: 9100000000006,
     videoFile: "khadlaj_reel_4.mp4",
-    posterFile: "khadlaj_reel_4_poster.jpg",
-    videoUrl: "https://cdn.shopify.com/videos/c/o/v/eedca68692644b0991d51fb3427d1bf4.mp4",
-    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/UNO_INTIMO_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1966036.jpg?v=1722412332"
+    posterFile: "khadlaj_reel_4_poster.jpg"
+  },
+  {
+    id: "7606047751175965973",
+    creator: "@perfumegallery05",
+    tiktokUrl: "https://www.tiktok.com/@perfumegallery05/video/7606047751175965973",
+    title: "Titan by Khadlaj",
+    titleAr: "تيتان من خَدْلَج",
+    caption: "Titan unboxing and review by PerfumeGallery.",
+    captionAr: "استعراض وتقييم عطر تيتان القوي والفاخر من خَدْلَج.",
+    tag: "Viral Hit",
+    tagAr: "الأكثر تفاعلاً",
+    price: 140,
+    productName: "TITAN",
+    productId: 8484193861831,
+    videoFile: "khadlaj_reel_5.mp4",
+    posterFile: "khadlaj_reel_5_poster.jpg"
+  },
+  {
+    id: "7582109574631591186",
+    creator: "@theperfumeclub.pk",
+    tiktokUrl: "https://www.tiktok.com/@theperfumeclub.pk/video/7582109574631591186",
+    title: "Cream Velvet",
+    titleAr: "كريم فيلفيت",
+    caption: "Cream Velvet, a gorgeous gourmand vanilla scent loved worldwide.",
+    captionAr: "عطر كريم فيلفيت، نفحات فانيليا وحلوى ناعمة تأسر الحواس.",
+    tag: "Gourmand Pick",
+    tagAr: "عطر الفانيليا",
+    price: 155,
+    productName: "CREAM VELVET",
+    productId: 8283965522119,
+    videoFile: "khadlaj_reel_6.mp4",
+    posterFile: "khadlaj_reel_6_poster.jpg"
+  },
+  {
+    id: "7612296589343821076",
+    creator: "@angel_perfume_specialist",
+    tiktokUrl: "https://www.tiktok.com/@angel_perfume_specialist/video/7612296589343821076",
+    title: "Shiyaaka Snow",
+    titleAr: "شياكة سنو",
+    caption: "Fresh, crisp summer scent for men & women by Angel Reviews.",
+    captionAr: "انتعاش فائق ونقاء ثلجي يخطف الأنفاس لفصل الصيف.",
+    tag: "Summer Hit",
+    tagAr: "انتعاش الصيف",
+    price: 125,
+    productName: "SHIYAAKA SNOW",
+    productId: 9100000000003,
+    videoFile: "khadlaj_reel_7.mp4",
+    posterFile: "khadlaj_reel_7_poster.jpg"
+  },
+  {
+    id: "7617384603623476500",
+    creator: "@adeelimtiaz5",
+    tiktokUrl: "https://www.tiktok.com/@adeelimtiaz5/video/7617384603623476500",
+    title: "Shiyaaka Shadow",
+    titleAr: "شياكة شادو",
+    caption: "Khadlaj Shiyaaka Shadow unboxing and first impressions.",
+    captionAr: "تجربة واستعراض عطر شياكة شادو الغامض والأنيق.",
+    tag: "Unboxing",
+    tagAr: "فتح الصندوق",
+    price: 130,
+    productName: "SHIYAAKA SHADOW",
+    productId: 8409302073543,
+    videoFile: "khadlaj_reel_8.mp4",
+    posterFile: "khadlaj_reel_8_poster.jpg"
+  },
+  {
+    id: "7661714772982762770",
+    creator: "@perfumegallery05",
+    tiktokUrl: "https://www.tiktok.com/@perfumegallery05/video/7661714772982762770",
+    title: "Island Vanilla Dunes",
+    titleAr: "آيلاند فانيلا ديونز",
+    caption: "Warm, creamy vanilla vibes from the Island Collection.",
+    captionAr: "دفء الفانيليا الاستوائية الساحرة من مجموعة آيلاند.",
+    tag: "Island Collection",
+    tagAr: "مجموعة آيلاند",
+    price: 165,
+    productName: "ISLAND VANILLA DUNES",
+    productId: 8354691940551,
+    videoFile: "khadlaj_reel_9.mp4",
+    posterFile: "khadlaj_reel_9_poster.jpg"
   },
   {
     id: "7686164378688900360",
@@ -6320,67 +6396,63 @@ const REELS = [
     tiktokUrl: "https://www.tiktok.com/@herscentces/video/7686164378688900360",
     title: "Muse by Khadlaj",
     titleAr: "ميوز من خَدْلَج",
-    caption: "Soft, creamy, cozy Muse by Khadlaj. A magnetic compliment magnet.",
-    captionAr: "عطر ميوز ناعم وكريمي ساحر يجذب الأنظار والإطراءات في كل مناسبة.",
-    tag: "Trending Pick",
-    tagAr: "اختيار رائج",
+    caption: "Soft, creamy, cozy… quiet luxury energy for everyday wear.",
+    captionAr: "عطر ميوز الهادئ والفاخر بلمسات كريمية دافئة تلفت الأنظار.",
+    tag: "Quiet Luxury",
+    tagAr: "فخامة هادئة",
     price: 180,
-    productName: "LE PRESTIGE TRIUMPH",
-    videoFile: "khadlaj_reel_5.mp4",
-    posterFile: "khadlaj_reel_5_poster.jpg",
-    videoUrl: "https://cdn.shopify.com/videos/c/o/v/b4e5160153fa483f8fed33709d1b26cc.mp4",
-    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/LE_PRESTIGE_TRIUMPH_-_Khadlaj_Perfumes-1966158.jpg?v=1722412558"
+    productName: "MUSE",
+    productId: 8869598462151,
+    videoFile: "khadlaj_reel_10.mp4",
+    posterFile: "khadlaj_reel_10_poster.jpg"
+  },
+  {
+    id: "7333114785908804865",
+    creator: "@khadlajperfumes",
+    tiktokUrl: "https://www.tiktok.com/@khadlajperfumes/video/7333114785908804865",
+    title: "Secret Musk",
+    titleAr: "سيكريت مسك",
+    caption: "Unveil the mystique of Khadlaj Secret Musk. 45+ years of pure perfumery.",
+    captionAr: "اكتشف سحر وأصالة مسك خَدْلَج الخاص وخبرة 45 عاماً من الإبداع.",
+    tag: "Heritage",
+    tagAr: "أصالة وتاريخ",
+    price: 160,
+    productName: "KARUS SECRET MUSK",
+    productId: 7858340659399,
+    videoFile: "khadlaj_reel_11.mp4",
+    posterFile: "khadlaj_reel_11_poster.jpg"
+  },
+  {
+    id: "7641095559163563285",
+    creator: "@khadlajperfumes",
+    tiktokUrl: "https://www.tiktok.com/@khadlajperfumes/video/7641095559163563285",
+    title: "Sawaar Vanille Blanc",
+    titleAr: "سوار فانيليا بلانك",
+    caption: "Unboxing Sawaar Vanille Blanc by Khadlaj. The viral vanilla scent.",
+    captionAr: "فتح صندوق عطر سوار فانيليا بلانك الأكثر شهرة وإعجاباً.",
+    tag: "Official Reel",
+    tagAr: "فيديو رسمي",
+    price: 180,
+    productName: "SAWAAR VANILLE BLANC",
+    productId: 8561163075783,
+    videoFile: "khadlaj_reel_12.mp4",
+    posterFile: "khadlaj_reel_12_poster.jpg"
   },
   {
     id: "7686184987841907990",
     creator: "@cypmua",
     tiktokUrl: "https://www.tiktok.com/@cypmua/video/7686184987841907990",
-    title: "CYPMUA Glamour Review",
-    titleAr: "تقييم CYPMUA لعطور خَدْلَج",
-    caption: "Luxury aesthetics meet unforgettable fragrance trails. Must-have scent!",
-    captionAr: "فخامة المظهر والجوهر مع لمسة عطرية ساحرة لا تُنسى.",
-    tag: "First Impressions",
-    tagAr: "انطباع أولي",
-    price: 210,
-    productName: "CLOUD CANDY",
-    videoFile: "khadlaj_reel_6.mp4",
-    posterFile: "khadlaj_reel_6_poster.jpg",
-    videoUrl: "https://cdn.shopify.com/videos/c/o/v/72cc17c9b4814387bc03c19cae9c00e2.mp4",
-    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/CloudCandy1.jpg?v=1767169755"
-  },
-  {
-    id: "7682545890699136286",
-    creator: "@thenoelthomas",
-    tiktokUrl: "https://www.tiktok.com/@thenoelthomas/video/7682545890699136286",
-    title: "Pure Musk Blend",
-    titleAr: "بيور مسك بليند الخارق",
-    caption: "Pure Musk Blend is actually GOATED. Hands down one of the absolute best values.",
-    captionAr: "عطر بيور مسك بليند أسطوري واستثنائي بأعلى قيمة وثبات في عالم العطور.",
-    tag: "Bestseller",
-    tagAr: "الأكثر طلباً",
+    title: "Muse Glamour Review",
+    titleAr: "ميوز - سحر الأنوثة",
+    caption: "Muse from Khadlaj Perfumes - gorgeous and glamorous fragrance trail.",
+    captionAr: "إشراقة وأناقة لا مثيل لها مع عطر ميوز من خَدْلَج.",
+    tag: "Glamour Pick",
+    tagAr: "اختيار الجمال",
     price: 180,
-    productName: "SHIYAAKA SKY",
-    videoFile: "khadlaj_reel_7.mp4",
-    posterFile: "khadlaj_reel_7_poster.jpg",
-    videoUrl: "https://cdn.shopify.com/videos/c/o/v/b4e5160153fa483f8fed33709d1b26cc.mp4",
-    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Shiyaaka.Blue.1.jpg?v=1784382157"
-  },
-  {
-    id: "7682386099213225236",
-    creator: "@indofragz",
-    tiktokUrl: "https://www.tiktok.com/@indofragz/video/7682386099213225236",
-    title: "IndoFragz Review",
-    titleAr: "توصية IndoFragz العالمية",
-    caption: "Rich, deep, opulent oriental projection that lasts all day and night.",
-    captionAr: "فوحان ملكي وثبات أسطوري يدوم لساعات طويلة من الفخامة الشرقية.",
-    tag: "Beast Mode",
-    tagAr: "ثبات وفوحان",
-    price: 200,
-    productName: "SHAHI OUD",
-    videoFile: "khadlaj_reel_8.mp4",
-    posterFile: "khadlaj_reel_8_poster.jpg",
-    videoUrl: "https://cdn.shopify.com/videos/c/o/v/72cc17c9b4814387bc03c19cae9c00e2.mp4",
-    img: "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/SHAHI_OUD_EDP_SPRAY_100_ML_-_Khadlaj_Perfumes-1965925.jpg?v=1722412108"
+    productName: "MUSE",
+    productId: 8869598462151,
+    videoFile: "khadlaj_reel_13.mp4",
+    posterFile: "khadlaj_reel_13_poster.jpg"
   }
 ];
 
@@ -9316,11 +9388,12 @@ function TikTokCard({ t: item, setViewProduct, setPage }) {
   };
 
   const handleShop = (e) => {
-    e.stopPropagation();
+    if (e && e.stopPropagation) e.stopPropagation();
     if (typeof setViewProduct === "function" && typeof setPage === "function") {
       const targetProd = (PRODUCTS || []).find(p => 
-        (item.productName && p.name && p.name.toUpperCase().includes(item.productName.toUpperCase())) ||
-        (item.productId && p.id === item.productId)
+        (item.productId && p.id === item.productId) ||
+        (item.productName && p.name && p.name.toUpperCase().trim() === item.productName.toUpperCase().trim()) ||
+        (item.productName && p.name && p.name.toUpperCase().includes(item.productName.toUpperCase()))
       ) || (PRODUCTS && PRODUCTS[0]);
       if (targetProd) {
         setViewProduct(targetProd);
@@ -9454,13 +9527,13 @@ function TikTokCard({ t: item, setViewProduct, setPage }) {
           </div>
         )}
 
-        {/* Bottom Overlay - Matching User Reference Screenshot Exactly */}
+        {/* Bottom Overlay */}
         <div style={{
           position: "absolute",
           bottom: 0,
           left: 0,
           right: 0,
-          background: "linear-gradient(to top, rgba(12,6,18,0.96) 0%, rgba(12,6,18,0.72) 46%, rgba(12,6,18,0.2) 78%, transparent 100%)",
+          background: "linear-gradient(to top, rgba(12,6,18,0.96) 0%, rgba(12,6,18,0.78) 46%, rgba(12,6,18,0.2) 80%, transparent 100%)",
           padding: "24px 14px 16px",
           zIndex: 4,
           color: "#fff",
@@ -9469,25 +9542,51 @@ function TikTokCard({ t: item, setViewProduct, setPage }) {
           alignItems: isRTL ? "flex-end" : "flex-start",
           textAlign: isRTL ? "right" : "left"
         }}>
-          {/* Row 1: TikTok Music Logo + Creator Handle */}
+          {/* Row 1: TikTok Music Logo + Creator Handle + Product Badge */}
           <div style={{
             display: "flex",
             alignItems: "center",
+            justifyContent: "space-between",
+            width: "100%",
             gap: 6,
             marginBottom: 6
           }}>
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="#fff">
-              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.31 6.31 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.87a8.18 8.18 0 0 0 4.78 1.52V7.01a4.85 4.85 0 0 1-1.01-.32z"/>
-            </svg>
-            <span style={{
-              color: "#fff",
-              fontWeight: 700,
-              fontSize: 14,
-              letterSpacing: -0.2,
-              fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
-            }}>
-              {item.creator || "@khadlajperfumes"}
-            </span>
+            <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="#fff">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.31 6.31 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.87a8.18 8.18 0 0 0 4.78 1.52V7.01a4.85 4.85 0 0 1-1.01-.32z"/>
+              </svg>
+              <span style={{
+                color: "#fff",
+                fontWeight: 700,
+                fontSize: 13.5,
+                letterSpacing: -0.2,
+                fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+              }}>
+                {item.creator || "@khadlajperfumes"}
+              </span>
+            </div>
+
+            {item.productName && (
+              <div 
+                onClick={handleShop}
+                title={isRTL ? "عرض تفاصيل العطر" : "View Perfume Details"}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: 4,
+                  background: "rgba(184,146,42,0.22)",
+                  border: "1px solid rgba(212,175,55,0.6)",
+                  borderRadius: 6,
+                  padding: "2px 7px",
+                  cursor: "pointer"
+                }}
+              >
+                <span style={{ fontSize: 9, color: "#D4AF37", fontWeight: 700 }}>✦</span>
+                <span style={{ fontSize: 10.5, color: "#fff", fontWeight: 700, letterSpacing: 0.3, whiteSpace: "nowrap" }}>
+                  {item.productName}
+                </span>
+              </div>
+            )}
           </div>
 
           {/* Row 2: Caption Text */}
@@ -9506,45 +9605,85 @@ function TikTokCard({ t: item, setViewProduct, setPage }) {
             {isRTL ? (item.captionAr || item.caption) : item.caption}
           </p>
 
-          {/* Row 3: Action Buttons */}
+          {/* Row 3: Action Buttons (SHOP NOW + WATCH ON TIKTOK) */}
           <div style={{
             display: "flex",
             alignItems: "center",
-            width: "100%"
+            justifyContent: "space-between",
+            gap: 8,
+            width: "100%",
+            marginTop: 4
           }}>
-            {/* WATCH ON TIKTOK Pill Button (Exact Screenshot Match) */}
+            {/* Direct SHOP NOW Button */}
+            <button
+              onClick={handleShop}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 6,
+                background: "linear-gradient(135deg, #B8922A 0%, #D4AF37 100%)",
+                border: "1px solid #E5C365",
+                borderRadius: 999,
+                padding: "8px 16px",
+                color: "#1A0B22",
+                fontSize: 11,
+                fontWeight: 800,
+                letterSpacing: isRTL ? "0" : "1.2px",
+                textTransform: "uppercase",
+                cursor: "pointer",
+                transition: "all .2s ease",
+                boxShadow: "0 4px 14px rgba(184,146,42,0.45)",
+                fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
+                flex: "1 1 auto"
+              }}
+              onMouseEnter={e => { e.currentTarget.style.transform = "scale(1.03)"; e.currentTarget.style.boxShadow = "0 6px 18px rgba(184,146,42,0.65)"; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = "scale(1)"; e.currentTarget.style.boxShadow = "0 4px 14px rgba(184,146,42,0.45)"; }}
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <path d="M16 10a4 4 0 0 1-8 0"></path>
+              </svg>
+              <span>{isRTL ? "تسوق المنتج" : "SHOP NOW"}</span>
+            </button>
+
+            {/* WATCH ON TIKTOK Pill Button */}
             <a
               href={item.tiktokUrl || `https://www.tiktok.com/@khadlajperfumes/video/${item.id}`}
               target="_blank"
               rel="noopener noreferrer"
               onClick={e => e.stopPropagation()}
+              title={isRTL ? "مشاهدة على تيك توك" : "Watch on TikTok"}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                gap: 6,
-                background: "rgba(255,255,255,0.14)",
+                justifyContent: "center",
+                gap: 5,
+                background: "rgba(255,255,255,0.16)",
                 backdropFilter: "blur(12px)",
                 WebkitBackdropFilter: "blur(12px)",
                 border: "1px solid rgba(255,255,255,0.32)",
                 borderRadius: 999,
-                padding: "7px 16px",
+                padding: "8px 13px",
                 color: "#fff",
                 fontSize: 10,
                 fontWeight: 700,
-                letterSpacing: 1.2,
+                letterSpacing: 0.8,
                 textTransform: "uppercase",
                 textDecoration: "none",
                 cursor: "pointer",
                 transition: "all .2s ease",
-                fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
+                fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
+                flex: "0 0 auto"
               }}
               onMouseEnter={e => { e.currentTarget.style.background = "#fff"; e.currentTarget.style.color = "#000"; e.currentTarget.style.borderColor = "#fff"; }}
-              onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.14)"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.32)"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.16)"; e.currentTarget.style.color = "#fff"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.32)"; }}
             >
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor">
-                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.31 6.31 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.87a8.18 8.18 0 0 0 4.78 1.52V7.01a4.85 4.85 0 0 1-1.01-.32z"/>
               </svg>
-              <span>{isRTL ? "مشاهدة على تيك توك" : "WATCH ON TIKTOK"}</span>
+              <span>TikTok</span>
             </a>
           </div>
         </div>
