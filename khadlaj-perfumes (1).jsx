@@ -6966,8 +6966,39 @@ const GLOBAL_CSS = `
   .reel-track::-webkit-scrollbar{height:3px;}
   .reel-track::-webkit-scrollbar-track{background:#000;}
   .reel-track::-webkit-scrollbar-thumb{background:#B8922A;}
-  .reel-card{scroll-snap-align:start;flex:0 0 min(330px,82vw);text-decoration:none;color:inherit;}
   .reel-badge{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);}
+
+  .tiktok-reel-card {
+    flex: 0 0 250px;
+    height: 440px;
+    position: relative;
+    background: #0d0714;
+    border-radius: 18px;
+    overflow: hidden;
+    scroll-snap-align: center;
+    border: 1px solid rgba(184,146,42,0.35);
+    user-select: none;
+    box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+    transition: all .35s cubic-bezier(.25,.8,.25,1);
+  }
+  .tiktok-reel-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 45px rgba(0,0,0,0.48);
+    border-color: rgba(184,146,42,0.7);
+  }
+  @media (max-width: 768px) {
+    .tiktok-reel-card {
+      flex: 0 0 calc(100vw - 56px) !important;
+      max-width: 330px !important;
+      height: 490px !important;
+      scroll-snap-align: center !important;
+      margin: 0 auto !important;
+    }
+    .tiktok-track-container {
+      padding: 10px 24px 24px !important;
+      gap: 16px !important;
+    }
+  }
 
   /* Hide TikTok iframe scrollbars */
   iframe{scrolling:no;overflow:hidden;}
@@ -9301,20 +9332,13 @@ function TikTokCard({ t: item, setViewProduct, setPage }) {
 
   return (
     <div
+      className="tiktok-reel-card"
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
       style={{
-        flex: "0 0 320px",
-        height: 560,
-        position: "relative",
-        background: "#0d0714",
-        borderRadius: 20,
-        overflow: "hidden",
-        scrollSnapAlign: "center",
         transform: hov ? "translateY(-6px)" : "translateY(0)",
-        boxShadow: hov ? "0 22px 48px rgba(0,0,0,0.5)" : "0 10px 28px rgba(0,0,0,0.25)",
+        boxShadow: hov ? "0 20px 45px rgba(0,0,0,0.5)" : "0 10px 28px rgba(0,0,0,0.25)",
         transition: "all .35s cubic-bezier(.25,.8,.25,1)",
-        border: "1px solid rgba(184,146,42,0.35)",
         userSelect: "none"
       }}
     >
@@ -9438,7 +9462,7 @@ function TikTokCard({ t: item, setViewProduct, setPage }) {
           left: 0,
           right: 0,
           background: "linear-gradient(to top, rgba(12,6,18,0.96) 0%, rgba(12,6,18,0.72) 46%, rgba(12,6,18,0.2) 78%, transparent 100%)",
-          padding: "40px 18px 22px",
+          padding: "24px 14px 16px",
           zIndex: 4,
           color: "#fff",
           display: "flex",
@@ -9450,16 +9474,16 @@ function TikTokCard({ t: item, setViewProduct, setPage }) {
           <div style={{
             display: "flex",
             alignItems: "center",
-            gap: 8,
-            marginBottom: 8
+            gap: 6,
+            marginBottom: 6
           }}>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="#fff">
               <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.31 6.31 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.87a8.18 8.18 0 0 0 4.78 1.52V7.01a4.85 4.85 0 0 1-1.01-.32z"/>
             </svg>
             <span style={{
               color: "#fff",
               fontWeight: 700,
-              fontSize: 16,
+              fontSize: 14,
               letterSpacing: -0.2,
               fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"
             }}>
@@ -9469,12 +9493,16 @@ function TikTokCard({ t: item, setViewProduct, setPage }) {
 
           {/* Row 2: Caption Text */}
           <p style={{
-            margin: "0 0 14px 0",
+            margin: "0 0 10px 0",
             color: "rgba(255,255,255,0.88)",
-            fontSize: 13,
-            lineHeight: 1.45,
+            fontSize: 12,
+            lineHeight: 1.4,
             fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat', sans-serif",
-            fontWeight: 400
+            fontWeight: 400,
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden"
           }}>
             {isRTL ? (item.captionAr || item.caption) : item.caption}
           </p>
@@ -9494,17 +9522,17 @@ function TikTokCard({ t: item, setViewProduct, setPage }) {
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                gap: 8,
+                gap: 6,
                 background: "rgba(255,255,255,0.14)",
                 backdropFilter: "blur(12px)",
                 WebkitBackdropFilter: "blur(12px)",
                 border: "1px solid rgba(255,255,255,0.32)",
                 borderRadius: 999,
-                padding: "9px 20px",
+                padding: "7px 16px",
                 color: "#fff",
-                fontSize: 11,
+                fontSize: 10,
                 fontWeight: 700,
-                letterSpacing: 1.3,
+                letterSpacing: 1.2,
                 textTransform: "uppercase",
                 textDecoration: "none",
                 cursor: "pointer",
@@ -11372,27 +11400,92 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection, s
         </div>
       </section>
 {/* ── TIKTOK REELS ── */}
-      <section style={{padding:"80px 5% 40px",background:"#fff"}}>
-        <div style={{marginBottom:48,textAlign:"center"}}>
-          <h2 className="disp section-header-title reel-heading-bold" style={{fontSize:"clamp(28px,3.8vw,52px)",fontWeight:700,color:"#251737",letterSpacing: isRTL ? 0 : -0.5,marginBottom:10,lineHeight:1.2,fontFamily: isRTL ? "'Cairo', sans-serif" : "'Trajan Pro', 'Cinzel', serif"}}>
+      <section style={{padding:"48px 4% 30px",background:"#fff"}}>
+        <div style={{marginBottom:28,textAlign:"center"}}>
+          <h2 className="disp section-header-title reel-heading-bold" style={{fontSize:"clamp(24px,3vw,42px)",fontWeight:700,color:"#251737",letterSpacing: isRTL ? 0 : -0.5,marginBottom:8,lineHeight:1.2,fontFamily: isRTL ? "'Cairo', sans-serif" : "'Trajan Pro', 'Cinzel', serif"}}>
             {isRTL ? "تسوق عبر الريلز" : "SHOP BY REEL"}
           </h2>
-          <p className="section-header-sub" style={{color:"#777",fontSize:13,fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",letterSpacing: isRTL ? 0 : 0.3,maxWidth:520,margin:"0 auto",lineHeight:1.7}}>
+          <p className="section-header-sub" style={{color:"#777",fontSize:13,fontFamily: isRTL ? "'Cairo', sans-serif" : "'Montserrat',sans-serif",letterSpacing: isRTL ? 0 : 0.3,maxWidth:520,margin:"0 auto",lineHeight:1.6}}>
             {isRTL ? "تصفح العطور من خلال مقاطع ريلز قصيرة وأنيقة واكتشف عطرك المفضل القادم." : "Browse fragrances through short, stylish reels and discover your next favorite scent."}
           </p>
         </div>
 
-        {/* Actual TikTok video embeds */}
-        <div 
-          className="reel-track hide-scrollbar"
-          style={{
-            display:"flex", gap:20, overflowX:"auto", scrollSnapType:"x mandatory",
-            padding:"10px 5% 30px", margin:"0 -5%", scrollBehavior:"smooth"
-          }}
-        >
-          {REELS.map((t, idx) => (
-            <TikTokCard key={idx} t={t} setViewProduct={setViewProduct} setPage={setPage} />
-          ))}
+        {/* Actual TikTok video embeds with Left/Right Navigation */}
+        <div style={{position:"relative", maxWidth:1440, margin:"0 auto"}}>
+          <button 
+            onClick={() => {
+              const el = document.getElementById("tiktok-reels-track");
+              if (el) el.scrollBy({ left: isRTL ? 270 : -270, behavior: "smooth" });
+            }}
+            aria-label="Previous Reel"
+            style={{
+              position:"absolute",
+              top:"50%",
+              left: 6,
+              transform:"translateY(-50%)",
+              zIndex:10,
+              width:38,
+              height:38,
+              borderRadius:"50%",
+              background:"rgba(255,255,255,0.92)",
+              border:"1px solid rgba(184,146,42,0.35)",
+              boxShadow:"0 4px 14px rgba(0,0,0,0.15)",
+              color:"#251737",
+              display:"flex",
+              alignItems:"center",
+              justifyContent:"center",
+              cursor:"pointer",
+              transition:"all .2s ease"
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = "#251737"; e.currentTarget.style.color = "#fff"; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.92)"; e.currentTarget.style.color = "#251737"; }}
+          >
+            <span style={{fontSize:16, lineHeight:1}}>{isRTL ? "→" : "←"}</span>
+          </button>
+
+          <button 
+            onClick={() => {
+              const el = document.getElementById("tiktok-reels-track");
+              if (el) el.scrollBy({ left: isRTL ? -270 : 270, behavior: "smooth" });
+            }}
+            aria-label="Next Reel"
+            style={{
+              position:"absolute",
+              top:"50%",
+              right: 6,
+              transform:"translateY(-50%)",
+              zIndex:10,
+              width:38,
+              height:38,
+              borderRadius:"50%",
+              background:"rgba(255,255,255,0.92)",
+              border:"1px solid rgba(184,146,42,0.35)",
+              boxShadow:"0 4px 14px rgba(0,0,0,0.15)",
+              color:"#251737",
+              display:"flex",
+              alignItems:"center",
+              justifyContent:"center",
+              cursor:"pointer",
+              transition:"all .2s ease"
+            }}
+            onMouseEnter={e => { e.currentTarget.style.background = "#251737"; e.currentTarget.style.color = "#fff"; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.92)"; e.currentTarget.style.color = "#251737"; }}
+          >
+            <span style={{fontSize:16, lineHeight:1}}>{isRTL ? "←" : "→"}</span>
+          </button>
+
+          <div 
+            id="tiktok-reels-track"
+            className="reel-track hide-scrollbar tiktok-track-container"
+            style={{
+              display:"flex", gap:18, overflowX:"auto", scrollSnapType:"x mandatory",
+              padding:"10px 46px 24px", scrollBehavior:"smooth"
+            }}
+          >
+            {REELS.map((t, idx) => (
+              <TikTokCard key={idx} t={t} setViewProduct={setViewProduct} setPage={setPage} />
+            ))}
+          </div>
         </div>
 
         <div style={{textAlign:"center",marginTop:44}}>
