@@ -306,6 +306,9 @@ export function resolveAsset(url) {
     if (filename.includes('giftbanner')) {
       return (window.__THEME_ASSETS__ && window.__THEME_ASSETS__['giftbanner.jpg']) || "/assets/bananer/giftbanner.jpg";
     }
+    if (filename.includes('oud collection') || filename.includes('oud-collection') || filename.includes('oudcollection')) {
+      return (window.__THEME_ASSETS__ && (window.__THEME_ASSETS__['oud-collection.jpg'] || window.__THEME_ASSETS__['oud collection.jpg'])) || "/assets/images/showcase/oud collection.jpg";
+    }
     if (window.__THEME_ASSETS__ && window.__THEME_ASSETS__[filename]) {
       return window.__THEME_ASSETS__[filename];
     }
@@ -10849,7 +10852,7 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection, s
           {[
             {name: "Island", colKey: "island", nameAr: "آيلاند", type: "Premium Blend", typeAr: "مزيج فاخر", img: "/assets/images/products/island-sun-card-gold.jpg"},
             {name: "Shiyaaka Sky", colKey: "shiyaaka", nameAr: "شياكة سكاي", type: "Special Edition", typeAr: "إصدار خاص", img: "/assets/images/products/shiyaaka_custom_5_cropped.png"},
-            {name: "Fursan", colKey: "fursan", nameAr: "فرسان", type: "Royal Elegance", typeAr: "أناقة ملكية", img: "/assets/images/products/fursan.png"},
+            {name: "Oud Collection", colKey: "oud", nameAr: "مجموعة العود", type: "Royal Oud", typeAr: "العود الملكي", img: "/assets/images/showcase/oud collection.jpg"},
             {name: "L'imaginaire", colKey: "limaginaire", nameAr: "ليماجينير", type: "Artisan Creation", typeAr: "إبداع حرفي فاخر", img: "/assets/images/products/limaginaire.jpg"},
             {name: "Nuha Cherry Blush", colKey: "nuha", nameAr: "نهى تشيري بلش", type: "Eau De Parfum", typeAr: "أو دي بارفان", img: "/assets/images/products/nuha-cherry.jpg"},
             {name: "Cream Velvet", colKey: "velvet", nameAr: "كريم فيلفيت", type: "Signature Collection", typeAr: "المجموعة المميزة", img: "/assets/images/products/cream-velvet-bottle.png"},
@@ -11437,6 +11440,20 @@ const COLLECTION_CONFIGS = {
     bannerMobile: "/assets/images/banners/deals_mobile.png",
     filter: (p) => p.name.toLowerCase().includes("fursan")
   },
+  oud: {
+    id: "oud",
+    title: "Oud Collection",
+    titleAr: "مجموعة العود الفاخرة",
+    subtitle: "Majestic Heritage & Timeless Sillage",
+    subtitleAr: "أصالة التراث وسحر العود الخالد",
+    banner: "/assets/images/showcase/oud collection.jpg",
+    bannerMobile: "/assets/images/showcase/oud collection.jpg",
+    filter: (p) => {
+      const name = (p.name || "");
+      const col = (p.col || "");
+      return /\boudh?\b/i.test(name) || /\boudh?\b/i.test(col);
+    }
+  },
   limaginaire: {
     id: "limaginaire",
     title: "L'Imaginaire & Master Perfumery",
@@ -11577,6 +11594,7 @@ const COLLECTION_CONFIGS = {
 const FEATURED_COLLECTIONS = [
   { key: "island", name: "Island", nameAr: "آيلاند" },
   { key: "shiyaaka", name: "Shiyaaka", nameAr: "شياكة" },
+  { key: "oud", name: "Oud Collection", nameAr: "مجموعة العود" },
   { key: "fursan", name: "Fursan", nameAr: "فرسان" },
   { key: "limaginaire", name: "L'Imaginaire", nameAr: "ليماجينير" },
   { key: "nuha", name: "Nuha", nameAr: "نهى" },
@@ -11610,6 +11628,8 @@ function DedicatedCollectionPage({ collectionKey = "island", addToCart, setViewP
     resolvedKey = rawKey;
   } else if (rawKey.includes("shiya")) {
     resolvedKey = "shiyaaka";
+  } else if (rawKey.includes("oud")) {
+    resolvedKey = "oud";
   } else if (rawKey.includes("fursan")) {
     resolvedKey = "fursan";
   } else if (rawKey.includes("imag")) {
