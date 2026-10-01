@@ -14329,7 +14329,7 @@ function ShippingReturnsPage({ setPage }){
           <p style={{fontSize:14, color:"rgba(255,255,255,0.72)", maxWidth:580, lineHeight:1.8, fontFamily:"'Montserrat',sans-serif", margin:0}}>
             {isRTL 
               ? "توصيل سريع وآمن لكافة مدن المملكة ودول الخليج مع تأمين شامل وخيارات استرجاع واستبدال ميسرة خلال ١٤ يوماً."
-              : "Swift, climate-controlled insured delivery across KSA, UAE, and the GCC with seamless 14-day returns on unopened fragrances."}
+              : "Swift, climate-controlled insured delivery across Saudi Arabia (KSA) and the GCC with seamless 14-day returns on unopened fragrances."}
           </p>
         </div>
       </div>
@@ -14355,18 +14355,18 @@ function ShippingReturnsPage({ setPage }){
 
         {activeTab === "shipping" ? (
           <div style={{display:"flex", flexDirection:"column", gap:32}}>
-            {/* ── INSIDE THE UAE ── */}
+            {/* ── INSIDE SAUDI ARABIA (KSA) ── */}
             <div style={{background:"#fff", border:"1.5px solid #EAE5DB", borderRadius:12, padding:"clamp(22px, 3.5vw, 32px)", boxShadow:"0 4px 16px rgba(37,23,55,0.03)"}}>
               <div style={{display:"flex", alignItems:"center", gap:10, marginBottom:16}}>
                 <h2 className="disp" style={{fontSize:"clamp(18px, 3vw, 24px)", fontWeight:700, color:"#251737", margin:0, letterSpacing:1}}>
-                  {isRTL ? "داخل دولة الإمارات (INSIDE THE UAE)" : "INSIDE THE UAE"}
+                  {isRTL ? "داخل المملكة العربية السعودية (INSIDE SAUDI ARABIA)" : "INSIDE SAUDI ARABIA (KSA)"}
                 </h2>
               </div>
 
               <p style={{fontSize:13.5, color:"#444", lineHeight:1.8, marginBottom:22, fontFamily:"'Montserrat',sans-serif"}}>
                 {isRTL 
-                  ? "يتم توصيل أي منتجات يتم شراؤها عبر الموقع الإلكتروني (www.khadlaj-perfumes.com) خلال ١ - ٣ أيام إلى كافة الإمارات بعد معالجة وتجهيز الطلب."
-                  : "Any products bought from the www.khadlaj-perfumes.com website will be delivered within 1-3 days to all the Emirates after processing the order:"}
+                  ? "يتم توصيل أي منتجات يتم شراؤها عبر الموقع الإلكتروني (www.khadlaj-perfumes.com) خلال ١ - ٣ أيام عمل إلى كافة مدن المملكة بعد معالجة وتجهيز الطلب."
+                  : "Any products bought from the www.khadlaj-perfumes.com website will be delivered within 1-3 business days across Saudi Arabia after processing the order:"}
               </p>
 
               <div style={{background:"#FAF9F6", border:"1px solid #ECE7DE", borderRadius:10, padding:"20px 22px"}}>
@@ -14375,34 +14375,34 @@ function ShippingReturnsPage({ setPage }){
                 </p>
                 <div style={{display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(220px, 1fr))", gap:14}}>
                   <div style={{background:"#fff", border:"1px solid #E5DFD3", borderRadius:8, padding:"16px 18px"}}>
-                    <div style={{fontSize:18, fontWeight:700, color:"#251737", marginBottom:4, fontFamily:"'Montserrat',sans-serif"}}>AED 15</div>
+                    <div style={{fontSize:18, fontWeight:700, color:"#251737", marginBottom:4, fontFamily:"'Montserrat',sans-serif"}}>SAR 15</div>
                     <div style={{fontSize:12.5, color:"#666", fontFamily:"'Montserrat',sans-serif"}}>
-                      {isRTL ? "إذا كانت قيمة الطلب ١٥٠ د.إ أو أقل" : "If the Order Value is less than or equal to AED 150"}
+                      {isRTL ? "إذا كانت قيمة الطلب ١٥٠ ر.س أو أقل" : "If the Order Value is less than or equal to SAR 150"}
                     </div>
                   </div>
                   <div style={{background:"#fff", border:"1.5px solid #B8922A", borderRadius:8, padding:"16px 18px", position:"relative"}}>
                     <span style={{position:"absolute", top:10, [isRTL ? "left" : "right"]:12, background:"#B8922A", color:"#fff", fontSize:9, letterSpacing:1, padding:"2px 8px", borderRadius:10, fontWeight:700, textTransform:"uppercase"}}>Free</span>
                     <div style={{fontSize:18, fontWeight:700, color:"#B8922A", marginBottom:4, fontFamily:"'Montserrat',sans-serif"}}>FREE DELIVERY</div>
                     <div style={{fontSize:12.5, color:"#666", fontFamily:"'Montserrat',sans-serif"}}>
-                      {isRTL ? "إذا كانت قيمة الطلب أكبر من ١٥٠ د.إ" : "If the order value is greater than AED 150"}
+                      {isRTL ? "إذا كانت قيمة الطلب أكبر من ١٥٠ ر.س" : "If the order value is greater than SAR 150"}
                     </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* ── OUTSIDE THE UAE ── */}
+            {/* ── OUTSIDE SAUDI ARABIA (KSA) ── */}
             <div style={{background:"#fff", border:"1.5px solid #EAE5DB", borderRadius:12, padding:"clamp(22px, 3.5vw, 32px)", boxShadow:"0 4px 16px rgba(37,23,55,0.03)"}}>
               <div style={{display:"flex", alignItems:"center", gap:10, marginBottom:16}}>
                 <h2 className="disp" style={{fontSize:"clamp(18px, 3vw, 24px)", fontWeight:700, color:"#251737", margin:0, letterSpacing:1}}>
-                  {isRTL ? "خارج دولة الإمارات (OUTSIDE UAE)" : "OUTSIDE UAE"}
+                  {isRTL ? "خارج المملكة العربية السعودية (OUTSIDE KSA)" : "OUTSIDE SAUDI ARABIA (KSA)"}
                 </h2>
               </div>
 
               <p style={{fontSize:13.5, color:"#444", lineHeight:1.8, marginBottom:18, fontFamily:"'Montserrat',sans-serif"}}>
                 {isRTL 
-                  ? "نقوم حالياً بالشحن الدولي لمنتجاتنا خارج دولة الإمارات العربية المتحدة، مع الأخذ بالاعتبار القيود المفروضة من الجهات المختصة. يرجى إرسال رسالة إلى رقم واتساب خَدْلَج الرسمي +971521211992 للحصول على أفضل أسعار وترتيبات الشحن للطلبات بالجملة فقط (BULK ORDERS ONLY)."
-                  : "We are currently doing International shipping of our goods outside the UAE, keeping in view the certain limitations being levied by the competent authorities. Please send a message to Khadlaj Official WhatsApp No. +971521211992 for the best possible shipping quotes & arrangements for the BULK ORDERS ONLY."}
+                  ? "نقوم حالياً بالشحن الدولي لمنتجاتنا خارج المملكة، مع الأخذ بالاعتبار القيود المفروضة من الجهات المختصة. يرجى إرسال رسالة إلى رقم واتساب خَدْلَج الرسمي +971521211992 للحصول على أفضل أسعار وترتيبات الشحن للطلبات بالجملة فقط (BULK ORDERS ONLY)."
+                  : "We are currently doing International shipping of our goods outside Saudi Arabia (KSA), keeping in view the certain limitations being levied by the competent authorities. Please send a message to Khadlaj Official WhatsApp No. +971521211992 for the best possible shipping quotes & arrangements for the BULK ORDERS ONLY."}
               </p>
 
               <div style={{marginBottom:24}}>
@@ -14435,8 +14435,8 @@ function ShippingReturnsPage({ setPage }){
                   <span style={{color:"#B8922A", fontSize:16, marginTop:1}}>✦</span>
                   <p style={{fontSize:13, color:"#251737", lineHeight:1.65, margin:0, fontFamily:"'Montserrat',sans-serif", fontWeight:600}}>
                     {isRTL 
-                      ? "سيتم فرض رسوم المناطق النائية (تقريباً ١٠٥ د.إ) بالإضافة إلى تكلفة الشحن عند احتسابها، وسيتم إبلاغ العميل لدفعها قبل شحن البضائع."
-                      : "REMOTE AREA FEE (Approx, AED 105) WILL BE CHARGED IN ADDITION UPON CHECKING THE SHIPPING COST AND WILL BE COMMUNICATED TO THE CUSTOMER TO PAY BEFORE DISPATCHING THE GOODS."}
+                      ? "سيتم فرض رسوم المناطق النائية (تقريباً ١٠٥ ر.س) بالإضافة إلى تكلفة الشحن عند احتسابها، وسيتم إبلاغ العميل لدفعها قبل شحن البضائع."
+                      : "REMOTE AREA FEE (Approx, SAR 105) WILL BE CHARGED IN ADDITION UPON CHECKING THE SHIPPING COST AND WILL BE COMMUNICATED TO THE CUSTOMER TO PAY BEFORE DISPATCHING THE GOODS."}
                   </p>
                 </div>
 
@@ -14524,14 +14524,14 @@ function FAQPage({ setPage }){
   const faqs = [
     /* ── SHIPPING & DELIVERY ── */
     {
-      id: "ship-uae",
+      id: "ship-ksa",
       category: "shipping",
       catLabelEn: "Shipping & Delivery",
       catLabelAr: "الشحن والتوصيل",
-      qEn: "What are the delivery times and shipping charges inside the UAE?",
-      qAr: "ما هي مدة ورسوم التوصيل داخل دولة الإمارات العربية المتحدة؟",
-      aEn: "Any products bought from the official Khadlaj Perfumes website are delivered within 1–3 business days to all Emirates (Dubai, Abu Dhabi, Sharjah, Ajman, Ras Al Khaimah, Fujairah, and Umm Al Quwain) after order processing.\n\n• AED 15 Delivery Fee: If the total order value is less than or equal to AED 150.\n• FREE DELIVERY: On all orders exceeding AED 150.",
-      aAr: "يتم توصيل جميع المنتجات المشتراة من الموقع الرسمي لعطور خَدْلَج خلال ١ إلى ٣ أيام عمل لكافة إمارات الدولة (دبي، أبوظبي، الشارقة، عجمان، رأس الخيمة، الفجيرة، وأم القيوين) بعد تأكيد ومعالجة الطلب.\n\n• ١٥ درهم إماراتي: رسوم التوصيل إذا كانت قيمة الطلب ١٥٠ درهم أو أقل.\n• توصيل مجاني بالكامل: لكافة الطلبات التي تزيد قيمتها عن ١٥٠ درهم.",
+      qEn: "What are the delivery times and shipping charges inside Saudi Arabia (KSA)?",
+      qAr: "ما هي مدة ورسوم التوصيل داخل المملكة العربية السعودية؟",
+      aEn: "Any products bought from the official Khadlaj Perfumes website are delivered within 1–3 business days to all cities across Saudi Arabia after order processing.\n\n• SAR 15 Delivery Fee: If the total order value is less than or equal to SAR 150.\n• FREE DELIVERY: On all orders exceeding SAR 150.",
+      aAr: "يتم توصيل جميع المنتجات المشتراة من الموقع الرسمي لعطور خَدْلَج خلال ١ إلى ٣ أيام عمل لكافة مدن المملكة بعد تأكيد ومعالجة الطلب.\n\n• ١٥ ر.س: رسوم التوصيل إذا كانت قيمة الطلب ١٥٠ ر.س أو أقل.\n• توصيل مجاني بالكامل: لكافة الطلبات التي تزيد قيمتها عن ١٥٠ ر.س.",
       actionBtn: { labelEn: "View Shipping Details", labelAr: "عرض تفاصيل الشحن", page: "shipping" }
     },
     {
@@ -14539,10 +14539,10 @@ function FAQPage({ setPage }){
       category: "shipping",
       catLabelEn: "International Shipping",
       catLabelAr: "الشحن الدولي",
-      qEn: "Do you ship internationally outside the UAE?",
-      qAr: "هل توفرون الشحن الدولي خارج دولة الإمارات العربية المتحدة؟",
-      aEn: "Yes, we handle international shipping outside the UAE in accordance with the regulatory limitations set by competent authorities. For the best shipping quotes and logistics arrangements, international shipping is handled for BULK ORDERS ONLY.\n\n• Contact: Message Khadlaj Official WhatsApp at +971 52 121 1992 for international bulk shipping inquiries.\n• Customs & Duties: Shipping fees, custom duties, and local taxes (if applicable) are borne by the customer.\n• Remote Area Surcharge: A remote area fee (approx. AED 105) may be charged in addition depending on courier zones, and will be communicated prior to dispatch.",
-      aAr: "نقوم بالشحن الدولي للبضائع خارج الإمارات وفقاً للوائح والتعليمات المعتمدة من الجهات المختصة. وللحصول على أفضل أسعار الشحن والتنسيق اللوجستي، فإن الشحن الدولي مخصص للطلبات بالجملة حصراً (Bulk Orders Only).\n\n• للتواصل: تواصل مع واتساب خَدْلَج الرسمي على الرقم 971521211992+ لترتيب شحنات الجملة الدولية.\n• الجمارك والرسوم: يتحمل العميل رسوم الشحن والرسوم الجمركية والضرائب المحلية إن وجدت.\n• المناطق النائية: قد يتم احتساب رسوم إضافية للمناطق النائية (قرابة ١٠٥ دراهم) بحسب مسار شركة الشحن ويتم إبلاغ العميل بها قبل إرسال الشحنة.",
+      qEn: "Do you ship internationally outside Saudi Arabia (KSA)?",
+      qAr: "هل توفرون الشحن الدولي خارج المملكة العربية السعودية؟",
+      aEn: "Yes, we handle international shipping outside Saudi Arabia (KSA) in accordance with the regulatory limitations set by competent authorities. For the best shipping quotes and logistics arrangements, international shipping is handled for BULK ORDERS ONLY.\n\n• Contact: Message Khadlaj Official WhatsApp at +971 52 121 1992 for international bulk shipping inquiries.\n• Customs & Duties: Shipping fees, custom duties, and local taxes (if applicable) are borne by the customer.\n• Remote Area Surcharge: A remote area fee (approx. SAR 105) may be charged in addition depending on courier zones, and will be communicated prior to dispatch.",
+      aAr: "نقوم بالشحن الدولي للبضائع خارج المملكة وفقاً للوائح والتعليمات المعتمدة من الجهات المختصة. وللحصول على أفضل أسعار الشحن والتنسيق اللوجستي، فإن الشحن الدولي مخصص للطلبات بالجملة حصراً (Bulk Orders Only).\n\n• للتواصل: تواصل مع واتساب خَدْلَج الرسمي على الرقم 971521211992+ لترتيب شحنات الجملة الدولية.\n• الجمارك والرسوم: يتحمل العميل رسوم الشحن والرسوم الجمركية والضرائب المحلية إن وجدت.\n• المناطق النائية: قد يتم احتساب رسوم إضافية للمناطق النائية (قرابة ١٠٥ ر.س) بحسب مسار شركة الشحن ويتم إبلاغ العميل بها قبل إرسال الشحنة.",
       actionBtn: { labelEn: "Chat on WhatsApp for Bulk", labelAr: "مراسلة الواتساب للطلبات الدولية", url: "https://wa.me/971521211992?text=Hello%20Khadlaj%2C%20I%20am%20inquiring%20about%20international%20bulk%20shipping" }
     },
     {
@@ -14723,8 +14723,8 @@ function FAQPage({ setPage }){
           </h1>
           <p style={{fontSize:14, color:"rgba(255,255,255,0.78)", maxWidth:620, lineHeight:1.8, fontFamily:"'Montserrat',sans-serif", margin:"0 auto 28px"}}>
             {isRTL 
-              ? "إجابات شاملة وموثقة حول مواعيد ورسوم التوصيل داخل وخارج الإمارات، سياسات الإرجاع، أصالة وثبات العطور، وخيارات الدفع الآمنة."
-              : "Comprehensive, transparent answers regarding UAE & international shipping, return policies, perfume longevity, authenticity, and payment security."}
+              ? "إجابات شاملة وموثقة حول مواعيد ورسوم التوصيل داخل وخارج المملكة، سياسات الإرجاع، أصالة وثبات العطور، وخيارات الدفع الآمنة."
+              : "Comprehensive, transparent answers regarding KSA & international shipping, return policies, perfume longevity, authenticity, and payment security."}
           </p>
 
           {/* Search Box */}
