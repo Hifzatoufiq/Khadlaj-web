@@ -11750,8 +11750,11 @@ function DedicatedCollectionPage({ collectionKey = "island", addToCart, setViewP
         }}>
           <button 
             onClick={() => {
-              setPage("main");
-              window.scrollTo({top: 0, behavior: "smooth"});
+              if (window.history.length > 1) {
+                window.history.back();
+              } else {
+                setPage("main");
+              }
             }}
             style={{
               background: "#FAF7F0",
@@ -12448,12 +12451,41 @@ function ProductPage({ product, addToCart, setPage, setViewProduct }){
     <div style={{background:"#fff", minHeight:"100vh"}}>
       
       {/* ── Breadcrumbs ── */}
-      <div style={{padding:"32px 5% 0", maxWidth:1440, margin:"0 auto", fontSize:10, letterSpacing:1.5, textTransform:"uppercase", color:"#888", fontFamily:"'Montserrat',sans-serif"}}>
-        <span style={{cursor:"pointer", color:"#251737", transition:"color 0.2s"}} onMouseEnter={e=>e.currentTarget.style.color="#B8922A"} onMouseLeave={e=>e.currentTarget.style.color="#251737"} onClick={()=>setPage("main")}>Home</span>
-        <span style={{margin:"0 12px", color:"#ddd"}}>|</span>
+      <div style={{padding:"32px 5% 0", maxWidth:1440, margin:"0 auto", fontSize:10, letterSpacing:1.5, textTransform:"uppercase", color:"#888", fontFamily:"'Montserrat',sans-serif", display:"flex", alignItems:"center", flexWrap:"wrap", gap:6}}>
+        <button 
+          onClick={() => {
+            if (window.history.length > 1) {
+              window.history.back();
+            } else {
+              setPage("main");
+            }
+          }}
+          style={{
+            cursor: "pointer", 
+            display: "inline-flex", 
+            alignItems: "center", 
+            gap: 4, 
+            fontWeight: 800, 
+            color: "#251737",
+            background: "none",
+            border: "none",
+            padding: "4px 8px 4px 0",
+            fontSize: 11,
+            letterSpacing: 1.5,
+            fontFamily: "'Montserrat',sans-serif",
+            transition: "color 0.2s"
+          }}
+          onMouseEnter={e=>e.currentTarget.style.color="#B8922A"}
+          onMouseLeave={e=>e.currentTarget.style.color="#251737"}
+        >
+          <span>←</span> {isRTL ? "رجوع" : "BACK"}
+        </button>
+        <span style={{margin:"0 6px", color:"#ddd"}}>|</span>
+        <span style={{cursor:"pointer", color:"#251737", transition:"color 0.2s"}} onMouseEnter={e=>e.currentTarget.style.color="#B8922A"} onMouseLeave={e=>e.currentTarget.style.color="#251737"} onClick={()=>{ if (window.history.length > 1) window.history.back(); else setPage("main"); }}>Home</span>
+        <span style={{margin:"0 6px", color:"#ddd"}}>|</span>
         <span style={{cursor:"pointer", color:"#251737", transition:"color 0.2s"}} onMouseEnter={e=>e.currentTarget.style.color="#B8922A"} onMouseLeave={e=>e.currentTarget.style.color="#251737"} onClick={()=>setPage("collections")}>Collections</span>
-        <span style={{margin:"0 12px", color:"#ddd"}}>|</span>
-        <span>{getProductName(product, isRTL)}</span>
+        <span style={{margin:"0 6px", color:"#ddd"}}>|</span>
+        <span style={{color:"#888", fontWeight:600}}>{getProductName(product, isRTL)}</span>
       </div>
 
       {/* ── Main Product Section ── */}
@@ -19687,16 +19719,75 @@ export default function App(){
     return () => clearTimeout(timer);
   }, []);
 
+  // ── High-Precision Scroll Restoration & History State Management ──
   const isFirstRender = useRef(true);
+  const isPopStateRef = useRef(false);
+  const targetScrollYRef = useRef(0);
+  const scrollMapRef = useRef({});
+  const currentKeyRef = useRef("");
+  const restoreTimerRef = useRef(null);
+
+  // Active view key for scroll storage
+  const activeViewKey = `${page}_${collectionCategory || ""}_${selectedCollection || ""}_${viewProduct?.id || ""}`;
+  currentKeyRef.current = activeViewKey;
+
+  // Track scroll position continuously
+  useEffect(() => {
+    if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    let scrollThrottle = null;
+    const handleScroll = () => {
+      if (scrollThrottle) return;
+      scrollThrottle = setTimeout(() => {
+        scrollThrottle = null;
+        const currentY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+        if (currentKeyRef.current) {
+          scrollMapRef.current[currentKeyRef.current] = currentY;
+          try {
+            sessionStorage.setItem("khadlaj_scroll_" + currentKeyRef.current, currentY.toString());
+          } catch (e) {}
+        }
+        if (window.history.state) {
+          window.history.replaceState({ ...window.history.state, scrollY: currentY }, "");
+        }
+      }, 80);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (scrollThrottle) clearTimeout(scrollThrottle);
+    };
+  }, []);
 
   // Handle popstate (browser back/forward button clicks)
   useEffect(() => {
     const handlePopState = (event) => {
       if (event.state) {
-        setPage(event.state.page || "main");
-        setCollectionCategory(event.state.collectionCategory || "Khadlaj");
-        setSelectedCollection(event.state.selectedCollection || "island");
-        setViewProduct(event.state.viewProduct || null);
+        isPopStateRef.current = true;
+        const state = event.state;
+        const targetKey = `${state.page || "main"}_${state.collectionCategory || ""}_${state.selectedCollection || ""}_${state.viewProduct?.id || ""}`;
+
+        let savedY = 0;
+        if (typeof state.scrollY === "number") {
+          savedY = state.scrollY;
+        } else if (typeof scrollMapRef.current[targetKey] === "number") {
+          savedY = scrollMapRef.current[targetKey];
+        } else {
+          try {
+            const stored = sessionStorage.getItem("khadlaj_scroll_" + targetKey);
+            if (stored !== null) savedY = Number(stored);
+          } catch (e) {}
+        }
+
+        targetScrollYRef.current = savedY;
+
+        setPage(state.page || "main");
+        setCollectionCategory(state.collectionCategory || "Khadlaj");
+        setSelectedCollection(state.selectedCollection || "island");
+        setViewProduct(state.viewProduct || null);
       }
     };
 
@@ -19704,11 +19795,24 @@ export default function App(){
     return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
-  // Sync state changes with HTML5 History API
+  // Sync state changes with HTML5 History API & record scroll before leaving
+  const prevStateRef = useRef({ page, collectionCategory, selectedCollection, viewProductId: viewProduct?.id });
+
   useEffect(() => {
     if (isFirstRender.current) {
-      window.history.replaceState({ page, collectionCategory, selectedCollection, viewProduct }, "");
+      window.history.replaceState({ 
+        page, 
+        collectionCategory, 
+        selectedCollection, 
+        viewProduct, 
+        scrollY: window.scrollY || 0 
+      }, "");
       isFirstRender.current = false;
+      return;
+    }
+
+    if (isPopStateRef.current) {
+      prevStateRef.current = { page, collectionCategory, selectedCollection, viewProductId: viewProduct?.id };
       return;
     }
 
@@ -19720,7 +19824,19 @@ export default function App(){
       (currentState.viewProduct?.id !== viewProduct?.id);
 
     if (isDifferent) {
-      window.history.pushState({ page, collectionCategory, selectedCollection, viewProduct }, "");
+      const currentScrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+      const prevKey = `${prevStateRef.current.page}_${prevStateRef.current.collectionCategory || ""}_${prevStateRef.current.selectedCollection || ""}_${prevStateRef.current.viewProductId || ""}`;
+      scrollMapRef.current[prevKey] = currentScrollY;
+      try {
+        sessionStorage.setItem("khadlaj_scroll_" + prevKey, currentScrollY.toString());
+      } catch (e) {}
+
+      if (window.history.state) {
+        window.history.replaceState({ ...window.history.state, scrollY: currentScrollY }, "");
+      }
+
+      window.history.pushState({ page, collectionCategory, selectedCollection, viewProduct, scrollY: 0 }, "");
+      prevStateRef.current = { page, collectionCategory, selectedCollection, viewProductId: viewProduct?.id };
     }
   }, [page, collectionCategory, selectedCollection, viewProduct]);
 
@@ -20053,7 +20169,60 @@ STRICT COMPANY-ONLY GUARDRAIL & POLICY:
     }
   }, [messages, loading]);
 
-  useEffect(()=>{ window.scrollTo({top:0,behavior:"smooth"}); },[page]);
+  // ── Precision Scroll Restoration on Navigation & Popstate ──
+  useEffect(() => {
+    if (restoreTimerRef.current) {
+      clearInterval(restoreTimerRef.current);
+      restoreTimerRef.current = null;
+    }
+
+    if (isPopStateRef.current) {
+      isPopStateRef.current = false;
+      const targetY = targetScrollYRef.current || 0;
+
+      // Scroll immediately to target position
+      window.scrollTo({ top: targetY, behavior: "instant" });
+
+      // Multi-step restoration for dynamically rendered DOM / images
+      let attempts = 0;
+      const cancelOnInteraction = () => {
+        if (restoreTimerRef.current) {
+          clearInterval(restoreTimerRef.current);
+          restoreTimerRef.current = null;
+        }
+      };
+
+      window.addEventListener("wheel", cancelOnInteraction, { passive: true, once: true });
+      window.addEventListener("touchstart", cancelOnInteraction, { passive: true, once: true });
+
+      restoreTimerRef.current = setInterval(() => {
+        attempts++;
+        const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+        if (maxScroll >= targetY) {
+          window.scrollTo({ top: targetY, behavior: "instant" });
+          clearInterval(restoreTimerRef.current);
+          restoreTimerRef.current = null;
+        } else if (maxScroll > 0) {
+          window.scrollTo({ top: maxScroll, behavior: "instant" });
+        }
+        if (attempts >= 18) {
+          clearInterval(restoreTimerRef.current);
+          restoreTimerRef.current = null;
+        }
+      }, 50);
+
+    } else {
+      // Normal forward navigation starts at top of new page
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
+
+    return () => {
+      if (restoreTimerRef.current) {
+        clearInterval(restoreTimerRef.current);
+        restoreTimerRef.current = null;
+      }
+    };
+  }, [page, selectedCollection, viewProduct?.id]);
 
   const renderPage = () => {
     switch(page){
