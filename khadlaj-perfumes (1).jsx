@@ -17530,25 +17530,62 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
   const handleSearch = (q) => {
     setSearchQuery(q);
     if (!q || !q.trim()) { setSearchResults([]); return; }
-    var lower = q.trim().toLowerCase();
+    var qLower = q.trim().toLowerCase();
+    var qClean = qLower.replace(/[\s\-_&'"`.,/\\()]+/g, "");
+    var qWords = qLower.split(/[\s\-_&'"`.,/\\()]+/).filter(Boolean);
+
+    var getProductSearchableText = function(p) {
+      var parts = [
+        p.name,
+        p.nameAr,
+        p.col,
+        p.category,
+        p.size,
+        p.gender,
+        p.badge,
+        p.subtitle,
+        p.subtitleAr
+      ];
+      if (Array.isArray(p.notes)) parts.push(p.notes.join(" "));
+      else if (typeof p.notes === "string") parts.push(p.notes);
+
+      if (Array.isArray(p.notesAr)) parts.push(p.notesAr.join(" "));
+      else if (typeof p.notesAr === "string") parts.push(p.notesAr);
+
+      if (Array.isArray(p.topNotes)) parts.push(p.topNotes.join(" "));
+      if (Array.isArray(p.heartNotes)) parts.push(p.heartNotes.join(" "));
+      if (Array.isArray(p.baseNotes)) parts.push(p.baseNotes.join(" "));
+
+      if (typeof p.desc === "string") parts.push(p.desc);
+      else if (Array.isArray(p.desc)) parts.push(p.desc.join(" "));
+      else if (p.desc && typeof p.desc === "object") {
+        if (typeof p.desc.en === "string") parts.push(p.desc.en);
+        if (typeof p.desc.ar === "string") parts.push(p.desc.ar);
+      }
+      if (typeof p.descAr === "string") parts.push(p.descAr);
+
+      return parts.filter(Boolean).join(" ").toLowerCase();
+    };
+
     var results = PRODUCTS.filter(function(p) {
       if (!p) return false;
-      if (typeof p.name === "string" && p.name.toLowerCase().includes(lower)) return true;
-      if (typeof p.nameAr === "string" && p.nameAr.toLowerCase().includes(lower)) return true;
-      if (typeof p.col === "string" && p.col.toLowerCase().includes(lower)) return true;
-      if (typeof p.category === "string" && p.category.toLowerCase().includes(lower)) return true;
-      if (typeof p.gender === "string" && p.gender.toLowerCase().includes(lower)) return true;
-      if (Array.isArray(p.notes) && p.notes.some(function(n){ return typeof n === "string" && n.toLowerCase().includes(lower); })) return true;
-      if (typeof p.notes === "string" && p.notes.toLowerCase().includes(lower)) return true;
-      if (Array.isArray(p.notesAr) && p.notesAr.some(function(n){ return typeof n === "string" && n.toLowerCase().includes(lower); })) return true;
-      if (typeof p.desc === "string" && p.desc.toLowerCase().includes(lower)) return true;
-      else if (p.desc && typeof p.desc === "object") {
-        if (typeof p.desc.en === "string" && p.desc.en.toLowerCase().includes(lower)) return true;
-        if (typeof p.desc.ar === "string" && p.desc.ar.toLowerCase().includes(lower)) return true;
-      }
-      if (typeof p.descAr === "string" && p.descAr.toLowerCase().includes(lower)) return true;
+      var fullText = getProductSearchableText(p);
+      var fullClean = fullText.replace(/[\s\-_&'"`.,/\\()]+/g, "");
+
+      // 1. Direct match (with space, exact sequence)
+      if (fullText.includes(qLower)) return true;
+
+      // 2. Match without spaces / punctuation (e.g. 'giftset' matches 'gift set' and vice versa)
+      if (qClean && fullClean.includes(qClean)) return true;
+
+      // 3. Multi-word search (all search words present in product)
+      if (qWords.length > 1 && qWords.every(function(w) {
+        var wClean = w.replace(/[\s\-_&'"`.,/\\()]+/g, "");
+        return fullText.includes(w) || (wClean && fullClean.includes(wClean));
+      })) return true;
+
       return false;
-    }).slice(0, 24);
+    }).slice(0, 32);
     setSearchResults(results);
   };
 
@@ -17721,8 +17758,8 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
                   style={{
                     flexShrink: 0,
                     padding: "5px 13px",
-                    background: searchQuery.toLowerCase() === tag.q.toLowerCase() ? "#B8922A" : "#FAF8F5",
-                    color: searchQuery.toLowerCase() === tag.q.toLowerCase() ? "#fff" : "#444",
+                    background: (searchQuery.trim().toLowerCase().replace(/\s+/g, '') === tag.q.toLowerCase().replace(/\s+/g, '')) ? "#B8922A" : "#FAF8F5",
+                    color: (searchQuery.trim().toLowerCase().replace(/\s+/g, '') === tag.q.toLowerCase().replace(/\s+/g, '')) ? "#fff" : "#444",
                     border: "1px solid #E8E2D8",
                     borderRadius: 16,
                     fontSize: 11,
