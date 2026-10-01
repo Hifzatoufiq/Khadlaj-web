@@ -6292,7 +6292,14 @@ export function syncLiveShopifyPrices() {
         prod.shopifyId = matched.id;
       }
       if (matched.title) {
+        if (!prod.originalName) {
+          prod.originalName = prod.name;
+        }
         prod.shopifyTitle = matched.title;
+        if (prod.name !== matched.title) {
+          prod.name = matched.title;
+          updatedCount++;
+        }
       }
       const liveMl = extractProductMl(matched.title, matched.variantTitle);
       if (liveMl && liveMl !== prod.size) {
@@ -6361,7 +6368,14 @@ export async function fetchAndSyncShopifyCatalog() {
           prod.variantId = matched.variantId;
         }
         if (matched.title) {
+          if (!prod.originalName) {
+            prod.originalName = prod.name;
+          }
           prod.shopifyTitle = matched.title;
+          if (prod.name !== matched.title) {
+            prod.name = matched.title;
+            updatedCount++;
+          }
         }
         const liveMl = extractProductMl(matched.title, matched.variantTitle);
         if (liveMl && liveMl !== prod.size) {
@@ -7009,12 +7023,14 @@ const PRODUCT_NAMES_AR = {
 
 function getProductName(p, isRTL) {
   if (!p) return "";
-  if (!isRTL) return p.name;
+  if (!isRTL) return p.shopifyTitle || p.name;
   if (p.nameAr) return p.nameAr;
-  const upper = p.name.toUpperCase().trim();
+  const orig = (p.originalName || p.name || "").toUpperCase().trim();
+  if (PRODUCT_NAMES_AR[orig]) return PRODUCT_NAMES_AR[orig];
+  const upper = (p.shopifyTitle || p.name || "").toUpperCase().trim();
   if (PRODUCT_NAMES_AR[upper]) return PRODUCT_NAMES_AR[upper];
   if (PRODUCT_NAMES_AR[p.name]) return PRODUCT_NAMES_AR[p.name];
-  return p.name;
+  return p.shopifyTitle || p.name;
 }
 
 function formatProductSize(size, isRTL) {
@@ -20258,13 +20274,18 @@ export default function App(){
     return () => document.removeEventListener('visibilitychange', handleVisibility);
   }, []);
 
-  // Keep cart items' prices, variantId, and size in sync with live catalog
+  // Keep cart items' names, prices, variantId, and size in sync with live catalog
   useEffect(() => {
     setCartItems(prev => prev.map(item => {
-      const live = PRODUCTS.find(p => p.id === item.id || p.name === item.name);
+      const live = PRODUCTS.find(p => p.id === item.id || p.name === item.name || (p.originalName && p.originalName === item.name));
       if (live) {
         let changed = false;
         const updated = { ...item };
+        const liveName = live.shopifyTitle || live.name;
+        if (liveName && liveName !== item.name) {
+          updated.name = liveName;
+          changed = true;
+        }
         if (live.price && live.price !== item.price) {
           updated.price = live.price;
           changed = true;
@@ -20463,16 +20484,21 @@ export default function App(){
         if (matched.price) product.price = matched.price;
         const liveMl = extractProductMl(matched.title, matched.variantTitle);
         if (liveMl) product.size = liveMl;
-        if (matched.title) product.shopifyTitle = matched.title;
+        if (matched.title) {
+          if (!product.originalName) product.originalName = product.name;
+          product.shopifyTitle = matched.title;
+          product.name = matched.title;
+        }
       }
     }
 
     setCartItems(items=>{
       const exists = items.find(item=>item.id === product.id);
+      const itemName = product.shopifyTitle || product.name;
       if (exists) {
-        return items.map(item=>item.id === product.id ? {...item, qty:item.qty + safeQty, variantId: vId || item.variantId} : item);
+        return items.map(item=>item.id === product.id ? {...item, name: itemName, qty:item.qty + safeQty, variantId: vId || item.variantId, price: product.price || item.price, size: product.size || item.size} : item);
       }
-      return [...items, {...product, qty:safeQty, variantId: vId}];
+      return [...items, {...product, name: itemName, qty:safeQty, variantId: vId}];
     });
   };
   const updateCartQty = (id, qty) => {
