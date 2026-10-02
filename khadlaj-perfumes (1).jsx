@@ -356,9 +356,9 @@ export function selectBottleOnlyImage(productOrImages, fallbackImg) {
   let currentImg = '';
 
   if (productOrImages && typeof productOrImages === 'object' && !Array.isArray(productOrImages)) {
-    if (productOrImages.detailImages && Array.isArray(productOrImages.detailImages)) {
+    if (productOrImages.detailImages && Array.isArray(productOrImages.detailImages) && productOrImages.detailImages.length > 0) {
       images = productOrImages.detailImages;
-    } else if (productOrImages.images && Array.isArray(productOrImages.images)) {
+    } else if (productOrImages.images && Array.isArray(productOrImages.images) && productOrImages.images.length > 0) {
       images = productOrImages.images;
     }
     currentImg = productOrImages.img || '';
@@ -388,7 +388,7 @@ export function selectBottleOnlyImage(productOrImages, fallbackImg) {
   if (rawList.length === 0) return fallback || '';
   if (rawList.length === 1) return rawList[0];
 
-  function scoreImage(url) {
+  function scoreImage(url, idx = -1) {
     if (!url) return -999;
     const cleanUrl = url.split('?')[0];
     const fn = cleanUrl.split('/').pop().toLowerCase();
@@ -419,22 +419,40 @@ export function selectBottleOnlyImage(productOrImages, fallbackImg) {
     // Known bottle shots with 02 (e.g. Aqua02.jpg, BrownChoco2.jpg, Whiteforeststrawberry02.jpg)
     if (/aqua02|brownchoco2|whiteforeststrawberry02/i.test(fn)) score += 135;
 
+    // Secondary bottle shots
+    if (/[-_]0?2\.(jpg|png|webp)/i.test(fn) || /[-_]0?2[-_]/i.test(fn)) score += 90;
+
     // Filenames with -1 or _1 or 1RESIZE (except .1 above) are usually box+bottle in Khadlaj naming
     if ((/[-_]0?1\.(jpg|png|webp)/i.test(fn) || /[-_]0?1[-_]/i.test(fn) || /1resize/i.test(fn)) && !/shiyaaka|icon/i.test(fn)) {
       score -= 60;
     }
 
+    // In Shopify, image 0 is almost universally the outer retail packaging box
+    if (idx > 0 && score >= 0) {
+      score += 25;
+    } else if (idx === 0 && score === 0) {
+      score -= 15;
+    }
+
     return score;
   }
 
-  let bestImg = currentImg || rawList[0];
-  let bestScore = scoreImage(bestImg);
+  let bestImg = rawList[0];
+  let bestScore = scoreImage(bestImg, 0);
 
   for (let i = 0; i < rawList.length; i++) {
-    const sc = scoreImage(rawList[i]);
+    const sc = scoreImage(rawList[i], i);
     if (sc > bestScore) {
       bestScore = sc;
       bestImg = rawList[i];
+    }
+  }
+
+  // If currentImg has a higher bottle score or is transparent/cutout, keep it
+  if (currentImg && currentImg !== bestImg) {
+    const curScore = scoreImage(currentImg, -1);
+    if (/nobox|without_box|no_box|transparent|cutout/i.test(currentImg) || (curScore >= 130 && curScore > bestScore)) {
+      return currentImg;
     }
   }
 
@@ -6272,17 +6290,19 @@ export function extractProductMl(title, variantTitle) {
 export function findBestShopifyMatch(item, shopifyProducts) {
   if (!item || !shopifyProducts || !shopifyProducts.length) return null;
 
-  // 1. Direct ID match (by Shopify ID or Variant ID)
-  if (item.id) {
-    const direct = shopifyProducts.find(sp => sp && (String(sp.id) === String(item.id) || String(sp.variantId) === String(item.id)));
+  const isRealNumericId = (id) => id && !String(id).startsWith("92000") && !String(id).startsWith("91000") && String(id).length > 5;
+
+  // 1. Direct ID match
+  if (item.shopifyId && isRealNumericId(item.shopifyId)) {
+    const direct = shopifyProducts.find(sp => sp && String(sp.id) === String(item.shopifyId));
     if (direct) return direct;
   }
-  if (item.shopifyId) {
-    const direct = shopifyProducts.find(sp => sp && (String(sp.id) === String(item.shopifyId) || String(sp.variantId) === String(item.shopifyId)));
-    if (direct) return direct;
-  }
-  if (item.variantId) {
+  if (item.variantId && isRealNumericId(item.variantId)) {
     const direct = shopifyProducts.find(sp => sp && String(sp.variantId) === String(item.variantId));
+    if (direct) return direct;
+  }
+  if (item.id && isRealNumericId(item.id)) {
+    const direct = shopifyProducts.find(sp => sp && String(sp.id) === String(item.id));
     if (direct) return direct;
   }
 
@@ -6293,62 +6313,56 @@ export function findBestShopifyMatch(item, shopifyProducts) {
   if (itemClean.length >= 3) {
     const exactClean = shopifyProducts.find(sp => {
       if (!sp || !sp.title) return false;
-      return sp.title.toLowerCase().replace(/[^a-z0-9]/g, '') === itemClean;
+      const spClean = sp.title.toLowerCase().replace(/[^a-z0-9]/g, '');
+      return spClean === itemClean;
     });
     if (exactClean) return exactClean;
   }
 
-  // 3. Match by handle or image filename
-  const imgSlug = (item.img && typeof item.img === 'string') 
-    ? item.img.split('?')[0].split('/').pop().replace(/\.[^/.]+$/, '').toLowerCase().replace(/[^a-z0-9]/g, '') 
-    : '';
-
-  if (itemClean.length >= 4 || imgSlug.length >= 4) {
-    const subClean = shopifyProducts.find(sp => {
-      if (!sp) return false;
-      const spClean = ((sp.title || '') + ' ' + (sp.handle || '')).toLowerCase().replace(/[^a-z0-9]/g, '');
-      if (itemClean.length >= 4 && spClean.includes(itemClean)) return true;
-      if (imgSlug.length >= 4 && spClean.includes(imgSlug)) return true;
-      return false;
-    });
-    if (subClean) return subClean;
-  }
-
-  // 4. Token scoring with fuzzy whole-word overlap
+  // 3. High-confidence token scoring with conflict prevention
   const normalize = (str) => (str || '').toLowerCase().replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
-  const stopWords = new Set(['eau', 'de', 'parfum', 'edp', 'spray', 'perfume', 'oil', 'for', 'men', 'women', 'and', 'khadlaj', 'ml', 'concentrated', 'extrait', 'air', 'freshener', 'the', 'best', 'online', 'special', 'edition']);
+  const stopWords = new Set(['eau', 'de', 'parfum', 'edp', 'spray', 'perfume', 'oil', 'for', 'and', 'khadlaj', 'ml', 'concentrated', 'extrait', 'air', 'freshener', 'the', 'best', 'online', 'special', 'edition']);
   const getTokens = (str) => normalize(str).split(' ').filter(w => w.length >= 2 && !stopWords.has(w));
   const itemTokens = getTokens(rawName);
+  if (itemTokens.length === 0) return null;
+
+  const CONFLICT_MODIFIERS = ['gold', 'silver', 'black', 'white', 'blue', 'red', 'green', 'brown', 'pink', 'noir', 'blanc', 'shadow', 'snow', 'sun', 'dreams', 'vanilla', 'intense', 'aqua', 'choco', 'strawberry', 'cherry', 'men', 'women', 'him', 'her', 'maze', 'victor', 'crown', 'asal', 'azeem', 'turaas', 'ghaliya', 'ghanaati', 'khawaater', 'munawwara', 'saada', 'maqaam', 'samou'];
 
   let bestMatch = null;
   let highestScore = 0;
 
   for (const sp of shopifyProducts) {
-    if (!sp) continue;
-    const spTitleNorm = normalize(sp.title);
-    const spHandleTokens = new Set(normalize((sp.handle || '').replace(/-/g, ' ')).split(' '));
-    const spTitleTokens = new Set(spTitleNorm.split(' '));
+    if (!sp || !sp.title) continue;
+    const spTokens = getTokens(sp.title);
+    if (spTokens.length === 0) continue;
 
-    let score = 0;
+    // Reject if any modifier conflicts (e.g. Gold vs Silver, Sun vs Dreams, Men vs Women)
+    const setItem = new Set(itemTokens);
+    const setSp = new Set(spTokens);
+    let conflict = false;
+    for (const c of CONFLICT_MODIFIERS) {
+      if ((setItem.has(c) && !setSp.has(c)) || (!setItem.has(c) && setSp.has(c))) {
+        conflict = true;
+        break;
+      }
+    }
+    if (conflict) continue;
+
     let matchedTokens = 0;
-
     for (const tok of itemTokens) {
-      if (spTitleTokens.has(tok) || spHandleTokens.has(tok)) {
+      if (setSp.has(tok)) {
         matchedTokens++;
-        score += 50;
       }
     }
 
-    if (itemTokens.length > 0) {
-      const matchPct = matchedTokens / itemTokens.length;
-      if (matchPct >= 0.5) {
-        score += Math.round(matchPct * 100);
+    const overlapPct = matchedTokens / itemTokens.length;
+    // Require at least 75% overlap and at least 2 tokens matched
+    if (overlapPct >= 0.75 && matchedTokens >= 2) {
+      const score = Math.round(overlapPct * 100) + matchedTokens * 20;
+      if (score > highestScore) {
+        highestScore = score;
+        bestMatch = sp;
       }
-    }
-
-    if (score > highestScore && score >= 50) {
-      highestScore = score;
-      bestMatch = sp;
     }
   }
 
@@ -6404,20 +6418,25 @@ export function syncLiveShopifyPrices() {
             updatedCount++;
           }
         }
-        // Sync Dashboard Images safely: update detailImages first, then pick isolated bottle without box
+        // "jo name liye hain us ki picture bhi lo":
+        // Sync Dashboard Images: Always extract the bottle image from THIS matched product's images
         if (matched.images && Array.isArray(matched.images) && matched.images.length > 0) {
           const liveImgs = matched.images.map(img => typeof img === 'string' ? (img.startsWith('//') ? 'https:' + img : img) : (img && img.src ? (img.src.startsWith('//') ? 'https:' + img.src : img.src) : null)).filter(Boolean);
           if (liveImgs.length > 0) {
             prod.detailImages = liveImgs;
+            const liveBottle = selectBottleOnlyImage(liveImgs, matched.image || liveImgs[0]);
+            if (liveBottle && prod.img !== liveBottle) {
+              prod.img = liveBottle;
+              updatedCount++;
+            }
           }
-        }
-        const bestBottle = selectBottleOnlyImage({
-          img: prod.img,
-          detailImages: prod.detailImages || []
-        });
-        if (bestBottle && prod.img !== bestBottle) {
-          prod.img = bestBottle;
-          updatedCount++;
+        } else if (matched.image) {
+          const singleImg = typeof matched.image === 'string' ? (matched.image.startsWith('//') ? 'https:' + matched.image : matched.image) : (matched.image.src ? (matched.image.src.startsWith('//') ? 'https:' + matched.image.src : matched.image.src) : null);
+          if (singleImg && prod.img !== singleImg) {
+            prod.img = singleImg;
+            prod.detailImages = [singleImg];
+            updatedCount++;
+          }
         }
         const liveMl = extractProductMl(matched.title, matched.variantTitle);
         if (liveMl && liveMl !== prod.size) {
@@ -6444,8 +6463,9 @@ export function syncLiveShopifyPrices() {
       const alreadyInProducts = PRODUCTS.some(p => {
         if (p.shopifyId && String(p.shopifyId) === sId) return true;
         if (p.variantId && String(p.variantId) === vId) return true;
+        if (String(p.id) === sId || String(p.id) === vId) return true;
         const pClean = (p.originalName || p.name || '').toLowerCase().replace(/[^a-z0-9]/g, '');
-        return pClean && (pClean === spClean || pClean.includes(spClean) || spClean.includes(pClean));
+        return pClean && pClean === spClean;
       });
 
       if (!alreadyInProducts) {
@@ -6612,20 +6632,25 @@ export async function fetchAndSyncShopifyCatalog() {
             updatedCount++;
           }
         }
-        // Sync Dashboard Images safely: update detailImages first, then pick isolated bottle without box
+        // "jo name liye hain us ki picture bhi lo":
+        // Sync Dashboard Images: Always extract the bottle image from THIS matched product's images
         if (matched.images && Array.isArray(matched.images) && matched.images.length > 0) {
           const liveImgs = matched.images.map(img => typeof img === 'string' ? (img.startsWith('//') ? 'https:' + img : img) : (img && img.src ? (img.src.startsWith('//') ? 'https:' + img.src : img.src) : null)).filter(Boolean);
           if (liveImgs.length > 0) {
             prod.detailImages = liveImgs;
+            const liveBottle = selectBottleOnlyImage(liveImgs, matched.image || liveImgs[0]);
+            if (liveBottle && prod.img !== liveBottle) {
+              prod.img = liveBottle;
+              updatedCount++;
+            }
           }
-        }
-        const bestBottle = selectBottleOnlyImage({
-          img: prod.img,
-          detailImages: prod.detailImages || []
-        });
-        if (bestBottle && prod.img !== bestBottle) {
-          prod.img = bestBottle;
-          updatedCount++;
+        } else if (matched.image) {
+          const singleImg = typeof matched.image === 'string' ? (matched.image.startsWith('//') ? 'https:' + matched.image : matched.image) : (matched.image.src ? (matched.image.src.startsWith('//') ? 'https:' + matched.image.src : matched.image.src) : null);
+          if (singleImg && prod.img !== singleImg) {
+            prod.img = singleImg;
+            prod.detailImages = [singleImg];
+            updatedCount++;
+          }
         }
         const liveMl = extractProductMl(matched.title, matched.variantTitle);
         if (liveMl && liveMl !== prod.size) {
@@ -6651,8 +6676,9 @@ export async function fetchAndSyncShopifyCatalog() {
       const alreadyInProducts = PRODUCTS.some(p => {
         if (p.shopifyId && String(p.shopifyId) === sId) return true;
         if (p.variantId && String(p.variantId) === vId) return true;
+        if (String(p.id) === sId || String(p.id) === vId) return true;
         const pClean = (p.originalName || p.name || '').toLowerCase().replace(/[^a-z0-9]/g, '');
-        return pClean && (pClean === spClean || pClean.includes(spClean) || spClean.includes(pClean));
+        return pClean && pClean === spClean;
       });
 
       if (!alreadyInProducts) {
@@ -6976,6 +7002,7 @@ const SOCIAL_LINKS = {
    BILINGUAL TRANSLATION MAPS (PRODUCTS, CATEGORIES, NOTES)
 ═══════════════════════════════════════════════════════════════ */
 const CATEGORY_NAMES_AR = {
+  "All Fragrances": "جميع العطور",
   "Best Sellers": "الأكثر مبيعاً",
   "New": "وصل حديثاً",
   "Deals": "العروض",
@@ -7367,7 +7394,7 @@ function formatProductSize(size, isRTL) {
     .replace(/EDP/gi, "ماء عطر");
 }
 
-const CATEGORIES = ["Best Sellers","New","For Him","For Her","Unisex","Perfume Oils","EAU DE PARFUM","Master Perfumery"];
+const CATEGORIES = ["All Fragrances","Best Sellers","New","For Him","For Her","Unisex","Perfume Oils","EAU DE PARFUM","Master Perfumery"];
 
 /* ═══════════════════════════════════════════════════════════════
    GLOBAL CSS
@@ -11358,10 +11385,11 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection, s
     }
   };
 
+  const [catalogLimit, setCatalogLimit] = useState(24);
   const seenHomeKeys = new Set();
-  const filtered = PRODUCTS.filter(p=>{
+  const allFiltered = PRODUCTS.filter(p=>{
     const isKhadlajProduct = p.col !== "Lafede";
-    if(activeCat==="Khadlaj") return p.col !== "Lafede";
+    if(activeCat==="All Fragrances" || activeCat==="All" || activeCat==="Khadlaj") return isKhadlajProduct;
     if(activeCat==="Best Sellers") return isKhadlajProduct && p.badge==="Best Seller";
     if(activeCat==="New") return isKhadlajProduct && p.badge==="New";
     if(activeCat==="For Him") return isKhadlajProduct && p.gender==="Him";
@@ -11373,24 +11401,18 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection, s
     return isKhadlajProduct && (p.col || '').toLowerCase() === activeCat.toLowerCase();
   }).filter(p => {
     if (!p) return false;
-    const cleanKey = (p.originalName || p.name || '').toLowerCase()
-      .replace(/(\d+)\s*(ml|g|gms|gm|oz)/gi, '')
-      .replace(/eau\s+de\s+parfum|edp|spray|perfume|oil|extrait/gi, '')
-      .replace(/[^a-z0-9]/g, '');
-    if (!cleanKey) return true;
+    const cleanKey = String(p.shopifyId || p.id || p.name);
     if (seenHomeKeys.has(cleanKey)) return false;
     seenHomeKeys.add(cleanKey);
     return true;
-  }).slice(0, activeCat === "Best Sellers" ? 6 : 16);
+  });
+
+  const filtered = activeCat === "Best Sellers" ? allFiltered.slice(0, 8) : allFiltered.slice(0, catalogLimit);
 
   const seenNewKeys = new Set();
   const newLaunches = PRODUCTS.filter(p => p.badge === "New").filter(p => {
     if (!p) return false;
-    const cleanKey = (p.originalName || p.name || '').toLowerCase()
-      .replace(/(\d+)\s*(ml|g|gms|gm|oz)/gi, '')
-      .replace(/eau\s+de\s+parfum|edp|spray|perfume|oil|extrait/gi, '')
-      .replace(/[^a-z0-9]/g, '');
-    if (!cleanKey) return true;
+    const cleanKey = String(p.shopifyId || p.id || p.name);
     if (seenNewKeys.has(cleanKey)) return false;
     seenNewKeys.add(cleanKey);
     return true;
@@ -11810,6 +11832,32 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection, s
             <ProductCard key={p.id} p={p} onView={(prod)=>{setViewProduct(prod);setPage("product");}} onCart={addToCart}/>
           ))}
         </div>
+
+        {allFiltered.length > filtered.length && (
+          <div style={{textAlign:"center", marginTop: 40}}>
+            <button
+              onClick={() => setCatalogLimit(prev => prev + 24)}
+              style={{
+                padding: "16px 44px",
+                background: "linear-gradient(135deg, #251737 0%, #160D22 100%)",
+                color: "#FFFFFF",
+                border: "1px solid #C1A46A",
+                borderRadius: "30px",
+                fontSize: 13,
+                fontWeight: 600,
+                letterSpacing: "1.5px",
+                textTransform: "uppercase",
+                cursor: "pointer",
+                boxShadow: "0 8px 24px rgba(37, 23, 55, 0.25)",
+                transition: "all 0.3s ease"
+              }}
+              onMouseEnter={(e) => { e.currentTarget.style.transform = "translateY(-2px)"; e.currentTarget.style.boxShadow = "0 12px 28px rgba(193, 164, 106, 0.4)"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.transform = "translateY(0)"; e.currentTarget.style.boxShadow = "0 8px 24px rgba(37, 23, 55, 0.25)"; }}
+            >
+              {isRTL ? `عرض المزيد من العطور (${allFiltered.length - filtered.length} متبقي)` : `Show More Fragrances (${allFiltered.length - filtered.length} remaining)`}
+            </button>
+          </div>
+        )}
       </section>
 
       
@@ -12887,7 +12935,7 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
   let filtered = PRODUCTS.filter(p=>{
     if(p.size === "Gift Set") return false;
     const isKhadlajProduct = p.col !== "Lafede";
-    if(activeCat==="Khadlaj") return p.col !== "Lafede";
+    if(activeCat==="All Fragrances" || activeCat==="All" || activeCat==="Khadlaj") return isKhadlajProduct;
     if(activeCat==="Best Sellers") return isKhadlajProduct && p.badge==="Best Seller";
     if(activeCat==="New") return isKhadlajProduct && p.badge==="New";
     if(activeCat==="Home & Ambience") {
@@ -12920,15 +12968,11 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
   if(sortBy==="price-asc") filtered=[...filtered].sort((a,b)=>a.price-b.price);
   if(sortBy==="price-desc") filtered=[...filtered].sort((a,b)=>b.price-a.price);
 
-  // Strict deduplication to ensure each unique perfume appears only once
+  // Safe deduplication to ensure each unique perfume appears without dropping distinct scents
   const seenFilteredKeys = new Set();
   filtered = filtered.filter(p => {
     if (!p) return false;
-    const cleanKey = (p.originalName || p.name || '').toLowerCase()
-      .replace(/(\d+)\s*(ml|g|gms|gm|oz)/gi, '')
-      .replace(/eau\s+de\s+parfum|edp|spray|perfume|oil|extrait/gi, '')
-      .replace(/[^a-z0-9]/g, '');
-    if (!cleanKey) return true;
+    const cleanKey = String(p.shopifyId || p.id || p.name);
     if (seenFilteredKeys.has(cleanKey)) return false;
     seenFilteredKeys.add(cleanKey);
     return true;
@@ -13115,12 +13159,12 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
                 >
                   <span style={{display:"flex",alignItems:"center",gap:8}}>
                     <span style={{width:6,height:6,borderRadius:"50%",background:activeCat===c?"#B8922A":"#D7C59E",display:"inline-block",flexShrink:0}}/>
-                    {isRTL ? ({"Khadlaj":"كل خدلج","Best Sellers":"الأكثر مبيعاً","New":"وصل حديثاً","Home & Ambience":"عطور ومعطرات المنزل","Deals":"العروض","For Him":"للرجال","For Her":"للنساء","Unisex":"للجنسين","Perfume Oils":"زيوت عطرية","EAU DE PARFUM":"ماء عطر","Master Perfumery":"روائع العطور"}[c] || c) : c}
+                    {isRTL ? ({"All Fragrances":"جميع العطور","Khadlaj":"كل خدلج","Best Sellers":"الأكثر مبيعاً","New":"وصل حديثاً","Home & Ambience":"عطور ومعطرات المنزل","Deals":"العروض","For Him":"للرجال","For Her":"للنساء","Unisex":"للجنسين","Perfume Oils":"زيوت عطرية","EAU DE PARFUM":"ماء عطر","Master Perfumery":"روائع العطور"}[c] || c) : c}
                   </span>
                   <span style={{fontSize: isRTL ? 11 : 9,letterSpacing:0,color:activeCat===c?"rgba(255,255,255,.65)":"#B8922A"}}>{PRODUCTS.filter(p=>{
                     if(p.size === "Gift Set") return false;
                     const isKhadlajProduct = p.col !== "Lafede";
-                    if(c==="Khadlaj") return isKhadlajProduct;
+                    if(c==="All Fragrances" || c==="All" || c==="Khadlaj") return isKhadlajProduct;
                     if(c==="Best Sellers") return isKhadlajProduct && p.badge==="Best Seller";
                     if(c==="New") return isKhadlajProduct && p.badge==="New";
                     if(c==="Home & Ambience") return isKhadlajProduct && (p.col==="Bakhoor" || (p.name && (p.name.toLowerCase().includes("frash") || p.name.toLowerCase().includes("bakhoor") || p.name.toLowerCase().includes("muattar") || p.name.toLowerCase().includes("air freshener"))));
