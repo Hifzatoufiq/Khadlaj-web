@@ -350,6 +350,55 @@ function getOptimizedImage(url, width = 600) {
   return url;
 }
 
+export function scoreBottleImage(url, idx = -1) {
+  if (!url) return -999;
+  const cleanUrl = url.split('?')[0];
+  const fn = cleanUrl.split('/').pop().toLowerCase();
+
+  // Heavy penalty for infographics, notes pyramids, grid graphics, carton packaging
+  if (/infographic|notes|grid|screenshot|banner|carton|packaging|dunes_static/.test(fn)) return -200;
+  if (/(^|[_-])box([_-]|\.|$)/.test(fn)) return -150;
+
+  // Specific packaging shots
+  if (/shiyaaka.*(\.2\.|\.3\.)/i.test(fn)) return -150;
+  if (/icon.*(\.2\.|\.3\.)/i.test(fn)) return -150;
+  if (/muse.*(-3|-4)/i.test(fn)) return -150;
+
+  let score = 0;
+  // Transparent / Cutout / Nobox
+  if (/nobox|without_box|no_box|transparent|cutout/i.test(fn)) score += 200;
+  if (/\bbottle\b/i.test(fn) || /bottle[-_.]/i.test(fn)) score += 180;
+
+  // Official studio packshot named with product type (e.g. KHADLAJ_MUSE...SPRAY_FOR_WOMEN)
+  if (/^khadlaj_.*(eau_de_parfum|extrait_de_parfum|spray|edp)/i.test(fn) && !/[-_]0?1\./i.test(fn)) score += 160;
+
+  // Shiyaaka / Icon isolated bottle shots (.1 is the bottle)
+  if (/shiyaaka.*\.1\.(jpg|png)/i.test(fn) || /icon.*\.1\.(jpg|png)/i.test(fn)) score += 150;
+
+  // Khadlaj studio bottle shot: -03, -3, _3, _03
+  if (/[-_]0?3\.(jpg|png|webp)/i.test(fn) || /[-_]0?3[-_]/i.test(fn)) score += 140;
+
+  // Known bottle shots with 02 (e.g. Aqua02.jpg, BrownChoco2.jpg, Whiteforeststrawberry02.jpg)
+  if (/aqua02|brownchoco2|whiteforeststrawberry02/i.test(fn)) score += 135;
+
+  // Secondary bottle shots
+  if (/[-_]0?2\.(jpg|png|webp)/i.test(fn) || /[-_]0?2[-_]/i.test(fn)) score += 90;
+
+  // Filenames with -1 or _1 or 1RESIZE (except .1 above) are usually box+bottle in Khadlaj naming
+  if ((/[-_]0?1\.(jpg|png|webp)/i.test(fn) || /[-_]0?1[-_]/i.test(fn) || /1resize/i.test(fn)) && !/shiyaaka|icon/i.test(fn)) {
+    score -= 60;
+  }
+
+  // In Shopify, image 0 is almost universally the outer retail packaging box
+  if (idx > 0 && score >= 0) {
+    score += 25;
+  } else if (idx === 0 && score === 0) {
+    score -= 15;
+  }
+
+  return score;
+}
+
 export function selectBottleOnlyImage(productOrImages, fallbackImg) {
   let images = [];
   let fallback = fallbackImg;
@@ -388,60 +437,11 @@ export function selectBottleOnlyImage(productOrImages, fallbackImg) {
   if (rawList.length === 0) return fallback || '';
   if (rawList.length === 1) return rawList[0];
 
-  function scoreImage(url, idx = -1) {
-    if (!url) return -999;
-    const cleanUrl = url.split('?')[0];
-    const fn = cleanUrl.split('/').pop().toLowerCase();
-
-    // Heavy penalty for infographics, notes pyramids, grid graphics, carton packaging
-    if (/infographic|notes|grid|screenshot|banner|carton|packaging|dunes_static/.test(fn)) return -200;
-    if (/(^|[_-])box([_-]|\.|$)/.test(fn)) return -150;
-
-    // Specific packaging shots
-    if (/shiyaaka.*(\.2\.|\.3\.)/i.test(fn)) return -150;
-    if (/icon.*(\.2\.|\.3\.)/i.test(fn)) return -150;
-    if (/muse.*(-3|-4)/i.test(fn)) return -150;
-
-    let score = 0;
-    // Transparent / Cutout / Nobox
-    if (/nobox|without_box|no_box|transparent|cutout/i.test(fn)) score += 200;
-    if (/\bbottle\b/i.test(fn) || /bottle[-_.]/i.test(fn)) score += 180;
-
-    // Official studio packshot named with product type (e.g. KHADLAJ_MUSE...SPRAY_FOR_WOMEN)
-    if (/^khadlaj_.*(eau_de_parfum|extrait_de_parfum|spray|edp)/i.test(fn) && !/[-_]0?1\./i.test(fn)) score += 160;
-
-    // Shiyaaka / Icon isolated bottle shots (.1 is the bottle)
-    if (/shiyaaka.*\.1\.(jpg|png)/i.test(fn) || /icon.*\.1\.(jpg|png)/i.test(fn)) score += 150;
-
-    // Khadlaj studio bottle shot: -03, -3, _3, _03
-    if (/[-_]0?3\.(jpg|png|webp)/i.test(fn) || /[-_]0?3[-_]/i.test(fn)) score += 140;
-
-    // Known bottle shots with 02 (e.g. Aqua02.jpg, BrownChoco2.jpg, Whiteforeststrawberry02.jpg)
-    if (/aqua02|brownchoco2|whiteforeststrawberry02/i.test(fn)) score += 135;
-
-    // Secondary bottle shots
-    if (/[-_]0?2\.(jpg|png|webp)/i.test(fn) || /[-_]0?2[-_]/i.test(fn)) score += 90;
-
-    // Filenames with -1 or _1 or 1RESIZE (except .1 above) are usually box+bottle in Khadlaj naming
-    if ((/[-_]0?1\.(jpg|png|webp)/i.test(fn) || /[-_]0?1[-_]/i.test(fn) || /1resize/i.test(fn)) && !/shiyaaka|icon/i.test(fn)) {
-      score -= 60;
-    }
-
-    // In Shopify, image 0 is almost universally the outer retail packaging box
-    if (idx > 0 && score >= 0) {
-      score += 25;
-    } else if (idx === 0 && score === 0) {
-      score -= 15;
-    }
-
-    return score;
-  }
-
   let bestImg = rawList[0];
-  let bestScore = scoreImage(bestImg, 0);
+  let bestScore = scoreBottleImage(bestImg, 0);
 
   for (let i = 0; i < rawList.length; i++) {
-    const sc = scoreImage(rawList[i], i);
+    const sc = scoreBottleImage(rawList[i], i);
     if (sc > bestScore) {
       bestScore = sc;
       bestImg = rawList[i];
@@ -450,13 +450,44 @@ export function selectBottleOnlyImage(productOrImages, fallbackImg) {
 
   // If currentImg has a higher bottle score or is transparent/cutout, keep it
   if (currentImg && currentImg !== bestImg) {
-    const curScore = scoreImage(currentImg, -1);
+    const curScore = scoreBottleImage(currentImg, -1);
     if (/nobox|without_box|no_box|transparent|cutout/i.test(currentImg) || (curScore >= 130 && curScore > bestScore)) {
       return currentImg;
     }
   }
 
   return bestImg;
+}
+
+export function getBaseScentKey(p) {
+  if (!p) return "";
+  const name = (p.originalName || p.name || '').toLowerCase()
+    .replace(/(\d+)\s*(ml|g|gms|gm|oz)/gi, '')
+    .replace(/eau\s+de\s+parfum|extrait\s+de\s+parfum|edp|spray|perfume|oil|extrait/gi, '')
+    .replace(/\b(khadlaj|for|men|women|him|her|unisex|fragrance|gift|set|collection|by|discovery)\b/gi, '')
+    .replace(/[^a-z0-9]/g, '');
+  return name || String(p.id);
+}
+
+export function deduplicateFragranceList(list) {
+  if (!list || !list.length) return [];
+  const map = new Map();
+  for (const p of list) {
+    if (!p) continue;
+    const k = getBaseScentKey(p);
+    if (!map.has(k)) {
+      map.set(k, p);
+    } else {
+      // If we already have an item, compare bottle scores: keep the one that has a real bottle shot!
+      const existing = map.get(k);
+      const exScore = scoreBottleImage(existing.img);
+      const curScore = scoreBottleImage(p.img);
+      if (curScore > exScore) {
+        map.set(k, p); // Replace with the cleaner bottle shot!
+      }
+    }
+  }
+  return Array.from(map.values());
 }
 
 
@@ -6356,8 +6387,9 @@ export function findBestShopifyMatch(item, shopifyProducts) {
     }
 
     const overlapPct = matchedTokens / itemTokens.length;
-    // Require at least 75% overlap and at least 2 tokens matched
-    if (overlapPct >= 0.75 && matchedTokens >= 2) {
+    // Allow 1-token match (e.g. 'muse', 'saraya', 'titan') or >= 75% overlap for multi-token
+    const isGoodMatch = (itemTokens.length === 1 && matchedTokens === 1) || (overlapPct >= 0.75 && matchedTokens >= 2);
+    if (isGoodMatch) {
       const score = Math.round(overlapPct * 100) + matchedTokens * 20;
       if (score > highestScore) {
         highestScore = score;
@@ -6425,17 +6457,30 @@ export function syncLiveShopifyPrices() {
           if (liveImgs.length > 0) {
             prod.detailImages = liveImgs;
             const liveBottle = selectBottleOnlyImage(liveImgs, matched.image || liveImgs[0]);
-            if (liveBottle && prod.img !== liveBottle) {
-              prod.img = liveBottle;
-              updatedCount++;
+            if (liveBottle) {
+              const liveScore = scoreBottleImage(liveBottle);
+              const curScore = scoreBottleImage(prod.img);
+              // CRITICAL: NEVER overwrite an existing bottle shot (curScore >= 90) with a box image (liveScore < 80)!
+              if (liveScore >= 80 || curScore < 50) {
+                if (prod.img !== liveBottle) {
+                  prod.img = liveBottle;
+                  updatedCount++;
+                }
+              }
             }
           }
         } else if (matched.image) {
           const singleImg = typeof matched.image === 'string' ? (matched.image.startsWith('//') ? 'https:' + matched.image : matched.image) : (matched.image.src ? (matched.image.src.startsWith('//') ? 'https:' + matched.image.src : matched.image.src) : null);
-          if (singleImg && prod.img !== singleImg) {
-            prod.img = singleImg;
-            prod.detailImages = [singleImg];
-            updatedCount++;
+          if (singleImg) {
+            const singleScore = scoreBottleImage(singleImg);
+            const curScore = scoreBottleImage(prod.img);
+            if (singleScore >= 80 || curScore < 50) {
+              if (prod.img !== singleImg) {
+                prod.img = singleImg;
+                prod.detailImages = [singleImg];
+                updatedCount++;
+              }
+            }
           }
         }
         const liveMl = extractProductMl(matched.title, matched.variantTitle);
@@ -6465,7 +6510,9 @@ export function syncLiveShopifyPrices() {
         if (p.variantId && String(p.variantId) === vId) return true;
         if (String(p.id) === sId || String(p.id) === vId) return true;
         const pClean = (p.originalName || p.name || '').toLowerCase().replace(/[^a-z0-9]/g, '');
-        return pClean && pClean === spClean;
+        if (pClean && pClean === spClean) return true;
+        const matchedExisting = findBestShopifyMatch(p, [sp]);
+        return !!matchedExisting;
       });
 
       if (!alreadyInProducts) {
@@ -6639,14 +6686,18 @@ export async function fetchAndSyncShopifyCatalog() {
           if (liveImgs.length > 0) {
             prod.detailImages = liveImgs;
             const liveBottle = selectBottleOnlyImage(liveImgs, matched.image || liveImgs[0]);
-            if (liveBottle && prod.img !== liveBottle) {
+            const curScore = scoreBottleImage(prod.img || '');
+            const liveScore = scoreBottleImage(liveBottle || '');
+            if (liveBottle && prod.img !== liveBottle && (liveScore >= 80 || curScore < 50)) {
               prod.img = liveBottle;
               updatedCount++;
             }
           }
         } else if (matched.image) {
           const singleImg = typeof matched.image === 'string' ? (matched.image.startsWith('//') ? 'https:' + matched.image : matched.image) : (matched.image.src ? (matched.image.src.startsWith('//') ? 'https:' + matched.image.src : matched.image.src) : null);
-          if (singleImg && prod.img !== singleImg) {
+          const curScore = scoreBottleImage(prod.img || '');
+          const liveScore = scoreBottleImage(singleImg || '');
+          if (singleImg && prod.img !== singleImg && (liveScore >= 80 || curScore < 50)) {
             prod.img = singleImg;
             prod.detailImages = [singleImg];
             updatedCount++;
@@ -6678,7 +6729,10 @@ export async function fetchAndSyncShopifyCatalog() {
         if (p.variantId && String(p.variantId) === vId) return true;
         if (String(p.id) === sId || String(p.id) === vId) return true;
         const pClean = (p.originalName || p.name || '').toLowerCase().replace(/[^a-z0-9]/g, '');
-        return pClean && pClean === spClean;
+        if (pClean && pClean === spClean) return true;
+        const matchedExisting = findBestShopifyMatch(p, [sp]);
+        if (matchedExisting) return true;
+        return false;
       });
 
       if (!alreadyInProducts) {
@@ -11386,8 +11440,7 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection, s
   };
 
   const [catalogLimit, setCatalogLimit] = useState(24);
-  const seenHomeKeys = new Set();
-  const allFiltered = PRODUCTS.filter(p=>{
+  const rawFiltered = PRODUCTS.filter(p=>{
     const isKhadlajProduct = p.col !== "Lafede";
     if(activeCat==="All Fragrances" || activeCat==="All" || activeCat==="Khadlaj") return isKhadlajProduct;
     if(activeCat==="Best Sellers") return isKhadlajProduct && p.badge==="Best Seller";
@@ -11399,24 +11452,12 @@ function HomePage({ setPage, addToCart, setViewProduct, setSelectedCollection, s
     if(activeCat==="EAU DE PARFUM") return isKhadlajProduct && p.col.toLowerCase() === "eau de parfum";
     if(activeCat==="Master Perfumery") return isKhadlajProduct && p.col==="Master Perfumery";
     return isKhadlajProduct && (p.col || '').toLowerCase() === activeCat.toLowerCase();
-  }).filter(p => {
-    if (!p) return false;
-    const cleanKey = String(p.shopifyId || p.id || p.name);
-    if (seenHomeKeys.has(cleanKey)) return false;
-    seenHomeKeys.add(cleanKey);
-    return true;
   });
+  const allFiltered = deduplicateFragranceList(rawFiltered);
 
   const filtered = activeCat === "Best Sellers" ? allFiltered.slice(0, 8) : allFiltered.slice(0, catalogLimit);
 
-  const seenNewKeys = new Set();
-  const newLaunches = PRODUCTS.filter(p => p.badge === "New").filter(p => {
-    if (!p) return false;
-    const cleanKey = String(p.shopifyId || p.id || p.name);
-    if (seenNewKeys.has(cleanKey)) return false;
-    seenNewKeys.add(cleanKey);
-    return true;
-  }).slice(0, 8);
+  const newLaunches = deduplicateFragranceList(PRODUCTS.filter(p => p.badge === "New")).slice(0, 8);
 
 
   return (
@@ -12578,19 +12619,8 @@ function DedicatedCollectionPage({ collectionKey = "island", addToCart, setViewP
     );
   }
 
-  // Deduplicate products
-  const seenCollKeys = new Set();
-  collectionProducts = collectionProducts.filter(p => {
-    if (!p) return false;
-    const cleanKey = (p.originalName || p.name || '').toLowerCase()
-      .replace(/(\d+)\s*(ml|g|gms|gm|oz)/gi, '')
-      .replace(/eau\s+de\s+parfum|edp|spray|perfume|oil|extrait/gi, '')
-      .replace(/[^a-z0-9]/g, '');
-    if (!cleanKey) return true;
-    if (seenCollKeys.has(cleanKey)) return false;
-    seenCollKeys.add(cleanKey);
-    return true;
-  });
+  // Deduplicate products safely using deduplicateFragranceList
+  collectionProducts = deduplicateFragranceList(collectionProducts);
 
   const handleSelectCollection = (k) => {
     setActiveKey(k);
@@ -12968,15 +12998,8 @@ function CollectionsPage({ addToCart, setViewProduct, setPage, collectionCategor
   if(sortBy==="price-asc") filtered=[...filtered].sort((a,b)=>a.price-b.price);
   if(sortBy==="price-desc") filtered=[...filtered].sort((a,b)=>b.price-a.price);
 
-  // Safe deduplication to ensure each unique perfume appears without dropping distinct scents
-  const seenFilteredKeys = new Set();
-  filtered = filtered.filter(p => {
-    if (!p) return false;
-    const cleanKey = String(p.shopifyId || p.id || p.name);
-    if (seenFilteredKeys.has(cleanKey)) return false;
-    seenFilteredKeys.add(cleanKey);
-    return true;
-  });
+  // Safe deduplication to ensure each unique perfume appears once with highest quality bottle shot
+  filtered = deduplicateFragranceList(filtered);
 
   return (
     <div style={{background:"#fff"}}>
@@ -18519,18 +18542,7 @@ function Navbar({ page, setPage, cartCount, setCollectionCategory, collectionCat
       return false;
     });
 
-    var seenSearchKeys = new Set();
-    results = results.filter(function(p) {
-      if (!p) return false;
-      var cleanKey = (p.originalName || p.name || '').toLowerCase()
-        .replace(/(\d+)\s*(ml|g|gms|gm|oz)/gi, '')
-        .replace(/eau\s+de\s+parfum|edp|spray|perfume|oil|extrait/gi, '')
-        .replace(/[^a-z0-9]/g, '');
-      if (!cleanKey) return true;
-      if (seenSearchKeys.has(cleanKey)) return false;
-      seenSearchKeys.add(cleanKey);
-      return true;
-    }).slice(0, 32);
+    results = deduplicateFragranceList(results).slice(0, 32);
 
     setSearchResults(results);
   };
