@@ -350,6 +350,97 @@ function getOptimizedImage(url, width = 600) {
   return url;
 }
 
+export function selectBottleOnlyImage(productOrImages, fallbackImg) {
+  let images = [];
+  let fallback = fallbackImg;
+  let currentImg = '';
+
+  if (productOrImages && typeof productOrImages === 'object' && !Array.isArray(productOrImages)) {
+    if (productOrImages.detailImages && Array.isArray(productOrImages.detailImages)) {
+      images = productOrImages.detailImages;
+    } else if (productOrImages.images && Array.isArray(productOrImages.images)) {
+      images = productOrImages.images;
+    }
+    currentImg = productOrImages.img || '';
+    fallback = fallback || currentImg || (images[0] ? (typeof images[0] === 'string' ? images[0] : images[0].src) : '');
+
+    // Explicit transparent / nobox / cutout / gift set transparent ALWAYS wins!
+    if (currentImg && /nobox|without_box|no_box|transparent|cutout/i.test(currentImg)) {
+      return currentImg;
+    }
+  } else if (Array.isArray(productOrImages)) {
+    images = productOrImages;
+  } else if (typeof productOrImages === 'string') {
+    return productOrImages;
+  }
+
+  const rawList = images.map(item => {
+    if (!item) return '';
+    if (typeof item === 'string') return item;
+    if (item.src) return item.src;
+    return '';
+  }).filter(Boolean);
+
+  if (fallback && !rawList.includes(fallback)) {
+    rawList.push(fallback);
+  }
+
+  if (rawList.length === 0) return fallback || '';
+  if (rawList.length === 1) return rawList[0];
+
+  function scoreImage(url) {
+    if (!url) return -999;
+    const cleanUrl = url.split('?')[0];
+    const fn = cleanUrl.split('/').pop().toLowerCase();
+
+    // Heavy penalty for infographics, notes pyramids, grid graphics, carton packaging
+    if (/infographic|notes|grid|screenshot|banner|carton|packaging|dunes_static/.test(fn)) return -200;
+    if (/(^|[_-])box([_-]|\.|$)/.test(fn)) return -150;
+
+    // Specific packaging shots
+    if (/shiyaaka.*(\.2\.|\.3\.)/i.test(fn)) return -150;
+    if (/icon.*(\.2\.|\.3\.)/i.test(fn)) return -150;
+    if (/muse.*(-3|-4)/i.test(fn)) return -150;
+
+    let score = 0;
+    // Transparent / Cutout / Nobox
+    if (/nobox|without_box|no_box|transparent|cutout/i.test(fn)) score += 200;
+    if (/\bbottle\b/i.test(fn) || /bottle[-_.]/i.test(fn)) score += 180;
+
+    // Official studio packshot named with product type (e.g. KHADLAJ_MUSE...SPRAY_FOR_WOMEN)
+    if (/^khadlaj_.*(eau_de_parfum|extrait_de_parfum|spray|edp)/i.test(fn) && !/[-_]0?1\./i.test(fn)) score += 160;
+
+    // Shiyaaka / Icon isolated bottle shots (.1 is the bottle)
+    if (/shiyaaka.*\.1\.(jpg|png)/i.test(fn) || /icon.*\.1\.(jpg|png)/i.test(fn)) score += 150;
+
+    // Khadlaj studio bottle shot: -03, -3, _3, _03
+    if (/[-_]0?3\.(jpg|png|webp)/i.test(fn) || /[-_]0?3[-_]/i.test(fn)) score += 140;
+
+    // Known bottle shots with 02 (e.g. Aqua02.jpg, BrownChoco2.jpg, Whiteforeststrawberry02.jpg)
+    if (/aqua02|brownchoco2|whiteforeststrawberry02/i.test(fn)) score += 135;
+
+    // Filenames with -1 or _1 or 1RESIZE (except .1 above) are usually box+bottle in Khadlaj naming
+    if ((/[-_]0?1\.(jpg|png|webp)/i.test(fn) || /[-_]0?1[-_]/i.test(fn) || /1resize/i.test(fn)) && !/shiyaaka|icon/i.test(fn)) {
+      score -= 60;
+    }
+
+    return score;
+  }
+
+  let bestImg = currentImg || rawList[0];
+  let bestScore = scoreImage(bestImg);
+
+  for (let i = 0; i < rawList.length; i++) {
+    const sc = scoreImage(rawList[i]);
+    if (sc > bestScore) {
+      bestScore = sc;
+      bestImg = rawList[i];
+    }
+  }
+
+  return bestImg;
+}
+
 
 const PAYMENTS = ["Visa","Mastercard","Apple Pay","Google Pay","Tabby","Tamara","PayTabs","PayPal"];
 
@@ -1653,7 +1744,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Aqua_01.jpg?v=1742359322",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Aqua02.jpg?v=1742359156",
     "detailImages": [
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Aqua_01.jpg?v=1742359322",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Aqua02.jpg?v=1742359156",
@@ -1731,7 +1822,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Brown_Choco_1.jpg?v=1776231251",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BrownChoco2.jpg?v=1776231251",
     "detailImages": [
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Brown_Choco_1.jpg?v=1776231251",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/BrownChoco2.jpg?v=1776231251",
@@ -1751,7 +1842,7 @@ const PRODUCTS = [
       "Musk",
       "Amber"
     ],
-    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/White_forest_strawberry_01.jpg?v=1776231284",
+    "img": "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Whiteforeststrawberry02.jpg?v=1776231284",
     "detailImages": [
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/White_forest_strawberry_01.jpg?v=1776231284",
       "https://cdn.shopify.com/s/files/1/0626/6119/8023/files/Whiteforeststrawberry02.jpg?v=1776231284",
@@ -6160,6 +6251,11 @@ const PRODUCTS = [
   }
 ];
 
+// Ensure every product immediately points to its clean isolated bottle image
+PRODUCTS.forEach(p => {
+  p.img = selectBottleOnlyImage(p);
+});
+
 // ═══════════════════════════════════════════════════════════════
 // DYNAMIC LIVE SHOPIFY CATALOG & PRICE SYNC
 // ═══════════════════════════════════════════════════════════════
@@ -6308,24 +6404,20 @@ export function syncLiveShopifyPrices() {
             updatedCount++;
           }
         }
-        // Sync Dashboard Image
-        if (matched.image) {
-          let liveImg = null;
-          if (typeof matched.image === 'string' && (matched.image.startsWith('http') || matched.image.startsWith('//'))) {
-            liveImg = matched.image.startsWith('//') ? 'https:' + matched.image : matched.image;
-          } else if (typeof matched.image === 'object' && matched.image && matched.image.src) {
-            liveImg = matched.image.src.startsWith('//') ? 'https:' + matched.image.src : matched.image.src;
-          }
-          if (liveImg && prod.img !== liveImg) {
-            prod.img = liveImg;
-            updatedCount++;
-          }
-        }
+        // Sync Dashboard Images safely: update detailImages first, then pick isolated bottle without box
         if (matched.images && Array.isArray(matched.images) && matched.images.length > 0) {
           const liveImgs = matched.images.map(img => typeof img === 'string' ? (img.startsWith('//') ? 'https:' + img : img) : (img && img.src ? (img.src.startsWith('//') ? 'https:' + img.src : img.src) : null)).filter(Boolean);
           if (liveImgs.length > 0) {
             prod.detailImages = liveImgs;
           }
+        }
+        const bestBottle = selectBottleOnlyImage({
+          img: prod.img,
+          detailImages: prod.detailImages || []
+        });
+        if (bestBottle && prod.img !== bestBottle) {
+          prod.img = bestBottle;
+          updatedCount++;
         }
         const liveMl = extractProductMl(matched.title, matched.variantTitle);
         if (liveMl && liveMl !== prod.size) {
@@ -6365,6 +6457,8 @@ export function syncLiveShopifyPrices() {
         } else if (typeof sp.image === 'object' && sp.image && sp.image.src) {
           fallbackImg = sp.image.src.startsWith('//') ? 'https:' + sp.image.src : sp.image.src;
         }
+        const allNewImages = (sp.images && Array.isArray(sp.images)) ? sp.images.map(img => typeof img === 'string' ? (img.startsWith('//') ? 'https:' + img : img) : (img && img.src ? (img.src.startsWith('//') ? 'https:' + img.src : img.src) : null)).filter(Boolean) : [];
+        const bestNewBottle = selectBottleOnlyImage(allNewImages, fallbackImg);
         PRODUCTS.push({
           id: sp.id,
           shopifyId: sp.id,
@@ -6378,8 +6472,8 @@ export function syncLiveShopifyPrices() {
           badge: "New",
           gender: "Unisex",
           notes: ["Fragrance"],
-          img: fallbackImg,
-          detailImages: [fallbackImg],
+          img: bestNewBottle || fallbackImg,
+          detailImages: allNewImages.length > 0 ? allNewImages : [fallbackImg],
           desc: [sp.description || sp.title],
           available: sp.available !== false,
           inShopify: true
@@ -6518,23 +6612,20 @@ export async function fetchAndSyncShopifyCatalog() {
             updatedCount++;
           }
         }
-        if (matched.image) {
-          let liveImg = null;
-          if (typeof matched.image === 'string' && (matched.image.startsWith('http') || matched.image.startsWith('//'))) {
-            liveImg = matched.image.startsWith('//') ? 'https:' + matched.image : matched.image;
-          } else if (typeof matched.image === 'object' && matched.image && matched.image.src) {
-            liveImg = matched.image.src.startsWith('//') ? 'https:' + matched.image.src : matched.image.src;
-          }
-          if (liveImg && prod.img !== liveImg) {
-            prod.img = liveImg;
-            updatedCount++;
-          }
-        }
+        // Sync Dashboard Images safely: update detailImages first, then pick isolated bottle without box
         if (matched.images && Array.isArray(matched.images) && matched.images.length > 0) {
           const liveImgs = matched.images.map(img => typeof img === 'string' ? (img.startsWith('//') ? 'https:' + img : img) : (img && img.src ? (img.src.startsWith('//') ? 'https:' + img.src : img.src) : null)).filter(Boolean);
           if (liveImgs.length > 0) {
             prod.detailImages = liveImgs;
           }
+        }
+        const bestBottle = selectBottleOnlyImage({
+          img: prod.img,
+          detailImages: prod.detailImages || []
+        });
+        if (bestBottle && prod.img !== bestBottle) {
+          prod.img = bestBottle;
+          updatedCount++;
         }
         const liveMl = extractProductMl(matched.title, matched.variantTitle);
         if (liveMl && liveMl !== prod.size) {
@@ -6573,6 +6664,8 @@ export async function fetchAndSyncShopifyCatalog() {
         } else if (typeof sp.image === 'object' && sp.image && sp.image.src) {
           fallbackImg = sp.image.src.startsWith('//') ? 'https:' + sp.image.src : sp.image.src;
         }
+        const allNewImages = (sp.images && Array.isArray(sp.images)) ? sp.images.map(img => typeof img === 'string' ? (img.startsWith('//') ? 'https:' + img : img) : (img && img.src ? (img.src.startsWith('//') ? 'https:' + img.src : img.src) : null)).filter(Boolean) : [];
+        const bestNewBottle = selectBottleOnlyImage(allNewImages, fallbackImg);
         PRODUCTS.push({
           id: sp.id,
           shopifyId: sp.id,
@@ -6586,8 +6679,8 @@ export async function fetchAndSyncShopifyCatalog() {
           badge: "New",
           gender: "Unisex",
           notes: ["Fragrance"],
-          img: fallbackImg,
-          detailImages: sp.images && sp.images.length ? sp.images : [fallbackImg],
+          img: bestNewBottle || fallbackImg,
+          detailImages: allNewImages.length > 0 ? allNewImages : [fallbackImg],
           desc: [sp.description || sp.title],
           available: sp.available !== false,
           inShopify: true
@@ -9678,7 +9771,7 @@ function ProductCard({ p, onView, onCart }){
         }}/>
         <div className="product-img-inner" style={{position:"absolute", inset:"42px 0 26px 0", display:"flex", alignItems:"flex-end", justifyContent:"center"}}>
           <img
-            src={getOptimizedImage(p.img,500)} alt={p.name} loading="lazy"
+            src={getOptimizedImage(selectBottleOnlyImage(p),500)} alt={p.name} loading="lazy"
             style={{
               width:"100%",
               height:"100%",
@@ -20585,9 +20678,12 @@ export default function App(){
           updated.shopifyTitle = live.shopifyTitle;
           changed = true;
         }
-        if (live.img && live.img !== item.img) {
-          updated.img = live.img;
-          changed = true;
+        if (live.img) {
+          const bestBottle = selectBottleOnlyImage({ img: live.img, detailImages: live.detailImages || item.detailImages });
+          if (bestBottle && bestBottle !== item.img) {
+            updated.img = bestBottle;
+            changed = true;
+          }
         }
         return changed ? updated : item;
       }
