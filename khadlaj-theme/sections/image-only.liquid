@@ -1,0 +1,148 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} {
+    width: 100% !important;
+    display: block !important;
+  }
+  #shopify-section-{{ section.id }} .about-bottomwrapper {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: {{ section.settings.padding_top | default: 0 }}px 0 {{ section.settings.padding_bottom | default: 0 }}px 0 !important;
+    overflow: hidden !important;
+    line-height: 0 !important;
+    box-sizing: border-box !important;
+  }
+  #shopify-section-{{ section.id }} .about-bottomimg {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    display: block !important;
+    line-height: 0 !important;
+    box-sizing: border-box !important;
+  }
+  #shopify-section-{{ section.id }} .about-bottomimg a {
+    display: block !important;
+    width: 100% !important;
+    line-height: 0 !important;
+    text-decoration: none !important;
+  }
+  #shopify-section-{{ section.id }} .about-bottomimg img {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    display: block !important;
+    object-fit: contain !important;
+  }
+
+  @media screen and (max-width: 767px) {
+    #shopify-section-{{ section.id }} .about-bottomwrapper {
+      padding: {{ section.settings.padding_top_mobile | default: 0 }}px 0 {{ section.settings.padding_bottom_mobile | default: 0 }}px 0 !important;
+    }
+    #shopify-section-{{ section.id }} .about-bottomimg {
+      height: auto !important;
+      min-height: 0 !important;
+      max-height: none !important;
+    }
+    #shopify-section-{{ section.id }} .about-bottomimg img {
+      width: 100% !important;
+      height: auto !important;
+      max-width: 100% !important;
+      max-height: none !important;
+      object-fit: contain !important;
+      display: block !important;
+    }
+  }
+{%- endstyle -%}
+
+<div class="about-bottomwrapper">
+  <div class="about-bottomimg">
+    {% if section.settings.image_link != blank %}
+      <a href="{{ section.settings.image_link }}">
+    {% endif %}
+
+    {% if section.settings.image != blank %}
+      <img
+        src="{{ section.settings.image | img_url: 'master' }}"
+        alt="{{ section.settings.image.alt | default: 'National Day Giveaway Banner' | escape }}"
+        loading="eager"
+        width="{{ section.settings.image.width }}"
+        height="{{ section.settings.image.height }}"
+      >
+    {% endif %}
+
+    {% if section.settings.image_link != blank %}
+      </a>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image Only",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Image (Optional)"
+    },
+    {
+      "type": "url",
+      "id": "image_link",
+      "label": "Image Link (Optional)"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Top Mobile",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Padding Bottom Mobile",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Image Only"
+    }
+  ]
+}
+{% endschema %}

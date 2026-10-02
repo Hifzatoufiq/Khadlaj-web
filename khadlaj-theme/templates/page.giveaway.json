@@ -1,0 +1,108 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_only_pVEYzN": {
+      "type": "image-only",
+      "name": "Image Only",
+      "settings": {
+        "image": "shopify://shop_images/KSA_NATIONAL_DAY_POSTER_3.png"
+      }
+    },
+    "givaway_ETAWha": {
+      "type": "givaway",
+      "name": "National Day Giveaway",
+      "settings": {
+        "layout_max_width": 1600,
+        "section_padding_top": 60,
+        "section_padding_bottom": 60,
+        "section_background": "#FEFBF1",
+        "column_gap": 32,
+        "content_position": "left",
+        "mobile_stack_order": "content_first",
+        "hulk_form_id": "",
+        "form_embed_code": "",
+        "form_bg_color": "#f5f9fd",
+        "form_border_color": "#e8e2d0",
+        "form_border_width": 1,
+        "form_border_radius": 0,
+        "form_padding": 0,
+        "form_min_height": 1000,
+        "content_bg_color": "#f5f9fd",
+        "content_border_color": "#e8e2d0",
+        "content_border_width": 1,
+        "content_border_radius": 16,
+        "content_padding": 40,
+        "heading_font": "arial_n4",
+        "body_font": "sans_serif_n4",
+        "heading_line_1": "Celebrating Saudi",
+        "heading_line_2": "National Day",
+        "heading_color": "#1c1c2e",
+        "heading_font_size": 40,
+        "highlight_text": "Perfume Giveaway",
+        "highlight_color": "#b8860b",
+        "arabic_text": "احتفالاً باليوم الوطني السعودي • شارك في السحب الكبير",
+        "arabic_color": "#1f6f4a",
+        "arabic_font_size": 25,
+        "description": "<p>In proud celebration of <strong>Saudi National Day 2026</strong>, <strong>Khadlaj Perfumes</strong> invites all residents of the Kingdom to participate in our perfume giveaway. Campaign is active from <strong>14th to 23rd September</strong>. Register below for your official raffle entry to win 1 of <strong>96 Bottles of Khadlaj Island 100ml EDP</strong>.</p>",
+        "description_color": "#555555",
+        "description_font_size": 15,
+        "countdown_icon": "🏆",
+        "countdown_label": "National Day Giveaway Closing In",
+        "countdown_end_date": "2026-09-23T23:59:59",
+        "countdown_container_bg": "#fdfcf8",
+        "countdown_container_border": "#e8e2d0",
+        "countdown_box_bg": "#f4f2ec",
+        "countdown_box_border": "#ddd6c0",
+        "countdown_number_color": "#1c1c2e",
+        "countdown_number_size": 28,
+        "countdown_label_color": "#8a8368",
+        "prize_label": "The Prize · 96 Bottles of Khadlaj Island 100ml",
+        "prize_label_color": "#9c7a25",
+        "prize_header_divider_enable": false,
+        "prize_badge_text": "100% Free Entry",
+        "prize_badge_bg": "#e6f6ec",
+        "prize_badge_color": "#1f7a4c",
+        "prize_badge_border_color": "#b7e2c5",
+        "prize_badge_border_width": 1,
+        "prize_container_bg": "#fffdf6",
+        "prize_gradient_enable": true,
+        "prize_gradient_end": "#ffffff",
+        "prize_gradient_angle": 135,
+        "prize_container_border": "#e0b95c",
+        "prize_container_border_width": 1,
+        "prize_container_radius": 16,
+        "prize_container_padding": 22,
+        "prize_shadow_enable": true,
+        "prize_shadow_color": "#d9b26b",
+        "prize_shadow_opacity": 25,
+        "prize_shadow_blur": 24,
+        "prize_shadow_x": 0,
+        "prize_shadow_y": 10,
+        "product_image": "shopify://shop_images/KHADLAJ_ISLAND_100_ML.jpg",
+        "product_image_width": 104,
+        "product_image_height": 120,
+        "product_image_radius": 10,
+        "product_title": "Khadlaj Island 100ml EDP",
+        "product_title_color": "#4a3f8c",
+        "product_description": "Iconic 100ml Eau De Parfum crafted with sparkling citrus, refreshing marine sea breeze accords, and an enduring base of warm amber and musk.",
+        "product_description_color": "#5b6472",
+        "tag_1_text": "✓ 96 Winners",
+        "tag_2_text": "✓ Announced on IG",
+        "tag_bg_color": "#f4ecd8",
+        "tag_text_color": "#6b5a35"
+      }
+    }
+  },
+  "order": [
+    "image_only_pVEYzN",
+    "givaway_ETAWha"
+  ]
+}

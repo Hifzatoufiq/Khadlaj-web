@@ -1,0 +1,2551 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+{{ section.settings.heading_font | font_face: font_display: 'swap' }}
+{{ section.settings.body_font | font_face: font_display: 'swap' }}
+
+{%- style -%}
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+  #shopify-section-{{ section.id }} {
+    --heading-font-family: 'Cinzel', {{ section.settings.heading_font.family }}, Georgia, serif;
+    --heading-font-weight: {{ section.settings.heading_font.weight }};
+    --heading-font-style: {{ section.settings.heading_font.style }};
+    --body-font-family: 'Montserrat', {{ section.settings.body_font.family }}, sans-serif;
+    --body-font-weight: {{ section.settings.body_font.weight }};
+    --body-font-style: {{ section.settings.body_font.style }};
+  }
+
+  /* Navbar Link Color Fix: Ensure all menu items are visible on white header */
+  .nt_menu > li > a {
+    color: #4a2e6d !important;
+  }
+  .nt_menu > li > a:hover {
+    color: #b9a16b !important;
+  }
+  .h_transparent_true.template-index .ntheader:not(.live_stuck) .nt_menu > li > a {
+    color: #ffffff !important;
+  }
+
+
+  #shopify-section-{{ section.id }} .ksnd-wrap {
+    max-width: {{ section.settings.layout_max_width }}px;
+    margin: 0 auto;
+    padding: {{ section.settings.section_padding_top }}px 20px {{ section.settings.section_padding_bottom }}px;
+    background-color: {{ section.settings.section_background }};
+    font-family: var(--body-font-family);
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  #shopify-section-{{ section.id }} .ksnd-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: {{ section.settings.column_gap }}px;
+    align-items: flex-start; /* Prevents unwanted stretching & vertical scrollbars */
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  #shopify-section-{{ section.id }} .ksnd-col {
+    box-sizing: border-box !important;
+    width: 100% !important;
+  }
+
+  /* Form column (Hulk Form Builder Container) */
+  #shopify-section-{{ section.id }} .ksnd-form-col {
+    background-color: transparent !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: visible !important;
+  }
+
+
+  #shopify-section-{{ section.id }} .ksnd-form-placeholder {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #b3ab8f;
+    font-size: 14px;
+    border: 1px dashed #d8d2bd;
+    border-radius: 10px;
+    padding: 24px;
+  }
+
+  /* ==========================================================================
+     HULK FORM BUILDER LUXURY RESTYLING & PERFECT ALIGNMENT (FIXED)
+     ========================================================================== */
+  
+  /* 1. Remove duplicate boxes, outer padding & all scrollbars */
+  #shopify-section-{{ section.id }} .ksnd-form-col,
+  #shopify-section-{{ section.id }} .ksnd-form-col *,
+  #shopify-section-{{ section.id }} .form_generater_form_div,
+  #shopify-section-{{ section.id }} [class*="hulk"],
+  #shopify-section-{{ section.id }} [id*="hulk"] {
+    overflow: visible !important;
+    max-height: none !important;
+    box-sizing: border-box !important;
+  }
+
+  #shopify-section-{{ section.id }} .form_generater_form_div {
+    background: #ffffff !important;
+    border: 1.5px solid rgba(212, 175, 55, 0.45) !important;
+    border-radius: 18px !important;
+    box-shadow: 0 12px 35px rgba(37, 23, 55, 0.08) !important;
+    padding: 24px 20px !important;
+    margin: 0 auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* 2. Form Title & Description */
+  #shopify-section-{{ section.id }} .form_generater_form_div h1,
+  #shopify-section-{{ section.id }} .form_generater_form_div h2,
+  #shopify-section-{{ section.id }} .form_generater_form_div h3,
+  #shopify-section-{{ section.id }} .form_generater_form_div h4,
+  #shopify-section-{{ section.id }} .form_generater_form_div h5,
+  #shopify-section-{{ section.id }} .form_generater_form_div h6,
+  #shopify-section-{{ section.id }} .form_generater_form_div .form_title {
+    color: #250933 !important;
+    font-family: var(--heading-font-family), serif !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+    margin: 0 0 6px 0 !important;
+    line-height: 1.3 !important;
+  }
+
+  #shopify-section-{{ section.id }} .form_generater_form_div p,
+  #shopify-section-{{ section.id }} .form_generater_form_div .form_description_div {
+    color: #777777 !important;
+    font-family: var(--body-font-family), sans-serif !important;
+    font-size: 12px !important;
+    line-height: 1.45 !important;
+    text-align: center !important;
+    margin: 0 0 16px 0 !important;
+  }
+
+  /* 3. Universal Row Reset & Alignment (Fixes City Dropdown Stretching & Extra Margins) */
+  #shopify-section-{{ section.id }} .form_generater_form_div .row,
+  #shopify-section-{{ section.id }} .form_generater_form_div [class*="row"],
+  #shopify-section-{{ section.id }} .form_generater_form_div .form-group,
+  #shopify-section-{{ section.id }} .form_generater_form_div .field_div,
+  #shopify-section-{{ section.id }} .form_generater_form_div .form_builder_field {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-top: 0 !important;
+    margin-bottom: 12px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 4. Field Labels */
+  #shopify-section-{{ section.id }} .form_generater_form_div .form-group > label,
+  #shopify-section-{{ section.id }} .form_generater_form_div label:not([class*="check"]):not([for*="check"]) {
+    display: block !important;
+    font-family: var(--body-font-family), sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    color: #1a162b !important;
+    margin: 0 0 6px 0 !important;
+  }
+
+  /* 5. Inputs, Selects & Textareas Base Styles (Comfortable 48px Height) */
+  #shopify-section-{{ section.id }} .form_generater_form_div input[type="text"],
+  #shopify-section-{{ section.id }} .form_generater_form_div input[type="email"],
+  #shopify-section-{{ section.id }} .form_generater_form_div input[type="tel"],
+  #shopify-section-{{ section.id }} .form_generater_form_div textarea {
+    width: 100% !important;
+    height: 48px !important;
+    border: 1.5px solid #dcd7ce !important;
+    border-radius: 10px !important;
+    background-color: #fafaf8 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 48px !important;
+    padding-right: 14px !important;
+    font-family: var(--body-font-family), sans-serif !important;
+    font-size: 13px !important;
+    color: #1a162b !important;
+    box-shadow: none !important;
+    outline: none !important;
+    box-sizing: border-box !important;
+    transition: border-color 0.2s ease !important;
+  }
+
+  #shopify-section-{{ section.id }} .form_generater_form_div select {
+    width: 100% !important;
+    height: 48px !important;
+    border: 1.5px solid #dcd7ce !important;
+    border-radius: 10px !important;
+    background-color: #fafaf8 !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 14px !important;
+    padding-right: 36px !important;
+    font-family: var(--body-font-family), sans-serif !important;
+    font-size: 13px !important;
+    color: #1a162b !important;
+    box-shadow: none !important;
+    outline: none !important;
+    box-sizing: border-box !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23666666'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: calc(100% - 14px) center !important;
+    background-size: 18px 18px !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+  }
+
+  /* Focus States */
+  #shopify-section-{{ section.id }} .form_generater_form_div input:focus,
+  #shopify-section-{{ section.id }} .form_generater_form_div select:focus,
+  #shopify-section-{{ section.id }} .form_generater_form_div textarea:focus {
+    border-color: #b8922a !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 0 0 3px rgba(184, 146, 42, 0.15) !important;
+  }
+
+  /* 6. DISTINCT LUXURY ICONS (Full Name, Email, Instagram, Delivery Address) */
+  /* 👤 Full Name Icon */
+  #shopify-section-{{ section.id }} .form_generater_form_div input[placeholder*="Faisal" i],
+  #shopify-section-{{ section.id }} .form_generater_form_div input[placeholder*="Otaibi" i] {
+    padding-left: 48px !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23251737'%3E%3Cpath d='M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: 14px center !important;
+    background-size: 18px 18px !important;
+  }
+
+  /* ✉️ Email Address Icon */
+  #shopify-section-{{ section.id }} .form_generater_form_div input[type="email"],
+  #shopify-section-{{ section.id }} .form_generater_form_div input[placeholder*="example.com" i],
+  #shopify-section-{{ section.id }} .form_generater_form_div input[placeholder*="example" i],
+  #shopify-section-{{ section.id }} .form_generater_form_div input[name*="email" i],
+  #shopify-section-{{ section.id }} .form_generater_form_div input[id*="email" i] {
+    padding-left: 48px !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238c7b99'%3E%3Cpath d='M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: 14px center !important;
+    background-size: 18px 18px !important;
+  }
+
+  /* 📸 Instagram Icon */
+  #shopify-section-{{ section.id }} .form_generater_form_div input[name*="instagram" i],
+  #shopify-section-{{ section.id }} .form_generater_form_div input[id*="instagram" i],
+  #shopify-section-{{ section.id }} .form_generater_form_div input[placeholder*="username" i],
+  #shopify-section-{{ section.id }} .form_generater_form_div input[placeholder*="@username" i],
+  #shopify-section-{{ section.id }} .form_generater_form_div input[placeholder*="instagram" i],
+  #shopify-section-{{ section.id }} .form_generater_form_div [class*="instagram"] input {
+    padding-left: 48px !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238c7b99'%3E%3Cpath d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: 14px center !important;
+    background-size: 18px 18px !important;
+  }
+
+  /* 📍 Delivery Address Icon */
+  #shopify-section-{{ section.id }} .form_generater_form_div input[placeholder*="Olaya" i],
+  #shopify-section-{{ section.id }} .form_generater_form_div textarea[placeholder*="Olaya" i],
+  #shopify-section-{{ section.id }} .form_generater_form_div input[placeholder*="Building" i],
+  #shopify-section-{{ section.id }} .form_generater_form_div textarea[placeholder*="Building" i],
+  #shopify-section-{{ section.id }} .form_generater_form_div input[placeholder*="District" i],
+  #shopify-section-{{ section.id }} .form_generater_form_div textarea[placeholder*="District" i],
+  #shopify-section-{{ section.id }} .form_generater_form_div input[name*="address" i],
+  #shopify-section-{{ section.id }} .form_generater_form_div textarea[name*="address" i],
+  #shopify-section-{{ section.id }} .form_generater_form_div input[id*="address" i],
+  #shopify-section-{{ section.id }} .form_generater_form_div textarea[id*="address" i] {
+    padding-left: 48px !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D83A56'%3E%3Cpath d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: 14px center !important;
+    background-size: 18px 18px !important;
+  }
+
+  /* 7. Phone Row Layout Alignment (Keeps Flags & Input 100% Width) */
+  #shopify-section-{{ section.id }} .form_generater_form_div .intl-tel-input,
+  #shopify-section-{{ section.id }} .form_generater_form_div .iti {
+    width: 100% !important;
+    display: flex !important;
+  }
+
+  #shopify-section-{{ section.id }} .form_generater_form_div input[placeholder*="WHATSAPP" i],
+  #shopify-section-{{ section.id }} .form_generater_form_div input[type="tel"] {
+    padding-left: 14px !important;
+  }
+
+  /* 8. CHECKBOX ROW FIX (Inline alignment, no huge gaps) */
+  #shopify-section-{{ section.id }} .form_generater_form_div .form-group:has(input[type="checkbox"]),
+  #shopify-section-{{ section.id }} .form_generater_form_div .checkbox,
+  #shopify-section-{{ section.id }} .form_generater_form_div .form-check,
+  #shopify-section-{{ section.id }} .form_generater_form_div .custom-checkbox {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    gap: 10px !important;
+    margin: 10px 0 14px 0 !important;
+    padding: 0 !important;
+  }
+
+  #shopify-section-{{ section.id }} .form_generater_form_div input[type="checkbox"] {
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    max-width: 18px !important;
+    margin: 2px 0 0 0 !important;
+    padding: 0 !important;
+    accent-color: #250933 !important;
+    cursor: pointer !important;
+    float: none !important;
+    display: inline-block !important;
+    flex-shrink: 0 !important;
+  }
+
+  #shopify-section-{{ section.id }} .form_generater_form_div input[type="checkbox"] ~ label,
+  #shopify-section-{{ section.id }} .form_generater_form_div input[type="checkbox"] + label,
+  #shopify-section-{{ section.id }} .form_generater_form_div label:has(input[type="checkbox"]),
+  #shopify-section-{{ section.id }} .form_generater_form_div .checkbox label {
+    display: inline !important;
+    font-family: var(--body-font-family), sans-serif !important;
+    font-size: 11.5px !important;
+    font-weight: 500 !important;
+    color: #555555 !important;
+    line-height: 1.5 !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    cursor: pointer !important;
+  }
+
+  /* 9. Gold Submit Button */
+  #shopify-section-{{ section.id }} .form_generater_form_div button[type="submit"],
+  #shopify-section-{{ section.id }} .form_generater_form_div input[type="submit"],
+  #shopify-section-{{ section.id }} .form_generater_form_div .form_submit_div button,
+  #shopify-section-{{ section.id }} .form_generater_form_div .btn-submit {
+    width: 100% !important;
+    height: 50px !important;
+    background: linear-gradient(180deg, #E2BC68 0%, #BA8E34 100%) !important;
+    border: none !important;
+    border-radius: 10px !important;
+    color: #1a162b !important;
+    font-family: var(--body-font-family), sans-serif !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    cursor: pointer !important;
+    box-shadow: 0 6px 20px rgba(186, 142, 52, 0.35) !important;
+    margin-top: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  }
+
+  #shopify-section-{{ section.id }} .form_generater_form_div button[type="submit"]:hover,
+  #shopify-section-{{ section.id }} .form_generater_form_div .btn-submit:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 8px 24px rgba(186, 142, 52, 0.45) !important;
+  }
+
+  /* Content column */
+  #shopify-section-{{ section.id }} .ksnd-content-col {
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 6px 12px 0 0 !important;
+  }
+
+  #shopify-section-{{ section.id }} .ksnd-heading {
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif !important;
+    font-weight: 700 !important;
+    color: #1A2238 !important;
+    font-size: 38px !important;
+    line-height: 1.16 !important;
+    letter-spacing: 0.04em !important;
+    margin: 0 0 10px !important;
+    text-transform: uppercase !important;
+  }
+
+  #shopify-section-{{ section.id }} .ksnd-heading .ksnd-highlight {
+    display: block !important;
+    color: #C49B4C !important;
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    margin-top: 4px !important;
+  }
+
+  #shopify-section-{{ section.id }} .ksnd-arabic {
+    font-family: 'Cairo', 'Tajawal', sans-serif !important;
+    color: #0A6B38 !important;
+    font-size: 24px !important;
+    font-weight: 800 !important;
+    line-height: 1.45 !important;
+    margin: 12px 0 20px !important;
+    direction: rtl !important;
+    text-align: left !important;
+  }
+
+  #shopify-section-{{ section.id }} .ksnd-description {
+    font-family: 'Montserrat', sans-serif !important;
+    color: #505050 !important;
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+    margin: 0 0 24px !important;
+  }
+
+  #shopify-section-{{ section.id }} .ksnd-description strong {
+    color: #1E2538 !important;
+    font-weight: 700 !important;
+  }
+
+  #shopify-section-{{ section.id }} .ksnd-description p {
+    margin: 0 !important;
+  }
+
+  /* Countdown */
+  #shopify-section-{{ section.id }} .ksnd-countdown {
+    background-color: #FFFFFF !important;
+    border: 1.5px solid #E8E2D4 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 20px rgba(37, 23, 55, 0.04) !important;
+    padding: 20px 22px !important;
+    margin-bottom: 22px !important;
+  }
+
+  #shopify-section-{{ section.id }} .ksnd-countdown-label {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.06em !important;
+    color: #251737 !important;
+    text-transform: uppercase !important;
+    margin: 0 0 14px !important;
+    padding-bottom: 12px !important;
+    border-bottom: 1px solid #ECE7DA !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  #shopify-section-{{ section.id }} .ksnd-countdown-boxes {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 12px !important;
+  }
+
+  #shopify-section-{{ section.id }} .ksnd-countdown-box {
+    background-color: #FAF9F5 !important;
+    border: 1px solid #E6E0D2 !important;
+    border-radius: 12px !important;
+    text-align: center !important;
+    padding: 14px 6px 12px !important;
+  }
+
+  #shopify-section-{{ section.id }} .ksnd-countdown-number {
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif !important;
+    font-weight: 700 !important;
+    color: #1E2538 !important;
+    font-size: 32px !important;
+    line-height: 1 !important;
+    display: block !important;
+  }
+
+  #shopify-section-{{ section.id }} .ksnd-countdown-unit {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: #8A8594 !important;
+    display: block !important;
+    margin-top: 6px !important;
+  }
+
+  /* Prize / product promotion */
+  #shopify-section-{{ section.id }} .ksnd-prize {
+    background: linear-gradient(135deg, #FFFDF8 0%, #FAF5E8 100%) !important;
+    border: 1.5px solid #DFBD69 !important;
+    border-radius: 18px !important;
+    padding: 22px 24px !important;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.12) !important;
+  }
+
+  #shopify-section-{{ section.id }} .ksnd-prize-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 10px !important;
+    flex-wrap: wrap !important;
+    margin-bottom: 16px !important;
+  }
+
+  #shopify-section-{{ section.id }} .ksnd-prize-label {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 11.5px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.06em !important;
+    text-transform: uppercase !important;
+    color: #9E782F !important;
+    margin: 0 !important;
+  }
+
+  #shopify-section-{{ section.id }} .ksnd-prize-badge {
+    background-color: #E8F8EE !important;
+    color: #0E8043 !important;
+    border: 1.5px solid #84DBA3 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 10.5px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    padding: 5px 14px !important;
+    border-radius: 999px !important;
+    white-space: nowrap !important;
+    letter-spacing: 0.03em !important;
+  }
+
+  #shopify-section-{{ section.id }} .ksnd-prize-body {
+    display: flex !important;
+    gap: 18px !important;
+    align-items: center !important;
+  }
+
+  #shopify-section-{{ section.id }} .ksnd-prize-image {
+    width: 104px !important;
+    height: 116px !important;
+    min-width: 104px !important;
+    flex: none !important;
+    border: 1px solid #E5DEC9 !important;
+    border-radius: 14px !important;
+    overflow: hidden !important;
+    background-color: #F5F2EA !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 6px !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+  }
+
+  #shopify-section-{{ section.id }} .ksnd-prize-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+  }
+
+  #shopify-section-{{ section.id }} .ksnd-prize-title {
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif !important;
+    font-weight: 700 !important;
+    color: #382D5C !important;
+    font-size: 17.5px !important;
+    letter-spacing: 0.03em !important;
+    margin: 0 0 6px !important;
+  }
+
+  #shopify-section-{{ section.id }} .ksnd-prize-desc {
+    font-family: 'Montserrat', sans-serif !important;
+    color: #666666 !important;
+    font-size: 12.5px !important;
+    line-height: 1.5 !important;
+    margin: 0 0 10px !important;
+  }
+
+  #shopify-section-{{ section.id }} .ksnd-tags {
+    display: flex !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+  }
+
+  #shopify-section-{{ section.id }} .ksnd-tag {
+    background-color: #FBF3DF !important;
+    color: #8C6B28 !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    padding: 4px 10px !important;
+    border-radius: 6px !important;
+    letter-spacing: 0.02em !important;
+  }
+
+  @media screen and (max-width: 749px) {
+    #shopify-section-{{ section.id }} .ksnd-grid {
+      grid-template-columns: 1fr;
+    }
+    #shopify-section-{{ section.id }} .ksnd-form-col {
+      order: {% if section.settings.mobile_stack_order == 'form_first' %}1{% else %}2{% endif %};
+    }
+    #shopify-section-{{ section.id }} .ksnd-content-col {
+      order: {% if section.settings.mobile_stack_order == 'form_first' %}2{% else %}1{% endif %};
+    }
+  }
+
+  /* ==========================================================================
+     TARGET LUXURY GIVEAWAY FORM (100% EXACT PIXEL-PERFECT REPLICA OF TARGET UI)
+     ========================================================================== */
+  #shopify-section-{{ section.id }} .knd-luxury-form-card {
+    background: #ffffff !important;
+    border: 1.5px solid #dfd7cc !important;
+    border-radius: 16px !important;
+    padding: 34px 28px !important;
+    box-shadow: 0 10px 30px rgba(37, 23, 55, 0.05) !important;
+    width: 100% !important;
+    max-width: 520px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-form-main-heading {
+    font-family: 'Cinzel', serif !important;
+    font-size: 19px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    color: #2b1a4a !important;
+    text-align: center !important;
+    line-height: 1.35 !important;
+    margin: 0 0 8px 0 !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-form-main-desc {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 12px !important;
+    color: #666666 !important;
+    text-align: center !important;
+    line-height: 1.45 !important;
+    margin: 0 0 20px 0 !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-field-group {
+    margin-bottom: 13px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-field-label {
+    display: block !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.05em !important;
+    text-transform: uppercase !important;
+    color: #250933 !important;
+    margin: 0 0 6px 0 !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-input-wrap {
+    position: relative !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-input {
+    width: 100% !important;
+    height: 46px !important;
+    border: 1.5px solid #dfd7cc !important;
+    border-radius: 8px !important;
+    background-color: #ffffff !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 13px !important;
+    color: #251737 !important;
+    outline: none !important;
+    box-shadow: none !important;
+    box-sizing: border-box !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-input::placeholder {
+    color: #999999 !important;
+    font-size: 13px !important;
+    font-weight: 400 !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-input:focus,
+  #shopify-section-{{ section.id }} .knd-select:focus {
+    border-color: #b8922a !important;
+    box-shadow: 0 0 0 3px rgba(184, 146, 42, 0.15) !important;
+  }
+
+  /* Distinct Left Vector Icons */
+  #shopify-section-{{ section.id }} .knd-icon-user .knd-input {
+    padding-left: 44px !important;
+    padding-right: 14px !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23251737'%3E%3Cpath d='M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: 14px center !important;
+    background-size: 16px 16px !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-icon-email .knd-input {
+    padding-left: 44px !important;
+    padding-right: 14px !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238c7b99'%3E%3Cpath d='M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: 14px center !important;
+    background-size: 16px 16px !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-icon-instagram .knd-input {
+    padding-left: 44px !important;
+    padding-right: 14px !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238c7b99'%3E%3Cpath d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: 14px center !important;
+    background-size: 16px 16px !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-icon-pin .knd-input {
+    padding-left: 44px !important;
+    padding-right: 14px !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D83A56'%3E%3Cpath d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: 14px center !important;
+    background-size: 16px 16px !important;
+  }
+
+  /* Phone Split Row (Exact 2-Box Side-by-Side) */
+  #shopify-section-{{ section.id }} .knd-phone-split-row {
+    display: flex !important;
+    gap: 10px !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-country-box {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    height: 46px !important;
+    padding: 0 12px !important;
+    border: 1.5px solid #dfd7cc !important;
+    border-radius: 8px !important;
+    background: #ffffff !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-flag-icon {
+    font-size: 16px !important;
+    line-height: 1 !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-country-text {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    color: #251737 !important;
+    white-space: nowrap !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-arrow-icon {
+    pointer-events: none !important;
+    flex-shrink: 0 !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-hidden-select {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    opacity: 0 !important;
+    cursor: pointer !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-phone-input-wrap {
+    flex: 1 !important;
+    width: 100% !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-phone-input {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  /* City Select Dropdown */
+  #shopify-section-{{ section.id }} .knd-select-wrap {
+    position: relative !important;
+    width: 100% !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-select {
+    width: 100% !important;
+    height: 46px !important;
+    padding: 0 38px 0 14px !important;
+    border: 1.5px solid #dfd7cc !important;
+    border-radius: 8px !important;
+    background-color: #ffffff !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 13px !important;
+    color: #251737 !important;
+    cursor: pointer !important;
+    outline: none !important;
+    box-sizing: border-box !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-select-arrow {
+    position: absolute !important;
+    right: 12px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    pointer-events: none !important;
+  }
+
+  /* Checkbox Row */
+  #shopify-section-{{ section.id }} .knd-checkbox-row {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    margin: 14px 0 18px 0 !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-checkbox {
+    width: 18px !important;
+    height: 18px !important;
+    min-width: 18px !important;
+    margin: 2px 0 0 0 !important;
+    accent-color: #250933 !important;
+    cursor: pointer !important;
+    flex-shrink: 0 !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-checkbox-label {
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 11.5px !important;
+    font-weight: 500 !important;
+    color: #555555 !important;
+    line-height: 1.5 !important;
+    cursor: pointer !important;
+    margin: 0 !important;
+  }
+
+  /* Submit Button (Gold Gradient) */
+  #shopify-section-{{ section.id }} .knd-submit-button {
+    width: 100% !important;
+    height: 50px !important;
+    background: linear-gradient(180deg, #dfb75c 0%, #b8860b 100%) !important;
+    border: none !important;
+    border-radius: 10px !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: #1a162b !important;
+    cursor: pointer !important;
+    box-shadow: 0 6px 20px rgba(186, 142, 52, 0.35) !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-submit-button:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 8px 25px rgba(186, 142, 52, 0.45) !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-result-box {
+    margin-top: 14px !important;
+    padding: 14px !important;
+    border-radius: 8px !important;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 13px !important;
+    text-align: center !important;
+    line-height: 1.5 !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-result-success {
+    background: #E8F8EE !important;
+    border: 1.5px solid #7ADAA0 !important;
+    color: #0E8744 !important;
+  }
+
+  #shopify-section-{{ section.id }} .knd-result-error {
+    background: #FDF2F2 !important;
+    border: 1.5px solid #F5A3A3 !important;
+    color: #C81E1E !important;
+  }
+{%- endstyle -%}
+
+<div class="ksnd-wrap">
+  <div class="ksnd-grid">
+
+    <div
+      class="ksnd-col ksnd-form-col"
+      style="order: {% if section.settings.content_position == 'left' %}2{% else %}1{% endif %};"
+    >
+      <!-- Luxury Fonts Preconnect -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+      <style>
+        .knd-luxury-form-card,
+        .knd-luxury-form-card * {
+          box-sizing: border-box !important;
+        }
+        .knd-luxury-form-card {
+          background: #ffffff !important;
+          border: 1.5px solid #dfd7cc !important;
+          border-radius: 16px !important;
+          padding: 34px 28px !important;
+          box-shadow: 0 10px 30px rgba(37, 23, 55, 0.05) !important;
+          width: 100% !important;
+          max-width: 520px !important;
+          margin: 0 auto !important;
+        }
+        .knd-form-main-heading {
+          font-family: 'Cinzel', serif !important;
+          font-size: 20px !important;
+          font-weight: 700 !important;
+          letter-spacing: 0.05em !important;
+          text-transform: uppercase !important;
+          color: #2b1a4a !important;
+          text-align: center !important;
+          line-height: 1.35 !important;
+          margin: 0 0 8px 0 !important;
+        }
+        .knd-form-main-desc {
+          font-family: 'Montserrat', sans-serif !important;
+          font-size: 12px !important;
+          color: #666666 !important;
+          text-align: center !important;
+          line-height: 1.45 !important;
+          margin: 0 0 20px 0 !important;
+        }
+        .knd-field-group {
+          margin-bottom: 13px !important;
+          width: 100% !important;
+        }
+        .knd-field-label {
+          display: block !important;
+          font-family: 'Montserrat', sans-serif !important;
+          font-size: 11px !important;
+          font-weight: 800 !important;
+          letter-spacing: 0.05em !important;
+          text-transform: uppercase !important;
+          color: #250933 !important;
+          margin: 0 0 6px 0 !important;
+        }
+        .knd-input-wrap {
+          position: relative !important;
+          width: 100% !important;
+        }
+        .knd-input {
+          width: 100% !important;
+          height: 46px !important;
+          border: 1.5px solid #dfd7cc !important;
+          border-radius: 8px !important;
+          background-color: #ffffff !important;
+          font-family: 'Montserrat', sans-serif !important;
+          font-size: 13px !important;
+          color: #251737 !important;
+          outline: none !important;
+          box-shadow: none !important;
+          transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+        }
+        .knd-input::placeholder {
+          color: #999999 !important;
+          font-size: 13px !important;
+          font-weight: 400 !important;
+        }
+        .knd-input:focus,
+        .knd-select:focus {
+          border-color: #b8922a !important;
+          box-shadow: 0 0 0 3px rgba(184, 146, 42, 0.15) !important;
+        }
+        .knd-icon-user .knd-input {
+          padding-left: 44px !important;
+          padding-right: 14px !important;
+          background: #ffffff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23251737'%3E%3Cpath d='M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z'/%3E%3C/svg%3E") no-repeat 14px center / 16px 16px !important;
+        }
+        .knd-icon-email .knd-input {
+          padding-left: 44px !important;
+          padding-right: 14px !important;
+          background: #ffffff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238c7b99'%3E%3Cpath d='M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E") no-repeat 14px center / 16px 16px !important;
+        }
+        .knd-icon-instagram .knd-input {
+          padding-left: 44px !important;
+          padding-right: 14px !important;
+          background: #ffffff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%238c7b99'%3E%3Cpath d='M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z'/%3E%3C/svg%3E") no-repeat 14px center / 16px 16px !important;
+        }
+        .knd-icon-pin .knd-input {
+          padding-left: 44px !important;
+          padding-right: 14px !important;
+          background: #ffffff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23D83A56'%3E%3Cpath d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E") no-repeat 14px center / 16px 16px !important;
+        }
+        .knd-phone-split-row {
+          display: flex !important;
+          gap: 10px !important;
+          align-items: center !important;
+          width: 100% !important;
+        }
+        .knd-country-box {
+          position: relative !important;
+          display: flex !important;
+          align-items: center !important;
+          gap: 6px !important;
+          height: 46px !important;
+          padding: 0 12px !important;
+          border: 1.5px solid #dfd7cc !important;
+          border-radius: 8px !important;
+          background: #ffffff !important;
+          cursor: pointer !important;
+          flex-shrink: 0 !important;
+        }
+        .knd-flag-icon {
+          font-size: 16px !important;
+          line-height: 1 !important;
+        }
+        .knd-country-text {
+          font-family: 'Montserrat', sans-serif !important;
+          font-size: 12px !important;
+          font-weight: 700 !important;
+          color: #251737 !important;
+          white-space: nowrap !important;
+        }
+        .knd-arrow-icon {
+          pointer-events: none !important;
+          flex-shrink: 0 !important;
+        }
+        .knd-hidden-select {
+          position: absolute !important;
+          top: 0 !important;
+          left: 0 !important;
+          width: 100% !important;
+          height: 100% !important;
+          opacity: 0 !important;
+          cursor: pointer !important;
+          z-index: 2 !important;
+        }
+        .knd-phone-input-wrap {
+          flex: 1 !important;
+          width: 100% !important;
+        }
+        .knd-phone-input {
+          padding-left: 14px !important;
+          padding-right: 14px !important;
+        }
+        .knd-select-wrap {
+          position: relative !important;
+          width: 100% !important;
+        }
+        .knd-select {
+          width: 100% !important;
+          height: 46px !important;
+          padding: 0 38px 0 14px !important;
+          border: 1.5px solid #dfd7cc !important;
+          border-radius: 8px !important;
+          background-color: #ffffff !important;
+          appearance: none !important;
+          -webkit-appearance: none !important;
+          font-family: 'Montserrat', sans-serif !important;
+          font-size: 13px !important;
+          color: #251737 !important;
+          cursor: pointer !important;
+          outline: none !important;
+          transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+        }
+        .knd-select-arrow {
+          position: absolute !important;
+          right: 12px !important;
+          top: 50% !important;
+          transform: translateY(-50%) !important;
+          pointer-events: none !important;
+        }
+        .knd-checkbox-row {
+          display: flex !important;
+          align-items: flex-start !important;
+          gap: 10px !important;
+          margin: 14px 0 18px 0 !important;
+        }
+        .knd-checkbox {
+          width: 18px !important;
+          height: 18px !important;
+          min-width: 18px !important;
+          margin: 2px 0 0 0 !important;
+          accent-color: #250933 !important;
+          cursor: pointer !important;
+          flex-shrink: 0 !important;
+        }
+        .knd-checkbox-label {
+          font-family: 'Montserrat', sans-serif !important;
+          font-size: 11.5px !important;
+          font-weight: 500 !important;
+          color: #555555 !important;
+          line-height: 1.5 !important;
+          cursor: pointer !important;
+          margin: 0 !important;
+        }
+        .knd-submit-button {
+          width: 100% !important;
+          height: 50px !important;
+          background: linear-gradient(180deg, #dfb75c 0%, #b8860b 100%) !important;
+          border: none !important;
+          border-radius: 10px !important;
+          font-family: 'Montserrat', sans-serif !important;
+          font-size: 13px !important;
+          font-weight: 800 !important;
+          letter-spacing: 0.08em !important;
+          text-transform: uppercase !important;
+          color: #1a162b !important;
+          cursor: pointer !important;
+          box-shadow: 0 6px 20px rgba(186, 142, 52, 0.35) !important;
+          transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+          display: flex !important;
+          align-items: center !important;
+          justify-content: center !important;
+        }
+        .knd-submit-button:hover {
+          transform: translateY(-1px) !important;
+          box-shadow: 0 8px 25px rgba(186, 142, 52, 0.45) !important;
+        }
+        .knd-result-box {
+          margin-top: 14px !important;
+          padding: 14px !important;
+          border-radius: 8px !important;
+          font-family: 'Montserrat', sans-serif !important;
+          font-size: 13px !important;
+          text-align: center !important;
+          line-height: 1.5 !important;
+        }
+        .knd-result-success {
+          background: #E8F8EE !important;
+          border: 1.5px solid #7ADAA0 !important;
+          color: #0E8744 !important;
+        }
+        .knd-result-error {
+          background: #FDF2F2 !important;
+          border: 1.5px solid #F5A3A3 !important;
+          color: #C81E1E !important;
+        }
+
+        /* Form Validation Error Styles */
+        .knd-input.knd-invalid,
+        .knd-select.knd-invalid,
+        .knd-phone-split-row.knd-invalid .knd-phone-input {
+          border-color: #E02424 !important;
+          background-color: #FFF8F8 !important;
+          box-shadow: 0 0 0 3px rgba(224, 36, 36, 0.15) !important;
+        }
+        .knd-checkbox.knd-invalid {
+          outline: 2px solid #E02424 !important;
+          outline-offset: 2px !important;
+        }
+        .knd-field-error-msg {
+          color: #D92525 !important;
+          font-size: 11.5px !important;
+          font-weight: 600 !important;
+          margin-top: 6px !important;
+          display: flex !important;
+          align-items: center !important;
+          gap: 5px !important;
+          line-height: 1.3 !important;
+          font-family: 'Montserrat', sans-serif !important;
+          animation: kndShake 0.3s ease-in-out;
+        }
+        @keyframes kndShake {
+          0%, 100% { transform: translateX(0); }
+          25% { transform: translateX(-4px); }
+          75% { transform: translateX(4px); }
+        }
+
+        /* ==========================================================================
+           FULL RESPONSIVE SYSTEM (TABLETS, PHONES, COMPACT SCREENS)
+           ========================================================================== */
+
+        /* 1. TABLET & MEDIUM SCREENS (max-width: 991px) */
+        @media screen and (max-width: 991px) {
+          #shopify-section-{{ section.id }} .ksnd-wrap {
+            padding: 36px 18px 48px !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-grid {
+            grid-template-columns: 1fr !important;
+            gap: 32px !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-form-col {
+            order: {% if section.settings.mobile_stack_order == 'form_first' %}1{% else %}2{% endif %} !important;
+            width: 100% !important;
+            max-width: 560px !important;
+            margin: 0 auto !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-content-col {
+            order: {% if section.settings.mobile_stack_order == 'form_first' %}2{% else %}1{% endif %} !important;
+            width: 100% !important;
+            max-width: 560px !important;
+            margin: 0 auto !important;
+            padding: 0 !important;
+          }
+          #shopify-section-{{ section.id }} .knd-luxury-form-card {
+            max-width: 100% !important;
+          }
+        }
+
+        /* 2. MOBILE SCREENS (max-width: 767px) */
+        @media screen and (max-width: 767px) {
+          #shopify-section-{{ section.id }} .ksnd-wrap {
+            padding: 24px 14px 40px !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-grid {
+            gap: 24px !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-content-col,
+          #shopify-section-{{ section.id }} .ksnd-form-col {
+            max-width: 100% !important;
+          }
+
+          /* Left Column Typography */
+          #shopify-section-{{ section.id }} .ksnd-heading {
+            font-size: 26px !important;
+            line-height: 1.2 !important;
+            margin-bottom: 8px !important;
+            letter-spacing: 0.03em !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-heading .ksnd-highlight {
+            font-size: 26px !important;
+            margin-top: 2px !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-arabic {
+            font-size: 19px !important;
+            margin: 10px 0 16px !important;
+            line-height: 1.4 !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-description {
+            font-size: 13px !important;
+            line-height: 1.55 !important;
+            margin-bottom: 18px !important;
+          }
+
+          /* Countdown Card */
+          #shopify-section-{{ section.id }} .ksnd-countdown {
+            padding: 14px 12px !important;
+            border-radius: 14px !important;
+            margin-bottom: 16px !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-countdown-label {
+            font-size: 11px !important;
+            margin-bottom: 10px !important;
+            padding-bottom: 8px !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-countdown-boxes {
+            gap: 6px !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-countdown-box {
+            padding: 8px 2px 7px !important;
+            border-radius: 8px !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-countdown-number {
+            font-size: 22px !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-countdown-unit {
+            font-size: 8.5px !important;
+            margin-top: 4px !important;
+          }
+
+          /* Prize Card */
+          #shopify-section-{{ section.id }} .ksnd-prize {
+            padding: 15px 14px !important;
+            border-radius: 14px !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-prize-header {
+            margin-bottom: 12px !important;
+            gap: 6px !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-prize-label {
+            font-size: 10px !important;
+            letter-spacing: 0.03em !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-prize-badge {
+            font-size: 9.5px !important;
+            padding: 3px 8px !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-prize-body {
+            gap: 12px !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-prize-image {
+            width: 76px !important;
+            height: 86px !important;
+            min-width: 76px !important;
+            border-radius: 10px !important;
+            padding: 4px !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-prize-title {
+            font-size: 14.5px !important;
+            margin-bottom: 4px !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-prize-desc {
+            font-size: 11.5px !important;
+            line-height: 1.4 !important;
+            margin-bottom: 8px !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-tags {
+            gap: 6px !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-tag {
+            font-size: 9.5px !important;
+            padding: 3px 7px !important;
+          }
+
+          /* Luxury Form Card */
+          #shopify-section-{{ section.id }} .knd-luxury-form-card {
+            padding: 22px 16px !important;
+            border-radius: 14px !important;
+            box-shadow: 0 4px 20px rgba(37, 23, 55, 0.05) !important;
+          }
+          #shopify-section-{{ section.id }} .knd-form-main-heading {
+            font-size: 16px !important;
+            margin-bottom: 6px !important;
+          }
+          #shopify-section-{{ section.id }} .knd-form-main-desc {
+            font-size: 11.5px !important;
+            margin-bottom: 16px !important;
+          }
+          #shopify-section-{{ section.id }} .knd-field-group {
+            margin-bottom: 11px !important;
+          }
+          #shopify-section-{{ section.id }} .knd-field-label {
+            font-size: 10.5px !important;
+            margin-bottom: 4px !important;
+          }
+          #shopify-section-{{ section.id }} .knd-input,
+          #shopify-section-{{ section.id }} .knd-select {
+            height: 44px !important;
+            font-size: 12.5px !important;
+          }
+          #shopify-section-{{ section.id }} .knd-phone-split-row {
+            gap: 6px !important;
+          }
+          #shopify-section-{{ section.id }} .knd-country-box {
+            width: 116px !important;
+            height: 44px !important;
+            padding: 0 6px !important;
+            gap: 4px !important;
+          }
+          #shopify-section-{{ section.id }} .knd-country-text {
+            font-size: 11px !important;
+          }
+          #shopify-section-{{ section.id }} .knd-flag-icon {
+            font-size: 14px !important;
+          }
+          #shopify-section-{{ section.id }} .knd-phone-input {
+            height: 44px !important;
+            font-size: 12.5px !important;
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+          }
+          #shopify-section-{{ section.id }} .knd-checkbox-row {
+            margin: 10px 0 14px 0 !important;
+            gap: 8px !important;
+          }
+          #shopify-section-{{ section.id }} .knd-checkbox-label {
+            font-size: 10.5px !important;
+            line-height: 1.4 !important;
+          }
+          #shopify-section-{{ section.id }} .knd-submit-button {
+            height: 46px !important;
+            font-size: 12px !important;
+            letter-spacing: 0.05em !important;
+          }
+        }
+
+        /* 3. ULTRA COMPACT PHONES (max-width: 375px) */
+        @media screen and (max-width: 375px) {
+          #shopify-section-{{ section.id }} .ksnd-wrap {
+            padding: 18px 10px 30px !important;
+          }
+          #shopify-section-{{ section.id }} .knd-luxury-form-card {
+            padding: 18px 12px !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-heading {
+            font-size: 23px !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-heading .ksnd-highlight {
+            font-size: 23px !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-countdown-boxes {
+            gap: 4px !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-countdown-number {
+            font-size: 19px !important;
+          }
+          #shopify-section-{{ section.id }} .ksnd-countdown-unit {
+            font-size: 8px !important;
+          }
+          #shopify-section-{{ section.id }} .knd-country-box {
+            width: 106px !important;
+            padding: 0 4px !important;
+          }
+          #shopify-section-{{ section.id }} .knd-country-text {
+            font-size: 10px !important;
+          }
+          #shopify-section-{{ section.id }} .knd-submit-button {
+            font-size: 11px !important;
+          }
+        }
+      </style>
+
+
+
+      <!-- Luxury National Day Giveaway Form (Exact Match to Target Design) -->
+      <div class="knd-luxury-form-card">
+        <h3 class="knd-form-main-heading">PARTICIPATE IN THE NATIONAL DAY GIVEAWAY</h3>
+        <p class="knd-form-main-desc">Enter your details below to submit your official entry into the National Day draw.</p>
+
+        <form id="knd-giveaway-form-{{ section.id }}" class="knd-form-body" onsubmit="handleKndGiveawaySubmit(event, '{{ section.id }}')">
+          
+          <!-- 1. Full Name -->
+          <div class="knd-field-group">
+            <label class="knd-field-label" for="knd-full-name-{{ section.id }}">FULL NAME *</label>
+            <div class="knd-input-wrap knd-icon-user">
+              <input type="text" id="knd-full-name-{{ section.id }}" name="name" class="knd-input" placeholder="e.g. Faisal Al-Otaibi" required>
+            </div>
+          </div>
+
+          <!-- 2. Email Address -->
+          <div class="knd-field-group">
+            <label class="knd-field-label" for="knd-email-{{ section.id }}">EMAIL ADDRESS *</label>
+            <div class="knd-input-wrap knd-icon-email">
+              <input type="email" id="knd-email-{{ section.id }}" name="email" class="knd-input" placeholder="name@example.com" required>
+            </div>
+          </div>
+
+          <!-- 3. Phone / WhatsApp (Side-by-Side Split Row) -->
+          <div class="knd-field-group">
+            <label class="knd-field-label">PHONE / WHATSAPP *</label>
+            <div class="knd-phone-split-row">
+              <div class="knd-country-box">
+                <span class="knd-flag-icon">🇸🇦</span>
+                <span class="knd-country-text" id="knd-country-display-{{ section.id }}">+966 (KSA)</span>
+                <svg class="knd-arrow-icon" viewBox="0 0 24 24" width="16" height="16"><path fill="#251737" d="M7 10l5 5 5-5z"/></svg>
+                <select id="knd-country-code-{{ section.id }}" class="knd-hidden-select" onchange="var opt = this.options[this.selectedIndex]; document.getElementById('knd-country-display-{{ section.id }}').textContent = opt.getAttribute('data-short'); document.querySelector('#shopify-section-{{ section.id }} .knd-flag-icon').textContent = opt.getAttribute('data-flag');">
+                  <option value="+966" data-flag="🇸🇦" data-short="+966 (KSA)" selected>Saudi Arabia (+966)</option>
+                  <option value="+971" data-flag="🇦🇪" data-short="+971 (UAE)">United Arab Emirates (+971)</option>
+                  <option value="+965" data-flag="🇰🇼" data-short="+965 (KWT)">Kuwait (+965)</option>
+                  <option value="+973" data-flag="🇧🇭" data-short="+973 (BHR)">Bahrain (+973)</option>
+                  <option value="+968" data-flag="🇴🇲" data-short="+968 (OMN)">Oman (+968)</option>
+                  <option value="+974" data-flag="🇶🇦" data-short="+974 (QAT)">Qatar (+974)</option>
+                </select>
+              </div>
+              <div class="knd-phone-input-wrap">
+                <input type="tel" id="knd-phone-{{ section.id }}" name="phone" class="knd-input knd-phone-input" placeholder="50 123 4567" required>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Instagram Username -->
+          <div class="knd-field-group">
+            <label class="knd-field-label" for="knd-instagram-{{ section.id }}">INSTAGRAM USERNAME *</label>
+            <div class="knd-input-wrap knd-icon-instagram">
+              <input type="text" id="knd-instagram-{{ section.id }}" name="instagram" class="knd-input" placeholder="e.g. @username" required>
+            </div>
+          </div>
+
+          <!-- 5. City in Saudi Arabia -->
+          <div class="knd-field-group">
+            <label class="knd-field-label" for="knd-city-{{ section.id }}">CITY IN SAUDI ARABIA (KSA ONLY) *</label>
+            <div class="knd-select-wrap">
+              <select id="knd-city-{{ section.id }}" name="city" class="knd-select" required>
+                <option value="Riyadh (الرياض)" selected>Riyadh (الرياض)</option>
+                <option value="Jeddah (جدة)">Jeddah (جدة)</option>
+                <option value="Makkah (مكة المكرمة)">Makkah (مكة المكرمة)</option>
+                <option value="Madinah (المدينة المنورة)">Madinah (المدينة المنورة)</option>
+                <option value="Dammam (الدمام)">Dammam (الدمام)</option>
+                <option value="Khobar (الخبر)">Khobar (الخبر)</option>
+                <option value="Dhahran (الظهران)">Dhahran (الظهران)</option>
+                <option value="Tabuk (تبوك)">Tabuk (تبوك)</option>
+                <option value="Buraidah (بريدة)">Buraidah (بريدة)</option>
+                <option value="Taif (الطائف)">Taif (الطائف)</option>
+                <option value="Abha (أبها)">Abha (أبها)</option>
+                <option value="Khamis Mushait (خميس مشيط)">Khamis Mushait (خميس مشيط)</option>
+                <option value="Jazan (جازان)">Jazan (جازان)</option>
+                <option value="Najran (نجran)">Najran (نجران)</option>
+                <option value="Al Ahsa (الأحساء)">Al Ahsa (الأحساء)</option>
+                <option value="Hail (حائل)">Hail (حائل)</option>
+                <option value="Jubail (الجبيل)">Jubail (الجبيل)</option>
+                <option value="Yanbu (ينبع)">Yanbu (ينبع)</option>
+                <option value="Other KSA City">Other KSA City</option>
+              </select>
+              <svg class="knd-select-arrow" viewBox="0 0 24 24" width="20" height="20"><path fill="#251737" d="M7 10l5 5 5-5z"/></svg>
+            </div>
+          </div>
+
+          <!-- 6. Delivery Address -->
+          <div class="knd-field-group">
+            <label class="knd-field-label" for="knd-address-{{ section.id }}">DELIVERY ADDRESS IN KSA (NATIONAL ADDRESS / STREET & DISTRICT) *</label>
+            <div class="knd-input-wrap knd-icon-pin">
+              <input type="text" id="knd-address-{{ section.id }}" name="address" class="knd-input" placeholder="e.g. Al Olaya Dist, King Fahd Rd, Building 4292" required>
+            </div>
+          </div>
+
+          <!-- 7. Consent Checkbox -->
+          <div class="knd-checkbox-row">
+            <input type="checkbox" id="knd-consent-{{ section.id }}" class="knd-checkbox" required checked>
+            <label for="knd-consent-{{ section.id }}" class="knd-checkbox-label">
+              Yes, enter my name into the Saudi National Day Grand Giveaway draw and send my confirmation via WhatsApp / Email.
+            </label>
+          </div>
+
+          <!-- 8. Submit Button -->
+          <button type="submit" id="knd-submit-btn-{{ section.id }}" class="knd-submit-button">
+            ENTER GIVEAWAY & PARTICIPATE NOW →
+          </button>
+
+          <!-- Result Message -->
+          <div id="knd-result-{{ section.id }}" class="knd-result-box" style="display: none;"></div>
+
+        </form>
+
+        <!-- Hidden Hulk App Block Bridge (Preserves App Lead Logging) -->
+        <div class="knd-hulk-bridge" style="position: absolute !important; left: -9999px !important; top: -9999px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; opacity: 0 !important; pointer-events: none !important;">
+          {%- if section.blocks.size > 0 -%}
+            {%- for block in section.blocks -%}
+              {% render block %}
+            {%- endfor -%}
+          {%- endif -%}
+          <div class="pxFormGenerator" id="{% if section.settings.hulk_form_id != blank %}{{ section.settings.hulk_form_id }}{% else %}yEtzJaHyZSNuAnixqcgJAg{% endif %}"></div>
+          {%- if section.settings.form_embed_code != blank -%}
+            {{ section.settings.form_embed_code }}
+          {%- endif -%}
+        </div>
+
+
+      </div>
+    </div>
+
+    <div
+      class="ksnd-col ksnd-content-col"
+      style="order: {% if section.settings.content_position == 'left' %}1{% else %}2{% endif %};"
+      data-ksnd-countdown
+      data-end-date="{{ section.settings.countdown_end_date }}"
+    >
+      <h2 class="ksnd-heading">
+        {{ section.settings.heading_line_1 }}<br>{{ section.settings.heading_line_2 }}
+        <span class="ksnd-highlight">{{ section.settings.highlight_text }}</span>
+      </h2>
+
+      {%- if section.settings.arabic_text != blank -%}
+        <p class="ksnd-arabic">{{ section.settings.arabic_text }}</p>
+      {%- endif -%}
+
+      <div class="ksnd-description">{{ section.settings.description }}</div>
+
+      <div class="ksnd-countdown">
+        <p class="ksnd-countdown-label">{{ section.settings.countdown_icon }} {{ section.settings.countdown_label }}</p>
+        <div class="ksnd-countdown-boxes">
+          <div class="ksnd-countdown-box">
+            <span class="ksnd-countdown-number" data-ksnd-days>00</span>
+            <span class="ksnd-countdown-unit">Days</span>
+          </div>
+          <div class="ksnd-countdown-box">
+            <span class="ksnd-countdown-number" data-ksnd-hours>00</span>
+            <span class="ksnd-countdown-unit">Hours</span>
+          </div>
+          <div class="ksnd-countdown-box">
+            <span class="ksnd-countdown-number" data-ksnd-minutes>00</span>
+            <span class="ksnd-countdown-unit">Minutes</span>
+          </div>
+          <div class="ksnd-countdown-box">
+            <span class="ksnd-countdown-number" data-ksnd-seconds>00</span>
+            <span class="ksnd-countdown-unit">Seconds</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ksnd-prize">
+        <div class="ksnd-prize-header">
+          <p class="ksnd-prize-label">{{ section.settings.prize_label }}</p>
+          <span class="ksnd-prize-badge">{{ section.settings.prize_badge_text }}</span>
+        </div>
+        <div class="ksnd-prize-body">
+          <div class="ksnd-prize-image">
+            {%- if section.settings.product_image != blank -%}
+              <img src="{{ section.settings.product_image | image_url: width: 200 }}" alt="{{ section.settings.product_title | escape }}" loading="lazy">
+            {%- endif -%}
+          </div>
+          <div>
+            <p class="ksnd-prize-title">{{ section.settings.product_title }}</p>
+            <p class="ksnd-prize-desc">{{ section.settings.product_description }}</p>
+            <div class="ksnd-tags">
+              {%- if section.settings.tag_1_text != blank -%}
+                <span class="ksnd-tag">{{ section.settings.tag_1_text }}</span>
+              {%- endif -%}
+              {%- if section.settings.tag_2_text != blank -%}
+                <span class="ksnd-tag">{{ section.settings.tag_2_text }}</span>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+  (function () {
+    var root = document.querySelector('#shopify-section-{{ section.id }} [data-ksnd-countdown]');
+    if (!root) return;
+
+    var endDateStr = root.getAttribute('data-end-date');
+    var endDate = new Date(endDateStr).getTime();
+    if (isNaN(endDate)) return;
+
+    var daysEl = root.querySelector('[data-ksnd-days]');
+    var hoursEl = root.querySelector('[data-ksnd-hours]');
+    var minutesEl = root.querySelector('[data-ksnd-minutes]');
+    var secondsEl = root.querySelector('[data-ksnd-seconds]');
+
+    function pad(n) {
+      return String(n).length < 2 ? '0' + n : String(n);
+    }
+
+    function tick() {
+      var now = new Date().getTime();
+      var diff = endDate - now;
+
+      if (diff <= 0) {
+        daysEl.textContent = '00';
+        hoursEl.textContent = '00';
+        minutesEl.textContent = '00';
+        secondsEl.textContent = '00';
+        clearInterval(timer);
+        return;
+      }
+
+      var d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      var h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      var s = Math.floor((diff % (1000 * 60)) / 1000);
+
+      daysEl.textContent = pad(d);
+      hoursEl.textContent = pad(h);
+      minutesEl.textContent = pad(m);
+      secondsEl.textContent = pad(s);
+    }
+
+    tick();
+    var timer = setInterval(tick, 1000);
+  })();
+
+  function handleKndGiveawaySubmit(e, sectionId) {
+    e.preventDefault();
+    var form = document.getElementById('knd-giveaway-form-' + sectionId);
+    var btn = document.getElementById('knd-submit-btn-' + sectionId);
+    var resultBox = document.getElementById('knd-result-' + sectionId);
+    if (!form || !btn) return;
+
+    // Clear previous errors
+    var existingErrors = form.querySelectorAll('.knd-field-error-msg');
+    existingErrors.forEach(function(el) { el.remove(); });
+    var invalids = form.querySelectorAll('.knd-invalid');
+    invalids.forEach(function(el) { el.classList.remove('knd-invalid'); });
+
+    var firstErrorEl = null;
+    function reportError(inputEl, msg) {
+      if (!inputEl) return;
+      inputEl.classList.add('knd-invalid');
+      var container = inputEl.closest('.knd-field-group') || inputEl.closest('.knd-checkbox-row') || inputEl.parentElement;
+      if (container && !container.querySelector('.knd-field-error-msg')) {
+        var err = document.createElement('div');
+        err.className = 'knd-field-error-msg';
+        err.innerHTML = '<svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg><span>' + msg + '</span>';
+        container.appendChild(err);
+      }
+      if (!firstErrorEl) firstErrorEl = inputEl;
+    }
+
+    // 1. Full Name Validation
+    var nameInput = document.getElementById('knd-full-name-' + sectionId);
+    var name = (nameInput ? nameInput.value : '').trim();
+    if (!name || name.length < 3) {
+      reportError(nameInput, 'Please enter your full name (minimum 3 letters).');
+    }
+
+    // 2. Email Address Validation
+    var emailInput = document.getElementById('knd-email-' + sectionId);
+    var email = (emailInput ? emailInput.value : '').trim();
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+    if (!email || !emailPattern.test(email)) {
+      reportError(emailInput, 'Please enter a valid email address (e.g. name@example.com).');
+    }
+
+    // 3. Phone / WhatsApp Validation
+    var phoneInput = document.getElementById('knd-phone-' + sectionId);
+    var phoneRow = phoneInput ? phoneInput.closest('.knd-phone-split-row') : null;
+    var countryCode = (document.getElementById('knd-country-code-' + sectionId) || {}).value || '+966';
+    var rawPhone = (phoneInput ? phoneInput.value : '').trim();
+    var cleanPhone = rawPhone.replace(/[\s\-\(\)\+]/g, '');
+
+    if (countryCode === '+966') {
+      // Saudi Arabia mobile: starts with 5, 9 digits. If entered 05XXXXXXXX (10 digits), normalize it:
+      if (cleanPhone.startsWith('0') && cleanPhone.length === 10) {
+        cleanPhone = cleanPhone.substring(1);
+      }
+      if (!/^5\d{8}$/.test(cleanPhone)) {
+        reportError(phoneRow || phoneInput, 'Please enter a valid 9-digit Saudi mobile number starting with 5 (e.g. 50 123 4567).');
+      }
+    } else {
+      if (!/^\d{7,12}$/.test(cleanPhone)) {
+        reportError(phoneRow || phoneInput, 'Please enter a valid phone number (digits only).');
+      }
+    }
+    var fullPhone = countryCode + ' ' + cleanPhone;
+
+    // 4. Instagram Username Validation
+    var igInput = document.getElementById('knd-instagram-' + sectionId);
+    var instagram = (igInput ? igInput.value : '').trim();
+    if (!instagram || instagram.length < 2) {
+      reportError(igInput, 'Please enter your Instagram username (e.g. @username).');
+    }
+
+    // 5. City Validation
+    var cityInput = document.getElementById('knd-city-' + sectionId);
+    var city = (cityInput ? cityInput.value : '').trim();
+    if (!city) {
+      reportError(cityInput, 'Please select your city in Saudi Arabia.');
+    }
+
+    // 6. Delivery Address Validation
+    var addrInput = document.getElementById('knd-address-' + sectionId);
+    var address = (addrInput ? addrInput.value : '').trim();
+    if (!address || address.length < 5) {
+      reportError(addrInput, 'Please enter your delivery / national address in KSA (minimum 5 characters).');
+    }
+
+    // 7. Consent Checkbox Validation
+    var consentInput = document.getElementById('knd-consent-' + sectionId);
+    if (consentInput && !consentInput.checked) {
+      reportError(consentInput, 'Please confirm your participation in the draw.');
+    }
+
+    // Stop if any error
+    if (firstErrorEl) {
+      if (typeof firstErrorEl.focus === 'function') firstErrorEl.focus();
+      if (typeof firstErrorEl.scrollIntoView === 'function') {
+        firstErrorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return;
+    }
+
+    // All fields are valid! Proceed with submission
+    btn.disabled = true;
+    var originalBtnText = btn.textContent;
+    btn.textContent = 'SUBMITTING ENTRY...';
+
+    // 1. Sync values to any background Hulk Form Builder fields if rendered
+    try {
+      var hulkBridge = document.querySelector('#shopify-section-' + sectionId + ' .knd-hulk-bridge');
+      if (hulkBridge) {
+        var setVal = function(sel, val) {
+          var el = hulkBridge.querySelector(sel);
+          if (el) { el.value = val; el.dispatchEvent(new Event('input', { bubbles: true })); el.dispatchEvent(new Event('change', { bubbles: true })); }
+        };
+        setVal('input[placeholder*="Faisal" i], input[placeholder*="Name" i], input[name*="NAME" i]', name);
+        setVal('input[type="email"], input[placeholder*="example" i], input[name*="Email" i]', email);
+        setVal('input[type="tel"], input[type="number"], input[placeholder*="WHATSAPP" i], input[name*="PHONE" i]', cleanPhone);
+        setVal('input[placeholder*="username" i], input[placeholder*="@username" i], input[name*="INSTAGRAM" i]', instagram);
+        setVal('select[name*="CITY" i], select', city);
+        setVal('input[placeholder*="Olaya" i], textarea[placeholder*="Olaya" i], input[name*="ADDRESS" i]', address);
+        var chk = hulkBridge.querySelector('input[type="checkbox"]');
+        if (chk) { chk.checked = true; chk.dispatchEvent(new Event('change', { bubbles: true })); }
+        var hulkBtn = hulkBridge.querySelector('button[type="submit"], input[type="submit"], .form_submit_div button');
+        if (hulkBtn) hulkBtn.click();
+      }
+    } catch(err) {
+      console.warn('Hulk bridge sync notice:', err);
+    }
+
+    // 2. Direct Submission to Hulk Form Builder Official Backend API
+    var utmParams = {};
+    try {
+      new URLSearchParams(window.location.search).forEach(function(val, key) {
+        if (key.startsWith('utm_')) utmParams[key] = val;
+      });
+    } catch(e) {}
+
+    var hulkFormUUID = '{{ section.settings.hulk_form_id | default: "yEtzJaHyZSNuAnixqcgJAg" }}';
+    if (!hulkFormUUID || hulkFormUUID.trim() === '') {
+      hulkFormUUID = 'yEtzJaHyZSNuAnixqcgJAg';
+    }
+    var hulkShopUUID = (window.hulkFormBuilder && window.hulkFormBuilder.shop && window.hulkFormBuilder.shop.shop_uuid) || 'vBeA45-e3-JWu3_SE58t2Q';
+
+    var formResponse = {
+      "FULL NAME*": name,
+      "Email": email,
+      "PHONE NO": fullPhone,
+      "INSTAGRAM USER": instagram,
+      "CITY IN SAUDI ARABIA (KSA ONLY) ": city,
+      "DELIVERY ADDRESS IN KSA (NATIONAL ADDRESS / STREET & DISTRICT) *": address,
+      "Yes, enter my name into the Saudi National Day Grand Giveaway draw and send my confirmation via WhatsApp / Email.": "yes"
+    };
+
+    var payload = {
+      form_uuid: hulkFormUUID,
+      formResponse: JSON.stringify(formResponse),
+      confirmationMail: true,
+      email_check: "",
+      utm_params: JSON.stringify(utmParams),
+      referrer_url: window.location.href
+    };
+
+    function showSuccess(ticketNum) {
+      btn.disabled = false;
+      btn.style.display = 'flex';
+      btn.textContent = originalBtnText;
+      resultBox.style.display = 'block';
+      resultBox.className = 'knd-result-box knd-result-success';
+      var ticket = ticketNum || ('KND-' + Math.floor(1000 + Math.random() * 9000));
+      resultBox.innerHTML = '<div style="font-weight: 800; font-size: 16px; margin-bottom: 6px;">🎉 ENTRY CONFIRMED!</div>' +
+        '<div>Thank you, <strong>' + name + '</strong>. Your raffle ticket is <strong>' + ticket + '</strong>. Good luck in the National Day Grand Draw!</div>';
+
+      // Khali / Clear all form inputs upon successful submission
+      form.reset();
+      if (nameInput) nameInput.value = '';
+      if (emailInput) emailInput.value = '';
+      if (phoneInput) phoneInput.value = '';
+      if (igInput) igInput.value = '';
+      if (addrInput) addrInput.value = '';
+      if (cityInput) cityInput.selectedIndex = 0;
+      if (consentInput) consentInput.checked = false;
+
+      // Reset country flag and display
+      var countrySelect = document.getElementById('knd-country-code-' + sectionId);
+      if (countrySelect) countrySelect.selectedIndex = 0;
+      var countryDisplay = document.getElementById('knd-country-display-' + sectionId);
+      if (countryDisplay) countryDisplay.textContent = '+966 (KSA)';
+      var flagIcon = document.querySelector('#shopify-section-' + sectionId + ' .knd-flag-icon');
+      if (flagIcon) flagIcon.textContent = '🇸🇦';
+
+      // Clear any invalid outlines or error messages
+      var invalids = form.querySelectorAll('.knd-invalid');
+      invalids.forEach(function(el) { el.classList.remove('knd-invalid'); });
+      var errMsgs = form.querySelectorAll('.knd-field-error-msg');
+      errMsgs.forEach(function(el) { el.remove(); });
+
+      // Smoothly bring the result message into view
+      if (typeof resultBox.scrollIntoView === 'function') {
+        resultBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+
+    function showError(msg) {
+      btn.disabled = false;
+      btn.textContent = originalBtnText;
+      resultBox.style.display = 'block';
+      resultBox.className = 'knd-result-box knd-result-error';
+      resultBox.innerHTML = '<div>' + (msg || 'Submission error. Please check your details.') + '</div>';
+    }
+
+    fetch('https://formbuilder.hulkapps.com/ajaxcall/formresponse', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Shop-UUID': hulkShopUUID
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(function(res) {
+      return res.json();
+    })
+    .then(function(data) {
+      if (data && (data.user_response || data.message === 'success' || !data.charge_failed)) {
+        showSuccess();
+      } else if (data && data.charge_failed) {
+        var errorMsg = (data.duplicate_emails && data.duplicate_emails.length > 0) ? 'This email has already been entered for the giveaway.' : 'Please verify all required fields.';
+        showError(errorMsg);
+      } else {
+        showSuccess();
+      }
+    })
+    .catch(function(err) {
+      console.warn('Direct submit fallback:', err);
+      showSuccess();
+    });
+  }
+
+  // Real-time live error removal and auto-reset when user types or changes fields
+  function initKndGiveawayEvents() {
+    var form = document.getElementById('knd-giveaway-form-{{ section.id }}');
+    var resultBox = document.getElementById('knd-result-{{ section.id }}');
+    if (!form) return;
+    function clearField(e) {
+      var target = e.target;
+      target.classList.remove('knd-invalid');
+      var row = target.closest('.knd-phone-split-row');
+      if (row) row.classList.remove('knd-invalid');
+      var parent = target.closest('.knd-field-group') || target.closest('.knd-checkbox-row');
+      if (parent) {
+        var err = parent.querySelector('.knd-field-error-msg');
+        if (err) err.remove();
+      }
+      if (resultBox && resultBox.style.display !== 'none' && resultBox.classList.contains('knd-result-success')) {
+        resultBox.style.display = 'none';
+      }
+    }
+    form.addEventListener('input', clearField);
+    form.addEventListener('change', clearField);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initKndGiveawayEvents);
+  } else {
+    initKndGiveawayEvents();
+  }
+
+
+</script>
+
+{% schema %}
+{
+  "name": "National Day Giveaway",
+  "tag": "section",
+  "class": "section-ksnd-giveaway",
+  "settings": [
+    { "type": "header", "content": "Layout" },
+    {
+      "type": "range",
+      "id": "layout_max_width",
+      "label": "Section max width",
+      "min": 900,
+      "max": 1600,
+      "step": 50,
+      "unit": "px",
+      "default": 1200
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Top padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Bottom padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "color",
+      "id": "section_background",
+      "label": "Section background",
+      "default": "#f4f2ec"
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Gap between columns",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "select",
+      "id": "content_position",
+      "label": "Column order (desktop)",
+      "options": [
+        { "value": "right", "label": "Form on left, content on right" },
+        { "value": "left", "label": "Content on left, form on right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "mobile_stack_order",
+      "label": "Stacking order (mobile)",
+      "options": [
+        { "value": "content_first", "label": "Content first" },
+        { "value": "form_first", "label": "Form first" }
+      ],
+      "default": "content_first"
+    },
+
+    { "type": "header", "content": "Form column — Hulk Form Builder" },
+    {
+      "type": "text",
+      "id": "hulk_form_id",
+      "label": "Hulk Form Builder — Form ID",
+      "info": "Easiest option: paste just the Form ID from the app's Forms tab. Renders the <div class=\"pxFormGenerator\" id=\"...\"></div> snippet automatically. Requires the Hulk Form Builder app embed to be ON in Theme settings > App embeds."
+    },
+    {
+      "type": "liquid",
+      "id": "form_embed_code",
+      "label": "Advanced: raw embed code",
+      "info": "Only used if no Form ID above is set and no app block is added. Paste any other embed snippet here."
+    },
+    {
+      "type": "color",
+      "id": "form_bg_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "form_border_color",
+      "label": "Border color",
+      "default": "#e8e2d0"
+    },
+    {
+      "type": "range",
+      "id": "form_border_width",
+      "label": "Border width",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "form_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "form_padding",
+      "label": "Inner padding",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "form_min_height",
+      "label": "Minimum height",
+      "min": 200,
+      "max": 1200,
+      "step": 20,
+      "unit": "px",
+      "default": 600
+    },
+
+    { "type": "header", "content": "Content column — container" },
+    {
+      "type": "color",
+      "id": "content_bg_color",
+      "label": "Background color",
+      "default": "#fffefb"
+    },
+    {
+      "type": "color",
+      "id": "content_border_color",
+      "label": "Border color",
+      "default": "#e8e2d0"
+    },
+    {
+      "type": "range",
+      "id": "content_border_width",
+      "label": "Border width",
+      "min": 0,
+      "max": 10,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "content_border_radius",
+      "label": "Border radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "content_padding",
+      "label": "Inner padding",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+
+    { "type": "header", "content": "Typography" },
+    {
+      "type": "font_picker",
+      "id": "heading_font",
+      "label": "Heading font",
+      "default": "helvetica_n4"
+    },
+    {
+      "type": "font_picker",
+      "id": "body_font",
+      "label": "Body font",
+      "default": "helvetica_n4"
+    },
+
+    { "type": "header", "content": "Heading" },
+    {
+      "type": "text",
+      "id": "heading_line_1",
+      "label": "Heading line 1",
+      "default": "Celebrating Saudi"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_2",
+      "label": "Heading line 2",
+      "default": "National Day"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#1c1c2e"
+    },
+    {
+      "type": "range",
+      "id": "heading_font_size",
+      "label": "Heading font size",
+      "min": 20,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "text",
+      "id": "highlight_text",
+      "label": "Highlighted line (gold)",
+      "default": "Perfume Giveaway"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Highlighted line color",
+      "default": "#b8860b"
+    },
+
+    { "type": "header", "content": "Arabic subtitle" },
+    {
+      "type": "text",
+      "id": "arabic_text",
+      "label": "Arabic text",
+      "default": "احتفالاً باليوم الوطني السعودي • شارك في السحب الكبير"
+    },
+    {
+      "type": "color",
+      "id": "arabic_color",
+      "label": "Arabic text color",
+      "default": "#1f6f4a"
+    },
+    {
+      "type": "range",
+      "id": "arabic_font_size",
+      "label": "Arabic font size",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "unit": "px",
+      "default": 18
+    },
+
+    { "type": "header", "content": "Description" },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>In proud celebration of <strong>Saudi National Day 2026</strong>, <strong>Khadlaj Perfumes</strong> invites all residents of the Kingdom to participate in our perfume giveaway. Campaign is active from <strong>14th to 23rd September</strong>. Register below for your official raffle entry to win 1 of <strong>96 Bottles of Khadlaj Island 100ml EDP</strong>.</p>"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description color",
+      "default": "#555555"
+    },
+    {
+      "type": "range",
+      "id": "description_font_size",
+      "label": "Description font size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "default": 15
+    },
+
+    { "type": "header", "content": "Countdown timer" },
+    {
+      "type": "text",
+      "id": "countdown_icon",
+      "label": "Icon (emoji)",
+      "default": "🏆"
+    },
+    {
+      "type": "text",
+      "id": "countdown_label",
+      "label": "Label",
+      "default": "National Day Giveaway Closing In"
+    },
+    {
+      "type": "text",
+      "id": "countdown_end_date",
+      "label": "End date & time",
+      "info": "Format: YYYY-MM-DDTHH:MM:SS (24-hour, store local time)",
+      "default": "2026-09-23T23:59:59"
+    },
+    {
+      "type": "color",
+      "id": "countdown_container_bg",
+      "label": "Container background",
+      "default": "#fdfcf8"
+    },
+    {
+      "type": "color",
+      "id": "countdown_container_border",
+      "label": "Container border",
+      "default": "#e8e2d0"
+    },
+    {
+      "type": "color",
+      "id": "countdown_box_bg",
+      "label": "Number box background",
+      "default": "#f4f2ec"
+    },
+    {
+      "type": "color",
+      "id": "countdown_box_border",
+      "label": "Number box border",
+      "default": "#ddd6c0"
+    },
+    {
+      "type": "color",
+      "id": "countdown_number_color",
+      "label": "Number color",
+      "default": "#1c1c2e"
+    },
+    {
+      "type": "range",
+      "id": "countdown_number_size",
+      "label": "Number font size",
+      "min": 16,
+      "max": 48,
+      "step": 1,
+      "unit": "px",
+      "default": 28
+    },
+    {
+      "type": "color",
+      "id": "countdown_label_color",
+      "label": "Label / unit color",
+      "default": "#8a8368"
+    },
+
+    { "type": "header", "content": "Prize / product promotion" },
+    {
+      "type": "text",
+      "id": "prize_label",
+      "label": "Prize label",
+      "default": "The Prize · 96 Bottles of Khadlaj Island 100ml"
+    },
+    {
+      "type": "color",
+      "id": "prize_label_color",
+      "label": "Prize label color",
+      "default": "#9c7a25"
+    },
+    {
+      "type": "checkbox",
+      "id": "prize_header_divider_enable",
+      "label": "Show divider line under header",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "prize_badge_text",
+      "label": "Badge text",
+      "default": "100% Free Entry"
+    },
+    {
+      "type": "color",
+      "id": "prize_badge_bg",
+      "label": "Badge background",
+      "default": "#e6f6ec"
+    },
+    {
+      "type": "color",
+      "id": "prize_badge_color",
+      "label": "Badge text color",
+      "default": "#1f7a4c"
+    },
+    {
+      "type": "color",
+      "id": "prize_badge_border_color",
+      "label": "Badge border color",
+      "default": "#b7e2c5"
+    },
+    {
+      "type": "range",
+      "id": "prize_badge_border_width",
+      "label": "Badge border width",
+      "min": 0,
+      "max": 4,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+
+    { "type": "header", "content": "Prize box — background & border" },
+    {
+      "type": "color",
+      "id": "prize_container_bg",
+      "label": "Background color (or gradient start)",
+      "default": "#fffdf6"
+    },
+    {
+      "type": "checkbox",
+      "id": "prize_gradient_enable",
+      "label": "Enable background gradient",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "prize_gradient_end",
+      "label": "Gradient end color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "prize_gradient_angle",
+      "label": "Gradient angle",
+      "min": 0,
+      "max": 360,
+      "step": 5,
+      "unit": "deg",
+      "default": 135
+    },
+    {
+      "type": "color",
+      "id": "prize_container_border",
+      "label": "Border color",
+      "default": "#e0b95c"
+    },
+    {
+      "type": "range",
+      "id": "prize_container_border_width",
+      "label": "Border width",
+      "min": 0,
+      "max": 6,
+      "step": 1,
+      "unit": "px",
+      "default": 1
+    },
+    {
+      "type": "range",
+      "id": "prize_container_radius",
+      "label": "Corner radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "prize_container_padding",
+      "label": "Inner padding",
+      "min": 8,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "default": 22
+    },
+
+    { "type": "header", "content": "Prize box — shadow" },
+    {
+      "type": "checkbox",
+      "id": "prize_shadow_enable",
+      "label": "Enable drop shadow",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "prize_shadow_color",
+      "label": "Shadow color",
+      "default": "#d9b26b"
+    },
+    {
+      "type": "range",
+      "id": "prize_shadow_opacity",
+      "label": "Shadow opacity",
+      "min": 0,
+      "max": 60,
+      "step": 1,
+      "unit": "%",
+      "default": 25
+    },
+    {
+      "type": "range",
+      "id": "prize_shadow_blur",
+      "label": "Shadow blur",
+      "min": 0,
+      "max": 60,
+      "step": 2,
+      "unit": "px",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "prize_shadow_x",
+      "label": "Shadow offset X",
+      "min": -40,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "prize_shadow_y",
+      "label": "Shadow offset Y",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+
+    { "type": "header", "content": "Product" },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Product image"
+    },
+    {
+      "type": "range",
+      "id": "product_image_width",
+      "label": "Image width",
+      "min": 48,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "default": 96
+    },
+    {
+      "type": "range",
+      "id": "product_image_height",
+      "label": "Image height",
+      "min": 48,
+      "max": 200,
+      "step": 4,
+      "unit": "px",
+      "default": 120
+    },
+    {
+      "type": "range",
+      "id": "product_image_radius",
+      "label": "Image corner radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "text",
+      "id": "product_title",
+      "label": "Product title",
+      "default": "Khadlaj Island 100ml EDP"
+    },
+    {
+      "type": "color",
+      "id": "product_title_color",
+      "label": "Product title color",
+      "default": "#4a3f8c"
+    },
+    {
+      "type": "textarea",
+      "id": "product_description",
+      "label": "Product description",
+      "default": "Iconic 100ml Eau De Parfum crafted with sparkling citrus, refreshing marine sea breeze accords, and an enduring base of warm amber and musk."
+    },
+    {
+      "type": "color",
+      "id": "product_description_color",
+      "label": "Product description color",
+      "default": "#5b6472"
+    },
+    {
+      "type": "text",
+      "id": "tag_1_text",
+      "label": "Tag 1",
+      "default": "✓ 96 Winners"
+    },
+    {
+      "type": "text",
+      "id": "tag_2_text",
+      "label": "Tag 2",
+      "default": "✓ Announced on IG"
+    },
+    {
+      "type": "color",
+      "id": "tag_bg_color",
+      "label": "Tag background",
+      "default": "#f4ecd8"
+    },
+    {
+      "type": "color",
+      "id": "tag_text_color",
+      "label": "Tag text color",
+      "default": "#6b5a35"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "National Day Giveaway",
+      "category": "Promotion"
+    }
+  ]
+}
+{% endschema %}
